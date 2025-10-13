@@ -16,23 +16,25 @@ try {
   const fileContent = fs.readFileSync(noticePath, 'utf8');
   const { data } = matter(fileContent);
 
-  const required = ['id', 'type', 'apps', 'env', 'title', 'bodytext'];
+  const required = ['type', 'apps', 'title'];
   const missing = required.filter((key) => !data[key]);
+
   if (missing.length > 0) {
-    throw new Error(
-      `Missing required fields in notice.md: ${missing.join(', ')}`
-    );
+    console.warn(`⚠️ Missing fields in notice.md: ${missing.join(', ')}`);
+    console.warn('Notice will not be shown because not all fields are set.');
+
+    fs.writeFileSync(outputPath, JSON.stringify({ active: false }, null, 2));
+  } else {
+    const formatted = {
+      ...data,
+      apps: data.apps.split(',').map((a) => a.trim()),
+      active: true,
+    };
+
+    fs.writeFileSync(outputPath, JSON.stringify(formatted, null, 2));
+    console.log('✅ Notice JSON generated successfully at:', outputPath);
   }
-
-  const formatted = {
-    ...data,
-    apps: data.apps.split(',').map((a) => a.trim()),
-  };
-
-  fs.writeFileSync(outputPath, JSON.stringify(formatted, null, 2));
-
-  console.log('✅ Notice JSON generated successfully at:', outputPath);
 } catch (err) {
-  console.error('❌ Error generating notice.json:', err);
-  process.exit(1);
+  console.error('❌ Error reading notice.md:', err);
+  fs.writeFileSync(outputPath, JSON.stringify({ active: false }, null, 2));
 }
