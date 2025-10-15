@@ -12,29 +12,40 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+// Default fallback
+let output = { active: false };
+
 try {
-  const fileContent = fs.readFileSync(noticePath, 'utf8');
-  const { data } = matter(fileContent);
-
-  const required = ['type', 'apps', 'title'];
-  const missing = required.filter((key) => !data[key]);
-
-  if (missing.length > 0) {
-    console.warn(`⚠️ Missing fields in notice.md: ${missing.join(', ')}`);
-    console.warn('Notice will not be shown because not all fields are set.');
-
-    fs.writeFileSync(outputPath, JSON.stringify({ active: false }, null, 2));
+  if (!fs.existsSync(noticePath)) {
+    console.warn('⚠️ notice.md not found. Skipping notice generation.');
   } else {
-    const formatted = {
-      ...data,
-      apps: data.apps.split(',').map((a) => a.trim()),
-      active: true,
-    };
+    const fileContent = fs.readFileSync(noticePath, 'utf8').trim();
 
-    fs.writeFileSync(outputPath, JSON.stringify(formatted, null, 2));
-    console.log('✅ Notice JSON generated successfully at:', outputPath);
+    if (!fileContent) {
+      console.warn('⚠️ notice.md is empty. Skipping notice generation.');
+    } else {
+      const { data } = matter(fileContent);
+      const required = ['type', 'apps', 'title'];
+      const missing = required.filter((key) => !data[key]);
+
+      if (missing.length > 0) {
+        console.warn(`⚠️ Missing fields in notice.md: ${missing.join(', ')}`);
+        console.warn(
+          'Notice will not be shown because not all fields are set.'
+        );
+      } else {
+        output = {
+          ...data,
+          apps: data.apps.split(',').map((a) => a.trim()),
+          active: true,
+        };
+        console.log('✅ Notice JSON generated successfully.');
+      }
+    }
   }
 } catch (err) {
-  console.error('❌ Error reading notice.md:', err);
-  fs.writeFileSync(outputPath, JSON.stringify({ active: false }, null, 2));
+  console.warn('⚠️ Unexpected issue reading notice.md. Using fallback.');
 }
+
+fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+console.log(`ℹ️ Notice file written to: ${outputPath}`);
