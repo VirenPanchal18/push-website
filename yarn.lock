@@ -5656,30 +5656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:2.1.5":
-  version: 2.1.5
-  resolution: "@pushchain/core@npm:2.1.5"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^2.0.0"
-    "@coral-xyz/anchor": "npm:^0.31.0"
-    "@cosmjs/crypto": "npm:0.33.1"
-    "@cosmjs/encoding": "npm:0.33.1"
-    "@cosmjs/proto-signing": "npm:^0.33.1"
-    "@cosmjs/stargate": "npm:^0.33.1"
-    "@cosmjs/tendermint-rpc": "npm:0.33.1"
-    "@solana/web3.js": "npm:^1.68.0"
-    buffer: "npm:^6.0.3"
-    cosmjs-types: "npm:0.9.0"
-    ethers: "npm:^6.14.3"
-    protobufjs: "npm:7.4.0"
-    tslib: "npm:^2.3.0"
-    tweetnacl: "npm:^1.0.3"
-    viem: "npm:2.27.2"
-  checksum: 10c0/e6dfc91e99874c17a0aed2447fffd8a1b346d4112c4ac0c62ae87c32f303a36b52532bccbc7bbb2947aab0fa737152338387450af439d7d245f3d140b5301950
-  languageName: node
-  linkType: hard
-
-"@pushchain/core@npm:^2.1.5":
+"@pushchain/core@npm:2.1.6, @pushchain/core@npm:^2.1.5":
   version: 2.1.6
   resolution: "@pushchain/core@npm:2.1.6"
   dependencies:
@@ -21350,7 +21327,7 @@ __metadata:
     "@docusaurus/types": "npm:^3.8.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
-    "@pushchain/core": "npm:2.1.5"
+    "@pushchain/core": "npm:2.1.6"
     "@pushchain/ui-kit": "npm:2.0.15"
     "@pushprotocol/restapi": "npm:1.7.20"
     "@pushprotocol/uiweb": "npm:1.7.1"
