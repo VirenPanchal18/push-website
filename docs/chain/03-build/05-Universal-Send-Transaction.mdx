@@ -49,6 +49,7 @@ const txHash = await pushChainClient.universal.sendTransaction({
 | `tx.maxFeePerGas`         | `BigInt` | The maximum fee per gas for the transaction.          |
 | `tx.maxPriorityFeePerGas` | `BigInt` | The maximum priority fee per gas for the transaction. |
 | `tx.funds`                | `{ amount: BigInt; token?: MoveableToken }` | Moves supported assets from the origin chain to Push Chain within the same call. If `tx.data` is provided, assets are moved and then the contract call is executed atomically. |
+| `tx.payGasWith`           | `{ token?: PayableToken; slippageBps?: number; minAmountOut?: bigint \| string }` | Pay universal transaction fees using a supported ERC-20 token (e.g., `client.payable.token.USDT`). Optional `slippageBps` (e.g., `100` = 1%) and `minAmountOut` (wei) let you control on-chain swap execution. |
 
 </PushAPIReference>
 
@@ -270,7 +271,7 @@ const txHash = await pushChainClient.universal.sendTransaction({
 
 ## Pay Gas Fees with ERC-20 Tokens
 
-You can pay the origin-chain gas and Push Chain settlement fees using supported ERC-20 tokens (e.g., USDT) instead of the native coin. Use the `funds.payWith` field to specify the token to pay fees with.
+You can pay the origin-chain gas and Push Chain settlement fees using supported ERC-20 tokens (e.g., USDT) instead of the native coin. Use the `payGasWith` field to specify the token to pay fees with.
 
 ```typescript
 // Pay gas with USDT while bridging 1 USDT and calling a contract on Push Chain
@@ -290,12 +291,12 @@ const res = await client.universal.sendTransaction({
   to: COUNTER_ADDRESS,
   value: 0n,
   data,
+  payGasWith: {
+    token: usdt, // pay gas with USDT instead of native ETH
+  },
   funds: {
     amount: BigInt(100000),        // bridge 1 USDT
     token: usdt,              // move USDT to Push Chain
-    payWith: {
-      token: client.payable.token.USDT, // pay gas with USDT instead of native ETH
-    },
   },
 });
 
@@ -303,7 +304,7 @@ await res.wait();
 ```
 
 Notes:
-- Ensure the account holds sufficient balance of the selected `payWith.token` on the origin chain to cover gas and settlement fees.
+- Ensure the account holds sufficient balance of the selected `payGasWith.token` on the origin chain to cover gas fees.
 
 ## Send Batch Transactions (Multicall)
 
