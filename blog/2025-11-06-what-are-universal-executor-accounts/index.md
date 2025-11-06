@@ -54,10 +54,10 @@ Meanwhile, developers face their own headaches:
 
 Instead of focusing on building their apps and their cool features. The devs are now stuck in an endless infrastructure + devops loop.
 
-## Enter UEAs — the Universal Solution ✨
+### Enter UEAs — the Universal Solution ✨
 
 
-### Now imagine Tim using a Universal App built on Push Chain:
+**Now imagine Tim using a Universal App built on Push Chain:**
 
 1. Clicks "BUY $1000 worth of Memecoin”
 
@@ -112,22 +112,22 @@ From that point onward, your wallet = your UEA identity on Push Chain.
 
 ## How does UEA work behind the scenes?
 
-### The entire process is divided into 3 phases.
+**The entire process is divided into 3 phases.**
 
 1. <b>Routing</b> - Handles the steps involved in teleporting txns from ext. Chains to Push Chain
 2. <b>Verification</b> - Forming a Consensus on the validity of txn and ensuring whether the txn is indeed initiated by the user's private key.
 3. <b>Execution</b> - Finally, executing the transaction and settling it on Push Chain.
 
-## The Architecture
+### The Architecture
 
 Within these three above-described stages, 4 key innovative modules play a crucial role in abstracting the entire interop away from the app and the user
 
 | Component | Role | Description |
 |-----------|------|-------------|
-| Universal Gateway | Routing | These smart contracts are deployed on every supported chain. Their objective is to handle inbound and outbound routing between origin chains and the Push Chain. Locks user fees and relays payloads. |
-| Universal Validators | Verification / Security | Special entities that keep a close eye on the inflows/outflows happening at the Universal gateways and form a consensus on the validity of cross-chain transactions before relaying to Push Chain.<br/><br/>**Note:** Universal Validators != Validators. Want a quick detour to unravel Universal Validators? [Find out here]() |
-| Universal Verification Layer (UVL) | Signature Verification | Security mechanism that verifies signatures from multiple chain types (EVM, Solana, etc.) via pluggable verifiers. |
-| Universal Executor Account (UEA) | Execution | Executes encoded transactions and manages account state on Push Chain. |
+| **Universal Gateway** | Routing | These smart contracts are deployed on every supported chain. Their objective is to handle inbound and outbound routing between origin chains and the Push Chain. Locks user fees and relays payloads. |
+| **Universal Validators** | Verification / Security | Special entities that keep a close eye on the inflows/outflows happening at the Universal gateways and form a consensus on the validity of cross-chain transactions before relaying to Push Chain.<br/><br/>**Note:** Universal Validators != Validators. Want a quick detour to unravel Universal Validators? [Find out here]() |
+| **Universal Verification Layer (UVL)** | Signature Verification | Security mechanism that verifies signatures from multiple chain types (EVM, Solana, etc.) via pluggable verifiers. |
+| **Universal Executor Account (UEA)** | Execution | Executes encoded transactions and manages account state on Push Chain. |
 
 ![First Image of What are Universal Executor Accounts (UEAs) and How do they work?](./image-1.webp)
 
@@ -175,7 +175,7 @@ Of course, all this happens <b>under the hood</b>. From the user’s perspective
 And validate if the <b>user's private key did actually sign this transaction</b>?
 On successful verification, → <b>signal is sent to the UEA to execute the transaction</b>.
 
-### Transaction Routing Optimizations
+## Transaction Routing Optimizations
 Not all cross-chain transactions require full routing through the Universal Gateway. The SDK dynamically detects whether the user’s UEA already holds sufficient fees for execution.
 
 If fees exist on the UEA:
@@ -185,7 +185,7 @@ If fees exist on the UEA:
 
 Subsequent transactions feel instant because the UEA can self-fund execution once fees are already available.
 
-### How does a UEA preserve a user’s identity universally?
+## How does a UEA preserve a user’s identity universally?
 
 The answer lies in the 1:1 deterministic mapping between the user’s source chain wallet address and its UEAs that exist on various chains.
 
