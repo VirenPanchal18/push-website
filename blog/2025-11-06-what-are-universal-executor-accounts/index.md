@@ -198,7 +198,7 @@ As said above each UEA is deterministically linked to the user’s origin wallet
 This linkage is achieved by using the origin wallet as the <b>seed for UEA address generation</b>.
 Users origin address -> UEA Generator Function (User’s origin address) -> UEA Address
 
-TL;DR
+## TL;DR
 
 At last, for Users, UEAs help eliminate:
 
