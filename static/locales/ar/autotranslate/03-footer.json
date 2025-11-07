@@ -1,20 +1,20 @@
 {
   "footer": {
     "email-section": {
-      "title": "ابقَ على اطلاع بـ Push Chain",
+      "title": "ابقَ على اطلاع دائم بـ Push Chain",
       "title-secondary": "أخبار وتحديثات!",
       "title-aria-label": "قسم الاشتراك في النشرة الإخبارية",
-      "section-aria-label": "الاشتراك في نشرة \"Push Chain\" الإخبارية"
+      "section-aria-label": "الاشتراك في رسالة Push Chain الإخبارية"
     },
     "main-section": {
-      "section-aria-label": "روابط وتصفح أسفل الصفحة",
+      "section-aria-label": "روابط وتنقل التذييل",
       "logo-link-title": "الصفحة الرئيسية لـ Push Chain",
       "logo-link-aria-label": "الصفحة الرئيسية لـ Push Chain",
       "logo-alt": "شعار Push Chain"
     },
     "columns": {
       "resources": {
-        "title": "مصادر",
+        "title": "المصادر",
         "title-aria-label": "تصفح الموارد"
       },
       "developers": {
@@ -32,50 +32,50 @@
     },
     "links": {
       "get-started": "ابدأ الآن",
-      "get-started-title": "ابدأ البناء على بلوكشين Push Chain",
+      "get-started-title": "ابدأ البناء على بلوكشين",
       "docs": "الوثائق",
-      "docs-title": "وثائق Push Chain",
+      "docs-title": "Push Chain documentation",
       "github": "GitHub",
       "github-title": "مستودعات Push Chain على GitHub",
       "knowledge-base": "قاعدة المعرفة",
       "knowledge-base-title": "Push Chain Knowledge Base",
       "blog": "المدونة",
       "blog-title": "مدونة Push Chain",
-      "litepaper": "ورقة بيضاء",
-      "litepaper-title": "ورقة Push Chain التقنية (PDF)",
+      "litepaper": "الورقة البيضاء",
+      "litepaper-title": "ورقة Push Chain البيضاء (PDF)",
       "brand-kit": "مجموعة العلامة التجارية",
       "brand-kit-title": "أصول وإرشادات العلامة التجارية لـ Push Chain",
       "push-scan": "Push Scan",
       "push-scan-title": "مستكشف بلوكشين Push Chain",
       "faucet": "صنبور",
-      "faucet-title": "احصل على توكنات اختبارية من صنبور Push Chain",
+      "faucet-title": "احصل على توكنات تجريبية من صنبور Push Chain",
       "push-portal": "Push Portal",
       "push-portal-title": "بوابة مجتمع Push Chain",
       "support": "الدعم",
       "support-title": "مركز المساعدة",
       "security": "الأمان والإفصاح",
       "security-title": "الإبلاغ عن ثغرة أمنية (الكشف المسؤول)",
-      "contact-us": "تواصل معنا",
+      "contact-us": "اتصل بنا",
       "contact-us-title": "شراكات، تطوير الأعمال، وسائل الإعلام، أو استفسارات عامة",
       "careers": "وظائف",
       "careers-title": "وظائف شاغرة في Push Chain",
-      "twitter": "X (تويتر)",
+      "twitter": "X (Twitter)",
       "twitter-title": "تابع Push Chain على X (تويتر)",
       "discord": "Discord",
-      "discord-title": "انضم إلى مجتمع Push Chain على ديسكورد",
+      "discord-title": "انضم إلى مجتمع Push Chain على Discord",
       "reddit": "Reddit",
       "reddit-title": "انضم إلى مجتمع Push Chain على Reddit",
-      "telegram": "تيليجرام",
+      "telegram": "Telegram",
       "telegram-title": "انضم إلى Push Chain Telegram"
     },
     "social-section": {
-      "section-aria-label": "روابط وسائل التواصل الاجتماعي والمعلومات القانونية",
-      "twitter-icon-title": "Push Chain على X (تويتر)",
-      "twitter-icon-aria-label": "Push Chain على X (تويتر)",
+      "section-aria-label": "روابط وسائل التواصل الاجتماعي ومعلومات قانونية",
+      "twitter-icon-title": "بلوش تشين على X (تويتر)",
+      "twitter-icon-aria-label": "Push Chain على تويتر (X)",
       "github-icon-title": "Push Chain على GitHub",
       "github-icon-aria-label": "Push Chain على GitHub",
-      "discord-icon-title": "بلوشكين على ديسكورد",
-      "discord-icon-aria-label": "Push Chain على Discord"
+      "discord-icon-title": "Push Chain على ديسكورد",
+      "discord-icon-aria-label": "بلوش تشين على ديسكورد"
     },
     "legal": {
       "privacy-policy": "سياسة الخصوصية",
@@ -88,7 +88,7 @@
       "cookie-preferences-title": "إدارة إعدادات ملفات تعريف الارتباط"
     },
     "footer-image": {
-      "alt": "صورة توضيحية لـ Push Chain في تذييل الصفحة",
+      "alt": "توضيح تذييل Push Chain",
       "title": "Push Chain - بلوكشين يونيفرسال"
     }
   }

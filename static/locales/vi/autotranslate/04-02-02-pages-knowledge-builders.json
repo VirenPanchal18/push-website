@@ -3,10 +3,10 @@
     "knowledge": {
       "builders": {
         "seo": {
-          "title": "Người xây dựng — Hướng dẫn & Bài tập hướng dẫn",
+          "title": "Người xây dựng — Hướng dẫn & Bài hướng dẫn",
           "description": "Hướng dẫn từng bước, các mẫu và ví dụ để sử dụng các tính năng của Push Chain.",
           "og-title": "Người xây dựng - Hướng dẫn & Bài hướng dẫn",
-          "og-description": "Hướng dẫn từng bước, các phương pháp tốt nhất và ví dụ minh họa để xây dựng với Push Chain.",
+          "og-description": "Hướng dẫn từng bước, các phương pháp hay nhất và ví dụ minh họa để xây dựng trên Push Chain.",
           "twitter-title": "Người xây dựng - Hướng dẫn & Bài hướng dẫn",
           "twitter-description": "Hướng dẫn từng bước để triển khai trên Push Chain."
         },
@@ -20,20 +20,23 @@
               "builders-intro": {
                 "items": {
                   "intro": "## Builders\n\nSẵn sàng xây dựng trên Push Chain? Dưới đây là một số tài nguyên để bạn có thêm nguồn cảm hứng và bắt đầu.",
-                  "curated-reads": "## Các bài viết chọn lọc 👇"
+                  "curated-reads": "## Các bài viết được tuyển chọn 👇"
                 }
               },
               "universal-apps": {
-                "title": "Hãy cùng xây dựng ứng dụng đa năng 💪",
+                "title": "Hãy cùng xây dựng các ứng dụng đa năng 💪",
                 "items": {
-                  "apps-only-possible-with-shared-state-v1": {
-                    "title": "Các ứng dụng khả thi chỉ với trạng thái chia sẻ - Tập 1"
-                  },
-                  "apps-only-possible-with-shared-state-v2": {
-                    "title": "Các ứng dụng khả thi chỉ với Shared State - Vol.2"
+                  "apps-of-the-future": {
+                    "title": "Các ứng dụng của tương lai — Xây dựng mà không cần hỗn loạn"
                   },
                   "consumer-apps-that-can-be-built-on-push-chain": {
-                    "title": "Ứng dụng cho người dùng 🫶 blockchain Push Chain?"
+                    "title": "Các ứng dụng dành cho người dùng cuối 🫶 Blockchain Push Chain?"
+                  },
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "Các ứng dụng khả thi chỉ với shared state - Tập 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "Các ứng dụng chỉ khả thi với trạng thái dùng chung - Vol.2"
                   }
                 }
               },

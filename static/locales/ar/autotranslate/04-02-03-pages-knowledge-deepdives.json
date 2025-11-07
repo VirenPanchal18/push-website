@@ -3,12 +3,12 @@
     "knowledge": {
       "deepdives": {
         "seo": {
-          "title": "تعمق — المفاهيم والهيكلة",
-          "description": "شروحات سهلة للقراءة حول الـ shared state، الـ fee abstraction، USV/UEA، والـ universal execution layer.",
-          "og-title": "غوص عميق - المفاهيم والهيكلة",
-          "og-description": "مقالات متعمقة حول وحدات <1>بلوكشين</1> <2>Push Chain</2>، وقرارات التصميم، والأداء.",
-          "twitter-title": "Deep Dives - نظرة معمقة",
-          "twitter-description": "شرح مبسط لكيفية عمل بلوكشين Push Chain."
+          "title": "غوص عميق — مفاهيم وهيكلة",
+          "description": "شرح مبسط حول الـ shared state، و universal fee abstraction، و USV/UEA، والـ universal execution layer.",
+          "og-title": "تعمق - المفاهيم والهيكلة",
+          "og-description": "مقالات متعمقة حول وحدات Push Chain، وقرارات التصميم، والأداء.",
+          "twitter-title": "Deep Dives - تحت الأغطية",
+          "twitter-description": "شرح مبسط لكيفية عمل Push Chain."
         },
         "explainer-section": {
           "breadcrumbs": {
@@ -19,7 +19,7 @@
             "sections": {
               "architecture-deep-dives": {
                 "items": {
-                  "intro": "## Architecture Deep Dives\n\nتعرّف على تفاصيل هيكلية Push Chain وكيفية عملها - وحدة واحدة في كل مرة.",
+                  "intro": "## غوص عميق في البنية التحتية\n\nتعرّف على تعقيدات بنية Push Chain وكيفية عملها - وحدة تلو الأخرى.",
                   "curated-reads": "## قراءات منتقاة 👇"
                 }
               },
