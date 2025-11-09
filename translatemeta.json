@@ -19,7 +19,7 @@
   "enChunks": {
     "01-global.json": {
       "checksum": "3d53e5506bca5216eec0fce15911267e",
-      "lastUpdated": "2025-11-09T01:40:48.499Z",
+      "lastUpdated": "2025-11-09T01:51:24.123Z",
       "keys": {
         "global.site-name": {
           "checksum": "ab90175701a07de068e1398e3f039705",
@@ -35,7 +35,7 @@
     },
     "02-header.json": {
       "checksum": "a137eacf21ec07b03e5dc9d82a1c73f7",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "header.meta.logo-aria-label": {
           "checksum": "ddb15ed31e10e523a0ae18b1605ef229",
@@ -461,7 +461,7 @@
     },
     "03-footer.json": {
       "checksum": "841d19e9dc5c942784f44588986760c8",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "footer.email-section.title": {
           "checksum": "8ed988fe5e29bb5d37ff55ffe9adf418",
@@ -812,7 +812,7 @@
     },
     "04-01-pages-home.json": {
       "checksum": "8763d23699b688f78b4ced3fa0da9fb4",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.home.seo.title": {
           "checksum": "58d0b2146a2f5edc8dbb535b89520ae6",
@@ -1558,7 +1558,7 @@
     },
     "04-02-00-pages-knowledge.json": {
       "checksum": "a366b5b08a190a9e60fe934eba344c0a",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.seo.title": {
           "checksum": "e8e1e84abb2b2b3fdf58100ec4ac0ad5",
@@ -1744,7 +1744,7 @@
     },
     "04-02-01-pages-knowledge-push101.json": {
       "checksum": "b690b188a70464d8561c81afafa962a1",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.push101.seo.title": {
           "checksum": "4e4a3871154442ab37aeb8b0b33f6950",
@@ -1885,7 +1885,7 @@
     },
     "04-02-02-pages-knowledge-builders.json": {
       "checksum": "1d4edbbd587960e9bb6ab5a7476f36f0",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.builders.seo.title": {
           "checksum": "2c4b579dbf6c79202249c4eaec8da451",
@@ -1986,7 +1986,7 @@
     },
     "04-02-03-pages-knowledge-deepdives.json": {
       "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.deepdives.seo.title": {
           "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
@@ -2057,7 +2057,7 @@
     },
     "04-02-04-pages-knowledge-tokenomics.json": {
       "checksum": "53a00f23fec7b8ac1c46cc18d4882835",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.tokenomics.seo.title": {
           "checksum": "c1d74ac838447f0ba74714d9570fab97",
@@ -2158,7 +2158,7 @@
     },
     "04-02-05-pages-knowledge-faq.json": {
       "checksum": "99b7e792d8167d9621fe7da3eaa6000a",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.knowledge.faq.seo.title": {
           "checksum": "aaa9a3e4e5a4265aa383c98af54cba78",
@@ -2434,7 +2434,7 @@
     },
     "04-03-pages-docs.json": {
       "checksum": "d87ce37e63283ea9f1b7af1d128342ea",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.docs.seo.title": {
           "checksum": "d975add027d1034fa65ac20fb1d50727",
@@ -2540,7 +2540,7 @@
     },
     "04-04-pages-blog.json": {
       "checksum": "cf02a9d4b5a7373ae858866e5c71f3be",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.blog.seo.title": {
           "checksum": "f8d9960b2ef2f61e0c1f06e453327bf8",
@@ -2576,7 +2576,7 @@
     },
     "04-05-pages-lfpush.json": {
       "checksum": "af4d7f84b0f23159f2a7667ad8b003eb",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.lfpush.seo.title": {
           "checksum": "491a4781a2632f88c9b11f39eda2687f",
@@ -2662,7 +2662,7 @@
     },
     "04-06-pages-support.json": {
       "checksum": "7909d6d2a8121c70f9e886ac2bae0230",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.support.seo.title": {
           "checksum": "9f722592a545e65f2d8c6ecfcfd762f3",
@@ -2708,7 +2708,7 @@
     },
     "04-07-pages-litepaper.json": {
       "checksum": "148621a63ec39532bf53a877d8f3ea70",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.litepaper.seo.title": {
           "checksum": "63f4e13f51450cbf454a73aeffdad4cf",
@@ -2744,7 +2744,7 @@
     },
     "04-08-pages-tos.json": {
       "checksum": "cc6632e61103809c2851511a43ae0dfc",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.tos.seo.title": {
           "checksum": "3b6c2b4caaf4f14f8d7feeddc4ac3f4d",
@@ -2795,7 +2795,7 @@
     },
     "04-09-pages-privacy.json": {
       "checksum": "6968f96ac9a2e31d7d142794270e1505",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.privacy.seo.title": {
           "checksum": "fa2ead697d9998cbc65c81384e6533d5",
@@ -2846,7 +2846,7 @@
     },
     "04-10-pages-privacymobile.json": {
       "checksum": "f8698ed91d9fa0bbcc0615f4879ef2c2",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.privacymobile.seo.title": {
           "checksum": "c0be9b5157f3597624c64f96e2b59153",
@@ -2897,7 +2897,7 @@
     },
     "04-11-pages-brb.json": {
       "checksum": "5d1a28e581dd93e4f8490f5de8b247d3",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.brb.seo.title": {
           "checksum": "512532965092ab5a452c18f90d89c710",
@@ -2933,7 +2933,7 @@
     },
     "04-12-pages-contact.json": {
       "checksum": "2de955069e3b52cbc0f5383ff4c988f9",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.contact.seo.title": {
           "checksum": "d076c93ff727a1354c14644902a49ea4",
@@ -2979,7 +2979,7 @@
     },
     "04-13-donut-testnet-secret.json": {
       "checksum": "85a18ce7a9a4d6bd18c6f70553111760",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "pages.donutsecret.seo.title": {
           "checksum": "693f882fb38ac6945a5bf4fc94c89e0e",
@@ -3015,7 +3015,7 @@
     },
     "05-01-components-mailing-signup.json": {
       "checksum": "8ed8619f70f3747e5a3746eb499fe0c5",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.137Z",
       "keys": {
         "components.mailing-signup.title": {
           "checksum": "708313e1e306a3c6d6203624779492b3",
@@ -3096,7 +3096,7 @@
     },
     "05-02-components-cookie-banner.json": {
       "checksum": "13470269cc56c1ddb08fb8272603fe2f",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.cookie-banner.message": {
           "checksum": "677861b85aa90c36f33ce08606f7548c",
@@ -3162,7 +3162,7 @@
     },
     "05-03-components-short-faq-snippet.json": {
       "checksum": "21e16abcc9dba8a091d7aa65e92c9042",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.short-faq-snippet.section-aria-label": {
           "checksum": "d8225eba6d8ea4cb8c98e998faae4ed2",
@@ -3298,7 +3298,7 @@
     },
     "05-04-components-short-support-snippet.json": {
       "checksum": "460b75d2b0f53f044f812c404beb2991",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.short-support-snippet.section-aria-label": {
           "checksum": "18f8e4c16ed7d0342d2a2b06fbb13ddb",
@@ -3479,7 +3479,7 @@
     },
     "05-05-components-short-contact-us-snippet.json": {
       "checksum": "cf410564bece679560794b375b8e9059",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.short-contact-us-snippet.section-aria-label": {
           "checksum": "b9e7f03998e0af83ad08961d215f2984",
@@ -3685,7 +3685,7 @@
     },
     "05-06-components-typeform-support.json": {
       "checksum": "a388ce789952bcec83d08eed2b168101",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.typeform-support.collapsed-text-for-support": {
           "checksum": "22d6dfdfffa420807dbf9860ca010ade",
@@ -4021,7 +4021,7 @@
     },
     "05-07-components-breadcrumbs.json": {
       "checksum": "fba771938394b9afb71beac12c4baade",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.breadcrumbs.navigation-aria-label": {
           "checksum": "24dddb45a7fd74ddfa78a398628d800b",
@@ -4057,7 +4057,7 @@
     },
     "05-07-components-explainer.json": {
       "checksum": "1a2fe6661bb43cefb9b9229f57317ea3",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.explainer.prepend": {
           "checksum": "9c433bbfd38024f89f81f6419846feb5",
@@ -4073,7 +4073,7 @@
     },
     "05-07-components-explore-collection.json": {
       "checksum": "baf45e7f0401093a5d98b5018d481997",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.explore-collection.explore-card.image-prepend": {
           "checksum": "9aa7afb360abc986b11cc3ca018f22ee",
@@ -4104,7 +4104,7 @@
     },
     "05-08-components-blog.json": {
       "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "components.blog.more-posts.title": {
           "checksum": "61005f8df8f6a3fb54a451b8f20f4208",
@@ -4200,7 +4200,7 @@
     },
     "06-01-notifications-chain-notification.json": {
       "checksum": "8f39bb22ece996a1c284f183d68a229e",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "notifications.chain-notification.title": {
           "checksum": "d41d8cd98f00b204e9800998ecf8427e",
@@ -4251,7 +4251,7 @@
     },
     "06-02-notifications-rewards-notification.json": {
       "checksum": "d07652ad319976ddab84a56667273019",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "notifications.rewards-notification.title": {
           "checksum": "4855edd99c96834921b39b20ca508f70",
@@ -4287,7 +4287,7 @@
     },
     "06-03-notifications-info-bar.json": {
       "checksum": "6c5a05684490c95e09c6574c6f53b510",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "notifications.info-bar.title": {
           "checksum": "5e4d89f17c8888608424c892c819d804",
@@ -4328,7 +4328,7 @@
     },
     "06-04-notifications-alert.json": {
       "checksum": "ded0d9e63163213597e3491f8e75e53a",
-      "lastUpdated": "2025-11-09T01:40:48.501Z",
+      "lastUpdated": "2025-11-09T01:51:24.138Z",
       "keys": {
         "notifications.alert.message": {
           "checksum": "7e1a0e7f4fcf772b48be90f3d700b060",
