@@ -3,12 +3,12 @@
     "knowledge": {
       "deepdives": {
         "seo": {
-          "title": "غوص عميق — مفاهيم وهيكلة",
-          "description": "شرح مبسط حول الـ shared state، و universal fee abstraction، و USV/UEA، والـ universal execution layer.",
+          "title": "غوص عميق — المفاهيم والهيكلة",
+          "description": "شروحات سهلة للقراءة حول الحالة المشتركة (shared state)، وتجريد الرسوم (fee abstraction)، و USV/UEA، وطبقة التنفيذ الشاملة (universal execution layer).",
           "og-title": "تعمق - المفاهيم والهيكلة",
           "og-description": "مقالات متعمقة حول وحدات Push Chain، وقرارات التصميم، والأداء.",
-          "twitter-title": "Deep Dives - تحت الأغطية",
-          "twitter-description": "شرح مبسط لكيفية عمل Push Chain."
+          "twitter-title": "غوص عميق - ما وراء الكواليس",
+          "twitter-description": "شرح مفصل لكيفية عمل <keep>Push Chain</keep>."
         },
         "explainer-section": {
           "breadcrumbs": {
@@ -19,12 +19,12 @@
             "sections": {
               "architecture-deep-dives": {
                 "items": {
-                  "intro": "## غوص عميق في البنية التحتية\n\nتعرّف على تعقيدات بنية Push Chain وكيفية عملها - وحدة تلو الأخرى.",
-                  "curated-reads": "## قراءات منتقاة 👇"
+                  "intro": "## Architecture Deep Dives\n\nتعرّف على تعقيدات بنية Push Chain وكيفية عملها - وحدة تلو الأخرى.",
+                  "curated-reads": "## قراءات مُختارة 👇"
                 }
               },
               "learn-push-chain": {
-                "title": "تعرّف على ما يجعل Push Chain يعمل!",
+                "title": "تعرّف على ما يجعل بلوكشين Push Chain يعمل!",
                 "items": {
                   "interop-spectrum": {
                     "title": "التشغيل البيني كطيف"

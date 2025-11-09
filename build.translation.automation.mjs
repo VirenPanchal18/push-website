@@ -748,7 +748,7 @@ async function translateContentWithAlternateModel(
   // Get available models and start with the second one (alternate model)
   const config = getAIConfig();
   const availableModels = config.availableModels;
-  
+
   if (availableModels.length < 2) {
     // If no alternate model available, fall back to regular translation
     console.log(
@@ -756,18 +756,23 @@ async function translateContentWithAlternateModel(
         `⚠️ No alternate model available for ${languageName}, using primary model...`
       )
     );
-    return await translateContent(sourceContent, targetLanguage, languageName, correctionPrompt);
+    return await translateContent(
+      sourceContent,
+      targetLanguage,
+      languageName,
+      correctionPrompt
+    );
   }
 
   // Try alternate models (starting from index 1, then 0 as fallback)
   const modelOrder = [1, 0]; // Start with second model, then fallback to first
-  
+
   for (let i = 0; i < modelOrder.length; i++) {
     const modelIndex = modelOrder[i];
-    
+
     try {
       const currentConfig = getAIConfig(modelIndex);
-      
+
       console.log(
         chalk.magenta(
           `🔄 Using alternate model ${currentConfig.model} for ${languageName}...`
@@ -1701,7 +1706,7 @@ function validateLanguagePurity(translation, languageCode, languageName) {
           issue: 'wrong_language',
         });
       }
-      
+
       // Check for English-only translations that should be in target language
       // If no target language is detected AND it's English AND more than 4 words, it's likely untranslated
       else if (
@@ -1710,8 +1715,9 @@ function validateLanguagePurity(translation, languageCode, languageName) {
         languageCode !== 'en' // Don't flag English translations when target is English
       ) {
         // Double-check: ensure no target language characters are present
-        const hasTargetLanguage = detectLanguage(value, languageCode) === languageCode;
-        
+        const hasTargetLanguage =
+          detectLanguage(value, languageCode) === languageCode;
+
         if (!hasTargetLanguage) {
           issues.push({
             key: keyPath,
@@ -1919,63 +1925,87 @@ async function validateAndRetryTranslations(supportedLanguages) {
       let retryAttempts = 0;
       const maxRetries = 3; // Maximum number of retranslation attempts
       let currentProblematicKeys = [...problematicKeys];
-      
+
       while (currentProblematicKeys.length > 0 && retryAttempts < maxRetries) {
         retryAttempts++;
-        
+
         // Check if using local AI - if so, process keys one by one
         const isLocalAI = process.env.AI_PROVIDER === 'local';
         const isLastAttempt = retryAttempts === maxRetries;
-        
+
         // On final attempt, try to use alternate model if available
         let useAlternateModel = false;
         if (isLastAttempt) {
           const config = getAIConfig();
           if (config.availableModels.length > 1) {
             useAlternateModel = true;
-            console.log(chalk.magenta(`🔄 ${languageName}: Final attempt using alternate model...`));
+            console.log(
+              chalk.magenta(
+                `🔄 ${languageName}: Final attempt using alternate model...`
+              )
+            );
           }
         }
-        
+
         if (isLocalAI) {
-          const attemptLabel = useAlternateModel ? 
-            `${currentProblematicKeys.length} problematic keys, retranslating with alternate model... (Final Attempt)` :
-            `${currentProblematicKeys.length} problematic keys, retranslating one by one... (Attempt ${retryAttempts}/${maxRetries})`;
-          
+          const attemptLabel = useAlternateModel
+            ? `${currentProblematicKeys.length} problematic keys, retranslating with alternate model... (Final Attempt)`
+            : `${currentProblematicKeys.length} problematic keys, retranslating one by one... (Attempt ${retryAttempts}/${maxRetries})`;
+
           console.log(chalk.blue(`🔄 ${languageName}: ${attemptLabel}`));
-          
+
           let successCount = 0;
           let failCount = 0;
           let updatedTranslation = { ...langTranslation }; // Start with existing translation
-          
+
           // Translate each problematic key individually
           for (let i = 0; i < currentProblematicKeys.length; i++) {
             const keyPath = currentProblematicKeys[i];
             const keyProgress = `[${i + 1}/${currentProblematicKeys.length}]`;
-            
+
             console.log(chalk.gray(`   ${keyProgress} 🔄 ${keyPath}`));
-            
+
             try {
               // Get the English value for this specific key
               const englishValue = getValueByPath(enTranslation, keyPath);
-              
+
               // Create a minimal object with just this one key
               const singleKeyObject = {};
               setValueByPath(singleKeyObject, keyPath, englishValue);
-              
+
               // For final attempt with alternate model, use translateContentWithAlternateModel
               let translatedSingle;
               if (useAlternateModel) {
-                translatedSingle = await translateContentWithAlternateModel(singleKeyObject, languageCode, languageName);
+                translatedSingle = await translateContentWithAlternateModel(
+                  singleKeyObject,
+                  languageCode,
+                  languageName
+                );
               } else {
-                translatedSingle = await translateContent(singleKeyObject, languageCode);
+                translatedSingle = await translateContent(
+                  singleKeyObject,
+                  languageCode
+                );
               }
-              
+
               if (translatedSingle) {
                 // Extract the translated value and set it in the updated translation
-                const translatedValue = getValueByPath(translatedSingle, keyPath);
+                const translatedValue = getValueByPath(
+                  translatedSingle,
+                  keyPath
+                );
                 setValueByPath(updatedTranslation, keyPath, translatedValue);
-                
+
+                // Save progress immediately after each successful key
+                await fs.writeFile(
+                  langTranslationPath,
+                  JSON.stringify(updatedTranslation, null, 2),
+                  'utf8'
+                );
+
+                // Update langTranslation for next validation iteration
+                langTranslation = updatedTranslation;
+
                 console.log(
                   chalk.green(
                     `   ${keyProgress} ✅ ${keyPath} → "${translatedValue}"`
@@ -1984,7 +2014,9 @@ async function validateAndRetryTranslations(supportedLanguages) {
                 successCount++;
               } else {
                 console.log(
-                  chalk.red(`   ${keyProgress} ❌ ${keyPath} - Translation failed`)
+                  chalk.red(
+                    `   ${keyProgress} ❌ ${keyPath} - Translation failed`
+                  )
                 );
                 failCount++;
               }
@@ -1995,36 +2027,31 @@ async function validateAndRetryTranslations(supportedLanguages) {
               failCount++;
             }
           }
-          
-          // Save the updated translation if we had any successes
-          if (successCount > 0) {
-            await fs.writeFile(
-              langTranslationPath,
-              JSON.stringify(updatedTranslation, null, 2),
-              'utf8'
-            );
-            // Update langTranslation for next validation
-            langTranslation = updatedTranslation;
-          }
-          
+
+          // Note: Translation progress is saved after each individual key above
+
           // Show summary
           console.log(
             chalk.cyan(
               `📊 ${languageName}: Retranslation summary - ${successCount} success, ${failCount} failed`
             )
           );
-          
+
           if (successCount > 0) {
-            console.log(chalk.green(`✅ ${languageName}: Retranslated and updated ${successCount} keys`));
+            console.log(
+              chalk.green(
+                `✅ ${languageName}: Retranslated and updated ${successCount} keys (saved individually)`
+              )
+            );
           }
         } else {
           // For non-local AI (Windsurf/Anthropic), use batch processing
-          const attemptLabel = useAlternateModel ? 
-            `Retranslating ${currentProblematicKeys.length} problematic keys with alternate model... (Final Attempt)` :
-            `Retranslating ${currentProblematicKeys.length} problematic keys... (Attempt ${retryAttempts}/${maxRetries})`;
-          
+          const attemptLabel = useAlternateModel
+            ? `Retranslating ${currentProblematicKeys.length} problematic keys with alternate model... (Final Attempt)`
+            : `Retranslating ${currentProblematicKeys.length} problematic keys... (Attempt ${retryAttempts}/${maxRetries})`;
+
           console.log(chalk.blue(`🔄 ${languageName}: ${attemptLabel}`));
-          
+
           // Create object with only problematic keys for retranslation
           const keysToRetranslate = {};
           for (const keyPath of currentProblematicKeys) {
@@ -2033,95 +2060,154 @@ async function validateAndRetryTranslations(supportedLanguages) {
               setValueByPath(keysToRetranslate, keyPath, englishValue);
             }
           }
-          
+
           if (Object.keys(keysToRetranslate).length > 0) {
             try {
               // For final attempt with alternate model, use translateContentWithAlternateModel
               let retranslatedContent;
               if (useAlternateModel) {
-                retranslatedContent = await translateContentWithAlternateModel(keysToRetranslate, languageCode, languageName);
+                retranslatedContent = await translateContentWithAlternateModel(
+                  keysToRetranslate,
+                  languageCode,
+                  languageName
+                );
               } else {
-                retranslatedContent = await translateContent(keysToRetranslate, languageCode);
+                retranslatedContent = await translateContent(
+                  keysToRetranslate,
+                  languageCode
+                );
               }
-              
+
               if (retranslatedContent) {
                 // Merge retranslated content back into the main translation
-                const updatedTranslation = deepMerge(langTranslation, retranslatedContent);
-                
+                const updatedTranslation = deepMerge(
+                  langTranslation,
+                  retranslatedContent
+                );
+
                 // Save the updated translation
                 await fs.writeFile(
                   langTranslationPath,
                   JSON.stringify(updatedTranslation, null, 2),
                   'utf8'
                 );
-                
+
                 // Update langTranslation for next validation
                 langTranslation = updatedTranslation;
-                
-                console.log(chalk.green(`✅ ${languageName}: Retranslated and updated ${currentProblematicKeys.length} keys`));
+
+                console.log(
+                  chalk.green(
+                    `✅ ${languageName}: Retranslated and updated ${currentProblematicKeys.length} keys`
+                  )
+                );
               } else {
-                console.log(chalk.red(`❌ ${languageName}: Failed to retranslate problematic keys`));
+                console.log(
+                  chalk.red(
+                    `❌ ${languageName}: Failed to retranslate problematic keys`
+                  )
+                );
                 break; // Exit retry loop if translation completely failed
               }
             } catch (error) {
-              console.log(chalk.red(`❌ ${languageName}: Error during retranslation - ${error.message}`));
+              console.log(
+                chalk.red(
+                  `❌ ${languageName}: Error during retranslation - ${error.message}`
+                )
+              );
               break; // Exit retry loop on error
             }
           }
         }
-        
+
         // Post-retranslation sanity check
         if (retryAttempts < maxRetries) {
-          console.log(chalk.blue(`🔍 ${languageName}: Performing post-retranslation sanity check...`));
-          
+          console.log(
+            chalk.blue(
+              `🔍 ${languageName}: Performing post-retranslation sanity check...`
+            )
+          );
+
           // Re-validate the updated translation
           const postLanguageIssues = validateLanguagePurity(
             langTranslation,
             languageCode,
             languageName
           );
-          
+
           const postHtmlIssues = validateHtmlTags(
             langTranslation,
             enTranslation,
             languageCode,
             languageName
           );
-          
-          const postTotalIssues = postLanguageIssues.length + postHtmlIssues.length;
-          
+
+          const postTotalIssues =
+            postLanguageIssues.length + postHtmlIssues.length;
+
           if (postTotalIssues === 0) {
-            console.log(chalk.green(`✅ ${languageName}: Sanity check passed - all issues resolved`));
+            console.log(
+              chalk.green(
+                `✅ ${languageName}: Sanity check passed - all issues resolved`
+              )
+            );
             break; // Exit retry loop - all issues resolved
           } else {
-            console.log(chalk.yellow(`⚠️  ${languageName}: Sanity check found ${postTotalIssues} remaining issues`));
-            
+            console.log(
+              chalk.yellow(
+                `⚠️  ${languageName}: Sanity check found ${postTotalIssues} remaining issues`
+              )
+            );
+
             // Update problematic keys for next retry
             currentProblematicKeys = [
               ...postLanguageIssues.map((issue) => issue.key),
               ...postHtmlIssues.map((issue) => issue.key),
             ];
-            
+
             // Remove duplicates
             currentProblematicKeys = [...new Set(currentProblematicKeys)];
-            
+
             if (retryAttempts < maxRetries) {
-              console.log(chalk.yellow(`🔄 ${languageName}: Will retry ${currentProblematicKeys.length} remaining problematic keys...`));
+              console.log(
+                chalk.yellow(
+                  `🔄 ${languageName}: Will retry ${currentProblematicKeys.length} remaining problematic keys...`
+                )
+              );
             } else {
-              console.log(chalk.red(`❌ ${languageName}: Maximum retries reached. ${currentProblematicKeys.length} issues remain unresolved.`));
-              
+              console.log(
+                chalk.red(
+                  `❌ ${languageName}: Maximum retries reached. ${currentProblematicKeys.length} issues remain unresolved.`
+                )
+              );
+
               // Show remaining issues for debugging
               if (postLanguageIssues.length > 0) {
-                console.log(chalk.red(`   🌐 Remaining language issues: ${postLanguageIssues.length}`));
+                console.log(
+                  chalk.red(
+                    `   🌐 Remaining language issues: ${postLanguageIssues.length}`
+                  )
+                );
                 postLanguageIssues.slice(0, 2).forEach((issue) => {
-                  console.log(chalk.red(`      • ${issue.key}: Contains ${issue.detectedLanguage} text`));
+                  console.log(
+                    chalk.red(
+                      `      • ${issue.key}: Contains ${issue.detectedLanguage} text`
+                    )
+                  );
                 });
               }
-              
+
               if (postHtmlIssues.length > 0) {
-                console.log(chalk.red(`   🏷️  Remaining HTML issues: ${postHtmlIssues.length}`));
+                console.log(
+                  chalk.red(
+                    `   🏷️  Remaining HTML issues: ${postHtmlIssues.length}`
+                  )
+                );
                 postHtmlIssues.slice(0, 2).forEach((issue) => {
-                  console.log(chalk.red(`      • ${issue.key}: Added tags ${issue.extraTags.join(', ')}`));
+                  console.log(
+                    chalk.red(
+                      `      • ${issue.key}: Added tags ${issue.extraTags.join(', ')}`
+                    )
+                  );
                 });
               }
             }
@@ -2405,11 +2491,11 @@ async function ensureAutoTranslateDir(languageCode) {
  */
 function extractAllKeys(obj, prefix = '') {
   const keys = {};
-  
+
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const currentPath = prefix ? `${prefix}.${key}` : key;
-      
+
       if (
         typeof obj[key] === 'object' &&
         obj[key] !== null &&
@@ -2421,30 +2507,40 @@ function extractAllKeys(obj, prefix = '') {
         // This is a leaf node (actual translatable value)
         keys[currentPath] = {
           value: obj[key],
-          checksum: crypto.createHash('md5').update(String(obj[key])).digest('hex')
+          checksum: crypto
+            .createHash('md5')
+            .update(String(obj[key]))
+            .digest('hex'),
         };
       }
     }
   }
-  
+
   return keys;
 }
 
 /**
  * Calculate checksums for all individual keys in a chunk
+ * Preserves existing lastUpdated timestamps for unchanged keys
  */
-function calculateKeyChecksums(chunkContent) {
+function calculateKeyChecksums(chunkContent, existingKeyChecksums = {}) {
   const keys = extractAllKeys(chunkContent);
   const keyChecksums = {};
-  
+
   for (const [keyPath, keyData] of Object.entries(keys)) {
+    const existingKey = existingKeyChecksums[keyPath];
+    const hasChanged =
+      !existingKey || existingKey.checksum !== keyData.checksum;
+
     keyChecksums[keyPath] = {
       checksum: keyData.checksum,
       value: keyData.value,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: hasChanged
+        ? new Date().toISOString()
+        : existingKey?.lastUpdated || new Date().toISOString(),
     };
   }
-  
+
   return keyChecksums;
 }
 
@@ -2455,28 +2551,27 @@ function compareKeyChecksums(currentKeys, storedKeys) {
   const changedKeys = [];
   const newKeys = [];
   const deletedKeys = [];
-  
+
   // Check for changed and new keys
   for (const [keyPath, keyData] of Object.entries(currentKeys)) {
     const storedKey = storedKeys[keyPath];
-    
+
     if (!storedKey) {
       newKeys.push(keyPath);
     } else if (storedKey.checksum !== keyData.checksum) {
       changedKeys.push(keyPath);
     }
   }
-  
+
   // Check for deleted keys
   for (const keyPath of Object.keys(storedKeys)) {
     if (!currentKeys[keyPath]) {
       deletedKeys.push(keyPath);
     }
   }
-  
+
   return { changedKeys, newKeys, deletedKeys };
 }
-
 
 /**
  * Main function to automate translations with dynamic chunk-based tracking
@@ -2573,54 +2668,77 @@ async function automateTranslations(targetLanguages = null) {
 
     // Step 5: Enhanced key-level detection and tracking
     console.log(chalk.blue('🔍 Analyzing individual keys within chunks...'));
-    
+
     const changedChunks = [];
     const chunkKeyChanges = {}; // Track which keys changed in each chunk
-    
+
     for (const chunkFile of chunkFiles) {
       const chunkPath = path.join(SOURCE_CHUNKS_DIR, chunkFile);
       const chunkContent = JSON.parse(await fs.readFile(chunkPath, 'utf8'));
-      
-      // Calculate current key checksums for this chunk
-      const currentKeyChecksums = calculateKeyChecksums(chunkContent);
-      
-      // Get stored key checksums
+
+      // Get stored key checksums first
       const storedChunk = buildMeta.enChunks[chunkFile];
       const storedKeyChecksums = storedChunk?.keys || {};
-      
+
+      // Calculate current key checksums for this chunk, preserving existing timestamps
+      const currentKeyChecksums = calculateKeyChecksums(
+        chunkContent,
+        storedKeyChecksums
+      );
+
       // Compare key checksums to detect changes
-      const keyChanges = compareKeyChecksums(currentKeyChecksums, storedKeyChecksums);
-      const hasKeyChanges = keyChanges.changedKeys.length > 0 || keyChanges.newKeys.length > 0 || keyChanges.deletedKeys.length > 0;
-      
+      const keyChanges = compareKeyChecksums(
+        currentKeyChecksums,
+        storedKeyChecksums
+      );
+      const hasKeyChanges =
+        keyChanges.changedKeys.length > 0 ||
+        keyChanges.newKeys.length > 0 ||
+        keyChanges.deletedKeys.length > 0;
+
       if (hasKeyChanges) {
         changedChunks.push(chunkFile);
         chunkKeyChanges[chunkFile] = keyChanges;
-        
+
         console.log(chalk.yellow(`🔄 Changed chunk detected: ${chunkFile}`));
         if (keyChanges.changedKeys.length > 0) {
-          console.log(chalk.gray(`  📝 Changed keys: ${keyChanges.changedKeys.slice(0, 3).join(', ')}${keyChanges.changedKeys.length > 3 ? ` ... and ${keyChanges.changedKeys.length - 3} more` : ''}`));
+          console.log(
+            chalk.gray(
+              `  📝 Changed keys: ${keyChanges.changedKeys.slice(0, 3).join(', ')}${keyChanges.changedKeys.length > 3 ? ` ... and ${keyChanges.changedKeys.length - 3} more` : ''}`
+            )
+          );
         }
         if (keyChanges.newKeys.length > 0) {
-          console.log(chalk.gray(`  ➕ New keys: ${keyChanges.newKeys.slice(0, 3).join(', ')}${keyChanges.newKeys.length > 3 ? ` ... and ${keyChanges.newKeys.length - 3} more` : ''}`));
+          console.log(
+            chalk.gray(
+              `  ➕ New keys: ${keyChanges.newKeys.slice(0, 3).join(', ')}${keyChanges.newKeys.length > 3 ? ` ... and ${keyChanges.newKeys.length - 3} more` : ''}`
+            )
+          );
         }
         if (keyChanges.deletedKeys.length > 0) {
-          console.log(chalk.gray(`  🗑️ Deleted keys: ${keyChanges.deletedKeys.slice(0, 3).join(', ')}${keyChanges.deletedKeys.length > 3 ? ` ... and ${keyChanges.deletedKeys.length - 3} more` : ''}`));
+          console.log(
+            chalk.gray(
+              `  🗑️ Deleted keys: ${keyChanges.deletedKeys.slice(0, 3).join(', ')}${keyChanges.deletedKeys.length > 3 ? ` ... and ${keyChanges.deletedKeys.length - 3} more` : ''}`
+            )
+          );
         }
-        
+
         // Update English chunk with new structure
         buildMeta.enChunks[chunkFile] = {
           checksum: currentChunkChecksums[chunkFile], // Overall chunk checksum
           lastUpdated: new Date().toISOString(),
-          keys: currentKeyChecksums // Individual key tracking
+          keys: currentKeyChecksums, // Individual key tracking
         };
       } else {
         // No key changes, but ensure we have the enhanced structure
         if (!storedChunk?.keys) {
-          console.log(chalk.gray(`📋 Upgrading ${chunkFile} to enhanced key tracking...`));
+          console.log(
+            chalk.gray(`📋 Upgrading ${chunkFile} to enhanced key tracking...`)
+          );
           buildMeta.enChunks[chunkFile] = {
             checksum: currentChunkChecksums[chunkFile],
             lastUpdated: storedChunk?.lastUpdated || new Date().toISOString(),
-            keys: currentKeyChecksums
+            keys: currentKeyChecksums,
           };
         }
       }
@@ -2642,38 +2760,69 @@ async function automateTranslations(targetLanguages = null) {
       // Step 6: Enhanced key-level invalidation for changed chunks
       for (const chunkFile of changedChunks) {
         const keyChanges = chunkKeyChanges[chunkFile];
-        
+
         for (const languageCode of Object.keys(SUPPORTED_LANGUAGES)) {
           // Initialize key tracking for this language chunk if not exists
           if (!buildMeta.languageChunks[languageCode][chunkFile].keys) {
             buildMeta.languageChunks[languageCode][chunkFile].keys = {};
+
+            // If this chunk was previously translated (old chunk-level structure),
+            // mark all keys as translated to preserve existing translations
+            if (buildMeta.languageChunks[languageCode][chunkFile].translated) {
+              console.log(
+                chalk.gray(
+                  `  🔄 Migrating ${chunkFile} for ${languageCode} from chunk-level to key-level tracking...`
+                )
+              );
+
+              // Get all keys from English chunk and mark them as translated
+              const enKeys = buildMeta.enChunks[chunkFile]?.keys || {};
+              for (const keyPath of Object.keys(enKeys)) {
+                buildMeta.languageChunks[languageCode][chunkFile].keys[
+                  keyPath
+                ] = {
+                  translated: true,
+                  checksum: enKeys[keyPath].checksum,
+                  lastUpdated:
+                    buildMeta.languageChunks[languageCode][chunkFile]
+                      .lastUpdated || new Date().toISOString(),
+                };
+              }
+            }
           }
-          
+
           // Mark specific changed/new keys as needing translation
-          const keysToInvalidate = [...keyChanges.changedKeys, ...keyChanges.newKeys];
-          
+          const keysToInvalidate = [
+            ...keyChanges.changedKeys,
+            ...keyChanges.newKeys,
+          ];
+
           for (const keyPath of keysToInvalidate) {
             buildMeta.languageChunks[languageCode][chunkFile].keys[keyPath] = {
               translated: false,
               checksum: null,
-              lastUpdated: null
+              lastUpdated: null,
             };
           }
-          
+
           // Remove deleted keys from language tracking
           for (const keyPath of keyChanges.deletedKeys) {
-            delete buildMeta.languageChunks[languageCode][chunkFile].keys[keyPath];
+            delete buildMeta.languageChunks[languageCode][chunkFile].keys[
+              keyPath
+            ];
           }
-          
+
           // Update chunk-level status
-          const allKeysTranslated = Object.values(buildMeta.languageChunks[languageCode][chunkFile].keys)
-            .every(keyData => keyData.translated);
-          
-          buildMeta.languageChunks[languageCode][chunkFile].translated = allKeysTranslated;
-          buildMeta.languageChunks[languageCode][chunkFile].checksum = allKeysTranslated ? 
-            buildMeta.enChunks[chunkFile].checksum : null;
-          buildMeta.languageChunks[languageCode][chunkFile].lastUpdated = allKeysTranslated ? 
-            new Date().toISOString() : null;
+          const allKeysTranslated = Object.values(
+            buildMeta.languageChunks[languageCode][chunkFile].keys
+          ).every((keyData) => keyData.translated);
+
+          buildMeta.languageChunks[languageCode][chunkFile].translated =
+            allKeysTranslated;
+          buildMeta.languageChunks[languageCode][chunkFile].checksum =
+            allKeysTranslated ? buildMeta.enChunks[chunkFile].checksum : null;
+          buildMeta.languageChunks[languageCode][chunkFile].lastUpdated =
+            allKeysTranslated ? new Date().toISOString() : null;
 
           // Mark language as needing deployment when chunks change
           buildMeta.translations.generated[languageCode] = false;
@@ -2748,15 +2897,15 @@ async function automateTranslations(targetLanguages = null) {
         // Enhanced key-level determination of what needs translation
         const chunksToTranslate = [];
         const chunkKeysToTranslate = {}; // Track specific keys per chunk
-        
+
         for (const chunkFile of chunkFiles) {
           const chunkStatus = buildMeta.languageChunks[languageCode][chunkFile];
           const enChunkKeys = buildMeta.enChunks[chunkFile]?.keys || {};
-          
+
           // Check if chunk needs translation (either not translated or has untranslated keys)
           let needsTranslation = false;
           let keysToTranslate = [];
-          
+
           if (!chunkStatus || !chunkStatus.translated) {
             // Chunk is not translated at all
             needsTranslation = true;
@@ -2780,21 +2929,31 @@ async function automateTranslations(targetLanguages = null) {
                 keysToTranslate.push(keyPath);
               }
             }
-            
+
             if (keysToTranslate.length > 0) {
               needsTranslation = true;
-              console.log(chalk.yellow(`  🔍 ${chunkFile}: chunk marked translated but ${keysToTranslate.length} keys need translation`));
+              console.log(
+                chalk.yellow(
+                  `  🔍 ${chunkFile}: chunk marked translated but ${keysToTranslate.length} keys need translation`
+                )
+              );
             }
           }
-          
+
           if (needsTranslation) {
             chunksToTranslate.push(chunkFile);
             chunkKeysToTranslate[chunkFile] = keysToTranslate;
-            
+
             if (Array.isArray(keysToTranslate)) {
-              console.log(chalk.gray(`  🔑 ${chunkFile}: ${keysToTranslate.length} keys need translation`));
+              console.log(
+                chalk.gray(
+                  `  🔑 ${chunkFile}: ${keysToTranslate.length} keys need translation`
+                )
+              );
             } else {
-              console.log(chalk.gray(`  📦 ${chunkFile}: full chunk needs translation`));
+              console.log(
+                chalk.gray(`  📦 ${chunkFile}: full chunk needs translation`)
+              );
             }
           }
         }
@@ -2835,7 +2994,8 @@ async function automateTranslations(targetLanguages = null) {
               // Enhanced key-level translation with tracking
               const keysToTranslate = chunkKeysToTranslate[chunkFile];
               const isLocalAI = process.env.AI_PROVIDER === 'local';
-              const useKeyLevelTranslation = keysToTranslate !== 'all' && Array.isArray(keysToTranslate);
+              const useKeyLevelTranslation =
+                keysToTranslate !== 'all' && Array.isArray(keysToTranslate);
 
               if (useKeyLevelTranslation) {
                 console.log(
@@ -2864,22 +3024,33 @@ async function automateTranslations(targetLanguages = null) {
                     setValueByPath(singleKeyObject, keyPath, englishValue);
 
                     // Translate this single key
-                    const translatedSingle = await translateContentWithValidation(
-                      singleKeyObject,
-                      languageCode,
-                      languageName
-                    );
+                    const translatedSingle =
+                      await translateContentWithValidation(
+                        singleKeyObject,
+                        languageCode,
+                        languageName
+                      );
 
                     // Extract the translated value and set it in the combined translation
-                    const translatedValue = getValueByPath(translatedSingle, keyPath);
-                    setValueByPath(combinedTranslation, keyPath, translatedValue);
+                    const translatedValue = getValueByPath(
+                      translatedSingle,
+                      keyPath
+                    );
+                    setValueByPath(
+                      combinedTranslation,
+                      keyPath,
+                      translatedValue
+                    );
 
                     // Update key-level tracking
-                    const enKeyData = buildMeta.enChunks[chunkFile].keys[keyPath];
-                    buildMeta.languageChunks[languageCode][chunkFile].keys[keyPath] = {
+                    const enKeyData =
+                      buildMeta.enChunks[chunkFile].keys[keyPath];
+                    buildMeta.languageChunks[languageCode][chunkFile].keys[
+                      keyPath
+                    ] = {
                       translated: true,
                       checksum: enKeyData.checksum,
-                      lastUpdated: new Date().toISOString()
+                      lastUpdated: new Date().toISOString(),
                     };
 
                     // Save progress immediately after each successful key translation
@@ -2913,22 +3084,29 @@ async function automateTranslations(targetLanguages = null) {
 
                 // Ensure directory exists and save the translated chunk (partial or complete)
                 await ensureAutoTranslateDir(languageCode);
-                const translatedChunkPath = path.join(autoTranslateDir, chunkFile);
+                const translatedChunkPath = path.join(
+                  autoTranslateDir,
+                  chunkFile
+                );
                 await fs.writeFile(
                   translatedChunkPath,
                   JSON.stringify(combinedTranslation, null, 2),
                   'utf8'
                 );
-                
+
                 // Update chunk-level status based on key completion
-                const allKeysTranslated = Object.values(buildMeta.languageChunks[languageCode][chunkFile].keys)
-                  .every(keyData => keyData.translated);
-                
-                buildMeta.languageChunks[languageCode][chunkFile].translated = allKeysTranslated;
-                buildMeta.languageChunks[languageCode][chunkFile].checksum = allKeysTranslated ? 
-                  buildMeta.enChunks[chunkFile].checksum : null;
-                buildMeta.languageChunks[languageCode][chunkFile].lastUpdated = allKeysTranslated ? 
-                  new Date().toISOString() : null;
+                const allKeysTranslated = Object.values(
+                  buildMeta.languageChunks[languageCode][chunkFile].keys
+                ).every((keyData) => keyData.translated);
+
+                buildMeta.languageChunks[languageCode][chunkFile].translated =
+                  allKeysTranslated;
+                buildMeta.languageChunks[languageCode][chunkFile].checksum =
+                  allKeysTranslated
+                    ? buildMeta.enChunks[chunkFile].checksum
+                    : null;
+                buildMeta.languageChunks[languageCode][chunkFile].lastUpdated =
+                  allKeysTranslated ? new Date().toISOString() : null;
               } else if (isLocalAI) {
                 console.log(
                   chalk.cyan(
@@ -2968,22 +3146,33 @@ async function automateTranslations(targetLanguages = null) {
                     setValueByPath(singleKeyObject, keyPath, englishValue);
 
                     // Translate this single key
-                    const translatedSingle = await translateContentWithValidation(
-                      singleKeyObject,
-                      languageCode,
-                      languageName
-                    );
+                    const translatedSingle =
+                      await translateContentWithValidation(
+                        singleKeyObject,
+                        languageCode,
+                        languageName
+                      );
 
                     // Extract the translated value and set it in the combined translation
-                    const translatedValue = getValueByPath(translatedSingle, keyPath);
-                    setValueByPath(combinedTranslation, keyPath, translatedValue);
+                    const translatedValue = getValueByPath(
+                      translatedSingle,
+                      keyPath
+                    );
+                    setValueByPath(
+                      combinedTranslation,
+                      keyPath,
+                      translatedValue
+                    );
 
                     // Update key-level tracking
-                    const enKeyData = buildMeta.enChunks[chunkFile].keys[keyPath];
-                    buildMeta.languageChunks[languageCode][chunkFile].keys[keyPath] = {
+                    const enKeyData =
+                      buildMeta.enChunks[chunkFile].keys[keyPath];
+                    buildMeta.languageChunks[languageCode][chunkFile].keys[
+                      keyPath
+                    ] = {
                       translated: true,
                       checksum: enKeyData.checksum,
-                      lastUpdated: new Date().toISOString()
+                      lastUpdated: new Date().toISOString(),
                     };
 
                     // Save progress immediately after each successful key translation
@@ -3017,17 +3206,23 @@ async function automateTranslations(targetLanguages = null) {
 
                 // Ensure directory exists and save the translated chunk
                 await ensureAutoTranslateDir(languageCode);
-                const translatedChunkPath = path.join(autoTranslateDir, chunkFile);
+                const translatedChunkPath = path.join(
+                  autoTranslateDir,
+                  chunkFile
+                );
                 await fs.writeFile(
                   translatedChunkPath,
                   JSON.stringify(combinedTranslation, null, 2),
                   'utf8'
                 );
-                
+
                 // Update chunk-level status
-                buildMeta.languageChunks[languageCode][chunkFile].translated = true;
-                buildMeta.languageChunks[languageCode][chunkFile].checksum = buildMeta.enChunks[chunkFile].checksum;
-                buildMeta.languageChunks[languageCode][chunkFile].lastUpdated = new Date().toISOString();
+                buildMeta.languageChunks[languageCode][chunkFile].translated =
+                  true;
+                buildMeta.languageChunks[languageCode][chunkFile].checksum =
+                  buildMeta.enChunks[chunkFile].checksum;
+                buildMeta.languageChunks[languageCode][chunkFile].lastUpdated =
+                  new Date().toISOString();
               } else if (isChunkTooLarge(chunkContent)) {
                 console.log(
                   chalk.yellow(
@@ -3358,7 +3553,10 @@ async function automateTranslations(targetLanguages = null) {
       chalk.blue('📊 Updating translatemeta.json with chunk checksums...')
     );
     for (const chunkFile of chunkFiles) {
+      // Preserve existing keys when updating chunk metadata
+      const existingChunk = buildMeta.enChunks[chunkFile] || {};
       buildMeta.enChunks[chunkFile] = {
+        ...existingChunk,
         checksum: currentChunkChecksums[chunkFile],
         lastUpdated: new Date().toISOString(),
       };

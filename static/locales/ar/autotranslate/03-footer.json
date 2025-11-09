@@ -1,13 +1,13 @@
 {
   "footer": {
     "email-section": {
-      "title": "ابقَ على اطلاع دائم بـ Push Chain",
+      "title": "ابقَ على اطلاع بـ Push Chain",
       "title-secondary": "أخبار وتحديثات!",
       "title-aria-label": "قسم الاشتراك في النشرة الإخبارية",
-      "section-aria-label": "الاشتراك في رسالة Push Chain الإخبارية"
+      "section-aria-label": "الاشتراك في نشرة أخبار بلوكشين"
     },
     "main-section": {
-      "section-aria-label": "روابط وتنقل التذييل",
+      "section-aria-label": "روابط وتصفح قسم التذييل",
       "logo-link-title": "الصفحة الرئيسية لـ Push Chain",
       "logo-link-aria-label": "الصفحة الرئيسية لـ Push Chain",
       "logo-alt": "شعار Push Chain"
@@ -27,14 +27,14 @@
       },
       "help": {
         "title": "مساعدة",
-        "title-aria-label": "ملاحة المساعدة"
+        "title-aria-label": "مساعدة في التنقل"
       }
     },
     "links": {
       "get-started": "ابدأ الآن",
-      "get-started-title": "ابدأ البناء على بلوكشين",
+      "get-started-title": "ابدأ البناء على بلوكشين Push Chain",
       "docs": "الوثائق",
-      "docs-title": "Push Chain documentation",
+      "docs-title": "وثائق Push Chain",
       "github": "GitHub",
       "github-title": "مستودعات Push Chain على GitHub",
       "knowledge-base": "قاعدة المعرفة",
@@ -42,40 +42,40 @@
       "blog": "المدونة",
       "blog-title": "مدونة Push Chain",
       "litepaper": "الورقة البيضاء",
-      "litepaper-title": "ورقة Push Chain البيضاء (PDF)",
+      "litepaper-title": "ورقة Push Chain التقنية (PDF)",
       "brand-kit": "مجموعة العلامة التجارية",
       "brand-kit-title": "أصول وإرشادات العلامة التجارية لـ Push Chain",
       "push-scan": "Push Scan",
       "push-scan-title": "مستكشف بلوكشين Push Chain",
       "faucet": "صنبور",
-      "faucet-title": "احصل على توكنات تجريبية من صنبور Push Chain",
+      "faucet-title": "احصل على توكنات اختبارية من صنبور Push Chain",
       "push-portal": "Push Portal",
       "push-portal-title": "بوابة مجتمع Push Chain",
       "support": "الدعم",
       "support-title": "مركز المساعدة",
       "security": "الأمان والإفصاح",
-      "security-title": "الإبلاغ عن ثغرة أمنية (الكشف المسؤول)",
-      "contact-us": "اتصل بنا",
+      "security-title": "الإبلاغ عن ثغرة أمنية (الإفصاح المسؤول)",
+      "contact-us": "تواصل معنا",
       "contact-us-title": "شراكات، تطوير الأعمال، وسائل الإعلام، أو استفسارات عامة",
       "careers": "وظائف",
       "careers-title": "وظائف شاغرة في Push Chain",
-      "twitter": "X (Twitter)",
+      "twitter": "X (تويتر)",
       "twitter-title": "تابع Push Chain على X (تويتر)",
       "discord": "Discord",
-      "discord-title": "انضم إلى مجتمع Push Chain على Discord",
+      "discord-title": "انضم إلى مجتمع Push Chain على ديسكورد",
       "reddit": "Reddit",
-      "reddit-title": "انضم إلى مجتمع Push Chain على Reddit",
-      "telegram": "Telegram",
-      "telegram-title": "انضم إلى Push Chain Telegram"
+      "reddit-title": "انضم إلى منتدى Push Chain على Reddit",
+      "telegram": "تيليجرام",
+      "telegram-title": "انضم إلى مجموعة Push Chain على Telegram"
     },
     "social-section": {
-      "section-aria-label": "روابط وسائل التواصل الاجتماعي ومعلومات قانونية",
-      "twitter-icon-title": "بلوش تشين على X (تويتر)",
-      "twitter-icon-aria-label": "Push Chain على تويتر (X)",
+      "section-aria-label": "روابط وسائل التواصل الاجتماعي والمعلومات القانونية",
+      "twitter-icon-title": "بلوشكين على X (تويتر)",
+      "twitter-icon-aria-label": "Push Chain على X (تويتر)",
       "github-icon-title": "Push Chain على GitHub",
       "github-icon-aria-label": "Push Chain على GitHub",
       "discord-icon-title": "Push Chain على ديسكورد",
-      "discord-icon-aria-label": "بلوش تشين على ديسكورد"
+      "discord-icon-aria-label": "Push Chain على Discord"
     },
     "legal": {
       "privacy-policy": "سياسة الخصوصية",
@@ -88,8 +88,8 @@
       "cookie-preferences-title": "إدارة إعدادات ملفات تعريف الارتباط"
     },
     "footer-image": {
-      "alt": "توضيح تذييل Push Chain",
-      "title": "Push Chain - بلوكشين يونيفرسال"
+      "alt": "صورة توضيحية لتذييل Push Chain",
+      "title": "Push Chain - بلوكشين عالمي"
     }
   }
 }
