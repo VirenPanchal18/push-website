@@ -33,6 +33,13 @@ export const HeaderList = {
       target: '_self',
     },
     {
+      text: 'header.developers.link6.text',
+      subtext: 'header.developers.link6.subtext',
+      title: 'header.developers.link6.title',
+      href: '/ecosystem',
+      target: '_blank',
+    },
+    {
       text: 'header.developers.link3.text',
       subtext: 'header.developers.link3.subtext',
       title: 'header.developers.link3.title',
@@ -55,6 +62,13 @@ export const HeaderList = {
     },
   ],
   community: [
+    {
+      text: 'header.community.link7.text',
+      subtext: 'header.community.link7.subtext',
+      title: 'header.community.link7.title',
+      href: '/ecosystem',
+      target: '_blank',
+    },
     {
       text: 'header.community.link1.text',
       subtext: 'header.community.link1.subtext',

@@ -76,31 +76,30 @@ const Card = styled.a<{ $comingsoon?: boolean }>`
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+  z-index: 6;
   cursor: ${(props) => (props.$comingsoon ? 'not-allowed' : 'pointer')};
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow:
+      2.788px 2.598px 12px 0 rgba(255, 255, 255, 0.15) inset,
+      1.858px 1.732px 6px 0 rgba(255, 255, 255, 0.15) inset;
+    z-index: 100;
+  }
 
   &:hover {
     transform: ${(props) => (props.$comingsoon ? 'none' : 'translateY(-2px)')};
-    box-shadow: ${(props) =>
-      props.$comingsoon
-        ? 'none'
-        : '2.788px 2.598px 12px 0 rgba(255, 255, 255, 0.15) inset, 1.858px 1.732px 6px 0 rgba(255, 255, 255, 0.15) inset'};
+
+    &::before {
+      opacity: ${(props) => (props.$comingsoon ? 0 : 1)};
+    }
   }
-`;
-
-const BackgroundWrapper = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-`;
-
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background-size: cover;
-  background-position: top center;
 `;
 
 const ContentWrap = styled.div<{ bgGradientColor: string }>`
@@ -117,6 +116,22 @@ const ContentWrap = styled.div<{ bgGradientColor: string }>`
     transparent 10%,
     ${(props) => props.bgGradientColor} 20%
   );
+`;
+
+const BackgroundWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+`;
+
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background-size: cover;
+  background-position: top center;
 `;
 
 const TopRow = styled(ItemH)`

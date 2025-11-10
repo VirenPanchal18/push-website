@@ -52,6 +52,7 @@ const EssentialGrid = styled.div`
 `;
 
 const EssentialCard = styled.a<{ bgGradient: string }>`
+  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -63,8 +64,25 @@ const EssentialCard = styled.a<{ bgGradient: string }>`
   text-decoration: none;
   transition: transform 0.2s ease;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow:
+      2.788px 2.598px 12px 0 rgba(255, 255, 255, 0.15) inset,
+      1.858px 1.732px 6px 0 rgba(255, 255, 255, 0.15) inset;
+  }
+
   &:hover {
     transform: translateY(-2px);
+
+    &::before {
+      opacity: 1;
+    }
   }
 `;
 

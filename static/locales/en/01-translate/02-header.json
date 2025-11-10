@@ -38,6 +38,11 @@
         "subtext": "Setup dev environment in seconds",
         "title": "Quick start guide - Set up Push Chain development environment instantly"
       },
+      "link6": {
+        "text": "Ecosystem",
+        "subtext": "See apps built on Push Chain",
+        "title": "See apps built on Push Chain"
+      },
       "link3": {
         "text": "Tutorials",
         "subtext": "Step-by-step guides to build with Push",
@@ -57,6 +62,11 @@
     "community": {
       "title": "Community",
       "aria-label": "Community Section",
+      "link7": {
+        "text": "Ecosystem",
+        "subtext": "Explore apps built on Push Chain",
+        "title": "Explore apps built on Push Chain"
+      },
       "link1": {
         "text": "Knowledge Base",
         "subtext": "Find deep dives on features",

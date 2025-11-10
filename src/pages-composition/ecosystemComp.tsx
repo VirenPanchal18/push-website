@@ -3,6 +3,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import {
   Content,
@@ -20,6 +21,8 @@ import { BsArrowRight } from 'react-icons/bs';
 
 // ----- Page -----
 const EcosystemComp: React.FC = () => {
+  // Localization
+  const { t } = useTranslation();
   return (
     <>
       {/* Hero */}
@@ -27,11 +30,11 @@ const EcosystemComp: React.FC = () => {
         <Content className='skeletonsmall'>
           <HeroWrap>
             <ItemV alignItems='flex-start' gap='12px'>
-              <H1 margin='0px 0px'>Testnet Apps</H1>
+              <H1 margin='0px 0px'>
+                {t('pages.ecosystem.hero-section.title')}
+              </H1>
               <Span fontSize='20px' lineHeight='30px'>
-                Explore the ecosystem of universal apps that feel like magic to
-                use. Discover apps, partners, and projects being built on Push
-                Chain Testnet
+                {t('pages.ecosystem.hero-section.description')}
               </Span>
             </ItemV>
           </HeroWrap>

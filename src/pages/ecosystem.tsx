@@ -36,7 +36,7 @@ function EcosystemPage() {
         <meta
           property='og:image'
           content={useBaseUrl(
-            require('/static/assets/previews/knowledgebasepreview.png').default,
+            require('/static/assets/previews/ecosystemPreview.png').default,
             { absolute: true }
           )}
         />
@@ -56,7 +56,7 @@ function EcosystemPage() {
         <meta
           name='twitter:image'
           content={useBaseUrl(
-            require('/static/assets/previews/knowledgebasepreview.png').default,
+            require('/static/assets/previews/ecosystemPreview.png').default,
             { absolute: true }
           )}
         />
