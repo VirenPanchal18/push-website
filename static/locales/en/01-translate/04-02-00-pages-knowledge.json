@@ -69,8 +69,13 @@
                   "ctatitle": "Read More"
                 },
                 "testnet": {
-                  "title": "Testnet",
+                  "title": "Donut Testnet",
                   "subtitle": "The place to find answers to all the popular questions the community has asked",
+                  "ctatitle": "Read More"
+                },
+                "validators": {
+                  "title": "Validators",
+                  "subtitle": "",
                   "ctatitle": "Read More"
                 }
               }

@@ -128,6 +128,22 @@ export const KBRootResourcesList = {
           },
           customWidth: '70px',
         },
+        {
+          id: 'validators',
+          url: 'validators',
+          valueKey:
+            'pages.knowledge.explainer-section.blocks.sections.resources.items.validators',
+          target: '_self',
+          image: '/static/assets/website/docshub/FAQIcons',
+          // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
+          bgColor: 'var(--ifm-color-kb-dark)',
+          bgStylizing: {
+            type: 'sparkle',
+            density: 40,
+            size: 10,
+          },
+          customWidth: '70px',
+        },
       ],
     },
   ],

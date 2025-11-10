@@ -43,8 +43,7 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title:
-        'pages.knowledge.testnet.explainer-section.blocks.quick-links.title',
+      title: 'Quick Links',
       topGap: true,
       bottomGap: true,
       variant: 'row',
