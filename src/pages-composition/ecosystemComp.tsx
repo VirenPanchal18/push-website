@@ -4,11 +4,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Content, H1, ItemV, Section, Span } from '@site/src/css/SharedStyling';
+import {
+  Content,
+  H1,
+  ItemV,
+  PrimaryA,
+  Section,
+  Span,
+} from '@site/src/css/SharedStyling';
 import { device } from '@site/src/config/globals';
 import { EcosystemAppsList } from '@site/src/config/EcosystemAppsList';
 import EcosystemBlocks from '@site/src/components/Ecosystem/EcosystemBlocks';
 import EcosystemApps from '../components/Ecosystem/EcosystemApps';
+import { BsArrowRight } from 'react-icons/bs';
 
 // ----- Page -----
 const EcosystemComp: React.FC = () => {
@@ -19,7 +27,7 @@ const EcosystemComp: React.FC = () => {
         <Content className='skeletonsmall'>
           <HeroWrap>
             <ItemV alignItems='flex-start' gap='12px'>
-              <H1>Testnet Apps</H1>
+              <H1 margin='0px 0px'>Testnet Apps</H1>
               <Span fontSize='20px' lineHeight='30px'>
                 Explore the ecosystem of universal apps that feel like magic to
                 use. Discover apps, partners, and projects being built on Push
@@ -29,6 +37,8 @@ const EcosystemComp: React.FC = () => {
           </HeroWrap>
         </Content>
       </Section>
+
+      <GlowCircle />
 
       {/* Essential Apps */}
       <Section>
@@ -46,7 +56,7 @@ const EcosystemComp: React.FC = () => {
 
       {/* CTA */}
       <Section>
-        <Content>
+        <BodyContent>
           <CTAWrap>
             <H1
               as='h3'
@@ -57,15 +67,18 @@ const EcosystemComp: React.FC = () => {
               Want to join the fastest growing universal app ecosystem and 10x
               your userbase?
             </H1>
-            <CTAButton
-              href='https://portal.push.org/'
-              target='_blank'
-              rel='noopener'
+            <PrimaryA
+              href={'https://portal.push.org'}
+              title={'Start Building'}
+              aria-label={'Start Building'}
+              zIndex='2'
+              alignItems='center'
             >
-              Start Building →
-            </CTAButton>
+              Start Building
+              <BsArrowRight className='start-svg' />
+            </PrimaryA>
           </CTAWrap>
-        </Content>
+        </BodyContent>
       </Section>
     </>
   );
@@ -75,6 +88,10 @@ export default EcosystemComp;
 
 const HeroWrap = styled.div`
   max-width: 970px;
+
+  h1 {
+    margin-bottom: 0px !important;
+  }
 `;
 const AppsContent = styled(Content)`
   padding: 0px 48px;
@@ -88,19 +105,71 @@ const AppsContent = styled(Content)`
   }
 `;
 
-const CTAWrap = styled(ItemV)`
-  align-items: center;
-  gap: 16px;
-  text-align: center;
-  padding: clamp(24px, 8vw, 64px) 0;
+const BodyContent = styled(Content)`
+  padding: 0px 48px;
+
+  @media ${device.laptop} {
+    padding: 0px 32px;
+  }
+
+  @media ${device.mobileL} {
+    padding: 0px 16px;
+  }
 `;
 
-const CTAButton = styled.a`
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: #d548ec;
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
+const GlowCircle = styled.div`
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(179, 72, 236, 0.2);
+  filter: blur(125px);
+  pointer-events: none;
+  z-index: 2;
+
+  width: 600px;
+  height: 600px;
+  left: 10%;
+  top: 150px;
+
+  @media ${device.desktopL} {
+    left: 20%;
+  }
+
+  @media ${device.laptopL} {
+    width: 500px;
+    height: 500px;
+    left: 25%;
+  }
+
+  @media ${device.tablet} {
+    width: 543px;
+    height: 538px;
+    left: 238px;
+    top: 29px;
+  }
+
+  @media ${device.mobileL} {
+    width: 395px;
+    height: 392px;
+    left: -12px;
+    top: 102px;
+  }
+`;
+
+const CTAWrap = styled(ItemV)`
+  align-items: center;
+  gap: 48px;
+  text-align: center;
+  max-width: 748px;
+  margin: 0 auto;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .start-svg {
+    color: var(--ifm-color-white);
+    margin: 0px 0 0 8px;
+  }
 `;

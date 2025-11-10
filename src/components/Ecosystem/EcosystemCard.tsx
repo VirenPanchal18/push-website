@@ -69,12 +69,13 @@ const Card = styled.a<{ $comingsoon?: boolean }>`
   border-radius: 16px;
   text-decoration: none;
   color: var(--ifm-color-white);
-  border: 1px solid rgba(171, 70, 248, 0.4);
+  border: ${(props) =>
+    props.$comingsoon ? 'none' : '1px solid rgba(171, 70, 248, 0.4);'};
   height: 426px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  cursor: ${(props) => (props.$comingsoon ? 'default' : 'pointer')};
+  cursor: ${(props) => (props.$comingsoon ? 'not-allowed' : 'pointer')};
 
   &:hover {
     transform: ${(props) => (props.$comingsoon ? 'none' : 'translateY(-2px)')};
