@@ -37,7 +37,7 @@ export const HeaderList = {
       subtext: 'header.developers.link6.subtext',
       title: 'header.developers.link6.title',
       href: '/ecosystem',
-      target: '_blank',
+      target: '_self',
     },
     {
       text: 'header.developers.link3.text',
@@ -67,7 +67,7 @@ export const HeaderList = {
       subtext: 'header.community.link7.subtext',
       title: 'header.community.link7.title',
       href: '/ecosystem',
-      target: '_blank',
+      target: '_self',
     },
     {
       text: 'header.community.link1.text',
