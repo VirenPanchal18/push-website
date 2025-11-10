@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import type { EcosystemApp } from './EcosystemBlocks';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
   const hrefProps = app.comingsoon
@@ -28,7 +29,7 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
       </BackgroundWrapper>
       <ContentWrap bgGradientColor={app.bgGradientColor}>
         <TopRow>
-          <Icon src={app.icon} alt='' appId={app.id} />
+          <Icon src={useBaseUrl(app.icon)} alt='' appId={app.id} />
           <Name titleColor={app.titleColor}>{app.name}</Name>
           <P
             fontSize='16px'

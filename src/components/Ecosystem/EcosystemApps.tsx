@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ItemV, H2 } from '@site/src/css/SharedStyling';
 import { device } from '@site/src/config/globals';
 import { EcosystemPushApps } from '@site/src/config/EcosystemsPushApps';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const EcosystemApps: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ const EcosystemApps: React.FC = () => {
             rel='noopener'
             bgGradient={app.bgGradient}
           >
-            <EssentialIcon src={app.icon} alt='' />
+            <EssentialIcon src={useBaseUrl(app.icon)} alt='' />
             <EssentialContent>
               <EssentialName>{app.name}</EssentialName>
               <EssentialDesc>{app.description}</EssentialDesc>
