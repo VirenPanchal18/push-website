@@ -23,7 +23,7 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
       <BackgroundWrapper>
         <Background
           style={{
-            backgroundImage: `url(${app.bgImage})`,
+            backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
           }}
         />
       </BackgroundWrapper>
