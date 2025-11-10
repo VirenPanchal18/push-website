@@ -126,7 +126,7 @@ export default function DocsHub(): JSX.Element {
 
       {/* DOCS HERO SECTION */}
       <DocsHeroSection>
-        <Content>
+        <HeroContent>
           <HeroHeader>
             <ItemV zIndex='1'>
               <H1
@@ -177,7 +177,7 @@ export default function DocsHub(): JSX.Element {
               </Pulse>
             </ItemV>
           </HeroHeader>
-        </Content>
+        </HeroContent>
       </DocsHeroSection>
 
       {/* Grid Section */}
@@ -641,6 +641,18 @@ const PopularQuickiesTitle = styled(Span)`
   font-size: 0.875rem;
   font-weight: bold;
   text-transform: uppercase;
+`;
+
+const HeroContent = styled(Content)`
+  padding: 0px 48px;
+
+  @media ${device.laptop} {
+    padding: 0px 32px;
+  }
+
+  @media ${device.mobileL} {
+    padding: 0px 16px;
+  }
 `;
 
 const PopularQuickiesContent = styled(ItemV)`
