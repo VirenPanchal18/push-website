@@ -3,7 +3,7 @@ export const EcosystemPushApps = [
     name: 'Push Chain Scan',
     description: "Push Chain's blockchain explorer",
     icon: '/assets/website/ecosystem/pushscan.png',
-    href: 'https://scan.push.org/',
+    href: 'https://donut.push.network',
   },
   {
     name: 'PC Faucet',
