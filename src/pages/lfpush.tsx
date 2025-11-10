@@ -56,7 +56,7 @@ function LFPushPage() {
         />
         <meta
           name='twitter:image'
-          content={useBaseUrl('/assets/previews/lfpush.png', {
+          content={useBaseUrl('/assets/previews/lfpushpreview.png', {
             absolute: true,
           })}
         />
