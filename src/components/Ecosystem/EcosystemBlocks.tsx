@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { device } from '@site/src/config/globals';
-import useMediaQuery from '@site/src/hooks/useMediaQuery';
 
 import EcosystemCard from './EcosystemCard';
 
 export type EcosystemApp = {
+  id: number;
   name: string;
   description: string;
   icon: string;
@@ -23,8 +23,6 @@ type Props = {
 };
 
 const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
-  const isMobile = useMediaQuery(device.mobileL);
-
   return (
     <>
       <Grid>

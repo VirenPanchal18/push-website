@@ -1,59 +1,66 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-
 import React from 'react';
 import styled from 'styled-components';
 import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import type { EcosystemApp } from './EcosystemBlocks';
 
-// Card with 16:10 media (top), icon + name, description, tags, and a heart button
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
-  const hrefProps = app.href
-    ? { href: app.href, target: '_blank', rel: 'noopener' }
-    : { href: '#', onClick: (e: React.MouseEvent) => e.preventDefault() };
+  const hrefProps = app.comingsoon
+    ? { onClick: (e: React.MouseEvent) => e.preventDefault() }
+    : app.href
+      ? { href: app.href, target: '_blank', rel: 'noopener' }
+      : { href: '#', onClick: (e: React.MouseEvent) => e.preventDefault() };
 
   return (
-    <Card {...hrefProps} aria-label={app.name} title={app.name}>
-      <Background
-        style={{
-          backgroundImage: `
-            linear-gradient(to bottom, rgba(0,0,0,0) 50%, ${app.bgGradientColor} 100%),
-            url(${app.bgImage})
-          `,
-        }}
-      />
-
-      <ContentWrap>
+    <Card
+      {...hrefProps}
+      aria-label={app.name}
+      title={app.name}
+      $comingsoon={app.comingsoon}
+    >
+      <BackgroundWrapper>
+        <Background
+          style={{
+            backgroundImage: `url(${app.bgImage})`,
+          }}
+        />
+      </BackgroundWrapper>
+      <ContentWrap bgGradientColor={app.bgGradientColor}>
         <TopRow>
-          <Icon src={app.icon} alt='' />
-          <Name>{app.name}</Name>
+          <Icon src={app.icon} alt='' appId={app.id} />
+          <Name titleColor={app.titleColor}>{app.name}</Name>
           <P
             fontSize='16px'
             lineHeight='23px'
-            color='var(--ifm-color-neutral-300)'
+            color={app.descriptionColor || 'var(--ifm-color-neutral-300)'}
             margin='4px 0 0 0'
           >
             {app.description}
           </P>
         </TopRow>
-
         <Meta>
           <Tags>
             {app.tags.map((t) => (
-              <Tag key={t}>{t}</Tag>
+              <Tag key={t} tagsColor={app.tagsColor}>
+                {t}
+              </Tag>
             ))}
           </Tags>
-          <Heart>♥</Heart>
         </Meta>
       </ContentWrap>
+      {app.comingsoon && (
+        <ComingSoonOverlay>
+          <ComingSoonText>Coming Soon</ComingSoonText>
+        </ComingSoonOverlay>
+      )}
     </Card>
   );
 };
 
 export default EcosystemCard;
 
-// ----- Styled -----
-const Card = styled.a`
+const Card = styled.a<{ $comingsoon?: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -62,38 +69,52 @@ const Card = styled.a`
   border-radius: 16px;
   text-decoration: none;
   color: var(--ifm-color-white);
+  border: 1px solid rgba(171, 70, 248, 0.4);
   height: 426px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+  cursor: ${(props) => (props.$comingsoon ? 'default' : 'pointer')};
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.15);
+    transform: ${(props) => (props.$comingsoon ? 'none' : 'translateY(-2px)')};
+    box-shadow: ${(props) =>
+      props.$comingsoon
+        ? 'none'
+        : '2.788px 2.598px 12px 0 rgba(255, 255, 255, 0.15) inset, 1.858px 1.732px 6px 0 rgba(255, 255, 255, 0.15) inset'};
   }
+`;
+
+const BackgroundWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 `;
 
 const Background = styled.div`
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
   background-size: cover;
   background-position: top center;
-  z-index: 0;
 `;
 
-const ContentWrap = styled.div`
+const ContentWrap = styled.div<{ bgGradientColor: string }>`
   position: relative;
   z-index: 2;
   padding: 16px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0) 40%
-  );
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 60%;
+  height: 55%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 10%,
+    ${(props) => props.bgGradientColor} 20%
+  );
 `;
 
 const TopRow = styled(ItemH)`
@@ -102,19 +123,21 @@ const TopRow = styled(ItemH)`
   flex-direction: column;
 `;
 
-const Icon = styled.img`
+const Icon = styled.img<{ appId?: number }>`
   width: 64px;
   height: 64px;
   border-radius: 16px;
-  background: #000;
+  background: ${(props) =>
+    props.appId === 3 || props.appId === 8 ? '#000' : 'transparent'};
   object-fit: cover;
 `;
 
-const Name = styled(Span)`
+const Name = styled(Span)<{ titleColor?: string }>`
   font-weight: 600;
   font-size: 26px;
   line-height: 32px;
   margin-top: 12px;
+  color: ${(props) => props.titleColor || 'var(--ifm-color-white)'};
 `;
 
 const Meta = styled.div`
@@ -130,20 +153,35 @@ const Tags = styled.div`
   flex-wrap: wrap;
 `;
 
-const Tag = styled.span`
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+const Tag = styled.span<{ tagsColor?: string }>`
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0px;
+  color: ${(props) => props.tagsColor || 'var(--ifm-ecosystem-tags-color)'};
 `;
 
-const Heart = styled.button`
-  border: 0;
-  background: transparent;
-  color: #bdbdd4;
-  font-size: 18px;
-  cursor: pointer;
-  &:hover {
-    color: #e879f9;
-  }
+const ComingSoonOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: var(--radius-sm, 16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(74, 74, 74, 0.85) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+`;
+
+const ComingSoonText = styled.span`
+  color: white;
+  text-align: center;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  margin-top: 50px;
 `;
