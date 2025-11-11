@@ -17,7 +17,7 @@ Welcome to the 2nd Volume of - Apps that are only possible with Push Chain’s s
 
 In the [previous edition](https://push.org/blog/apps-only-possible-with-shared-state-v1/), we covered use cases spanning Defi, cross chain yields, universal airdrops and NFTs that can only be possible using capabilities that chains like Push Chain provide.
 
-🚨SPOILER ALERT - You might be able to see some of them in Testnet V1!Stay tuned!
+🚨 SPOILER ALERT - You might be able to see some of them in Testnet V1!Stay tuned!
 
 In this iteration, we will amp up the utility scale and explore few of the most popular areas - loved by both - devs & users.
 
@@ -26,29 +26,13 @@ Feel free to skip down to the use cases section if you’re already aware of the
 
 ## What is Push Chain? - Super Quick Recap:
 
-Push Chain is an all-purpose universal chain that unites every existing and forthcoming chain together (under one roof).
+Push Chain is a shared-state universal blockchain designed to eliminate fragmentation across all chains (EVM + non-EVM). 
 
-<b>It is a shared-state L1 blockchain designed to function as a universal app layer for users across any chain, any wallet and any app.</b>
+**Developers** deploy once and instantly become compatible with every chain and **Users** use the same app no matter the chain they come from.
 
-Combining this with the innovation of cross-chain fees and wallet abstraction, what you get is a blockchain able to read any other chain and… is accessible by users from any chain.
+This results in **shared-state** blockchain. Where users of any chain can natively interact and transact with apps deployed on Push Chain without ever requiring any additional steps.
 
-![First Image of Apps Possible Only with Shared State - Vol.2](./image-1.webp)
-
-## What is a 'shared state' blockchain?
-
-![Second Image of Apps Possible Only with Shared State - Vol.2](./image-2.webp)
-
-At its core, a blockchain maintains a database tracking the state of all wallets and smart contracts (token balances, data, code, etc.). But these states are siloed within their respective chains, even <i>within the same ecosystem.</i>
-
-For example, a wallet's ETH balance on Ethereum differs from its ETH balance on Base because each of these chains maintains its own state.
-
-For building universal apps we need to:
-
-- <b>Read</b> states from other chains (e.g., balances, smart contract data).
-- <b>Write</b> to all chains, and
-- <b>Support wallets</b> across all networks.
-
-The first of these innovations -- i.e. the ability of developers on Push Chain <i>to read and utilise the state of other chains via smart contracts</i> -- is what we mean by a <b>shared-state blockchain.</b>
+![push chain vein diagram](./image1.webp)
 
 ## Apps that are only possible with Shared States:
 
@@ -63,7 +47,7 @@ But it doesn’t stop there. Think Poker, Blackjack, Monopoly, RPGs and more, av
 
 By removing the biggest barriers to on-chain game adoption, i.e. UX and asset fragmentation, <b>Push Chain allows gamers to bring their chain-specific identities to chain-neutral playgrounds.</b>
 
-![Third Image of Apps Possible Only with Shared State - Vol.2](./image-3.webp)
+![Third Image of Apps Possible Only with Shared State - Vol.2](./image3.webp)
 
 #### 🌌What this enables:
 
@@ -105,7 +89,7 @@ Build <b>chain-agnostic AI agents</b> that can:
 
 <b>Ex: Personal Finance Assistant Agent:</b>
 
-![Fourth Image of Apps Possible Only with Shared State - Vol.2](./image-4.webp)
+![Fourth Image of Apps Possible Only with Shared State - Vol.2](./image4.webp)
 
 - Reads the user's balances across Ethereum, Arbitrum, Optimism, and Solana.
 - Notices idle assets on Base and recommends moving them into a higher-yield protocol on Polygon.
@@ -147,7 +131,7 @@ This turns the chaos of fragmented assets into a streamlined, interoperable syst
 - Set up programmable inheritance (e.g., "If inactive for 12 months, transfer all assets — regardless of chain — to this backup wallet").
 - Social recovery mechanisms can pull verification from multiple chains (e.g., "Recover safe if 5/7 friends from Ethereum, Solana, and Polygon sign").
 
-![Fifth Image of Apps Possible Only with Shared State - Vol.2](./image-5.webp)
+![Fifth Image of Apps Possible Only with Shared State - Vol.2](./image5.webp)
 
 #### Why it needs shared-state:
 
@@ -194,7 +178,7 @@ Thus, turning fragmented cross-chain activities into a unified playground for pr
 
 ##### Deeper community engagement: Local prediction markets embedded in apps = high engagement attraction.
 
-![Sixth Image of Apps Possible Only with Shared State - Vol.2](./image-6.webp)
+![Sixth Image of Apps Possible Only with Shared State - Vol.2](./image6.webp)
 
 <b>🤔Why it needs shared-state:</b>
 

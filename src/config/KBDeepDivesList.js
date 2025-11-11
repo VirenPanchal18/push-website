@@ -28,6 +28,16 @@ export const KBDeepDivesList = {
       variant: 'row',
       items: [
         {
+          slug: 'what-are-universal-executor-accounts',
+          image:
+            '/static/assets/website/chain/knowledge/what-are-executor-accounts',
+          imageSrcSet: false,
+          title:
+            'What are Universal Executor Accounts (UEAs) and How do they work?',
+          url: '/blog/what-are-universal-executor-accounts',
+          target: '_blank',
+        },
+        {
           slug: 'interop-spectrum',
           image: '/static/assets/website/chain/knowledge/interop-spectrum',
           imageSrcSet: false,
@@ -42,16 +52,6 @@ export const KBDeepDivesList = {
           imageSrcSet: false,
           title: 'Understanding Proof of Stake (POS) - Part 1',
           url: '/blog/understand-proof-of-stake',
-          target: '_blank',
-        },
-        {
-          slug: 'what-are-universal-executor-accounts',
-          image:
-            '/static/assets/website/chain/knowledge/what-are-executor-accounts',
-          imageSrcSet: false,
-          title:
-            'What are Universal Executor Accounts (UEAs) and How do they work?',
-          url: '/blog/what-are-universal-executor-accounts',
           target: '_blank',
         },
       ],
