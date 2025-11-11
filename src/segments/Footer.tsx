@@ -288,6 +288,7 @@ const ChainFooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: -webkit-fill-available;
+  width: -moz-available;
 `;
 
 const StyledFooter = styled.footer`
