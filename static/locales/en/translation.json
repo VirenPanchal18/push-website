@@ -1109,15 +1109,15 @@
     "ecosystem": {
       "seo": {
         "title": "Push Chain Ecosystem — Universal Apps & Partners",
-        "description": "Discover universal apps, partners, and projects built on Push Chain. Build once, reach users across all chains with shared-state interoperability.",
-        "og-title": "Push Chain Ecosystem - Explore Universal Apps",
+        "description": "Explore the ecosystem of universal apps, partners, and projects built on Push Chain. Build once, reach users across all chains with shared-state interoperability.",
+        "og-title": "Push Chain Ecosystem - Explore Universal Apps & Partners",
         "og-description": "Explore the ecosystem of universal apps and projects live on Push Chain. Experience real cross-chain usability. No bridges or swaps.",
-        "twitter-title": "Explore Push Chain Ecosystem - Universal Apps",
-        "twitter-description": "Explore real universal apps on Push Chain Donut Testnet. Deploy once, reach users across Ethereum, Solana, Base, and beyond."
+        "twitter-title": "Explore Push Chain Ecosystem - Universal Apps & Partners",
+        "twitter-description": "Discover universal apps and partners on Push Chain. Build once, reach users across Ethereum, Solana, Base, and beyond."
       },
       "hero-section": {
         "title": "Explore the Universal Ecosystem",
-        "description": "Discover live apps, partners, and early adopters building the next era of universal experiences on Push Chain’s Donut Testnet."
+        "description": "Discover apps, partners, and early adopters building the next era of universal experiences on Push Chain’s Donut Testnet."
       }
     }
   },

@@ -1,7 +1,7 @@
 ---
 slug: introducing-push-chains-donut-testnet
 title: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
-authors: [push]
+authors: [harsh]
 image: './cover-image.webp'
 description: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
 text: "After years of fragmentation, the time has come to unite all chains."
