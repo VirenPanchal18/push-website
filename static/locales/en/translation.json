@@ -265,7 +265,7 @@
   "pages": {
     "home": {
       "seo": {
-        "title": "Home - Push Chain | The Universal Blockchain for Apps",
+        "title": "Home — Push Chain | The Universal Blockchain for Apps",
         "description": "Shared-state blockchain for universal apps. Deploy once; reach users on any chain. Use any wallet. Pay with any token.",
         "og-title": "Push Chain - Universal L1 for Apps",
         "og-description": "One deploy for EVM and non-EVM users. Use any wallet and pay with any token — no network switching.",
@@ -906,7 +906,7 @@
       },
       "validators": {
         "seo": {
-          "title": "Validators",
+          "title": "Validators —",
           "description": "Quick answers about wallets, fees, supported chains, and getting started.",
           "og-title": "Push Chain FAQ - All Questions",
           "og-description": "Find fast answers with links to guides, testnet, and support.",
@@ -1108,16 +1108,16 @@
     },
     "ecosystem": {
       "seo": {
-        "title": "Push Chain Ecosystem",
-        "description": "Explore universal apps built on Push Chain. Deploy once, reach users across all chains with seamless cross-chain functionality.",
-        "og-title": "Push Chain Ecosystem - Universal Apps for Every Chain",
-        "og-description": "Discover apps that work natively across Ethereum, Solana, and all chains. No bridges, no gas juggling, just seamless Web3.",
-        "twitter-title": "Push Chain Ecosystem - Universal Apps",
-        "twitter-description": "Build once, reach everywhere. Explore apps that work across all chains with Push Chain's universal architecture."
+        "title": "Push Chain Ecosystem — Universal Apps & Partners",
+        "description": "Discover universal apps, partners, and projects built on Push Chain. Build once, reach users across all chains with shared-state interoperability.",
+        "og-title": "Push Chain Ecosystem - Explore Universal Apps",
+        "og-description": "Explore the ecosystem of universal apps and projects live on Push Chain. Experience real cross-chain usability. No bridges or swaps.",
+        "twitter-title": "Explore Push Chain Ecosystem - Universal Apps",
+        "twitter-description": "Explore real universal apps on Push Chain Donut Testnet. Deploy once, reach users across Ethereum, Solana, Base, and beyond."
       },
       "hero-section": {
-        "title": "Testnet Apps",
-        "description": "Explore the ecosystem of universal apps that feel like magic to use. Discover apps, partners, and projects being built on Push Chain Testnet"
+        "title": "Explore the Universal Ecosystem",
+        "description": "Discover live apps, partners, and early adopters building the next era of universal experiences on Push Chain’s Donut Testnet."
       }
     }
   },
