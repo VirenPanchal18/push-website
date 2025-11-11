@@ -137,9 +137,9 @@ Each of these steps will bring us closer to the **Push Chain Mainnet**.
 * **Knowledge Base:** [push.org/knowledge](http://push.org/knowledge)
 * **Let’s Push Yaps:** [push.org/lfpush](http://push.org/lfpush)
 * **Push Explorer:** [donut.push.network](https://donut.push.network/)
-* **Push Faucet:** faucet.push.org/
-* **Push Validator:** [https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/)
-* **Apply for Grassroots Program:** [https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO)
+* **Push Faucet:** [faucet.push.org](https://faucet.push.org)
+* **Push Validator:** [push.org/docs/chain/node-and-system-tools/running-push-validator](https://push.org/docs/chain/node-and-system-tools/running-push-validator/)
+* **Apply for Grassroots Program:** [zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO)
 
 
 ## 🧙 Start Building
