@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'Apps of the Future - Building without the Chaos'
 text: "Crypto has matured. The next generation of apps need to compete and build with finesse."
-tags: [Deployathon, Donut Testnet, Early Access, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+tags: [Deployathon, Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
 twitterId: '1981300141622804664'
 ---
 

@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
 text: "After years of fragmentation, the time has come to unite all chains."
-tags: [Donut Testnet, Early Access, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
 ---
 
 ![A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩](./cover-image.webp)
@@ -29,13 +29,13 @@ Developers must redeploy smart contracts across multiple chains, users have to b
 
 Each new chain adds overhead, complexity, cost and friction, which massively slows innovation and adoption.
 
-**Push Chain eliminates these barriers.**
+**_Push Chain eliminates these barriers_**
 
 It reimagines a shared-state, universal blockchain **built to make interoperability a fundamental primitive of the chain**, not an afterthought added through external protocols.
 
 This enables native applications, wallets, and users from any chain to interact seamlessly without bridges or additional integration layers.
 
-“An app developer should only build their app and its features. We enable this\! Deploy once and you are able to reach every user on any chain.”
+> “An app developer should only build their app and its features. We enable this\! Deploy once and you are able to reach every user on any chain.”
  — **Harsh Rajat, Founder of Push Chain**, in his talk [**Building Apps of the Future**](https://youtu.be/J5DYeiNzGjM?si=RBimzjapmnHiscLd)
 
 
@@ -65,13 +65,13 @@ The roadmap outlines Push Chain’s journey from universal core features to full
 Donut brings the full Push ecosystem online with:
 
 * 🌳 **Ecosystem Apps:** Explore live Universal Apps on the [Ecosystem Page](https://push.org/ecosystem).
-* **📖 Developer Docs:** Start building Universal Apps at [push.org/docs](https://push.org/docs).
-* **🧠 Knowledge Base:** Learn the architecture and design at [push.org/knowledge](https://push.org/knowledge).
+* **📖 Developer Docs:** Start building Universal Apps from [Developer Docs](https://push.org/docs).
+* **🧠 Knowledge Base:** Learn the architecture and design from [Knowledge Base](https://push.org/knowledge).
 * **🪩 Popular Apps to Try:**
   * [Ballsy](https://ballsy.push.org/) — experience the same app logic working seamlessly across chains.
   * [Simulate](https://simulate.push.org/) — test and visualize cross-chain interactions.
-* **💧 Faucet:** Get testnet tokens at [faucet.push.org](https://faucet.push.org).
-* **🔍 Donut Scan:** Track transactions and network data at [donut.push.network](https://donut.push.network/).
+* **💧 Faucet:** Get testnet tokens from [Testnet Faucet](https://faucet.push.org).
+* **🔍 Donut Scan:** Track transactions and network data from [Push Scan](https://donut.push.network/).
 
 ## 🧭 How do I Participate in the Network?
 
@@ -85,33 +85,34 @@ The chain currently supports **Ethereum, Solana, Base, Arbitrum, and BNB Chain**
 
 Start building your first Universal App:
 
-* Explore the [Documentation](https://push.org/docs)
+* **Explore** the [Documentation](https://push.org/docs)<br />
   Interact with live codeboxes, examples right from the docs.
-* Play around with [Ballsy App](https://ballsy.push.org)
+
+* **Play** around with [Ballsy App](https://ballsy.push.org)<br />
   Experience a Universal App in action. No wallet, gas juggling or setup required.
-* Apply for 🌱[Grassroot Program](https://zv9atndluia.typeform.com/to/ItQ7i2sO)
+
+* **Apply** for 🌱 [Grassroot Program](https://zv9atndluia.typeform.com/to/ItQ7i2sO)<br />
   We are a developer-first chain. Want to take your app to the next level? Have persistence and passion? Apply to be included in our Grassroot Program and scale your app to reach every user..
 
-### 🌎Users
+### 🌎 Users
 
 Experience a Web3 that just works: No switching chains, bridging tokens, or learning required.
 
 Use your existing wallet to access any app on Push Chain and pay directly in your native token.
 
-* Try Universal Apps on our 🌳[Ecosystem Page](https://push.org/ecosystem)
+* Try Universal Apps on our 🌳 [Ecosystem Page](https://push.org/ecosystem)
+
 * Check activity of Donut Testnet on [Push Explorer](https://donut.push.network)
 
 ### 🧑‍🚀 Node Operators
 
-Push Chain’s network is powered by a decentralized set of validators.
-
-To run a validator, execute the following command on Mac or Ubuntu:
+Push Chain’s network is powered by a decentralized set of validators. To run a validator, execute the following command on Mac or Ubuntu:
 
 `curl -fsSL https://get.push.network/node/install.sh | bash`
 
-To understand the different configs and what everything means, check out [Running Push Validator](https://push.org/docs/chain/node-and-system-tools/running-push-validator/).
+To understand the different configs and what everything means, check out [Push Validator](https://push.org/docs/chain/node-and-system-tools/running-push-validator/).
 
-Why run a testnet validator?
+**Why run a testnet validator?**
 
 Running a testnet validator helps strengthen the network and shape its mainnet readiness. It may also include perks and benefits that will come with Season 3 of [Push Points Program](https://portal.push.org).
 
@@ -123,13 +124,13 @@ Tag [@pushchain](https://x.com/PushChain) and share your experience with us on X
 
 It focuses on ushering in the universal era of Web3, the future of connected crypto apps, while also testing network performance and developer tooling.
 
-We are already seeing signs of [community and ecosystem love](https://push.org/lfpush) and in the coming months, we will be onboarding more ecosystem apps, developer tools, tutorials along with expanding our validators participation.
+We are already seeing signs of [community and ecosystem love](https://push.org/lfpush) and in the coming weeks, we will be onboarding more ecosystem apps, developer tools, tutorials along with expanding our validators participation.
 
 Each of these steps will bring us closer to the **Push Chain Mainnet**.
 
-Keep an eye out 👀 for Season 3 of our Push Points Program, which will give perks and benefits to participants of testnet. The exact rewards will be announced closer to our mainnet but there is something for everyone there.
+**PS:** Keep an eye out 👀 for Season 3 of our Push Points Program, which will give perks and benefits to participants of testnet. The exact rewards will be announced closer to our mainnet but there is something for everyone there.
 
-<!--### 🔗 Quick Links
+## 🔗 Quick Links
 
 * **Ecosystem Apps:** [push.org/ecosystem](http://push.org/ecosystem)
 * **Documentation:** [push.org/docs](https://push.org/docs)
@@ -138,10 +139,10 @@ Keep an eye out 👀 for Season 3 of our Push Points Program, which will give pe
 * **Push Explorer:** [donut.push.network](https://donut.push.network/)
 * **Push Faucet:** faucet.push.org/
 * **Push Validator:** [https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/)
-* **Apply for Grassroots Program:** [https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO)-->
+* **Apply for Grassroots Program:** [https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO)
 
 
-## 🧙Start Building
+## 🧙 Start Building
 
 Be the change, the catalyst that changes web3. Let’s build Universal Apps. 💪
 

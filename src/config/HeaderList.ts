@@ -16,6 +16,13 @@ export const HeaderList = {
       id: 'faucet',
       target: '_blank',
     },
+    {
+      text: 'header.testnet.link3.text',
+      subtext: 'header.testnet.link3.subtext',
+      title: 'header.testnet.link3.title',
+      href: '/ecosystem',
+      target: '_self',
+    },
   ],
   developers: [
     {
@@ -102,13 +109,6 @@ export const HeaderList = {
       subtext: 'header.community.link5.subtext',
       title: 'header.community.link5.title',
       href: 'https://discord.com/invite/pushchain',
-      target: '_blank',
-    },
-    {
-      text: 'header.community.link6.text',
-      subtext: 'header.community.link6.subtext',
-      title: 'header.community.link6.title',
-      href: 'https://t.me/epnsproject',
       target: '_blank',
     },
   ],
