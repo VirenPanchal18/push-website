@@ -127,7 +127,7 @@ export default function Root({ children }) {
           {typeof window !== 'undefined' && showAlertBar && (
             <InfoBar
               translatedTextKey='notifications.info-bar.title'
-              url='https://push.org/blog/announcing-project-gud-go-universal-and-deploy/'
+              url='https://push.org/ecosystem/'
             />
           )}
 

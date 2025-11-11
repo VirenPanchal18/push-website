@@ -19,6 +19,8 @@ const InfoBar = ({ translatedTextKey, url }: InfoBarProps) => {
     useContext(AccountContext);
   const { t } = useTranslation();
 
+  console.log('try it', window, shouldShowAlertBar, isHydrated);
+
   // Prevent rendering during SSR and before hydration
   if (typeof window === 'undefined') return null;
   if (!isHydrated) return null;
@@ -150,7 +152,7 @@ const HeroButton = styled(Button)`
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 142%;
-    margin-left: 24px;
+    margin-left: 12px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
   }
