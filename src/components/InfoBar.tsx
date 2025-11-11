@@ -19,8 +19,6 @@ const InfoBar = ({ translatedTextKey, url }: InfoBarProps) => {
     useContext(AccountContext);
   const { t } = useTranslation();
 
-  console.log('try it', window, shouldShowAlertBar, isHydrated);
-
   // Prevent rendering during SSR and before hydration
   if (typeof window === 'undefined') return null;
   if (!isHydrated) return null;

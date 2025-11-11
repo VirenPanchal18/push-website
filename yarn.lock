@@ -5656,7 +5656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:3.0.5":
+"@pushchain/core@npm:3.0.5, @pushchain/core@npm:^3.0.5":
   version: 3.0.5
   resolution: "@pushchain/core@npm:3.0.5"
   dependencies:
@@ -5679,36 +5679,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:^2.1.5":
-  version: 2.1.6
-  resolution: "@pushchain/core@npm:2.1.6"
-  dependencies:
-    "@bufbuild/protobuf": "npm:^2.0.0"
-    "@coral-xyz/anchor": "npm:^0.31.0"
-    "@cosmjs/crypto": "npm:0.33.1"
-    "@cosmjs/encoding": "npm:0.33.1"
-    "@cosmjs/proto-signing": "npm:^0.33.1"
-    "@cosmjs/stargate": "npm:^0.33.1"
-    "@cosmjs/tendermint-rpc": "npm:0.33.1"
-    "@solana/web3.js": "npm:^1.68.0"
-    buffer: "npm:^6.0.3"
-    cosmjs-types: "npm:0.9.0"
-    ethers: "npm:^6.14.3"
-    protobufjs: "npm:7.4.0"
-    tslib: "npm:^2.3.0"
-    tweetnacl: "npm:^1.0.3"
-    viem: "npm:2.27.2"
-  checksum: 10c0/a5a6826b1488244d9261e4570cf3052f76c09f1f923ce365fc1ff4c2ee4266a93346c3df1e17a0347ecf90e3d77ebb99ae550bb6c93579d20bf5710ed0a39497
-  languageName: node
-  linkType: hard
-
-"@pushchain/ui-kit@npm:2.0.15":
-  version: 2.0.15
-  resolution: "@pushchain/ui-kit@npm:2.0.15"
+"@pushchain/ui-kit@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@pushchain/ui-kit@npm:2.1.1"
   dependencies:
     "@coral-xyz/anchor": "npm:^0.31.1"
     "@metamask/sdk": "npm:^0.32.0"
-    "@pushchain/core": "npm:^2.1.5"
+    "@pushchain/core": "npm:^3.0.5"
     "@solana/web3.js": "npm:^1.98.2"
     "@walletconnect/ethereum-provider": "npm:^2.21.5"
     buffer: "npm:^6.0.3"
@@ -5720,7 +5697,7 @@ __metadata:
   peerDependencies:
     react: ">=18.3.0 <20.0.0"
     react-dom: ">=18.3.0 <20.0.0"
-  checksum: 10c0/a1bc24e962de4f27d8042d75e7ec1b64f4af14bc00cce7969b4d791565cd0bbdf9fdc3ff72bfb78cfd1815b56d6619973dec5c33db7e11a873f27459191dc7e5
+  checksum: 10c0/966d1a4ed281ef6a308fc1e659715f4075d9ef189ae9366d62667451a28ca62ea8f4fdf0d92e4ab96bef5ee26c1f04e9b59a9864063435136029f28ee27a8dd4
   languageName: node
   linkType: hard
 
@@ -21351,7 +21328,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pushchain/core": "npm:3.0.5"
-    "@pushchain/ui-kit": "npm:2.0.15"
+    "@pushchain/ui-kit": "npm:2.1.1"
     "@pushprotocol/restapi": "npm:1.7.20"
     "@pushprotocol/uiweb": "npm:1.7.1"
     "@radix-ui/react-dialog": "npm:^1.1.2"
