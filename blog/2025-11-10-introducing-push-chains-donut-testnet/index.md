@@ -7,6 +7,7 @@ description: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet �
 text: "After years of fragmentation, the time has come to unite all chains."
 tags: [Donut Testnet, Early Access, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
 ---
+import { ImageText } from '@site/src/css/SharedStyling';
 
 ![A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩](./cover-image.webp)
 
@@ -59,8 +60,7 @@ Here’s how we got here, and what comes next\!
 
 ![A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩](./image-1.webp)
 
-
-The roadmap outlines Push Chain’s journey from universal core features to full cross-chain execution and mainnet readiness.
+<ImageText>The roadmap outlines Push Chain’s journey from universal core features to full cross-chain execution and mainnet readiness.</ImageText>
 
 Donut brings the full Push ecosystem online with:
 
@@ -129,17 +129,6 @@ Each of these steps will bring us closer to the **Push Chain Mainnet**.
 
 Keep an eye out 👀 for Season 3 of our Push Points Program, which will give perks and benefits to participants of testnet. The exact rewards will be announced closer to our mainnet but there is something for everyone there.
 
-<!--### 🔗 Quick Links
-
-* **Ecosystem Apps:** [push.org/ecosystem](http://push.org/ecosystem)
-* **Documentation:** [push.org/docs](https://push.org/docs)
-* **Knowledge Base:** [push.org/knowledge](http://push.org/knowledge)
-* **Let’s Push Yaps:** [push.org/lfpush](http://push.org/lfpush)
-* **Push Explorer:** [donut.push.network](https://donut.push.network/)
-* **Push Faucet:** faucet.push.org/
-* **Push Validator:** [https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/)
-* **Apply for Grassroots Program:** [https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO)-->
-
 
 ## 🧙Start Building
 
@@ -150,5 +139,5 @@ Be the change, the catalyst that changes web3. Let’s build Universal Apps. �
 ![A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩](./image-2.webp)
 
 
-**Push Chain Donut Testnet — Live Now 🍩**
+**Push Chain Donut Testnet — Live Now 🍩** <br />
 Build universal. Deploy once. Reach everywhere.
