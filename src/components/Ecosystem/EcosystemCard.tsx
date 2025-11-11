@@ -138,6 +138,15 @@ const TopRow = styled(ItemH)`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+  }
 `;
 
 const Icon = styled.img<{ appId?: number }>`
@@ -155,6 +164,12 @@ const Name = styled(Span)<{ titleColor?: string }>`
   line-height: 32px;
   margin-top: 12px;
   color: ${(props) => props.titleColor || 'var(--ifm-color-white)'};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
 `;
 
 const Meta = styled.div`
