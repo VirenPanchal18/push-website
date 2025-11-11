@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 type AccountContextType = {
   showAlertBar: boolean;
@@ -21,31 +21,25 @@ export const AccountProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [showAlertBar, setShowAlertBarState] = useState<boolean>(false);
+  const [showAlertBar, setShowAlertBarState] = useState<boolean>(true);
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
   const [shouldShowAlertBar, setShouldShowAlertBar] = useState<boolean>(false);
   const [delayedShowAlertBar, setDelayedShowAlertBar] =
     useState<boolean>(false);
   const [wasEverVisible, setWasEverVisible] = useState<boolean>(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('showAlertBar');
+      // Show alert bar if localStorage is not explicitly set to 'false'
+      const shouldShow = stored !== 'false';
+      setShouldShowAlertBar(shouldShow);
+      setShowAlertBarState(shouldShow);
+    }
     setIsHydrated(true);
   }, []);
 
-  // React.useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const stored = localStorage.getItem('showAlertBar');
-  //     const shouldShow = stored === null ? true : stored === 'true';
-  //     setShowAlertBarState(shouldShow);
-  //     setShouldShowAlertBar(shouldShow);
-  //     if (shouldShow) setWasEverVisible(true);
-  //   } else {
-  //     setShouldShowAlertBar(showAlertBar);
-  //     if (showAlertBar) setWasEverVisible(true);
-  //   }
-  // }, [showAlertBar]);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (shouldShowAlertBar) {
       setDelayedShowAlertBar(true);
       setWasEverVisible(true);
