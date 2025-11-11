@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
 text: "After years of fragmentation, the time has come to unite all chains."
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+twitterId: '1988261231128703213'
 ---
 
 ![A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩](./cover-image.webp)
