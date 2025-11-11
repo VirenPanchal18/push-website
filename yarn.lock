@@ -5656,9 +5656,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:2.1.9":
-  version: 2.1.9
-  resolution: "@pushchain/core@npm:2.1.9"
+"@pushchain/core@npm:3.0.5":
+  version: 3.0.5
+  resolution: "@pushchain/core@npm:3.0.5"
   dependencies:
     "@bufbuild/protobuf": "npm:^2.0.0"
     "@coral-xyz/anchor": "npm:^0.31.0"
@@ -5675,7 +5675,7 @@ __metadata:
     tslib: "npm:^2.3.0"
     tweetnacl: "npm:^1.0.3"
     viem: "npm:2.27.2"
-  checksum: 10c0/daa3b64060f99d08269bbd92cde33219d06fbf83ae6f7e30bb1c5666b21caf318e900116af53c46f6e4eabaf4df0409b52738f6091caf7ab78d60081c223d55e
+  checksum: 10c0/e61070b8591ce95749a9d03413f7be1699f9656503b613262ab0aefdd05f37fc5f348326ea130e14572c05c5f6df396a5a01ceda9f12bc61f5fa555ee4cfd6c3
   languageName: node
   linkType: hard
 
@@ -21350,7 +21350,7 @@ __metadata:
     "@docusaurus/types": "npm:^3.8.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
-    "@pushchain/core": "npm:2.1.9"
+    "@pushchain/core": "npm:3.0.5"
     "@pushchain/ui-kit": "npm:2.0.15"
     "@pushprotocol/restapi": "npm:1.7.20"
     "@pushprotocol/uiweb": "npm:1.7.1"
