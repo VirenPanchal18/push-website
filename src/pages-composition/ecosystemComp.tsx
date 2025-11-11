@@ -2,9 +2,12 @@
 // @ts-nocheck
 
 import React from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
+import EcosystemBlocks from '@site/src/components/Ecosystem/EcosystemBlocks';
+import { EcosystemAppsList } from '@site/src/config/EcosystemAppsList';
+import { device } from '@site/src/config/globals';
 import {
   Content,
   H1,
@@ -13,11 +16,8 @@ import {
   Section,
   Span,
 } from '@site/src/css/SharedStyling';
-import { device } from '@site/src/config/globals';
-import { EcosystemAppsList } from '@site/src/config/EcosystemAppsList';
-import EcosystemBlocks from '@site/src/components/Ecosystem/EcosystemBlocks';
-import EcosystemApps from '../components/Ecosystem/EcosystemApps';
 import { BsArrowRight } from 'react-icons/bs';
+import EcosystemApps from '../components/Ecosystem/EcosystemApps';
 
 // ----- Page -----
 const EcosystemComp: React.FC = () => {
