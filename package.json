@@ -51,7 +51,7 @@
     "@mdx-js/react": "^3.0.0",
     "@openzeppelin/merkle-tree": "^1.0.8",
     "@pushchain/core": "3.0.5",
-    "@pushchain/ui-kit": "2.0.15",
+    "@pushchain/ui-kit": "2.1.1",
     "@pushprotocol/restapi": "1.7.20",
     "@pushprotocol/uiweb": "1.7.1",
     "@radix-ui/react-dialog": "^1.1.2",

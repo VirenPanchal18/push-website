@@ -4,8 +4,8 @@ title: 'Donut Testnet Closed Beta is Now Live!'
 authors: [push]
 image: './cover-image.webp'
 description: 'Donut Testnet Closed Beta is Now Live!'
-text: "We’ve been building the foundation for a new era of universal apps.Now, we're opening the gates."
-tags: [Push Chain, Donut, Closed Beta, Early Access, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Testnet]
+text: "We've been building the foundation for a new era of universal apps.Now, we're opening the gates."
+tags: [Push Chain, Donut, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Testnet]
 twitterId: '1943312573107150884'
 ---
 
@@ -15,7 +15,7 @@ twitterId: '1943312573107150884'
 
 ## Donut Testnet Closed Beta is Now Live!
 
-**We’ve been building the foundation for a new era of universal apps.** Now, we're opening the gates. Push Chain's **Closed Beta Pass** is here.
+**We've been building the foundation for a new era of universal apps.** Now, we're opening the gates. Push Chain's **Closed Beta Pass** is here.
 
 This is your chance to be the first to preview our Testnet, Donut. Selected developers will get hands-on with our SDK, UIKit, tooling, docs to be the first to deploy their app on Push Chain.
 
@@ -23,7 +23,7 @@ This guide will walk you through how to join and start building on **Donut**.
 
 **👉 [Join the Closed Beta](https://t.me/+dHOCilvxNR9jZjM9)**
 
-## 👀 What Early Access Unlocks?
+## 👀 What Early Access Unlocks?
 
 ### 🔧 **Powerful SDK, UIKit, Tooling and easy to follow Docs**
 
@@ -41,7 +41,7 @@ Direct line to Push Chain Core devs & other cracked devs participating in the cl
 
 Network, team up and learn from the best! Also, unlock special Invites to community meets and private previews.
 
-## 🍩 Why Donut?
+## 🍩 Why Donut?
 
 The first Layer 1 built for Universal Apps. Build & Deploy once, onboard users from any chain.
 
@@ -51,8 +51,6 @@ The first Layer 1 built for Universal Apps. Build & Deploy once, onboard users f
 
 **✅ Create unique app experiences, by having users of different chains transact with the same app.**
 
-## 🎟️ Claim your Donut Testnet Pass HERE 
+## [🎟️ Claim your Donut Testnet Pass HERE](https://t.me/+dHOCilvxNR9jZjM9)
 
 PS: *(Spots are limited, Early access closes soon)*
-
-⚠️ Expired - Public Testnet is now live.
