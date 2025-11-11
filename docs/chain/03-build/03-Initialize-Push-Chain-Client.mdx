@@ -394,7 +394,7 @@ const pushChainClient2 = await pushChainClient1.reinitialize(newSignerOrAccount,
       const client1 = await PushChain.initialize(signer, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
-      console.log('Before (explorer URLs):', client1.explorer.listUrls());
+      console.log('Before (explorer URLs):', JSON.stringify(client1.explorer.listUrls()));
 
       // Reinitialize with SAME signer, change only ONE option (blockExplorers)
       const client2 = await client1.reinitialize(signer, {
@@ -402,7 +402,7 @@ const pushChainClient2 = await pushChainClient1.reinitialize(newSignerOrAccount,
           [PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT]: ['https://custom-explorer.push.network'] },
         }
       );
-      console.log('After  (explorer URLs):', client2.explorer.listUrls());
+      console.log('After  (explorer URLs):', JSON.stringify(client2.explorer.listUrls()));
   }
 
   await main().catch(console.error);
