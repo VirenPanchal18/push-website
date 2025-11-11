@@ -98,7 +98,7 @@ export default function NotFoundContent({ className }: Props): ReactElement {
           </Section>
 
           {isDocsOrBlogsPage && (
-            <ItemH background='var(--ifm-color-neutral-200)'>
+            <ItemH background='var(--ifm-color-black)'>
               <Footer showPattern={false} />
             </ItemH>
           )}

@@ -85,7 +85,7 @@ export default function Layout(props) {
       </div>
 
       {showNavbar === 'website' && (
-        <ItemH background='var(--ifm-color-neutral-200)'>
+        <ItemH background='var(--ifm-color-black)'>
           <Footer showPattern={false} />
         </ItemH>
       )}
