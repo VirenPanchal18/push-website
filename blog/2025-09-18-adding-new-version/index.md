@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'Announcing Project G.U.D — Go Universal & Deploy on Push Chain, Win $5,000'
 text: "Push Chain is a shared-state Layer 1 blockchain built to eliminate fragmentation across all chains"
-tags: [Deployathon, Donut Testnet, Early Access, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+tags: [Deployathon, Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
 twitterId: '1968676767419572683'
 ---
 

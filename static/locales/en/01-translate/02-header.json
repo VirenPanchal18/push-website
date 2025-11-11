@@ -23,6 +23,11 @@
         "text": "Faucet",
         "subtext": "Get testnet tokens",
         "title": "Get free testnet tokens for Push Chain development"
+      },
+      "link3": {
+        "text": "Ecosystem",
+        "subtext": "See apps built on Push Chain",
+        "title": "See apps built on Push Chain"
       }
     },
     "developers": {
