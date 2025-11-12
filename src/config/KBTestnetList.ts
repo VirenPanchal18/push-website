@@ -142,7 +142,7 @@ export const KBTestnetList = {
           imageSrcSet: false,
           title:
             'Service Outage - Donut Testnet - 11 Nov 7 PM UTC - 12 Nov 7 AM UTC',
-          url: 'http://push.org/ecosystem',
+          url: '/knowledge/testnet/report/incident-12-nov-2025',
           target: '_blank',
         },
       ],
