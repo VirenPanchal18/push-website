@@ -42,7 +42,7 @@ function TestnetPage() {
         <meta
           property='og:image'
           content={useBaseUrl(
-            require('/static/assets/previews/kbfaqpreview.png').default,
+            require('/static/assets/previews/kbdonut.png').default,
             { absolute: true }
           )}
         />
@@ -62,7 +62,7 @@ function TestnetPage() {
         <meta
           name='twitter:image'
           content={useBaseUrl(
-            require('/static/assets/previews/kbfaqpreview.png').default,
+            require('/static/assets/previews/kbdonut.png').default,
             { absolute: true }
           )}
         />

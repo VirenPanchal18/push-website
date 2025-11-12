@@ -63,7 +63,7 @@ const KnowledgeComp = () => {
       </>
     ),
     video: {
-      src: 'https://www.youtube.com/embed/-cojsUIHcLE',
+      src: 'https://www.youtube.com/embed/-cojsUIHcLE?rel=0',
       title: 'Push Chain Public Testnet is Live',
     },
     // image: `knowledge-frame`,

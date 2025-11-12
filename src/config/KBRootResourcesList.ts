@@ -21,6 +21,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.push101',
           target: '_self',
           image: '/static/assets/website/docshub/WhitePushLogo',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BG.png`).default,
           bgColor: '#dd6fff',
           bgStylizing: {
@@ -39,6 +40,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.builders',
           target: '_self',
           image: '/static/assets/website/docshub/BuildOnPushIcon',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
           bgColor: '#101010',
           bgStylizing: {
@@ -55,6 +57,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.deepdives',
           target: '_self',
           image: '/static/assets/website/docshub/TechnicalDeepDivesIcon',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
           bgColor: 'var(--ifm-color-kb-dark)',
           bgStylizing: {
@@ -71,6 +74,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.devdocs',
           target: '_self',
           image: '/static/assets/website/docshub/DeveloperDocsIcon',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlueBG.png`).default,
           bgColor: 'var(--ifm-color-kb-blue)',
           bgStylizing: {
@@ -88,6 +92,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.tokenomics',
           target: '_self',
           image: '/static/assets/website/docshub/TokenomicsIcon',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
           bgColor: 'var(--ifm-color-kb-dark)',
           bgStylizing: {
@@ -103,6 +108,7 @@ export const KBRootResourcesList = {
             'pages.knowledge.explainer-section.blocks.sections.resources.items.faq',
           target: '_self',
           image: '/static/assets/website/docshub/FAQIcons',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
           bgColor: 'var(--ifm-color-kb-dark)',
           bgStylizing: {
@@ -118,7 +124,8 @@ export const KBRootResourcesList = {
           valueKey:
             'pages.knowledge.explainer-section.blocks.sections.resources.items.testnet',
           target: '_self',
-          image: '/static/assets/website/docshub/FAQIcons',
+          image: '/static/assets/website/docshub/TestnetDonutIcon',
+          imageSrcSet: true,
           // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
           bgColor: 'var(--ifm-color-kb-dark)',
           bgStylizing: {
@@ -135,6 +142,7 @@ export const KBRootResourcesList = {
         //     'pages.knowledge.explainer-section.blocks.sections.resources.items.validators',
         //   target: '_self',
         //   image: '/static/assets/website/docshub/FAQIcons',
+        //   imageSrcSet: true,
         //   // bgImage: require(`@site/static/assets/website/docshub/BlackBG.png`).default,
         //   bgColor: 'var(--ifm-color-kb-dark)',
         //   bgStylizing: {

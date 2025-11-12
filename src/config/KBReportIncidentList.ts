@@ -1,5 +1,5 @@
 export const KBReportIncidentList = {
-  title: 'Incident Nov 12, 2025',
+  title: 'Incident MMM DD, YYYY',
   content: [
     {
       type: 'indexlist',

@@ -48,28 +48,24 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'For Developers',
+      title:
+        'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.title',
       topGap: true,
       bottomGap: true,
       variant: 'row',
       items: [
         {
-          slug: 'ecosystem-apps',
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.documentation',
+          slug: 'documentation',
           image: '/static/assets/website/chain/knowledge/developer-docs',
           imageSrcSet: false,
-          title: 'Ecosystem Apps',
-          url: 'http://push.org/ecosystem',
-          target: '_blank',
-        },
-        {
-          slug: 'documentation',
-          image: '/static/assets/website/chain/knowledge/developer-faucet',
-          imageSrcSet: false,
-          title: 'Documentation',
           url: 'https://push.org/docs',
           target: '_blank',
         },
         {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.push-explorer',
           slug: 'push-explorer',
           image: '/static/assets/website/chain/knowledge/developer-explorer',
           imageSrcSet: false,
@@ -78,28 +74,21 @@ export const KBTestnetList = {
           target: '_blank',
         },
         {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.push-faucet',
           slug: 'apply-glassroots',
-          image: '/static/assets/website/chain/knowledge/developer-explorer',
+          image: '/static/assets/website/chain/knowledge/grassroots',
           imageSrcSet: false,
-          title: 'Apply for Grassroots Program',
           url: 'https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO',
           target: '_blank',
         },
-      ],
-    },
-    {
-      type: 'list',
-      title: 'For Validators',
-      topGap: true,
-      bottomGap: true,
-      variant: 'row',
-      items: [
         {
-          slug: 'push-validator',
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.grassroots-program',
+          slug: 'apply-glassroots',
           image: '/static/assets/website/chain/knowledge/developer-explorer',
           imageSrcSet: false,
-          title: 'Push Validator',
-          url: 'https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/',
+          url: 'https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO',
           target: '_blank',
         },
       ],
@@ -112,16 +101,28 @@ export const KBTestnetList = {
       variant: 'row',
       items: [
         {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.ecosystem-apps',
           slug: 'ecosystem-apps',
-          image: '/static/assets/website/chain/knowledge/developer-docs',
+          image: '/static/assets/website/chain/knowledge/ecosystem',
           imageSrcSet: false,
-          title: 'Ecosystem Apps',
           url: 'http://push.org/ecosystem',
           target: '_blank',
         },
         {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.knowledge-base',
+          slug: 'knowledge-base',
+          image: '/static/assets/website/chain/knowledge/knowledgebase',
+          imageSrcSet: false,
+          url: 'http://push.org/knowledge-base',
+          target: '_blank',
+        },
+        {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.lets-push-yaps',
           slug: 'lets-push-yaps',
-          image: '/static/assets/website/chain/knowledge/developer-explorer',
+          image: '/static/assets/website/chain/knowledge/lfpush',
           imageSrcSet: false,
           title: `Let's Push Yaps`,
           url: 'http://push.org/lfpush',
@@ -131,21 +132,40 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'Incident Reports',
+      title: 'For Validators',
       topGap: true,
       bottomGap: true,
       variant: 'row',
       items: [
         {
-          slug: 'ecosystem-apps',
-          image: '/static/assets/website/chain/knowledge/developer-docs',
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.items.push-validator',
+          slug: 'push-validator',
+          image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
-          title:
-            'Service Outage - Donut Testnet - 11 Nov 7 PM UTC - 12 Nov 7 AM UTC',
-          url: '/knowledge/testnet/report/incident-12-nov-2025',
+          title: 'Push Validator',
+          url: 'https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/',
           target: '_blank',
         },
       ],
     },
+    // {
+    //   type: 'list',
+    //   title: 'Incident Reports',
+    //   topGap: true,
+    //   bottomGap: true,
+    //   variant: 'row',
+    //   items: [
+    //     {
+    //       slug: 'ecosystem-apps',
+    //       image: '/static/assets/website/chain/knowledge/developer-docs',
+    //       imageSrcSet: false,
+    //       title:
+    //         'Service Outage - Donut Testnet - Date',
+    //       url: '/knowledge/testnet/report/incident-12-nov-2025',
+    //       target: '_blank',
+    //     },
+    //   ],
+    // },
   ],
 };
