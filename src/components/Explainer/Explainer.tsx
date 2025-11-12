@@ -733,7 +733,7 @@ const ChainKnowledgeBaseIndexList = ({ block, blockIndex }) => {
         )}
       </ItemV>
 
-      <ItemV flex={1}>
+      <ItemV width={'100%'} flex={1}>
         <TextItem>
           <Markdown
             remarkPlugins={[remarkGfm]}
@@ -930,6 +930,15 @@ const TextItem = styled.div`
   img {
     border-radius: 32px;
     margin: 16px 0;
+  }
+
+  /* Target only video iframes */
+  iframe[src*='youtube.com'],
+  iframe[src*='youtu.be'],
+  iframe[src*='vimeo.com'] {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
   }
 
   /* Admonition styling */
