@@ -48,7 +48,7 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'Developers',
+      title: 'For Developers',
       topGap: true,
       bottomGap: true,
       variant: 'row',
@@ -89,7 +89,7 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'Validators',
+      title: 'For Validators',
       topGap: true,
       bottomGap: true,
       variant: 'row',
@@ -106,7 +106,7 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'Users',
+      title: 'For Users',
       topGap: true,
       bottomGap: true,
       variant: 'row',

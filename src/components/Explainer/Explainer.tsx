@@ -739,11 +739,31 @@ const ChainKnowledgeBaseIndexList = ({ block, blockIndex }) => {
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeRaw]}
             components={{
-              a: ({ node, ...props }) => (
-                <a {...props} target='_blank' rel='noopener'>
-                  {props.children}
-                </a>
-              ),
+              a: ({ node, ...props }) => {
+                const href = props.href || '';
+                const isExternal =
+                  href.startsWith('http://') ||
+                  href.startsWith('https://') ||
+                  href.startsWith('//');
+                const isInline = href.startsWith('#');
+                const isInternal = !isExternal && !isInline;
+
+                return (
+                  <a
+                    {...props}
+                    target={isInline ? '_self' : '_blank'}
+                    rel={
+                      isExternal
+                        ? 'noopener noreferrer'
+                        : isInternal
+                        ? 'noopener'
+                        : undefined
+                    }
+                  >
+                    {props.children}
+                  </a>
+                );
+              },
               ...Object.fromEntries(
                 ['h2', 'h3'].map((tag) => [
                   tag,
