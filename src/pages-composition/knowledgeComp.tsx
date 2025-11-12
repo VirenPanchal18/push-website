@@ -62,11 +62,11 @@ const KnowledgeComp = () => {
         {t('pages.knowledge.hero-section.description.users-text')}
       </>
     ),
-    // video: {
-    //   src: 'https://www.youtube.com/embed/0J2QdDbelmY',
-    //   title: 'title',
-    // },
-    image: `knowledge-frame`,
+    video: {
+      src: 'https://www.youtube.com/embed/-cojsUIHcLE?rel=0',
+      title: 'Push Chain Public Testnet is Live',
+    },
+    // image: `knowledge-frame`,
     footer: {
       description: t('pages.knowledge.hero-section.footer.description'),
       cta: {

@@ -126,8 +126,8 @@ Then replace the example addresses in this tutorial with your deployments.
 
 :::warning Multicall requirements
 - **Origin-only:** Batch transactions are supported **only from external origin chains** (not native Push).
-- **`to` field:** For multicall, the `to` field should always be set to the zero address (`0x0000000000000000000000000000000000000000`). The SDK will `console.warn` if you pass any other address, and this will become mandatory in a future release.
 - **Atomicity:** If any call fails, the **entire batch reverts**.
+- For multicall, the `to` should always be zero address (`0x0000000000000000000000000000000000000000`). The SDK will `console.warn` if you pass any other address. This will become mandatory in a future release.
 :::
 
 ```ts

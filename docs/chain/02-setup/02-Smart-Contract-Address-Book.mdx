@@ -1,0 +1,191 @@
+---
+id: docs-chain-setup-smart-contract-address-book
+title: Smart Contract Address Book
+hide_title: false
+slug: ./smart-contract-address-book
+displayed_sidebar: pushChainSidebar
+sidebar_position: 2
+image: "/assets/docs/previews/docs_chain_setup--smart_contract_address_book.png"
+---
+
+<head>
+  <title>Smart Contract Address Book | Setup | Push Chain Docs</title>
+</head>
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import PushChainSpecs from '@site/src/components/Static/PushChainSpecs';
+
+<!-- Content Start -->
+
+Below are the official addresses of the smart contracts deployed on Push Chain Donut Testnet 🍩 or on other chains by Push.
+
+> **Scope**: Addresses may change with redeploys. If something looks off, check the changelog or explorer before using in production code.
+
+## Push Chain Donut Testnet
+
+## Push Chain Core Functionalities
+
+| Contract               | Address                                    |
+| ---------------------- | ------------------------------------------ |
+| UEA Factory            | 0x00000000000000000000000000000000000000eA |
+| UEA_EVM Implementation | 0x93a31A8DDdCA2686243f1a701AbF82aBA90Fe2eF |
+| UEA_SVM Implementation | 0x3cab28b2d179258ce3246385977aae4b4A4b40C9 |
+| UniversalCore          | 0x00000000000000000000000000000000000000C0 |
+
+### PRC-20 Supported Tokens (on Push Chain)
+
+| Token Name | Symbol    | Source Chain     | Token Address on Push Chain                |
+| ---------- | --------- | ---------------- | ------------------------------------------ |
+| pETH       | pETH      | Ethereum_Sepolia | 0x2971824Db68229D087931155C2b8bB820B275809 |
+| WETH.eth   | WETH.eth  | Ethereum_Sepolia | 0x0d0dF7E8807430A81104EA84d926139816eC7586 |
+| USDT.eth   | USDT.eth  | Ethereum_Sepolia | 0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3 |
+| stETH.eth  | stETH.eth | Ethereum_Sepolia | 0xaf89E805949c628ebde3262e91dc4ab9eA12668E |
+| USDC.eth   | USDC.eth  | Ethereum_Sepolia | 0x387b9C8Db60E74999aAAC5A2b7825b400F12d68E |
+| pSOL       | pSOL      | Solana_Devnet    | 0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed |
+| USDC.sol   | USDC.sol  | Solana_Devnet    | 0x04B8F634ABC7C879763F623e0f0550a4b5c4426F |
+| USDT.sol   | USDT.sol  | Solana_Devnet    | 0x4f1A3D22d170a2F4Bddb37845a962322e24f4e34 |
+| DAI.sol    | DAI.sol   | Solana_Devnet    | 0x5861f56A556c990358cc9cccd8B5baa3767982A8 |
+| pETH.base  | pETH.base | Base_Testnet     | 0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21 |
+| USDT.base  | USDT.base | Base_Testnet     | 0x2C455189D2af6643B924A981a9080CcC63d5a567 |
+| USDC.base  | USDC.base | Base_Testnet     | 0x84B62e44F667F692F7739Ca6040cD17DA02068A8 |
+| pETH.arb   | pETH.arb  | Arbitrum_Sepolia | 0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e |
+| USDC.arb   | USDC.arb  | Arbitrum_Sepolia | 0xa261A10e94aE4bA88EE8c5845CbE7266bD679DD6 |
+| USDT.arb   | USDT.arb  | Arbitrum_Sepolia | 0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9 |
+| USDT.bnb   | USDT.bnb  | BNB_Testnet      | 0x2f98B4235FD2BA0173a2B056D722879360B12E7b |
+| pBNB       | pBNB      | BNB_Testnet      | 0x7a9082dA308f3fa005beA7dB0d203b3b86664E36 |
+
+---
+
+### Core AMM & Helpers
+
+| Contract         | Address                                    |
+| ---------------- | ------------------------------------------ |
+| Factory          | 0x81b8Bca02580C7d6b636051FDb7baAC436bFb454 |
+| WPC              | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 |
+| Swap Router      | 0x5D548bB9E305AAe0d6dc6e6fdc3ab419f6aC0037 |
+| Position Manager | 0xf9b3ac66aed14A2C7D9AA7696841aB6B27a6231e |
+| QuoterV2         | 0x83316275f7C2F79BC4E26f089333e88E89093037 |
+| Tick Lens        | 0xb64113Fc16055AfE606f25658812EE245Aa41dDC |
+| Multicall        | 0xa8c00017955c8654bfFbb6d5179c99f5aB8B7849 |
+
+### AMM Pools
+
+| Pool               | Address                                    | Token 0                                    | Token 1                                    | Fee  |
+| ------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ---- |
+| pSOL/WPC Pool      | 0x0E5914e3A7e2e6d18330Dd33fA387Ce33Da48b54 | 0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| pETH/WPC Pool      | 0x012d5C099f8AE00009f40824317a18c3A342f622 | 0x2971824Db68229D087931155C2b8bB820B275809 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDT/WPC Pool      | 0x2d46b2b92266f34345934F17039768cd631aB026 | 0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDC.eth/WPC Pool  | 0x69B21660F49f2B8F60B0177Abc751a08EBEa0Ae3 | 0x387b9C8Db60E74999aAAC5A2b7825b400F12d68E | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDT.base/WPC Pool | 0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15 | 0x2C455189D2af6643B924A981a9080CcC63d5a567 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| pETH.base/WPC Pool | 0xF926707689ad2fE9A81e666E5B888b2f3AD33980 | 0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| pETH.arb/WPC Pool  | 0x1354c9A72F447f60F4811FC34b8C2e084FE338A3 | 0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 3000 |
+| USDT.arb/WPC Pool  | 0xF95B20Cf3f2dE495747EB3d33611D0FFEA29F448 | 0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDT.bnb/WPC Pool  | 0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168 | 0x2f98B4235FD2BA0173a2B056D722879360B12E7b | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| pBNB/WPC Pool      | 0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6 | 0x7a9082dA308f3fa005beA7dB0d203b3b86664E36 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDC.arb/WPC Pool  | 0xF3578f9dEE1591a45366801CedF91B4935997964 | 0xa261A10e94aE4bA88EE8c5845CbE7266bD679DD6 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+| USDC.base/WPC Pool | 0x96Ef417eA20114D86C2a60864a63A69344234930 | 0x84B62e44F667F692F7739Ca6040cD17DA02068A8 | 0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9 | 500  |
+
+---
+
+## External Chain Gateway Contracts
+
+### Ethereum Sepolia
+
+### Ethereum Sepolia - Gateway Addresses
+
+| Contract               | Address                                    |
+| ---------------------- | ------------------------------------------ |
+| Implementation         | 0xa594c32593eD1E0Fce83fa1b3A56870b4a1b4ec1 |
+| UniversalGateway Proxy | 0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A |
+| ProxyAdmin             | 0x756C0bEa91F5692384AEe147C10409BB062Bf39b |
+
+### Ethereum Sepolia - Supported Tokens
+
+| Token Name | Source Address                             | PRC20 Address (on Push Chain)              |
+| ---------- | ------------------------------------------ | ------------------------------------------ |
+| Native ETH | 0x0000000000000000000000000000000000000000 | 0x2971824Db68229D087931155C2b8bB820B275809 |
+| USDC       | 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238 | 0x387b9C8Db60E74999aAAC5A2b7825b400F12d68E |
+| USDT       | 0x7169D38820dfd117C3FA1f22a697dBA58d90BA06 | 0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3 |
+| WETH       | 0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14 | 0x0d0dF7E8807430A81104EA84d926139816eC7586 |
+| stETH      | 0x3e3FE7dBc6B4C189E7128855dD526361c49b40Af | 0xaf89E805949c628ebde3262e91dc4ab9eA12668E |
+
+---
+
+## Arbitrum Sepolia
+
+### Arbitrum Sepolia - Gateway Addresses
+
+| Contract               | Address                                    |
+| ---------------------- | ------------------------------------------ |
+| Implementation         | 0xa81a398289D04503Aab64C4276CdB99Ff1594801 |
+| UniversalGateway Proxy | 0x2cd870e0166Ba458dEC615168Fd659AacD795f34 |
+| ProxyAdmin             | 0xF838473Ddc2228267023A319c7305564391313f7 |
+
+### Arbitrum Sepolia - Supported Tokens
+
+| Token Name | Source Address                             | PRC20 Address (on Push Chain)              |
+| ---------- | ------------------------------------------ | ------------------------------------------ |
+| Native ETH | 0x0000000000000000000000000000000000000000 | 0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e |
+| USDC       | 0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d | 0xa261A10e94aE4bA88EE8c5845CbE7266bD679DD6 |
+| USDT       | 0x1419d7C74D234fA6B73E06A2ce7822C1d37922f0 | 0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9 |
+
+---
+
+## Base Sepolia
+
+### Base Sepolia - Gateway Addresses
+
+| Contract               | Address                                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation         | 0x9f63e2bCFC19994c664a7d7265dCfAb206634612                                                                                         |
+| UniversalGateway Proxy | [0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16](https://sepolia.basescan.org/address/0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16#code) |
+| ProxyAdmin             | 0x0b30F0ECd37B8D44FE1d2b98d5Dc64654d9ac9b3                                                                                         |
+
+### Base Sepolia - Supported Tokens
+
+| Token Name | Source Address                             | PRC20 Address (on Push Chain)              |
+| ---------- | ------------------------------------------ | ------------------------------------------ |
+| Native ETH | 0x0000000000000000000000000000000000000000 | 0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21 |
+| USDC       | 0x036CbD53842c5426634e7929541eC2318f3dCF7e | 0x84B62e44F667F692F7739Ca6040cD17DA02068A8 |
+| USDT       | 0x9FF5a186f53F6E6964B00320Da1D2024DE11E0cB | 0x2C455189D2af6643B924A981a9080CcC63d5a567 |
+
+---
+
+## BNB Testnet
+
+### BNB Testnet - Gateway Addresses
+
+| Contract               | Address                                    |
+| ---------------------- | ------------------------------------------ |
+| Implementation         | 0x1f5afA0eEDC2F7E2442D8a51E8A892C98517De1E |
+| UniversalGateway Proxy | 0x44aFFC61983F4348DdddB886349eb992C061EaC0 |
+| ProxyAdmin             | 0x5Cef317D8392dF9F8C8E8a696c6893FD4112542C |
+
+### BNB Testnet - Supported Tokens
+
+| Token Name | Source Address                             | PRC20 Address (on Push Chain)              |
+| ---------- | ------------------------------------------ | ------------------------------------------ |
+| Native ETH | 0x0000000000000000000000000000000000000000 | 0x7a9082dA308f3fa005beA7dB0d203b3b86664E36 |
+| USDC       | 0x64544969ed7EBf5f083679233325356EbE738930 | —                                          |
+| USDT       | 0xBC14F348BC9667be46b35Edc9B68653d86013DC5 | 0x2f98B4235FD2BA0173a2B056D722879360B12E7b |
+| DAI        | 0xEC5dCb5Dbf4B114C9d0F65BcCAb49EC54F6A0867 | —                                          |
+
+---
+
+## Solana Devnet
+
+### Solana Devnet - Gateway Addresses
+
+| Program           | Address                                      |
+| ----------------- | -------------------------------------------- |
+| Universal Gateway | CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS |
+
+### Solana Devnet - Supported Tokens
+
+| Token Name        | Source Address                               | PRC20 Address (on Push Chain)              |
+| ----------------- | -------------------------------------------- | ------------------------------------------ |
+| Native SOL        | —                                            | 0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed |
+| USDC              | 4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU | 0x04B8F634ABC7C879763F623e0f0550a4b5c4426F |
+| USDT (Unofficial) | EiXDnrAg9ea2Q6vEPV7E5TpTU1vh41jcuZqKjU5Dc4ZF | 0x4f1A3D22d170a2F4Bddb37845a962322e24f4e34 |
+| DAI (Unofficial)  | G2ZLaRhpohW23KTEX3fBjZXtNTFFwemqCaWWnWVTj4TB | 0x5861f56A556c990358cc9cccd8B5baa3767982A8 |

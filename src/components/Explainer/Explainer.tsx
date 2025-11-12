@@ -733,17 +733,37 @@ const ChainKnowledgeBaseIndexList = ({ block, blockIndex }) => {
         )}
       </ItemV>
 
-      <ItemV flex={1}>
+      <ItemV width={'100%'} flex={1}>
         <TextItem>
           <Markdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeRaw]}
             components={{
-              a: ({ node, ...props }) => (
-                <a {...props} target='_blank' rel='noopener'>
-                  {props.children}
-                </a>
-              ),
+              a: ({ node, ...props }) => {
+                const href = props.href || '';
+                const isExternal =
+                  href.startsWith('http://') ||
+                  href.startsWith('https://') ||
+                  href.startsWith('//');
+                const isInline = href.startsWith('#');
+                const isInternal = !isExternal && !isInline;
+
+                return (
+                  <a
+                    {...props}
+                    target={isInline ? '_self' : '_blank'}
+                    rel={
+                      isExternal
+                        ? 'noopener noreferrer'
+                        : isInternal
+                        ? 'noopener'
+                        : undefined
+                    }
+                  >
+                    {props.children}
+                  </a>
+                );
+              },
               ...Object.fromEntries(
                 ['h2', 'h3'].map((tag) => [
                   tag,
@@ -930,6 +950,15 @@ const TextItem = styled.div`
   img {
     border-radius: 32px;
     margin: 16px 0;
+  }
+
+  /* Target only video iframes */
+  iframe[src*='youtube.com'],
+  iframe[src*='youtu.be'],
+  iframe[src*='vimeo.com'] {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
   }
 
   /* Admonition styling */

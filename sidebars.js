@@ -149,6 +149,10 @@ const sidebars = {
           type: 'doc',
           id: 'chain/setup/docs-chain-setup-chain-config',
         },
+        {
+          type: 'doc',
+          id: 'chain/setup/docs-chain-setup-smart-contract-address-book',
+        },
       ],
     },
     {

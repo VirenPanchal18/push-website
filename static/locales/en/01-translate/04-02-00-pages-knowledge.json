@@ -70,7 +70,7 @@
                 },
                 "testnet": {
                   "title": "Donut Testnet",
-                  "subtitle": "The place to find answers to all the popular questions the community has asked",
+                  "subtitle": "Donut is Push Chain’s public testnet for Universal Apps that run across chains (EVM or non-EVM)",
                   "ctatitle": "Read More"
                 },
                 "validators": {
