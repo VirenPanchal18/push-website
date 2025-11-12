@@ -7,27 +7,42 @@ export const KBTestnetList = {
         {
           type: 'text',
           valueKey:
-            'pages.knowledge.testnet.explainer-section.blocks.sections.intro',
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.intro',
         },
         {
           type: 'text',
           valueKey:
-            'pages.knowledge.testnet.explainer-section.blocks.sections.welcome-donut',
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.welcome-donut',
         },
         {
           type: 'text',
           valueKey:
-            'pages.knowledge.testnet.explainer-section.blocks.sections.why-push-exists',
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.what-is-push-chain',
         },
         {
           type: 'text',
           valueKey:
-            'pages.knowledge.testnet.explainer-section.blocks.sections.how-reimagines-interoperability',
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.quick-links',
         },
         {
           type: 'text',
           valueKey:
-            'pages.knowledge.testnet.explainer-section.blocks.sections.how-to-participate',
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.why-push-exists',
+        },
+        {
+          type: 'text',
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.how-reimagines-interoperability',
+        },
+        {
+          type: 'text',
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.how-to-participate',
+        },
+        {
+          type: 'text',
+          valueKey: `pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.curated-reads`,
+          hidden: true,
         },
       ],
     },

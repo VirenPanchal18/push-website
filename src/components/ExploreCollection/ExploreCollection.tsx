@@ -102,6 +102,7 @@ const ExploreCollection: React.FC<ExploreCollectionProps> = ({
       {title && (
         <TitleItemV variant={variant}>
           <H3
+            id={t(title).toLowerCase().replace(/\s+/g, '-')}
             fontSize='2.3rem'
             fontWeight='600'
             lineHeight={isMobile ? '100%' : '150%'}
