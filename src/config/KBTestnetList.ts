@@ -144,7 +144,7 @@ export const KBTestnetList = {
           image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
           title: 'Push Validator',
-          url: 'https://push.org/docs/chain/node-and-system-tools/running-push-validator/](https://push.org/docs/chain/node-and-system-tools/running-push-validator/',
+          url: 'https://push.org/docs/chain/node-and-system-tools/running-push-validator/',
           target: '_blank',
         },
       ],
