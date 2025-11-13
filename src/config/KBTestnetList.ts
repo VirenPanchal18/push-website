@@ -115,7 +115,7 @@ export const KBTestnetList = {
           slug: 'knowledge-base',
           image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
-          url: 'http://push.org/knowledge-base',
+          url: 'https://push.org/knowledge',
           target: '_blank',
         },
         {
@@ -125,7 +125,7 @@ export const KBTestnetList = {
           image: '/static/assets/website/chain/knowledge/lfpush',
           imageSrcSet: false,
           title: `Let's Push Yaps`,
-          url: 'http://push.org/lfpush',
+          url: 'https://push.org/lfpush',
           target: '_blank',
         },
       ],
