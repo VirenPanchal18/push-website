@@ -718,19 +718,19 @@ import { PushChain } from '@pushchain/core'
 
 ### Convert Executor Address to Origin Account
 
-**_`PushChain.utils.account.convertExecutorToOriginAccount(ueaAddress): Promise<OriginAccountInfo>`_**
+**_`PushChain.utils.account.convertExecutorToOriginAccount(address): Promise<OriginAccountInfo>`_**
 
-Gives the origin account (UOA) for a given executor account (UEA).
+Gives the origin account (UOA) for a given Push Chain address.
 
 ```typescript
-const { account, exists } = await PushChain.utils.account.convertExecutorToOriginAccount(ueaAddress);
+const { account, exists } = await PushChain.utils.account.convertExecutorToOriginAccount(pushChainAddress);
 ```
 
 <PushAPIReference>
 
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`ueaAddress`_ | `string` | -           | Address of the executor account (UEA).                                        |
+| _`pushChainAddress`_ | `string` | -           | Address of the account on Push Chain.                                        |
 
 </PushAPIReference>
 <Details summary="Returns `OriginAccountInfo` <object>" className="alert alert--fn-args">
