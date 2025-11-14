@@ -1646,13 +1646,40 @@ function detectLanguage(text, expectedLanguage) {
 }
 
 /**
- * Extract HTML tags from text
+ * Extract HTML tags from text, normalizing attributes to ignore translated content
  */
 function extractHtmlTags(text) {
   if (!text || typeof text !== 'string') return [];
   const tagRegex = /<[^>]+>/g;
   const matches = text.match(tagRegex) || [];
-  return [...new Set(matches)]; // Remove duplicates
+  
+  // Normalize tags by removing attribute values to focus on structure
+  const normalizedTags = matches.map(tag => {
+    // Extract tag name and attribute names only, ignore attribute values
+    return tag.replace(/(\w+)="[^"]*"/g, '$1=""').replace(/(\w+)='[^']*'/g, '$1=""');
+  });
+  
+  return [...new Set(normalizedTags)]; // Remove duplicates
+}
+
+/**
+ * Strip HTML tags and content for language validation
+ */
+function stripHtmlForLanguageCheck(text) {
+  if (typeof text !== 'string') return text;
+  
+  return text
+    // Remove iframe and other media elements entirely
+    .replace(/<iframe[^>]*>.*?<\/iframe>/gi, '')
+    .replace(/<video[^>]*>.*?<\/video>/gi, '')
+    .replace(/<audio[^>]*>.*?<\/audio>/gi, '')
+    .replace(/<script[^>]*>.*?<\/script>/gi, '')
+    .replace(/<style[^>]*>.*?<\/style>/gi, '')
+    // Remove HTML tags but keep content
+    .replace(/<[^>]+>/g, ' ')
+    // Clean up extra whitespace
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
@@ -1663,8 +1690,16 @@ function validateLanguagePurity(translation, languageCode, languageName) {
 
   function checkValue(value, keyPath) {
     if (typeof value === 'string' && value.trim()) {
-      const detectedLang = detectLanguage(value, languageCode);
-      const wordCount = value.trim().split(/\s+/).length;
+      // Strip HTML content for language detection
+      const textForLanguageCheck = stripHtmlForLanguageCheck(value);
+      
+      // Skip validation if no meaningful text remains after HTML stripping
+      if (!textForLanguageCheck || textForLanguageCheck.length < 10) {
+        return;
+      }
+      
+      const detectedLang = detectLanguage(textForLanguageCheck, languageCode);
+      const wordCount = textForLanguageCheck.trim().split(/\s+/).length;
 
       // Check for wrong language (not target, English, or unknown)
       if (
@@ -1966,11 +2001,23 @@ async function validateAndRetryTranslations(supportedLanguages) {
 
               if (translatedSingle) {
                 // Extract the translated value and set it in the updated translation
-                const translatedValue = getValueByPath(
+                let translatedValue = getValueByPath(
                   translatedSingle,
                   keyPath
                 );
-                setValueByPath(updatedTranslation, keyPath, translatedValue);
+                // Validate the translated value is in correct language
+                const textForValidation = stripHtmlForLanguageCheck(translatedValue);
+                const detectedLang = detectLanguage(textForValidation, languageCode);
+                
+                // If translation is in wrong language, use English fallback
+                if (detectedLang !== languageCode && detectedLang !== 'en' && detectedLang !== 'unknown' && textForValidation.length > 10) {
+                  console.log(chalk.yellow(`   ⚠️  ${keyProgress} Translation returned wrong language (${detectedLang}), using English fallback`));
+                  const englishValue = getValueByPath(enTranslation, keyPath);
+                  translatedValue = englishValue; // Update the variable for console output and missing-keys.json
+                  setValueByPath(updatedTranslation, keyPath, englishValue);
+                } else {
+                  setValueByPath(updatedTranslation, keyPath, translatedValue);
+                }
 
                 // Save progress immediately after each successful key
                 await fs.writeFile(
