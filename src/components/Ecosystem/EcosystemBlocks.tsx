@@ -16,9 +16,11 @@ export type EcosystemApp = {
   bgImage: string;
   bgGradientColor: string;
   tags: string[];
-  twitterId: number;
+  twitterId?: number;
   href?: string;
-  textColor: string;
+  titleColor?: string;
+  descriptionColor?: string;
+  tagsColor?: string;
 };
 
 type Props = {

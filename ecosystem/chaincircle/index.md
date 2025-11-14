@@ -9,5 +9,5 @@ tags:
   - DeFi
 twitterId: 1037316970
 href: https://www.chaincircle.org/
-textColor: white
+titleColor: white
 ---

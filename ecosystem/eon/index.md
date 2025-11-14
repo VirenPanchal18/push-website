@@ -9,5 +9,5 @@ tags:
   - NFT
 twitterId: 1037316970
 href: https://eon-five.vercel.app
-textColor: white
+titleColor: white
 ---

@@ -9,5 +9,5 @@ tags:
   - Gaming
 twitterId: 1037316970
 href: https://catkevin.github.io/OnchainVampireSurvivors/
-textColor: white
+titleColor: white
 ---

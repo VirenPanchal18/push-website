@@ -1,0 +1,12 @@
+---
+id: 13
+name: Forge Realm
+description: Mix and match base characters and traits from multiple creators
+icon: icon.png
+bgImage: bg.png
+bgGradientColor: '#000000'
+tags:
+  - NFT
+href: https://forge-realm.vercel.app/
+titleColor: white
+---

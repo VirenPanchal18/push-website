@@ -1,5 +1,5 @@
 ---
-id: 11
+id: 18
 name: Degen Chess
 description: Play chess, wager, universal
 icon: icon.png
@@ -9,6 +9,6 @@ tags:
   - Gaming
 twitterId: 0
 href: https://degenchess.example.com/
-textColor: white
+titleColor: white
 comingsoon: true;
 ---

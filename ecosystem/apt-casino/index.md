@@ -9,5 +9,5 @@ tags:
   - Gaming
 twitterId: 1037316970
 href: https://apt-casino-push-chain.vercel.app/
-textColor: white
+titleColor: white
 ---
