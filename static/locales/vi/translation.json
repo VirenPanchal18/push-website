@@ -3,152 +3,6 @@
     "site-name": "Push Chain — Universal L1 cho Ứng dụng",
     "site-description": "L1 shared-state cho các ứng dụng đa năng. Triển khai một lần; tiếp cận người dùng trên mọi chuỗi. Sử dụng bất kỳ ví nào. Thanh toán bằng bất kỳ token nào. Không cần chuyển mạng."
   },
-  "header": {
-    "meta": {
-      "logo-aria-label": "Push Chain - Điều hướng đến trang chủ",
-      "language-icon-alt": "Biểu tượng chọn ngôn ngữ",
-      "hamburger-menu-alt": "Mở menu điều hướng",
-      "testnet-badge-alt": "Push Chain Testnet Donut - Xem trạng thái testnet"
-    },
-    "logo": {
-      "imagealt": "Hình ảnh Logo của Push Chain",
-      "imagetitle": "Logo Push Chain",
-      "ctatitle": "Truy cập trang chủ Push Chain"
-    },
-    "testnet": {
-      "title": "Testnet",
-      "aria-label": "Phần testnet",
-      "link1": {
-        "text": "Push Scan",
-        "subtext": "Trình khám phá khối cho Push Chain",
-        "title": "Khám phá các giao dịch và khối trên Push Chain Testnet thông qua Push Scan"
-      },
-      "link2": {
-        "text": "Nhận token miễn phí",
-        "subtext": "Nhận token testnet",
-        "title": "Nhận token testnet miễn phí để phát triển Push Chain"
-      }
-    },
-    "developers": {
-      "title": "Nhà phát triển",
-      "aria-label": "Phần dành cho Nhà phát triển",
-      "link1": {
-        "text": "Bắt đầu",
-        "subtext": "Giới thiệu về việc xây dựng trên Push Chain",
-        "title": "Bắt đầu xây dựng ứng dụng universal trên Push Chain - Tài liệu dành cho nhà phát triển"
-      },
-      "link2": {
-        "text": "Bắt đầu nhanh",
-        "subtext": "Thiết lập môi trường phát triển chỉ trong vài giây",
-        "title": "Hướng dẫn bắt đầu nhanh - Thiết lập môi trường phát triển Push Chain ngay lập tức"
-      },
-      "link3": {
-        "text": "Hướng dẫn",
-        "subtext": "Hướng dẫn từng bước để xây dựng với Push",
-        "title": "Tìm hiểu qua các hướng dẫn thực hành - Xây dựng ứng dụng đa năng đầu tiên của bạn trên Push Chain"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "Xem mã nguồn cốt lõi và các công cụ mã nguồn mở",
-        "title": "Khám phá mã nguồn và các công cụ phát triển của Push Chain trên GitHub"
-      },
-      "link5": {
-        "text": "Discord dành cho nhà phát triển",
-        "subtext": "Kết nối với cộng đồng các nhà phát triển",
-        "title": "Tham gia cộng đồng phát triển Push Chain trên Discord để được hỗ trợ và hợp tác"
-      }
-    },
-    "community": {
-      "title": "Cộng đồng",
-      "aria-label": "Phần Cộng Đồng",
-      "link1": {
-        "text": "Cơ sở kiến thức",
-        "subtext": "Tìm hiểu sâu hơn về các tính năng",
-        "title": "Khám phá tài liệu toàn diện và hướng dẫn tính năng của Push Chain"
-      },
-      "link2": {
-        "text": "Tokenomics",
-        "subtext": "Token gốc cung cấp năng lượng cho mọi thứ trên Push Chain",
-        "title": "Tìm hiểu về tokenomics của Push Chain và tiện ích của token $PC"
-      },
-      "link3": {
-        "text": "X/Twitter",
-        "subtext": "Theo dõi các cập nhật và tin tức hệ sinh thái",
-        "title": "Theo dõi Push Chain trên X (Twitter) để cập nhật và thông báo mới nhất"
-      },
-      "link4": {
-        "text": "Discord",
-        "subtext": "Cùng trò chuyện, xây dựng và hòa nhập với cộng đồng",
-        "title": "Tham gia cộng đồng Push Chain trên Discord để thảo luận và hỗ trợ"
-      },
-      "link5": {
-        "text": "Telegram",
-        "subtext": "Tham gia cộng đồng và cập nhật thông tin mới nhất",
-        "title": "Kết nối với cộng đồng Push Chain trên Telegram để cập nhật thông tin theo thời gian thực"
-      }
-    },
-    "resources": {
-      "title": "Tài nguyên",
-      "aria-label": "Phần Tài nguyên",
-      "link1": {
-        "text": "Blog",
-        "subtext": "Cập nhật, phân tích sâu và câu chuyện từ đội ngũ phát triển",
-        "title": "Đọc blog Push Chain để cập nhật mới nhất, phân tích kỹ thuật sâu và câu chuyện của các nhà phát triển"
-      },
-      "link2": {
-        "text": "Bản tóm tắt kỹ thuật",
-        "subtext": "Tầm nhìn và công nghệ, đơn giản hóa",
-        "title": "Đọc Whitepaper của Push Chain Litepaper – tầm nhìn đơn giản hóa và tổng quan kỹ thuật"
-      },
-      "link3": {
-        "text": "Câu hỏi thường gặp",
-        "subtext": "Trả lời nhanh các câu hỏi thường gặp",
-        "title": "Xem các câu hỏi thường gặp về Push Chain"
-      }
-    },
-    "language": {
-      "title": "Ngôn ngữ",
-      "aria-label": "Chọn ngôn ngữ"
-    },
-    "app-button": {
-      "text": "Push Portal",
-      "title": "Truy cập Push Portal - Kiếm điểm với vai trò nhà phát triển, người dùng hoặc người xác thực"
-    },
-    "explore": {
-      "title": "Khám phá",
-      "aria-label": "Khám phá",
-      "link1": {
-        "text": "Bắt đầu",
-        "subtext": "Giới thiệu về việc xây dựng trên Push Chain",
-        "title": "Bắt đầu xây dựng"
-      },
-      "link2": {
-        "text": "Bắt đầu nhanh",
-        "subtext": "Thiết lập môi trường phát triển chỉ trong vài giây",
-        "title": "Bắt đầu nhanh"
-      },
-      "link3": {
-        "text": "Hướng dẫn",
-        "subtext": "Các hướng dẫn từng bước để xây dựng với Push",
-        "title": "Tìm hiểu qua các hướng dẫn"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "Xem mã nguồn cốt lõi và các công cụ mã nguồn mở",
-        "title": "Khám phá Push Chain"
-      },
-      "link5": {
-        "text": "Discord dành cho Nhà phát triển",
-        "subtext": "Kết nối với cộng đồng phát triển",
-        "title": "Tham gia Discord"
-      },
-      "link6": {
-        "text": "Khám phá Ví dụ",
-        "subtext": "Khám phá Ví dụ",
-        "title": "Khám phá Ví dụ"
-      }
-    }
-  },
   "footer": {
     "email-section": {
       "title": "Cập nhật thông tin mới nhất về Push Chain",
@@ -239,325 +93,11 @@
     },
     "footer-image": {
       "alt": "Hình minh họa chân trang Push Chain",
-      "title": "Push Chain - யுనిವರ್சல் બ્લોકચેન"
+      "title": "Push Chain - Universal blockchain"
     }
   },
   "pages": {
-    "home": {
-      "seo": {
-        "title": "Trang chủ - Push Chain | Blockchain đa năng cho Ứng dụng",
-        "description": "Blockchain trạng thái chia sẻ cho các ứng dụng đa năng. Triển khai một lần; tiếp cận người dùng trên mọi chuỗi. Sử dụng bất kỳ ví nào. Thanh toán bằng bất kỳ token nào.",
-        "og-title": "Push Chain - Universal L1 cho Ứng dụng",
-        "og-description": "Một lần triển khai cho người dùng EVM và không phải EVM. Sử dụng bất kỳ ví nào và thanh toán bằng bất kỳ token nào — không chuyển mạng.",
-        "twitter-title": "Triển khai một lần. Tiếp cận mọi chuỗi.",
-        "twitter-description": "Giao dịch từ bất kỳ blockchain nào. Sử dụng bất kỳ ví nào. Thanh toán bằng bất kỳ token nào. Không cần chuyển mạng."
-      },
-      "hero-section": {
-        "title": "Bất kỳ Blockchain nào, Bất kỳ Ứng dụng nào, Dành cho Tất cả Người dùng.\nMột Push Chain.",
-        "description": "Lớp 1 đầu tiên được xây dựng cho các Ứng dụng Tổng quát. \nXây dựng & Triển khai một lần, tiếp cận người dùng từ mọi chuỗi.",
-        "primary-button": "Bắt đầu xây dựng",
-        "primary-button-title": "Bắt đầu hành trình xây dựng với Push Chain!",
-        "secondary-button": "Khám phá Cơ sở Kiến thức",
-        "secondary-button-title": "Tìm hiểu và khám phá Push Chain",
-        "section-aria-label": "Phát hiện Push Chain - Giới thiệu chuỗi Blockchain Lv1 phổ biến",
-        "primary-button-aria-label": "Bắt đầu xây dựng ứng dụng universal trên Push Chain - Đến trang tài liệu dành cho nhà phát triển",
-        "secondary-button-aria-label": "Tìm hiểu về các tính năng và khái niệm của Push Chain trong cơ sở kiến thức",
-        "hero-background-alt": "Hình nền động của Push Chain thể hiện kết nối blockchain toàn cầu",
-        "hero-background-title": "Push Chain - Universal Layer 1 cho các ứng dụng cross-chain",
-        "schema-headline": "Push Chain - L1 Toán Phát Cho Ứng Dụng",
-        "schema-description": "Triển khai một lần trên Push Chain và tiếp cận người dùng trên bất kỳ blockchain nào với các ứng dụng đa năng"
-      },
-      "whatis-section": {
-        "titleFirst": "Một",
-        "titleSecondGraditent": "Universal",
-        "titleThird": "Chuỗi",
-        "bottomTextFirst": "Triển khai một lần,",
-        "bottomTextSecond": "Tiếp cận mọi nơi",
-        "bottomLinkText": "Bắt đầu",
-        "bottomLinkTitle": "Truy cập Trung tâm Tài liệu",
-        "section-aria-label": "Push Chain là gì - Giải thích về blockchain đa năng",
-        "animation-alt": "Hình ảnh minh họa cách Push Chain triển khai ứng dụng đa năng trên nhiều blockchain",
-        "animation-title": "Hình ảnh minh họa việc triển khai universal của Push Chain - triển khai một lần, tiếp cận mọi blockchain",
-        "bottom-link-aria-label": "Truy cập tài liệu Push Chain để bắt đầu xây dựng ứng dụng đa năng"
-      },
-      "chain-features-section": {
-        "section-aria-label": "Phần giới thiệu về các tính năng và đổi mới của Push Chain",
-        "header": {
-          "main-text": "Được xây dựng trên những đổi mới để loại bỏ tình trạng phân mảnh!",
-          "other-text": "Push là Layer 1 Duy nhất mà bạn cần!"
-        },
-        "box1": {
-          "texttitle": "Giao dịch trên mọi chuỗi",
-          "bodytext": "Push Chain hỗ trợ các giao dịch từ bất kỳ blockchain nào. Người dùng có thể trả gas bằng bất kỳ token nào – Không cần cầu nối.",
-          "imagealt": "Hình ảnh minh họa cho thấy các logo blockchain khác nhau rơi trong một máy pinball.",
-          "imagetitle": "Hỗ trợ các giao dịch từ bất kỳ blockchain nào."
-        },
-        "box2": {
-          "texttitle": "Abstraction Ví",
-          "bodytext": "Cho phép bất kỳ ví từ bất kỳ chuỗi nào kết nối, tương tác và giao dịch. Phá vỡ rào cản web3 bằng cách sử dụng đăng nhập mạng xã hội hoặc email. Người dùng tự quyết định trên Push Chain.",
-          "imagealt": "Hình minh họa hiển thị ví Metamask, Phantom Wallet, v.v. xuất phát từ một chiếc ví lớn có logo Push Chain trên đó.",
-          "imagetitle": "Hỗ trợ mọi ví hiện có như MetaMask, Phantom, v.v. cùng với đăng nhập qua mạng xã hội"
-        },
-        "box3": {
-          "texttitle": "100% EVM\nCompatible",
-          "bodytext": "Triển khai không cần code trên chuỗi. Biến ứng dụng gốc của bạn thành ứng dụng đa năng chỉ trong vài phút.",
-          "imagealt": "Hình ảnh minh họa logo Máy ảo Ethereum đang xoay và nói 100% Tương thích EVM.",
-          "imagetitle": "Không yêu cầu thay đổi mã trên chuỗi, 100% tương thích EVM."
-        },
-        "box4": {
-          "texttitle": "Smart Contract Universal",
-          "bodytext": "Xây dựng một lần, chạy đa chuỗi, trải nghiệm nhiều bước với một hợp đồng duy nhất, chống lỗi thời.",
-          "imagealt": "Hình minh họa cho thấy logo Ethereum Virtual Maching và một vòng cung xoay quanh nó nói '100% EVM Compatible'",
-          "imagetitle": "Triển khai một lần, tương thích tức thì với tất cả các chuỗi được hỗ trợ (EVM hoặc non-EVM)."
-        },
-        "box5": {
-          "texttitle": "Universal Fee\nAbstraction",
-          "bodytext": "Cho phép người dùng thanh toán gas bằng bất kỳ token nào, trên bất kỳ blockchain nào mà không cần bridging.",
-          "imagealt": "Hình ảnh minh họa hiển thị các logo khác nhau của Bitcoin, Ethereum, Solana xoay quanh Push Chain",
-          "imagetitle": "Hỗ trợ mọi token của mọi blockchain cho các giao dịch."
-        },
-        "box6": {
-          "texttitle": "Universal Execution Layer",
-          "bodytext": "Xây dựng các ứng dụng nguyên tử, có thể ghép nối trên toàn bộ web3. Tạo ra những trải nghiệm ứng dụng chưa từng thấy trước đây, bằng cách cho phép nhiều người dùng từ các chuỗi khác nhau giao dịch với cùng một ứng dụng.",
-          "imagealt": "Hình minh họa cho thấy các khối Tetris khác nhau đi vào lỗ sâu đục và logo Push Chain xuất hiện từ phía bên kia.",
-          "imagetitle": "Các giao dịch từ bất kỳ blockchain nào đều được xác nhận trên Push Chain, cho phép người dùng của bất kỳ blockchain nào sử dụng ứng dụng giống nhau, hay còn gọi là Universal Execution Layer."
-        },
-        "box7": {
-          "texttitle": "Truy cập trạng thái",
-          "bodytext": "Truy cập dữ liệu tài khoản và trạng thái từ các blockchain khác trong smart contract của bạn.",
-          "tagText": "SẮP RA MẮT",
-          "tags": {
-            "title1": "ĐỌC DỮ LIỆU TỪ CHAINS"
-          },
-          "imagealt": "Hình minh họa hiển thị Push Chain phát triển theo phong cách hoạt hình khối.",
-          "imagetitle": "(Lộ trình) Shared State cho phép truy cập dữ liệu tài khoản và trạng thái từ các chuỗi khác trong smart contract của bạn."
-        },
-        "box8": {
-          "texttitle": "Universal\nValidators",
-          "bodytext": "Kích hoạt, xác thực và hoàn tất các giao dịch trên bất kỳ blockchain nào bằng smart contract của bạn.",
-          "tagText": "SẮP RA MẮT",
-          "tags": {
-            "title1": "GHI VÀO CÁC CHUỖI"
-          },
-          "imagealt": "Hình minh họa cho thấy các khối tetris với nhiều màu sắc khác nhau hòa nhập và thay đổi.",
-          "imagetitle": "(Roadmap) Universal Validators cho phép người dùng kích hoạt, xác thực và hoàn thành các giao dịch trên bất kỳ blockchain nào bằng smart contract của bạn."
-        },
-        "footer": {
-          "title": "mở rộng cơ sở người dùng ứng dụng của bạn bằng cách trở nên universal",
-          "secondary": "với sự nỗ lực bằng không!",
-          "ctatext": "Bắt đầu Xây dựng",
-          "ctatitle": "Triển khai một lần, mở rộng cơ sở người dùng gấp 10 lần. Ghé thăm Tài liệu dành cho Nhà phát triển."
-        }
-      },
-      "partners-section": {
-        "section-aria-label": "Các đối tác và tích hợp hệ sinh thái Push Chain",
-        "title": "Powered by Push Chain",
-        "subtitle": "Khám phá các ứng dụng đã nhân rộng lượng người dùng của họ chỉ bằng cách triển khai trên Push Chain.",
-        "ctatitle": "Khám phá các đối tác, ứng dụng và cơ sở hạ tầng được triển khai trên Push Chain",
-        "ctatext": "Khám phá Hệ sinh thái",
-        "partners-grid-aria-label": "Lưới logo đối tác hiển thị các dự án Web3 sử dụng Push Chain",
-        "partner-logo-title-prefix": "Đối tác logo - ",
-        "partner-logo-alt-prefix": "Logo của ",
-        "mobile-view-aria-label": "Chế độ xem dành cho thiết bị di động của các đối tác hệ sinh thái Push Chain"
-      },
-      "stats-section": {
-        "section-aria-label": "Thống kê và số liệu hiệu suất của Push Chain",
-        "title": "Đạt được",
-        "titleGradient": "Ngay lập tức",
-        "titleThird": "Khả năng tương tác",
-        "description": "Tối ưu hóa hiệu suất.\nTPS cao, gas cực thấp và thời gian\nfinality dưới một giây cho việc thực thi app theo thời gian thực.",
-        "animation-alt": "Hoạt ảnh tương tác thể hiện khả năng tương tác tức thì của Push Chain trên nhiều blockchains",
-        "animation-title": "Trực quan hóa khả năng tương tác tức thời của Push Chain",
-        "stats": {
-          "stat1": {
-            "title": "Các chuỗi được hỗ trợ",
-            "imagealt": "Hình minh họa cho thấy các chuỗi được hỗ trợ",
-            "imagetitle": "Danh sách tất cả các blockchain được hỗ trợ như Ethereum, Solana, BNB Chain, v.v."
-          },
-          "stat2": {
-            "title": "TPS",
-            "description": "4.2k"
-          },
-          "stat3": {
-            "title": "FINALITY GỐC",
-            "description": "Nhanh chóng"
-          },
-          "stat4": {
-            "title": "THỜI GIAN KHỐI GỐC",
-            "description": "1s"
-          }
-        }
-      },
-      "blog-section": {
-        "subtitle": "TIN TỨC, NHẬT KÝ PHÁT TRIỂN & Ý TƯỞNG",
-        "subtitle-aria-label": "Thông tin danh mục blog",
-        "title": "Nhịp đập của Push Chain",
-        "title-aria-label": "Các bài viết và cập nhật mới nhất về Push Chain",
-        "explore-link-text": "Xem thêm bài viết",
-        "explore-link-title": "Truy cập blog Push Chain để đọc tất cả các bài viết và cập nhật",
-        "explore-link-aria-label": "Điều hướng đến trang blog Push Chain",
-        "section-aria-label": "Phần tin tức và bài đăng blog của Push Chain",
-        "blog-posts-list-aria-label": "Các bài viết gần đây trên Push Chain",
-        "blog-post-aria-label": "Đọc bài viết blog về {title}",
-        "blog-post-title-prefix": "Đọc bài viết blog - ",
-        "loading-text": "Đang tải các bài viết blog mới nhất...",
-        "error-text": "Không thể tải bài viết blog vào lúc này",
-        "no-posts-text": "Chưa có bài viết blog nào"
-      },
-      "trustedby-section": {
-        "title": "Được xây dựng bởi đội ngũ đáng tin cậy của những người tiên phong trong Web3",
-        "section-aria-label": "Phần tin cậy của Push Chain",
-        "trusted-by-alt": "Nhà đầu tư - "
-      },
-      "featured-section": {
-        "aria-label": "Phần nổi bật",
-        "tag": "ĐƯỢC GIỚI THIỆU TRÊN",
-        "title": " Push Chain là trung tâm chú ý",
-        "subtitle": "Đừng chỉ nghe chúng tôi nói. Hãy xem giới truyền thông đang nói gì về chuỗi đa năng thực sự.",
-        "articles-image-alt": "Đưa tin trên truyền thông từ ",
-        "articles-text": "Đọc Toàn Bộ Tin Tức",
-        "articles-title-1": "Đọc ",
-        "articles-title-2": "'s suy nghĩ chi tiết về Push Chain",
-        "articles": {
-          "binance-chain": {
-            "text": "Chúng tôi rất vui mừng thông báo rằng Push Protocol, một giao thức liên lạc phi tập trung hàng đầu cho Web3, đã chính thức ra mắt trên BNB Chain."
-          },
-          "coindesk": {
-            "text": "Protocol Village: Unstoppable Works With Push Protocol to Deliver Token-Gated Group Chats"
-          },
-          "defiant": {
-            "text": "Unstoppable Domains ra mắt nhóm trò chuyện có cổng kiểm soát bằng token. Hợp tác với Push Protocol nhằm ngăn chặn thông tin sai lệch và lừa đảo."
-          },
-          "balaji": {
-            "text": "Thông báo được kiểm soát bởi người dùng. Hai công ty kiểm soát thông báo đẩy đến hàng tỷ điện thoại thông minh: Apple và Google."
-          },
-          "defiprime": {
-            "text": "Harsh Rajat chia sẻ về tương lai của ngân hàng, các ưu đãi của giao thức EPNS và mô hình kinh doanh cho thông báo đẩy phi tập trung."
-          },
-          "ethfoundation": {
-            "text": "Kể từ HackMoney, Richa và Harsh đã dồn rất nhiều năng lượng vào việc xây dựng EPNS trở thành thứ họ gọi là \"một mảnh ghép còn thiếu của Web3\"."
-          },
-          "beincrypto": {
-            "text": "Cách Mạng Mạng Giao Tiếp Web3 Hoạt Động: Phân Tích Kỹ Thuật Chi Tiết"
-          },
-          "the-block": {
-            "text": "Giao thức thông báo Web3 Push sẽ ra mắt chuỗi Layer 1 của riêng mình"
-          },
-          "business-insider": {
-            "text": "Push giới thiệu Push Chain: Tương lai của các ứng dụng Blockchain Toàn năng"
-          },
-          "chainwire": {
-            "text": "Push giới thiệu Push Chain: Tương lai của ứng dụng Blockchain đa năng."
-          },
-          "benzinga": {
-            "text": "Push giới thiệu Push Chain: Tương lai của ứng dụng Blockchain toàn diện"
-          },
-          "crypto-briefing": {
-            "text": "Push giới thiệu Push Chain: Tương lai của các ứng dụng Blockchain đa năng"
-          },
-          "cryptoslate": {
-            "text": "Push Protocol launches Push Chain để thống nhất giao tiếp và giao dịch trên blockchain"
-          },
-          "messari": {
-            "text": "EPNS cho phép tạo động lực và thu nhập thụ động cho người dùng nhận thông báo phi tập trung."
-          },
-          "coin-telegraph-1": {
-            "text": "Harsh Rajat, người sáng lập và trưởng dự án của Push Protocol, giải thích sự gia tăng phát triển của các ứng dụng chat Web3 trong tập mới nhất của Hashing It Out."
-          },
-          "coin-telegraph-2": {
-            "text": "Unstoppable Domains ra mắt tính năng trò chuyện nhóm có cổng bảo mật cho người nắm giữ tên miền."
-          }
-        }
-      },
-      "ending-section": {
-        "aria-label": "Phần xây dựng ứng dụng universal",
-        "section-title": "Xây dựng các ứng dụng toàn diện.",
-        "section-subtitle": "Phá vỡ các rào cản. Xây dựng một lần, mở rộng trên mọi blockchain.",
-        "docs-link": {
-          "text": "Khám phá tài liệu Push Chain",
-          "title": "Khám phá tài liệu và nguồn tài nguyên dành cho nhà phát triển của Push Chain",
-          "aria-label": "Mở tài liệu Push Chain trong tab mới"
-        },
-        "cta-link": {
-          "text": "LFG Push Chain",
-          "title": "Bắt đầu với Push Chain - nền tảng blockchain đa năng",
-          "aria-label": "Bắt đầu phát triển trên Push Chain"
-        }
-      }
-    },
     "knowledge": {
-      "seo": {
-        "title": "Cơ sở dữ liệu — Hướng dẫn, Câu hỏi thường gặp & Cách thực hiện",
-        "description": "Bắt đầu tại đây để tìm hiểu các khái niệm, câu hỏi thường gặp, hướng dẫn và tài nguyên hệ sinh thái. Hướng dẫn rõ ràng, không quá kỹ thuật về cách sử dụng Push Chain.",
-        "og-title": "Cơ sở kiến thức Push Chain - Hướng dẫn & Câu hỏi thường gặp",
-        "og-description": "Các khái niệm, hướng dẫn từng bước và trả lời các câu hỏi thường gặp về Push Chain.",
-        "twitter-title": "Cơ sở kiến thức - Hướng dẫn & Câu hỏi thường gặp",
-        "twitter-description": "Hướng dẫn nhanh, câu hỏi thường gặp và cách thực hiện cho Push Chain (không dùng thuật ngữ kỹ thuật)."
-      },
-      "hero-section": {
-        "title": "Kho Tàng Kiến Thức",
-        "description": {
-          "highlighted": "Push Chain là một blockchain đa năng thực sự, được thiết kế để loại bỏ sự phân mảnh trên tất cả các chuỗi.",
-          "developers": "Các nhà phát triển",
-          "developers-text": "triển khai một lần và ngay lập tức tương thích với tất cả các chain EVM và non-EVM được hỗ trợ.",
-          "users": "Người dùng",
-          "users-text": "sử dụng cùng một ứng dụng bất kể họ đến từ chuỗi nào."
-        },
-        "email-signup": {
-          "title": {
-            "long": "Nhận thông báo về Testnet Push Chain",
-            "short": "Push Chain Testnet"
-          },
-          "description": "Hãy là người đầu tiên biết khi Push Chain testnet chính thức ra mắt. Tham gia danh sách email của chúng tôi để cập nhật những thông tin độc quyền."
-        },
-        "footer": {
-          "description": "Tạo trải nghiệm liền mạch, thân thiện với người dùng cho ứng dụng của bạn trên bất kỳ blockchain nào với Push Chain.",
-          "cta": {
-            "text": "Nhận Thông Báo"
-          }
-        }
-      },
-      "explainer-section": {
-        "blocks": {
-          "sections": {
-            "resources": {
-              "title": "Tài nguyên",
-              "items": {
-                "push101": {
-                  "title": "Push Chain Basics",
-                  "subtitle": "Tìm hiểu về những kiến thức cơ bản của Push Chain, những đổi mới của nó và tại sao nó lại cần thiết",
-                  "ctatitle": "Khám phá thêm"
-                },
-                "builders": {
-                  "title": "Xây dựng trên Push Chain",
-                  "subtitle": "Khám phá cách xây dựng các ứng dụng đa năng, những tiềm năng mà nó mang lại và cách bắt đầu!",
-                  "ctatitle": "Các Nhà Xây Dựng Tập Hợp"
-                },
-                "deepdives": {
-                  "title": "Các bài phân tích chuyên sâu về kỹ thuật",
-                  "subtitle": "Muốn tìm hiểu sâu về Push? Hoặc đơn giản là bạn tò mò? Dù sao thì, chào bạn nhé!",
-                  "ctatitle": "Xem cách nó hoạt động"
-                },
-                "devdocs": {
-                  "title": "Tài liệu dành cho nhà phát triển",
-                  "subtitle": "Chúng ta đi thẳng vào vấn đề nhé! Tôi là một universal chain... và bạn là một dev, hãy chính thức hóa điều đó!",
-                  "ctatitle": "Bắt đầu xây dựng"
-                },
-                "tokenomics": {
-                  "title": "Khám phá Tokenomics",
-                  "subtitle": "Tìm hiểu cách tokenomics của chúng tôi khuyến khích và đảm bảo một mạng lưới bền vững được xây dựng để tồn tại lâu dài",
-                  "ctatitle": "Tìm hiểu về Thiết kế Token"
-                },
-                "faq": {
-                  "title": "Câu hỏi thường gặp",
-                  "subtitle": "Nơi tìm câu trả lời cho tất cả các câu hỏi phổ biến mà cộng đồng đã hỏi",
-                  "ctatitle": "Đọc thêm"
-                }
-              }
-            }
-          }
-        }
-      },
       "push101": {
         "seo": {
           "title": "Giới thiệu về Push Chain — Những điều cơ bản",
@@ -735,13 +275,13 @@
                   "vision": "## Tầm nhìn của Push Chain là gì?\n\nWszystkie blockchains đã chứng minh tính hữu dụng đặc biệt đối với các ứng dụng và trường hợp sử dụng cụ thể. Bitcoin đã cho phép tiền thông minh. Ethereum đã cho phép các đổi mới cho DeFi. Solana đã cho phép các ứng dụng nhanh và văn hóa meme. Một số L2 và L1 mới đang nhắm đến các lĩnh vực quan tâm khác.\n\nTuy nhiên, một blockchain được xây dựng riêng để cho phép trừu tượng hóa chuỗi và khả năng tương tác liền mạch trong không gian vẫn là cần thiết. Chuỗi này sẽ cho phép các giao dịch từ bất kỳ chuỗi nào (ETH, SOL, EVM hoặc non-EVM) để cung cấp năng lượng cho các ứng dụng có thể được sử dụng bởi **bất kỳ người dùng nào —** bất kể chuỗi hoặc ví của họ. Đây là chuỗi của **Universal Apps**. Đây là Push Chain!",
                   "innovation": "### Được xây dựng trên nền tảng đổi mới để loại bỏ sự cô lập của blockchain!\n\nPush Chain là một cuộc cách mạng cho cả người dùng và nhà phát triển vì nó tạo ra một môi trường để bất kỳ nhà phát triển nào có thể triển khai ứng dụng universal của họ trong vài giờ thông qua một triển khai universal smart contract duy nhất.\n\nNó cũng cho phép người dùng giao dịch một cách thoải mái, tiện lợi và lựa chọn trong hệ sinh thái của họ, bất kể ứng dụng đó ở đâu.\n\nBên trong, điều này đạt được bằng cách:\n\n- Khả năng thực hiện **transaction từ bất kỳ chain nào**\n- **Universal Fee & Wallet Abstraction** để cho phép người dùng sử dụng bất kỳ chain nào, bất kỳ wallet nào và thanh toán bằng bất kỳ token nào\n- **Universal Smart Contract** để cho phép các nhà phát triển triển khai các ứng dụng interop tức thì trong vài phút\n- **Shared State** để đọc dữ liệu từ các blockchain khác\n- **Programmable Solver** để ghi dữ liệu vào bất kỳ chain nào\n\nTất cả điều này cho phép một **Universal Execution Layer** để cho phép người dùng của bất kỳ chain nào truy cập và tương tác với cùng một ứng dụng.",
                   "fit": "### Push Chain phù hợp ở đâu?\n\nPush chain phù hợp với **mọi dự án… trên mọi chuỗi!**\n\n- **Nó cho phép các nhà phát triển** từ bất kỳ chuỗi nào tạo các ứng dụng liên thông hoàn toàn liền mạch có thể được sử dụng từ bất kỳ chuỗi nào, thông qua bất kỳ ví nào.<br />\n- **Nó cho phép người dùng** tự do tương tác với ví họ chọn hoặc có trải nghiệm liền mạch không cần đăng nhập thông qua Push Universal Wallet với đăng nhập mạng xã hội.<br />\n- **Nó cho phép trải nghiệm ứng dụng chung** nơi người dùng từ tất cả các chuỗi có thể đến với nhau và tham gia vào DeFi đa năng, trò chơi thống nhất, NFT đa năng, Quản trị đa năng, v.v.<br />",
-                  "use-cases": "### Có thể xây dựng gì trên Push Chain?\n\nPush Chain mang đến khả năng tương tác liền mạch và thống nhất tất cả các L1, L2 và L3, vì vậy nó được định vị để trở thành sân chơi cho đổi mới và tương tác. Bạn có thể xây dựng các use case web3 hiện có như:\n\n![Các use case chính của Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nHoặc bạn có thể nâng tầm web3 và tạo ra các đổi mới:\n\n![Các use case dành cho người dùng của Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nHoặc bạn có thể xem một số ví dụ app phổ biến để lấy cảm hứng:\n\n![Ví dụ các app phổ biến trên Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
                   "token-utility": "### Push Chain token có tiện ích gì?\n\n1. **Staking & Validation** <br />\nThe token được sử dụng để staking nhằm bảo mật mạng lưới và tham gia vào cơ chế đồng thuận. Các validator và delegator sẽ nhận được phần thưởng cho sự tham gia của họ.\n\n2. **Transaction Fees** <br />\nThe token là phương thức chính để thanh toán phí giao dịch và sử dụng app trong mạng lưới.\n\n3. **Universal Fee Abstraction** <br />\nThe token cho phép người dùng thanh toán phí bằng bất kỳ token nào (ETH, SOL, USDC, etc.) trong khi protocol xử lý chuyển đổi phía sau.\n\n4. **Governance** <br />\nNgười nắm giữ token có thể tham gia vào quản trị protocol, bỏ phiếu cho các nâng cấp, thay đổi tham số và các quyết định của hệ sinh thái.",
                   "deflationary-design": "### Thiết kế giảm phát\n\n1. **Đốt phí giao dịch** <br />\nMột phần phí giao dịch thu được bằng Push Chain token gốc sẽ bị đốt, làm giảm tổng cung theo thời gian.\n\n2. **Đốt đa chuỗi** <br />\nSử dụng Universal Fee Abstractions, một phần phí thu được trên các token gốc khác của blockchain (ETH, SOL) sẽ được đổi lấy Push Chain token gốc và đốt.\n\nĐiều này đảm bảo thiết kế blockchain giảm phát đốt token khi mạng và các giao dịch diễn ra trên đó phát triển. Thiết kế này cho phép tạo ra một tương lai dài hạn bền vững, có động lực cho Push Chain và tất cả những người tham gia.",
                   "migration-details": "### Chi tiết Di chuyển\n\nPush Chain là kết quả của nhiều năm học hỏi từ việc xây dựng giao thức thông báo và giao tiếp hàng đầu của web3, vốn là một trong những ứng dụng tiêu dùng đầu tiên cho tiền điện tử.\n\nDo đó, ngoài airdrop được phân bổ (xem chi tiết bên dưới) cho người dùng Push Chain, nhà sáng tạo, nhà phát triển và đối tác hệ sinh thái, **còn có một đợt airdrop dành riêng cho những người nắm giữ $PUSH** (token gốc của Push Protocol).\n\n<details>\n  <summary>\n  <b>Chi tiết di chuyển cho những người nắm giữ token $PUSH hiện có</b>\n\n  </summary>\n\n  **Dành cho những người nắm giữ token $PUSH hiện có**, đề xuất tokenomics của Push Chain phân bổ 15% tổng nguồn cung token Push Chain cụ thể cho việc di chuyển. Việc di chuyển sẽ diễn ra theo tỷ lệ **1:15**—nghĩa là cứ mỗi token Push Protocol ($PUSH) bạn nắm giữ, bạn sẽ nhận được 15 token Push Chain. Ví dụ: nếu bạn hiện đang nắm giữ 40 $PUSH token, bạn sẽ nhận được 600 token Push Chain sau khi di chuyển.\n\n  Việc ra mắt Push Chain được thiết kế để thưởng và khuyến khích những người nắm giữ token Push Protocol ($PUSH) trước đó vì sự trung thành và đóng góp của họ. Quá trình di chuyển đối với những người nắm giữ token $PUSH hiện có sẽ hoạt động như sau:\n\n  - Token sẽ di chuyển theo tỷ lệ 1:15 (1 token Push Protocol = 15 token Push Chain).\n  - Những người tham gia di chuyển Push Chain sẽ thấy 50% token di chuyển của họ được mở khóa ngay lập tức và thêm 50% được mở khóa sau 3 tháng.\n  - Những người di chuyển token cũng sẽ được hưởng lợi từ một pool yield farming dành riêng cho họ. Những phần thưởng này sẽ được phân phối cho những người di chuyển token nếu họ stake token Push Chain đã di chuyển của họ, để thưởng cho họ vì sự đóng góp lâu dài cho hệ sinh thái.\n  - Ví dụ: nếu bạn có 100 token Push Protocol $PUSH, bạn sẽ nhận được 750 token Push Chain khi bạn di chuyển và 750 token Push Chain sau 3 tháng — tổng cộng 1.500 token Push Chain. Bạn có thể chọn stake những token này để nhận thêm phần thưởng từ pool yield farming của Push Chain, được phân phối định kỳ.\n\n  Việc di chuyển token Push Chain sẽ mở trong 12 tháng sau khi ra mắt, sau đó bất kỳ token còn lại nào sẽ được chuyển đến cộng đồng và quỹ dự trữ hệ sinh thái.\n\n</details>\n<p />",
-                  "airdrop-details": "### Chi tiết Airdrop\n\nNgoài ra, đề xuất tokenomics phân bổ 10% tổng nguồn cung token Push Chain cho airdrop cho người dùng ứng dụng Push Protocol trong quá khứ và hiện tại (thông báo, nhắn tin, trò chuyện). Cùng với người dùng mới, người sáng tạo, nhà phát triển và đối tác hệ sinh thái của Push Chain.\n\n<br />",
+                  "airdrop-details": "### Chi tiết Airdrop\n\nNgoài ra, đề xuất tokenomics phân bổ 10% tổng nguồn cung Push Chain token cho airdrop đến người dùng ứng dụng Push Protocol trong quá khứ và hiện tại (thông báo, nhắn tin, trò chuyện). Cùng với người dùng mới, người sáng tạo, nhà phát triển và đối tác hệ sinh thái của Push Chain.\n\n<br />",
                   "token-distribution": "## Chi tiết phân phối Token\n\nTổng cung của token Push Chain được đề xuất là **10 tỷ**, được phân phối như sau:\n\n![Push Chain Tokenomics](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Chi tiết phân phối Token Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Phân phối Airdrop bắt đầu tại TGE, nhưng sẽ diễn ra trong nhiều mùa.\n2. Các Core Contributors có thời gian trì hoãn 12 tháng, sau đó là thời gian vesting 24 tháng.\n3. Kho bạc Push Labs có thời gian vesting 36 tháng.\n4. Các nhà đầu tư có thời gian vesting tuyến tính 24 tháng.\n5. Cộng đồng và các Reserve cho Hệ sinh thái có 13,5% mở khóa tại TGE, sau đó là thời gian vesting 36 tháng.\n\n<br />",
-                  "get-involved": "## Tham gia đóng góp\n\n- **🧙 Nhà phát triển**\nKhám phá SDK & Tài liệu của chúng tôi tại [Trung tâm tài liệu](/docs/)\n\n- **🦹 Cộng đồng**  \nTheo dõi [@PushChain](https://x.com/PushChain) trên X/Twitter, tham gia [Discord](https://discord.com/invite/pushchain) và [Telegram](https://t.me/epnsproject).\n\nCùng nhau, chúng ta sẽ xây dựng tương lai của **Universal Web3**!"
+                  "get-involved": "## Tham gia đóng góp\n\n- **🧙 Nhà phát triển**\nKhám phá SDK & Tài liệu của chúng tôi tại [Trung tâm tài liệu](/docs/)\n\n- **🦹 Cộng đồng**  \nTheo dõi [@PushChain](https://x.com/PushChain) trên X/Twitter, tham gia [Discord](https://discord.com/invite/pushchain) và [Telegram](https://t.me/epnsproject).\n\nCùng nhau, chúng ta sẽ xây dựng tương lai của **Universal Web3**!",
+                  "use-cases": "### Điều gì có thể được xây dựng trên Push Chain?\n\nPush Chain mang lại khả năng tương tác liền mạch và thống nhất tất cả L1, L2 & L3 và do đó có vị thế trở thành sân chơi của sự đổi mới và tương tác. Bạn có thể xây dựng các trường hợp sử dụng web3 hiện có như:\n\n![Các trường hợp sử dụng chính của Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nHoặc bạn có thể cải thiện web3 và tạo ra những đổi mới:\n\n![Các trường hợp sử dụng dành cho người tiêu dùng của Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nHoặc bạn có thể xem một số ví dụ ứng dụng phổ biến để lấy cảm hứng:\n\n![Các ví dụ ứng dụng phổ biến trên Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)"
                 }
               }
             }
@@ -768,7 +308,7 @@
                 "items": {
                   "overview": "## Tổng quan\n\nĐây là nơi để tìm câu trả lời cho tất cả các câu hỏi phổ biến mà cộng đồng đã hỏi về Push Chain. Được thu thập từ cộng đồng Push Fam 🫶 và tuyển chọn bởi đội ngũ Push 💪.\n\n---",
                   "what-is-push-chain": "### Push Chain là gì?\n\nPush Chain là một blockchain Layer 1 với trạng thái chung được xây dựng để loại bỏ sự phân mảnh trên tất cả các chuỗi.\n\nBằng cách cho phép **các giao dịch liền mạch từ bất kỳ chuỗi nào** (Ethereum, Solana, EVM hoặc non-EVM), nó cho phép bất kỳ người dùng nào tương tác với các ứng dụng web3 mà không cần phải quản lý nhiều ví, token hoặc cơ chế gas.\n\nTóm lại, Push Chain hợp nhất L1s 🤝 L2s 🤝 L3s dưới một lớp thống nhất.\n\n---",
-                  "how-does-push-chain-work": "### Push Chain hoạt động thế nào?\n\n![Cách các ứng dụng bình thường làm việc](/assets/website/chain/knowledge/faq/normalapps.webp)\n\n![Cách các ứng dụng phổ cập làm việc](/assets/website/chain/knowledge/faq/universalapps.webp)\n\nPush Chain tiếp cận giải quyết vấn đề phân mảnh khắp mọi chain theo một cách độc đáo. Thay vì dựa vào giao thức tương thích, Push Chain xây dựng một blockchain thực sự toàn cầu mà bất kỳ người dùng nào từ bất kỳ chain nào cũng có thể sử dụng.\n\nĐể đạt được điều này, Push Chain tận dụng các **precompiles** personnalized để:\n\n1. **Nhận dạng** người dùng của các chain khác - Địa chỉ phổ cập tiêu chuẩn mở rộng địa chỉ của một người dùng thành bất kỳ blockchain nào (dựa trên [CAIP-10 tiêu chuẩn](https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-10.md)).\n\n2. **Map** người dùng đến Push Chain - Một Tài khoản Executor Phổ cập (UEA) được triển khai cho mỗi người dùng của external-chain. modules này được sử dụng để triển khai một tài khoản thông minh.\n\n3. **Thực hiện** giao dịch phổ cập - Điều này được thực hiện bằng cách sử dụng các precompiles USV (Universal Signature Verification) và UTXV (Universal Transaction Verifier) để xác minh và thực hiện chữ ký và giao dịch từ các chain khác.\n\n4. **Tối giản hóa** điêu khắc của chain mà họ trên - Điều này được thực hiện bằng cách có các hợp đồng cửa ngõ phổ cập trên mỗi chain, khóa tiền phí gas trong token gốc của-chain (hoặc bất kỳ token tuân thủ nào) và sử dụng UTXV để liên kết gas với UEA.\n\nĐây là một **cách tiếp cận vô cùng mạnh mẽ** cho phép người dùng tương tác với bất kỳ ứng dụng nào trên Push Chain mà không cần quan tâm đến chain họ đang trên hoặc ví nào họ đang sử dụng do tất cả đều được tối giản hóa, đối với người dùng và nhà phát triển.\n\n---",
+                  "how-does-push-chain-work": "### Push Chain làm sao hoạt động?\n\n![Cách các ứng dụng thông thường hoạt động](/assets/website/chain/knowledge/faq/normalapps.webp)\n\n![Cách các ứng dụng phổ thông hoạt động](/assets/website/chain/knowledge/faq/universalapps.webp)\n\nPush Chain tiếp cận vấn đề phân mảnh trên tất cả các chuỗi một cách độc đáo. Thay vì dựa vào các giao thức tương thích, Push Chain xây dựng một chuỗi blockchain phổ thường thực sự có thể được sử dụng bởi bất kỳ người dùng nào từ bất kỳ chuỗi nào.\n\nĐể đạt được điều này, Push Chain sử dụng nhiều **precompiles** để:\n\n1. **Nhận dạng** người dùng của các chuỗi khác - Định dạng địa chỉ phổ thông dựa trên tiêu chuẩn CAIP-10.\n\n2. **Bản đồ** người dùng sang Push Chain - Một tài khoản Universal Executor Account (UEA) được triển khai cho mỗi người dùng chuỗi bên ngoài.\n\n3. **Thực hiện** giao dịch phổ thông - Dùng USV và UTXV để xác minh và thực hiện các chữ ký và giao dịch từ các chuỗi khác.\n\n4. **Abstraction** đi xa những điều phức tạp của chuỗi mà họ đang trên - Sử dụng các hợp đồng cổng phổ thông trên mỗi chuỗi để khoá tiền gas trong token gốc của chuỗi (hoặc bất kỳ token tuân thủ nào) và sau đó sử dụng UTXV để chỉ định gas cho UEA và USV để thực hiện giao dịch.\n\nĐây là một cách rất **không đơn giản** giúp người dùng tương tác với bất kỳ ứng dụng nào trên Push Chain mà không cần lo lắng về chuỗi họ đang trên hoặc bằng cách nào họ sử dụng ví, vì mọi thứ đều bị trừ đi cho cả người dùng và các nhà phát triển.\n\n---",
                   "why-unique-for-users": "### Tại sao Push Chain lại độc đáo đối với người dùng?\n\nPush Chain giải quyết những vấn đề cụ thể trong các blockchain hiện có, chẳng hạn như khả năng tương tác, quyền truy cập trạng thái giữa các chuỗi, bộ giải lập trình và trừu tượng hóa ví, dẫn đến **tính tương tác đầy đủ thực sự**. Mặc dù các blockchain hiện có rất mạnh mẽ, nhưng chúng hoạt động trong hệ sinh thái riêng của mình và cần một trình tổng hợp để thống nhất các chuỗi này.\n\nPush Chain tập trung vào việc trở thành một **chuỗi trạng thái chung** cho các ứng dụng đa năng (tương tác) đóng vai trò là lớp thống nhất nơi tất cả các chuỗi có thể đến với nhau và sử dụng Push Chain làm trung tâm đa năng hoặc thực hiện thanh toán giữa chúng.\n\nNó cung cấp một mô hình mới của web3 hoạt động từ **Bất kỳ Chuỗi nào.** Đối với **Bất kỳ Ví / Người dùng nào.** Và phù hợp với **Bất kỳ Ứng dụng nào.**\n\n---",
                   "core-innovations": "### Điều Gì Làm Cho Push Chain Trở Nên Sáng Tạo?\n\n![Push Chain Architecture](/assets/website/chain/knowledge/faq/pcoverview.webp)\n\nPush Chain là một Layer 1 Proof-of-Stake được thiết kế để loại bỏ sự phân mảnh trên mọi blockchain. Bên dưới, nó kết hợp một số đổi mới chính:\n\n- **Smart Contract Universal**  \nSmart contract tương thích 100% EVM có thể được triển khai với **zero thay đổi code trên chuỗi**. Khi được triển khai, chúng sẽ tương thích ngay lập tức với người dùng của tất cả các chuỗi.\n\n- **Chuỗi Universal Thực Sự**  \nNatively hỗ trợ tất cả các chuỗi và cho phép người dùng tương tác với cùng một app. Không cần các relayer, bridge tập trung, hoặc các hack khác.\n\n- **Universal Fee & Wallet Abstraction**  \nCho phép người dùng tương tác với app từ bất kỳ chuỗi nào mà không cần lo lắng về gas hoặc cơ chế ví.\n\n- **Một transaction duy nhất cho bất kỳ chuỗi nào**  \nNgười dùng chỉ cần ký một transaction duy nhất, bất kể họ ở chuỗi nào.\n\n- **Universal EVM**  \nPush Chain đủ thông minh để natively nhận ra người dùng của các chuỗi khác và gán và ánh xạ các transaction một cách chính xác cho họ. \n\nCùng nhau, những tính năng này cho phép bạn xây dựng **universal web3 apps**. Thay vì \"Uniswap trên Ethereum\" hoặc \"Uniswap trên Polygon\", người dùng đơn giản trở thành **người dùng của Uniswap** — thế thôi.\n\n---",
                   "problems-solved": "### Push Chain giải quyết những vấn đề gì?\n\n- **Phân mảnh**  \n  Kết hợp các chuỗi EVM & non-EVM dưới một lớp shared-state L1 duy nhất, để người dùng không bao giờ cần phải chuyển đổi giữa các mạng hoặc ví.\n\n- **Khả năng tương tác**  \n  Hỗ trợ giao dịch từ bất kỳ blockchain nào và trạng thái shared state trên chuỗi.\n\n- **Tính cuối cùng**  \n  Tính cuối cùng tự nhiên ngay lập tức, không thể đảo ngược trong khoảng ~1-2 giây – không còn phải chờ đợi hoặc reorg.\n\n- **Khởi tạo & Trải nghiệm người dùng**  \n  Đăng nhập bằng mạng xã hội/email, hỗ trợ gas bằng bất kỳ token nào & bất kỳ ví nào để có quyền truy cập không gặp rắc rối trên các chuỗi.\n\n- **Ứng dụng Universal**  \n  Xây dựng một lần, triển khai ở khắp mọi nơi – bất kỳ ứng dụng Web3 nào cũng hoạt động liền mạch cho bất kỳ người dùng nào trên bất kỳ chuỗi nào.\n\n---",
@@ -785,9 +325,9 @@
                   "true-universal-chain": "### True Universal Chain có ý nghĩa gì?\n\nMột **true universal chain** là một blockchain coi mọi mạng lưới khác như những công dân hạng nhất—không cầu nối, không bộ điều phối tập trung và không hack tương thích. Nó mang lại:\n\n1. **Danh tính Đa mạng lưới Nguyên bản**  \n\tVí từ Ethereum, Solana, bất kỳ chuỗi EVM hoặc non-EVM nào đều ký, xác minh và thực thi nguyên bản trên Push Chain. Vì vậy, người dùng không bao giờ chuyển đổi tài khoản hoặc gặp rắc rối với sự phức tạp của nhiều ví.\n\n2. **Thanh toán Thống nhất**  \n\tCác giao dịch từ bất kỳ mạng lưới nào đều được xác nhận trên Push Chain, mang đến một nguồn chân thực duy nhất cho mọi người và cho phép cùng một ứng dụng có thể truy cập được bởi người dùng của tất cả các chuỗi.\n\n3. **Giao dịch Duy nhất và Khái niệm Tóm tắt Phí Toàn cầu**  \n\tNgười dùng chỉ ký một giao dịch, bất kể chuỗi nguồn của họ và trả gas bằng bất kỳ token nào. Không còn phải duy trì hoặc hoán đổi vô số token để sử dụng một ứng dụng.\n\n4. **Triển khai Một lần, Sử dụng Mọi nơi**  \n\tCác nhà phát triển viết và triển khai smart contract một lần (EVM hoặc bất kỳ cái nào khác) không cần thêm mã—một lần triển khai bao phủ tất cả các chuỗi.\n\nPush Chain là chuỗi đầu tiên tích hợp trực tiếp các tính năng này vào hệ thống consensus và runtime, thực sự loại bỏ sự phân mảnh—không có giải pháp tạm thời, không có lớp bổ sung, chỉ một chuỗi toàn cầu cho tất cả mọi người.\n\n---",
                   "competitors-section": "## Đối thủ cạnh tranh",
                   "vs-other-universal": "### Điều gì làm nên sự khác biệt của Push Chain so với các Giải pháp Universal khác?\n\nCác giải pháp \"universal\" hiện nay vẫn còn phụ thuộc vào cầu nối, yêu cầu giao dịch kép hoặc bộ chuyển tiếp tập trung để di chuyển dữ liệu và giá trị. Push Chain khác biệt—đó là L1 universal **thực sự** đầu tiên có:\n\n- **Thống nhất người dùng trên nhiều chuỗi**  \n\tMỗi địa chỉ blockchain đều được hỗ trợ bản địa. Ví như MetaMask, Phantom, v.v. đều tương thích với Push Chain. Gas được thanh toán bằng bất kỳ token nào trên bất kỳ chuỗi nào.\n\n- **Hoạt động như một lớp thực thi universal**  \n\tTất cả các giao dịch đều được hoàn tất trên cùng một chuỗi, đảm bảo mọi người tương tác với cùng một ứng dụng—không hack, không giải pháp tạm thời.\n\n- **Gán và thực thi chính xác các giao dịch của bất kỳ chuỗi nào**  \n\tCác giao dịch được ký, xác minh và gán cho ví trên các chuỗi nguồn của chúng. Chuỗi universal thực sự hỗ trợ tất cả chúng.\n\n---",
-                  "vs-bridges-messaging": "### Làm sao đây khác với cây cầu hoặc các lớp tin nhắn?\n\n**Trả lời ngắn**: Push là nơi chạy ứng dụng của bạn. Cây cầu/messenger chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, làm phức tạp hóa cho người dùng và nhà phát triển.\n\n- **Nhà có đơn hơn thay vì nhiều bản sao**  \n\tVới cây cầu/messaging, bạn triển khai theo chuỗi và đồng bộ qua tin nhắn. Với Push, bạn triển khai một lần; mọi người đến cùng hợp đồng và trạng thái chung.\n\n- **Không có asset bị khóa hoặc cầu bắt buộc**  \n\tNgười dùng vẫn ở chuỗi nhà của họ và trả bằng gì đã nắm giữ; chúng tôi xử lý định tuyến và chuyển đổi phí dưới màn hình.\n\n- **Tối ưu hóa nhận dạng và xác minh**  \n\tChúng tôi chấp nhận ký tự từ bất kỳ ví/chuỗi nào và gắn nó với cùng người dùng trên Push — phi bảo quản.\n\n- **Nhiều chi tiết ít hơn**  \n\tKhông có điệu nhảy phê chuẩn khóa, không phải săn gas-token, không có hợp đồng kết dính để giữ đồng bộ.\n\n- **Cây cầu giới thiệu phức tạp. Interop chuỗi giải quyết nó**  \n\tCây cầu yêu cầu nỗ lực kỹ thuật cao, thời gian, chi phí audit và cơ sở hạ tầng bổ sung. Interop chuỗi tự nhiên simply just vì ứng dụng của bạn tự động kế thừa nó.\n\n**Kết quả**: ứng dụng đơn giản hơn, một nguồn chân lý và UX cảm thấy như là một chuỗi — ngay cả khi người dùng không phải như vậy.\n\n---",
+                  "vs-bridges-messaging": "### Push Chain và giao thức tin nhắn khác thế nào?\n\n**Trả lời ngắn**: Push là nơi ứng dụng của bạn chạy. Giao thức cầu/messenger chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, làm phức tạp cho người dùng và nhà phát triển.\n\n- **Một điểm trung tâm thay vì nhiều bản sao**  \n\tVới cầu/messenger, bạn cần triển khai theo từng chuỗi và đồng bộ qua tin nhắn. Trên Push, bạn triển khai một lần; mọi người đến cùng hợp đồng và trạng thái chia sẻ.\n\n- **Không có tài sản bọc hoặc giao dịch bắt buộc**  \n\tNgười dùng vẫn ở trên chuỗi của họ và trả bằng những gì họ đang sở hữu; chúng tôi xử lý định tuyến và chuyển đổi phí dưới đất.\n\n- **Thương hiệu thống nhất và xác minh**  \n\tChúng tôi chấp nhận ký tự từ bất kỳ ví/chuỗi nào và quy wzn cho cùng người dùng trên Push — phi bảo mật.\n\n- **Không có nhiều bộ phận di chuyển**  \n\tKhông có vũ điệu phê duyệt, không phải săn lùng gas-token hoặc các hợp đồng dính kết để giữ theo xuôi.\n\n- **Cầu giới thiệu sự phức tạp. Interop chuỗi giải quyết nó**  \n\tCầu yêu cầu nỗ lực kỹ thuật cao, thời gian, chi phí kiểm tra và cơ sở hạ tầng bổ sung. Interop chuỗi tự nhiên chỉ chạy như ứng dụng của bạn tự nhiên thừa hưởng nó.\n\n**Kết quả**: các ứng dụng đơn giản hơn, một nguồn tin duy nhất và UX cảm thấy giống như một chuỗi — ngay cả khi người dùng không phải vậy.\n\n---",
                   "vs-layerzero": "### Push Chain khác LayerZero như thế nào?\n\n**LayerZero:**\n- **Giao thức nhắn tin**: Cho phép truyền tin nhắn giữa các chuỗi\n- **Phụ thuộc vào Relayer**: Dựa vào các relayer và oracle bên ngoài\n- **Tích hợp cho nhà phát triển**: Ứng dụng phải tích hợp SDK của LayerZero\n- **Giả định về độ tin cậy**: Người dùng phải tin tưởng vào cơ sở hạ tầng relayer\n\n**Push Chain:**\n- **Thực thi gốc**: Thực thi giao dịch trực tiếp từ bất kỳ chuỗi nào\n- **Không cần Relayer**: Chức năng cross-chain được tích hợp sẵn ở cấp giao thức\n- **Không cần tích hợp**: Ứng dụng hiện có hoạt động mà không cần sửa đổi\n- **Giảm thiểu độ tin cậy**: Không có giả định về độ tin cậy bổ sung ngoài sự đồng thuận của Push Chain\n\nPush Chain cung cấp khả năng thực thi cross-chain gốc trong khi LayerZero yêu cầu cơ sở hạ tầng và tích hợp bổ sung.\n\n---",
-                  "vs-wormhole": "### Push Chain khác Wormhole như thế nào?\n\n**Wormhole:**\n- **Bridge Protocol**: Tập trung chủ yếu vào bridging token và NFT\n- **Wrapped Assets**: Tạo các phiên bản wrapped của token trên các chuỗi khác nhau\n- **Guardian Network**: Dựa vào validator set để xác minh tin nhắn cross-chain\n- **Multi-Step Process**: Người dùng phải bridging tài sản trước khi sử dụng app\n\n**Push Chain:**\n- **Universal Execution**: Người dùng tương tác trực tiếp mà không cần bridging\n- **Native Assets**: Không cần token wrapped, sử dụng tài sản gốc\n- **Direct Verification**: Xác minh chữ ký gốc trực tiếp từ bất kỳ chuỗi nào\n- **Single Transaction**: Người dùng tương tác trong một bước, không cần bridging\n\nPush Chain loại bỏ nhu cầu bridging tài sản trong khi Wormhole yêu cầu nó cho các tương tác cross-chain.\n\n---",
+                  "vs-wormhole": "### Push Chain khác Wormhole như thế nào?\n\n**Wormhole:**\n- **Bridge Protocol**: Tập trung chủ yếu vào bridging token và NFT\n- **Wrapped Assets**: Tạo các phiên bản wrapped của token trên các chuỗi khác nhau\n- **Guardian Network**: Dựa vào validator set để xác minh các thông điệp cross-chain\n- **Multi-Step Process**: Người dùng phải bridging tài sản trước khi sử dụng app\n\n**Push Chain:**\n- **Universal Execution**: Người dùng tương tác trực tiếp mà không cần bridging\n- **Native Assets**: Không cần token wrapped, sử dụng tài sản gốc\n- **Direct Verification**: Xác minh chữ ký gốc trực tiếp từ bất kỳ chuỗi nào\n- **Single Transaction**: Người dùng tương tác trong một bước, không cần bridging\n\nPush Chain loại bỏ nhu cầu bridging tài sản trong khi Wormhole yêu cầu nó cho các tương tác cross-chain.\n\n---",
                   "vs-axelar": "### Push Chain khác Axelar như thế nào?\n\n**Axelar:**\n- **Mạng lưới các mạng**: Kết nối các chuỗi thông qua mạng lưới Axelar\n- **Phụ thuộc vào bộ xác thực**: Phụ thuộc vào bộ xác thực Axelar để bảo mật\n- **Hợp đồng cổng**: Yêu cầu triển khai cổng trên mỗi chuỗi\n- **Truyền tin nhắn**: Tập trung vào giao tiếp đa chuỗi\n\n**Push Chain:**\n- **Thực thi trực tiếp**: Giao dịch được xử lý trực tiếp trên Push Chain mà không có trung gian\n- **Bảo mật độc lập**: Đồng thuận riêng mà không có sự phụ thuộc bên ngoài\n- **Hợp đồng đa dụng**: Một lần triển khai hoạt động cho tất cả các chuỗi\n- **Thực thi gốc**: Xử lý giao dịch trực tiếp từ bất kỳ chuỗi nào\n\nPush Chain cung cấp quyền truy cập đa dụng trực tiếp trong khi Axelar thêm một lớp trung gian.\n\n---",
                   "vs-chainlink-ccip": "### Push Chain khác Chainlink CCIP như thế nào?\n\n**Chainlink CCIP:**\n- **Mạng Oracle**: Sử dụng cơ sở hạ tầng oracle của Chainlink\n- **Định Tuyến Tin Nhắn**: Định tuyến tin nhắn giữa các chuỗi khác nhau\n- **Phụ Thuộc Bên Ngoài**: Dựa vào mạng phi tập trung của Chainlink\n- **Yêu Cầu Tích Hợp**: Các ứng dụng phải tích hợp CCIP để có các tính năng liên chuỗi\n\n**Push Chain:**\n- **Giao thức Tích Hợp**: Chức năng liên chuỗi là gốc rễ của blockchain\n- **Thực Thi Trực Tiếp**: Không cần mạng oracle bên ngoài\n- **Tự Đủ**: Tất cả quá trình xác minh và thực thi diễn ra trên Push Chain\n- **Tương Thích Tự Động**: Triển khai các hợp đồng hiện có — chúng hoạt động ngay lập tức cho tất cả người dùng\n\nPush Chain có khả năng liên chuỗi được tích hợp vào giao thức cốt lõi của nó, trong khi CCIP là một lớp dịch vụ bên ngoài.\n\n---",
                   "vs-particle-network": "### Push Chain khác biệt với Particle Network như thế nào?\n\n**Particle Network:**\n- **Tập trung vào Account Abstraction**: Chủ yếu tập trung vào abstraction ví và đăng nhập xã hội\n- **Ví đa chuỗi**: Tạo trải nghiệm ví thống nhất trên các chuỗi khác nhau\n- **Tích hợp SDK**: Yêu cầu tích hợp SDK của Particle để có chức năng\n- **Lớp trải nghiệm người dùng**: Hoạt động như một lớp trên các chuỗi hiện có\n\n**Push Chain:**\n- **Blockchain universal**: Blockchain gốc hỗ trợ tất cả người dùng chuỗi\n- **Tích hợp cấp giao thức**: Chức năng đa chuỗi được tích hợp vào cơ chế đồng thuận\n- **Không yêu cầu SDK**: Các ví hiện có hoạt động natively mà không cần sửa đổi\n- **Lớp cơ sở**: Cung cấp cơ sở hạ tầng blockchain cơ bản, không chỉ là lớp UX\n\nPush Chain là một blockchain universal trong khi Particle Network là một dịch vụ abstraction ví.\n\n---",
@@ -811,10 +351,211 @@
                   "centralization-risks": "### Có bất kỳ rủi ro tập trung nào với Push Chain không?\n\n**Không.** Kiến trúc của Push Chain nhấn mạnh tính phi tập trung.\n\nPush Chain hoàn toàn phi tập trung và được thiết kế để mạnh mẽ và linh hoạt. Bất kỳ ai cũng có thể chạy một node và tham gia vào mạng và được khuyến khích hoặc bị phạt thông qua PoS. Tóm tắt:\n\n- Các trình xác thực và các tác nhân khác hoạt động độc lập và được khuyến khích thông qua PoS.\n- Cơ chế quản trị đảm bảo sự tham gia của cộng đồng.\n- Mọi bên liên quan trong hệ sinh thái đều được tham gia vào quản trị ở một mức độ nào đó.\n\nĐể tìm hiểu thêm về cách chạy một node, hãy xem [Knowledge Base](/knowledge/) hoặc xem [Validator Node Repo](https://github.com/pushchain/push-chain-node).\n\n---",
                   "support-section": "## Hỗ trợ và Tương tác",
                   "need-help": "### Tôi cần giúp đỡ, tôi có thể liên hệ Push Chain ở đâu?\n\nĐể được hỗ trợ, bạn có thể [gửi yêu cầu tại đây](https://push.org/support) hoặc liên hệ với chúng tôi qua support@push.org.\n\nNếu bạn là nhà phát triển, bạn cũng có thể liên hệ với chúng tôi trên [Discord](https://discord.com/invite/pushchain) và chúng tôi sẽ sẵn lòng giúp đỡ bạn.\n\n---",
-                  "how-to-contribute": "### Tuyệt vời, tôi có thể đóng góp như thế nào?\n\nCách tốt nhất để theo dõi tiến độ của Push Chain là thông qua các kênh chính thức của Push: trang web, [X/Twitter](https://x.com/PushChain), [Telegram](https://t.me/epnsproject), và [Discord](https://discord.com/invite/pushchain).\n\nLuôn cẩn thận với các nỗ lực lừa đảo, các trang web giả mạo hoặc các trò gian lận yêu cầu tiền điện tử của bạn. Tất cả các thông tin liên lạc chính thức sẽ được gửi từ các tài khoản Push chính thức.\n\n---"
+                  "how-to-contribute": "### Tối ưu, cách nào là tốt nhất để đóng góp?\n\nĐể theo kịp tiến độ của Push Chain, hãy theo dõi các kênh chính thức của Push: trang web, [Twitter/X](https://x.com/PushChain), [Telegram](https://t.me/epnsproject), và [Discord](https://discord.com/invite/pushchain).\n\nLuôn cảnh giác trước các nỗ lực phishing, websites giả mạo hoặc scam yêu cầu tài khoản crypto của bạn. Tất cả thông tin chính thức sẽ được gửi từ các tài khoản Push chính thức.\n\n---"
                 }
               }
             }
+          }
+        }
+      },
+      "seo": {
+        "title": "Kho thư viện — Hướng dẫn, Câu hỏi thường gặp & Cách thực hiện",
+        "description": "Bắt đầu tại đây để tìm hiểu các khái niệm, câu hỏi thường gặp, hướng dẫn và tài nguyên hệ sinh thái. Hướng dẫn rõ ràng, không quá kỹ thuật về cách sử dụng Push Chain.",
+        "og-title": "Cơ sở kiến thức Push Chain - Hướng dẫn & Câu hỏi thường gặp",
+        "og-description": "Các khái niệm, hướng dẫn từng bước và câu trả lời cho các câu hỏi thường gặp về Push Chain.",
+        "twitter-title": "Cơ sở kiến thức - Hướng dẫn & Câu hỏi thường gặp",
+        "twitter-description": "Hướng dẫn nhanh, Câu hỏi thường gặp và hướng dẫn chi tiết cho Push Chain (không dùng thuật ngữ kỹ thuật phức tạp)."
+      },
+      "hero-section": {
+        "title": "Cơ sở kiến thức",
+        "description": {
+          "highlighted": "Push Chain là một blockchain đa năng thực sự, được thiết kế để loại bỏ sự phân mảnh trên tất cả các chuỗi.",
+          "developers": "Các nhà phát triển",
+          "developers-text": "triển khai một lần và ngay lập tức tương thích với tất cả các chuỗi EVM và non-EVM được hỗ trợ.",
+          "users": "Người dùng",
+          "users-text": "sử dụng cùng một app dù họ đến từ chain nào đi nữa."
+        },
+        "email-signup": {
+          "title": {
+            "long": "Nhận thông báo về Push Chain Testnet",
+            "short": "Push Chain Testnet"
+          },
+          "description": "Hãy là người đầu tiên biết khi Push Chain testnet ra mắt. Tham gia danh sách email của chúng tôi để nhận các cập nhật độc quyền."
+        },
+        "footer": {
+          "description": "Tạo ra những trải nghiệm liền mạch, thân thiện với người dùng cho app của bạn trên bất kỳ blockchain nào với Push Chain.",
+          "cta": {
+            "text": "Nhận Thông Báo"
+          }
+        }
+      },
+      "explainer-section": {
+        "blocks": {
+          "sections": {
+            "resources": {
+              "title": "Tài nguyên",
+              "items": {
+                "push101": {
+                  "title": "Push Chain Cơ bản",
+                  "subtitle": "Tìm hiểu về những kiến thức cơ bản của Push Chain, những đổi mới của nó và lý do tại sao nó cần thiết",
+                  "ctatitle": "Khám phá thêm"
+                },
+                "builders": {
+                  "title": "Xây dựng trên Push Chain",
+                  "subtitle": "Khám phá cách xây dựng ứng dụng đa năng, những khả năng mở ra và cách bắt đầu!",
+                  "ctatitle": "Các Nhà Xây Dựng Tập Hợp"
+                },
+                "deepdives": {
+                  "title": "Các bài viết chuyên sâu về kỹ thuật",
+                  "subtitle": "Bạn muốn tìm hiểu sâu về Push? hoặc chỉ là một người tò mò? Dù thế nào, chào mừng bạn!",
+                  "ctatitle": "Xem nó hoạt động"
+                },
+                "devdocs": {
+                  "title": "Tài liệu dành cho nhà phát triển",
+                  "subtitle": "Đi thẳng vào vấn đề luôn nhé! Tôi là một blockchain đa năng... và bạn là dev, hãy chính thức bắt đầu thôi!",
+                  "ctatitle": "Bắt đầu xây dựng"
+                },
+                "tokenomics": {
+                  "title": "Khám phá Tokenomics",
+                  "subtitle": "Tìm hiểu cách hệ thống tokenomics của chúng tôi khuyến khích và đảm bảo một mạng lưới bền vững được xây dựng để tồn tại lâu dài",
+                  "ctatitle": "Tìm hiểu về Thiết kế Token"
+                },
+                "faq": {
+                  "title": "Câu hỏi thường gặp",
+                  "subtitle": "Nơi để tìm câu trả lời cho tất cả các câu hỏi phổ biến mà cộng đồng đã hỏi",
+                  "ctatitle": "Đọc thêm"
+                },
+                "testnet": {
+                  "title": "Donut Testnet",
+                  "subtitle": "Donut là mạng kiểm thử công khai của Push Chain dành cho các Universal app chạy trên nhiều blockchain (EVM hoặc non-EVM)",
+                  "ctatitle": "Đọc thêm"
+                },
+                "validators": {
+                  "title": "Validators",
+                  "subtitle": "",
+                  "ctatitle": "Đọc thêm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "testnet": {
+        "seo": {
+          "title": "Donut Testnet 🍩 – Push Chain's Universal Testnet",
+          "description": "Donut là mạng thử nghiệm công khai của Push Chain. Học cách kết nối, xây dựng Ứng dụng Đa đầu vào, sử dụng bể nước và chạy một người xác minh.",
+          "og-title": "Donut Testnet 🍩 - Push Chain's Universal testnet",
+          "og-description": "Khám phá Donut, testnet công khai đầu tiên của Push Chain. Xây dựng một lần, triển khai ở mọi nơi và trải nghiệm ứng dụng Universal trực tiếp.",
+          "twitter-title": "Donut Testnet 🍩 - Bắt đầu tại đây",
+          "twitter-description": "Câu trả lời nhanh về Donut Testnet: các chuỗi được hỗ trợ, Universal Apps, faucet và cách thiết lập validator."
+        },
+        "explainer-section": {
+          "breadcrumbs": {
+            "knowledge-base": "Cơ sở kiến thức"
+          },
+          "blocks": {
+            "title": "Donut Testnet 🍩",
+            "sections": {
+              "donut-overview": {
+                "items": {
+                  "intro": "**Chúng tôi đã dành một thập kỷ để xây dựng các hệ sinh thái blockchain riêng biệt. Bây giờ là lúc phá vỡ chúng.**\n\n<iframe src=\"https://www.youtube.com/embed/-cojsUIHcLE?rel=0\" title=\"Push Chain Public Testnet is Live\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+                  "welcome-donut": "## Donut Testnet 🍩\n\nDonut là mạng thử nghiệm công khai của Push Chain dành cho các Universal Apps hoạt động trên nhiều chuỗi. Đây là một cột mốc quan trọng trong việc mang các ứng dụng đa năng đến với đông đảo người dùng.\n\n![Push Chain Roadmap](/assets/website/chain/knowledge/testnet/image-1.webp)",
+                  "what-is-push-chain": "## Push Chain là gì?\n\nPush Chain là một blockchain chung trạng thái, đa năng, nơi **khả năng tương tác là một nguyên tắc cốt lõi của chuỗi**, không phải là một tính năng được thêm vào sau thông qua các giao thức bên ngoài. **Triển khai một lần**, và ứng dụng của bạn chạy tự nhiên trên các chuỗi kết nối.\n\n**Donut là nơi chúng ta kiểm tra tính năng đó.**",
+                  "quick-links": "## Liên kết nhanh\n\n🧠 [Knowledge Base](/knowledge) — Tìm hiểu kiến trúc và thiết kế.\n\n🌳 [Ecosystem Apps](/ecosystem) — Khám phá các ứng dụng Universal được triển khai trên Push Chain.\n\n**🪩 Các ứng dụng phổ biến để thử**\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Ballsy](https://ballsy.push.org/) — Trải nghiệm cùng một logic ứng dụng hoạt động liền mạch trên nhiều chain.\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Simulate](https://simulate.push.org/) — Kiểm tra và trực quan hóa các tương tác cross-chain.\n\n📖 [Developer Docs](/docs) — Đi sâu vào tài liệu của Push Chain.\n\n💧 [Faucet](https://faucet.push.org) — Nhận testnet token.\n\n🔍 [Push Scan](https://donut.push.network/) — Theo dõi transaction và dữ liệu mạng.",
+                  "why-push-exists": "## Why Push Chain Exists\n\nToday's Web3 ecosystem is heavily fragmented and overly complex.\n\nDevelopers redeploy smart contracts across multiple chains, users have to manually bridge tokens or switch wallets, and teams spend months maintaining chain-specific codebases and audits.\n\nEach new chain adds overhead, complexity, cost and friction, which massively slows innovation and adoption.\n\n**Push Chain eliminates this.**",
+                  "how-reimagines-interoperability": "## Khả năng tương tác gốc chuỗi\n\nĐa số khả năng tương tác hiện nay dựa vào các lớp nhắn tin bên ngoài hoặc cầu nối. Bạn quản lý nhiều hợp đồng, kiểm toán và tích hợp trên mỗi chuỗi.\n\n**Push Chain đảo ngược mô hình đó.** Với Push, bạn:\n\n* **Triển khai một lần, tiếp cận mọi nơi.** Ứng dụng của bạn ngay lập tức khả dụng trên các chuỗi, EVM hoặc non-EVM.\n* **Loại bỏ các hợp đồng và cầu nối dư thừa.** Khả năng tương tác là gốc chuỗi, vì vậy bạn tập trung vào ứng dụng của mình chứ không phải cơ sở hạ tầng.\n* **Luôn tương thích đầy đủ với EVM.** Sử dụng cùng các công cụ, khuôn khổ và kiểm toán bạn đã có.\n* **Phục vụ người dùng từ bất kỳ chuỗi hoặc ví nào.** Người dùng giao dịch từ chuỗi chính của họ bằng ví hiện có. Không cần cầu nối thủ công, không cần gas token, không cần chuyển mạng, không cần hoán đổi, không cần thiết lập.",
+                  "how-to-participate": "## Làm thế nào để tham gia vào Mạng?\n\n### Nhà phát triển\n\nPush Chain mang đến cho các nhà phát triển sức mạnh **xây dựng một lần và triển khai ở mọi nơi.**\n\nMọi **app đều chạy gốc** trên tất cả các chuỗi mà không cần tích hợp thêm hoặc triển khai riêng biệt.\n\nChuỗi hiện hỗ trợ **Ethereum, Solana, Base, Arbitrum và BNB Chain** trên testnet, với nhiều chuỗi khác sẽ sớm ra mắt.\n\n👉 [Khám phá Tài nguyên cho Nhà phát triển](#for-developers)\n\n### Người dùng\n\nTrải nghiệm Web3 hoạt động trơn tru: Không cần chuyển đổi chuỗi, cầu nối token hoặc học hỏi phức tạp.\n\nSử dụng ví hiện có của bạn để truy cập bất kỳ ứng dụng nào trên Push Chain và thanh toán trực tiếp bằng token gốc của bạn.\n\n👉 [Khám phá Tài nguyên cho Người dùng](#for-users)\n\n### Người xác thực\n\nMạng lưới Push Chain được cung cấp bởi một tập hợp người xác thực phi tập trung.\n\n**Tại sao chạy người xác thực testnet?**\n\nChạy người xác thực testnet giúp tăng cường mạng lưới và định hình độ sẵn sàng của mainnet. Nó cũng có thể bao gồm các ưu đãi và lợi ích đi kèm với Mùa 3 của [Chương trình Push Points](https://portal.push.org).\n\nGắn thẻ [@pushchain](https://x.com/PushChain) và chia sẻ trải nghiệm của bạn với chúng tôi trên X.",
+                  "curated-reads": "## Các bài đọc được tuyển chọn 👇"
+                }
+              },
+              "for-developers": {
+                "title": "Dành cho các Nhà phát triển",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Các ứng dụng hệ sinh thái"
+                  },
+                  "documentation": {
+                    "title": "Tài liệu"
+                  },
+                  "push-explorer": {
+                    "title": "Push Scan"
+                  },
+                  "push-faucet": {
+                    "title": "Push Faucet"
+                  },
+                  "grassroots-program": {
+                    "title": "Ứng tuyển vào Chương trình Cội rễ"
+                  }
+                }
+              },
+              "for-users": {
+                "title": "Dành cho Người dùng",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Các ứng dụng trong hệ sinh thái"
+                  },
+                  "knowledge-base": {
+                    "title": "Cơ sở kiến thức"
+                  },
+                  "lets-push-yaps": {
+                    "title": "Hãy cùng Push Yaps"
+                  }
+                }
+              },
+              "for-validators": {
+                "title": "Dành cho Validators",
+                "items": {
+                  "push-validator": {
+                    "title": "Push Validator"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "report": {
+        "seo": {
+          "title": "Báo cáo sự cố",
+          "description": "Báo cáo sự cố theo thời gian thực và cập nhật trạng thái mạng cho Push Chain. Luôn cập nhật thông tin về các sự cố ngừng hoạt động, bảo trì và các vấn đề đã giải quyết.",
+          "og-title": "Báo cáo Sự cố Push Chain - Tình trạng Mạng",
+          "og-description": "Theo dõi các sự cố mạng Push Chain, thời gian bảo trì và cập nhật dịch vụ. Nhận thông tin trạng thái theo thời gian thực.",
+          "twitter-title": "Báo cáo Sự cố Push Chain",
+          "twitter-description": "Cập nhật trực tiếp về trạng thái mạng Push Chain, các sự cố và bảo trì."
+        },
+        "explainer-section": {
+          "breadcrumbs": {
+            "knowledge-base": "Cơ sở kiến thức",
+            "donut-testnet": "Donut Testnet",
+            "report": "Báo cáo sự cố"
+          },
+          "blocks": {
+            "title": "Báo cáo Sự cố",
+            "sections": {
+              "reports-overview": {
+                "items": {
+                  "intro": "content"
+                }
+              }
+            }
+          }
+        }
+      },
+      "validators": {
+        "seo": {
+          "title": "Validators —",
+          "description": "Các câu trả lời nhanh về ví, phí, các chuỗi được hỗ trợ và bắt đầu.",
+          "og-title": "FAQ về Push Chain - Tất cả câu hỏi",
+          "og-description": "Tìm câu trả lời nhanh chóng với các liên kết đến hướng dẫn, testnet và hỗ trợ.",
+          "twitter-title": "Câu hỏi thường gặp - Bắt đầu từ đây",
+          "twitter-description": "Trả lời nhanh các câu hỏi về Push Chain."
+        },
+        "explainer-section": {
+          "breadcrumbs": {
+            "knowledge-base": "Cơ sở kiến thức"
+          },
+          "blocks": {
+            "title": "Validators"
           }
         }
       }
@@ -995,11 +736,267 @@
     "donutsecret": {
       "seo": {
         "title": "Shhh… Donut Testnet — Truy cập Beta Bí mật",
-        "description": "Chỉ dành cho những người được mời tham gia bản beta đóng dành cho các nhà phát triển. Nhận Donut pass của bạn để truy cập Push Chain Testnet, triển khai các ứng dụng universal và mở khóa phần thưởng sớm.",
+        "description": "Chỉ dành cho những người được mời tham gia bản beta đóng dành cho các nhà phát triển. Nhận Donut pass của bạn để truy cập Push Chain Testnet, triển khai các ứng dụng universal, và mở khóa các phần thưởng sớm.",
         "og-title": "Donut Testnet — Truy cập Bản Beta Bí Mật",
         "og-description": "Truy cập sớm dành cho các nhà phát triển: nhận Closed Beta Pass, trải nghiệm Push Chain (Donut) và kiếm phần thưởng khi xây dựng các ứng dụng đa năng.",
         "twitter-title": "Shhh… Donut Testnet — Closed Beta",
         "twitter-description": "Truy cập dành riêng cho các nhà phát triển. Nhận vé của bạn, dùng thử Push Chain (Donut) và kiếm phần thưởng. 🍩"
+      }
+    },
+    "home": {
+      "seo": {
+        "title": "Trang chủ — Push Chain | Blockchain đa năng cho Ứng dụng",
+        "description": "Blockchain trạng thái-chia sẻ cho các ứng dụng đa năng. Triển khai một lần; tiếp cận người dùng trên mọi chuỗi. Sử dụng bất kỳ ví nào. Thanh toán bằng bất kỳ token nào.",
+        "og-title": "Push Chain - Universal L1 cho Ứng dụng",
+        "og-description": "Một lần triển khai cho người dùng EVM và không EVM. Sử dụng bất kỳ ví nào và trả bằng bất kỳ token nào — không cần chuyển mạng.",
+        "twitter-title": "Triển khai một lần. Tiếp cận mọi blockchain.",
+        "twitter-description": "Thực hiện giao dịch từ bất kỳ chuỗi nào. Sử dụng bất kỳ ví nào. Thanh toán bằng bất kỳ token nào. Không cần chuyển đổi mạng."
+      },
+      "hero-section": {
+        "title": "Bất kỳ chuỗi nào, Bất kỳ Ứng dụng nào, Tất cả Người dùng.\nMột Push Chain.",
+        "description": "Lớp 1 đầu tiên được xây dựng cho các ứng dụng \u0011universal\u0011. \n Xây dựng & Triển khai một lần, kết nối người dùng từ bất kỳ chuỗi nào.",
+        "primary-button": "Bắt đầu xây dựng",
+        "primary-button-title": "Bắt đầu hành trình xây dựng với Push Chain!",
+        "secondary-button": "Khám phá Cơ sở Kiến thức",
+        "secondary-button-title": "Tìm hiểu và khám phá Push Chain",
+        "section-aria-label": "Phần giới thiệu blockchain Layer 1 đa năng của Push Chain",
+        "primary-button-aria-label": "Bắt đầu xây dựng các ứng dụng đa năng trên Push Chain - Đến trang tài liệu dành cho nhà phát triển",
+        "secondary-button-aria-label": "Tìm hiểu về các tính năng và khái niệm của Push Chain trong cơ sở kiến thức",
+        "hero-background-alt": "Hình nền động của Push Chain thể hiện kết nối khối blockchain đa năng",
+        "hero-background-title": "Push Chain - Universal Layer 1 cho các ứng dụng đa chuỗi",
+        "schema-headline": "Push Chain - L1 toàn cầu cho Ứng dụng",
+        "schema-description": "Triển khai một lần trên Push Chain và tiếp cận người dùng trên bất kỳ blockchain nào với các ứng dụng đa năng"
+      },
+      "whatis-section": {
+        "titleFirst": "Một",
+        "titleSecondGraditent": "Universal",
+        "titleThird": "Chuỗi",
+        "bottomTextFirst": "Triển khai một lần,",
+        "bottomTextSecond": "Đến Mọi Nơi",
+        "bottomLinkText": "Bắt đầu",
+        "bottomLinkTitle": "Đến trung tâm tài liệu",
+        "section-aria-label": "Push Chain là gì - Giải thích về blockchain đa năng",
+        "animation-alt": "Hình ảnh minh họa cách Push Chain triển khai ứng dụng đa năng trên nhiều blockchain",
+        "animation-title": "Trực quan hóa việc triển khai đa chuỗi của Push Chain – triển khai một lần, tiếp cận mọi chuỗi",
+        "bottom-link-aria-label": "Truy cập tài liệu Push Chain để bắt đầu xây dựng ứng dụng đa năng"
+      },
+      "chain-features-section": {
+        "section-aria-label": "Phần giới thiệu về các tính năng và đổi mới của Push Chain",
+        "header": {
+          "main-text": "Được xây dựng trên những đổi mới để loại bỏ sự phân mảnh!",
+          "other-text": "Push là Layer 1 Universal duy nhất bạn cần!"
+        },
+        "box1": {
+          "texttitle": "Giao dịch trên mọi chuỗi",
+          "bodytext": "Push Chain hỗ trợ giao dịch từ bất kỳ blockchain nào. Người dùng có thể trả gas bằng bất kỳ token nào — Không cần cầu nối.",
+          "imagealt": "Hình minh họa hiển thị các logo blockchain khác nhau rơi trong một máy pinball.",
+          "imagetitle": "Hỗ trợ các giao dịch từ bất kỳ blockchain nào."
+        },
+        "box2": {
+          "texttitle": "Ví Abstraction",
+          "bodytext": "Để bất kỳ ví từ bất kỳ chuỗi nào kết nối, tương tác và giao dịch. Phá vỡ rào cản web3 bằng cách sử dụng đăng nhập xã hội hoặc email. Người dùng được quyết định trên Push Chain.",
+          "imagealt": "Hình minh họa cho thấy ví Metamask, Phantom Wallet, v.v. nổi lên từ một chiếc ví lớn có logo Push Chain trên đó.",
+          "imagetitle": "Hỗ trợ bất kỳ ví hiện có nào như MetaMask, Phantom, v.v. cùng với đăng nhập mạng xã hội"
+        },
+        "box3": {
+          "texttitle": "100% EVM\nCompatible",
+          "bodytext": "Triển khai mà không cần code trên blockchain. Biến ứng dụng gốc của bạn thành ứng dụng đa năng chỉ trong vài phút.",
+          "imagealt": "Hình ảnh minh họa cho logo Máy ảo Ethereum đang xoay và nói 100% Tương thích EVM.",
+          "imagetitle": "Không cần thay đổi code trên chuỗi, 100% tương thích EVM."
+        },
+        "box4": {
+          "texttitle": "Hợp đồng thông minh đa năng",
+          "bodytext": "Xây dựng một lần, chạy đa chuỗi, trải nghiệm nhiều bước với một hợp đồng duy nhất, chống lỗi thời.",
+          "imagealt": "Hình minh họa hiển thị logo Ethereum Virtual Maching và một vòng cung xoay quanh nó nói '100% EVM Compatible'",
+          "imagetitle": "Triển khai một lần, tương thích tức thì với tất cả các chuỗi được hỗ trợ (EVM hoặc non-EVM)."
+        },
+        "box5": {
+          "texttitle": "Universal Fee\nabstraction",
+          "bodytext": "Cho phép người dùng thanh toán gas bằng bất kỳ token nào, trên bất kỳ blockchain nào mà không cần bridging.",
+          "imagealt": "Hình ảnh minh họa hiển thị các logo khác nhau của Bitcoin, Ethereum, Solana xoay quanh Push Chain",
+          "imagetitle": "Hỗ trợ bất kỳ token của bất kỳ chuỗi nào cho các giao dịch."
+        },
+        "box6": {
+          "texttitle": "Universal Execution Layer",
+          "bodytext": "Xây dựng ứng dụng đa nguyên tử, có thể kết hợp trên web3. Tạo ra những trải nghiệm ứng dụng chưa từng có, bằng cách cho phép nhiều người dùng từ các chuỗi khác nhau giao dịch với cùng một ứng dụng.",
+          "imagealt": "Hình minh họa cho thấy các khối Tetris khác nhau đi vào lỗ sâu đục và logo Push Chain xuất hiện từ phía bên kia.",
+          "imagetitle": "Các giao dịch từ bất kỳ chuỗi nào đều được hoàn tất trên Push Chain, cho phép người dùng từ bất kỳ chuỗi nào sử dụng cùng một ứng dụng, hay còn gọi là Universal Execution Layer."
+        },
+        "box7": {
+          "texttitle": "Truy cập State",
+          "bodytext": "Truy cập dữ liệu tài khoản và trạng thái từ các blockchain khác trong smart contract của bạn.",
+          "tagText": "SẮP RA MẮT",
+          "tags": {
+            "title1": "ĐỌC TỪ CHAINS"
+          },
+          "imagealt": "Hình minh họa cho thấy Push Chain phát triển theo phong cách hoạt ảnh khối.",
+          "imagetitle": "(Kế hoạch) Shared State cho phép truy cập vào dữ liệu tài khoản và trạng thái từ chuỗi khác trong smart contract của bạn."
+        },
+        "box8": {
+          "texttitle": "Universal\nValidators",
+          "bodytext": "Kích hoạt, xác thực và hoàn thành các giao dịch trên bất kỳ chuỗi nào bằng cách sử dụng smart contract của bạn.",
+          "tagText": "SẮP RA MẮT",
+          "tags": {
+            "title1": "GHI VÀO CÁC CHUỖI"
+          },
+          "imagealt": "Hình minh họa cho thấy các khối Tetris với các màu khác nhau hợp nhất và thay đổi.",
+          "imagetitle": "(Roadmap) Universal Validators cho phép người dùng kích hoạt, xác thực và hoàn thành các giao dịch trên bất kỳ blockchain nào bằng cách sử dụng smart contract của bạn."
+        },
+        "footer": {
+          "title": "tăng cơ sở người dùng ứng dụng của bạn bằng cách trở nên phổ quát",
+          "secondary": "một cách dễ dàng!",
+          "ctatext": "Bắt đầu Xây dựng",
+          "ctatitle": "Triển khai một lần, tăng 10 lần lượng người dùng của bạn. Ghé thăm Tài liệu dành cho Nhà phát triển."
+        }
+      },
+      "partners-section": {
+        "section-aria-label": "Các đối tác và tích hợp hệ sinh thái Push Chain",
+        "title": "Powered by Push Chain",
+        "subtitle": "Khám phá những ứng dụng đã nhân đôi lượng người dùng chỉ bằng cách triển khai trên Push Chain.",
+        "ctatitle": "Khám phá các đối tác, ứng dụng và cơ sở hạ tầng được triển khai trên Push Chain",
+        "ctatext": "Khám phá Hệ sinh thái",
+        "partners-grid-aria-label": "Mạng lưới các đối tác với logo dự án Web3 sử dụng Push Chain",
+        "partner-logo-title-prefix": "Đối tác - ",
+        "partner-logo-alt-prefix": "Logo của ",
+        "mobile-view-aria-label": "Chế độ xem di động của các đối tác hệ sinh thái Push Chain"
+      },
+      "stats-section": {
+        "section-aria-label": "Thống kê và chỉ số hiệu suất của Push Chain",
+        "title": "Đạt được",
+        "titleGradient": "Tức thì",
+        "titleThird": "Khả năng tương tác",
+        "description": "Tối ưu hiệu suất.\nTPS cao, phí gas cực thấp và độ trễ dưới một giây\nđể thực thi ứng dụng theo thời gian thực.",
+        "animation-alt": "Hình ảnh động tương tác thể hiện khả năng tương tác tức thời của Push Chain trên nhiều blockchain",
+        "animation-title": "Trực quan hóa khả năng tương tác tức thời của Push Chain",
+        "stats": {
+          "stat1": {
+            "title": "Các chuỗi được hỗ trợ",
+            "imagealt": "Hình minh họa hiển thị các chuỗi được hỗ trợ",
+            "imagetitle": "Danh sách tất cả các chuỗi được hỗ trợ như Ethereum, Solana, BNB Chain, v.v."
+          },
+          "stat2": {
+            "title": "TPS",
+            "description": "4.2k"
+          },
+          "stat3": {
+            "title": "FINALIITY GỐC",
+            "description": "Ngay lập tức"
+          },
+          "stat4": {
+            "title": "THỜI GIAN KHỐI GỐC",
+            "description": "1s"
+          }
+        }
+      },
+      "blog-section": {
+        "subtitle": "TIN TỨC, NHẬT KÝ PHÁT TRIỂN & Ý TƯỞNG",
+        "subtitle-aria-label": "Thông tin danh mục Blog",
+        "title": "Nhịp đập của Push Chain",
+        "title-aria-label": "Các bài đăng và cập nhật mới nhất từ Push Chain",
+        "explore-link-text": "Khám phá thêm bài viết",
+        "explore-link-title": "Truy cập blog Push Chain để đọc tất cả các bài viết và cập nhật",
+        "explore-link-aria-label": "Truy cập trang blog của Push Chain",
+        "section-aria-label": "Phần tin tức và bài đăng trên Push Chain",
+        "blog-posts-list-aria-label": "Các bài đăng blog Push Chain gần đây",
+        "blog-post-aria-label": "Đọc bài đăng blog về {title}",
+        "blog-post-title-prefix": "Đọc bài viết blog - ",
+        "loading-text": "Đang tải các bài đăng mới nhất...",
+        "error-text": "Không thể tải các bài đăng trên blog vào lúc này",
+        "no-posts-text": "Không có bài viết blog nào."
+      },
+      "trustedby-section": {
+        "title": "Được xây dựng bởi đội ngũ đáng tin cậy của những người tiên phong web3",
+        "section-aria-label": "Phần tin cậy của Push Chain",
+        "trusted-by-alt": "Nhà đầu tư - "
+      },
+      "featured-section": {
+        "aria-label": "Phần nổi bật",
+        "tag": "ĐƯỢC GIỚI THIỆU TRÊN",
+        "title": "Push Chain trong Ánh Sáng",
+        "subtitle": "Đừng chỉ nghe chúng tôi nói. Hãy xem giới truyền thông đang nói gì về chuỗi đa năng thực sự.",
+        "articles-image-alt": "Đưa tin từ ",
+        "articles-text": "Đọc Bài Viết Chi Tiết",
+        "articles-title-1": "Đọc ",
+        "articles-title-2": "'s suy nghĩ chi tiết về Push Chain",
+        "articles": {
+          "binance-chain": {
+            "text": "Chúng tôi rất vui mừng thông báo rằng Push Protocol, một giao thức truyền thông phi tập trung hàng đầu cho Web3, đã chính thức ra mắt trên BNB Chain."
+          },
+          "coindesk": {
+            "text": "Xã hội Kỹ thuật Lực: Cụm Khả Năng làm việc với Push Protocol để truyền tin nhắn nhóm bị chặn token"
+          },
+          "defiant": {
+            "text": "Unstoppable Domains ra mắt nhóm trò chuyện được khóa bằng Token. Hợp tác với Push Protocol nhằm chống lại thông tin sai lệch và lừa đảo."
+          },
+          "balaji": {
+            "text": "Thông báo được kiểm soát bởi người dùng. Chỉ hai công ty kiểm soát thông báo đẩy đến hàng tỷ điện thoại thông minh: Apple và Google."
+          },
+          "defiprime": {
+            "text": "Harsh Rajat nói về tương lai của ngân hàng, các ưu đãi giao thức EPNS và mô hình kinh doanh cho thông báo đẩy phi tập trung."
+          },
+          "ethfoundation": {
+            "text": "Kể từ HackMoney, Richa và Harsh đã dồn rất nhiều tâm huyết vào việc xây dựng EPNS trở thành \"một mảnh ghép còn thiếu của Web3\"."
+          },
+          "beincrypto": {
+            "text": "Cách Mạng Truyền Thông Web3 Hoạt Động: Phân Tích Kỹ Thuật Sâu"
+          },
+          "the-block": {
+            "text": "Giao thức thông báo Web3 Push sẽ ra mắt chuỗi L1 của riêng mình"
+          },
+          "business-insider": {
+            "text": "Push giới thiệu Push Chain: Tương lai của các ứng dụng Blockchain Toàn năng"
+          },
+          "chainwire": {
+            "text": "Push giới thiệu Push Chain: Tương lai của ứng dụng Blockchain đa năng."
+          },
+          "benzinga": {
+            "text": "Push giới thiệu Push Chain: Tương lai của các ứng dụng Blockchain đa năng"
+          },
+          "crypto-briefing": {
+            "text": "Push giới thiệu Push Chain: Tương lai của các ứng dụng Blockchain đa năng"
+          },
+          "cryptoslate": {
+            "text": "Push Protocol launches Push Chain để thống nhất giao tiếp và giao dịch blockchain"
+          },
+          "messari": {
+            "text": "EPNS giúp người dùng có thêm động lực và thu nhập thụ động khi nhận thông báo phi tập trung."
+          },
+          "coin-telegraph-1": {
+            "text": "Harsh Rajat, người sáng lập và trưởng dự án của Push Protocol, giải thích sự gia tăng trong phát triển ứng dụng chat Web3 trong tập mới nhất của Hashing It Out."
+          },
+          "coin-telegraph-2": {
+            "text": "Unstoppable Domains ra mắt tính năng trò chuyện nhóm có cổng xác thực cho người sở hữu tên người dùng."
+          }
+        }
+      },
+      "ending-section": {
+        "aria-label": "Phần xây dựng ứng dụng đa năng",
+        "section-title": "Xây dựng các ứng dụng đa năng.",
+        "section-subtitle": "Phá vỡ các bức tường ngăn cách. Xây dựng một lần, mở rộng trên mọi blockchain.",
+        "docs-link": {
+          "text": "Khám phá tài liệu Push Chain",
+          "title": "Khám phá tài liệu và nguồn tài nguyên dành cho nhà phát triển của Push Chain",
+          "aria-label": "Mở tài liệu Push Chain trong tab mới"
+        },
+        "cta-link": {
+          "text": "LFG Push Chain",
+          "title": "Bắt đầu với Push Chain - nền tảng blockchain đa năng",
+          "aria-label": "Bắt đầu phát triển với Push Chain"
+        }
+      }
+    },
+    "ecosystem": {
+      "seo": {
+        "title": "Hệ sinh thái Push Chain — Ứng dụng và Đối tác Toàn năng",
+        "description": "Khám phá hệ sinh thái ứng dụng universal, đối tác và dự án được xây dựng trên Push Chain. Xây dựng một lần, tiếp cận người dùng trên tất cả các chain với khả năng tương tác shared-state.",
+        "og-title": "Hệ sinh thái Push Chain - Khám phá các Ứng dụng và Đối tác Universal",
+        "og-description": "Khám phá hệ sinh thái các ứng dụng và dự án universal đang hoạt động trên Push Chain. Trải nghiệm khả năng sử dụng đa chuỗi thực tế. Không cần cầu nối hoặc hoán đổi.",
+        "twitter-title": "Khám phá Hệ sinh thái Push Chain - Các ứng dụng và Đối tác Universal",
+        "twitter-description": "Khám phá các ứng dụng và đối tác universal trên Push Chain. Xây dựng một lần, tiếp cận người dùng trên Ethereum, Solana, Base và hơn thế nữa."
+      },
+      "hero-section": {
+        "title": "Khám phá Hệ sinh thái Universal",
+        "description": "Khám phá các ứng dụng, đối tác và những người chấp nhận sớm xây dựng kỷ nguyên tiếp theo của những trải nghiệm đa năng trên Donut Testnet của Push Chain."
       }
     }
   },
@@ -1062,7 +1059,7 @@
         },
         "qna4": {
           "question": "Cái này khác gì so với cầu nối hoặc các lớp nhắn tin?",
-          "answer": "<1><2>Câu trả lời ngắn gọn</2>: Push là nơi ứng dụng của bạn chạy. Các cầu nối/tin nhắn chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, điều này làm phức tạp mọi thứ cho người dùng và nhà phát triển.</1><1><2>Một trang chủ so với nhiều bản sao.</2> Với cầu nối/tin nhắn, bạn triển khai trên mỗi chuỗi và đồng bộ hóa thông qua tin nhắn. Trên Push, bạn triển khai một lần; mọi người truy cập cùng một hợp đồng và trạng thái chung.</1><1><2>Không có tài sản được bọc hoặc cầu nối bắt buộc.</2> Người dùng ở lại chuỗi chính của họ và thanh toán bằng những gì họ đã có; chúng tôi xử lý định tuyến và chuyển đổi phí dưới vỏ bọc.</1><1><2>Danh tính & xác minh thống nhất.</2> Chúng tôi chấp nhận chữ ký từ bất kỳ ví/chuỗi nào và gán chúng cho cùng một người dùng trên Push — không tự quản lý.</1><1><2>Ít bộ phận di chuyển hơn.</2> Không cần chấp thuận liên chuỗi phức tạp, không săn token gas, không cần hợp đồng keo để giữ đồng bộ.</1><1><2>Cầu nối gây ra sự phức tạp. Khả năng tương tác gốc của chuỗi giải quyết nó.</2> Cầu nối yêu cầu nỗ lực kỹ thuật phức tạp, thời gian, chi phí kiểm toán và cơ sở hạ tầng bổ sung. Khả năng tương tác gốc của chuỗi chỉ hoạt động khi ứng dụng của bạn kế thừa nó một cách tự nhiên.</1><1>Kết quả: ứng dụng đơn giản hơn, một nguồn duy nhất sự thật và trải nghiệm người dùng cảm giác như một chuỗi — ngay cả khi người dùng không phải vậy.</1>"
+          "answer": "<1><2>Câu trả lời ngắn gọn:</2> Push là nơi ứng dụng của bạn chạy. Các cầu nối/tin nhắn chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, điều này làm phức tạp mọi thứ cho người dùng và nhà phát triển.</1><1><2>Một trang chủ so với nhiều bản sao.</2> Với cầu nối/tin nhắn, bạn triển khai trên mỗi chuỗi và đồng bộ hóa qua tin nhắn. Trên Push, bạn triển khai một lần; mọi người đều truy cập cùng một hợp đồng và trạng thái chung.</1><1><2>Không có tài sản bọc hoặc cầu nối bắt buộc.</2> Người dùng ở lại chuỗi chính của họ và thanh toán bằng những gì họ đã có; chúng tôi xử lý định tuyến và chuyển đổi phí dưới lớp.</1><1><2>Danh tính & xác minh thống nhất.</2> Chúng tôi chấp nhận chữ ký từ bất kỳ ví/chuỗi nào và gán chúng cho cùng một người dùng trên Push — phi tập trung.</1><1><2>Ít bộ phận chuyển động hơn.</2> Không cần phải phê duyệt liên chuỗi phức tạp, không cần tìm kiếm token gas, không cần hợp đồng keo để giữ đồng bộ.</1><1><2>Cầu nối gây ra sự phức tạp. Khả năng tương tác gốc của chuỗi giải quyết nó.</2> Cầu nối yêu cầu nỗ lực kỹ thuật phức tạp, thời gian, chi phí kiểm toán và cơ sở hạ tầng bổ sung. Khả năng tương tác gốc của chuỗi chỉ hoạt động khi ứng dụng của bạn kế thừa nó một cách tự nhiên.</1><1>Kết quả: ứng dụng đơn giản hơn, một nguồn sự thật và trải nghiệm người dùng giống như một chuỗi — ngay cả khi người dùng không ở đó.</1>"
         },
         "qna5": {
           "question": "Chỉ hỗ trợ EVM thôi phải không? Các blockchain nào được hỗ trợ?",
@@ -1104,7 +1101,7 @@
         },
         "qna3": {
           "question": "Làm thế nào để nhận token testnet (Donut)?",
-          "answer": "<1>Sử dụng <3>Faucet</3> để yêu cầu token thử nghiệm.</1><1><2>Lưu ý:</2> có thể áp dụng giới hạn tỷ lệ; một số faucet yêu cầu xác minh đơn giản. Nếu faucet không thành công, hãy báo cho chúng tôi trên <4>Discord</4>.</1>",
+          "answer": "<1>Sử dụng <3>Faucet</3> để yêu cầu token thử nghiệm.</1><1><2>Ghi chú:</2> có thể áp dụng giới hạn tốc độ; một số faucet có thể yêu cầu xác thực đơn giản. Nếu faucet thất bại, hãy liên hệ chúng tôi trên <4>Discord</4>.</1>",
           "faucet-url-title": "Mở vòi Push Chain.",
           "discord-url-title": "Tham gia cộng đồng Push Chain trên Discord."
         },
@@ -1361,10 +1358,10 @@
       "button-text": "Đi đến Universal & Triển khai",
       "button-title": "Dự án G.U.D deployathon ĐÃ KHỞI ĐỘNG",
       "button-aria-label": "Dự án G.U.D deployathon đã TRỰC TIẾP. Bạn có thể xem tại đây",
-      "image-alt": "Bánh Vòng Testnet Push Chain - BLOKCHAIN ĐẾN THẦN TOÀN CẢ",
       "close-button-title": "Đóng thông báo testnet",
       "close-button-aria-label": "Đóng thông báo kiểm tra Push Chain",
-      "container-aria-label": "Thông báo Push Chain testnet"
+      "container-aria-label": "Thông báo Push Chain testnet",
+      "image-alt": "Kênh Push Chain Testnet Donut - Blockchain Phân Tích Toàn Cục"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta đã mở!",
@@ -1374,15 +1371,6 @@
       "close-button-aria-label": "Đóng thông báo phần thưởng Push Chain",
       "container-aria-label": "Thông báo phần thưởng Push Chain"
     },
-    "info-bar": {
-      "title": "Khởi động trên Push Testnet ngay — Mở khóa phần thưởng cho các nhà phát triển và người dùng sớm.",
-      "learn-more-text": "Tìm hiểu thêm",
-      "learn-more-title": "Tìm hiểu thêm về thông báo này",
-      "dismiss-button-title": "Đóng thông báo",
-      "dismiss-button-aria-label": "Đóng thông báo",
-      "container-aria-label": "Thông báo của trang web",
-      "star-icon-alt": "Biểu tượng ngôi sao thông báo"
-    },
     "alert": {
       "message": "Push Metamask Snap đã khả dụng,",
       "know-more-text": "Bắt đầu ngay!",
@@ -1390,6 +1378,181 @@
       "close-button-title": "Đóng cảnh báo",
       "close-button-aria-label": "Đóng cảnh báo Push Metamask Snap",
       "container-aria-label": "Thông báo Push Metamask Snap"
+    },
+    "info-bar": {
+      "title": "Push Chain testnet ‘Donut’ đã hoạt động!",
+      "learn-more-text": "Khám phá các ứng dụng Universal",
+      "learn-more-title": "Khám phá các ứng dụng Universal",
+      "dismiss-button-title": "Đóng thông báo",
+      "dismiss-button-aria-label": "Đóng thông báo",
+      "container-aria-label": "Thông báo của trang web",
+      "star-icon-alt": "Biểu tượng ngôi sao thông báo"
+    }
+  },
+  "header": {
+    "meta": {
+      "logo-aria-label": "Push Chain - Điều hướng đến trang chủ",
+      "language-icon-alt": "Biểu tượng chọn ngôn ngữ",
+      "hamburger-menu-alt": "Mở menu điều hướng",
+      "testnet-badge-alt": "Push Chain Testnet Donut - Xem trạng thái testnet"
+    },
+    "logo": {
+      "imagealt": "Hình ảnh logo của Push Chain",
+      "imagetitle": "Logo Push Chain",
+      "ctatitle": "Truy cập trang chủ Push Chain"
+    },
+    "testnet": {
+      "title": "Mạng thử nghiệm",
+      "aria-label": "Phần testnet",
+      "link1": {
+        "text": "Push Scan",
+        "subtext": "Khám phá trình khám phá khối cho Push Chain",
+        "title": "Khám phá các giao dịch và khối trên Push Chain testnet tại Push Scan"
+      },
+      "link2": {
+        "text": "Nhận Token Miễn Phí",
+        "subtext": "Nhận token testnet",
+        "title": "Nhận token testnet miễn phí để phát triển Push Chain"
+      },
+      "link3": {
+        "text": "Hệ sinh thái",
+        "subtext": "Xem các ứng dụng được xây dựng trên Push Chain",
+        "title": "Xem các ứng dụng được xây dựng trên Push Chain"
+      }
+    },
+    "developers": {
+      "title": "Nhà phát triển",
+      "aria-label": "Phần dành cho Nhà phát triển",
+      "link1": {
+        "text": "Bắt đầu",
+        "subtext": "Giới thiệu về việc xây dựng trên Push Chain",
+        "title": "Bắt đầu xây dựng ứng dụng đa năng trên Push Chain - Tài liệu dành cho nhà phát triển"
+      },
+      "link2": {
+        "text": "Bắt đầu nhanh chóng",
+        "subtext": "Thiết lập môi trường phát triển trong tích tắc",
+        "title": "Hướng dẫn nhanh - Thiết lập môi trường phát triển Push Chain ngay lập tức"
+      },
+      "link6": {
+        "text": "Hệ sinh thái",
+        "subtext": "Xem các ứng dụng được xây dựng trên Push Chain",
+        "title": "Xem các ứng dụng được xây dựng trên Push Chain"
+      },
+      "link3": {
+        "text": "Hướng dẫn",
+        "subtext": "Hướng dẫn từng bước để xây dựng với Push",
+        "title": "Tìm hiểu qua các hướng dẫn thực hành - Xây dựng ứng dụng đa năng đầu tiên trên Push Chain"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "Xem mã nguồn cốt lõi và các công cụ mã nguồn mở",
+        "title": "Khám phá mã nguồn và các công cụ phát triển của Push Chain trên GitHub"
+      },
+      "link5": {
+        "text": "Discord dành cho nhà phát triển",
+        "subtext": "Kết nối với cộng đồng phát triển",
+        "title": "Tham gia cộng đồng nhà phát triển Push Chain trên Discord để được hỗ trợ và hợp tác"
+      }
+    },
+    "community": {
+      "title": "Cộng đồng",
+      "aria-label": "Phần Cộng Đồng",
+      "link7": {
+        "text": "Hệ sinh thái",
+        "subtext": "Khám phá các ứng dụng được xây dựng trên Push Chain",
+        "title": "Khám phá các ứng dụng được xây dựng trên Push Chain"
+      },
+      "link1": {
+        "text": "Cơ sở kiến thức",
+        "subtext": "Tìm hiểu sâu hơn về các tính năng",
+        "title": "Khám phá tài liệu đầy đủ về Push Chain và hướng dẫn tính năng"
+      },
+      "link2": {
+        "text": "LFPush",
+        "subtext": "Những tweet nổi bật từ cộng đồng Push #LFPush",
+        "title": "Những dòng tweet nổi bật từ cộng đồng Push #LFPush"
+      },
+      "link3": {
+        "text": "Tokenomics",
+        "subtext": "Token gốc vận hành mọi thứ trên Push Chain",
+        "title": "Tìm hiểu về tokenomics của Push Chain và tiện ích của token $PC"
+      },
+      "link4": {
+        "text": "X/Twitter",
+        "subtext": "Theo dõi các bản cập nhật và tin tức về hệ sinh thái",
+        "title": "Theo dõi Push Chain trên X (Twitter) để cập nhật và thông báo mới nhất"
+      },
+      "link5": {
+        "text": "Discord",
+        "subtext": "Tham gia cộng đồng để trò chuyện, xây dựng và cùng nhau tạo nên những điều tuyệt vời",
+        "title": "Tham gia cộng đồng Push Chain trên Discord để thảo luận và hỗ trợ"
+      },
+      "link6": {
+        "text": "Telegram",
+        "subtext": "Tham gia cộng đồng và cập nhật tin tức mới nhất",
+        "title": "Kết nối với cộng đồng Push Chain trên Telegram để cập nhật theo thời gian thực"
+      }
+    },
+    "resources": {
+      "title": "Tài nguyên",
+      "aria-label": "Phần Tài Nguyên",
+      "link1": {
+        "text": "Blog",
+        "subtext": "Cập nhật, phân tích sâu và câu chuyện phát triển",
+        "title": "Đọc blog Push Chain để cập nhật những thông tin mới nhất, phân tích kỹ thuật chuyên sâu và câu chuyện của các nhà phát triển"
+      },
+      "link2": {
+        "text": "Bản tóm tắt",
+        "subtext": "Tầm nhìn và công nghệ, được đơn giản hóa",
+        "title": "Đọc Whitepaper Push Chain Litepaper - tầm nhìn đơn giản và tổng quan kỹ thuật"
+      },
+      "link3": {
+        "text": "Câu hỏi thường gặp",
+        "subtext": "Trả lời nhanh các câu hỏi thường gặp",
+        "title": "Xem các câu hỏi thường gặp về Push Chain"
+      }
+    },
+    "language": {
+      "title": "Ngôn ngữ",
+      "aria-label": "Chọn ngôn ngữ"
+    },
+    "app-button": {
+      "text": "Push Portal",
+      "title": "Truy cập Push Portal - Kiếm điểm với vai trò nhà phát triển, người dùng hoặc người xác thực"
+    },
+    "explore": {
+      "title": "Khám phá",
+      "aria-label": "Khám phá",
+      "link1": {
+        "text": "Bắt đầu",
+        "subtext": "Giới thiệu về việc xây dựng trên Push Chain",
+        "title": "Bắt đầu xây dựng"
+      },
+      "link2": {
+        "text": "Bắt đầu nhanh",
+        "subtext": "Thiết lập môi trường phát triển chỉ trong vài giây",
+        "title": "Bắt đầu nhanh"
+      },
+      "link3": {
+        "text": "Hướng dẫn",
+        "subtext": "Hướng dẫn từng bước để xây dựng với Push",
+        "title": "Tìm hiểu qua các hướng dẫn"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "Xem mã nguồn cốt lõi và các công cụ mã nguồn mở",
+        "title": "Khám phá Push Chain"
+      },
+      "link5": {
+        "text": "Discord dành cho nhà phát triển",
+        "subtext": "Kết nối với cộng đồng phát triển",
+        "title": "Tham gia Discord"
+      },
+      "link6": {
+        "text": "Khám phá Ví dụ",
+        "subtext": "Khám phá Ví dụ",
+        "title": "Khám phá Ví dụ"
+      }
     }
   }
 }

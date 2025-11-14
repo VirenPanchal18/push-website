@@ -1,17 +1,1 @@
-{
-  "pages": {
-    "knowledge": {
-      "explainer-section": {
-        "blocks": {
-          "sections": {
-            "resources": {
-              "items": {
-                "deepdives": {}
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+{}
