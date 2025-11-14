@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "Layer L1 compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede."
+    "site-description": "L1 de estado compartilhado para aplicativos universais. Implante uma vez e alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
   },
   "footer": {
     "email-section": {
@@ -1089,7 +1089,7 @@
       "qnas": {
         "qna1": {
           "question": "Não consigo conectar minha carteira. O que eu devo tentar?",
-          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ Scripts agressivos para push.org.</1><1><2>Não é necessário alternar de rede:</2> fique na sua cadeia principal; Push gerencia a roteagem por trás dos cenários.</1><1><2>Redefina permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda com problemas? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
+          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ Scripts agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> fique em sua rede principal; Push cuida da roteagem por trás dos cenários.</1><1><2>Redefina permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1216,8 +1216,7 @@
           "description": "Perguntas, feedback ou outros tópicos"
         },
         "partnerships": {
-          "label": "🤝 Parcerias e Integrações",
-          "description": "Desenvolvimento de negócios, integrações do ecossistema (wallets, infraestrutura, exchanges, protocolos)"
+          "label": "🤝 Parcerias e Integrações"
         },
         "grants": {
           "label": "💰 Subvenções & Programas do Ecossistema",
@@ -1360,8 +1359,7 @@
       "button-aria-label": "Projeto G.U.D deployathon está AO VIVO. Você pode conferir aqui",
       "close-button-title": "Fechar notificação da testnet",
       "close-button-aria-label": "Dismiss Push Chain testnet notification",
-      "container-aria-label": "Notificação do Push Chain testnet",
-      "image-alt": "Push Chain Testnet Donut - Universal blockchain"
+      "container-aria-label": "Notificação do Push Chain testnet"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta está ao vivo!",
