@@ -9,5 +9,5 @@ tags:
   - DeFi
 twitterId: 1037316970
 href: https://www.thehodl.fun/
-textColor: white
+titleColor: white
 ---

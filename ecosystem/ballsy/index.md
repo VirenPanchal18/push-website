@@ -9,5 +9,5 @@ tags:
   - Gaming
 twitterId: 1037316970
 href: https://ballsy.push.org/
-textColor: black
+titleColor: white
 ---

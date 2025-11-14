@@ -9,5 +9,5 @@ tags:
   - Social
 twitterId: 1037316970
 href: https://bountive.vercel.app/
-textColor: black
+titleColor: white
 ---

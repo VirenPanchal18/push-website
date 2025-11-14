@@ -9,5 +9,5 @@ tags:
   - DeFi
 twitterId: 1037316970
 href: https://tip-up-push.vercel.app/
-textColor: white
+titleColor: white
 ---

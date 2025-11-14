@@ -1,5 +1,5 @@
 ---
-id: 12
+id: 19
 name: Hang4.fun
 description: Coming Soon
 icon: icon.png
@@ -9,6 +9,6 @@ tags:
   - TBA
 twitterId: 0
 href: https://hang4.fun/
-textColor: white
-comingsoon: true;
+titleColor: white
+comingsoon: true
 ---
