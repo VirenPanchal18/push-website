@@ -7,6 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - Infra
+twitterId: '1989664485427351900'
 href: https://push-name-service.vercel.app/
 titleColor: white
 ---

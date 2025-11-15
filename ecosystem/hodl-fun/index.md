@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: rgba(0, 0, 0, 0.80)
 tags:
   - DeFi
-twitterId: 1037316970
+twitterId: '1989664475784663041'
 href: https://www.thehodl.fun/
 titleColor: white
 ---

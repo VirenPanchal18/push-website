@@ -7,7 +7,6 @@ bgImage: bg.png
 bgGradientColor: '#E5B92A'
 tags:
   - Gaming
-twitterId: 1037316970
 href: https://www.lastone.fun/
 titleColor: black
 descriptionColor: black

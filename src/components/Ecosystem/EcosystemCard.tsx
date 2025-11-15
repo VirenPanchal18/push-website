@@ -5,8 +5,14 @@ import styled from 'styled-components';
 import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import type { EcosystemApp } from './EcosystemBlocks';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
+import { BsHeart } from 'react-icons/bs';
+import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount'
+import Link from '@docusaurus/Link';
 
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
+  const { data: twitterData } = useTweetMetrics(app.twitterId || '');
+
   const hrefProps = app.comingsoon
     ? { onClick: (e: React.MouseEvent) => e.preventDefault() }
     : app.href
@@ -48,6 +54,21 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
               </Tag>
             ))}
           </Tags>
+          {app?.twitterId && (
+              <Likes
+                href={`https://x.com/PushChain/status/${app.twitterId}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Tag tagsColor={app?.tagsColor}>
+                  {formatTwitterCount(twitterData?.like_count)}
+                </Tag>
+                <BsHeart
+                  size={22}
+                  color='var(--ifm-color-primary-inverse)'
+                />
+              </Likes>
+          )}
         </Meta>
       </ContentWrap>
       {app.comingsoon && (
@@ -181,6 +202,13 @@ const Meta = styled.div`
 
 const Tags = styled.div`
   display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+`;
+
+const Likes = styled(Link)<{ tagsColor?: string }>`
+  display: flex;
+  align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 `;

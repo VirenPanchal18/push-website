@@ -7,6 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - Social
+twitterId: '1989664494503743894'
 href: https://push-campus.vercel.app/
 titleColor: white
 ---

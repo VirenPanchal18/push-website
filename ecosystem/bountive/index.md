@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - Social
-twitterId: 1037316970
+twitterId: '1989664498920403443'
 href: https://bountive.vercel.app/
 titleColor: white
 ---
