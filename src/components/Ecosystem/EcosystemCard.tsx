@@ -65,7 +65,7 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
                 </Tag>
                 <BsHeart
                   size={22}
-                  color='var(--ifm-color-primary-inverse)'
+                  color={app?.tagsColor || `var(--ifm-ecosystem-tags-color)`}
                 />
               </Likes>
           )}
