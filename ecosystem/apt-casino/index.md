@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#5E1140'
 tags:
   - Gaming
-twitterId: 1037316970
+twitterId: '1989664509439713780'
 href: https://apt-casino-push-chain.vercel.app/
 titleColor: white
 ---

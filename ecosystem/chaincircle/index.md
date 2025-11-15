@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - DeFi
-twitterId: 1037316970
+twitterId: '1989664436433637415'
 href: https://www.chaincircle.org/
 titleColor: white
 ---

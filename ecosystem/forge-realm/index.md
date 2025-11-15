@@ -7,6 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - NFT
+twitterId: '1989664480616464799'
 href: https://forge-realm.vercel.app/
 titleColor: white
 ---

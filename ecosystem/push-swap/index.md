@@ -7,6 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#DD60C4'
 tags:
   - DeFi
+twitterId: '1989664440468590639'
 href: https://push-swap-sepia.vercel.app/
 titleColor: black
 descriptionColor: black

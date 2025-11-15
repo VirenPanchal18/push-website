@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: '#000000'
 tags:
   - NFT
-twitterId: 1037316970
+twitterId: '1989664469484728745'
 href: https://eon-five.vercel.app
 titleColor: white
 ---

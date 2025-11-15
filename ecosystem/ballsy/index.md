@@ -7,7 +7,6 @@ bgImage: bg.png
 bgGradientColor: rgba(0, 0, 0, 0.80)
 tags:
   - Gaming
-twitterId: 1037316970
 href: https://ballsy.push.org/
 titleColor: white
 ---
