@@ -319,8 +319,8 @@ const incrementData = PushChain.utils.helpers.encodeTxData({
 });
 
 await client.universal.sendTransaction({
-  // Must be the Universal Execution Account (UEA) for this signer
-  to: client.universal.account,
+  // Must be '0x0000000000000000000000000000000000000000' for multicall
+  to: '0x0000000000000000000000000000000000000000',
   data: [
     { to: "0xCounterContract1", value: 0n, data: incrementData },
     { to: "0xCounterContract2", value: 0n, data: incrementData },
