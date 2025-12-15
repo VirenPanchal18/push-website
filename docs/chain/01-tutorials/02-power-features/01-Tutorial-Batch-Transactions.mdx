@@ -209,7 +209,7 @@ const mintData = PushChain.utils.helpers.encodeTxData({
 // Send batch transaction (multicall)
 // highlight-start
 const batchTx = await pushChainClient.universal.sendTransaction({
-  to: pushChainClient.universal.account,
+  to: '0x0000000000000000000000000000000000000000',
   data: [
     {to: counterAddress, value: 0n, data: incrementData},
     {to: erc20Address, value: 0n, data: mintData},
@@ -418,13 +418,15 @@ function BatchTransactionExample() {
           });
 
           // Create batch transaction
+          // highlight-start
           const batchTx = await pushChainClient.universal.sendTransaction({
-            to: pushChainClient.universal.account,
+            to: '0x0000000000000000000000000000000000000000',
             data: [
               {to: counterAddress, value: 0n, data: incrementData},
               {to: erc20Address, value: 0n, data: mintData},
             ]
           });
+          // highlight-end
 
           setTxHash(batchTx.hash);
           await batchTx.wait();
