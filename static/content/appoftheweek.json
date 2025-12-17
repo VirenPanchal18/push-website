@@ -1,18 +1,15 @@
 {
-  "id": 24,
-  "name": "ZNS",
-  "description": "Multi-chain domains, GM + Deploy tools",
-  "icon": "/assets/ecosystem/zns-icon.png",
-  "bgImage": "/assets/ecosystem/zns-bg.png",
-  "bgGradientColor": "#A9D20A",
+  "id": 6,
+  "name": "BeatBrawls",
+  "description": "Musical battles to never forget",
+  "icon": "/assets/ecosystem/beatbrawls-icon.png",
+  "bgImage": "/assets/ecosystem/beatbrawls-bg.png",
+  "bgGradientColor": "#301139",
   "tags": [
-    "Infra"
+    "Gaming"
   ],
-  "href": "https://zns.bio/gm-deploy?filter=all&tab=gm&search=push",
-  "titleColor": "black",
-  "descriptionColor": "black",
-  "tagsColor": "black",
-  "twitterId": "1998756795859550371",
+  "href": "https://push.beatbrawls.com/",
+  "titleColor": "white",
   "appoftheweek": true,
-  "spotlighttext": "Universal identity layer"
+  "spotlighttext": "Onchain Beat Battles"
 }
