@@ -1054,6 +1054,83 @@ import { PushChain } from '@pushchain/core';
 
 {/* API Section Ends*/}
 
+{/* API Section Start*/}
+
+### Get PRC20 Address
+
+**_`PushChain.utils.tokens.getPRC20Address(token): 0x${string}`_**
+
+Resolves the Push Chain synthetic PRC20 address for a supported origin-chain token. Accepts either a `MoveableToken` (for example from `getMoveableTokens`) or an object containing the origin `chain` and token `address`.
+
+```typescript
+const prc20 = PushChain.utils.tokens.getPRC20Address(ethMoveableToken);
+
+// Or with explicit chain/address input
+const prc20Alt = PushChain.utils.tokens.getPRC20Address({
+  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+  address: ethMoveableToken.address,
+});
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| _`token`_ | `MoveableToken \| { chain: string; address: string }` | Origin token info. Either pass a `MoveableToken` (e.g., from `pushChainClient.moveable.token.*`) or provide the origin chain plus token address. |
+
+</PushAPIReference>
+
+<Details summary="Returns `prc20Address` <string>" className="alert alert--fn-args">
+
+```typescript
+// Synthetic PRC20 address on Push Chain
+'0x...'
+```
+
+</Details>
+
+<Details summary="Live Playground: Map origin token to PRC20 on Push Chain" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+{`
+// customPropHighlightRegexStart=PushChain\\.utils\\.tokens\\.getPRC20Address
+// customPropHighlightRegexEnd=\\);
+import { PushChain } from '@pushchain/core';
+
+    async function main() {
+      // Moveable token example (ETH on Sepolia)
+      const { tokens: moveable } = PushChain.utils.tokens.getMoveableTokens(
+        PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+      );
+      const ethMoveable = moveable.find((t) => t.symbol === 'ETH');
+      if (!ethMoveable) {
+        throw new Error('ETH moveable token not found');
+      }
+
+      // Using MoveableToken directly
+      const prc20FromMoveable = PushChain.utils.tokens.getPRC20Address(
+        ethMoveable
+      );
+      console.log('pETH address (from MoveableToken):', prc20FromMoveable);
+
+      // Using { chain, address }
+      const prc20FromAddress = PushChain.utils.tokens.getPRC20Address({
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+        address: ethMoveable.address,
+      });
+      console.log('pETH address (from chain/address):', prc20FromAddress);
+    }
+
+    main();
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+{/* API Section Ends*/}
+
 ## Conversion Utilities
 
 {/* API Section Start*/}
