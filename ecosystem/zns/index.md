@@ -1,5 +1,5 @@
 ---
-id: 24
+id: 22
 name: ZNS
 description: Multi-chain domains, GM + Deploy tools
 icon: icon.png
@@ -12,6 +12,5 @@ titleColor: black
 descriptionColor: black
 tagsColor: black
 twitterId: '1998756795859550371'
-appoftheweek: true
-spotlighttext: Universal identity layer
+
 ---

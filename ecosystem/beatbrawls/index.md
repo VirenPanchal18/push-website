@@ -9,4 +9,6 @@ tags:
   - Gaming
 href: https://push.beatbrawls.com/
 titleColor: white
+appoftheweek: true
+spotlighttext: Onchain Beat Battles
 ---
