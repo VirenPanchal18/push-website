@@ -62,30 +62,38 @@ const txHash = await pushChainClient.universal.sendTransaction({
 
 <Details summary="ProgressHook Type and Response" className="alert alert--minimal code">
 
-| Field                | Type                                          | Description                                                                     |
-| -------------------- | --------------------------------------------- | ------------------------------------------------------------------------------- |
-| `progress`           | `Object`                                      | The progress of the transaction.                                                |
-| `progress.id`        | `string`                                      | Unique identifier for the progress event.                                       |
-| `progress.title`     | `string`                                      | Brief title of the progress event.                                              |
-| `progress.message`   | `string`                                      | Detailed message describing the event.                                          |
-| `progress.level`     | `INFO` \| `SUCCESS` \| `WARNING` \| `ERROR` | Severity level of the event.                                                    |
-| `progress.timestamp` | `string`                                      | ISO-8601 timestamp when the event occurred (e.g. `2025-06-26T15:04:05.000Z`). |
+| Field                | Type                                 | Description                                                                     |
+| -------------------- | ------------------------------------ | ------------------------------------------------------------------------------- |
+| `progress`           | `Object`                             | The progress of the transaction.                                                |
+| `progress.id`        | `string`                             | Unique identifier for the progress event.                                       |
+| `progress.title`     | `string`                             | Brief title of the progress event.                                              |
+| `progress.message`   | `string`                             | Detailed message describing the event.                                          |
+| `progress.level`     | `INFO` \| `SUCCESS` \| `ERROR`       | Severity level of the event.                                                    |
+| `progress.timestamp` | `string`                             | ISO-8601 timestamp when the event occurred (e.g. `2025-06-26T15:04:05.000Z`). |
 
-| ID              | Title                               | Message                                                                                       | Level   |
-| --------------- | ----------------------------------- | --------------------------------------------------------------------------------------------- | ------- |
-| `SEND-TX-01`    | Origin Chain Detected               | Origin chain: solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1                                         | INFO    |
-| `SEND-TX-02-01` | Estimating Gas                      | Estimating and fetching gas limit, gas price for TX…                                          | INFO    |
-| `SEND-TX-02-02` | Gas Estimated                       | Total execution cost (Gas cost + value): 1011250000000000000 UPC                              | SUCCESS |
-| `SEND-TX-03-01` | Resolving UEA                       | Resolving Execution Account (UEA) – computing address, checking deployment status and balance | INFO    |
-| `SEND-TX-03-02` | UEA Resolved                        | UEA: 0x4f17B798A7d643d4F89cb2d8D42A72F84e83e566, Deployed: true                               | SUCCESS |
-| `SEND-TX-04-01` | Awaiting Signature for Tx Execution | Universal Payload Hash: 0x1a579f18…fabac4309                                                  | INFO    |
-| `SEND-TX-04-02` | Generated Universal Payload         | Signature Completed                                                                           | SUCCESS |
-| `SEND-TX-05-01` | Locking Origin Chain Fee            | Locking fee: 1000063864000000000 UPC on origin chain                                                            | INFO    |
-| `SEND-TX-05-02` | Awaiting Origin Chain Confirmations | Tx sent: 0xabc..234, waiting for 2 confirmations.                                             | INFO    |
-| `SEND-TX-05-03` | Confirmations Received              | Required confirmations received.                                                           | SUCCESS |
-| `SEND-TX-06`    | Broadcasting to Push Chain          | Sending Tx to Push Chain…                                             | INFO    |
-| `SEND-TX-99-01` | Push Chain TX Success               | …                                                                                             | SUCCESS |
-| `SEND-TX-99-02` | Push Chain TX Failed                | …                                                                                             | ERROR   |
+| ID                | Title                               | Message                                                                                   | Level   |
+| ----------------- | ----------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
+| `SEND-TX-01`      | Origin Chain Detected               | Origin chain: `<namespace>` - Origin Address: `<origin address>`                          | INFO    |
+| `SEND-TX-02-01`   | Estimating Gas                      | Estimating and fetching gas limit, gas price for TX                                       | INFO    |
+| `SEND-TX-02-02`   | Gas Estimated                       | Total execution cost (Gas cost + value): `<amount>` UPC                                   | SUCCESS |
+| `SEND-TX-03-01`   | Resolving UEA                       | Resolving Execution Account (UEA) – computing address, checking deployment status/balance | INFO    |
+| `SEND-TX-03-02`   | UEA Resolved                        | UEA: `<address>`, Deployed: `<true/false>`                                                | SUCCESS |
+| `SEND-TX-04-01`   | Awaiting Transaction                | Awaiting user transaction on origin chain                                                 | INFO    |
+| `SEND-TX-04-02`   | Awaiting Signature                  | Awaiting user signature for universal payload                                             | INFO    |
+| `SEND-TX-04-03`   | Verification Success                | Verification completed via Transaction or Signature                                       | SUCCESS |
+| `SEND-TX-04-04`   | Verification Declined               | Verification declined by user                                                             | ERROR   |
+| `SEND-TX-05-01`   | Gas Funding In Progress             | Gas funding tx sent: `<origin chain tx hash>`                                             | INFO    |
+| `SEND-TX-05-02`   | Gas Funding Confirmed               | Gas funding confirmed on origin chain                                                     | SUCCESS |
+| `SEND-TX-06-01`   | Preparing Funds Transfer            | Preparing to move `<amount> <symbol>` from origin chain                                   | INFO    |
+| `SEND-TX-06-02`   | Funds Lock Submitted                | Locking `<amount> <symbol>` for transfer (Tx hash: `<origin tx hash>`)                    | INFO    |
+| `SEND-TX-06-03`   | Awaiting Confirmations              | Waiting for `<required>` confirmations                                                    | INFO    |
+| `SEND-TX-06-03-01`| Confirmation #`<current>` Received  | `<current>/<required>` confirmations received                                             | INFO    |
+| `SEND-TX-06-03-02`| Confirmation #`<current>` Received  | `<current>/<required>` confirmations received                                             | SUCCESS |
+| `SEND-TX-06-04`   | Funds Confirmed                     | Origin chain lock confirmed                                                               | SUCCESS |
+| `SEND-TX-06-05`   | Funds Credited on Push Chain        | Funds credited: `<amount> <symbol>`                                                       | SUCCESS |
+| `SEND-TX-07`      | Broadcasting to Push Chain          | Sending Tx to Push Chain                                                                  | INFO    |
+| `SEND-TX-99-01`   | Push Chain Tx Success               | Tx executed successfully on Push Chain                                                    | SUCCESS |
+| `SEND-TX-99-02`   | Push Chain Tx Failed                | `<error message>`                                                                         | ERROR   |
 
 </Details>
 
