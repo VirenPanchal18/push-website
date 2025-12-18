@@ -211,8 +211,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 17,
     name: 'Forge Realm',
-    description:
-      'Mix and match base characters and traits from multiple creators',
+    description: 'Mix and match base characters and traits from multiple creators',
     icon: '/assets/ecosystem/forge-realm-icon.png',
     bgImage: '/assets/ecosystem/forge-realm-bg.png',
     bgGradientColor: '#000000',
@@ -270,20 +269,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 22,
-    name: 'ZNS',
-    description: 'Multi-chain domains, GM + Deploy tools',
-    icon: '/assets/ecosystem/zns-icon.png',
-    bgImage: '/assets/ecosystem/zns-bg.png',
-    bgGradientColor: '#A9D20A',
-    tags: ['Infra'],
-    href: 'https://zns.bio/gm-deploy?filter=all&tab=gm&search=push',
-    titleColor: 'black',
-    descriptionColor: 'black',
-    tagsColor: 'black',
-    twitterId: '1998756795859550371',
-  },
-  {
     id: 23,
     name: 'NFTs2Me',
     description: 'Deploy your NFT collection for free on any chain',
@@ -297,8 +282,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 24,
     name: 'Copet',
-    description:
-      'Feed, play, and grow your virtual pet through on-chain activity',
+    description: 'Feed, play, and grow your virtual pet through on-chain activity',
     icon: '/assets/ecosystem/copet-icon.png',
     bgImage: '/assets/ecosystem/copet-bg.png',
     bgGradientColor: '#010101',
@@ -309,8 +293,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 25,
     name: 'Copass',
-    description:
-      'Proof of Human, sybil-resistant identity verification protocol.',
+    description: 'Proof of Human, sybil-resistant identity verification protocol.',
     icon: '/assets/ecosystem/copass-icon.png',
     bgImage: '/assets/ecosystem/copass-bg.png',
     bgGradientColor: '#020202',
