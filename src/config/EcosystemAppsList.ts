@@ -212,7 +212,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 17,
     name: 'Forge Realm',
-    description: 'Mix and match base characters and traits from multiple creators',
+    description:
+      'Mix and match base characters and traits from multiple creators',
     icon: '/assets/ecosystem/forge-realm-icon.png',
     bgImage: '/assets/ecosystem/forge-realm-bg.png',
     bgGradientColor: '#000000',
@@ -277,13 +278,14 @@ export const EcosystemAppsList: EcosystemApp[] = [
     bgImage: '/assets/ecosystem/nfts-me-bg.png',
     bgGradientColor: '#010101',
     tags: ['NFT'],
-    href: 'https://copet.xyz/?chainId=42101',
+    href: 'https://nfts2me.com/app/push-testnet/',
     titleColor: '#FFFFFF',
   },
   {
     id: 24,
     name: 'Copet',
-    description: 'Feed, play, and grow your virtual pet through on-chain activity',
+    description:
+      'Feed, play, and grow your virtual pet through on-chain activity',
     icon: '/assets/ecosystem/copet-icon.png',
     bgImage: '/assets/ecosystem/copet-bg.png',
     bgGradientColor: '#010101',
@@ -294,7 +296,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 25,
     name: 'Copass',
-    description: 'Proof of Human, sybil-resistant identity verification protocol.',
+    description:
+      'Proof of Human, sybil-resistant identity verification protocol.',
     icon: '/assets/ecosystem/copass-icon.png',
     bgImage: '/assets/ecosystem/copass-bg.png',
     bgGradientColor: '#020202',

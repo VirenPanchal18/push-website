@@ -7,6 +7,6 @@ bgImage: bg.png
 bgGradientColor: '#010101'
 tags:
   - NFT
-href: https://copet.xyz/?chainId=42101
+href: https://nfts2me.com/app/push-testnet/
 titleColor: '#FFFFFF'
 ---
