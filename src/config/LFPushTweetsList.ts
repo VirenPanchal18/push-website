@@ -3,6 +3,27 @@
 
 // List of tweet URLs to fetch
 export const LFPushTweetsList: string[] = [
+  // Till 2nd Dec
+  'https://x.com/1inchdevs/status/2000995958214078550?s=20',
+  'https://x.com/BeatBRAWLS/status/1995801210130235586?s=20',
+  'https://x.com/BeatBRAWLS/status/2001708893798568401?s=20',
+  'https://x.com/Jack_O_web3/status/1993666245590388875?s=20',
+  'https://x.com/Aleksdnb01/status/1993985114263498823?s=20',
+  'https://x.com/1337Systems/status/1993125276180693430?s=20',
+  'https://x.com/Omni_Hub/status/1996951171177550176?s=20',
+  'https://x.com/NFTs2Me/status/1996536224211751186?s=20',
+  'https://x.com/gmcheap/status/1996198396701344131?s=20',
+  'https://x.com/zns_bio/status/1996235914939338920?s=20',
+  'https://x.com/ZNSConnect/status/1996238889061642655?s=20',
+  'https://x.com/chaincircle_/status/1999099618408231405?s=20',
+  'https://x.com/jojo62562095/status/1999709344481636638?s=20',
+  'https://x.com/bludwithstyle/status/2001051695950815338?s=20',
+  'https://x.com/ANON__F/status/2000823558013133144?s=20',
+  'https://x.com/copassapp/status/1999074683812290959?s=20',
+  'https://x.com/SurfLayer/status/1999827897545011362?s=20',
+  'https://x.com/Golf_268/status/1993893302085808362?s=20',
+  'https://x.com/Hansiombreg1011/status/1997685443710820499?s=20',
+
   // Top of the list
   'https://x.com/ETHGlobal/status/1988276189958709698?s=20',
   'https://x.com/MorphLayer/status/1988960293272318388?s=20',
