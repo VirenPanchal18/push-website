@@ -1,16 +1,16 @@
 {
-  "id": 6,
-  "name": "BeatBrawls",
-  "description": "Musical battles to never forget",
-  "icon": "/assets/ecosystem/beatbrawls-icon.png",
-  "bgImage": "/assets/ecosystem/beatbrawls-bg.png",
-  "bgGradientColor": "#301139",
+  "id": 10,
+  "name": "OnchainVampireSurvivors",
+  "description": "Universal vampire survivors like game",
+  "icon": "/assets/ecosystem/onchain-vampires-icon.png",
+  "bgImage": "/assets/ecosystem/onchain-vampires-bg.png",
+  "bgGradientColor": "#5D261E",
   "tags": [
     "Gaming"
   ],
-  "href": "https://push.beatbrawls.com/",
+  "twitterId": "2003875166850531341",
+  "href": "https://catkevin.github.io/OnchainVampireSurvivors/",
   "titleColor": "white",
-  "twitterId": "2001278428788715678",
   "appoftheweek": true,
-  "spotlighttext": "Onchain Beat Battles"
+  "spotlighttext": "Universal vampire survivors like game"
 }

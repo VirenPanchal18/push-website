@@ -7,7 +7,9 @@ bgImage: bg.png
 bgGradientColor: '#5D261E'
 tags:
   - Gaming
-twitterId: '1989664518855954717'
+twitterId: '2003875166850531341'
 href: https://catkevin.github.io/OnchainVampireSurvivors/
 titleColor: white
+appoftheweek: true
+spotlighttext: Universal vampire survivors like game
 ---

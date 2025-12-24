@@ -2,18 +2,18 @@ import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
 
 export const EcosystemAppsList: EcosystemApp[] = [
   {
-    id: 6,
-    name: 'BeatBrawls',
-    description: 'Musical battles to never forget',
-    icon: '/assets/ecosystem/beatbrawls-icon.png',
-    bgImage: '/assets/ecosystem/beatbrawls-bg.png',
-    bgGradientColor: '#301139',
+    id: 10,
+    name: 'OnchainVampireSurvivors',
+    description: 'Universal vampire survivors like game',
+    icon: '/assets/ecosystem/onchain-vampires-icon.png',
+    bgImage: '/assets/ecosystem/onchain-vampires-bg.png',
+    bgGradientColor: '#5D261E',
     tags: ['Gaming'],
-    href: 'https://push.beatbrawls.com/',
+    twitterId: '2003875166850531341',
+    href: 'https://catkevin.github.io/OnchainVampireSurvivors/',
     titleColor: 'white',
-    twitterId: '2001278428788715678',
     appoftheweek: true,
-    spotlighttext: 'Onchain Beat Battles',
+    spotlighttext: 'Universal vampire survivors like game',
   },
   {
     id: 1,
@@ -90,6 +90,18 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
+    id: 6,
+    name: 'BeatBrawls',
+    description: 'Musical battles to never forget',
+    icon: '/assets/ecosystem/beatbrawls-icon.png',
+    bgImage: '/assets/ecosystem/beatbrawls-bg.png',
+    bgGradientColor: '#301139',
+    tags: ['Gaming'],
+    href: 'https://push.beatbrawls.com/',
+    titleColor: 'white',
+    twitterId: '2001278428788715678',
+  },
+  {
     id: 7,
     name: 'Push x402',
     description: 'Pay-per-call API monetization for agentic infrastructure',
@@ -122,18 +134,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tags: ['Gaming'],
     twitterId: '1989664523339665658',
     href: 'https://push-ninja.abstractstudio.in',
-    titleColor: 'white',
-  },
-  {
-    id: 10,
-    name: 'OnchainVampireSurvivors',
-    description: 'Universal vampire survivors like game',
-    icon: '/assets/ecosystem/onchain-vampires-icon.png',
-    bgImage: '/assets/ecosystem/onchain-vampires-bg.png',
-    bgGradientColor: '#5D261E',
-    tags: ['Gaming'],
-    twitterId: '1989664518855954717',
-    href: 'https://catkevin.github.io/OnchainVampireSurvivors/',
     titleColor: 'white',
   },
   {
@@ -212,8 +212,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 17,
     name: 'Forge Realm',
-    description:
-      'Mix and match base characters and traits from multiple creators',
+    description: 'Mix and match base characters and traits from multiple creators',
     icon: '/assets/ecosystem/forge-realm-icon.png',
     bgImage: '/assets/ecosystem/forge-realm-bg.png',
     bgGradientColor: '#000000',
@@ -284,8 +283,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 24,
     name: 'Copet',
-    description:
-      'Feed, play, and grow your virtual pet through on-chain activity',
+    description: 'Feed, play, and grow your virtual pet through on-chain activity',
     icon: '/assets/ecosystem/copet-icon.png',
     bgImage: '/assets/ecosystem/copet-bg.png',
     bgGradientColor: '#010101',
@@ -296,8 +294,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 25,
     name: 'Copass',
-    description:
-      'Proof of Human, sybil-resistant identity verification protocol.',
+    description: 'Proof of Human, sybil-resistant identity verification protocol.',
     icon: '/assets/ecosystem/copass-icon.png',
     bgImage: '/assets/ecosystem/copass-bg.png',
     bgGradientColor: '#020202',
