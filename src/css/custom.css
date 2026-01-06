@@ -939,6 +939,7 @@ html[data-theme='light'] .alert.alert--fn-args summary::before {
   margin: 10px auto;
   border: 1px solid var(--ifm-color-primary) !important;
   background: var(--ifm-color-primary-unified-inverse);
+  color: var(--ifm-color-black) !important;
 }
 
 .alert.alert--minimal-api-table>summary {
@@ -954,7 +955,7 @@ html[data-theme='light'] .alert.alert--fn-args summary::before {
 .alert.alert--minimal-api-table summary {
   padding-left: 0 !important;
   padding-right: 25px !important;
-  color: var(--ifm-color-title-text-color) !important;
+  color: var(--ifm-color-black) !important;
   font-family: 'DM Sans' !important;
   font-size: 1rem;
   font-weight: 600 !important;
