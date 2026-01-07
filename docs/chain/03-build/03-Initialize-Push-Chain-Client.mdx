@@ -24,10 +24,10 @@ import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIRefer
 
 Initializing the SDK client gives you:
 
-- **Chain-agnostic** `PushChainClient` for submitting on-chain calls  
-- Automatic **RPC & block-explorer resolution** (with optional overrides)  
-- Built-in **UEA** (Universal Executor Account) and **origin-account** getters  
-- End-to-end **Universal fee abstraction**, signature orchestration & debug traces  
+- **Chain-agnostic** `PushChainClient` for submitting on-chain calls
+- Automatic **RPC & block-explorer resolution** (with optional overrides)
+- Built-in **UEA** (Universal Executor Account) and **origin-account** getters
+- End-to-end **Universal fee abstraction**, signature orchestration & debug traces
 
 Just pass your universal signer and network, and you’re ready to write and transact on Push Chain from any wallet.
 
@@ -37,7 +37,7 @@ Just pass your universal signer and network, and you’re ready to write and tra
 
 ```typescript
 // Import @pushchain/core and ethers
-// Ensure you have created Universal Signer. 
+// Ensure you have created Universal Signer.
 // If not done, then check out Create Universal Signer.
 
 // Initialize Push Chain Client
@@ -228,7 +228,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
   </TabItem>
 
   <TabItem value='ui_kit' label='UI Kit (Frontend / Abstracted)'>
-  
+
     ```jsx live
     // customPropHighlightRegexStart=<PushUniversalWalletProvider
     // customPropHighlightRegexEnd=</PushUniversalWalletProvider>
@@ -282,7 +282,7 @@ You can initialize a **read-only** `PushChainClient` by passing a `UniversalAcco
 
 ```typescript
 // Import @pushchain/core and ethers
-// Ensure you have created Universal Account. 
+// Ensure you have created Universal Account.
 // If not done, then check out Create Universal Account under Utility Functions.
 
 // Initialize Push Chain Client
@@ -361,7 +361,7 @@ You can reinitialize a `PushChainClient` with a different signer/account and/or 
 
 ```typescript
 // Import @pushchain/core and ethers
-// Ensure you have created Universal Account. 
+// Ensure you have created Universal Account.
 // If not done, then check out Create Universal Account under Utility Functions.
 
 // Initialize Push Chain Client
@@ -398,7 +398,7 @@ const pushChainClient2 = await pushChainClient1.reinitialize(newSignerOrAccount,
 
       // Reinitialize with SAME signer, change only ONE option (blockExplorers)
       const client2 = await client1.reinitialize(signer, {
-        blockExplorers: { 
+        blockExplorers: {
           [PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT]: ['https://custom-explorer.push.network'] },
         }
       );
@@ -429,7 +429,7 @@ const originAccount = pushChainClient.universal.origin; // Source chain account 
 
 ## Next Steps
 
-- Initialize your EVM client with [Initialize EVM Client](/docs/chain/build/initialize-evm-client)  
-- Send your first Universal Transaction with [Send Universal Transaction](/docs/chain/build/send-universal-transaction)  
-- Explore on-chain helper contracts in [Contract Helpers](/docs/chain/build/contract-helpers)  
-- Build wallet flows and abstract core SDK with the [UI Kit](/docs/chain/ui-kit)  
+- Initialize your EVM client with [Initialize EVM Client](/docs/chain/build/initialize-evm-client)
+- Send your first Universal Transaction with [Send Universal Transaction](/docs/chain/build/send-universal-transaction)
+- Explore on-chain helper contracts in [Contract Helpers](/docs/chain/build/contract-helpers)
+- Build wallet flows and abstract core SDK with the [UI Kit](/docs/chain/ui-kit)
