@@ -24,8 +24,8 @@ Users sign once from their existing wallet and Push Chain handles everything els
 
 In earlier guides, we covered:
 
-- **UEAs**: accounts that preserve a user's identity across chains
-- **Fee Abstraction**: paying gas in any token, from any chain
+- **[UEAs](https://push.org/blog/what-are-universal-executor-accounts/)**: accounts that preserve a user's identity across chains
+- **[Fee Abstraction](https://push.org/blog/what-is-universal-abstraction/)**: paying gas in any token, from any chain
 
 But there's still one mystery that's yet to be decoded.
 
