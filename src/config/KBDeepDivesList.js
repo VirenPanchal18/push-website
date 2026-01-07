@@ -47,6 +47,15 @@ export const KBDeepDivesList = {
           target: '_blank',
         },
         {
+          slug: 'how-universal-transaction-works',
+          image:
+            '/static/assets/website/chain/knowledge/how-universal-transaction-works',
+          imageSrcSet: false,
+          title: 'How Universal Transaction Works',
+          url: '/blog/how-universal-transaction-works',
+          target: '_blank',
+        },
+        {
           slug: 'interop-spectrum',
           image: '/static/assets/website/chain/knowledge/interop-spectrum',
           imageSrcSet: false,
