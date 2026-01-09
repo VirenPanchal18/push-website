@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'What are Universal Executor Accounts (UEAs) and How do they work?'
 text: "Universal Executor Accounts (UEAs) are magical entities that let users from any blockchain pay and transact on Universal Apps on Push Chain."
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+twitterId: '1988640667896300010'
 ---
 
 ![What are Universal Executor Accounts (UEAs) and How do they work?](./cover-image.webp)
