@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 async function fetchTweetMetrics(tweetId: string) {
-  const url = `https://us-east1-push-prod-apps.cloudfunctions.net/pushpointsrewardsystem/api/twitter/tweetMetrics?id=${tweetId}`;
+  const url = `https://us-east1-push-prod-apps.cloudfunctions.net/pushpointsrewardsystem/twitter/tweetMetrics?id=${tweetId}`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Error ${response.status}: ${response.statusText}`);
