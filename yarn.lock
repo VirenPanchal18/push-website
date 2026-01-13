@@ -5700,9 +5700,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/ui-kit@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@pushchain/ui-kit@npm:4.0.5"
+"@pushchain/ui-kit@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@pushchain/ui-kit@npm:4.0.6"
   dependencies:
     "@coral-xyz/anchor": "npm:^0.31.1"
     "@metamask/sdk": "npm:^0.32.0"
@@ -5718,7 +5718,7 @@ __metadata:
   peerDependencies:
     react: ">=18.3.0 <20.0.0"
     react-dom: ">=18.3.0 <20.0.0"
-  checksum: 10c0/ca05bc2895f8b96d4261407bd1740d276ff1f3cd14ae9ffdf64aed539281cb0319ca2e2a8a8f57409653a5bd5fa4266aee5a3abdc6be4656fdd123923e8a5f64
+  checksum: 10c0/b78f3de03934b62bd00ed8abb6b4a4ec99474a7a6c79cc641fb41808fa8181f8579c3c32219cb300cf4e487d60d2d40fdf12c00b310bdb4e5899fa62c60d6d99
   languageName: node
   linkType: hard
 
@@ -21172,7 +21172,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pushchain/core": "npm:^4.0.5"
-    "@pushchain/ui-kit": "npm:^4.0.5"
+    "@pushchain/ui-kit": "npm:^4.0.6"
     "@pushprotocol/restapi": "npm:1.7.20"
     "@pushprotocol/uiweb": "npm:1.7.1"
     "@radix-ui/react-dialog": "npm:^1.1.2"
