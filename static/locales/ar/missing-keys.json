@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-11-14T20:30:20.149Z",
+  "lastUpdated": "2026-01-16T16:43:40.203Z",
   "keys": {
     "global.site-name": {
       "value": "بلوشكين — Universal L1 for Apps",
@@ -552,9 +552,9 @@
       "lastUpdated": "2025-11-14T19:27:06.032Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### ما يمكن بنائه على Push Chain؟\n\nيرفع Push Chain التوفيق السهلة وتوحد جميع L1s, L2s, & L3s، لذلك فهو مزمع أن يصبح ساحة الإبداع والتوفيق. يمكنك بناء حالات استخدام web3 الحالية مثل:\n\n![حالات الاستخدام الأساسية لـPush Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nأو تحسين الويب 3 وخلق ابتكارات:\n\n![حالات استخدام المستهلكين لـPush Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nأو انظر إلى بعض الأمثلة الشعبية للبرامج وتأخذ الإلهام منها:\n\n![أمثلة تطبيقات شعبية على Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
+      "value": "### ماذا يمكن بنائه على Push Chain؟\n\nPush Chain带来无缝互操作性，统一所有L1s、L2s和L3s，因此有望成为创新和互操作的乐园。您可以构建现有的web3用例，例如：\n\n![Primaery use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\n或改善Web3并创新：\n\n![Consumer use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\n或查看一些流行的应用示例，以获取灵感：\n\n![Popular app examples on Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-16T16:27:33.597Z"
     },
     "pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.why-push-exists": {
       "value": "## Why Push Chain Exists\n\nToday's Web3 ecosystem is heavily fragmented and overly complex.\n\nDevelopers redeploy smart contracts across multiple chains, users have to manually bridge tokens or switch wallets, and teams spend months maintaining chain-specific codebases and audits.\n\nEach new chain adds overhead, complexity, cost and friction, which massively slows innovation and adoption.\n\n**Push Chain eliminates this.**",
@@ -1596,21 +1596,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.033Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain Testnet ‘Donut’ متوفر الآن!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.033Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "استكشف التطبيقات الشاملة",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.033Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "اكتشف التطبيقات الشاملة",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.033Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "إغلاق الإعلان",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1636,39 +1621,219 @@
       "lastUpdated": "2025-11-14T20:15:34.955Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.decentralization-scaling": {
-      "value": "### كيف سوف maintains Push Chain decentرالتراليزاشن بينما Scaling؟\n\nتم التوثيق في Devnet كيفية تحسيننا من خلال شردينغ ديناميكي undparallel execution — Without Compromising decentralization.\n\nفي اختبار الشبكة، قمنا بتشغيلها على [CometBFT](https://github.com/cometbft/cometbft)، محرك مرهق fight Byzantine-fault-tolerant. الشبكة حققت finality sub-second و ability to handle up to [20k transactions per minute](https://github.com/push-protocol/push-chain/blob/main/docs/testnet-performance.md).\n\nهذا merely يبرمج هو starting point. كما نعمل على تحسينات Scaling الأخرى في مراحل لاحقة، We're confident that Push Chain can meet the demands of universal applications — sicherly و Without Centralization.\n\n---",
+      "value": "### كيف سيحافظ «بوش شين» على اللامركزية أثناء التوسعة؟\n\nأشارت تجربتنا «ديفنتبت» إلى أننا سنتمكن من التوسعة باستخدام الشاردنج الديناميكي والإستطاعة الموازنة - دون المساس باللامركزية.\n\nفي مرحلة «تيستنيت»، قمتنا بتجربة الاستيعاب الكامل للطبقة مع التشغيل على «كومت بي إف تي» - محرك مقاومة الخطأ البيزنطي، تم fightنثيث. وتمكن الشبكة من تحقيق نهائية في أقل من ثانية، وتتمتع القدرة على التعامل مع حتى [20,000 عملية ترانساكشن في الدقيقة](https://github.com/push-protocol/push-chain/blob/main/docs/testnet-performance.md).\n\nهنا مجرد بداية. ونحن واثقون بأن «بوش شين» ستمكن من الوفاء بكافة المتطلبات للتطبيق العالمي - بشكل آمن دون اللامركزية.\n\n---",
       "englishChecksum": "e3882a526d7c41194cbc04a7399040cb",
-      "lastUpdated": "2025-11-14T20:15:43.231Z"
+      "lastUpdated": "2026-01-16T16:28:21.728Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.builders.subtitle": {
-      "value": "جميع ما تحتاجه مع SDK Push Chain لبناء تطبيقك العالمي",
+      "value": "كافة ما تحتاجه من SDK لجعل تطبيقك عالمي",
       "englishChecksum": "1403e34d598a63b64a6f92a880e7c414",
-      "lastUpdated": "2025-11-14T20:15:45.696Z"
+      "lastUpdated": "2026-01-16T16:27:48.124Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>لا.</2></1><1><2>احتفظ بمحفظةك.</2> استخدم المحفظة التي لديك بالفعل - لا محفظة أو حساب جديد.</1><1><2>دفع بما تسيطر عليه.</2> يمكن دفع الرسوم في التوكين الذي تمتلكه على سلسلة المنزل - نdeal مع التحويل وراء المشاهدات.</1><1><2>عدم التبديل بين الشبكة.</2> ابق على سلسلة المنزل - لا جسف فقط للحصول على رمز غاز.</1><1><2>غير مملوك.</2> توقع كل حركة؛ Push يرفض أبدا المفاتيح الخاصة بك.</1><1><2>تحتوي.</2> يتم حل رسوم الشبكة في $PC بشكل أوتوماتيكي - لا تحتاج إلى إدارة ذلك.</1>",
+      "value": "<1><2>لا.</2></1><1><2>حافظ على حوزتك.</2> استخدم الحوزة التي تمتلكها بالفعل — لا حاجة إلى حساب أو حوزة جديدة.</1><1><2>دفع باستخدام ما تملك.</2> يمكن دفع الرسومUsing the tokens you already have on your home chain; we handle conversion behind the scenes.</1><1><2>لا انتقال الشبكة.</2> البقاء على شبكة منزلك — لا الحاجة إلى الجسر فقط للحصول على رمز الغاز.</1><1><2>عدم الحوكمة (غير مستودع).</2> signing every action؛ Push never holds your keys.</1><1><2>تحتوي تحت البجيرة.</2> يتم إsettle الشبكة في $PC تلقائيًا — لا حاجة إلى إدارتها.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2025-11-14T20:15:52.345Z"
+      "lastUpdated": "2026-01-16T16:27:55.329Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2>جـواب مقتضب</2>: بيش هو المكان الذي يجرى عليه تطبيقك. الجسور/التحويصات تكتسح فقط عملات أو رسائل بين السلسلة التي تعقّد كل شيء للمستخدمين والمطورين.</1><1><2>بيت واحد مقابل العديد من النسخ.</2> مع الجسور/التحويصات، يتم نشرها لكل سلسلة وسync عبر الرسائل. على بيش، يتم النشر مرة واحدة؛ الجميع يضرب نفس العقد والولاء المشترك.</1><1><2>لا توجد الأصول المغلّقة أو جسرات مضمونة.</2> يظل المستخدمون على سلسلتهم المنزلية ويخفقون بما يمتلكونه بالفعل; نحن نتنبّه إلى التوجيه وتحويل تكاليف في الخلفية.</1><1><2>تحديد الهوية والعقبات الموحدة.</2> نقبل التوقيعات من أي محفظة/سلسلة وننسبها لنفس المستخدم على بيش — غير مأجور.</1><1><2>أجزاء أقل تتحرك.</2> لا مرشّح إسناد عبر السلسلة، ولا بحث عن غاز-عملة، ولا العقود لصنع الصفيحة لبقاء في تزامان.</1><1><2>الجرّزان introduce تعقّد. Interop chain-native يحلّها.</2> الجسور تتطلب جهد هندسي معقد، زمن وتكلفة مراجعة وإنشاء البنية التحتية الإضافية. interop chain-native simply just works as your app natively inherits it.</1><1>النتيجة: تطبيقات أبسط، مصدر واحد للحقيقة، وUX feels like one chain — even when users aren't.</1>",
+      "value": "<1><2>أجابة قصيرة</2>: هو المكان الذي يعمل تطبيقك فيه. جسرات/مراسلات مجرد تحريك عملات أو رسائل بين سلاسل، مما ي复ح كل شيء للمستخدمين والمطورين.</1><1><2>منزل واحد ضد نسخ عدة.</2> مع الجسور/المراسلات، تنشر في كل سلسلة وتختصير عبر الرسائل. على Push، تنشر مرة واحدة؛ الجميع يضرب نفس العقد والولاية المشتركة.</1><1><2>لا أصول مغلفة أو جسور إلزامية.</2> يظل المستخدمون على السلسلة المنزلية الخاصة بهم ويدفعون بما يملكونه; نتحكم في التوجيه وتحويل رسومنا تحت الأرض.</1><1><2>مصادقة موحدة وتثبيت.</2> نقبل الإشارات من أي حافظة/سلسلة ونخص بها نفس المستخدم على Push - غير مستودعي.</1><1><2>أجزاء أقل.</2> لا رقصة الموافقة عبر السلاسل أو بحث عن غاز-عملات، ولا عقود لاصقة للتأكد من انحدارها.</1><1><2>الجسور introduces تعقيد. interop chain-native يحل ذلك.</2> الجسور تتطلب جهد الهندسة المعقدة، وقت، تكلفة مراجعة وإنشاء البنية التحتية الإضافية. interop chain-native simply يعمل كما تنهمك تطبيقاته في الوراثة.</1><1>نتيجة: تطبيقات أبسط، مصدر واحد للحقيقة، وUX يشعر كأنه سلسلة واحدة - حتى عندما لا يكون المستخدمون كذلك.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2025-11-14T20:16:05.820Z"
+      "lastUpdated": "2026-01-16T16:28:08.217Z"
     },
     "components.short-support-snippet.qnas.qna4.answer": {
-      "value": "<1><2>أعطال التطبيق:</2> إملاء <3>تذاكر الدعم</3> أو مشاركة في <4>ديسكورد</4> مع الخطوات للتكرار.</1><1><2>مشاكل الأمان:</2> إرسال بريد إلكتروني إلى <5>security@push.org</5>. يرجى تجنب الإفصاح العام حتى يتم تاكيد الحسم.</1>",
+      "value": "<1><2>مشاكل التطبيق:</2> قم Reporting تدوين تيكيت الدعم أو مناقشة في <4>ديزكورد</4> مع خطوات إعادة إنتاج. </1><1><2>أمانية المشاكل:</2> بريد إلكتروني ل <5>security@push.org</5>. يرجى عدم الإفصاح العام حتى نخبركم عن حل.</1>",
       "englishChecksum": "e3864f1b6ec8ea7832ffe6c8aeb8af09",
-      "lastUpdated": "2025-11-14T20:16:09.813Z"
+      "lastUpdated": "2026-01-16T16:28:12.359Z"
     },
     "pages.knowledge.testnet.seo.description": {
-      "value": "دونوت هو شبكة اختبار بيئة عامة لبيشين. اكتشف كيفية التوصّل إليها، بناء تطبيقات عالمية، استخدام الصمام، وإنشاء معالج.",
+      "value": "دونات هو شبكة اختبار عامة من Push Chain. تعرف على كيفية الإتصال، بناء تطبيقات عالمية، استخدام الصمام، وإدارة خادم الصولجانات.",
       "englishChecksum": "e2161002d0e2ec61a020f0d3384bf236",
-      "lastUpdated": "2025-11-14T20:30:20.149Z"
+      "lastUpdated": "2026-01-16T16:27:45.411Z"
     },
     "pages.knowledge.deepdives.seo.twitter-description": {
-      "value": "شرح كيفية عمل Push Chain.",
+      "value": "شرح عن عمل سلسله حشو.",
       "englishChecksum": "f1c4328ab68714a0fc2e2f591d9dc9ac",
-      "lastUpdated": "2025-11-14T20:30:17.823Z"
+      "lastUpdated": "2026-01-16T16:27:24.896Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "بناء – كيفية عملات وإرشادات",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T16:38:01.878Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "دليلات خطوة بخطوة، الأنماط والأمثلة لاستخدام مزايا Push Chain.",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T16:38:05.654Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "بناء - دليلAction & التدرجات",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T16:38:08.965Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "مرشدات و أفضل الممارسات ومثلةً للحشو مع Push Chain.",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T16:38:12.049Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "بناء - كيفية الاستخدامات و الدروس التربوية",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T16:38:15.444Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "دليلات خطوة بخطوة لتسليمها على شبكةPush Chain.",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T16:38:17.130Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "قاعدة المعرفة",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T16:38:18.801Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "بناء على بلوكشين Push Chain",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T16:38:35.864Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## بوبدرين\n\nأعد لبناء على تشايين الدفع؟ ها هم بعض الموارد لمساعدتك على التلهي والتوغل.",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T16:38:39.202Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## قراءة مختارة 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T16:38:44.320Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "هيا نبني تطبيقات عالمية 💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T16:38:46.641Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "تطبيقات المستقبل — البناء دون الفوضى",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T16:38:49.449Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "تطبيقات مستخدمين على البلاكتشين؟",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T16:38:52.590Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "تطبيقاته فقط ممكنة مع الدول الشريفة - الإصدار 1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T16:38:59.176Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "أبلايست فقط ممكن مع الدول الموزعة - الجزء الثاني",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T16:39:02.307Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "مصادر المطورين",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T16:39:04.408Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "تصفح وثائق المطور",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T16:39:07.343Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
+      "value": "احصل على التوكينز للتجربة",
+      "englishChecksum": "95902b8cafe52e3b481994af662545e7",
+      "lastUpdated": "2026-01-16T16:39:10.075Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "مستكشف الشبكة المحاكية Push",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T16:39:12.803Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "توكنومكس — جمع قيمة $PC والاقتصاد",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T16:39:14.436Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "كيف يساهم $PC في القيمة: طلب مستقر، مرافقات مستعملة (حرق/غلق), اقتصاديات الإرساء, وجدول التوفير.",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T16:39:16.797Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "توكنومكس - تنمية قيمة $PC و الاقتصاد",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T16:39:18.406Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "المركبات في $PC تدفع الطلب؛ تنخفض الإمداد بتماشٍ مستند إلى الاستخدام. يتضمن اقتصاد المودل والمصادر.",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T16:39:23.257Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "بلوكشين توكنومكس | اقتصاد التوكين",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T16:39:26.072Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "التسوية بعملة $PC، وتخفيضات الاستخدام، واقتصاد الـ staking، والانبعاثات—نظرة عامة موجزة للمستثمرين.",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T16:39:42.909Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "قاعدة المعرفة",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T16:39:45.076Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## نظرة عامة\n\nفي أواخر عام 2024، صوت مجتمع Push على الموافقة على إطلاق Push Chain، وهي لؤلؤة شريكة من سلسلة بوكChain من النوع 1 مصممة للسماح بنشأة التطبيقات العالمية وتحديد فراغات في ويب3.\n\nPush Chain هي لؤلؤة مخصصة تربط L1s, L2s, and L3s مع نهج Near-instantFinality و real scalability, مما يفضح المشكلة الأساسية للتطبيقات في ويب3: التجزئة. مع التصويت الناجح المقترح للحكومة، فإن مهمتنا الآن في Push Chain على طريقتها نحو بناء **أي سلسلة، أي مستخدم، وأي تطبيق**.\n\n:::تحذير ⚠️ لا يوجد بعدToken\nلا توجد السلسلة Push Chain ولا هناك أي عرض سلف. لم يتم تسمية السلسلة Push Chain بعد.\n<p />\n\nلا تصدق أي منبر يوفر الوصول المبكر للسلسلة Push Chain. جميع الاتصالات المتعلقة بالسلسلة Push Chain سيتم الإعلان عنها في نفس الوقت من القنوات الرسمية لـ Push — [X / Twitter](https://x.com/PushChain 'معامد X للسلسلة Push Chain'), [Discord](https://discord.com/invite/pushchain 'Discord للسلسة Push Chain'), [Telegram](https://t.me/epnsproject 'Telegram للسلسلة Push Chain'), [موقع إلكتروني](https://push.org 'موقع إلكتروني لـ Push').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T16:39:57.800Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "## ما هو رؤيا Push Chain؟\n\nقد بينت جميع Blockchains فائدة خاصة للأبنية والسيناريوهات. بيتكوين مكن المال الذكي. إيثيريوم مكن الإبتكارات للديفي. سولانا مكن التطبيقات السريعة وثقافة الميمز. العديد من L2s و L1s الجديدة تستهدف مناطق أخرى من الاهتمام.\n\netheless، لازال தேال بلوكشين هدفًا بناء خصيصًا لمكن تتبعات العبث والتداخل السلس في الفضاء مطلوب. هذا Chain سيراهن على تمكين التتاتيم من أي Blockchain (ETH, SOL, EVM أو غير-EVM) ليقوي تطبيقات يمكن استخدامها من قبل **أي مستخدم —** بغض النظر عن Blockchain أو المحفظة. هذا هو Chain من **التطبيقات العالمية**. هذا هو Push Chain!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T16:40:06.199Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### مبني على الإبداع للعداء على عزل Blockchain!\n\nشركة Push Chain ثورية both للمستخدمين و المطورين، حيث تخلق بيئة تسمح لأي مطور بنشر التطبيق العالمي الخاص به في ساعات من خلال قفل ذكي واحد.\n\n també يتيح للمستخدمين التعامل من داخل مفضلهم، مريحة لهم، ومختيارهم، بغض النظر عن مكان aplikasi.\n\nفي الخفاء، يتم تحقيق هذا بواسطة:\n\n- **ability to do transactions from any chain**\n- **Universal Fee & Wallet Abstraction** to allow users to use any chain, any wallet and pay in any token\n- **universal smart contract** for developers to deploy instant interop apps in minutes\n- **Shared State** for read data from other blockchain\n- **Programmable Solver** to write data to any other chain\n\nAll this enables a **Universal Execution Layer** for users of any chain to access and interact with the same app.",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T16:40:15.114Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### أين تناسب السلسلة المحش؟\n\nتتماشى السلسلة المحش **في كل مشروع…** **على كل سلسلة!**\n\n- **تشعل المطورين** من أي سلسلة لإنشاء تطبيقات تامة متكاملة ترضي عن أي سلسلة، عبر أي حافظة.<br />\n- **تتيح للمستخدمين** حرية التفاعل مع حافظة اختيارهم أو تجربة بدون توقيع سلس مع Push Universal Wallet مع تسجيل دخول اجتماعي.<br />\n- **تسهل تجارب الحصة المشتركة** حيث يمكن لمستخدمي جميع السلسلة أن يجتمعوا معا ودخلا في Defi العالمية، وإنشاءات لعبة موحدة، NFT العالمية، حكومة عالمية، إلخ.<br />",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T16:40:22.191Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### ما هي فائدة توكن Push Chain؟\n\n1. **الستاكينغ والتحقق** <br />\nيستخدم التوكن للستاكينغ لتأمين الشبكة والمشاركة في آلية الإجماع. يكسب المدققون والمفوضون مكافآت مقابل مشاركتهم.\n\n2. **رسوم المعاملات** <br />\nيعمل التوكن كطريقة رئيسية لرسوم الشبكة للمعاملات واستخدام التطبيقات.\n\n3. **التجريد الشامل للرسوم** <br />\nيمكّن التوكن المستخدمين من دفع الرسوم بأي توكن (ETH، SOL، USDC، إلخ) بينما يتعامل الـ protocol مع التحويل في الخلفية.\n\n4. **الحوكمة** <br />\nيمكن لحاملي التوكن المشاركة في حوكمة الـ protocol، والتصويت على الترقيات وتغييرات المعلمات وقرارات النظام البيئي.",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T16:41:10.167Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### تصميم تناقصية\n\n1. **حرق رسوم التحويل** <br />\nيهدم جزء من رسوم التحويل التي جمعت في عملة Push Chain الأصلية، مما ي giảm إجمالي الكمية مع مرور الوقت.\n\n2. **حرق عبر السلاسل** <br />\nبواسطة الأداة الشاملة لإبصارفة الرسوم، يتم تداول جزء من الرسوم التي جمعت في عملة كتلة أخرى (ETH, SOL) مقابل Push Chain الأصلية لحرقها.\n\nهذا يجعل تصميم سلاسل تناقصية يحرق العملات مع نمو الشبكةéqu والعمليات التي تحدث عليها. يتيح هذا التصميم إنشاء مستقبل مستدام ودوري موجه للسنوات القادمة لPush Chain ولجميع المشاركين فيها.",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T16:41:17.919Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### تفاصيل الترحيل\n\nPush Chain هو نتيجة سنوات من التعلم من بناء بروتوكول الإشعارات والاتصالات الرائد في web3، والذي كان أحد أول تطبيقات المستهلكين للعملات المشفرة.\n\nبسبب هذا، بالإضافة إلى تخصيص airdrop (انظر التفاصيل أدناه) لمستخدمي Push Chain والمنشئين والمطورين وشركاء النظام البيئي، **هناك أيضًا تخصيص للترحيل لحاملي $PUSH** (وهو الرمز الأصلي لـ Push Protocol).\n\n<details>\n  <summary>\n  <b>تفاصيل الترحيل لحاملي رموز $PUSH الحاليين</b>\n\n  </summary>\n\n  **لحاملي رموز $PUSH الحاليين**، يخصص مقترح tokenomics الخاص بـ Push Chain 15٪ من إجمالي إمدادات رموز Push Chain خصيصًا للترحيل. سيحدث الترحيل بنسبة **1:15**—مما يعني أنه مقابل كل رمز Push Protocol ($PUSH) تحتفظ به، ستتلقى 15 رمز Push Chain. على سبيل المثال، إذا كنت تحتفظ حاليًا بـ 40 رمز $PUSH، فستتلقى 600 رمز Push Chain بعد الترحيل.\n\n  تم تصميم إطلاق Push Chain لمكافأة وتحفيز حاملي رموز Push Protocol ($PUSH) السابقين لولائهم ومساهمتهم. ستعمل عملية الترحيل لحاملي رموز $PUSH الحاليين على النحو التالي:\n\n  - سترحل الرموز بنسبة 1:15 (رمز Push Protocol واحد = 15 رمز Push Chain).\n  - سيشهد المشاركون في ترحيل Push Chain فتح 50٪ من رموزهم المهاجرة على الفور، وفتح 50٪ إضافية بعد 3 أشهر.\n  - سيستفيد منقلو الرموز أيضًا من مجمع farming مخصص مخصص لهم. سيتم توزيع هذه المكافآت على منقلي الرموز إذا قاموا بتخزين رموز Push Chain المهاجرة الخاصة بهم، وذلك لمكافأتهم على المساهمة طويلة الأجل في النظام البيئي.\n  - على سبيل المثال، إذا كان لديك 100 رمز Push Protocol $PUSH، فستتلقى 750 رمز Push Chain عند الترحيل و 750 رمز Push Chain بعد 3 أشهر — بإجمالي 1,500 رمز Push Chain. يمكنك اختيار تخزين هذه الرموز للحصول على مكافآت إضافية من مجمع farming الخاص بـ Push Chain، يتم توزيعه بشكل دوري.\n\n  سيكون ترحيل رموز Push Chain مفتوحًا لمدة 12 شهرًا بعد الإطلاق، وبعد ذلك ستذهب أي رموز متبقية إلى المجتمع واحتياطي النظام البيئي.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T16:43:03.920Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### تفاصيل التوزيع المجاني\n\nبالإضافة إلى ذلك، يخصص اقتراح التوكينوميكس 10% من إجمالي supply توكين Push Chain للتوزيع المجاني على مستخدمي تطبيقات Push Protocol (الإشعارات، المراسلات، الدردشات) الحاليين والسابقيين. بالإضافة إلى المستخدمين الجدد والمخترعين والمبرمجين ومتعاونو النظام.\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T16:43:09.225Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "<h2>Token Distribution Details</h2>\n\nThe total supply of Push Chain tokens is proposed at **10 مليار**, distributed as يلي:\n\n![Tokenomics Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Details Tokenomics Vesting Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1.aldevelopment distributions starting from TGE, but will happen over the course of multiple seasons.\n2.Core Contributors have a 12-month delay followed by 24-month vesting.\n3.Treasury Push Labs has a 36-month vesting.\n4.Investors have linear vesting for 24 months.\n5.Community and Ecosystem Reserves has a 13.5% unlock at TGE, followed by 36-month vesting.\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T16:43:17.737Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## شارك\n\n- **🧙 المطورون**\nاستكشف سكوورنا آند دوكونيشن في [هيكل الوثائق](/docs/)\n\n- **🦹 مجتمع**  \nاتبعنا على [@بوشاين](https://x.com/PushChain) على X/Twitter، وانضم إلى [ديسكورد](https://discord.com/invite/pushchain) و[تليجرام](https://t.me/epnsproject).\n\n معاً، بنا المستقبل من **الويب 3 العالمي**!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T16:43:24.192Z"
     }
   }
 }

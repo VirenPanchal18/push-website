@@ -531,3 +531,38 @@ In this tutorial, we built multiple transactions into a single transaction.
 All with a single universal transaction from other source chains.
 
 This forms the foundation for multi-action DeFi, gaming, and on-chain automation flows.
+
+## What’s Next?
+
+Batch transactions are executed by a user’s **Universal Executor Account (UEA)** on Push Chain.
+
+Every multicall you just executed was routed through a UEA derived from the user’s origin wallet.  
+Understanding UEAs unlocks how Push Chain enables universal identity, permissions, and execution.
+
+<div align="center">
+
+```mermaid
+flowchart TB
+    A[Ethereum Wallet] --> D[UEA on Push Chain]
+    B[Solana Wallet] --> E[UEA on Push Chain]
+    C[Base Wallet] --> F[UEA on Push Chain]
+    
+    D --> G[Multicall Execution]
+    E --> G
+    F --> G
+    
+    G --> H[Multiple Contracts<br/>Executed Atomically]
+    
+    style D fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
+    style F fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
+    style A fill:#627eea,color:#fff
+    style B fill:#16c492,color:#fff
+    style C fill:#0052ff,color:#fff
+```
+
+</div>
+
+<hr />
+
+Check out the next tutorial to learn how to [derive Universal Executor Accounts](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/).
