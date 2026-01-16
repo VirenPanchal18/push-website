@@ -14,7 +14,7 @@ tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockc
 
 
 [Hodl.fun](https://www.thehodl.fun/), a universal token launchpad that launched 400K+ tokens across 80+ countries using Push Chain's universal blockchain.
-From hackathon idea to $1M volume in 60 days. Here’s how Hodl continues to crush the game
+From hackathon idea to $1M volume in 60 days. Here’s how Hodl continues to crush the game.
 
 # What problem does Hodl solve?
 
@@ -34,7 +34,8 @@ That’s exactly what [Hodl fun](https://www.thehodl.fun/) enables.
 * Attract trenchers and traders from every chain
 * Trade tokens from any chain
 
-![][image1]
+![How Hodl Fun Hit ~$1,000,000 Volume as a Universal Token Launchpad - Case Study](./image-1.webp)
+
 
 The mission is simple:
 *“Every creator should be able to launch a token as easily as they post on social media. And every crypto user should be able to buy it, regardless of their wallet."*
@@ -67,10 +68,10 @@ By building on Push Chain, Hodl eliminated the single biggest barrier in crypto:
 
 Hodl Fun v2 is launching soon. Here’s what makes it extra special:
 
-\> Real AMM-based pricing for smooth price discovery
-\> Creator fees enabled, token launchers earn from trading activity
-\> Automatic Uniswap listing on token graduation
-\> More immersive, polished UI for a better trading experience
+- Real AMM-based pricing for smooth price discovery <br />
+- Creator fees enabled, token launchers earn from trading activity <br />
+- Automatic Uniswap listing on token graduation <br />
+- More immersive, polished UI for a better trading experience <br />
 
 We’re in the era of universal apps.
 Any wallet. Any User. Any chain
