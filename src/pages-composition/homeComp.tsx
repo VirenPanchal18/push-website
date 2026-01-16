@@ -54,6 +54,8 @@ import { WhatIsSection } from '@site/src/components/Home/WhatIsSection';
 
 import AccountContext from '@site/src/context/accountContext';
 import CustomReactPlayer from '@site/src/utils/CustomReactPlayer';
+import { Alert } from '../components/Alert';
+import { AlertBar } from '../components/AlertBar';
 
 export default function HomeComp() {
   // Internationalization
@@ -138,6 +140,12 @@ export default function HomeComp() {
 
             <HeroItem alignItems='center'>
               <HeroBody>
+                <ItemV margin='0 auto 48px auto' flex='0'>
+                  <AlertBar
+                    text='Apply for Season 3 Pre-Launch Access Eligibility'
+                    url='https://portal.push.org'
+                  />
+                </ItemV>
                 <H1
                   zIndex='2'
                   fontSize={isMobile ? '2.5rem' : '3.625rem'}
@@ -795,7 +803,8 @@ const HeroItem = styled(ItemV)`
   margin: 0 auto;
   height: 100%;
 
-  @media ${device.laptopL} {
+  @media (min-width: 1440px) {
+    height: 700px;
   }
 
   @media ${device.laptop} {
