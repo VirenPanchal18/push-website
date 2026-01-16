@@ -6,7 +6,6 @@ image: './cover-image.webp'
 description: 'How Hodl Fun Hit ~$1,000,000 Volume as a Universal Token Launchpad - Case Study'
 text: "A Universal Transaction lets any wallet from any blockchain execute transactions directly on Push Chain"
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Ecosystem, Case Study]
-twitterId: '2008947619348009123'
 ---
 
 ![How Hodl Fun Hit ~$1,000,000 Volume as a Universal Token Launchpad - Case Study](./cover-image.webp)
@@ -44,11 +43,11 @@ The mission is simple:
 
 Just like supporting universal trading from every chain, Hodl houses a global user base spanning over 80 countries\!
 
-🌏 **Asia-Pacific:** \~53%
-🌎 **Americas:** \~19%
-🌍 **Europe:** \~9%
-🌍 **Africa:** \~4%
-🌐 **Other regions (incl. Middle East, rest of world):** \~15%
+🌏 **Asia-Pacific:** \~53% <br />
+🌎 **Americas:** \~19% <br />
+🌍 **Europe:** \~9% <br />
+🌍 **Africa:** \~4% <br />
+🌐 **Other regions (incl. Middle East, rest of world):** \~15% <br />
 
 So far Hodl.fun has already:
 
