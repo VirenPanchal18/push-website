@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-11-14T20:22:26.474Z",
+  "lastUpdated": "2026-01-16T16:33:48.687Z",
   "keys": {
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
       "value": "### O que pode ser construído na Push Chain?\n\nPush Chain traz interoperabilidade perfeita e unifica todas as L1s, L2s e L3s e, portanto, está pronta para se tornar o playground da inovação e da interoperabilidade. Você pode construir casos de uso web3 existentes, como:\n\n![Principais casos de uso da Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nOu você pode aprimorar o web3 e criar inovações:\n\n![Casos de uso do consumidor na Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nOu você pode ver alguns exemplos populares de apps e se inspirar:\n\n![Exemplos populares de apps na Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
@@ -1747,27 +1747,27 @@
       "lastUpdated": "2025-11-14T19:27:06.245Z"
     },
     "global.site-description": {
-      "value": "L1 de estado compartilhado para aplicativos universais. Implante uma vez e alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
+      "value": "Camada L1 compartilhada para aplicativos universais. Implante uma vez; chegue aos usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2025-11-14T20:22:08.175Z"
+      "lastUpdated": "2026-01-16T16:33:33.196Z"
     },
     "components.typeform-support.categories.partnerships.description": {
       "englishChecksum": "9b1482992e5c1d082aeade5319ccb995",
-      "lastUpdated": "2025-11-14T20:22:10.147Z"
+      "lastUpdated": "2026-01-16T16:33:35.517Z"
     },
     "notifications.chain-notification.image-alt": {
       "englishChecksum": "36296d1d62073925976682f0c22235cc",
       "lastUpdated": "2025-11-14T20:22:11.386Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Não consigo conectar minha carteira. O que eu devo tentar?",
+      "value": "Não consigo conectar a minha carteira. O que devo tentar?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2025-11-14T20:22:13.595Z"
+      "lastUpdated": "2026-01-16T16:33:37.315Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ Scripts agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> fique em sua rede principal; Push cuida da roteagem por trás dos cenários.</1><1><2>Redefina permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
+      "value": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desabilite bloqueadores de anúncios/ Scripts agressivos para push.org.</1><1><2>Sem mudança de rede necessária:</2> fique em sua cadeia principal; Push trata o roteamento atrás dos cenários.</1><1><2>Redefina as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte em <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2025-11-14T20:22:26.474Z"
+      "lastUpdated": "2026-01-16T16:33:48.687Z"
     }
   }
 }

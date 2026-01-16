@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-11-14T20:48:48.081Z",
+  "lastUpdated": "2026-01-16T16:35:34.766Z",
   "keys": {
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
       "value": "### Push Chain üzerinde neler inşa edilebilir?\n\nPush Chain, kusursuz birlikte çalışabilirlik getirir ve tüm L1'leri, L2'leri ve L3'leri birleştirerek inovasyon ve birlikte çalışabilirlik oyun alanı olmaya hazırlanır. Mevcut web3 kullanım durumlarını inşa edebilirsiniz:\n\n![Push Chain'in temel kullanım durumları](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nYa da web3'ü daha iyi hale getirebilir ve yenilikler yaratabilirsiniz:\n\n![Push Chain'in tüketici kullanım durumları](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nYa da popüler uygulama örneklerini görebilir ve ilham alabilirsiniz:\n\n![Push Chain'deki popüler uygulama örnekleri](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
@@ -1752,14 +1752,14 @@
       "lastUpdated": "2025-11-14T20:23:12.497Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
-      "value": "## Jeton İlişkili",
+      "value": "## Jeton Ailliştiği",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2025-11-14T20:23:14.849Z"
+      "lastUpdated": "2026-01-16T16:34:35.301Z"
     },
     "components.typeform-support.categories.technical.description": {
-      "value": "Hata raporları, SDK/API, çözümler, entegrasyon yardımı",
+      "value": "Bilgi hataları, SDK/API, akıllı sözleşimler ve entegre edilme yardımı",
       "englishChecksum": "952a0533dce9bf557f94342840ee4720",
-      "lastUpdated": "2025-11-14T20:23:16.720Z"
+      "lastUpdated": "2026-01-16T16:34:37.386Z"
     },
     "notifications.chain-notification.image-alt": {
       "value": "Push Chain Testnet Doughnut - Universal Blok Zincir",
@@ -1767,42 +1767,43 @@
       "lastUpdated": "2025-11-14T20:23:20.372Z"
     },
     "global.site-description": {
-      "value": "Her-chain'e dayalı ortak durum L1. Tek sefer dağıt; her zincirdeki kullanıcılara erişin. Her cüzdan kullanın. Her token ile ödeyin. Zincir değiştirme yapma.",
+      "value": "Herhangi bir zincirde evrensel uygulamalar için paylaşım durumu L1. Tek kez dağıtın; herhangi bir zincirin kullanıcılara erişin. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeyin. Zincir değiştirme gerekmez.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2025-11-14T20:23:22.563Z"
+      "lastUpdated": "2026-01-16T16:34:40.415Z"
     },
     "footer.links.faucet-title": {
-      "value": "Push Chain faucetten test tokenler al",
+      "value": "Push Çheng'den testi_TOKEN'ler alın",
       "englishChecksum": "926a89f4f88049af1a7d12ce4d54204f",
-      "lastUpdated": "2025-11-14T20:23:25.467Z"
+      "lastUpdated": "2026-01-16T16:35:20.681Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Push Zincirinin Wormhole'den ne şekilde farklı olduğu?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülebilmesi üzerine odaklanmıştır\n- **Sarmal Hesaplar**: Farklı zincirlere ait token'lar için sarmal sürümler oluşturur\n- **Koruma Ağı**: Çapraz-zincir iletileri doğrulamak için doğrulayıcı setine bağımlıdır\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önce aktarım yapmak zorunda kalırlar\n\n**Push Chain:**\n- **Evrenşah Dönüşüm**: Köprülemeler yapılmadan doğrudan etkileşimler sağlanır\n- **Orijinal Hesaplar**: Sarmal token'lar gerektirmez, orijinal hesapları kullanır\n- **Doğrudan Doğrulama**: Herhangi bir zincirin native imza doğrulaması sağlanır\n- **Tek Seferlik İşlem**: Köprüleme gerekmeden etkileşimler sağlanır\n\nPush Chain'in köprülemelerin gerekliliğini ortadan kaldırırken Wormhole ise bu iletişimler için aktarım gerektirir.\n\n---",
+      "value": "### Push Chain'i Wormhole'den ne şekilde ayırdın?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülemeleri üzerinde odaklanıyor.\n- **Sarmallı Mallar**: Farklı zincirlerde farklı versiyonları için tokenleri sarar.\n- **Koruyucu Ağı**: Çapraz zincir iletileri doğrulamak için validator setine güveniyor.\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önce aktarım yapma zorunluluğu var.\n\n**Push Chain:**\n- **Evrensel İcra**: Köprüleme gerektirmeden doğrudan etkileşimler.\n- **Özgün Mallar**: Sarılmış token'lar yok, orijinal malları kullanın.\n- **Doğrudan Doğrulama**: Herhangi bir zincir için örgü imzalama doğrulaması.\n- **Teklem Transaction**: Köprüleme gerektirmeden tek adımda etkileşimler.\n\nPush Chain, çapraz zincir etkileşimlerinde aktarımın ihtiyacını ortadan kaldırırken Wormhole bu için köprüleme gerektirir.",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2025-11-14T20:23:36.964Z"
+      "lastUpdated": "2026-01-16T16:34:53.047Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "Testnet Belgeler Çalıştırmaya %s Gün Kaldı",
+      "value": "Testnet Docs Launch in",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2025-11-14T20:23:46.002Z"
+      "lastUpdated": "2026-01-16T16:35:34.766Z"
     },
     "pages.litepaper.seo.description": {
-      "value": "Push Chain'in üniversel uygulamalar için görüngü, mimarisi ve ekonomisini kısa bir bakış.",
+      "value": "Push Çarşısı'nın vizyonu, mimarisi ve ekonomisinin genel bir bakışı evrensel uygulamalar için.",
       "englishChecksum": "2768e2658592fe376add9699d9d49ef6",
-      "lastUpdated": "2025-11-14T20:23:50.653Z"
+      "lastUpdated": "2026-01-16T16:35:10.861Z"
     },
     "components.short-support-snippet.qnas.qna3.question": {
+      "value": "Nasıl Donut testnet tokenleri elde edebilirim?",
       "englishChecksum": "bec0083e54c2e78706bd43f65e5207ae",
-      "lastUpdated": "2025-11-14T20:23:54.714Z"
+      "lastUpdated": "2026-01-16T16:35:12.767Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>Test tokens talep etmek için <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hız sınırları uygulanabilir; bazı faucet'ler basit doğrulama gerektirir. Eğer faucet başarısız olursa, lütfen <4>Discord'da</4> bize iletişime geçin.</1>",
+      "value": "<1>Test tokens'ü isteyeniz, <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hız sınırları uygulanabilir; bazı faucet'ler basit doğrulama gerektirebilir. Eğer faucet çalışmıyorsa, lütfen <4>Discord'u</4> kullanarak bizimle iletişime geçin.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2025-11-14T20:23:58.716Z"
+      "lastUpdated": "2026-01-16T16:35:17.028Z"
     },
     "notifications.rewards-notification.description": {
       "englishChecksum": "4a4561fbdd8c6761d8759b0b0ec592ee",
-      "lastUpdated": "2025-11-14T20:24:05.130Z"
+      "lastUpdated": "2026-01-16T16:35:19.441Z"
     }
   }
 }
