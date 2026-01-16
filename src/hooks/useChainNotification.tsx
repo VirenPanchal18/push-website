@@ -47,12 +47,12 @@ export const useChainNotification = () => {
           description={t('notifications.chain-notification.description')}
           position='bottom-left'
           onClick={() => {
-            localStorage.setItem('testnetNotificationShown', 'true');
+            localStorage.setItem('prelaunchNotification', 'true');
             window.open('https://portal.push.org', '_blank');
             toast.dismiss(toastId);
           }}
           onClose={() => {
-            localStorage.setItem('testnetNotificationShown', 'true');
+            localStorage.setItem('prelaunchNotification', 'true');
             toast.dismiss(toastId);
           }}
           t={t}
@@ -69,7 +69,7 @@ export const useChainNotification = () => {
     // Ensure this code only runs in the browser
     if (typeof window !== 'undefined') {
       const notificationAlreadyShown =
-        localStorage.getItem('testnetNotificationShown') === 'true';
+        localStorage.getItem('prelaunchNotification') === 'true';
 
       if (!notificationAlreadyShown && !hasMounted) {
         showNotification();
