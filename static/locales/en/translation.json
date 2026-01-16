@@ -688,6 +688,14 @@
                   }
                 }
               },
+              "case-studies": {
+                "title": "Case Studies",
+                "items": {
+                  "hodl-fun": {
+                    "title": "Hodl.fun"
+                  }
+                }
+              },
               "developer-resources": {
                 "title": "Developer Resources",
                 "items": {
