@@ -1,11 +1,6 @@
 {
-  "lastUpdated": "2026-01-16T16:37:55.678Z",
+  "lastUpdated": "2026-01-16T17:43:50.390Z",
   "keys": {
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### 可以在 Push Chain 上构建什么？\n\nPush Chain 带来无缝的互操作性，并统一了所有 L1、L2 和 L3，因此有望成为创新和互操作的游乐场。您可以在 Push Chain 上构建现有的 web3 用例，例如：\n\n![Push Chain 的主要用例](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\n或者，您可以改进 web3 并创建创新：\n\n![Push Chain 的消费者用例](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\n或者，您可以查看一些流行的 app 示例，以获取灵感：\n\n![Push Chain 上的流行 app 示例](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.443Z"
-    },
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
       "englishChecksum": "a0fa1a0122c6854e71a26aadd8451e4d",
@@ -1216,21 +1211,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain 测试网 ‘Donut’ 现已上线！",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "探索 Universal 应用",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "探索通用应用",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "关闭通知",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1750,6 +1730,196 @@
       "value": "我需要不同的钱包或燃料代币吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
       "lastUpdated": "2026-01-16T16:37:52.666Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "构建者 — 方法与教程",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:40:16.876Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "区块链功能的步骤指南、模式和示例。",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:40:18.663Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "开发者指南与教程",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:40:19.631Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "Push Chain 的指南教程、最佳实践和示例。",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:40:23.011Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "开发者 — 教程与实践指南",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:40:26.760Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "<2>一步一步指南，助力推送链项目推出<1>$PC</1><2>",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T17:40:29.060Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "知识库",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:40:32.408Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "在推链上构建",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T17:40:34.062Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## 建设者\n\n准备在 Push Chain 上构建吗？这里有资源帮助您启动并取得进展。",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T17:40:37.200Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## 精选阅读 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T17:40:40.074Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "构建通用应用程序吧！💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T17:40:42.469Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "未来的应用 — 在无序中建设",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T17:40:45.320Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "消费者应用程序 🫶 Push Chain？",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T17:40:48.437Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "仅有共享状态才可能的应用 - 卷一",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:40:51.486Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "只在共享状态下才可能的应用程序 - 卷.2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:40:54.658Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "开发者资源",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:40:56.715Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "探索开发者文档",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:40:59.334Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
+      "value": "获取测试网代币",
+      "englishChecksum": "95902b8cafe52e3b481994af662545e7",
+      "lastUpdated": "2026-01-16T17:41:01.986Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "推送测试网区块链资源浏览器",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:41:05.437Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "代币经济学 — $PC 增值与货币政策",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:41:08.942Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "如何$PC获取价值：结算驱动需求，基于使用的沉没（销毁/封存）和监督经济学以及供应计划。",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:41:11.423Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "代币经济学 - $PC增值与货币学",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:41:15.080Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "使用 $PC 进行结算可以驱动需求；基于使用的消耗机制减少供应。包括staking经济学和emissions。",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:41:33.704Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "区块链代币经济学",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:41:35.451Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "使用 $PC 进行结算，使用驱动型消耗池，staking 经济学和排放量——简洁的投资者概述。",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:41:54.761Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "知识库",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:41:58.693Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "探索代币经济学",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:42:02.398Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## 总览\n\n2024年底，Push社区投票批准推出Push Chain，一种共享状态层1区块链，旨在开发通用应用并消除web3的碎片化。\n\nPush Chain是一个专门设计的层级，连接L1s、L2s和L3s，具有近乎即时的确定性和真正的可扩展性，解决了web3应用的基本问题：碎片化。由于治理提案投票成功，Push Chain使命现在朝着构建**任意链、任意用户和任意应用**的目标迈进。\n\n:::警告 ⚠️ 代币尚未上线\n目前没有任何早期访问权限，也没有代币名称。\n\n请不要相信任何声称提供Push Chain代币早期访问的人。所有有关Push Chain的通信都将同时从官方Push渠道发布——《[Twitter / X](https://x.com/PushChain '推特处')》，[Discord](https://discord.com/invite/pushchain 'Discord')，[Telegram](https://t.me/epnsproject 'Telegram')，[网站](https://push.org 'Push官网')。\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:42:14.589Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "## 什么是Push Chain的愿景？\n\n各种区块链已证明非常有用于特定的应用和场景。比特币启用了智能货币。以太坊启用了DeFi创新。索拉纳启用了快速应用和mem文化。几个L2和新的L1正在针对其他关注领域进行目标设定。\n\n然而，一个专门用于启用链抽象和无缝互操作性的区块链仍然是必要的。这种区块链将使来自任何链（ETH、SOL、EVM或非EVM）的交易能够驱动应用，从而可以被**任何用户使用——**无论他们所属的链或钱包。这就是**通用应用**的区块链。这就是Push Chain!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:42:23.541Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### 基于创新打造跨链互操作环境，消除区块链孤岛！\n\nPush Chain 针对开发人员和用户两方进行了革命性的改进。它允许任何开发者通过单一通用智能合约部署在几小时内部署其通用应用程序。\n\n此外，它还使得用户可以从自己选择的生态系统中进行交易，无论应用程序驻留何处。\n\n实现这一目标的关键在于：\n\n- **跨链交易能力**\n- **通用费用和钱包抽象** 使得用户可以使用任何链、任何钱包并支付任意代币\n- **通用智能合约** 使开发者可以在分钟内部署即时互操作应用程序\n- **共享状态** 读取其他区块链的数据\n- **可编程求解器** 将数据写入任何其他链\n\n所有这些都使得一个通用执行层变为可能，从而允许任意链用户访问并互动同一应用。",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:42:34.909Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Push Chain 在哪里适合？\n\n推送链适合**每个项目…** **在每条链！**\n\n- **它允许开发人员**来自任何链创建无缝全互操作应用，可以从任何链使用，通过任何钱包。<br />\n- **它允许用户**自由选择钱包或通过推送通用钱包进行无需签名的体验。<br />\n- **它允许共享应用体验**，所有链的用户都可以聚集在一起并参与统一的 DeFi、整合游戏、统一 NFT、统一治理等。<br />",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:42:43.580Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### 什么是Push Chain代币的用途？\n\n1. **质押与共识** <br />\n该代币用于质押以保障网络安全并参与此共识。验证者和委托人通过参与获得奖励。\n\n2. **交易费** <br />\n该代币是网络交易和应用程序使用的主要支付方法。\n\n3. **通用费用抽象** <br />\n该代币允许用户以任何代币（ETH、SOL、USDC等）支付费用，而协议会在后台处理转换。\n\n4. **治理** <br />\n持有者可以参与此协议治理，投票决定升级、参数更改和生态系统决策。",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:42:52.512Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### 质缩设计\n\n1. **交易费燬除** <br />\n本链原生代币收取的部分交易费会被焚毁，随着时间推移逐渐减少总供应量。\n\n2. **跨链燬除** <br />\n通过通用费抽象，收集其他区块链原生代币（ETH, SOL）的部分费用，换取本链原生代币并焚毁。\n\n这种设计确保随着网络和其上交易的增长，本链将会是一种质缩的区块链。这有助于创造一个受激励的、可持续的长期未来，惠及推链及所有参与者。",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:43:01.303Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "# 区块链迁移详情\n\n区块链是通过多年在构建Web3的通知和通信协议方面的学习而产生的，这是加密货币领域第一批消费应用程序之一。\n\n由于这个原因，除了为推送链用户、创作者、开发人员和生态系统合作伙伴分配的空投（请参阅下面的详细信息）外，**还保留了给$PUSH持有者的迁移空投**。\n\n<details>\n  <summary>\n  <b> existing $PUSH token holders 的迁移详情</b>\n\n  </summary>\n\n对于现有$PUSH代币持有者，推送链令牌经济学提案专门为迁移分配了总推送链代币供应的15%。迁移将以**1:15**的比率进行——每个Push Protocol ($PUSH)代币将换成15个Push Chain代币。例如，如果您当前持有40个$PUSH代币，那么在迁移后，您将收到600个推送链代币。\n\n推送链的发布旨在奖励和鼓励先前$PUSH代币的忠诚度和贡献。现有$PUSH代币持有者的迁移过程将按以下方式进行：\n\n  - 代币将以1:15的比率迁移（每个Push Protocol代币=15个推送链代币）。\n  - 参与推送链迁移的人将看到50%的代币立即解锁，另外50%在3个月后解锁.\n  - 令牌迁徙者也将受益于为他们保留的专用收益农业池。如果他们抵押自己的已迁移推送链代币，这些奖励将分发给令牌迁徙者，以回报他们对生态系统的长期贡献。\n  - 例如，如果您有100个Push Protocol $PUSH代币，那么在迁移时，您将收到750个推送链代币，三个月后再收到750个推送链代币——合计为1,500个推送链代币。您可以选择抵押这些代币以从推送链收益农业池中获取额外奖励，定期分发。\n\n推送链令牌迁移将在发布后的12个月内开放，届时任何剩余的代币都将归属于社区和生态系统保留金.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:43:26.098Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### 空投详情\n\n此外，代币经济学建议将总 Push Chain 代币供应的 10% 用于 past 和 present Push Protocol 应用程序用户（通知、消息、聊天）、新用户、创作者、开发者和生态合作伙伴的空投。\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:43:31.584Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## 代币分布详情\n\n推链令牌的总供应量暂定为**100亿**，分发如下：\n\n![推链代币经济学](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![推链代币 vesting 详情](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1.空投分发将于TGE开始，但会在多个季节内进行。\n2.核心贡献者有一年的延迟期，然后是两年 vesting。\n3.推实验室库存有三年的vesting期。\n4.投资者有24个月线性 vesting。\n5.社区和生态系统储备在TGE时有13.5%的解锁，然后是三年 vesting。\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:43:40.787Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## 参与\n\n- **🧙 开发者**\n探索我们的 SDK 和文档：[文档中心](/docs/)\n\n- **🦹 社区**\n关注 [@PushChain](https://x.com/PushChain),X/Twitter，加入我们的 [Discord](https://discord.com/invite/pushchain) 和 [Telegram](https://t.me/epnsproject) 一起建设**通用Web3**未来!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:43:46.796Z"
+    },
+    "notifications.chain-notification.title": {
+      "value": "<1>链信息</1>",
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-16T17:43:50.377Z"
     }
   }
 }

@@ -1,11 +1,6 @@
 {
-  "lastUpdated": "2026-01-16T16:37:20.926Z",
+  "lastUpdated": "2026-01-16T17:40:12.140Z",
   "keys": {
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### Điều gì có thể được xây dựng trên Push Chain?\n\nPush Chain mang lại khả năng tương tác liền mạch và thống nhất tất cả L1, L2 & L3 và do đó có vị thế trở thành sân chơi của sự đổi mới và tương tác. Bạn có thể xây dựng các trường hợp sử dụng web3 hiện có như:\n\n![Các trường hợp sử dụng chính của Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nHoặc bạn có thể cải thiện web3 và tạo ra những đổi mới:\n\n![Các trường hợp sử dụng dành cho người tiêu dùng của Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nHoặc bạn có thể xem một số ví dụ ứng dụng phổ biến để lấy cảm hứng:\n\n![Các ví dụ ứng dụng phổ biến trên Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.390Z"
-    },
     "pages.knowledge.seo.title": {
       "value": "Kho thư viện — Hướng dẫn, Câu hỏi thường gặp & Cách thực hiện",
       "englishChecksum": "11ca32d20dd7dda0c862404dc406d5c3",
@@ -1231,21 +1226,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.392Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain testnet ‘Donut’ đã hoạt động!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.392Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "Khám phá các ứng dụng Universal",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.392Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "Khám phá các ứng dụng Universal",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.392Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Đóng thông báo",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1756,11 +1736,6 @@
       "englishChecksum": "0c2bafcd0c1a1d55260952bb832fcabf",
       "lastUpdated": "2026-01-16T16:35:46.218Z"
     },
-    "notifications.chain-notification.image-alt": {
-      "value": "Mạng testnet Donut Push Chain - Blockchain allgemein",
-      "englishChecksum": "36296d1d62073925976682f0c22235cc",
-      "lastUpdated": "2025-11-14T20:24:44.565Z"
-    },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
       "value": "### Chi Tiết Phát Hành\n\nKế hoạch về tokenomics cũng dành 10% tổng số Push Chain token cho các cuộc phát hành token (airdrop) cho người dùng hiện tại và trước đó của Push Protocol (thông báo, tin nhắn, trò chuyện). Cũng có các người dùng mới, tạo viên, nhà phát triển và đối tác hệ sinh thái Push Chain.\n\n<br />",
       "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
@@ -1805,6 +1780,186 @@
       "value": "<1>Sử dụng <3>Máy phun tiền</3> để yêu cầu token thử.</1><1><2>Ghi chú:</2> giới hạn tốc độ có thể áp dụng; một số máy phun tiền cần xác minh đơn giản. Nếu máy phun tiền không hoạt động, hãy liên hệ chúng tôi trên <4>Discord</4>.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
       "lastUpdated": "2026-01-16T16:37:18.708Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "Người tạo — Hướng dẫn & Tư liệu học tập",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:36:53.719Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "Hướng dẫn từng bước, các mẫu và ví dụ để sử dụng các tính năng của Push Chain.",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:36:56.927Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "Nhà phát triển - Hướng dẫn & Tutorials",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:36:58.497Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "Hướng dẫn, quy trình tốt nhất và ví dụ cho việc xây dựng với Push Chain.",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:37:00.270Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "Hướng dẫn và Tài liệu dành cho các Nhà thiết kế Blockchain",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:37:01.952Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "Hướng dẫn từng bước để đẩy lên Push Chain.",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T17:37:05.948Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Cơ sở kiến thức",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:37:23.065Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "Xây dựng trên Push Chain",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T17:37:24.805Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## Builders\n\nSẵn sàng để xây dựng trên Push Chain? Đây là một số tài nguyên để bạn cảm hứng và bắt đầu.",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T17:37:27.930Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## Bài đọc đã chọn 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T17:37:30.514Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "Xây Dựng Ứng Dụng Toàn Cầu 💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T17:37:33.014Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "Ứng dụng của Hווה Mai — Xây dựng mà không bị hỗn loạn",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T17:37:36.442Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "Ứng dụng Consumer 🫶 Push Chain?",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T17:37:39.464Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "Chỉ có thể tạo ứng dụng với trạng thái chia sẻ - Tập 1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:37:42.599Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "Chỉ có thể làm được với trạng thái chung - Phát hành 2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:37:46.101Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "Tài nguyên cho Nhà phát triển",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:37:48.203Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "Khám phá Tài Liệu Phát Triển",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:37:50.970Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
+      "value": "Nhận Token Testnet",
+      "englishChecksum": "95902b8cafe52e3b481994af662545e7",
+      "lastUpdated": "2026-01-16T17:37:53.533Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "Khám phá Push Testnet",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:37:56.503Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "Hệ sinh thái Token — Tích luỹ giá trị & Kinh tế $PC",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:38:00.140Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "Làm cách nào $PC thu hồi giá trị: đáp ứng dựa trên sự định cư, chỗ tiêu thụ dựa trên việc sử dụng (đốt/khóa), kinh tế tiền thưởng và lịch trình cung cấp.",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:38:03.120Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "Giá trị của token và kinh tế $PC",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:38:06.164Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "Settlement bằng $PC thúc đẩy nhu cầu; giảm nguồn cung dựa trên sử dụng. Bao gồm kinh tế liên quan đến staking và phát hành.",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:38:08.721Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "Tokenomics Push Chain | Kì học Token",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:38:10.243Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "Settlement bằng $PC, giảm giá do sử dụng, kinh tế của staking và phát hành — tóm tắt ngắn gọn cho nhà đầu tư.",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:38:12.821Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Hỗ Trợ Tri thức",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:38:16.185Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "Khám phá Thể Hệ Token",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:38:19.463Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## Tóm tắt\n\nKhoảng cuối năm 2024, cộng đồng Push đã bỏ phiếu tán thành việc khởi động Push Chain, một blockchain layer 1 chia sẻ trạng thái được thiết kế để cho phép phát triển các ứng dụng phổ biến và loại bỏ sự phân mảnh trong web3.\n\nPush Chain là một lớp được thiết kế đặc biệt kết nối L1s, L2s và L3s với độ chắc khắn gần như tức thì và thực sự mở rộng, giải quyết vấn đề cơ bản với ứng dụng web3: phân mảnh. Với phiếu bầu thành công của đề xuất quản lý, sứ mạng Push Chain hiện đang trên đường xây dựng **mọi chuỗi, mọi người dùng và mọi app.**\n\n:::cảnh báo ⚠️ Token chưa đi vào hoạt động\nToken Push Chain chưa đi vào hoạt động, cũng không có presale nào đang diễn ra. Token Push Chain vẫn chưa được đặt tên.<p />\n\n\nVui lòng đừng tin những ai cung cấp truy cập sớm cho token Push Chain. Tất cả thông báo về Push Chain sẽ được công bố cùng lúc từ các kênh chính thức của Push — [Twitter / X](https://x.com/PushChain 'X handle of Push Chain'), [Discord](https://discord.com/invite/pushchain 'Discord of Push Chain'), [Telegram](https://t.me/epnsproject 'Telegram of Push Chain'), [Website](https://push.org 'Push Website').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:38:32.281Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "## Push Chain's Vision\n\nMỗi blockchain đã được证明 đặc biệt hữu ích cho các ứng dụng và trường hợp sử dụng cụ thể. Bitcoin đã làm cho tiền khôn thông minh. Ethereum đã cho phép sáng tạo cho DeFi. Solana đã cho phép các ứng dụng nhanh chóng và văn hóa meme. Nhiều L2s và L1 mới đã hướng đến những lĩnh vực khác.\n\nNhưng vẫn còn thiếu một blockchain được thiết kế riêng để cho phép abstraction của chuỗi và tương tác dễ dàng trong không gian đó. Chuỗi này sẽ cho phép giao dịch từ bất kỳ chuỗi nào (ETH, SOL, EVM hoặc non-EVM) cung cấp năng lượng cho các ứng dụng có thể sử dụng bởi **bất kỳ người dùng nào –** không quan tâm đến chuỗi hoặc ví của họ.Đây là chuỗi của **Ứng dụng Toàn Cầu**.Đây là Push Chain!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:38:40.808Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### Xây dựng trên sự sáng tạo để phá vỡ sự cách ly blockchain!\n\nPush Chain mang lại những thay đổi cho cả người dùng và nhà phát triển, tạo ra một môi trường để bất kỳ nhà phát triển nào có thể triển khai ứng dụng của họ trong vài giờ thông qua một hợp đồng thông minh triển khai kép duy nhất.\n\nNó cũng cho phép người dùng giao dịch từ sự thoải mái, tiện ích và lựa chọn của hệ sinh thái của họ, không quan tâm nơi ứng dụng cư trú ở đâu.\n\nGiữa các khía cạnh, điều này được đạt được thông qua:\n\n- Thể hiện khả năng **giao dịch từ bất kỳ chuỗi nào**\n- **Tổng quát hóa phí & ví** để cho phép người dùng sử dụng bất kỳ chuỗi nào, bất kỳ ví nào và trả tiền bằng bất kỳ token nào\n- **Hợp đồng thông minh tổng quát** để cho phép các nhà phát triển triển khai ứng dụng tương tác đa chuỗi trong phút giây\n- **Tình trạng chia sẻ** để đọc dữ liệu từ khối chuỗi khác\n- **Giải quyết có thể lập trình** để ghi dữ liệu vào bất kỳ chuỗi nào\n\nTất cả điều này cho phép một **Tầng thực hiện tổng quát** cho phép người dùng của bất kỳ chuỗi nào truy cập và tương tác với cùng một ứng dụng.",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:38:52.800Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Push Chain ở đâu phù hợp?\n\nPush chain phù hợp với **tất cả các dự án…** **trên tất cả các chuỗi!**\n\n- **Các nhà phát triển** từ bất kỳ chuỗi nào có thể tạo ra ứng dụng ttegration toàn diện mà không cần chuyển chuỗi.<br />\n- **Người dùng** có thể tương tác với ví của họ hoặc có trải nghiệm ký tự không có qua Push Universal Wallet với đăng nhập xã hội.<br />\n- **Các trải nghiệm chung** cho phép người dùng của tất cả các chuỗi tụ hội và tham gia toàn cầu DeFi, thống nhất trò chơi, toàn cầu NFT, toàn cầu Quản trị, vv.",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:39:00.217Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### Chức năng của token Push Chain là gì?\n\n1. **Staking & Validation** <br />\nToken được sử dụng cho staking để bảo vệ mạng và tham gia vào-consensus. Validators và delegators nhận thưởng cho sự tham gia của họ.\n\n2. **Phí Giao Dịch** <br />\nToken phục vụ là phương pháp chính cho phí mạng cho giao dịch và sử dụng app.\n\n3. **Trích xuất Phí phổ Thông** <br />\nToken cho phép người dùng trả phí bằng bất kỳ token nào (ETH, SOL, USDC, v.v.) trong khi protocol xử lý chuyển đổi sau lưng.\n\n4. **Quản trị** <br />\nNhà đầu tư token có thể tham gia vào quản trị protocol, biểu quyết về nâng cấp, thay đổi tham số và quyết định hệ sinh thái.",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:39:17.114Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "# Thiết Kế Deflationary\n\n1. **Thu Chiêu Giao Dịch** <br />\nMột phần của phí giao dịch thu được bằng token bản địa Push Chain bị đốt, giảm tổng số lượng theo thời gian.\n\n2. **Đốt Dải Khóa Crossover** <br />\nSử dụng Phối Áp Dụng Phí Đa Blockchain, một phần của phí thu được trên token bản địa của blockchain khác (ETH, SOL) bị hoán đổi với Push Chain token và đốt.\n\nĐiều này đảm bảo thiết kế chuỗi khối deflationary bằng cách đốt token khi mạng và giao dịch diễn ra tăng trưởng. Thiết kế này tạo điều kiện cho sự thành lập của một tương lai dài hạn được khuyến khích và bền vững cho Push Chain và tất cả người tham gia.",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:39:25.516Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "###Migration Details\n\nPush Chain is the result of years of learning from building the leading notification and communication protocol of web3, which was one of the first consumer apps for crypto.\n\nOwing to this, apart from the airdrop allocated (see details below) to Push Chain users, creators, developers and ecosystem partners, **there is also a migration drop reserved for the $PUSH holders** (which was the native token of Push Protocol).\n\n<details>\n  <summary>\n  <b>Migration details for existing $PUSH token holders</b>\n\n  </summary>\n\n  **For existing $PUSH token holders**, the Push Chain tokenomics proposal allocates 15% of the total Push Chain token supply specifically for migration. The migration will occur at a ratio of **1:15**—meaning for each Push Protocol ($PUSH) token you hold, you'll receive 15 Push Chain tokens. For example, if you currently hold 40 $PUSH tokens, you'll receive 600 Push Chain tokens after migration.\n\n  The launch of Push Chain is designed to reward and incentivize prior Push Protocol ($PUSH) holders for their loyalty and contribution. The migration process for existing $PUSH token holders will work as follows:\n\n  - Tokens will migrate at a 1:15 ratio (1 Push Protocol token = 15 Push Chain tokens).\n  - Participants in the Push Chain migration will see 50% of their migrated tokens unlocked immediately, and an additional 50% unlocked after 3 months.\n  - Token migrators will also benefit from a dedicated yield farming pool reserved for them. These rewards will be distributed to token migrators if they stake their migrated Push Chain tokens, to reward them for long-term contribution to the ecosystem.\n  - For example, if you have 100 Push Protocol $PUSH tokens, you'll receive 750 Push Chain tokens when you migrate and 750 Push Chain tokens after 3 months — for a total of 1,500 Push Chain tokens. You can choose to stake these tokens to get additional rewards from the Push Chain yield farming pool, distributed periodically.\n\n  The Push Chain token migration will be open for 12 months after launch, after which any remaining tokens will go to the community and ecosystem reserve.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:39:44.559Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## Chi Tiết Phân Phối Token\n\nTổng số token Push Chain được đề xuất là **10 tỷ**, phân phối như sau:\n\n![Tokenomics Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Chi Tiết Phân Phối Token](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Phát hành airdrop bắt đầu từ TGE nhưng sẽ diễn ra trong nhiều mùa.\n2. Nhân viên Trung tâm có độ trì hoãn 12 tháng, tiếp theo là vesting 24 tháng.\n3. Quỹ Push Labs có vesting 36 tháng.\n4. Nhà đầu tư có vesting tuyến tính 24 tháng.\n5. Cộng đồng và Đệ tử Hệ Mạng có 13,5% giải khóa tại TGE, tiếp theo là vesting 36 tháng.\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:39:53.309Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## Tham gia\n\n- **🧙 Phát triển**\nKinh nghiệm SDK & Tài liệu tại [Trung tâm Hỗ Trợ](/docs/)\n\n- **🦹 Cộng đồng**  \nTheo dõi [@PushChain](https://x.com/PushChain) trên X/Twitter, tham gia [Discord](https://discord.com/invite/pushchain) và [Telegram](https://t.me/epnsproject).\n\nChúng mình cùng xây dựng tương lai của **Web3 Toàn Cục**!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:39:59.764Z"
     }
   }
 }

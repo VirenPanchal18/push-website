@@ -1,11 +1,6 @@
 {
-  "lastUpdated": "2026-01-16T16:32:36.108Z",
+  "lastUpdated": "2026-01-16T17:22:13.309Z",
   "keys": {
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### Push Chainで何が構築できますか？\n\nPush Chainはシームレスな相互運用性をもたらし、すべてのL1、L2、& L3を統合するため、イノベーションと相互運用性のための遊び場となるでしょう。既存のWeb3ユースケースを構築できます。\n\n![Push Chainの主要なユースケース](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nまたは、Web3を改善し、革新的なものを生み出すことができます。\n\n![Push Chainの消費者向けユースケース](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nまたは、人気のあるappの例を見て、インスピレーションを得ることができます。\n\n![Push Chainの人気のあるappの例](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.176Z"
-    },
     "pages.knowledge.seo.title": {
       "value": "ナレッジベース — ガイド、FAQ & チュートリアル",
       "englishChecksum": "11ca32d20dd7dda0c862404dc406d5c3",
@@ -1231,21 +1226,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.177Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain テストネット ‘Donut’ がついに公開！",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.177Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "ユニバーサルアプリを探検する",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.177Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "ユニバーサルアプリを探索",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.177Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "アナウンスを閉じる",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1831,15 +1811,190 @@
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
       "lastUpdated": "2026-01-16T16:32:14.586Z"
     },
-    "notifications.chain-notification.description": {
-      "value": "G.U.Dプロジェクトのデプロイアソンはライブです！アプリをデプロイして、$5000を獲得します",
-      "englishChecksum": "85d2dccbfcb4fb47e4b41cda5647a895",
-      "lastUpdated": "2025-11-14T20:20:59.446Z"
-    },
     "notifications.rewards-notification.image-alt": {
       "value": "プッシュチェーン テストネット リワード - ユニバーサル アプリを構築する",
       "englishChecksum": "7e5ffae122997a63a81105184b921cb1",
       "lastUpdated": "2026-01-16T16:32:16.433Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "ビルダーズ － ハウツー＆チュートリアル",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:19:03.260Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "ブロックチェーン機能の使用方法など、ステップバイステップガイドやパターン・例を提供します。",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:19:05.292Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "ビルダーズ - ハウツー＆チュートリアル",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:19:06.947Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "プッシュチェーンで開発するためのガイド、ベストプラクティス、例などを学べます。",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:19:08.940Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "ビルダーズ - ハウツー＆チュートリアル",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:19:10.595Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "<2>ステップバイステップガイドをShip on Push Chainに送信してください。</2>",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T17:19:12.474Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "知識ベース",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:19:16.624Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "プッシュ チェーン上で構築する",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T17:19:19.671Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## ビルダーズ\n\nPush Chainで開発を始める準備ができましたか？ここにあるリソースを使って、インスピレーションを得たり、始められます。",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T17:19:23.281Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## カルトリーディング 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T17:19:29.006Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "ユニバーサルアプリを作ろう！💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T17:19:31.472Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "未来のアプリ —混乱無しでビルド",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T17:19:34.387Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "共有ステート無きでは実現できないアプリ - 巻1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:19:37.506Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "共通の状態無しで可能なアプリ - Vol.2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:19:40.630Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "開発者リソース",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:19:42.721Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "開発者ドキュメントを探索する",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:19:45.438Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "Push テストネットエクスプローラー",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:19:50.118Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "トークノミクス — $PCの価値蓄積と経済学",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:19:51.924Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "＄PCはどのように価値をCaptureするか：集合金決済駆動型需要、使用ベースのシンク（燬やロック）、ステーキング経済学、そして供給スケジュール。",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:19:57.077Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "トークノミクス - $PC価値の蓄積と経済学",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:19:58.860Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "＄PCによる決済が需要を推進する; 使用量ベースの沈下により供給が減少します。ステーキング経済学とエミッションを含みます。",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:20:01.438Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "ブロックチェーン トークノミクス | トークン経済学",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:20:03.129Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "PCでの決済、使用量に応じた消耗、ステーク経済、エミッション—簡潔な Investor 概要。",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:20:06.781Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "知識基地",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:20:08.494Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "トークンミケーションを探検しましょう",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:20:10.295Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## 概要\n\n2024年遅くに、プッシュコミュニティはプッシュチェーンの発進を承認する投票を行い、ユニバーサルアプリの開発を可能にし、ウェブ3で見られる断片化を解消するために設計された共有状態レイヤ1ブロックチェーン「プッシュチェーン」を導入しました。\n\nプッシュチェーンはL1s、L2s、L3sと接続され、即時的な最終性と真のスケーラビリティを備え、ウェブ3アプリで見られる基本的な問題である断片化を解消します。ガバナンス提案の投票が成功したことで、プッシュチェーンミッションは今、任意のチェイン、任意のユーザー、任意のアプリを構築する方向性にあります。\n\n:::警告 ⚠️ トークンがライブではありません\nプッシュチェーントークンはまだライブではなく、プレセールもありません。プッシュチェーントークンはまだ名付けられていません。<p />\n\n\n誰かがプッシュチェーントークンへの早期アクセスを提供しているという通知を信用しないでください。プッシュチェーンに関するすべての通知は、公式なプッシュチャンネルから同時に発表されます — [X](https://x.com/PushChain 'プッシュチェーンのXハンドル'), [Discord](https://discord.com/invite/pushchain 'プッシュチェーンのDiscord'), [Telegram](https://t.me/epnsproject 'プッシュプロジェクトのTelegram'), [ウェブサイト](https://push.org 'プッシュウェブサイト').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:20:25.770Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "# Push Chainのビジョンは何ですか？\n\nすべてのブロックチェーンが特定のアプリや用途で特に有用であることが証明されています。ビットコインがスマートマネーを可能にしました。イーサリアムはデフィなどの革新を可能にしました。ソラナは高速なアプリとメムカルチャーを可能にしました。several L2sと新しいL1sは他の関心領域をターゲットしています。\n\nしかし、チェインアブストラクションとスイートな相互運用性を可能にするために特別に設計されたブロックチェーンが必要です。このチェインはあらゆるチェイン（ETH、SOL、EVMや非EVM）からのトランザクションを可能にし、どのユーザーでも、そのチェインやウォレットに関係なく使用できるアプリを動かすことができます。これは「ユニバーサルアップ」のチェインです。这就是Push Chain！",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:20:35.837Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### インノベーションをベースに、ブロックチェーンの孤立を排除します！\n\nPush Chainはユーザーと開発者のために革命的です。任意の開発者が数時間以内に単一のユニバーサルスマートコントラクトデプロイメントで、任意のアプリをデプロイできます。\n\nまた、アプリの居所に関係なく、ユーザーが好みや便利さから、好きなエコシステムで取引を行うことができるようになります。\n\n内部では以下のように達成されています:\n\n- **任意のチェーンでの取引**\n- **ユニバーサル・フィー＆ウォレット・アブストラクション**を使用して、ユーザーが好きなチェーン、好きなウォレットで好きなトークンで支払うことができるようになります\n- **ユニバーサルスマートコントラクト**で、開発者が数分でインスタント・インターペアアプリをデプロイできます\n- **共有状態**から他のブロックチェーンのデータを読み取ることができるようになります\n- **プログラム可能なソルバー**で、任意の他のチェーンにデータを書き込むことができるようになります\n\nこれにより、**ユニバーサルエグゼクションレイヤー**が作られ、好きなチェーンのユーザーが同じアプリにアクセスして互換性を持つことができます。",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:20:52.284Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Pushチェーンはどこに適合するのですか？\n\nPushチェーンは**各種プロジェクト…** **各種チェーン上で使用可能です！**\n\n- **開発者は**任意のチェーンから互換性の高いフルインテロプアプリを作成し、任意のチェーンから任意のウォレットで使用できます。<br />\n- **ユーザーは**好きなウォレットを選択して利用したり、Pushユニバーサルウォレットでソーシャルログイン経由で無署名体験を得ることができます。<br />\n- **各種チェーンのユーザーは**集まり共同で互換性の高いDeFi、統一されたゲーム、ユニバーサルNFT、ユニバーサルゴvernanceなどを体験することができます。<br />",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:21:01.618Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### Push Chainトークンのユーティリティとは何ですか？\n\n1. **ステーキングと検証** <br />\nネットワークを保護し、コンセNSUSに参加するためにトークンが使用されます。バレーイダーとデリゲーターは参加の報酬を得ます。\n\n2. **取引手数料** <br />\nトークンは取引とアプリ使用の主なネットワーク手数料方法です。\n\n3. **ユニバーサル・フェー・アブストラクション** <br />\nユーザーは任意のトークン（ETH、SOL、USDCなど）で手数料を支払うことができますが、プロトコルは背後にある変換を処理します。\n\n4. **自治** <br />\nトークン保有者はプロトコルの自治に参加し、アップグレード、パラメータ変更、エコシステム決定に投票できます。",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:21:11.667Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### デフレーションデザイン\n\n1. **取引手数料の燃焼** <br />\n Push Chainネイティブトークンの一部が集まった取引手数料から燃焼され、時間と共に総供給量が減少します。\n\n2. **クロスチェインバーン** <br />\nユニバーサルフェーアブストラクションを使用し、他のブロックチェーンのネイティブトークン（ETH、SOL）から集まった手数料の一部が交換され、 Push Chainネイティブトークンとして燃焼されます。\n\nこのデザインは、ネットワークとそれに起こる取引が成長するにつれてトークンを燃焼することを可能にし、Push Chainとその参加者の為のインcentivizedで持続可能な将来を創出します。",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:21:20.907Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### Migration Details\n\nブロックチェーンは、数年間の学習とウェブ3通知およびコミュニケーションプロトコルのリーディングアプリを構築することで実現されました。その結果、プッシュチェーンユーザー、クリエーター、開発者、そして生態系パートナーに対して空中配布が割り当てられているだけでなく、**$PUSH保有者のためにまた移行ドロップが予約されている**のです。\n\n<details>\n  <summary>\n  <b>既存の$PUSHトークン保有者向けの移行詳細</b>\n\n  </summary>\n\n  **既存の$PUSHトークン保有者**に対して、プッシュチェーントークノミクス提案は、総プッシュチェーントークン供給量の15%を移行専用として割り当てます。移行比率は**1:15**です──つまり、各プッシュプロトコル($PUSH)トークンに対して15本のプッシュチェーントークンが与えられます。例えば、現在40本の$PUSHトークンを所有している場合、移行後は600本のプッシュチェーントークンを受け取れます。\n\n  プッシュチェーンの発足は、過去のプッシュプロトコル($PUSH)保有者に対する信頼と貢献を報償し奨励するために設計されています。既存の$PUSHトークン保有者向けの移行プロセスは以下のように実施されます：\n\n  - トークンは1:15の比率で移行します（各プッシュプロトコルトークンに対して15本のプッシュチェーントークン）。\n  - プッシュチェーン移行参加者は、移行されたトークンの50%が直ちに解除され、追加の50%が3か月後に解除されます。\n  - トークン移行者は、移行されたプッシュチェーントークンを預け入れることで、生態系への長期貢献を報償するために予約された専用のイールドファーミングプールから報酬を受け取れます。\n  - 例えば、100本のプッシュプロトコル$PUSHトークンを所有している場合、移行時に750本のプッシュチェーントークンを受け取り、3か月後にはさらに750本を受け取れます──合計で1,500本のプッシュチェーントークンです。これらのトークンはイールドファーミングプールから定期的に報酬が配布されることで、追加の報酬を獲得するために選択して預け入れることができます。\n\n  プッシュチェーントークン移行は、発足後12か月間開放されています。その後、 remaining tokens will go to the community and ecosystem reserve.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:21:47.398Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### アードロップの詳細\n\nまた、トークノミクス提案は全体のPush Chainトークン供給の10%をアードロップに割り当て、過去および現在のPush Protocolアプリケーションユーザー（通知、メッセージ、チャット）への配布を行います。新しいユーザー、クリエーター、開発者、エコシステムパートナーと共に。\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:21:52.861Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## トークンの配布詳細\n\nPush Chainトークンの総供給量は、当初**100億**に設定されています。以下のように配分されます:\n\n![Push Chain トークン経済](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Push Chain トークン経済ベスティングの詳細](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. TGEから始まりますが、複数シーズンにわたってアirdrop配布が行われます。\n2. コアコントリビューターは、12か月間の猶予と24か月間のベスティングを経てます。\n3. Push Labsトレジャーは、36か月間のベスティングを経てます。\n4. インベスターは、24か月間のラインアーペスト Vesting を経てます。\n5. コミュニティとエコシステムのリザーブは、TGEで13.5%が解放され、その後36か月間のベスティングを経てます。\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:22:05.590Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "# ゲット・インボルヴド\n\n- **🧙 開発者**\n[文書ハブ](/docs/)でSDKと DocsをExploreしてください。\n\n- **🦹 コミュニティ** \n[X/Twitter](https://x.com/PushChain)で[@PushChain]をフォローし、DiscordとTelegramに参加しましょう。\n\n共にユニバーサルWeb3の未来を築きましょう!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:22:11.322Z"
+    },
+    "notifications.chain-notification.title": {
+      "value": "{{-chainName}}で新しいブロックが見つかりました。",
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-16T17:22:13.299Z"
     }
   }
 }

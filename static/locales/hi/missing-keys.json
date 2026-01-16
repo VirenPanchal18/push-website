@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T16:30:23.354Z",
+  "lastUpdated": "2026-01-16T17:15:32.224Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1286,21 +1286,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain Testnet ‘Donut’ अब लाइव है!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.117Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "यूनिवर्सल ऐप्स एक्सप्लोर करें",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.117Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "यूनिवर्सल ऐप्स एक्सप्लोर करें",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.117Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "घोषणा खारिज करें",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1834,6 +1819,136 @@
       "value": "Push Chain पृथ्वी के पहले वास्तविक इक्विजनशल ब्लॉकचेन है, जो सभी चेयिन पर फ्रागमेंटेशन को खत्म करता है। यह डेवेलपर्स को ऑनसемуर्वरसे फायर करना और सभी चेयिन (इसमें ईथरियम, सोलाना, बिटकॉइन आदि शामिल हैं) पर उपयोगकों के लिए तुरंत उपलब्ध बनना अक्षम करता है। यह 100% ईवीएम संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जिसकी मदद से उपयोगकर्ता Push Chain पर डेप्लॉय किये गये एप्स से किसी भी चेन पर उसी तरह से इंटरैक्ट कर सकते हैं जैसा वे अपनी स्वयं की चेन पर करते हैं।",
       "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
       "lastUpdated": "2026-01-16T16:30:23.354Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "कंजूमर एप्स 🫶 पुश चेन पर बनाएं?",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T17:11:00.142Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "अप्लिकेशन शेयर्ड स्टेट के साथ ही संभव - भाग 1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:11:05.340Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "शेयर्ड स्टेट के साथ ही संभव हो सकने वाले ऐप्स - खंड 2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:11:28.936Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "डेवलपर संसाधन",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:11:31.245Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "निकलें डेवेलपर का दस्तावेजीकरण",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:11:34.138Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
+      "value": "टेस्टनेट टोकन पाएं",
+      "englishChecksum": "95902b8cafe52e3b481994af662545e7",
+      "lastUpdated": "2026-01-16T17:11:36.871Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "<1>पुश टेस्टनेट एक्स्प्लोरर<1>",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:11:41.913Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "टोकनॉमिक्स — $पीसी मूल्य अर्जन और अर्थशास्त्र",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:11:43.801Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "कैसे $PC मूल्य का कैप्चर करता है: सेटलमेंट-ड्राइवेन डेमांड, यוזेज-बेस्ड सिंक्स (बर्न्स/लॉकस), स्टेकिंग इकोनॉमिक्स, और सप्लाई शेड्यूल।",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:11:47.041Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "टोकनॉमिक्स - $पीसी वैल्यू एक्क्रूल & इकॉनोमी",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:11:49.013Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "पीसी सेलमेंट ड्राइव्स डिमांड; यूज़ेज-बेस्ड सिंक्स सप्लाई को रिड्यूस करता है। स्टेकिंग इकॉमिक्स और एमिशंस को शामिल करती है।",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:11:52.235Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "पीश शेन टोकनोमिक्स | टोकन इकोनॉमिक्स",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:11:54.124Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "सेटलमेंट $PC में, उपयोग-चालित निष्पादन, स्टेकिंग इकोनॉमिक्स, और एमिसंस—ब्रीफ इन्वेस्टर ओवरव्यू।",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:11:56.972Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "지식 기반",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:12:03.198Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "टोकनॉमिक्स जानें",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:12:23.039Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## अवलोकन\n\nअगस्त 2024 में, पुश समुदाय ने पुश चेन लॉन्च करने के लिए गवर्नेंस प्रपोज़ल को अप्रोভ किया। यह शेयर्ड स्टेट लेयर 1 ब्लॉकचैन है जिसका उद्देश्य यूनिवर्सल एप्लिकेशन का विकास और वेब3 में फ्रागमेंटेशन को समाप्त करना है।\n\nपुश चेन एक कनेक्टेड लेयर है जो L1s, L2s, और L3s को near-instant फाइनलिटी और ट्रुई स्केलेबिलिटी के साथ जोड़ता है। यह वेब3 एप्लिकेशन का बेसिक प्रॉबलम सॉल्व करता है: फ्रागमेंटेशन। पुश चेन मिशन अब **एनी चेन, एनी यूजर, और एनी अप्प** की ओर बढ़ रहा है।\n\n:::वARNING ⚠️ टोकन अभी जीवित नहीं हैं\nपुश चेन टोकन अभी जीवित नहीं है और न ही कोई प्रीसेल जारी है। पुश चेन टोकन अभी नाम भी नहीं दिया गया है।<p />\n\n\nकिसी को पुश चेन टोकन के पूर्व तक पहुंच की ऑफर करना गलत होगा। सभी कम्युनिकेशन्स पुश चैनलों से साथ-साथ घोषित किए जाएंगे — [ट्विटर / एक्स](https://x.com/PushChain 'पुश चेन का एक्स हैंडल'), [डिस्कॉर्ड](https://discord.com/invite/pushchain 'पुश चेन के डिस्कॉर्ड'), [टीलेग्राम](https://t.me/epnsproject 'पुश चेन का टेलीग्राम'), [वेबसाइट](https://push.org 'पुश वेबसाईट').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:12:39.837Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "<2>What is the Vision of Push Chain?</2>\n\n<1>All blockchains have proven particularly useful for specific apps and use cases. Bitcoin enabled smart money. Ethereum enabled innovations for DeFi. Solana enabled fast apps and memे culture. Several L2s and new L1s are targeting other areas of concern.</1>\n\nHowever, a blockchain that is purpose-built to enable chain abstraction and seamless interoperability in the space is still required. This chain would enable transactions from any chain ({token} ETH, SOL, EVM or non-EVM) to power apps that can be used by <b>any user —</b> no matter their chain or wallet. This is the chain of <b>Universal Apps</b>. This is Push Chain!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:12:47.141Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### ब्लॉकचेन के अलगाव को हटाने के लिए नवीनता पर आधारित बनाया गया है!\n\nपुश चैन में उपयोगकर्ता और विकासकों के लिए क्रांतिकारी है क्योंकि यह किसी भी विकासक को अपनी यूनिवर्सल एप को घंटों में एकल यूनिवर्सल स्मार्ट कॉन्ट्रेक्ट डिप्लॉयमेंट via बनाता है।\n\n यह उपयोगकों को भी सुविधा, आराम और चुनाव के हिसाब से अपने इकोसिस्टम से ट्रांजैक्शन करना एनीWHERE भी एप रिजाइडेंसी पर निगाह रखता है।\n\n अंदरूनी तौर पर यह इस तरह किया जाता है:\n\n- **किसी भी चेन से ट्रांजैक्शंस**\n- यूनिवर्सल फी & वॉलेट अबस्ट्रैक्ट को उपयोगकों को किसी भी चेन, किसी भी वॉलेट का उपयोग करना और किसी भी टोकन में भुगतान करने के लिए एनएबिल करना\n- यूनिवर्सल स्मार्ट कॉन्ट्रेक्ट को डेवलपरों को मिनटों में इंटरोप अप्लीकेशन डिप्लॉय करना\n- **शेयर्ड स्टेट** को अन्य ब्लॉकचेन से डेटा पढ़ना\n- **प्रोग्रामेबल सॉल्वर्स** को किसी भी अन्य चेन पर डेटा लिखना\n\nयह सभी उपयोगकों के लिए एक यूनिवर्सल एक्जीक्यूशन लेयर के कारण बनता है ताकि किसी भी चेन का उपयोग करने वाले उपयोगकर्ता उसी एप को அணु और इंटरैक्ट करना सकता है।",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:13:01.354Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Where does Push Chain fit in?\n\nपीश चेन **हर प्रोजेक्ट... हर चेन पर फिट करती है!**\n\n- **यह डेवलपर्स को देता है** कि वे किसी भी चेन से सेंस्मुल क्रॉस-चेन एप्लिकेशन बनाएं, जो किसी भी चेन से और किसी भी वॉलेट के साथ उपयोग किया जा सकता है।<br />\n- **यह उपयोगकों को देता है** अपनी पसंदीदा वॉलेट का इस्तेमाल करने या पुश यूनिवर्सल वॉलेट के साइनलेस अनुभव का उपभोग करने की स्वतंत्रता।<br />\n- **यह साझा एप्लिकेशन अनुभव देता है**, जहाँ सभी चेन के उपयोगकों मिलकर यूनिवर्सल डीएफआई, एकीकृत गेमिंग, यूनिवर्सल NFT, यूनिवर्सल गवर्नेंस आदि से इंटरैक्ट कर सकते हैं।<br />",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:13:10.564Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "value": "### क्या Push Chain पर बनाया जा सकता है?\n\nPush Chain लाइटर, एल3, एल2 और एल1 का एकीकरण करती हुई सम्पूर्ण interoperability लेकर आती है और therefore खेलों के मैदान के रूप में स्थापित होने के लिए तैयार है। आप Push Chain पर ऐसी उपयोगियां बन सकती हैं:\n\n![Push Chain के मुख्य उपयोग क्षेत्रों की तस्वीर](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nया web3 को बेहतर करने और नवीनताओं को बनाने के लिए:\n\n![Push Chain के 소비क उपयोग क्षेत्रों की तस्वीर](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nया लोकप्रिय ऐप उदाहरण देखें और प्रेरणा लेने के लिए:\n\n![Push Chain पर लोकप्रिय ऐप उदाहरणों की तस्वीर](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-16T17:13:29.354Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### क्या Push Chain टोकन का उपयोग क्या है?\n\n1. **स्टेकिंग & वैलीडेशन** <br />\nटोकन नेटवर्क को सिक्योर करना और कंसेंसस में भाग लेना के लिए स्टेकिंग किया जाता है। वैलीडेटर्स और डेलेगेटर्स अपने भागीदारी के लिए इनाम कमाते हैं.\n\n2. **ट्रांजैक्शन फीज़** <br />\nटोकन ट्रांजैक्शन्स और एप्लिकेशन का प्राइमरी मेथड है।\n\n3. **यूनिवर्सल Ֆी फ़ेब्स्ट्रक्शन** <br />\nटोकन उपयोगकों को हर टोकन (ईटीएच, एसओएल, यूएसडीसी आदि) में फीज़ चुकाने की अनुमति देता है जबकि प्रोटोकॉल कन्वर्शन के पीछे का माहौल संभालता है.\n\n4. **गवर्नेंस** <br />\nटोकन होल्डर्स प्रोटोकॉल गवर्नेंस में भाग ले सकते हैं, अपग्रेड, पैरामिटर परिवर्तन और ईकॉसिस्टम निर्णयों के लिए वोटिंग करते हैं।",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:13:40.582Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### डेफ्लेशनरी डिज़ाइन\n\n1. **ट्रांज़ैक्शन फ़ी बर्न** <br />\nनेतवर्क के नेटिव पुश चेन टोकन में एक भाग ट्रांज़ैक्शन फी कलेक्ट किए जाते हैं, जो समय के साथ कुल आपूर्ति को कम करते हैं।\n\n2. **क्रॉस-चेयिन बर्न** <br />\nयूनिवर्सल फ़ी एबस्ट्रक्शन का उपयोग करके औरंग चेन के नेटिव टोकन (ईथर, सोलेना) में एक भाग कलेक्ट किए गए फी को पुश चेन नेटिव टोकन में विनिमेय किया जाता है और बर्न किया जाता है।\n\nयह सुनिश्चित करता है कि नेटवर्क और उस पर होने वाले ट्रांज़ैक्शंस के साथ-साथ डेफ्लेशनरी ब्लॉकचेन डिज़ाइन हो, जिससे पुश चेन के लिए और उसके सभी सहभागियों के लिए प्रोत्साहित, बरदाश्ती लंबे समय के लिए भविष्य की रचना होती है।",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:13:50.876Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### माइग्रेशन डिटेल्स\n\nपुश चेन सालों से वेब3 के सबसे बढि़याँ नोटिफिकेशन और कम्यूनिकेशन प्रोटोकॉल बनाने के ज्ञान से है, जो क्रिप्टो के लिए एक पहला उपभोक्ता एप था।\n\nइसलिए, पुश चेन यूजर, क्रीटर्स, डेवलपर और इकोसिस्टम पार्टनरों को आवंटित अयर्ड्रोप (नीचे देखें) के अलावा, **$PUSH होल्डर् के लिए माइग्रेशन ड्रॉप भी है** (जो पुश प्रोटोकॉल का नेटिव टोकन था)।\n\n<details>\n  <summary>\n  <b>अस्तित्व में $PUSH टोकन होल्डर्स के लिए माइग्रेशन डिटेल्स</b>\n\n  </summary>\n\n  **अस्तित्व में $PUSH टोकन होल्डर्स के लिए**, पुश चेन टोकनॉमिक्स प्रपोज़ल 15%完 विश्व पुश चेन टोकन सप्लाई को स्पेशली माइग्रेशन के लिए आवंटित करता है। माइग्रेशन 1:15 का रेटियो पर होगा—मतलब हर पुश प्रोटोकॉल ($PUSH) टोकन के लिए, आप 15 पुश चेन टोकन प्राप्त करेंगे। उदाहरण के लिए, अगर आप वर्तमान में 40 $PUSH टोकन्स होल्ड करते हैं, तो माइग्रेशन के बाद Ihnen 600 पुश चेन टोकन्स मिलेंगे।\n\nपुश चेन का लॉन्च पिछले पुश प्रोटोकॉल ($PUSH) होल्डर्स को उनके निष्ठा और योगदान के लिए पुरस्कृत करना और प्रोत्साहित करना डिज़ाइन किया गया है। अस्तित्व में $PUSH टोकन होल्डर् के लिए माइग्रेशन का काम निम्नलिखित तरीके से होगा:\n\n  - टोकन्स 1:15 के रेटियो पर माइग्रेट होंगे (1 पुश प्रोटोकॉल टोकन = 15 पुश चेन टोकन)।\n  - पुश चेन माइग्रेशन में भाग लेने वाले लोग अपनी माइग्रेट किए गए टोकन्स के 50% को तत्काल अनलॉक करेंगें और बाकी 50% को तीन महीने बाद।\n  - टोकन माइग्रेटर्स भी उनके माइग्रेट किए गए पुश चेन टोकन्स को स्टेक करके अतिरिक्त पुरस्कार प्राप्त करने के लिए डेडिकेटेड यील्ड फार्मिंग पूल से लाभ उठाएँगे, जो अवतरणकाल में तय समय पर विभाजित होगा।\n  - उदाहरण के लिए, अगर आप 100 पुश प्रोटोकॉल $PUSH टोकन्स होल्ड करते हैं, तो माइग्रेट होने पर आपको 750 पुश चेन टोकन्स मिलेंगे और तीन महीने बाद एक और 750 पुश चेन टोकन्स मिलेंगे—एक कुल 1,500 पुश चेन टोकन्स। आप अपनी इच्छा अनुसार ये टोकन स्टेक करके पुश चेन यील्ड फार्मिंग पूल से अतिरिक्त पुरस्कार प्राप्त कर सकते हैं, जो तय समय पर विभाजित होगा।\n\nपुश चेन टोकन माइग्रेशन लॉन्च के बाद 12 महीने तक खुला रहेगा। इसके बाद बाकी बचे टोकन्स समुदाय और इकोसिस्टम रिजर्व को जाएँगे।\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:14:52.859Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### एयरड्रॉप डिटेल्स\n\nअuvo, पुश चेन टोकन का कुल आपूर्ति के 10% के लिए अर्पण किया जाएगा, पिछले और वर्तमान पुश प्रोटोकॉल ऐप्लिकेशन यוזर्स (स्मार्टनॉटिफिकेशन्स, मैसेजिंग, चैट) को एयरड्रॉप्स के लिए, नए योजर्स के साथ-साथ क्रिएटर्स, डेवलपर्स और पुश चेन के ईकösम पार्टनर्स के लिए भी.\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:14:59.556Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## टोकन वितरण विवरण\n\nPush Chain टोकेन्स का कुल आपूर्ति **10 अरब** है, जो निम्नलिखित के अनुसार बंटी हुई है:\n\n![Push Chain टोकनोमिक्स](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Push Chain टोकनोमिक्स वेस्टिंग विवरण](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. TGE से शुरू होने वाले एयरड्रॉप डिस्ट्रीब्यूशन के लिए, कई सaisons के लिए होता है।\n2. कोर कंट्रिब्यूटर्स में 12-മാസीय विलंब और उसके बाद 24-മാസीय वेस्टिंग है।\n3. Push Labs ट्रेजറി में 36-മാസीय വെस्टिंग है।\n4. निवेशकों के लिए 24-മാസीय लाइनर वेस्टिंग है।\n5. समुदाय और इकोसिस्टम रिजर्व्स में TGE में 13.5% अटॉकन और उसके बाद 36-മാസीय വെस्टिंग है।\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:15:10.503Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## शामिल होइए\n\n- **🧙 विकासकर्ता**\nहमारे SDK & Docs को [Documentation Hub](/docs/) पर खोजें\n\n- **🦹 समुदाय**  \n[X/Twitter](https://x.com/PushChain) पर [@PushChain](https://discord.com/invite/pushchain) को फॉलो करें, हमारे [Discord](https://t.me/epnsproject) और [Telegram](https://x.com/PushChain) समूह में शामिल हों\n\nसाथ-साथ चलकर **यूनिवर्सल वेब3** की भविष्यता का निर्माण करें!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:15:17.229Z"
     }
   }
 }

@@ -1,11 +1,6 @@
 {
-  "lastUpdated": "2026-01-16T16:35:34.766Z",
+  "lastUpdated": "2026-01-16T17:36:47.228Z",
   "keys": {
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### Push Chain üzerinde neler inşa edilebilir?\n\nPush Chain, kusursuz birlikte çalışabilirlik getirir ve tüm L1'leri, L2'leri ve L3'leri birleştirerek inovasyon ve birlikte çalışabilirlik oyun alanı olmaya hazırlanır. Mevcut web3 kullanım durumlarını inşa edebilirsiniz:\n\n![Push Chain'in temel kullanım durumları](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nYa da web3'ü daha iyi hale getirebilir ve yenilikler yaratabilirsiniz:\n\n![Push Chain'in tüketici kullanım durumları](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nYa da popüler uygulama örneklerini görebilir ve ilham alabilirsiniz:\n\n![Push Chain'deki popüler uygulama örnekleri](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.360Z"
-    },
     "pages.knowledge.seo.title": {
       "value": "Bilgi Bankası — Kılavuzlar, SSS ve Nasıl Yapılır",
       "englishChecksum": "11ca32d20dd7dda0c862404dc406d5c3",
@@ -1231,21 +1226,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.360Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain Testnet ‘Donut’ Şimdi Yayında!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.360Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "Evrensel Uygulamaları Keşfet",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.360Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "Evrensel Uygulamaları Keşfedin",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.360Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Duyuruyu kapat",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1761,11 +1741,6 @@
       "englishChecksum": "952a0533dce9bf557f94342840ee4720",
       "lastUpdated": "2026-01-16T16:34:37.386Z"
     },
-    "notifications.chain-notification.image-alt": {
-      "value": "Push Chain Testnet Doughnut - Universal Blok Zincir",
-      "englishChecksum": "36296d1d62073925976682f0c22235cc",
-      "lastUpdated": "2025-11-14T20:23:20.372Z"
-    },
     "global.site-description": {
       "value": "Herhangi bir zincirde evrensel uygulamalar için paylaşım durumu L1. Tek kez dağıtın; herhangi bir zincirin kullanıcılara erişin. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeyin. Zincir değiştirme gerekmez.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
@@ -1804,6 +1779,191 @@
     "notifications.rewards-notification.description": {
       "englishChecksum": "4a4561fbdd8c6761d8759b0b0ec592ee",
       "lastUpdated": "2026-01-16T16:35:19.441Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "Yapıcılar — Nasıl Yapar ve Öğreticiler",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:33:32.757Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "Push Chain özelliklerini kullanmak için adımlar, desenler ve örnekler.",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:33:36.101Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "Yapıcılar - Nasıl Yapılacaklar ve Eğitici video",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:33:37.877Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "<1>PushChain ile geliştirmek için rehberli eğitmenler, en iyi uygulama örnekleri ve önerileri.<1>",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:33:41.870Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "İnşacılar - Nasıl Yapar & Eğitimi",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:33:43.555Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "Adım adım talimatlar Push Chain'e göndermek için.",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T17:33:45.219Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Bilgi Tabanı",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:33:50.672Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "Push Zincirinde Yapay",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T17:33:53.689Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## Geliştiriciler\n\nPush Chain'de çalışmak için hazır mısınız? Burada size ilham vermek ve başlamak üzere bazı kaynaklar mevcuttur.",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T17:33:56.959Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## Popüler Okumalar 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T17:33:59.507Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "Universal Uygulamalar Oluşturmek 💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T17:34:01.851Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "Gelecek Uygulamaları — Çaos olmadan inşa etme",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T17:34:06.204Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "Push Chain'e Çözümler 🫶",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T17:34:09.235Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "Paylaşım Durumu Üzerinden Sadece Uygulamalar Mümkün - Vol.1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:34:12.538Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "Paylaşılmış Durumla Sadece Mümkün Uygulamalar - H.2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:34:15.769Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "Geliştirici Kaynakları",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:34:17.848Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "Geliştirici Belirteçleri'ni Keşfet",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:34:20.677Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
+      "value": "Testnet Tokenleri Al",
+      "englishChecksum": "95902b8cafe52e3b481994af662545e7",
+      "lastUpdated": "2026-01-16T17:34:23.241Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "Push Testnet Keşfedici",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:34:25.921Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "Tokenomiği — $PC Değer Akkumulasyonu ve Ekonomisi",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:34:29.263Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "Nakit Değişim: İhtiyac tabanlı talep (settlement-driven demand), kullanım temelli batma/kilitleme işlemleri, stake ekonomisi ve tedarik planı.",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:34:31.839Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "Tokenomics - $PC Değer Oluşumu ve Ekonomisi",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:34:33.496Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "PC ile ödeme, talebi artırır; kullanım temelli batma azaltır. Staking ekonomisi ve emisyonları da içerir.",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:34:36.059Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "$PC'yi kullanarak yerleşim, kullanım temelli çakışma mekanizmaları, staking ekonomileri ve emisyonlar hakkında kısa yatırımcı genel bakış.",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:34:40.367Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Bilgi Tabanı",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:34:44.273Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "Tokenomi Araştır",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:34:45.873Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## Genel Bakış\n\n2024'un sonlarında Push topluluğu, Paylaşım Zinciri'nı başlatmak için oylaştırdı. Bu, universal uygulamaların geliştirilmesi ve web3'in fragmentasyonunu ortadan kaldırmak için tasarlanmış bir paylaştırılmış durumu içeren bir layer 1 bloç zinciridir.\n\nPaylaşım Zinciri, L1'ler, L2'ler ve L3'lerle hemen anlık sonucu ve gerçek skalabilite sağlar. Böylece web3 uygulamaları için temel sorun olan fragmentasyon çözülmüştür. Paylaşım Zinciri misyonu artık **herhangi bir zincir, herhangi bir kullanıcı ve herhangi bir uygulama** inşa etmek yönünde ilerlemektedir.\n\n:::uyarı ⚠️ Token henüz canlı değil\nPaylaşım Zinciri tokeni henüz canlı değildir veya herhangi bir ön satış canlı değildir. Paylaşım Zinciri tokeni henüz adlandırılmamıştır.<p />\n\n\nHerhangi birinin Paylaşım Zinciri tokenine erken erişim teklif ettiğini inanmayın. Tüm Paylaşım Zinciri ilgili bilgileri resmî Push kanalları aracılığıyla eş zamanlı olarak duyuracaktır — [Twitter / X](https://x.com/PushChain 'Push Chain'in X eleni'), [Discord](https://discord.com/invite/pushchain 'Paylaşım Zinciri Discord'u'), [Telegram](https://t.me/epnsproject 'Paylaşım Zinciri Telegrami'), [Web sitesi](https://push.org 'Paylaşım Web sitesi').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:35:01.539Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "## Push Chain'in Vizyonu Nedir?\n\nHer blockchain, belirli uygulamalar ve kullanım durumları için özellikle yararlı olmuştur. Bitcoin akıllı parayı etkinleştirdi. Ethereum DeFi'nin yeniliklerini etkinleştirdi. Solana hızlı uygulamalar ve anlamsız kültürü etkinleştirdi. Ayrıca başka konuları hedefleyen birkaç L2 ve yeni L1'ler de mevcuttur.\n\nFakat, dizi abstraksiyonu ve rahat geçişliği etkinleştirecek şekilde yapılandırılmış bir blockchain hala gerekli olup bulunmuyor. Bu zincir herhangi bir zincirden (ETH, SOL, EVM veya non-EVM) işlemleri etkinleştirerek **her kullanıcı** için kullanılabilecek uygulamaları etkinleştirebilir - **hesap veya cüzdan bağımsız**. Bu **Universal Apps** zinciri. Bu Push Chain'dir!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:35:10.086Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### Teknolojiyi izolasyonu ortadan kaldırmak için yenilikler üzerine inşa edildi!\n\nPush Chain, kullanıcılar ve geliştiriciler için devrimci bir ortam yaratır; herhangi bir uygulama sunucusunda tek üniversal akıllı sözleşme yoluyla saatler içinde herkesin kullanabileceği Universal App'yi oluşturmak mümkün hale getirir. Böylece, uygulamanın nerede bulunmasından bağımsız olarak kullanıcılar, tercih ettikleri ekosistemden işlem yapma avantajını elde ederler.\n\nBu, şu şekilde başarıyla gerçekleştirilir:\n\n- Herhangi bir zincir üzerinden **işlemler**\n- Kullanıcıların herhangi bir zincir ve cüzdan kullabilmesi ve istedikleri token ile ödemeyi sağlayan **Üniversal Fee & Wallet Abstraction**\n- Geliştiricilerin dakikalarda ücretsizleşmesini sağlayan **Üniversal Akıllı Sözleşme**\n- **Paylaşılan Durum** için diğer zincirlerden veri okuma\n- Herhangi bir başka zincire veri yazma için **Programmable Solver**\n\nBütün bunlar, kullanıcıların herhangi bir zincirden Universal Execution Layer aracılığıyla aynı uygulamaya erişip etkileşime geçmesine izin verir.",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:35:21.829Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Push Chain nerede yer alır?\n\nPush chain herhangi bir zincirde geliştiricileri herhangi bir zincirin **tamamen** iletişime izin veren uyumlu tamamen iletişimli uygulamalar oluşturmak ve herhangi bir zincirden kullanabilecekleri için.<br />\n- Herhangi bir zincirin **kullanıcıları**, tercih edilen cüzdanını kullanma veya Push Universal Wallet ile sosyal oturum açma yoluyla anında imza olmadan tatlı bir deneyim yaşayabilirler.<br />\n- Tüm zincirlerdeki kullanıcılar tüm zincirlere katılıp üniversal DeFi, birlikliğini paylaşan oyunlar, üniversal NFT, üniversal Yönetim ve v. vb. ile ilgilenmek için bir araya gelebilirler.",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:35:30.132Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### Push Chain token'un kullanımı nelerdir?\n\n1. **Staking & Doğrulama** <br />\nToken, ağın güvenliğini sağlamak ve konsensus katılımında kullanılmaktadır. Doğrulucular ve delegatörler katılımlarından ödüller kazanırlar.\n\n2. **İşlem Ücretleri** <br />\nToken, transactions ve app kullanımı için ağ ücretlerinin temel yolu olarak hizmet verir.\n\n3. **Evrenel Fee Abstraction** <br />\nToken, kullanıcıların herhangi bir token (ETH, SOL, USDC, vb.) ile ücret ödemesini sağlarken protokol arkadan dönüşüm işlemlerini yönetir.\n\n4. **Yönetim** <br />\nToken sahipleri protokol yönetimi katılımında oy vererek güncellemeler, parametre değişiklikleri ve ekosistem kararları üzerinde oylama yapabilirler.",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:35:47.581Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### Deflye Tasarım\n\n1. **İşlem Ücreti Yandırma** <br />\nYüzen token'in yerli Push Chain token'inden bir bölümünü tahsis ettiğiniz işlem ücretleri, zaman içinde toplam tedarikini azaltmak için yandırılır.\n\n2. **Çapraz Zincir Yandırma** <br />\nEvrimsel Ücret Abstraksiyonları kullanarak, diğer blok zinciri yerli token'lerinde (ETH, SOL) tahsis ettiğiniz ücreti değişim için Push Chain yerli token'e dönüştürüp yandırırız.\n\nBu tasarım, ağ ve üzerine gerçekleşen işlemler büyüdükçe deflasyoncu bir blok zinciri tasarımı oluşturur ve Push Chain ve tüm katılımcıları için uzun vadeli bir gelecek yaratarak ödüleşimli ve sürdürülebilir bir gelecek yaratır.",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:35:56.355Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### Göç Detayları\n\nPush Chain, web3'nin öncü bildirim ve iletişim protokolü olarak inşa edildiği yıllar sonucunda kazandırılmış bilgiden ötürü ortaya çıktı.\n\nBu nedenle, Push Chain kullanıcılarına, yaratıcılara, geliştiricilere ve ekosistem ortağıları için ayrılan airdrop dışında, **$PUSH sahipleri (Push Protokolün yerel token'i) için de bir göç bırakımı ayrılmıştır**.\n\n<details>\n  <summary>\n  <b>Mevcut $PUSH token sahiplerinin göç detayları</b>\n\n  </summary>\n\n  Push Chain'in tokenomics önergesine göre, **toplam Push Chain token tedarikinden%15'i mevcut $PUSH token sahipleri için göç ayrılmıştır**. Göç, **1:15** oranıyla gerçekleşecek şekilde tasarlanmıştır — yani her Push Protokolü ($PUSH) token'i 15 Push Chain tokeni karşılığında alınacak. Örneğin, şu anda 40 $PUSH token sahipseniz, göç sonrasında 600 Push Chain tokeni alacaksınız.\n\nPush Chain'in başlangıçta mevcut Push Protocol ($PUSH) token sahiplerini ödüllendirerek ve uzun vadeli katkılarını teşvik etmek üzere tasarlanmıştır. Mevcut $PUSH token sahipleri için göç süreci aşağıdaki gibi gerçekleşecektir:\n\n  - Tokens, **1:15** oranıyla göçecektir (1 Push Protokolü token'i = 15 Push Chain tokeni).\n  - Göç yapanlar, göç sonrasında %50'lik tokenlerini hemen kilitlecek ve ek %50'lik tokenleri 3 ay sonra kilitlenecek.\n  - Göç yapanlar, göç ettikleri Push Chain tokenlerini kiralamak için ayrılmış özel bir staking havuzundan yararlanabilecektir. Bu ödüller, göç yapanlara Push Chain ekosistemine uzun vadeli katkıları için ödül olarak dağıtılacaktır.\n  - Örneğin, 100 Push Protokolü $PUSH token'i sahipleniyorsanız, göç sonrasında 750 Push Chain tokeni ve 3 ay sonra da ek 750 Push Chain tokeni alacaksınız — toplamda 1500 Push Chain tokeni. Bu tokenleri staking yaparak, Push Chain'in yılda birden çok kez periodeks olarak ödüllendirmesi için ayrılmış Push Chain yield farming havuzünden daha fazla ödül elde edebilirsiniz.\n\nPush Chain'in token göçü başlangıçtan sonra 12 ay boyunca açık kalacak ve sonra kalan tokenler topluluk ve ekosistem rezervine gidecektir.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:36:23.647Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### Airdrop Detayları\n\nAyrıca, tokenomics önerisinde Push Chain token toplamı için %10'ü geçmiş ve mevcut Push Protokol uygulama kullanıcılarına (bildirimler, iletişim, sohbet), yeni kullanıcılar, yaratıcılar, geliştiriciler ve Push Chain ekosistem ortağınızın bir parçası olarak airdrop için ayrılmıştır.\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:36:28.789Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## Jeton Dağılımı Detayları\n\nPush Chain jetonlarının toplam miktarı **10 milyar** olarak önerilmiştir ve şu şekilde dağıtılmaktadır:\n\n![Push Chain Tokenomics](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Push Chain Tokenomics Vesting Detayları](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Airdrop dağıtımı TGE'den başlayacak, ancak birkaç sezonu kapsayacak şekilde gerçekleşecektir.\n2. Çekirdek Katkıdaşlar için 12 aylık erteklenmiş bir gecikme ve 24 aylık vazgeçirseme vardır.\n3. Push Labs Hazinesi için 36 aylık vazgeçirsemedir.\n4. Yatırımcıları için 24 aylık doğrusal vazgeçirseme vardır.\n5. Toplum ve Ecosystem Rezervleri için TGE'de %13,5'unun açılış ardından 36 aylık vazgeçirsemedir.\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:36:39.170Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## Katılın\n\n- **🧙 Geliştiriciler**\n[ belge merkezi](/docs/) adresindeki SDK ve belgelerini keşfedin\n\n- **🦹 Topluluk**  \nTwitter'in [@PushChain](https://x.com/PushChain) sayfasını takip ederek, Discord'un [pushchain](https://discord.com/invite/pushchain) ve Telegram'in [epnsproject](https://t.me/epnsproject) adreslerine katılın.\n\nBirlikte **Universal Web3**'nin geleceğini inşa edelim!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:36:45.583Z"
+    },
+    "notifications.chain-notification.title": {
+      "value": "<1>{network}</1> ağına eklenmiş, <2>{{token}}</2> işlemleri şimdi kullanılabilir.",
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-16T17:36:47.215Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-11-14T20:35:19.462Z",
+  "lastUpdated": "2026-01-16T17:06:15.115Z",
   "keys": {
     "footer.email-section.title-secondary": {
       "value": "¡noticias y actualizaciones!",
@@ -1149,11 +1149,6 @@
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
       "value": "## Participa\n\n- **🧙 Desarrolladores**\nExplora nuestro SDK y Docs en [Documentation Hub](/docs/)\n\n- **🦹 Comunidad**\nSigue a [@PushChain](https://x.com/PushChain) en X/Twitter, únete a nuestro [Discord](https://discord.com/invite/pushchain) y [Telegram](https://t.me/epnsproject).\n\nJuntos, construyamos el futuro de **Universal Web3**!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
-      "lastUpdated": "2025-11-14T19:27:06.072Z"
-    },
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### ¿Qué se puede construir en Push Chain?\n\nPush Chain aporta interoperabilidad perfecta y unifica todas las L1, L2 y L3 y, por lo tanto, está preparada para convertirse en el patio de juegos de la innovación y la interop. Puedes construir casos de uso web3 existentes como:\n\n![Casos de uso principales de Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nO puedes mejorar web3 y crear innovaciones:\n\n![Casos de uso para el consumidor en Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nO puedes ver algunos ejemplos populares de app para inspirarte:\n\n![Ejemplos populares de app en Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
       "lastUpdated": "2025-11-14T19:27:06.072Z"
     },
     "pages.knowledge.testnet.seo.title": {
@@ -4241,46 +4236,6 @@
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
       "lastUpdated": "2025-11-14T19:27:06.074Z"
     },
-    "notifications.chain-notification.description": {
-      "value": "¡El deployathon del Proyecto G.U.D está en vivo! Despliega apps y gana $5000",
-      "englishChecksum": "85d2dccbfcb4fb47e4b41cda5647a895",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.button-text": {
-      "value": "Ve a Universal y Despliega",
-      "englishChecksum": "82e3cba5136160805edc5aa2d07c3ef9",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.button-title": {
-      "value": "El deployathon de Project G.U.D está EN VIVO",
-      "englishChecksum": "650ed2b03f41272ff63abd29d428c180",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.button-aria-label": {
-      "value": "El deployathon de Project G.U.D está EN VIVO. Puedes echarle un vistazo aquí",
-      "englishChecksum": "0dd2ea4ac7f77e164ec554e5b5e914ae",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.close-button-title": {
-      "value": "Cerrar notificación de testnet",
-      "englishChecksum": "b00c4c621e10fb69a9a804c17dddf363",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.close-button-aria-label": {
-      "value": "Descartar notificación de la red de pruebas Push Chain",
-      "englishChecksum": "65c5b2f7da4921ffc01e55264c0a78a6",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.container-aria-label": {
-      "value": "Push Chain testnet notification",
-      "englishChecksum": "6ea89b16a22db1f97495cf2dc5d4d1ff",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.chain-notification.image-alt": {
-      "value": "Push Chain Testnet Donut - Universal Blockchain",
-      "englishChecksum": "36296d1d62073925976682f0c22235cc",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
     "notifications.rewards-notification.title": {
       "value": "¡La beta cerrada de Donut Testnet está en vivo!",
       "englishChecksum": "a53ca5b1d208295d71a04e774247be39",
@@ -4309,21 +4264,6 @@
     "notifications.rewards-notification.container-aria-label": {
       "value": "Notificación de recompensas Push Chain",
       "englishChecksum": "c5edb5fb5a09641efabd5fcf393ee079",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.info-bar.title": {
-      "value": "Push Chain Testnet ‘Donut’ Ahora en Vivo!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "Explora Aplicaciones Universales",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.074Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "Descubre las Apps Universales",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
       "lastUpdated": "2025-11-14T19:27:06.074Z"
     },
     "notifications.info-bar.dismiss-button-title": {
@@ -4375,6 +4315,31 @@
       "value": "Anuncio de Push Metamask Snap",
       "englishChecksum": "c9b0fb5c837df05308c31f13fe5d64ed",
       "lastUpdated": "2025-11-14T19:27:06.074Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "Construye — Cómo hacer y Tutoriales",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:05:25.995Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "Guías paso a paso, patrones y ejemplos para utilizar las características de Push Chain.",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:05:28.086Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "Creadores - Guías y Tutoriales",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:05:43.956Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "Tutoriales guiados, mejores prácticas y ejemplos para construir con Push Chain.",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:06:03.290Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "Constructores - Guías y tutoriales",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:06:06.479Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T16:29:53.841Z",
+  "lastUpdated": "2026-01-16T17:10:53.593Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -39,11 +39,6 @@
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
       "value": "### Où s'intègre Push Chain ?\n\nPush chain s'intègre **à chaque projet…** **sur chaque chaîne !**\n\n- **Elle permet aux développeurs** de n'importe quelle chaîne de créer des applications d'interopérabilité complète transparente, utilisables depuis n'importe quelle chaîne, via n'importe quel wallet.<br />\n- **Elle permet aux utilisateurs** la liberté d'interagir avec le wallet de leur choix ou d'avoir une expérience transparente via Push Universal Wallet avec connexion sociale.<br />\n- **Elle permet des expériences d'app partagées** où les utilisateurs de toutes les chaînes peuvent se réunir et interagir avec la DeFi universelle, les jeux unifiés, les NFT universels, la gouvernance universelle, etc.<br />",
       "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### Que peut-on construire sur Push Chain ?\n\nPush Chain apporte une interopérabilité fluide et unifie tous les L1, L2 et L3 et est donc prêt à devenir le terrain de jeu de l'innovation et de l'interopérabilité. Vous pouvez construire des cas d'utilisation Web3 existants tels que :\n\n![Principaux cas d'utilisation de Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nOu vous pouvez améliorer Web3 et créer des innovations :\n\n![Cas d'utilisation grand public de Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nOu vous pouvez consulter quelques exemples d'app populaires et vous en inspirer :\n\n![Exemples d'app populaires sur Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
       "lastUpdated": "2025-11-14T19:27:06.092Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.title": {
@@ -1571,21 +1566,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain Testnet ‘Donut’ Maintenant Disponible !",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.093Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "Découvrez les Apps Universelles",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.093Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "Découvrez les Apps Universelles",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.093Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Ignorer l'annonce",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -2469,6 +2449,46 @@
       "value": "Je ne peux pas me connecter à mon portefeuille. Que devrais-je essayer ?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
       "lastUpdated": "2026-01-16T16:29:53.841Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "Push Chain Tokenomics | Économie du Token",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:06:34.174Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "Règlement en $PC, immersion dans l'utilisation, économie de l'enjeu et émissions — aperçu concis pour les investisseurs.",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:06:39.397Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### Qu'est-ce que l'utilité du jeton Push Chain ?\n\n1. **Staking & Validation** <br />\nLe jeton est utilisé pour le staking afin de sécuriser le réseau et participer au consensus. Les validateurs et les délégateurs gagnent des récompenses pour leur participation.\n\n2. **Frais de transaction** <br />\nLe jeton sert de méthode principale pour les frais du réseau pour les transactions et l'utilisation de l'app.\n\n3. **Abstraction universelle des frais** <br />\nLe jeton permet aux utilisateurs de payer des frais dans n'importe quel jeton (ETH, SOL, USDC, etc.) tandis que le protocole gère la conversion en arrière-plan.\n\n4. **Gouvernance** <br />\nLes détenteurs de jetons peuvent participer à la gouvernance du protocole, voter pour les mises à jour, les changements de paramètres et les décisions relatives à l'écosystème.",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:08:40.330Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### Conception Déflationniste\n\n1. **Brûlage des Frais de Transaction** <br />\nUne partie des frais de transaction collectés dans le jeton natif Push Chain est brûlée, réduisant ainsi l'offre totale au fil du temps.\n\n2. **Brûlage Interchaîne** <br />\nEn utilisant les Universal Fee Abstractions, une partie des frais collectés sur d'autres blockchain's token natifs (ETH, SOL) est échangée contre le jeton natif Push Chain et brûlée.\n\nCela garantit un design de blockchain déflationnaire qui brûle des jetons à mesure que le réseau et les transactions qui ont lieu dessus croissance. Ce design permet la création d'un avenir durable à long terme incitatif pour Push Chain et tous ses participants.",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:08:56.096Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### Migration Details\n\nPush Chain is the result of years of learning from building the leading notification and communication protocol of web3, which was one of the first consumer apps for crypto.\n\nOwing to this, apart from the airdrop allocated (see details below) to Push Chain users, creators, developers and ecosystem partners, **there is also a migration drop reserved for the $PUSH holders** (which was the native token of Push Protocol).\n\n<details>\n  <summary>\n  <b>Migration details for existing $PUSH token holders</b>\n\n  </summary>\n\n  **For existing $PUSH token holders**, the Push Chain tokenomics proposal allocates 15% of the total Push Chain token supply specifically for migration. The migration will occur at a ratio of **1:15**—meaning for each Push Protocol ($PUSH) token you hold, you'll receive 15 Push Chain tokens. For example, if you currently hold 40 $PUSH tokens, you'll receive 600 Push Chain tokens after migration.\n\n  The launch of Push Chain is designed to reward and incentivize prior Push Protocol ($PUSH) holders for their loyalty and contribution. The migration process for existing $PUSH token holders will work as follows:\n\n  - Tokens will migrate at a 1:15 ratio (1 Push Protocol token = 15 Push Chain tokens).\n  - Participants in the Push Chain migration will see 50% of their migrated tokens unlocked immediately, and an additional 50% unlocked after 3 months.\n  - Token migrators will also benefit from a dedicated yield farming pool reserved for them. These rewards will be distributed to token migrators if they stake their migrated Push Chain tokens, to reward them for long-term contribution to the ecosystem.\n  - For example, if you have 100 Push Protocol $PUSH tokens, you'll receive 750 Push Chain tokens when you migrate and 750 Push Chain tokens after 3 months — for a total of 1,500 Push Chain tokens. You can choose to stake these tokens to get additional rewards from the Push Chain yield farming pool, distributed periodically.\n\n  The Push Chain token migration will be open for 12 mois après le lancement, après quoi les éventuels tokens restants iront à la communauté et au réservoir d'écosystème.\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:09:38.750Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### Détails de l'Airdrop\n\nDe plus, la proposition de tokenomics réserve 10 % de l'offre totale de jetons Push Chain pour des airdrops au profit des utilisateurs actuels et passés des applications Push Protocol (notifications, messagerie, chat), ainsi que des nouveaux utilisateurs, créateurs, développeurs et partenaires de l'écosystème Push Chain.\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:09:43.586Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## Distribution des jetons Push Chain\n\nLa supply totale de jetons Push Chain est proposée à **10 milliards**, distribuée comme suit:\n\n![Tokenomics Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Détails du vesting Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Les distributions d'airdrop commencent au TGE, mais auront lieu tout au long de plusieurs saisons.\n2. Les Contributeurs principaux ont un délai de 12 mois suivi par un vesting de 24 mois.\n3. Le Push Labs Treasury a un vesting de 36 mois.\n4. Les investisseurs ont un vesting linéaire de 24 mois.\n5. La communauté et les Réserves écosystème ont un déverrouillage de 13,5 % au TGE suivi par un vesting de 36 mois.\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:10:02.056Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## Participez\n\n- **🧙 Développeurs**\nExplorez notre SDK & Documentation sur [Documentation Hub](/docs/)\n\n- **🦹 Communauté**  \nSuivez [@PushChain](https://x.com/PushChain) sur X/Twitter, rejoignez notre [Discord](https://discord.com/invite/pushchain) et [Telegram](https://t.me/epnsproject).\n\nEnsemble, construisons l'avenir du **Universal Web3**!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:10:39.362Z"
     }
   }
 }
