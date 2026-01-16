@@ -183,10 +183,10 @@
                     "title": "¿Aplicaciones para el consumidor 🫶 Blockchain?"
                   },
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "Aplicaciones posibles solo con estado compartido - Vol.1"
+                    "title": "Apps Possible Only with Shared State - Vol. 1"
                   },
                   "apps-only-possible-with-shared-state-v2": {
-                    "title": "Apps Solo Posibles con Estado Compartido - Vol.2"
+                    "title": "Apps Only Possible with Shared State - Vol. 2"
                   }
                 }
               },
@@ -236,7 +236,7 @@
                   "airdrop-details": "### Detalles del Airdrop\n\nAdemás, la propuesta de tokenomics asigna el 10% del suministro total de tokens Push Chain para airdrops a usuarios pasados y presentes de la aplicación Push Protocol (notificaciones, mensajería, chat). Junto con los nuevos usuarios, creadores, desarrolladores y socios del ecosistema de Push Chain.\n\n<br />",
                   "token-distribution": "## Detalles de la Distribución del Token\n\nEl suministro total de tokens Push Chain se propone en **10 mil millones**, distribuidos de la siguiente manera:\n\n![Push Chain Tokenomics](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Push Chain Tokenomics Vesting Details](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Las distribuciones de Airdrop comienzan en TGE, pero ocurrirán a lo largo de múltiples temporadas.\n2. Los Contribuyentes Centrales tienen un retraso de 12 meses, seguido de un vesting de 24 meses.\n3. El Tesoro de Push Labs tiene un vesting de 36 meses.\n4. Los Inversores tienen un vesting lineal de 24 meses.\n5. Las Reservas de la Comunidad y el Ecosistema tienen un desbloqueo del 13.5% en TGE, seguido de un vesting de 36 meses.\n\n<br />",
                   "get-involved": "## Participa\n\n- **🧙 Desarrolladores**\nExplora nuestro SDK y Docs en [Documentation Hub](/docs/)\n\n- **🦹 Comunidad**\nSigue a [@PushChain](https://x.com/PushChain) en X/Twitter, únete a nuestro [Discord](https://discord.com/invite/pushchain) y [Telegram](https://t.me/epnsproject).\n\nJuntos, construyamos el futuro de **Universal Web3**!",
-                  "use-cases": "### ¿Qué se puede construir en Push Chain?\n\nPush Chain ofrece interoperabilidad sin costuras y une todos los L1s, L2s y L3s, lo que la posiciona como el lugar ideal para la innovación y la interoperabilidad. Puedes construir casos de uso existentes de web3 como:\n\n![Casos de uso principales de Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nO mejorar web3 e crear innovaciones:\n\n![Casos de uso para consumidores de Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nO ver algunos ejemplos populares de aplicaciones y tomar inspiración de ellos:\n\n![Ejemplos populares de aplicaciones en Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)"
+                  "use-cases": "### What can be built on Push Chain?\n\nPush Chain brings seamless interoperability and unifies all L1s, L2s, & L3s and therefore is poised to become the playground of innovation and interop. You can build existing web3 use cases such as:\n\n![Primary use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nOr you can better web3 and create innovations:\n\n![Consumer use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nOr you can see some popular app examples and to take inspiration from:\n\n![Popular app examples on Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)"
                 }
               }
             },

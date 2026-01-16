@@ -187,10 +187,10 @@
                     "title": "消费者应用程序 🫶 Push Chain？"
                   },
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "仅有共享状态才可能的应用 - 卷一"
+                    "title": "只有共享状态才可能的应用程序 - 卷一"
                   },
                   "apps-only-possible-with-shared-state-v2": {
-                    "title": "只在共享状态下才可能的应用程序 - 卷.2"
+                    "title": "共享状态下唯一可能的应用程序 - 卷2"
                   }
                 }
               },
@@ -221,7 +221,7 @@
           "og-title": "开发者指南与教程",
           "og-description": "Push Chain 的指南教程、最佳实践和示例。",
           "twitter-title": "开发者 — 教程与实践指南",
-          "twitter-description": "<2>一步一步指南，助力推送链项目推出<1>$PC</1><2>"
+          "twitter-description": "区块链上推送应用的逐步指南。"
         }
       },
       "deepdives": {
@@ -1369,7 +1369,7 @@
       "close-button-title": "关闭通知",
       "close-button-aria-label": "关闭 Push Chain toast 通知",
       "container-aria-label": "Push Chain toast notification",
-      "title": "<1>链信息</1>"
+      "title": "在注出一页贼还"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta 已经上线！",

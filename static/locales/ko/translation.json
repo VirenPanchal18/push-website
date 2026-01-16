@@ -174,7 +174,7 @@
               "builders-intro": {
                 "items": {
                   "intro": "## 빌더들\n\nPush Chain에서 구축하고 싶으신가요? 여기에서 영감을 받고 시작할 수 있는 리소스를 제공합니다.",
-                  "curated-reads": "<1>선별된 자료 👇</1>"
+                  "curated-reads": "## 큐레이트드 리딩 👇"
                 }
               },
               "universal-apps": {
@@ -187,10 +187,10 @@
                     "title": " Push Chain 에 Consumer Apps 🫶 만들 수 있어요?"
                   },
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "<1>유니버셜 앱만 가능한 공유 상태 - 권장 사항 Vol.1<1>"
+                    "title": "유니버설 앱은 공유 상태 없인 불가능 - 비. 1권"
                   },
                   "apps-only-possible-with-shared-state-v2": {
-                    "title": "공유된 상태와 함께 가능한 앱 - Vol.2"
+                    "title": "shared state로 가능한 앱들 - VOL. 2"
                   }
                 }
               },
@@ -204,7 +204,7 @@
                     "title": "테스트넷 토큰 obtaining"
                   },
                   "testnet-explorer": {
-                    "title": "<keep>Push Testnet Explorer</keep>"
+                    "title": "Push Testnet Explorer"
                   }
                 }
               }
@@ -217,11 +217,11 @@
         },
         "seo": {
           "title": "빌더 — 방법 및 튜토리얼",
-          "description": "<1> Push 체인 기능 사용법, 패턴, 예제를 단계별로 안내합니다.<2></1>",
+          "description": " Push 체인 기능 사용을 위한 단계별 가이드, 패턴 및 예시입니다.",
           "og-title": "빌더 - 방법 및 튜토리얼",
-          "og-description": "<1>Push Chain을 사용하여構築하는 데 도움이 되는 지침, 모범 사례 및 예시<2>. <3> Push Portal</3>, <4>Donut Testnet<4>을 경험하세요.",
+          "og-description": "푸시 체인에서 개발을 위한 가이드 튜토리얼, 베스트 프ラク티스 및 예제를 제공합니다.",
           "twitter-title": "빌더즈 - 방법 & 튜토리얼",
-          "twitter-description": "<1>Push 체인에서 배포하기 위한 단계별 가이드를 제공합니다.</1>"
+          "twitter-description": "Step-by-step guides to ship on Push Chain."
         }
       },
       "deepdives": {
@@ -271,13 +271,13 @@
                   "vision": "## Push 체인의 비전은 무엇인가요?\n\n모든 블록체인에는 특정 앱과 용도에 유용한 점이 증명되었습니다. 비트코인은 지능형 돈을 가능하게 했고, 이더리움은 DeFi 인노버션을 가능하게 했으며, 솔라나는 빠른 앱과 메모 문화 가능하게했습니다. 여러 L2와 새 L1는 다른 영역에 대한 관심사를 대상으로 하고 있습니다.\n\n그러나 체인 추출 및 부드러운 상호운용성을 위한 목적을 가진 블록체인이 아직 필요합니다. 이 체인은 ETH, SOL, EVM 또는 non-EVM에서 모든 체인의 거래를 구동할 수 있는 앱을 가능하게 하며, **아무런 체인이나 지갑이 있더라도 모든 사용자가 사용할 수 있는 앱**을 가능하게 할 것입니다. 이가 **유니버설 앱의 체인**입니다! 이것이 Push Chain!",
                   "innovation": "### 혁신 기반으로 블록체인 고립을 없애기!\n\nPush Chain은 사용자 및 개발자를 모두 혁신적으로做어 나가며, 단일 보편적인 스마트 계약 배포를 통해 몇 시간 만에 유니버설 앱을 배포할 수 있는 환경으로 제공합니다.\n\n또한 앱이 어디에 위치하든 사용자가 편안하고 익숙한 생태계에서 거래할 수 있도록 지원합니다.\n\n이런 효과는 다음과 같이 달성됩니다:\n\n- **모든 체인에서의 거래 가능**\n- **유니버설 피/지갑 추상화**를 통해 사용자가 어떤 체인, 어떤 지갑을 사용하고 어떤 토큰으로 지불할지를 결정할 수 있습니다.\n- **유니버설 스마트 계약**를 통해 개발자가 몇 분 만에 앱을 배포할 수 있습니다.\n- **공유된 상태**로 다른 블록체인의 데이터를 읽을 수 있습니다.\n- **프로그래밍 가능한 솔버**로 다른 체인에 데이터를 쓸 수 있습니다.\n\n이 모든 것이 보편적인 실행 계층으로 통합되어 **모든 체인 사용자가 같은 앱에 액세스하고 상호 작용할 수 있도록 지원합니다**.",
                   "fit": "### 푸시 체인에서 어떻게 위치하는가?\n\n푸시 체인은 **모든 프로젝트…** **모든 체인에서 작동합니다!**\n\n- **개발자들은** 모든 체인에서 순조로운 전체 인터럽트 앱을 생성할 수 있습니다.\n  - **사용자들은** 자신의 지갑을 선택하거나 푸시 유니버셜 월렛으로 소셜 로그인을 통해 무지각 경험을 할 수 있습니다.\n  - **공유된 앱 경험은** 모든 체인에서 사용자가 함께하고, 공통 DeFi, 통합 게이밍, 공용 NFT, 공용 다의, 등에서 상호작용할 수 있습니다.",
-                  "use-cases": "### Push 체인에서 무엇을 만들 수 있을까?\n\nPush Chain은 모든 L1, L2 및 L3 간의 원활한 상호 운용성과 통합을 가져와, 혁신과 상호 운용성의 놀이터가 될 준비가 되어 있습니다. Push Chain에서 기존의 web3 사용 사례를 빌드할 수 있습니다:\n\n![Push Chain의 주 사용 사례](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\n또는 웹3을 개선하고 혁신적인 것을 만들 수도 있습니다:\n\n![Push Chain의 소비자 사용 사례](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\n그리고 인기 앱 예제를 볼 수 있으며 영감을 얻을 수도 있습니다:\n\n![Push Chain上的 인기 앱 예제](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
                   "token-utility": "### Push Chain 토큰의 유용성은 무엇입니까?\n\n1. **스테이킹 & 검증** <br />\n토큰은 네트워크를 안전하게 유지하고 합의에 참여하는 데 사용됩니다. 발란서와 위임자는 그들의 참여로 보상을 받습니다.\n\n2. **거래 수수료** <br />\n토큰은 거래 및 앱 사용을 위한 네트워크 수수료의 주된 방법입니다.\n\n3. **유니버셜 피 이스트레이션** <br />\n토큰은 유저가 ETH, SOL, USDC 등 bất kỳ 토큰으로든 수수료를 지불할 수 있도록 하며 프로토콜이 전환을 처리합니다.\n\n4. **지배구조** <br />\n토큰 홀더는 업그레이드, 매개변수 변경, 생태계 결정에 대한 투표를 포함하여 프로토콜 지배구조에 참여할 수 있습니다.",
                   "deflationary-design": "### 데플레이션 디자인\n\n1. **트랜잭션 피 이어 버닝** <br />\n네이티브 Push Chain 토큰으로 수거된 거래 피 중 일부가 태워져, 시간이 지남에 따라 총 공급량이 감소합니다.\n\n2. **크로스 체인 버닝** <br />\n유니버설 피 추상화 사용을 통해 다른 블록체인의 네이티브 토큰(ETH, SOL)으로 수거된 피 중 일부가 Push Chain 네이티브 토큰으로 교환되어 태워집니다.\n\n이는 네트워크와 그”上에서 발생하는 트랜잭션이 성장함에 따라 데플레이션적인 블록체인 디자인을 보장하고, Push Chain과 모든 참여자의 장기적인 지속 가능하고 동기화된 미래를 위한 인센티브를 창출합니다.",
                   "migration-details": "### 이주 세부 정보\n\nPush Chain은 웹3에서 leading 통지 및 커뮤니케이션 프로토콜을 건설한 경험으로 만들어졌습니다.\n\n이것으로 인해 Push Chain 사용자, 창조자, 개발자와 생태계 파트너에게 지분되는 aside from the airdrop 외에 **$PUSH 보유자에게도 이주 할당분이 예약되어 있습니다**.\n\n<details>\n  <summary>\n  <b>-existing $PUSH 토큰 홀더의 이주 세부 정보</b>\n\n  </summary>\n\n  **existing $PUSH 토큰 홀더**에 대해 Push Chain 토큰스믹스는 전체 Push Chain 토큰 공급량의 15%를 migration용으로 할당합니다. 이주는 **1:15** 비율로 진행되며, 예를 들어 현재 40 $PUSH 토큰을 보유하면 이주 후 600개의 Push Chain 토큰을 받을 수 있습니다.\n\n  Push Chain의 런칭은 기존 Push Protocol ($PUSH) 홀더의 충성성과 기여를 보상하고 장려하기 위해 설계되었습니다. existing $PUSH 토큰 홀더의 이주 과정은 다음과 같이 진행됩니다:\n\n  - 토큰은 1:15 비율로 이주합니다 (1개의 Push Protocol 토큰 = 15개의 Push Chain 토큰).\n  - Push Chain migration에 참여한 사람은 즉각적으로 절반의 토큰이 해제되고, 나머지 절반은 3개월 후에 해제됩니다.\n  - 이주한 토큰 홀더는 전용 이주 보상 풀에서 보상을 받을 수 있습니다. 이러한 보상은 주기적으로 배분되며, 생태계에 장기적인 기여를 한 토큰 홀더를 위해 준비되었습니다.\n\n  이주를 통해 이행되는 Push Chain 토큰은 런칭 후 12개월 동안 열려 있으며, 그 이후에는 커뮤니티 및 생태계 예약으로 귀속됩니다.\n\n</details>\n<p />",
                   "airdrop-details": "### 에어드롭 세부 사항\n\n게다가 토큰омиクス 제안은 전체 Push Chain 토큰 공급의 10%를 과거 및 현 Push 프로토콜 애플리케이션 사용자(알림, 메시지, 채트)용으로 예산하고 있습니다. 새로운 사용자, 창조자, 개발자 및 Push Chain 생태계 파트너와 함께 함께합니다.\n\n<br />",
                   "token-distribution": "## 토큰 배분 세부 사항\n\nPush Chain 토큰의 총 공급량은 **100억**으로 제안되며, 다음과 같이 배분됩니다:\n\n![ Push Chainokenomics](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![ Push Chainokenomics Vesting Details](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. TGE부터 시작되는 에어드롭 배분은 여러 시즌 동안 진행됩니다.\n2. 핵심 컨트리뷰터는 12개월의 지연과 24개월의 Vesting을 거칩니다.\n3. Push Labs 재무부는 36개월 Vesting을 거칩니다.\n4. 투자자는 24개월 동안 선형 Vesting을 거칩니다.\n5. 커뮤니티와 생태계 예약은 TGE에서 13.5% 해제되며, 그 후 36개월 동안 Vesting이 진행됩니다.\n\n<br />",
-                  "get-involved": "## 참여하기\n\n- **🧙 개발자들**\n문서 허브에서 [SDK & Docs](/docs/) 탐구하세요!\n\n- **🦹 커뮤니티**\n[@PushChain](https://x.com/PushChain)님을 [X/Twitter](https://twitter.com/pushchain)에서 팔로우하고, 우리의 [Discord](https://discord.gg/pushchain)와 [Telegram](https://t.me/epnsproject)에 가입하세요.\n\n함께 **유니버셜 웹3**의 미래를 만들기 위해 노력합시다!"
+                  "get-involved": "## 참여하기\n\n- **🧙 개발자들**\n문서 허브에서 [SDK & Docs](/docs/) 탐구하세요!\n\n- **🦹 커뮤니티**\n[@PushChain](https://x.com/PushChain)님을 [X/Twitter](https://twitter.com/pushchain)에서 팔로우하고, 우리의 [Discord](https://discord.gg/pushchain)와 [Telegram](https://t.me/epnsproject)에 가입하세요.\n\n함께 **유니버셜 웹3**의 미래를 만들기 위해 노력합시다!",
+                  "use-cases": "### Push Chain에서 qué se puede construir?\n\nPush Chain은 모든 L1, L2 및 L3 간의 순조로운 인터오페라빌리티를 제공하고 통합하며, 혁신과 인터오페의 놀이터가 되기 위해 준비되어 있습니다. Push Chain에서 건설할 수 있는 기존 웹 3 사용 사례에는 다음과 같은 것이 포함됩니다:\n\n![Push Chain의 주 용도](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\n또는 웹 3을 개선하고 혁신을 창출할 수 있습니다:\n\n![ Push Chain의 소비자 용도](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\n또는 인기를 득하는 앱 예제를 보려면 다음과 같습니다:\n\n![Push Chain에서 인기 있는 앱 예제](/assets/website/chain/knowledge/tokenomics/popularapps.webp)"
                 }
               }
             },
@@ -1368,7 +1368,7 @@
       "close-button-title": "토스트 알림 닫기",
       "close-button-aria-label": "Push Chain 토스트 알림 닫기",
       "container-aria-label": "Push Chain 토스트 알림",
-      "title": "<1>체인 알림</1>"
+      "title": ""
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta가 시작되었습니다!",

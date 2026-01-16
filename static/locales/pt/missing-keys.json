@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:29:11.855Z",
+  "lastUpdated": "2026-01-16T19:57:35.077Z",
   "keys": {
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de Conhecimento",
@@ -1786,9 +1786,9 @@
       "lastUpdated": "2026-01-16T17:26:07.921Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
-      "value": "## Builders\n\nReady to build on Push Chain? Here are some resources to get you inspired and started.",
+      "value": "## Builder\n\nPronto para construir na Push Chain? Aqui estão alguns recursos para te inspirar e começar.",
       "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
-      "lastUpdated": "2026-01-16T17:26:10.758Z"
+      "lastUpdated": "2026-01-16T19:49:51.833Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
       "value": "## Leitura Curada 👇",
@@ -1809,16 +1809,6 @@
       "value": "Apps de Consumidor 🫶 na Push Chain?",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:26:21.366Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Aplicativos Possíveis Apenas com Estado Compartilhado - Vol.1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:26:24.493Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "Apps Possíveis Apenas com Estado Compartilhado - Vol. 2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:26:30.687Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "Recursos para Desenvolvedores",
@@ -1861,9 +1851,9 @@
       "lastUpdated": "2026-01-16T17:26:48.797Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
-      "value": "Push Chain टोकनॉमिक्स | टोकन इकोनॉमिक्स",
+      "value": "Economia de Tokens da Push Chain | Economia do Token",
       "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
-      "lastUpdated": "2026-01-16T17:27:07.816Z"
+      "lastUpdated": "2026-01-16T19:50:01.970Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-description": {
       "value": "Settlement em $PC, sinks impulsionadas pelo uso, economia de staking e emissões — visão concisa para investidores.",
@@ -1886,9 +1876,8 @@
       "lastUpdated": "2026-01-16T17:27:30.945Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
-      "value": "## Qual é a Visão do Push Chain?\n\nTodos os blockchains provaram ser particularmente úteis para aplicativos e casos de uso específicos. O Bitcoin允许了智能货币。以太坊允许了DeFi的创新。Solana允许了快速应用和meme文化。几个L2s和新的L1s正在针对其他关注领域进行目标。\n\n然而，一个专门为使链抽象和无缝互操作性服务的区块链仍然是必需的。这条链将使任何链（ETH、SOL、EVM或非EVM）交易来驱动应用，无论用户所在链或钱包。这是通用应用的链。这就是Push Chain！",
       "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
-      "lastUpdated": "2026-01-16T17:27:39.401Z"
+      "lastUpdated": "2026-01-16T19:50:00.254Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
       "value": "### Constróido sobre inovação para eliminar a isolamento da blockchain!\n\nPush Chain é revolucionário tanto para usuários quanto para desenvolvedores, pois cria um ambiente onde qualquer desenvolvedor pode implantar seu aplicativo universal em horas por meio de um contrato inteligente universal simples.\n\nEle também permite que os usuários transacionem do conforto, conveniênça e escolha do seu ecossistema, independentemente de onde o aplicativo reside.\n\nPor baixo dos panos, isso é alcançado por:\n\n- Capacidade de realizar **transações de qualquer cadeia**\n- **Abstração Universal de Taxas & Carteira** para permitir que os usuários usem qualquer cadeia, qualquer carteira e paguem em qualquer moeda\n- **Contrato Inteligente Universal** para permitir que os desenvolvedores implantem aplicativos interoperantes instantaneamente em minutos\n- **Estado Compartilhado** para ler dados de outras blockchains\n- **Solucionador Programável** para escrever dados em qualquer outra cadeia\n\nTudo isso permite uma **Camada de Execução Universal** que permite que os usuários de qualquer cadeia acessem e interajam com o mesmo aplicativo.",

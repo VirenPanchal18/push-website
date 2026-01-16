@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:22:13.309Z",
+  "lastUpdated": "2026-01-16T19:56:53.710Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "ナレッジベース — ガイド、FAQ & チュートリアル",
@@ -1842,9 +1842,9 @@
       "lastUpdated": "2026-01-16T17:19:10.595Z"
     },
     "pages.knowledge.builders.seo.twitter-description": {
-      "value": "<2>ステップバイステップガイドをShip on Push Chainに送信してください。</2>",
+      "value": "ブロックチェーンのプッシュ・ポータルで、ステップバイステップのガイドを実装します。",
       "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
-      "lastUpdated": "2026-01-16T17:19:12.474Z"
+      "lastUpdated": "2026-01-16T19:48:52.885Z"
     },
     "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
       "value": "知識ベース",
@@ -1875,16 +1875,6 @@
       "value": "未来のアプリ —混乱無しでビルド",
       "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
       "lastUpdated": "2026-01-16T17:19:34.387Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "共有ステート無きでは実現できないアプリ - 巻1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:19:37.506Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "共通の状態無しで可能なアプリ - Vol.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:19:40.630Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "開発者リソース",

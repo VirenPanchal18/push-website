@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:01:28.472Z",
+  "lastUpdated": "2026-01-16T19:51:59.397Z",
   "keys": {
     "global.site-name": {
       "value": "بلوشكين — Universal L1 for Apps",
@@ -1719,16 +1719,6 @@
       "value": "تطبيقات مستخدمين على البلاكتشين؟",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T16:38:52.590Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "تطبيقاته فقط ممكنة مع الدول الشريفة - الإصدار 1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T16:38:59.176Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "أبلايست فقط ممكن مع الدول الموزعة - الجزء الثاني",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T16:39:02.307Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "مصادر المطورين",

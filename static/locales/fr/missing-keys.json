@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:10:53.593Z",
+  "lastUpdated": "2026-01-16T19:55:43.901Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -594,16 +594,6 @@
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
       "value": "Des applications grand public possibles avec Push Chain ?",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Apps possibles uniquement avec un état partagé - Vol.1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "Uniquement possible avec un état partagé - Vol.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
       "lastUpdated": "2025-11-14T19:27:06.092Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
@@ -2471,9 +2461,8 @@
       "lastUpdated": "2026-01-16T17:08:56.096Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
-      "value": "### Migration Details\n\nPush Chain is the result of years of learning from building the leading notification and communication protocol of web3, which was one of the first consumer apps for crypto.\n\nOwing to this, apart from the airdrop allocated (see details below) to Push Chain users, creators, developers and ecosystem partners, **there is also a migration drop reserved for the $PUSH holders** (which was the native token of Push Protocol).\n\n<details>\n  <summary>\n  <b>Migration details for existing $PUSH token holders</b>\n\n  </summary>\n\n  **For existing $PUSH token holders**, the Push Chain tokenomics proposal allocates 15% of the total Push Chain token supply specifically for migration. The migration will occur at a ratio of **1:15**—meaning for each Push Protocol ($PUSH) token you hold, you'll receive 15 Push Chain tokens. For example, if you currently hold 40 $PUSH tokens, you'll receive 600 Push Chain tokens after migration.\n\n  The launch of Push Chain is designed to reward and incentivize prior Push Protocol ($PUSH) holders for their loyalty and contribution. The migration process for existing $PUSH token holders will work as follows:\n\n  - Tokens will migrate at a 1:15 ratio (1 Push Protocol token = 15 Push Chain tokens).\n  - Participants in the Push Chain migration will see 50% of their migrated tokens unlocked immediately, and an additional 50% unlocked after 3 months.\n  - Token migrators will also benefit from a dedicated yield farming pool reserved for them. These rewards will be distributed to token migrators if they stake their migrated Push Chain tokens, to reward them for long-term contribution to the ecosystem.\n  - For example, if you have 100 Push Protocol $PUSH tokens, you'll receive 750 Push Chain tokens when you migrate and 750 Push Chain tokens after 3 months — for a total of 1,500 Push Chain tokens. You can choose to stake these tokens to get additional rewards from the Push Chain yield farming pool, distributed periodically.\n\n  The Push Chain token migration will be open for 12 mois après le lancement, après quoi les éventuels tokens restants iront à la communauté et au réservoir d'écosystème.\n\n</details>\n<p />",
       "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
-      "lastUpdated": "2026-01-16T17:09:38.750Z"
+      "lastUpdated": "2026-01-16T19:48:20.043Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
       "value": "### Détails de l'Airdrop\n\nDe plus, la proposition de tokenomics réserve 10 % de l'offre totale de jetons Push Chain pour des airdrops au profit des utilisateurs actuels et passés des applications Push Protocol (notifications, messagerie, chat), ainsi que des nouveaux utilisateurs, créateurs, développeurs et partenaires de l'écosystème Push Chain.\n\n<br />",
@@ -2489,6 +2478,10 @@
       "value": "## Participez\n\n- **🧙 Développeurs**\nExplorez notre SDK & Documentation sur [Documentation Hub](/docs/)\n\n- **🦹 Communauté**  \nSuivez [@PushChain](https://x.com/PushChain) sur X/Twitter, rejoignez notre [Discord](https://discord.com/invite/pushchain) et [Telegram](https://t.me/epnsproject).\n\nEnsemble, construisons l'avenir du **Universal Web3**!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
       "lastUpdated": "2026-01-16T17:10:39.362Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-16T19:47:56.257Z"
     }
   }
 }

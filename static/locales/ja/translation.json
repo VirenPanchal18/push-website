@@ -180,10 +180,10 @@
                     "title": "未来のアプリ —混乱無しでビルド"
                   },
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "共有ステート無きでは実現できないアプリ - 巻1"
+                    "title": "シェアードステートでのみ可能なアプリ - Vol. 1"
                   },
                   "apps-only-possible-with-shared-state-v2": {
-                    "title": "共通の状態無しで可能なアプリ - Vol.2"
+                    "title": "共通アプリは共有状態でしか可能ではありません -  VOL. 2"
                   }
                 },
                 "title": "ユニバーサルアプリを作ろう！💪"
@@ -221,7 +221,7 @@
           "og-title": "ビルダーズ - ハウツー＆チュートリアル",
           "og-description": "プッシュチェーンで開発するためのガイド、ベストプラクティス、例などを学べます。",
           "twitter-title": "ビルダーズ - ハウツー＆チュートリアル",
-          "twitter-description": "<2>ステップバイステップガイドをShip on Push Chainに送信してください。</2>"
+          "twitter-description": "ブロックチェーンのプッシュ・ポータルで、ステップバイステップのガイドを実装します。"
         }
       },
       "deepdives": {

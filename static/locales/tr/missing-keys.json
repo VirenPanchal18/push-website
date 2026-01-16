@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:36:47.228Z",
+  "lastUpdated": "2026-01-16T19:59:27.460Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "Bilgi Bankası — Kılavuzlar, SSS ve Nasıl Yapılır",
@@ -1796,9 +1796,9 @@
       "lastUpdated": "2026-01-16T17:33:37.877Z"
     },
     "pages.knowledge.builders.seo.og-description": {
-      "value": "<1>PushChain ile geliştirmek için rehberli eğitmenler, en iyi uygulama örnekleri ve önerileri.<1>",
+      "value": "Push Chain'le yönlendirilmiş eğitimler, en iyi uygulamalar ve örneği inceleyin.",
       "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
-      "lastUpdated": "2026-01-16T17:33:41.870Z"
+      "lastUpdated": "2026-01-16T19:50:51.377Z"
     },
     "pages.knowledge.builders.seo.twitter-title": {
       "value": "İnşacılar - Nasıl Yapar & Eğitimi",
@@ -1844,16 +1844,6 @@
       "value": "Push Chain'e Çözümler 🫶",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:34:09.235Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Paylaşım Durumu Üzerinden Sadece Uygulamalar Mümkün - Vol.1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:34:12.538Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "Paylaşılmış Durumla Sadece Mümkün Uygulamalar - H.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:34:15.769Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "Geliştirici Kaynakları",
@@ -1961,9 +1951,9 @@
       "lastUpdated": "2026-01-16T17:36:45.583Z"
     },
     "notifications.chain-notification.title": {
-      "value": "<1>{network}</1> ağına eklenmiş, <2>{{token}}</2> işlemleri şimdi kullanılabilir.",
+      "value": "{chainName} zincirinde işlemler yapılıyor",
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
-      "lastUpdated": "2026-01-16T17:36:47.215Z"
+      "lastUpdated": "2026-01-16T19:50:52.590Z"
     }
   }
 }

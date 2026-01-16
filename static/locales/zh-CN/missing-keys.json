@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:43:50.390Z",
+  "lastUpdated": "2026-01-16T20:00:08.440Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1757,9 +1757,9 @@
       "lastUpdated": "2026-01-16T17:40:26.760Z"
     },
     "pages.knowledge.builders.seo.twitter-description": {
-      "value": "<2>一步一步指南，助力推送链项目推出<1>$PC</1><2>",
+      "value": "区块链上推送应用的逐步指南。",
       "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
-      "lastUpdated": "2026-01-16T17:40:29.060Z"
+      "lastUpdated": "2026-01-16T19:51:33.009Z"
     },
     "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
       "value": "知识库",
@@ -1795,16 +1795,6 @@
       "value": "消费者应用程序 🫶 Push Chain？",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:40:48.437Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "仅有共享状态才可能的应用 - 卷一",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:40:51.486Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "只在共享状态下才可能的应用程序 - 卷.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:40:54.658Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "开发者资源",
@@ -1917,9 +1907,9 @@
       "lastUpdated": "2026-01-16T17:43:46.796Z"
     },
     "notifications.chain-notification.title": {
-      "value": "<1>链信息</1>",
+      "value": "在注出一页贼还",
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
-      "lastUpdated": "2026-01-16T17:43:50.377Z"
+      "lastUpdated": "2026-01-16T19:51:36.231Z"
     }
   }
 }

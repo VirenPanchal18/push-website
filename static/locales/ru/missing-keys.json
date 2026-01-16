@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:33:22.017Z",
+  "lastUpdated": "2026-01-16T19:57:59.197Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "База знаний — Руководства, часто задаваемые вопросы и инструкции",
@@ -1956,9 +1956,9 @@
       "lastUpdated": "2026-01-16T17:29:39.233Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
-      "value": "<1>Выборка Статей 👇</1>",
+      "value": "## Выборка Чтения 👇",
       "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
-      "lastUpdated": "2026-01-16T17:29:42.173Z"
+      "lastUpdated": "2026-01-16T19:50:32.121Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
       "value": "Давайте построим универсальные приложения 💪",
@@ -1975,25 +1975,15 @@
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:29:52.649Z"
     },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Приложения возможны только с общей статистикой - Т.1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:29:55.718Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "Приложения, возможные только с Shared State - Vol.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:30:19.416Z"
-    },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "Ресурсы разработчика",
       "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
       "lastUpdated": "2026-01-16T17:30:21.623Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
-      "value": "<transliterate>Изучите документацию разработчика</transliterate>",
+      "value": "Изучить документацию разработчика",
       "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
-      "lastUpdated": "2026-01-16T17:30:24.528Z"
+      "lastUpdated": "2026-01-16T19:50:34.784Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
       "value": "Получить тестовые токены",
@@ -2076,14 +2066,14 @@
       "lastUpdated": "2026-01-16T17:32:26.569Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
-      "value": "###Migration Details\n\nPush Chain is the result of years of learning from building the leading notification and communication protocol of Web3, which was one of the first consumer apps for crypto.\n\nOwing to this, apart from the airdrop allocated (see details below) to Push Chain users, creators, developers and ecosystem partners, **there is also a migration drop reserved for the $PUSH holders** (which was the native token of Push Protocol).\n\n<details>\n  <summary>\n  <b>Migration details for existing $PUSH token holders</b>\n\n  </summary>\n\n  **For existing $PUSH token holders**, the Push Chain tokenomics proposal allocates 15% of the total Push Chain token supply specifically for migration. The migration will occur at a ratio of **1:15**—meaning for each Push Protocol ($PUSH) token you hold, you'll receive 15 Push Chain tokens. For example, if you currently hold 40 $PUSH tokens, you'll receive 600 Push Chain tokens after migration.\n\n  The launch of Push Chain is designed to reward and incentivize prior Push Protocol ($PUSH) holders for their loyalty and contribution. The migration process for existing $PUSH token holders will work as follows:\n\n  - Tokens will migrate at a 1:15 ratio (1 Push Protocol token = 15 Push Chain tokens).\n  - Participants in the Push Chain migration will see 50% of their migrated tokens unlocked immediately, and an additional 50% unlocked after 3 months.\n  - Token migrators will also benefit from a dedicated yield farming pool reserved for them. These rewards will be distributed to token migrators if they stake their migrated Push Chain tokens, to reward them for long-term contribution to the ecosystem.\n  - For example, if you have 100 Push Protocol $PUSH tokens, you'll receive 750 Push Chain tokens when you migrate and 750 Push Chain tokens after 3 months — for a total of 1,500 Push Chain tokens. You can choose to stake these tokens to get additional rewards from the Push Chain yield farming pool, distributed periodically.\n\n  The Push Chain token migration will be open for 12 months after launch, after which any remaining tokens will go to the community and ecosystem reserve.\n\n</details>\n<p />",
+      "value": "### Детали миграции\n\nPush Chain — результат нескольких лет работы над созданием ведущего протокола уведомлений и коммуникаций веб3, который был одним из первых потребительских приложений для криптовалют.\n\nИз-за этого, кромеairdrop, выделенного Push Chain пользователям, создателям, разработчикам и партнерам экосистемы (см. подробности ниже), **также есть резервный дроп миграции для держателей $PUSH** (который был родным токеном Push Protocol).\n\n<details>\n  <summary>\n  <b>Детали миграции для существующих держателей токена $PUSH</b>\n\n  </summary>\n\n  **Для existing $PUSH token holders**, предложение по tokenomics Push Chain выделяет 15% общего объема поставок Push Chain специально для миграции. Миграция будет происходить в соотношении **1:15**—то есть на каждый токен Push Protocol ($PUSH) вы получите 15 токенов Push Chain. Например, если вы сейчас держите 40 $PUSH, после миграции вы получите 600 токенов Push Chain.\n\nЗапуск Push Chain призван наградить и стимулировать ранееPush Protocol ($PUSH) держателей за их лояльность и вклад. Процесс миграции для существующих держателей $PUSH будет происходить следующим образом:\n\n  - Токены будут мигрировать в соотношении 1:15 (1 токен Push Protocol = 15 токенам Push Chain).\n  - Участники миграции Push Chain увидят, что 50% их мигрированных токенов разблокируются немедленно, а еще 50% — через 3 месяца.\n  - Участники миграции также получат выгоду от специального пула майнинга прибыли, предназначенного для них. Эти вознаграждения будут распределены среди держателей, если они поместят свои мигрированные токены Push Chain на стейкинг, чтобы наградить их за долгосрочный вклад в экосистему.\n  - Например, если у вас есть 100 Push Protocol $PUSH tokens, вы получите 750 Push Chain tokens при миграции и еще 750 Push Chain tokens через 3 месяца — всего 1,500 Push Chain tokens. Вы можете решить поставить эти токены на стейкинг, чтобы получить дополнительные вознаграждения из пула майнинга прибыли Push Chain, которые будут распределены периодически.\n\nМиграция токенов Push Chain будет открыта в течение 12 месяцев после запуска, после чего любые оставшиеся токены пойдут на сообщество и резерв экосистемы.\n\n</details>\n<p />",
       "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
-      "lastUpdated": "2026-01-16T17:32:45.787Z"
+      "lastUpdated": "2026-01-16T19:50:29.481Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
-      "value": "<br>### Подробности о Airdrop\n\nКроме того, предложение по tokenomics выделяет 10% от общего количества токенов Push Chain для распределения среди прошлых и настоящих пользователей приложений Push Protocol (уведомления, сообщения, чат), а также среди новых пользователей, создателей, разработчиков и партнеров экосистемы Push Chain.\n\n<br />",
+      "value": "### Детали аirdrop\n\nКроме того, предложение по токеномике выделяет 10% общего количества Push Chain token для распределения среди пользователей прошлых и настоящих приложений Push Protocol (уведомления, сообщения, чат). В том числе новых пользователей, создателей, разработчиков и партнеров экосистемы Push Chain.\n\n<br />",
       "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
-      "lastUpdated": "2026-01-16T17:32:51.185Z"
+      "lastUpdated": "2026-01-16T19:50:39.735Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
       "value": "## Подробности распределения токенов\n\nОбщий объем выпушенных Push Chain токенов предлагается на уровне **10 миллиардов**, которые распределяются следующим образом:\n\n![Распределение Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Подробности вестминга Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Раздачи аirdrop начинаются в день первоначального предложения (TGE), но будут проходить в течение нескольких сезонов.\n2. Вкладчиков ядра имеет задержку в 12 месяцев, после чего следуют 24 месяца вестминга.\n3. Push Labs Treasury имеет 36-месячный период вестминга.\n4. Инвесторы имеют линейный период вестминга продолжительностью 24 месяца.\n5. Резервы сообщества и экосистемы имеют разблокировку в размере 13,5% на момент TGE, за которой следует период вестминга продолжительностью 36 месяцев.\n\n<br />",
@@ -2091,9 +2081,19 @@
       "lastUpdated": "2026-01-16T17:33:02.147Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
-      "value": "## Присоединяйтесь\n\n- **🧙 Разработчики**\nИзучайте наш SDK и документацию на [Документальном Хабе](/docs/)\n\n- **🦹 Сообщество**  \nСледите за [@PushChain](https://x.com/PushChain) в X/Twitter, присоединяйтесь к нам в Discord по ссылке <https://discord.com/invite/pushchain> и Telegram: <https://t.me/epnsproject>.\n\nВместе давайте создавать будущее **Универсальной Веб3**!",
+      "value": "## Присоединяйтесь к нам\n\n- **🧙 Разработчики**\nИзучайте наш SDK & Документацию на [Документальном Хабе](/docs/)\n\n- **🦹 Сообщество** \nПодпишитесь на [@PushChain](https://x.com/PushChain) в X/Twitter, присоединитесь к нашим [Discord](https://discord.com/invite/pushchain) и [Telegram](https://t.me/epnsproject).\n\nВместе построим будущее **Универсальной Веб3**!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
-      "lastUpdated": "2026-01-16T17:33:09.111Z"
+      "lastUpdated": "2026-01-16T19:50:46.318Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "value": "### Что можно построить на Push Chain?\n\nPush Chain обеспечивает плавную интероперабельность и объединяет все L1s, L2s и L3s, а потому имеет все шансы стать площадкой инноваций и межблочного взаимодействия. На нем можно строить уже существующие web3-случаи использования:\n\n![Основные случаи применения Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nИли улучшать web3 и создавать инновации:\n\n![Потребительские случаи применения Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nИли посмотреть на примеры популярных приложений и черпать вдохновение:\n\n![Примеры популярных приложений на Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-16T19:57:57.919Z"
+    },
+    "notifications.chain-notification.title": {
+      "value": "<1>{token}</1> цепочка готова!</2>",
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-16T19:57:59.187Z"
     }
   }
 }

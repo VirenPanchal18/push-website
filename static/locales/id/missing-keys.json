@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:18:58.424Z",
+  "lastUpdated": "2026-01-16T19:56:43.861Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "Validators —",
@@ -1836,16 +1836,6 @@
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:16:40.300Z"
     },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Aplikasi Hanya Mungkin dengan Negara Bersama - Vol.1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:16:43.404Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "Apps Mungkin Hanya Mungkin dengan State Bersama - Vol.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:16:49.485Z"
-    },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "Sumber Pembangun",
       "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
@@ -1950,6 +1940,11 @@
       "value": "## Bergabung\n\n- **🧙 Pengembang**\nJelajahi SDK & Dokumen di [Hub Dokumentasi](/docs/)\n\n- **🦹 Komunitas**  \nIkuti [@PushChain](https://x.com/PushChain) di X/Twitter, bergabung dengan grup [Discord](https://discord.com/invite/pushchain) dan [Telegram](https://t.me/epnsproject).\n\nBersama-sama, mari kita membangun masa depan **Universal Web3**!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
       "lastUpdated": "2026-01-16T17:18:44.328Z"
+    },
+    "notifications.chain-notification.title": {
+      "value": "{token} jaringan utama telah diluncurkan!",
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-16T19:56:43.850Z"
     }
   }
 }

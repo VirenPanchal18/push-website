@@ -201,10 +201,10 @@
                     "title": "Aplikasi Konsumen yang Bisa Dibangun di Push Chain?"
                   },
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "Aplikasi Hanya Mungkin dengan Negara Bersama - Vol.1"
+                    "title": "Aplikasi Hanya Mungkin Bersama State Bersama - Vol. 1"
                   },
                   "apps-only-possible-with-shared-state-v2": {
-                    "title": "Apps Mungkin Hanya Mungkin dengan State Bersama - Vol.2"
+                    "title": "Apps Only Possible with Shared State - Volume 2"
                   }
                 }
               }
@@ -1369,7 +1369,7 @@
       "close-button-title": "Tutup notifikasi",
       "close-button-aria-label": "Tutup notifikasi toast Push Chain",
       "container-aria-label": "Notifikasi toast Push Chain",
-      "title": ""
+      "title": "{token} jaringan utama telah diluncurkan!"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta sudah dibuka!",

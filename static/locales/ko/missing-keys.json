@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:25:20.091Z",
+  "lastUpdated": "2026-01-16T19:57:12.394Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1766,9 +1766,9 @@
       "lastUpdated": "2026-01-16T17:22:17.896Z"
     },
     "pages.knowledge.builders.seo.description": {
-      "value": "<1> Push 체인 기능 사용법, 패턴, 예제를 단계별로 안내합니다.<2></1>",
+      "value": " Push 체인 기능 사용을 위한 단계별 가이드, 패턴 및 예시입니다.",
       "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
-      "lastUpdated": "2026-01-16T17:22:20.170Z"
+      "lastUpdated": "2026-01-16T19:49:05.941Z"
     },
     "pages.knowledge.builders.seo.og-title": {
       "value": "빌더 - 방법 및 튜토리얼",
@@ -1776,9 +1776,9 @@
       "lastUpdated": "2026-01-16T17:22:23.256Z"
     },
     "pages.knowledge.builders.seo.og-description": {
-      "value": "<1>Push Chain을 사용하여構築하는 데 도움이 되는 지침, 모범 사례 및 예시<2>. <3> Push Portal</3>, <4>Donut Testnet<4>을 경험하세요.",
+      "value": "푸시 체인에서 개발을 위한 가이드 튜토리얼, 베스트 프ラク티스 및 예제를 제공합니다.",
       "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
-      "lastUpdated": "2026-01-16T17:22:30.651Z"
+      "lastUpdated": "2026-01-16T19:49:10.448Z"
     },
     "pages.knowledge.builders.seo.twitter-title": {
       "value": "빌더즈 - 방법 & 튜토리얼",
@@ -1786,9 +1786,9 @@
       "lastUpdated": "2026-01-16T17:22:32.252Z"
     },
     "pages.knowledge.builders.seo.twitter-description": {
-      "value": "<1>Push 체인에서 배포하기 위한 단계별 가이드를 제공합니다.</1>",
+      "value": "Step-by-step guides to ship on Push Chain.",
       "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
-      "lastUpdated": "2026-01-16T17:22:37.110Z"
+      "lastUpdated": "2026-01-16T19:49:45.754Z"
     },
     "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
       "value": "지식 기반",
@@ -1806,9 +1806,9 @@
       "lastUpdated": "2026-01-16T17:22:47.020Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
-      "value": "<1>선별된 자료 👇</1>",
+      "value": "## 큐레이트드 리딩 👇",
       "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
-      "lastUpdated": "2026-01-16T17:22:49.612Z"
+      "lastUpdated": "2026-01-16T19:48:58.460Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
       "value": "우니버설 앱을 만들어 보자! 💪",
@@ -1824,16 +1824,6 @@
       "value": " Push Chain 에 Consumer Apps 🫶 만들 수 있어요?",
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:22:58.143Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "<1>유니버셜 앱만 가능한 공유 상태 - 권장 사항 Vol.1<1>",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:23:01.438Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "공유된 상태와 함께 가능한 앱 - Vol.2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:23:04.452Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "개발자 리소스",
@@ -1851,9 +1841,9 @@
       "lastUpdated": "2026-01-16T17:23:12.163Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
-      "value": "<keep>Push Testnet Explorer</keep>",
+      "value": "Push Testnet Explorer",
       "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
-      "lastUpdated": "2026-01-16T17:23:14.864Z"
+      "lastUpdated": "2026-01-16T19:49:33.790Z"
     },
     "pages.knowledge.tokenomics.seo.title": {
       "value": "토큰омиクス — $PC 가치 축적 및 경제학",
@@ -1946,9 +1936,14 @@
       "lastUpdated": "2026-01-16T17:25:17.073Z"
     },
     "notifications.chain-notification.title": {
-      "value": "<1>체인 알림</1>",
+      "value": "",
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
-      "lastUpdated": "2026-01-16T17:25:20.079Z"
+      "lastUpdated": "2026-01-16T19:49:13.104Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "value": "### Push Chain에서 qué se puede construir?\n\nPush Chain은 모든 L1, L2 및 L3 간의 순조로운 인터오페라빌리티를 제공하고 통합하며, 혁신과 인터오페의 놀이터가 되기 위해 준비되어 있습니다. Push Chain에서 건설할 수 있는 기존 웹 3 사용 사례에는 다음과 같은 것이 포함됩니다:\n\n![Push Chain의 주 용도](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\n또는 웹 3을 개선하고 혁신을 창출할 수 있습니다:\n\n![ Push Chain의 소비자 용도](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\n또는 인기를 득하는 앱 예제를 보려면 다음과 같습니다:\n\n![Push Chain에서 인기 있는 앱 예제](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-16T19:57:12.377Z"
     }
   }
 }

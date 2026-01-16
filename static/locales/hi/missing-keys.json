@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T17:15:32.224Z",
+  "lastUpdated": "2026-01-16T19:56:29.861Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1825,16 +1825,6 @@
       "englishChecksum": "738506f213b04e262e83975af50a8f25",
       "lastUpdated": "2026-01-16T17:11:00.142Z"
     },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "अप्लिकेशन शेयर्ड स्टेट के साथ ही संभव - भाग 1",
-      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
-      "lastUpdated": "2026-01-16T17:11:05.340Z"
-    },
-    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
-      "value": "शेयर्ड स्टेट के साथ ही संभव हो सकने वाले ऐप्स - खंड 2",
-      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
-      "lastUpdated": "2026-01-16T17:11:28.936Z"
-    },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
       "value": "डेवलपर संसाधन",
       "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
@@ -1851,9 +1841,9 @@
       "lastUpdated": "2026-01-16T17:11:36.871Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
-      "value": "<1>पुश टेस्टनेट एक्स्प्लोरर<1>",
+      "value": "डोनट टेस्टनेट एक्सप्लोरर",
       "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
-      "lastUpdated": "2026-01-16T17:11:41.913Z"
+      "lastUpdated": "2026-01-16T19:48:36.792Z"
     },
     "pages.knowledge.tokenomics.seo.title": {
       "value": "टोकनॉमिक्स — $पीसी मूल्य अर्जन और अर्थशास्त्र",
@@ -1901,9 +1891,8 @@
       "lastUpdated": "2026-01-16T17:12:39.837Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
-      "value": "<2>What is the Vision of Push Chain?</2>\n\n<1>All blockchains have proven particularly useful for specific apps and use cases. Bitcoin enabled smart money. Ethereum enabled innovations for DeFi. Solana enabled fast apps and memे culture. Several L2s and new L1s are targeting other areas of concern.</1>\n\nHowever, a blockchain that is purpose-built to enable chain abstraction and seamless interoperability in the space is still required. This chain would enable transactions from any chain ({token} ETH, SOL, EVM or non-EVM) to power apps that can be used by <b>any user —</b> no matter their chain or wallet. This is the chain of <b>Universal Apps</b>. This is Push Chain!",
       "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
-      "lastUpdated": "2026-01-16T17:12:47.141Z"
+      "lastUpdated": "2026-01-16T19:48:47.894Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
       "value": "### ब्लॉकचेन के अलगाव को हटाने के लिए नवीनता पर आधारित बनाया गया है!\n\nपुश चैन में उपयोगकर्ता और विकासकों के लिए क्रांतिकारी है क्योंकि यह किसी भी विकासक को अपनी यूनिवर्सल एप को घंटों में एकल यूनिवर्सल स्मार्ट कॉन्ट्रेक्ट डिप्लॉयमेंट via बनाता है।\n\n यह उपयोगकों को भी सुविधा, आराम और चुनाव के हिसाब से अपने इकोसिस्टम से ट्रांजैक्शन करना एनीWHERE भी एप रिजाइडेंसी पर निगाह रखता है।\n\n अंदरूनी तौर पर यह इस तरह किया जाता है:\n\n- **किसी भी चेन से ट्रांजैक्शंस**\n- यूनिवर्सल फी & वॉलेट अबस्ट्रैक्ट को उपयोगकों को किसी भी चेन, किसी भी वॉलेट का उपयोग करना और किसी भी टोकन में भुगतान करने के लिए एनएबिल करना\n- यूनिवर्सल स्मार्ट कॉन्ट्रेक्ट को डेवलपरों को मिनटों में इंटरोप अप्लीकेशन डिप्लॉय करना\n- **शेयर्ड स्टेट** को अन्य ब्लॉकचेन से डेटा पढ़ना\n- **प्रोग्रामेबल सॉल्वर्स** को किसी भी अन्य चेन पर डेटा लिखना\n\nयह सभी उपयोगकों के लिए एक यूनिवर्सल एक्जीक्यूशन लेयर के कारण बनता है ताकि किसी भी चेन का उपयोग करने वाले उपयोगकर्ता उसी एप को அணु और इंटरैक्ट करना सकता है।",
@@ -1916,9 +1905,8 @@
       "lastUpdated": "2026-01-16T17:13:10.564Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### क्या Push Chain पर बनाया जा सकता है?\n\nPush Chain लाइटर, एल3, एल2 और एल1 का एकीकरण करती हुई सम्पूर्ण interoperability लेकर आती है और therefore खेलों के मैदान के रूप में स्थापित होने के लिए तैयार है। आप Push Chain पर ऐसी उपयोगियां बन सकती हैं:\n\n![Push Chain के मुख्य उपयोग क्षेत्रों की तस्वीर](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nया web3 को बेहतर करने और नवीनताओं को बनाने के लिए:\n\n![Push Chain के 소비क उपयोग क्षेत्रों की तस्वीर](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nया लोकप्रिय ऐप उदाहरण देखें और प्रेरणा लेने के लिए:\n\n![Push Chain पर लोकप्रिय ऐप उदाहरणों की तस्वीर](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
       "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
-      "lastUpdated": "2026-01-16T17:13:29.354Z"
+      "lastUpdated": "2026-01-16T19:48:33.873Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
       "value": "### क्या Push Chain टोकन का उपयोग क्या है?\n\n1. **स्टेकिंग & वैलीडेशन** <br />\nटोकन नेटवर्क को सिक्योर करना और कंसेंसस में भाग लेना के लिए स्टेकिंग किया जाता है। वैलीडेटर्स और डेलेगेटर्स अपने भागीदारी के लिए इनाम कमाते हैं.\n\n2. **ट्रांजैक्शन फीज़** <br />\nटोकन ट्रांजैक्शन्स और एप्लिकेशन का प्राइमरी मेथड है।\n\n3. **यूनिवर्सल Ֆी फ़ेब्स्ट्रक्शन** <br />\nटोकन उपयोगकों को हर टोकन (ईटीएच, एसओएल, यूएसडीसी आदि) में फीज़ चुकाने की अनुमति देता है जबकि प्रोटोकॉल कन्वर्शन के पीछे का माहौल संभालता है.\n\n4. **गवर्नेंस** <br />\nटोकन होल्डर्स प्रोटोकॉल गवर्नेंस में भाग ले सकते हैं, अपग्रेड, पैरामिटर परिवर्तन और ईकॉसिस्टम निर्णयों के लिए वोटिंग करते हैं।",
