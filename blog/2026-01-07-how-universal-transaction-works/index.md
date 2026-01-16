@@ -6,7 +6,7 @@ image: './cover-image.webp'
 description: 'How Universal Transaction Works'
 text: "A Universal Transaction lets any wallet from any blockchain execute transactions directly on Push Chain"
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
-twitterId: '1999178565779357821'
+twitterId: '2008947619348009123'
 ---
 
 ![How Universal Transaction Works](./cover-image.webp)

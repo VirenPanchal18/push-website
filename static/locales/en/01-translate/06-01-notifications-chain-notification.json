@@ -2,14 +2,14 @@
   "notifications": {
     "chain-notification": {
       "title": "",
-      "description": "Project G.U.D deployathon is LIVE! Deploy apps, win $5000",
-      "button-text": "Go Universal & Deploy",
-      "button-title": "Project G.U.D deployathon is LIVE",
-      "button-aria-label": "Project G.U.D deployathon is LIVE. You can check it out here",
-      "image-alt": "Push Chain Testnet Donut - Universal Blockchain",
-      "close-button-title": "Close testnet notification",
-      "close-button-aria-label": "Dismiss Push Chain testnet notification",
-      "container-aria-label": "Push Chain testnet notification"
+      "description": "Be the first to score points, multipliers, and perpetual rewards.",
+      "button-text": "Apply Now",
+      "button-title": "Get Pre-launch Access NOW",
+      "button-aria-label": "Get Pre-launch Access NOW. You can check it out here",
+      "image-alt": "Push Chain Pre-Launch Access",
+      "close-button-title": "Close toast notification",
+      "close-button-aria-label": "Dismiss Push Chain toast notification",
+      "container-aria-label": "Push Chain toast notification"
     }
   }
 }

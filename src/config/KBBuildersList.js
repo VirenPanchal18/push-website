@@ -68,6 +68,24 @@ export const KBBuildersList = {
     {
       type: 'list',
       title:
+        'pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title',
+      topGap: true,
+      bottomGap: true,
+      variant: 'row',
+      items: [
+        {
+          slug: 'hodl-fun',
+          image: '/static/assets/website/chain/knowledge/case-study-hodl-fun',
+          imageSrcSet: false,
+          title: 'Case Study: Hodl Fun',
+          url: '/blog/case-study-hodl-fun/',
+          target: '_blank',
+        },
+      ],
+    },
+    {
+      type: 'list',
+      title:
         'pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title',
       topGap: true,
       bottomGap: true,

@@ -4289,8 +4289,8 @@
       }
     },
     "06-01-notifications-chain-notification.json": {
-      "checksum": "8f39bb22ece996a1c284f183d68a229e",
-      "lastUpdated": "2025-11-14T20:48:42.713Z",
+      "checksum": "f2870c04daa2fb9f7eaa1ee2e2fbf127",
+      "lastUpdated": "2026-01-16T10:13:32.004Z",
       "keys": {
         "notifications.chain-notification.title": {
           "checksum": "d41d8cd98f00b204e9800998ecf8427e",
@@ -4298,44 +4298,44 @@
           "lastUpdated": "2025-11-08T13:06:33.009Z"
         },
         "notifications.chain-notification.description": {
-          "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-          "value": "Project G.U.D deployathon is LIVE! Deploy apps, win $5000",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "384fd6947898781d14e7539eb9638ce2",
+          "value": "Be the first to score points, multipliers, and perpetual rewards.",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.button-text": {
-          "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-          "value": "Go Universal & Deploy",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "739dda5d282441a761e6bfdf19483e3e",
+          "value": "Apply Now",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.button-title": {
-          "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-          "value": "Project G.U.D deployathon is LIVE",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "ccd0f5b644953fddf53aea59513e6601",
+          "value": "Get Pre-launch Access NOW",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.button-aria-label": {
-          "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-          "value": "Project G.U.D deployathon is LIVE. You can check it out here",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "9134dc7e383e89f02a5a189c64abf700",
+          "value": "Get Pre-launch Access NOW. You can check it out here",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.image-alt": {
-          "checksum": "fbe69c7b27c460db6c054a8dee865546",
-          "value": "Push Chain Testnet Donut - Universal Blockchain",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "9ed5140f33ff124dce9f202c3526c1a2",
+          "value": "Push Chain Pre-Launch Access",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.close-button-title": {
-          "checksum": "d428478a8ed7a621249ba86a781ca58d",
-          "value": "Close testnet notification",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "dd25fda8f7137bb8300b81b852e3361a",
+          "value": "Close toast notification",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.close-button-aria-label": {
-          "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-          "value": "Dismiss Push Chain testnet notification",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "7cbb7096ddb39dcbeb3b4f6534e0e167",
+          "value": "Dismiss Push Chain toast notification",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.chain-notification.container-aria-label": {
-          "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-          "value": "Push Chain testnet notification",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "558cf4028d0899331b90978c7eeb1756",
+          "value": "Push Chain toast notification",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         }
       }
     },
@@ -4376,23 +4376,23 @@
       }
     },
     "06-03-notifications-info-bar.json": {
-      "checksum": "016a9835d57a404a658fc37d49abf950",
-      "lastUpdated": "2025-11-14T20:48:42.713Z",
+      "checksum": "ce36bfdd851ce5b80613162948a1989f",
+      "lastUpdated": "2026-01-16T10:13:32.004Z",
       "keys": {
         "notifications.info-bar.title": {
-          "checksum": "edf7bc438497d94c0df8868cf7f192f9",
-          "value": "Push Chain Testnet ‘Donut’ Now Live!",
-          "lastUpdated": "2025-11-12T18:32:49.924Z"
+          "checksum": "a0be9e3598bea91695602467da650caf",
+          "value": "Apply for Season 3 Pre-Launch Access Eligibility. Open for S1 & S2 participants.",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.info-bar.learn-more-text": {
-          "checksum": "1a1400af17645cd7f2cccfb147019cdf",
-          "value": "Explore Universal Apps",
-          "lastUpdated": "2025-11-12T18:32:49.924Z"
+          "checksum": "739dda5d282441a761e6bfdf19483e3e",
+          "value": "Apply Now",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.info-bar.learn-more-title": {
-          "checksum": "1a1400af17645cd7f2cccfb147019cdf",
-          "value": "Explore Universal Apps",
-          "lastUpdated": "2025-11-12T18:32:49.924Z"
+          "checksum": "739dda5d282441a761e6bfdf19483e3e",
+          "value": "Apply Now",
+          "lastUpdated": "2026-01-16T10:13:32.004Z"
         },
         "notifications.info-bar.dismiss-button-title": {
           "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
@@ -7621,9 +7621,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.953Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -7631,44 +7631,44 @@
             "lastUpdated": "2025-11-08T13:09:03.953Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -7710,9 +7710,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T19:05:08.392Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T19:05:08.392Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T19:05:08.392Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T19:05:08.392Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T19:05:08.392Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -10767,9 +10804,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.956Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -10777,44 +10814,44 @@
             "lastUpdated": "2025-11-08T13:09:03.956Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -10856,9 +10893,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T19:41:57.590Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T19:41:57.590Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T19:41:57.590Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T19:41:57.590Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T19:41:57.590Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -13913,9 +13987,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.958Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -13923,44 +13997,44 @@
             "lastUpdated": "2025-11-08T13:09:03.958Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -14002,9 +14076,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T20:13:28.585Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T20:13:28.585Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T20:13:28.585Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T20:13:28.585Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T20:13:28.585Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -17059,9 +17170,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.959Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -17069,44 +17180,44 @@
             "lastUpdated": "2025-11-08T13:09:03.959Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -17148,9 +17259,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T20:48:11.436Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T20:48:11.436Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T20:48:11.436Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T20:48:11.436Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T20:48:11.436Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -20205,9 +20353,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.960Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -20215,44 +20363,44 @@
             "lastUpdated": "2025-11-08T13:09:03.960Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -20294,9 +20442,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T21:20:44.196Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T21:20:44.196Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T21:20:44.196Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T21:20:44.196Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T21:20:44.196Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -23351,9 +23536,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.961Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -23361,44 +23546,44 @@
             "lastUpdated": "2025-11-08T13:09:03.961Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -23440,9 +23625,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T21:56:38.512Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T21:56:38.512Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T21:56:38.512Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T21:56:38.512Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T21:56:38.512Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -26497,9 +26719,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.962Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -26507,44 +26729,44 @@
             "lastUpdated": "2025-11-08T13:09:03.962Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -26586,9 +26808,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T22:28:09.701Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T22:28:09.701Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T22:28:09.701Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T22:28:09.701Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T22:28:09.701Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -29643,9 +29902,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.963Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -29653,44 +29912,44 @@
             "lastUpdated": "2025-11-08T13:09:03.963Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -29732,9 +29991,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T23:00:40.597Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T23:00:40.597Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T23:00:40.597Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T23:00:40.597Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T23:00:40.597Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -32789,9 +33085,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.967Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -32799,44 +33095,44 @@
             "lastUpdated": "2025-11-08T13:09:03.967Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -32878,9 +33174,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-12T23:34:32.368Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-12T23:34:32.368Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-12T23:34:32.368Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-12T23:34:32.368Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-12T23:34:32.368Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -35935,9 +36268,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.969Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -35945,44 +36278,44 @@
             "lastUpdated": "2025-11-08T13:09:03.969Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -36024,9 +36357,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-13T00:08:09.712Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-13T00:08:09.712Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-13T00:08:09.712Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-13T00:08:09.712Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-13T00:08:09.712Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -39081,9 +39451,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.972Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -39091,44 +39461,44 @@
             "lastUpdated": "2025-11-08T13:09:03.972Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -39170,9 +39540,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-13T00:41:43.165Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-13T00:41:43.165Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-13T00:41:43.165Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-13T00:41:43.165Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-13T00:41:43.165Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -42227,9 +42634,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.974Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -42237,44 +42644,44 @@
             "lastUpdated": "2025-11-08T13:09:03.974Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -42316,9 +42723,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-13T01:14:13.944Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-13T01:14:13.944Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-13T01:14:13.944Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-13T01:14:13.944Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-13T01:14:13.944Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,
@@ -45373,9 +45817,9 @@
         }
       },
       "06-01-notifications-chain-notification.json": {
-        "translated": true,
-        "checksum": "8f39bb22ece996a1c284f183d68a229e",
-        "lastUpdated": "2025-11-08T13:09:03.978Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "notifications.chain-notification.title": {
             "translated": true,
@@ -45383,44 +45827,44 @@
             "lastUpdated": "2025-11-08T13:09:03.978Z"
           },
           "notifications.chain-notification.description": {
-            "translated": true,
-            "checksum": "3c4d21e02e2191ad8f0934bf39bba8bc",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-text": {
-            "translated": true,
-            "checksum": "9f85bba3a86e8b1489a6ec4fd6e81c68",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-title": {
-            "translated": true,
-            "checksum": "d089c2015081aec5ad7c8ea1346073b0",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.button-aria-label": {
-            "translated": true,
-            "checksum": "b9d0a2c0c231558b6fc6b2f40ae9547a",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.image-alt": {
-            "translated": true,
-            "checksum": "fbe69c7b27c460db6c054a8dee865546",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-title": {
-            "translated": true,
-            "checksum": "d428478a8ed7a621249ba86a781ca58d",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.close-button-aria-label": {
-            "translated": true,
-            "checksum": "a81e2a5bcaf2a0a1e0fe47d7d81e8a74",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "notifications.chain-notification.container-aria-label": {
-            "translated": true,
-            "checksum": "6e76e3cf64e2ce05c3df6397d29eec37",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -45462,9 +45906,46 @@
         }
       },
       "06-03-notifications-info-bar.json": {
-        "translated": true,
-        "checksum": "016a9835d57a404a658fc37d49abf950",
-        "lastUpdated": "2025-11-13T01:47:33.644Z"
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "notifications.info-bar.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-text": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.learn-more-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "notifications.info-bar.dismiss-button-title": {
+            "translated": true,
+            "checksum": "84e2f9f1c2d8a42bfe4c78b44ecd7a6a",
+            "lastUpdated": "2025-11-13T01:47:33.644Z"
+          },
+          "notifications.info-bar.dismiss-button-aria-label": {
+            "translated": true,
+            "checksum": "e99067d1184de824728bdc2124a3d358",
+            "lastUpdated": "2025-11-13T01:47:33.644Z"
+          },
+          "notifications.info-bar.container-aria-label": {
+            "translated": true,
+            "checksum": "2fa9575bef57735101726b3b9bc6f553",
+            "lastUpdated": "2025-11-13T01:47:33.644Z"
+          },
+          "notifications.info-bar.star-icon-alt": {
+            "translated": true,
+            "checksum": "c366d0bee557e532c0584fee63736b8f",
+            "lastUpdated": "2025-11-13T01:47:33.644Z"
+          }
+        }
       },
       "06-04-notifications-alert.json": {
         "translated": true,

@@ -688,6 +688,14 @@
                   }
                 }
               },
+              "case-studies": {
+                "title": "Case Studies",
+                "items": {
+                  "hodl-fun": {
+                    "title": "Hodl.fun"
+                  }
+                }
+              },
               "developer-resources": {
                 "title": "Developer Resources",
                 "items": {
@@ -1520,14 +1528,14 @@
   "notifications": {
     "chain-notification": {
       "title": "",
-      "description": "Project G.U.D deployathon is LIVE! Deploy apps, win $5000",
-      "button-text": "Go Universal & Deploy",
-      "button-title": "Project G.U.D deployathon is LIVE",
-      "button-aria-label": "Project G.U.D deployathon is LIVE. You can check it out here",
-      "image-alt": "Push Chain Testnet Donut - Universal Blockchain",
-      "close-button-title": "Close testnet notification",
-      "close-button-aria-label": "Dismiss Push Chain testnet notification",
-      "container-aria-label": "Push Chain testnet notification"
+      "description": "Be the first to score points, multipliers, and perpetual rewards.",
+      "button-text": "Apply Now",
+      "button-title": "Get Pre-launch Access NOW",
+      "button-aria-label": "Get Pre-launch Access NOW. You can check it out here",
+      "image-alt": "Push Chain Pre-Launch Access",
+      "close-button-title": "Close toast notification",
+      "close-button-aria-label": "Dismiss Push Chain toast notification",
+      "container-aria-label": "Push Chain toast notification"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta is Live!",
@@ -1538,9 +1546,9 @@
       "container-aria-label": "Push Chain rewards notification"
     },
     "info-bar": {
-      "title": "Push Chain Testnet ‘Donut’ Now Live!",
-      "learn-more-text": "Explore Universal Apps",
-      "learn-more-title": "Explore Universal Apps",
+      "title": "Apply for Season 3 Pre-Launch Access Eligibility. Open for S1 & S2 participants.",
+      "learn-more-text": "Apply Now",
+      "learn-more-title": "Apply Now",
       "dismiss-button-title": "Dismiss announcement",
       "dismiss-button-aria-label": "Close announcement bar",
       "container-aria-label": "Site announcement",
