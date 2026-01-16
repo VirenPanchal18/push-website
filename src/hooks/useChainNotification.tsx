@@ -48,10 +48,7 @@ export const useChainNotification = () => {
           position='bottom-left'
           onClick={() => {
             localStorage.setItem('testnetNotificationShown', 'true');
-            window.open(
-              'https://dorahacks.io/hackathon/pushchain-gud?utm_source=website&utm_medium=referral&utm_campaign=project_gud',
-              '_blank'
-            );
+            window.open('https://portal.push.org', '_blank');
             toast.dismiss(toastId);
           }}
           onClose={() => {
@@ -68,21 +65,21 @@ export const useChainNotification = () => {
     );
   };
 
-  // useEffect(() => {
-  //   // Ensure this code only runs in the browser
-  //   if (typeof window !== 'undefined') {
-  //     const notificationAlreadyShown =
-  //       localStorage.getItem('testnetNotificationShown') === 'true';
+  useEffect(() => {
+    // Ensure this code only runs in the browser
+    if (typeof window !== 'undefined') {
+      const notificationAlreadyShown =
+        localStorage.getItem('testnetNotificationShown') === 'true';
 
-  //     if (!notificationAlreadyShown && !hasMounted) {
-  //       showNotification();
-  //       setHasMounted(true);
-  //     } else {
-  //       toast.dismiss();
-  //       setHasMounted(false);
-  //     }
-  //   }
-  // }, []);
+      if (!notificationAlreadyShown && !hasMounted) {
+        showNotification();
+        setHasMounted(true);
+      } else {
+        toast.dismiss();
+        setHasMounted(false);
+      }
+    }
+  }, []);
 };
 
 export const Notification = () => {
@@ -128,10 +125,10 @@ const NotificationItem: FC<NotificationProps> = ({
           <Image
             src={
               require(
-                `@site/static/assets/website/notifications/testnet-donut-img.png`
+                `@site/static/assets/website/notifications/pre-launch.webp`
               ).default
             }
-            srcSet={`${require(`@site/static/assets/website/notifications/testnet-donut@2x.webp`).default} 2x, ${require(`@site/static/assets/website/notifications/testnet-donut@3x.webp`).default} 3x`}
+            srcSet={`${require(`@site/static/assets/website/notifications/pre-launch@2x.webp`).default} 2x, ${require(`@site/static/assets/website/notifications/pre-launch@3x.webp`).default} 3x`}
             alt={t?.('notifications.chain-notification.image-alt')}
             loading='lazy'
           />
@@ -146,7 +143,7 @@ const NotificationItem: FC<NotificationProps> = ({
           border='1.5px solid var(--ifm-color-white)'
           hoverBorder='1.5px solid var(--ifm-color-white)'
           fontFamily='DM Sans'
-          width='100%'
+          width='80%'
           title={t?.('notifications.chain-notification.button-title')}
           aria-label={t?.('notifications.chain-notification.button-aria-label')}
         >
@@ -160,13 +157,13 @@ const NotificationItem: FC<NotificationProps> = ({
 // Notification Container
 const NotificationContainer = styled.div`
   position: relative;
-  background-color: var(--ifm-color-blue);
+  background-color: var(--ifm-link-color);
   border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   height: auto;
-  width: 320px;
+  width: 275px;
   cursor: pointer;
   box-sizing: border-box;
   font-family: DM Sans !important;

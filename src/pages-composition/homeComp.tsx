@@ -54,6 +54,7 @@ import { WhatIsSection } from '@site/src/components/Home/WhatIsSection';
 
 import AccountContext from '@site/src/context/accountContext';
 import CustomReactPlayer from '@site/src/utils/CustomReactPlayer';
+import { Alert } from '../components/Alert';
 
 export default function HomeComp() {
   // Internationalization
