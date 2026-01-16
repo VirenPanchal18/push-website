@@ -12,11 +12,10 @@ tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockc
 
 <!--truncate-->
 
-
 [Hodl.fun](https://www.thehodl.fun/), a universal token launchpad that launched 400K+ tokens across 80+ countries using Push Chain's universal blockchain.
 From hackathon idea to $1M volume in 60 days. Here’s how Hodl continues to crush the game.
 
-# What problem does Hodl solve?
+## What problem does Hodl solve?
 
 Pump Fun, one of the most popular token launchpads in crypto, generates 100s of millions of volume everyday.
 
@@ -40,22 +39,22 @@ That’s exactly what [Hodl fun](https://www.thehodl.fun/) enables.
 The mission is simple:
 *“Every creator should be able to launch a token as easily as they post on social media. And every crypto user should be able to buy it, regardless of their wallet."*
 
-# Why are users loving hodl?
+## Why are users loving hodl?
 
-Just like supporting universal trading from every chain, Hodl houses a global user base spanning over 80 countries\!
+Just like supporting universal trading from every chain, Hodl houses a global user base spanning over 80 countries!
 
-🌏 **Asia-Pacific:** \~53% <br />
-🌎 **Americas:** \~19% <br />
-🌍 **Europe:** \~9% <br />
-🌍 **Africa:** \~4% <br />
-🌐 **Other regions (incl. Middle East, rest of world):** \~15% <br />
+- 🌏 **Asia-Pacific:** ~53%
+- 🌎 **Americas:** ~19%
+- 🌍 **Europe:** ~9%
+- 🌍 **Africa:** ~4%
+- 🌐 **Other regions (incl. Middle East, rest of world):** ~15%
 
 So far Hodl.fun has already:
 
-* ✅ Launched **400K+ tokens**
-* ✅ Executed **2,800+ universal trades**
-* ✅ Processed \~**$1M in volume**
-* ✅ Crossed \~**$200K TVL**
+- ✅ Launched **400K+ tokens**
+- ✅ Executed **2,800+ universal trades**
+- ✅ Processed ~**$1M in volume**
+- ✅ Crossed ~**$200K TVL**
 
 This is just the beginning
 
@@ -64,7 +63,7 @@ By building on Push Chain, Hodl eliminated the single biggest barrier in crypto:
 
 **The answer:** All of them.
 
-# What’s next with Hodl?
+## What’s next with Hodl?
 
 Hodl Fun v2 is launching soon. Here’s what makes it extra special:
 
@@ -76,5 +75,5 @@ Hodl Fun v2 is launching soon. Here’s what makes it extra special:
 We’re in the era of universal apps.
 Any wallet. Any User. Any chain
 
-Start your universal trenching journey with [Hodl Fun](https://www.thehodl.fun/) and win BIG\!\!
+Start your universal trenching journey with [Hodl Fun](https://www.thehodl.fun/) and win BIG\!\! <br />
 [Follow them on X](https://x.com/thehodldotfun) to get the latest Alpha\!
