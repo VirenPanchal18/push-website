@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T16:43:40.203Z",
+  "lastUpdated": "2026-01-16T17:01:28.472Z",
   "keys": {
     "global.site-name": {
       "value": "بلوشكين — Universal L1 for Apps",
@@ -1826,9 +1826,9 @@
       "lastUpdated": "2026-01-16T16:43:09.225Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
-      "value": "<h2>Token Distribution Details</h2>\n\nThe total supply of Push Chain tokens is proposed at **10 مليار**, distributed as يلي:\n\n![Tokenomics Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Details Tokenomics Vesting Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1.aldevelopment distributions starting from TGE, but will happen over the course of multiple seasons.\n2.Core Contributors have a 12-month delay followed by 24-month vesting.\n3.Treasury Push Labs has a 36-month vesting.\n4.Investors have linear vesting for 24 months.\n5.Community and Ecosystem Reserves has a 13.5% unlock at TGE, followed by 36-month vesting.\n\n<br />",
+      "value": "## توزع التوكين\n\nالكمية الإجمالية من توكينز شين تشاين هو **10 مليار**، موزعةً كما يلي:\n\n![توكينوميكايز Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![توكينوميكايز Push Chain وتنزيل التوكين](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. تبدأ توزيعات Airdrop في TGE، ولكنها ستتم على مدار عدة مواسم.\n2. لها 12 شهرًا من التأخير، يتبعها 24 شهرًا من التوزيع.\n3. لدى Push Labs Treasury 36 شهرًا من التوزيع.\n4. لديها 24 شهرًا من التوزيع الخطي.\n5. لديها 13.5٪ من الحُفظة في TGE، تتبعها 36 شهرًا من التوزيع.\n\n<br />",
       "englishChecksum": "712dd1d7d10eab809b9b943484336904",
-      "lastUpdated": "2026-01-16T16:43:17.737Z"
+      "lastUpdated": "2026-01-16T17:01:28.472Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
       "value": "## شارك\n\n- **🧙 المطورون**\nاستكشف سكوورنا آند دوكونيشن في [هيكل الوثائق](/docs/)\n\n- **🦹 مجتمع**  \nاتبعنا على [@بوشاين](https://x.com/PushChain) على X/Twitter، وانضم إلى [ديسكورد](https://discord.com/invite/pushchain) و[تليجرام](https://t.me/epnsproject).\n\n معاً، بنا المستقبل من **الويب 3 العالمي**!",

@@ -1,11 +1,6 @@
 {
-  "lastUpdated": "2026-01-16T16:30:52.271Z",
+  "lastUpdated": "2026-01-16T17:18:58.424Z",
   "keys": {
-    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### Apa yang dapat dibangun di Push Chain?\n\nPush Chain membawa interoperabilitas tanpa hambatan dan mempersatukan semua L1s, L2s & L3s sehingga menjadi tempat inovasi dan interop. Anda dapat membangun penggunaan web3 yang ada seperti:\n\n![Use cases utama Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nAtau membuat web3 lebih baik dengan menciptakan inovasi:\n\n![Use cases konsumen Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nAtau melihat beberapa contoh aplikasi populer dan mengambil inspirasi dari mereka:\n\n![Contoh aplikasi populer di Push Chain](/assets/website/chain/knowledge/tokenomics/popularappexamples.webp)",
-      "englishChecksum": "a53d3f78e3dc0a5c4e18ed22febbeb9f",
-      "lastUpdated": "2025-11-14T19:27:06.157Z"
-    },
     "pages.knowledge.validators.seo.title": {
       "value": "Validators —",
       "englishChecksum": "a0fa1a0122c6854e71a26aadd8451e4d",
@@ -1231,21 +1226,6 @@
       "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
-    "notifications.info-bar.title": {
-      "value": "Push Chain testnet ‘Donut’ Sekarang Tersedia!",
-      "englishChecksum": "0681d4c70dc98e29a4827b403cef19c5",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "notifications.info-bar.learn-more-text": {
-      "value": "Jelajahi Aplikasi Universal",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "notifications.info-bar.learn-more-title": {
-      "value": "Jelajahi Aplikasi Universal",
-      "englishChecksum": "7ebfeae7a4f4719fcb0bc1ed8ba22c75",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Tutup pengumuman",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1776,11 +1756,6 @@
       "englishChecksum": "47c2141cd8381a063c08207a94b28b6f",
       "lastUpdated": "2026-01-16T16:30:44.187Z"
     },
-    "notifications.chain-notification.image-alt": {
-      "value": "Jaringan Uji Push Chain Donut - Blokchai Universal",
-      "englishChecksum": "36296d1d62073925976682f0c22235cc",
-      "lastUpdated": "2025-11-14T20:19:26.028Z"
-    },
     "notifications.rewards-notification.image-alt": {
       "value": "Hadiah Jaringan Push Chain Testnet - Bangun Aplikasi Universal",
       "englishChecksum": "7e5ffae122997a63a81105184b921cb1",
@@ -1795,6 +1770,186 @@
       "value": "Beta tertutup eksklusif bagi pembuat. klaim kartu Donat Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci hadiah awal.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
       "lastUpdated": "2026-01-16T16:30:52.271Z"
+    },
+    "pages.knowledge.builders.seo.title": {
+      "value": "Bangun — Panduan & Tutorial",
+      "englishChecksum": "128091e84d5464bdffbd18d72ddc1951",
+      "lastUpdated": "2026-01-16T17:15:36.830Z"
+    },
+    "pages.knowledge.builders.seo.description": {
+      "value": "Panduan langkah demi langkah, pola, dan contoh untuk menggunakan fitur Push Chain.",
+      "englishChecksum": "3ac07e53e4d736963a0f69357d2ea464",
+      "lastUpdated": "2026-01-16T17:15:40.325Z"
+    },
+    "pages.knowledge.builders.seo.og-title": {
+      "value": "Pembangun - Panduan & Tutorial",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:15:41.801Z"
+    },
+    "pages.knowledge.builders.seo.og-description": {
+      "value": "Panduan interaktif, praktik terbaik dan contoh untuk membangun dengan Push Chain.",
+      "englishChecksum": "3d867ffca792ed0a3f1911a02a46cc2d",
+      "lastUpdated": "2026-01-16T17:15:43.591Z"
+    },
+    "pages.knowledge.builders.seo.twitter-title": {
+      "value": "Builders - Panduan & Tutorial",
+      "englishChecksum": "b43c6206194e5ce2b296b2f5ae67f6d0",
+      "lastUpdated": "2026-01-16T17:16:00.266Z"
+    },
+    "pages.knowledge.builders.seo.twitter-description": {
+      "value": "Panduan langkah demi langkah untuk mengirim ke Push Chain.",
+      "englishChecksum": "723c5664b166980a7aee2c74a23ccd13",
+      "lastUpdated": "2026-01-16T17:16:02.053Z"
+    },
+    "pages.knowledge.builders.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Pusat Pengetahuan",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:16:03.829Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.title": {
+      "value": "Bangun di Push Chain",
+      "englishChecksum": "98bebb4eb06e9298f123c1b72e10aae7",
+      "lastUpdated": "2026-01-16T17:16:05.434Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.intro": {
+      "value": "## Builders\n\nPsiap untuk membangun di Push Chain? Berikut adalah beberapa sumber daya untuk memberi Anda inspirasi dan memulai.",
+      "englishChecksum": "aff04d43e1a5f0db24b177f9e367f571",
+      "lastUpdated": "2026-01-16T17:16:28.872Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.builders-intro.items.curated-reads": {
+      "value": "## Baca Yang Dipilih 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-01-16T17:16:31.557Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
+      "value": "Mari Membuat Aplikasi Universal 💪",
+      "englishChecksum": "663a142eb5f03be5205014b31403abb6",
+      "lastUpdated": "2026-01-16T17:16:34.264Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
+      "value": "Aplikasi Masa Depan — Bangun Tanpa Chaos",
+      "englishChecksum": "772530adf8f920b213c3b97a7a55d4f6",
+      "lastUpdated": "2026-01-16T17:16:37.138Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
+      "value": "Aplikasi Konsumen yang Bisa Dibangun di Push Chain?",
+      "englishChecksum": "738506f213b04e262e83975af50a8f25",
+      "lastUpdated": "2026-01-16T17:16:40.300Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
+      "value": "Aplikasi Hanya Mungkin dengan Negara Bersama - Vol.1",
+      "englishChecksum": "db2c29032f00c6ce4bf1e46ccc959a42",
+      "lastUpdated": "2026-01-16T17:16:43.404Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
+      "value": "Apps Mungkin Hanya Mungkin dengan State Bersama - Vol.2",
+      "englishChecksum": "00ef86c55f4f18853f4e3afa95d6794d",
+      "lastUpdated": "2026-01-16T17:16:49.485Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.title": {
+      "value": "Sumber Pembangun",
+      "englishChecksum": "cf6848a64dab69c909ce832f6bd19ad8",
+      "lastUpdated": "2026-01-16T17:16:51.520Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.developer-docs.title": {
+      "value": "Explore Developer Documentation",
+      "englishChecksum": "f7c5b44cc839f27b45194428d9879382",
+      "lastUpdated": "2026-01-16T17:16:54.076Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.testnet-explorer.title": {
+      "value": "Push Testnet Eksplorasi",
+      "englishChecksum": "fc75b28e088c79a94c0394770747ba2d",
+      "lastUpdated": "2026-01-16T17:16:56.805Z"
+    },
+    "pages.knowledge.tokenomics.seo.title": {
+      "value": "Tokenomics — Nilai dan Ekonomi Akumulasi $PC",
+      "englishChecksum": "282c0a6a4f984a975f94318228c9fb64",
+      "lastUpdated": "2026-01-16T17:16:58.473Z"
+    },
+    "pages.knowledge.tokenomics.seo.description": {
+      "value": "Bagaimana $PC mengapakan nilai: permintaan disebabkan penyelesaian, sink yang bergantung penggunaan (pembakaran/terkunci), ekonomi staking, dan jadwal suplai.",
+      "englishChecksum": "965273fc4660f0bce40bb5202b3e37be",
+      "lastUpdated": "2026-01-16T17:17:01.031Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-title": {
+      "value": "Ekonomi Token dan Akumulasi Nilai $PC",
+      "englishChecksum": "08475121551acf91c64dc90dc3faddeb",
+      "lastUpdated": "2026-01-16T17:17:04.244Z"
+    },
+    "pages.knowledge.tokenomics.seo.og-description": {
+      "value": "Penyelesaian dalam $PC mendorong permintaan; penggunaan berbasis sink reduksi stok. Mendapatkan ekonomi staking dan emisi.",
+      "englishChecksum": "313436c344135d2d5182a19b58e6d31f",
+      "lastUpdated": "2026-01-16T17:17:06.496Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-title": {
+      "value": "Ekonomi Token Push Chain | Tokenomics",
+      "englishChecksum": "168fb40b49d69d9c1e42e21e150a1a8c",
+      "lastUpdated": "2026-01-16T17:17:08.015Z"
+    },
+    "pages.knowledge.tokenomics.seo.twitter-description": {
+      "value": "Penyelesaian di $PC, sink yang didorong oleh penggunaan, ekonomi staking dan emisi—ringkasan singkat untuk investor.",
+      "englishChecksum": "fff0094671661ff56d012085b05be397",
+      "lastUpdated": "2026-01-16T17:17:12.243Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Pusat Pengetahuan",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-01-16T17:17:14.134Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.title": {
+      "value": "Jelajahi Tokenomics",
+      "englishChecksum": "791cad865338cf9c166e2632f538e998",
+      "lastUpdated": "2026-01-16T17:17:15.771Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.overview": {
+      "value": "## Overview\n\nOn late 2024, komunitas Push memilih mengesahkan peluncuran Push Chain, sebuah blockchain layer 1 berbagi keadaan yang dirancang untuk memungkinkan pengembangan aplikasi universal dan menghapus fragmentasi di web3.\n\nPush Chain adalah lapisan khusus yang menghubungkan L1s, L2s, dan L3s dengan finalitas hampir instan dan skala nyata, yang menyelesaikan masalah dasar dengan aplikasi web3: fragmentasi. Dengan suara resmi governance, misi Push Chain sekarang menuju membangun **siapapun, siapa saja, dan setiap aplikasi.**\n\n:::warning ⚠️ Token belum aktif\nToken Push Chain belum aktif, serta tidak ada presale yang aktif. Token Push Chain belum diberi nama.\n\n\nJangan percaya siapa pun yang menawarkan akses awal ke token Push Chain. Semua komunikasi mengenai Push Chain akan diumumkan secara serentak dari saluran resmi Push — [Twitter/X](https://x.com/PushChain 'X handle of Push Chain'), [Discord](https://discord.com/invite/pushchain 'Discord of Push Chain'), [Telegram](https://t.me/epnsproject 'Telegram of Push Chain'), [Website](https://push.org 'Push Website').\n:::\n\n<br />",
+      "englishChecksum": "94471d65e859e10750b941867ecdbb8e",
+      "lastUpdated": "2026-01-16T17:17:28.199Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.vision": {
+      "value": "## Apa Visi Push Chain?\n\nSemua blockchain telah terbukti sangat berguna untuk aplikasi dan kasus penggunaan tertentu. Bitcoin memungkinkan uang cerdas. Ethereum memungkinkan inovasi untuk DeFi. Solana memungkinkan aplikasi cepat dan budaya meme. Beberapa L2 dan L1 baru mengarah ke areas kekhawatiran lain.\n\nNamun, masih diperlukan blockchain yang khusus dibangun untuk memungkinkan abstraksi chain dan interoperabilitas yang lancar di ruang ini. Chain ini akan memungkinkan transaksi dari setiap chain (ETH, SOL, EVM atau non-EVM) untuk mendorong aplikasi yang dapat digunakan oleh **apapun pengguna —** tidak peduli chain atau dompet mereka. Ini adalah chain dari **Aplikasi Universal**. Ini adalah Push Chain!",
+      "englishChecksum": "4b31e35d0c4f8895231550f8c12f4860",
+      "lastUpdated": "2026-01-16T17:17:36.766Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.innovation": {
+      "value": "### Didirikan pada inovasi untuk menghilangkan isolasi blockchain!\n\nPush Chain adalah revolusioner baik bagi pengguna dan pengembang karena menghasilkan lingkungan bagi siapa saja yang ingin menyebarkan aplikasi universal mereka dalam beberapa jam melalui penyebaran kontrak cerdas universal tunggal.\n\nIa juga memungkinkan pengguna melakukan transaksi dari nyaman, kenyamanan, dan pilihan ekosistemnya, tidak peduli di mana aplikasi berada.\n\nDi bawah kap mesin ini dicapai dengan:\n\n- Kemampuan untuk melakukan **transaksi dari rantai apapun**\n- **Abstraksi Biaya & Dompet Universal** untuk memungkinkan pengguna menggunakan rantai apa pun, dompet apa pun dan bayar dalam token apa pun\n- **Kontrak Cerdas Universal** untuk memungkinkan pengembang menyebarkan aplikasi interop instant di menit\n- **State Bersama** untuk membaca data dari blockchain lain\n- **Penyelesaian Programmable** untuk menulis data ke rantai lainnya\n\nSemua ini memungkinkan **Lapis Eksekusi Universal** untuk memungkinkan pengguna setiap rantai untuk mengakses dan interaktif dengan aplikasi yang sama.",
+      "englishChecksum": "25e2fa5563e67b960fd0d15407b9f248",
+      "lastUpdated": "2026-01-16T17:17:49.226Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.fit": {
+      "value": "### Di mana Push Chain berada?\n\nPush Chain ada di **setiap proyek…** **di setiap chain!**\n\n- **Itu memungkinkan pengembang** dari chain apapun untuk menciptakan aplikasi interop penuh yang dapat digunakan dari chain apapun, melalui wallet apapun.<br />\n- **Itu memberikan kebebasan bagi pengguna** untuk berinteraksi dengan wallet pilihan mereka atau memiliki pengalaman signless universal via Push Universal Wallet dengan login sosial.<br />\n- **Itu memberikan pengalaman aplikasi bersama** di mana pengguna dari semua chain dapat berkumpul dan bertemu dengan DeFi universal, permainan unifikasi, NFT universal, pemerintahan universal, dll.<br />",
+      "englishChecksum": "6476a6b09fe1d4a54429a3b71c11d5af",
+      "lastUpdated": "2026-01-16T17:17:56.286Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-utility": {
+      "value": "### Apa fungsi token Push Chain?\n\n1. **Staking & Validasi** <br />\nToken digunakan untuk staking untuk menjaga jaringan dan partisipasi dalam konsensus. Validator dan delegator mendapatkan hadiah untuk partisipasinya mereka.\n\n2. **Biaya Transaksi** <br />\nToken menjadi metode utama untuk biaya jaringan untuk transaksi dan penggunaan app.\n\n3. **Abstraksi Biaya Universal** <br />\nToken memungkinkan pengguna untuk membayar biaya dengan token apapun (ETH, SOL, USDC, dll.) sementara protokol menangani konversi di belakang layar.\n\n4. **Governance** <br />\nPemegang token dapat berpartisipasi dalam governance protokol, melakukan voting pada upgrade, perubahan parameter, dan keputusan ekosistem.",
+      "englishChecksum": "e1ca8ec3e18a9192719fe6f14e1545d9",
+      "lastUpdated": "2026-01-16T17:18:04.710Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design": {
+      "value": "### Desain Deflasi\n\n1. **Bakar Biaya Transaksi** <br />\nSebagian biaya transaksi yang dikumpulkan dalam token Push Chain asli akan dibakar, mengurangi total suplai sepanjang waktu.\n\n2. **Bakar Cross Chain** <br />\nMenggunakan Universal Fee Abstractions, sebagian biaya yang dikumpulkan pada token native blockchain lain (ETH, SOL) akan ditukar menjadi Push Chain token asli dan dibakar.\n\nHal ini menjamin desain blockchain deflasi yang membakar token saat jaringan dan transaksi yang terjadi pada nya tumbuh. Desain ini memungkinkan penciptaan masa depan jangka panjang yang diinisiasikan dan berkelanjutan untuk Push Chain dan semua partisipannya.",
+      "englishChecksum": "8f4bdc082c167769f4bca7b46e9c6fea",
+      "lastUpdated": "2026-01-16T17:18:12.400Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details": {
+      "value": "### Detail Migrasi\n\nPush Chain adalah hasil tahun-tahun pendidikan dari pembuatan notifikasi dan protokol komunikasi web3 terkemuka, yang juga merupakan salah satu aplikasi consumer untuk crypto yang pertama.\n\nOleh karena itu, selain airdrop yang dialokasikan (lihat detail di bawah) untuk pengguna, kreator, pengembang, dan mitra ekosistem Push Chain, **ada juga drop migrasi yang ditanggungkan untuk pemegang $PUSH** (yang merupakan token asli dari Push Protocol).\n\n<details>\n  <summary>\n  <b>Detail migrasi untuk pemegang $PUSH existing</b>\n\n  </summary>\n\n  **Untuk pemegang $PUSH existing**, proposal tokenomics Push Chain mengalokasikan 15% dari total supply Push Chain untuk migrasi. Migrasi akan terjadi pada rasio **1:15**—artinya untuk setiap token Push Protocol ($PUSH) yang Anda miliki, Anda akan menerima 15 token Push Chain. Misalnya jika Anda saat ini memiliki 40 token $PUSH, Anda akan menerima 600 token Push Chain setelah migrasi.\n\n\\[...]\n\n</details>\n<p />",
+      "englishChecksum": "f68666b5ba07d7a20110b16b56bcbd85",
+      "lastUpdated": "2026-01-16T17:18:24.263Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
+      "value": "### Rincian Penyaluran\n\nSelain itu, proposal tokenomics mengalokasikan 10% dari total supply koin Push Chain untuk penyaluran kepada pengguna aplikasi Push Protocol yang lalu dan sekarang (notifikasi, pesan, obrolan). Bersama dengan pengguna baru, pencipta, pengembang, dan mitra ekosistem Push Chain.\n\n<br />",
+      "englishChecksum": "0555bb8e96f6a7664a4c8b8c08be00bf",
+      "lastUpdated": "2026-01-16T17:18:29.298Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.token-distribution": {
+      "value": "## Rincian Penyebaran Token\n\nTotal supply Push Chain tokens diusulkan sebesar **10 miliar**, didistribusikan sebagai berikut:\n\n![Tokenomics Push Chain](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Rincian Penyebaran Push Chain](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Distribusi airdrop dimulai pada TGE, tetapi akan terjadi selama beberapa musim.\n2. Kontributor inti memiliki jeda 12 bulan, diikuti oleh penyemprotan 24 bulan.\n3. Push Labs Treasury memiliki penyemprotan 36 bulan.\n4. Investor memiliki vesting linear 24 bulan.\n5. Komunitas dan Simpanan Ekosistem memiliki pembukaan 13,5% pada TGE, diikuti oleh penyemprotan 36 bulan.\n\n<br />",
+      "englishChecksum": "712dd1d7d10eab809b9b943484336904",
+      "lastUpdated": "2026-01-16T17:18:38.271Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.get-involved": {
+      "value": "## Bergabung\n\n- **🧙 Pengembang**\nJelajahi SDK & Dokumen di [Hub Dokumentasi](/docs/)\n\n- **🦹 Komunitas**  \nIkuti [@PushChain](https://x.com/PushChain) di X/Twitter, bergabung dengan grup [Discord](https://discord.com/invite/pushchain) dan [Telegram](https://t.me/epnsproject).\n\nBersama-sama, mari kita membangun masa depan **Universal Web3**!",
+      "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
+      "lastUpdated": "2026-01-16T17:18:44.328Z"
     }
   }
 }
