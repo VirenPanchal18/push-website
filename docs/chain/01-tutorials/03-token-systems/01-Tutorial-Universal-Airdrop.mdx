@@ -24,11 +24,11 @@ import { GitHubRepo } from '@site/src/components/GitHubRepo';
 
 <TutorialTimer estimatedMinutes={25} />
 
-In this tutorial, you'll build a **Universal Claimable Airdrop** system on Push Chain. This revolutionary approach lets you deploy an airdrop contract **once** and enable users from **any blockchain** to claim their tokens directly from their existing wallets.
+In this tutorial, you'll build a **Universal Claimable Airdrop** system on Push Chain. You deploy an airdrop contract **once** on Push Chain, and users from **any supported chain** can claim using their existing wallets.
 
 By the end of this tutorial you'll be able to:
 
-- ✅ Convert addresses from any chain to deterministic Push Chain addresses (UEAs)
+- ✅ Convert addresses from any chain to deterministic Push Chain addresses ([UEAs](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/))
 - ✅ Generate Merkle trees for efficient airdrop verification
 - ✅ Deploy a universal airdrop contract with OpenZeppelin's Merkle proof system
 - ✅ Build a claim UI that works for users on any chain
@@ -36,23 +36,27 @@ By the end of this tutorial you'll be able to:
 
 ## What Makes This Universal?
 
-Traditional airdrops require:
+Traditional airdrops often require:
+
 - Deploying contracts on multiple chains
 - Managing separate token supplies per chain
-- Users bridging tokens or claiming on specific networks
+- Forcing users to claim on a specific chain or do extra wallet ops
 
 **Universal Airdrops on Push Chain:**
+
 - **Deploy once** on Push Chain
 - Users from **any chain** claim with their **existing wallet**
 - **No bridging** or chain-switching required
-- One contract, one token supply, infinite accessibility
+- One contract, one token supply, reaching every chain
+- No per chain deployments or per chain token supplies
 
 ### Example Flow
+
 - Alice (Ethereum wallet `0xABC...`) → Claims directly from Ethereum
-- Bob (Solana wallet `7xKX...`) → Claims directly from Solana  
+- Bob (Solana wallet `7xKX...`) → Claims directly from Solana
 - Charlie (Base wallet `0xDEF...`) → Claims directly from Base
 
-All three interact with the **same contract** on Push Chain through their Universal Executor Accounts (UEAs).
+All three interact with the **same contract** on Push Chain through their [Universal Executor Accounts (UEAs)](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/).
 
 > **🚀 Why this matters**
 >
@@ -63,18 +67,19 @@ All three interact with the **same contract** on Push Chain through their Univer
 The Universal Airdrop system consists of four key components:
 
 ### 1. Address Conversion
-For each recipient, we convert their origin address to a deterministic **Universal Executor Account (UEA)** address on Push Chain:
+
+For each recipient, we convert their origin address to a deterministic **[Universal Executor Account (UEA)](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/)** address on Push Chain:
 
 ```mermaid
 flowchart LR
     A[Ethereum: 0xABC...] --> D[UEA: 0x123...]
     B[Solana: 7xKX...] --> E[UEA: 0x456...]
     C[Base: 0xDEF...] --> F[UEA: 0x789...]
-    
+
     D --> G[Universal Airdrop Contract]
     E --> G
     F --> G
-    
+
     style G fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
     style A fill:#627eea,color:#fff
     style B fill:#16c492,color:#fff
@@ -82,27 +87,37 @@ flowchart LR
 ```
 
 ### 2. Merkle Tree Generation
+
 We create a Merkle tree where each leaf contains:
+
 - UEA address (converted from origin address)
 - Token amount
-- Origin chain information
+
+Note: the demo stores origin address and chain only in the UI for display. They are not part of the Merkle leaf.
 
 ### 3. Smart Contract Deployment
+
 The airdrop contract:
+
 - Stores the Merkle root
 - Verifies proofs on-chain
 - Prevents double claiming
 - Distributes tokens to claimants
 
 ### 4. Claim Interface
+
 Users connect with their origin wallet and claim tokens through their UEA.
 
 ## Write the Contracts
 
 We'll need two contracts for this tutorial:
 
-1. **ERC-20 Token Contract** - The token being airdropped ($UNICORN)
+1. **ERC-20 Token Contract** - The token being airdropped ($UNICORN) - see [Mint Universal ERC-20 Tokens](/docs/chain/tutorials/basics/tutorial-mint-erc-20-tokens/) for basics
 2. **Universal Airdrop Contract** - Handles Merkle proof verification and token distribution
+
+> **Production note:** most real airdrops distribute an existing token. This tutorial deploys a fresh $UNICORN token to keep the demo self-contained. In production, deploy the airdrop against your existing token address and fund it with the distribution supply.
+
+<br />
 
 <Tabs className="liveplaytab" groupId="universal-airdrop-contracts">
   <TabItem value='erc20_token' label='ERC-20 Token ($UNICORN)'>
@@ -133,9 +148,16 @@ contract Token is ERC20 {
 </SolidityCode>
 
 **Key Features:**
+
 - Mints 1,000,000 tokens to the deployer
 - Has an open `mint()` function for easy testing
 - Uses OpenZeppelin's battle-tested ERC-20 implementation
+
+:::warning Demo Only
+
+Token.sol is a demo contract. Do not ship an open `mint()` in production. Gate minting (Ownable/AccessControl) or distribute from a fixed supply.
+
+:::
 
 </TabItem>
 
@@ -152,7 +174,7 @@ contract Token is ERC20 {
 pragma solidity ^0.8.22;
 
 import "./UniversalAirdrop.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./Token.sol";
 
 contract UniversalAirdropFactory {
     event AirdropCreated(
@@ -168,30 +190,30 @@ contract UniversalAirdropFactory {
     ) external returns (address) {
         // Deploy new Token contract
         Token token = new Token("Unicorn Token", "UNICORN");
-        
+
         // Mint tokens to this factory
         token.mint(address(this), _totalAmount);
-        
+
         // Deploy new UniversalAirdrop contract
         UniversalAirdrop airdrop = new UniversalAirdrop(
             address(token),
             _merkleRoot,
             msg.sender
         );
-        
+
         // Transfer tokens to airdrop contract
         require(
             token.transfer(address(airdrop), _totalAmount),
             "Token transfer failed"
         );
-        
+
         emit AirdropCreated(
             address(airdrop),
             msg.sender,
             _totalAmount,
             _merkleRoot
         );
-        
+
         return address(airdrop);
     }
 }
@@ -200,6 +222,7 @@ contract UniversalAirdropFactory {
 </SolidityCode>
 
 **Key Features:**
+
 - Deploys both the token and airdrop contracts in one transaction
 - Mints the required tokens automatically
 - Transfers tokens to the airdrop contract
@@ -227,12 +250,12 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 contract UniversalAirdrop is Ownable, ReentrancyGuard {
     IERC20 public immutable token;
     bytes32 public merkleRoot;
-    
+
     mapping(address => bool) public hasClaimed;
-    
+
     event Claimed(address indexed claimer, uint256 amount);
     event MerkleRootUpdated(bytes32 newRoot);
-    
+
     constructor(
         address _token,
         bytes32 _merkleRoot,
@@ -241,37 +264,37 @@ contract UniversalAirdrop is Ownable, ReentrancyGuard {
         token = IERC20(_token);
         merkleRoot = _merkleRoot;
     }
-    
+
     function claim(
         uint256 amount,
         bytes32[] calldata proof
     ) external nonReentrant {
         require(!hasClaimed[msg.sender], "Already claimed");
-        
+
         bytes32 leaf = keccak256(
             bytes.concat(keccak256(abi.encode(msg.sender, amount)))
         );
-        
+
         require(
             MerkleProof.verify(proof, merkleRoot, leaf),
             "Invalid proof"
         );
-        
+
         hasClaimed[msg.sender] = true;
-        
+
         require(
             token.transfer(msg.sender, amount),
             "Token transfer failed"
         );
-        
+
         emit Claimed(msg.sender, amount);
     }
-    
+
     function updateMerkleRoot(bytes32 newRoot) external onlyOwner {
         merkleRoot = newRoot;
         emit MerkleRootUpdated(newRoot);
     }
-    
+
     function withdrawTokens(address to, uint256 amount) external onlyOwner {
         require(token.transfer(to, amount), "Transfer failed");
     }
@@ -281,6 +304,7 @@ contract UniversalAirdrop is Ownable, ReentrancyGuard {
 </SolidityCode>
 
 **Key Features:**
+
 - Uses OpenZeppelin's `MerkleProof.verify()` for efficient proof verification
 - Tracks claims with a mapping to prevent double-claiming
 - Includes reentrancy protection
@@ -309,11 +333,12 @@ require(
 );
 ```
 
-This is the **standard OpenZeppelin double-hashing pattern** that matches the `StandardMerkleTree` library used in the frontend.
+**Important:** the leaf encoding used in the frontend and the leaf hash computed in the contract must match exactly. This tutorial uses OpenZeppelin `StandardMerkleTree` for proofs and OpenZeppelin `MerkleProof.verify()` in the contract so the hashing/ordering stays consistent.
 
 **2. Universal Executor Accounts (UEAs)**
 
 When a user from Ethereum, Solana, or any other chain interacts with this contract:
+
 - Their wallet signs a transaction on their origin chain
 - Push Chain creates/uses their deterministic UEA address
 - The UEA executes the `claim()` function
@@ -326,26 +351,26 @@ This means the Merkle tree must contain **UEA addresses**, not origin addresses.
 ```typescript
 // Convert origin address to UEA
 const account = PushChain.utils.account.toUniversal(originAddress, {
-  chain: originChain
+  chain: originChain,
 });
 
-const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+const executorAddress =
+  await PushChain.utils.account.convertOriginToExecutor(account);
 ```
 
 This deterministic conversion ensures:
+
 - Same origin address always maps to same UEA
 - Works across all supported chains
 - No registration or setup required
 
-## Build the Frontend
+## Live Playground
 
 Now let's build a complete frontend that handles the entire airdrop flow. This example demonstrates all four steps: adding recipients, generating Merkle tree, deploying contracts, and claiming tokens.
 
-### Live Playground
-
 The deployed contracts are available on Push Chain Testnet:
 
-> **Factory Contract:** [0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9](https://donut.push.network/address/0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9?tab=contract)
+> **Factory Contract:** [0xf5059a5D33d5853360D16C683c16e67980206f36](https://donut.push.network/address/0xf5059a5D33d5853360D16C683c16e67980206f36?tab=contract)
 
 **Steps to interact:**
 
@@ -393,12 +418,14 @@ function UniversalAirdropTutorial() {
     }
   ];
 
+  const factoryEventABI = [
+    "event AirdropCreated(address indexed airdrop, address indexed owner, uint256 totalAmount, bytes32 merkleRoot)"
+  ];
+
   function Component() {
     const { PushChain } = usePushChain();
-    const { pushChainClient } = usePushChainClient('AirdropDeployer');
-    const { pushChainClient: claimerPushChainClient } = usePushChainClient('AirdropClaimer');
-    const { connectionStatus } = usePushWalletContext('AirdropDeployer');
-    const { connectionStatus: claimerConnectionStatus } = usePushWalletContext('AirdropClaimer');
+    const { pushChainClient } = usePushChainClient();
+    const { connectionStatus } = usePushWalletContext();
 
     const [currentStep, setCurrentStep] = useState(1);
     const [walletList, setWalletList] = useState([]);
@@ -414,7 +441,7 @@ function UniversalAirdropTutorial() {
     const [claimerEligibility, setClaimerEligibility] = useState(null);
     const [error, setError] = useState("");
 
-    const FACTORY_ADDRESS = "0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9";
+    const FACTORY_ADDRESS = "0xf5059a5D33d5853360D16C683c16e67980206f36";
 
     const chains = [
       { value: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET, label: "Push Chain" },
@@ -424,6 +451,8 @@ function UniversalAirdropTutorial() {
       { value: PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA, label: "Arbitrum Sepolia" },
       { value: PushChain.CONSTANTS.CHAIN.BNB_TESTNET, label: "BNB Testnet" },
     ];
+
+    const factoryInterface = new ethers.Interface(factoryEventABI);
 
     useEffect(() => {
       if (connectionStatus === "connected" && pushChainClient?.universal.account && currentStep === 1) {
@@ -494,6 +523,10 @@ function UniversalAirdropTutorial() {
         setError("No converted addresses available");
         return;
       }
+      if (!StandardMerkleTree) {
+        setError("Merkle tree library is still loading. Please wait a moment and try again.");
+        return;
+      }
       try {
         const values = convertedAddresses.map(([address, amount]) => [address, amount]);
         const tree = StandardMerkleTree.of(values, ["address", "uint256"]);
@@ -541,20 +574,34 @@ function UniversalAirdropTutorial() {
           value: BigInt(0),
         });
         const receipt = await tx.wait();
-        if (receipt.logs && receipt.logs.length > 0) {
-          const factoryLog = receipt.logs.find(
-            (log) => log.address.toLowerCase() === FACTORY_ADDRESS.toLowerCase()
-          );
-          if (factoryLog && factoryLog.topics && factoryLog.topics.length > 1) {
-            const airdropAddress = "0x" + factoryLog.topics[1].slice(-40);
-            setDeployedAirdropAddress(airdropAddress);
-            setCurrentStep(4);
-          } else {
-            setError("Failed to parse deployed contract address");
-          }
-        } else {
+        if (!receipt.logs || receipt.logs.length === 0) {
           setError("No logs found in transaction receipt");
+          setIsDeploying(false);
+          return;
         }
+
+        const factoryLog = receipt.logs.find(
+          (log) => log.address.toLowerCase() === FACTORY_ADDRESS.toLowerCase()
+        );
+
+        if (!factoryLog) {
+          setError("Airdrop creation event not found");
+          setIsDeploying(false);
+          return;
+        }
+
+        let parsed;
+        try {
+          parsed = factoryInterface.parseLog(factoryLog);
+        } catch (e) {
+          setError("Failed to decode AirdropCreated event");
+          setIsDeploying(false);
+          return;
+        }
+
+        const airdropAddress = parsed.args.airdrop;
+        setDeployedAirdropAddress(airdropAddress);
+        setCurrentStep(4);
         setIsDeploying(false);
       } catch (err) {
         console.error("Error deploying airdrop:", err);
@@ -565,8 +612,8 @@ function UniversalAirdropTutorial() {
 
     useEffect(() => {
       const checkClaimerEligibility = async () => {
-        if (claimerConnectionStatus === "connected" && claimerPushChainClient?.universal.account && deployedAirdropAddress) {
-          const claimerAddress = claimerPushChainClient.universal.account;
+        if (connectionStatus === "connected" && pushChainClient?.universal.account && deployedAirdropAddress) {
+          const claimerAddress = pushChainClient.universal.account;
           const entry = convertedAddresses.find(
             ([addr]) => addr.toLowerCase() === claimerAddress.toLowerCase()
           );
@@ -599,17 +646,17 @@ function UniversalAirdropTutorial() {
         }
       };
       checkClaimerEligibility();
-    }, [claimerConnectionStatus, claimerPushChainClient, deployedAirdropAddress, convertedAddresses]);
+    }, [connectionStatus, pushChainClient, deployedAirdropAddress, convertedAddresses]);
 
     const claimAirdrop = async () => {
-      if (!claimerPushChainClient || !deployedAirdropAddress) {
+      if (!pushChainClient || !deployedAirdropAddress) {
         setError("Wallet not connected or no deployed airdrop contract");
         return;
       }
       setIsClaiming(true);
       setError("");
       try {
-        const claimAddr = claimerPushChainClient.universal.account;
+        const claimAddr = pushChainClient.universal.account;
         const entry = convertedAddresses.find(
           ([addr]) => addr.toLowerCase() === claimAddr.toLowerCase()
         );
@@ -645,7 +692,7 @@ function UniversalAirdropTutorial() {
           functionName: "claim",
           args: [amount, proof]
         });
-        const tx = await claimerPushChainClient.universal.sendTransaction({
+        const tx = await pushChainClient.universal.sendTransaction({
           to: deployedAirdropAddress,
           data: txData,
           value: BigInt(0),
@@ -669,7 +716,7 @@ function UniversalAirdropTutorial() {
         </p>
 
         <div style={{ marginBottom: "30px", display: "flex", justifyContent: "center" }}>
-          <PushUniversalAccountButton uid="AirdropDeployer" />
+          <PushUniversalAccountButton />
         </div>
 
         {connectionStatus !== "connected" && (
@@ -679,23 +726,32 @@ function UniversalAirdropTutorial() {
         )}
 
         <div style={{ display: "flex", gap: "8px", marginBottom: "30px", justifyContent: "center" }}>
-          {[1, 2, 3, 4].map((step) => (
-            <button
-              key={step}
-              onClick={() => setCurrentStep(step)}
-              style={{
-                padding: "8px 16px",
-                backgroundColor: currentStep === step ? "#d946ef" : "#e0e0e0",
-                color: currentStep === step ? "white" : "#666",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontWeight: "bold",
-              }}
-            >
-              Step {step}
-            </button>
-          ))}
+          {[1, 2, 3, 4].map((step) => {
+            const locked =
+              (step === 2 && convertedAddresses.length === 0) ||
+              (step === 3 && !merkleRoot) ||
+              (step === 4 && !deployedAirdropAddress);
+
+            return (
+              <button
+                key={step}
+                onClick={() => !locked && setCurrentStep(step)}
+                disabled={locked}
+                style={{
+                  padding: "8px 16px",
+                  backgroundColor: currentStep === step ? "#d946ef" : "#e0e0e0",
+                  color: currentStep === step ? "white" : "#666",
+                  cursor: locked ? "not-allowed" : "pointer",
+                  opacity: locked ? 0.5 : 1,
+                  border: "none",
+                  borderRadius: "6px",
+                  fontWeight: "bold",
+                }}
+              >
+                Step {step}
+              </button>
+            );
+          })}
         </div>
 
         {connectionStatus === "connected" && currentStep === 1 && (
@@ -970,13 +1026,10 @@ function UniversalAirdropTutorial() {
                 Test Claim
               </h3>
               <p style={{ fontSize: "14px", color: "#666", marginBottom: "12px" }}>
-                Connect a wallet to claim tokens from the airdrop:
+                Use your connected wallet to claim tokens from the airdrop.
               </p>
-              <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
-                <PushUniversalAccountButton uid="AirdropClaimer" connectButtonText="Connect Claimer Wallet" />
-              </div>
 
-              {claimerConnectionStatus === "connected" && claimerEligibility && (
+              {connectionStatus === "connected" && claimerEligibility && (
                 <div style={{ marginTop: "12px", padding: "12px", backgroundColor: claimerEligibility.isEligible ? "#e8f5e9" : "#ffebee", borderRadius: "6px", border: `1px solid ${claimerEligibility.isEligible ? "#4caf50" : "#f44336"}` }}>
                   <p style={{ margin: 0, fontSize: "14px", fontWeight: "bold", color: "#333" }}>
                     {claimerEligibility.isEligible ? "✅ Eligible for Airdrop!" : "❌ Not Eligible"}
@@ -1029,16 +1082,17 @@ function UniversalAirdropTutorial() {
 }
 ```
 
-## Understanding the Frontend Code
+## Understanding the Code
 
 ### Step 1: Address Conversion
 
 ```typescript
 const account = PushChain.utils.account.toUniversal(entry.address, {
-  chain: entry.chain
+  chain: entry.chain,
 });
 
-const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+const executorAddress =
+  await PushChain.utils.account.convertOriginToExecutor(account);
 ```
 
 This converts each origin address to its deterministic UEA address on Push Chain. The same origin address will always produce the same UEA address.
@@ -1047,7 +1101,7 @@ This converts each origin address to its deterministic UEA address on Push Chain
 
 ```typescript
 const values = convertedAddresses.map(([address, amount]) => [address, amount]);
-const tree = StandardMerkleTree.of(values, ["address", "uint256"]);
+const tree = StandardMerkleTree.of(values, ['address', 'uint256']);
 const root = tree.root;
 ```
 
@@ -1058,8 +1112,8 @@ We use OpenZeppelin's `StandardMerkleTree` which implements the same double-hash
 ```typescript
 const txData = PushChain.utils.helpers.encodeTxData({
   abi: factoryABI,
-  functionName: "createAirdrop",
-  args: [totalAmount, merkleRoot]
+  functionName: 'createAirdrop',
+  args: [totalAmount, merkleRoot],
 });
 
 const tx = await pushChainClient.universal.sendTransaction({
@@ -1086,11 +1140,11 @@ for (const [i, v] of merkleTree.tree.entries()) {
 // Encode and send claim transaction
 const txData = PushChain.utils.helpers.encodeTxData({
   abi: UniversalAirdropABI,
-  functionName: "claim",
-  args: [amount, proof]
+  functionName: 'claim',
+  args: [amount, proof],
 });
 
-const tx = await claimerPushChainClient.universal.sendTransaction({
+const tx = await pushChainClient.universal.sendTransaction({
   to: deployedAirdropAddress,
   data: txData,
   value: BigInt(0),
@@ -1102,9 +1156,9 @@ The claimer's UEA executes the `claim()` function with their proof, and the cont
 ## Source Code
 
 <GitHubRepo
-  title="Universal Airdrop Tutorial"
-  repoUrl="https://github.com/pushchain/push-chain-examples/tree/main/tutorials/universal-claimable-airdrop"
-  description="Full source code for the Universal Airdrop smart contracts and example frontend."
+  title='Universal Airdrop Tutorial'
+  repoUrl='https://github.com/pushchain/push-chain-examples/tree/main/tutorials/universal-claimable-airdrop'
+  description='Full source code for the Universal Airdrop smart contracts and example frontend.'
 />
 
 ## What We Achieved
@@ -1119,31 +1173,45 @@ In this tutorial, we built a complete universal airdrop system:
 ## Key Takeaways
 
 **1. One Deployment, Infinite Reach**
+
 - Deploy your airdrop contract once on Push Chain
 - Users from any chain can claim with their existing wallet
 - No multi-chain deployment complexity
 
 **2. Universal Executor Accounts**
+
 - Every address on every chain has a deterministic UEA on Push Chain
 - UEAs enable cross-chain interactions without bridges
 - Same origin address always maps to the same UEA
 
 **3. Standard Merkle Proofs**
+
 - Uses OpenZeppelin's battle-tested implementation
 - No custom cryptography or modifications needed
 - Efficient on-chain verification
 
 **4. Seamless User Experience**
+
 - Users never leave their preferred chain
 - No token bridging or chain-switching required
 - One click to claim from any wallet
 
-> **🚀 What's Next?**
->
-> This pattern can be extended to:
-> - Multi-round airdrops with updatable Merkle roots
-> - Vesting schedules with time-locked claims
-> - Conditional claims based on on-chain activity
-> - Cross-chain governance token distribution
->
-> The possibilities are endless when you build universal!
+## What's Next?
+
+Now that you've built a universal airdrop system, you can extend this pattern to create more advanced token distribution mechanisms.
+
+**Understanding the Foundation:**
+
+- Every claim was executed through a [Universal Executor Account (UEA)](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/)
+- The same UEA derivation enables all universal interactions on Push Chain
+- Merkle proofs provide efficient verification for large-scale distributions
+
+**Advanced Patterns to Explore:**
+
+- **Multi-round airdrops** with updatable Merkle roots
+- **Vesting schedules** with time-locked claims
+- **Conditional claims** based on on-chain activity
+- **Cross-chain governance** token distribution
+- **Staking rewards** distributed to any chain
+
+The possibilities are endless when you build universal!
