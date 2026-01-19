@@ -90,8 +90,9 @@ const txHash = await pushChainClient.universal.sendTransaction({
 | `SEND-TX-06-03-01`| Confirmation #`<current>` Received  | `<current>/<required>` confirmations received                                             | INFO    |
 | `SEND-TX-06-03-02`| Confirmation #`<current>` Received  | `<current>/<required>` confirmations received                                             | SUCCESS |
 | `SEND-TX-06-04`   | Funds Confirmed                     | Origin chain lock confirmed                                                               | SUCCESS |
-| `SEND-TX-06-05`   | Funds Credited on Push Chain        | Funds credited: `<amount> <symbol>`                                                       | SUCCESS |
-| `SEND-TX-07`      | Broadcasting to Push Chain          | Sending Tx to Push Chain                                                                  | INFO    |
+| `SEND-TX-06-05`   | Syncing State with Push Chain       | Waiting for transaction to appear on Push Chain                                           | SUCCESS |
+| `SEND-TX-06-06`   | Funds Credited on Push Chain        | Funds credited: `<amount> <symbol>` (minus fees)                                          | SUCCESS |
+| `SEND-TX-07`      | Broadcasting to Push Chain          | Sending Tx to Push Chain...                                                               | INFO    |
 | `SEND-TX-99-01`   | Push Chain Tx Success               | Tx executed successfully on Push Chain                                                    | SUCCESS |
 | `SEND-TX-99-02`   | Push Chain Tx Failed                | `<error message>`                                                                         | ERROR   |
 
