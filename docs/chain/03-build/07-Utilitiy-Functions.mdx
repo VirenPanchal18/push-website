@@ -469,6 +469,71 @@ import { PushChain } from '@pushchain/core';
 
 {/* API Section Ends*/}
 
+{/* API Section Start*/}
+
+### Get Supported Chains By Name
+
+**_`PushChain.utils.chains.getSupportedChainsByName(pushNetwork): { chains: [] }`_**
+
+Returns the list of supported chain names (human-readable strings) for a given Push Network.
+
+```typescript
+const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description**                                                                                                                                     |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chain names from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details> |
+
+</PushAPIReference>
+
+<Details summary="Returns `{ chains }` <object>" className="alert alert--fn-args">
+
+```typescript
+// { chains } object - returns human-readable chain names as strings
+{
+  chains: [
+    'PUSH_TESTNET_DONUT',
+    'ETHEREUM_SEPOLIA',
+    'ARBITRUM_SEPOLIA',
+    'BASE_SEPOLIA',
+    'BNB_TESTNET',
+    'SOLANA_DEVNET',
+    // ...
+  ]
+}
+
+// NOTE: returns empty chains array if pushNetwork is unsupported
+```
+
+</Details>
+
+<Details summary="Live Playground: Get Supported Chains By Name for a given Push Network" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\\.utils\\.chains\\.getSupportedChainsByName
+// customPropHighlightRegexEnd=\\);
+import { PushChain } from '@pushchain/core';
+
+    function main() {
+      const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
+      console.log(JSON.stringify(chains));
+    }
+
+    main();
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+{/* API Section Ends*/}
+
 ## Account Utilities
 
 {/* API Section Begins*/}
