@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 
-interface ContactMessagePayload {
-  from: string;
-  name: string;
-  company?: string;
-  topic: string;
-  sub: string;
-  msg: string;
+interface CultContactMessagePayload {
+  email: string;
+  xUsername: string;
+  telegramId: string;
+  bestContent: string;
+  message: string;
 }
 
 interface MutationOptions {
@@ -17,10 +16,10 @@ interface MutationOptions {
 
 const pushsupportBaseURL = 'https://tooling.push.org/apis';
 
-const sendContactMessage = async (payload: ContactMessagePayload) => {
+const sendCultMessage = async (payload: CultContactMessagePayload) => {
   const response = await axios({
     method: 'POST',
-    url: `${pushsupportBaseURL}/mailing/send_mail`,
+    url: `${pushsupportBaseURL}/mailing/send_cult_mail`,
     data: payload,
     headers: {
       'Content-Type': 'application/json',
@@ -29,17 +28,17 @@ const sendContactMessage = async (payload: ContactMessagePayload) => {
   return response.data;
 };
 
-export const useSendContactMessage = () => {
+export const useSendCultContactMessage = () => {
   const [isPending, setIsPending] = useState(false);
 
   const mutate = async (
-    payload: ContactMessagePayload,
+    payload: CultContactMessagePayload,
     options?: MutationOptions
   ) => {
     setIsPending(true);
 
     try {
-      await sendContactMessage(payload);
+      await sendCultMessage(payload);
       options?.onSuccess?.();
     } catch (error) {
       options?.onError?.(error as Error);
