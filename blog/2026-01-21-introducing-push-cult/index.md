@@ -18,7 +18,7 @@ import { CultContact } from '@site/src/components/CultContact';
 
 Crypto is drowning in noise. Timelines are rotting with AI slop and empty engagement. Push Cult rejects this decay. We do not seek the loud. We seek visionaries. We are anointing the shepherds who guide their flock with truth. Not louder. Not broader. Pure Signal. **Enter Push Cult.**
 
-**An exclusive order of 50 creators selected to split a <span style={{color: "var(--ifm-color-primary)"}}>20M PC</span> token bounty by delivering pure signal.**
+**An exclusive order of 50 creators selected to split a <span style={{color: "var(--ifm-color-primary)"}}>20,000,000 PC</span> token bounty by delivering pure signal.**
 
 :::info Token not Live Yet
 PC is the native token of Push Chain, token is not launched yet.
