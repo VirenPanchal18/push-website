@@ -609,39 +609,6 @@ function Header() {
                           {HeaderList.testnet.map((item, index) => (
                             <HeaderSpace item={item} index={index} />
                           ))}
-
-                          <ItemH
-                            justifyContent='flex-start'
-                            alignItems='center'
-                            gap='14px'
-                            padding='16px 16px'
-                          >
-                            <HeaderAnchorIcon
-                              href='https://x.com/PushChain'
-                              title={t(
-                                'footer.social-section.twitter-icon-title'
-                              )}
-                              aria-label={t(
-                                'footer.social-section.twitter-icon-aria-label'
-                              )}
-                              target='_blank'
-                            >
-                              <BsTwitterX size={25} />
-                            </HeaderAnchorIcon>
-
-                            <HeaderAnchorIcon
-                              href='https://discord.com/invite/pushchain'
-                              title={t(
-                                'footer.social-section.discord-icon-title'
-                              )}
-                              aria-label={t(
-                                'footer.social-section.discord-icon-aria-label'
-                              )}
-                              target='_blank'
-                            >
-                              <DiscordSVG width={32} height={32} />
-                            </HeaderAnchorIcon>
-                          </ItemH>
                         </HeaderSection>
                       </HeaderDiv>
                     </NavigationMenuContent>
@@ -747,6 +714,35 @@ function Header() {
                       {HeaderList.community.map((item, index) => (
                         <HeaderSpace item={item} index={index} />
                       ))}
+
+                      <ItemH
+                        justifyContent='flex-start'
+                        alignItems='center'
+                        gap='14px'
+                        padding='16px 16px'
+                      >
+                        <HeaderAnchorIcon
+                          href='https://x.com/PushChain'
+                          title={t('footer.social-section.twitter-icon-title')}
+                          aria-label={t(
+                            'footer.social-section.twitter-icon-aria-label'
+                          )}
+                          target='_blank'
+                        >
+                          <BsTwitterX size={25} />
+                        </HeaderAnchorIcon>
+
+                        <HeaderAnchorIcon
+                          href='https://discord.com/invite/pushchain'
+                          title={t('footer.social-section.discord-icon-title')}
+                          aria-label={t(
+                            'footer.social-section.discord-icon-aria-label'
+                          )}
+                          target='_blank'
+                        >
+                          <DiscordSVG width={32} height={32} />
+                        </HeaderAnchorIcon>
+                      </ItemH>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 

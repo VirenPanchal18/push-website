@@ -104,20 +104,20 @@ export const HeaderList = {
       href: '/cult',
       target: '_self',
     },
-    {
-      text: 'header.community.link4.text',
-      subtext: 'header.community.link4.subtext',
-      title: 'header.community.link4.title',
-      href: 'https://x.com/PushChain',
-      target: '_blank',
-    },
-    {
-      text: 'header.community.link5.text',
-      subtext: 'header.community.link5.subtext',
-      title: 'header.community.link5.title',
-      href: 'https://discord.com/invite/pushchain',
-      target: '_blank',
-    },
+    // {
+    //   text: 'header.community.link4.text',
+    //   subtext: 'header.community.link4.subtext',
+    //   title: 'header.community.link4.title',
+    //   href: 'https://x.com/PushChain',
+    //   target: '_blank',
+    // },
+    // {
+    //   text: 'header.community.link5.text',
+    //   subtext: 'header.community.link5.subtext',
+    //   title: 'header.community.link5.title',
+    //   href: 'https://discord.com/invite/pushchain',
+    //   target: '_blank',
+    // },
   ],
   resources: [
     {
