@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'An exclusive order of 50 creators selected to split a 20M PC token bounty by delivering pure signal.'
 text: "Crypto is drowning in noise. Timelines are rotting with AI slop and empty engagement. Push Cult rejects this decay. We do not seek the loud. We seek visionaries. "
 tags: [Donut Testnet, Ecosystem, Content Creator]
+twitterId: '2014337359064789182'
 ---
 
 ![Introducing Push Cult 👁️⃤  - Blood Pact for Creators](./cover-image.webp)
@@ -36,16 +37,16 @@ Push Cult is a curated, invite-only program designed to honor and reward real co
 
 We are proving that 50 Disciples can outshine an army of mercenaries. We do not pay for empty reach. We reward the Truth, you are fit if you can deliver:
 
-* Real usage.  
-* Die-hard believers.  
+* Real usage.
+* Die-hard believers.
 * Original thinking.
 
-This is not a marketing campaign. We’re not trying to create another influencer program or invent a new distribution meta. It is a multi-week crusade to deliver Push Chain to the masses. 
+This is not a marketing campaign. We’re not trying to create another influencer program or invent a new distribution meta. It is a multi-week crusade to deliver Push Chain to the masses.
 
 
 ## The Rules - A Finite Order. You Perform, We Curate.
 
-We cap the Disciples at 50 to ensure focus. But the doors are never locked. 
+We cap the Disciples at 50 to ensure focus. But the doors are never locked.
 
 Participation is renewed weekly based on impact. If you fall below the threshold, you rotate out. If a new voice rises from the Flock, they rotate in. We do not gatekeep the table. We simply guard the standard. Great creators compete on quality, not volume.
 
@@ -54,14 +55,14 @@ Participation is renewed weekly based on impact. If you fall below the threshold
 
 We do not dictate the medium. **Threads, videos, articles the format is yours.** Your mandate is clear:
 
-* Threads, articles, or videos explaining Push Chain concepts  
-* Guide the Flock through the Testnet with tutorials.  
-* Onboard believers to Season 3\.  
+* Threads, articles, or videos explaining Push Chain concepts
+* Guide the Flock through the Testnet with tutorials.
+* Onboard believers to Season 3\.
 * Evangelize the era of Universal Execution.
 
 **We arm the Disciples.** We provide the raw intel:
 
-* Weekly missions and themes.  
+* Weekly missions and themes.
 * Alpha before the public sees it.
 
 We provide the ammo. You shape the narrative. **We judge the resonance.**
@@ -71,12 +72,12 @@ We provide the ammo. You shape the narrative. **We judge the resonance.**
 
 We ignore vanity metrics. We track conversion. Each Disciple is judged weekly by the **Devotion Score**, a fusion of:
 
-* **Signal:** Reach across the network.  
-* **Gathering:** New believers onboarded.  
-* **Faith:** User retention and activity.  
+* **Signal:** Reach across the network.
+* **Gathering:** New believers onboarded.
+* **Faith:** User retention and activity.
 * **Craft:** Manual review by the Push Chain Team.
 
-Spam burns to ash. Only the truth survives. A final warning:   
+Spam burns to ash. Only the truth survives. A final warning:
 **Devotion is not declared. It is earned.**
 
 
@@ -86,14 +87,14 @@ This program is designed for creators who want long-term upside, not one-off pay
 
 Top performers receive:
 
-* **Guaranteed Allocation** from the 20M Pool.  
-* Ultra Rare Shiny Pass, a mainnet pass that grants:  
-  * Revenue share from chain fees  
-  * Validator rewards participation  
-  * Staking multipliers  
+* **Guaranteed Allocation** from the 20M Pool.
+* Ultra Rare Shiny Pass, a mainnet pass that grants:
+  * Revenue share from chain fees
+  * Validator rewards participation
+  * Staking multipliers
   * VIP ecosystem perks
 
-**Rank dictates the harvest.**  
+**Rank dictates the harvest.**
 There are no participation trophies.
 
 
@@ -101,9 +102,9 @@ There are no participation trophies.
 
 The Cult is designed for creators who:
 
-* Already create content like **guides, threads, or explainers**  
-* Command an engaged audience (not necessarily a huge one)  
-* Care about shipping clarity, not hype  
+* Already create content like **guides, threads, or explainers**
+* Command an engaged audience (not necessarily a huge one)
+* Care about shipping clarity, not hype
 * Want to be early
 
 You do not need an army, just a loyal following. If you seek a quick flip, walk away. **If you seek to build a legacy, step forward.**
@@ -115,8 +116,8 @@ The gates are open.
 
 Registration gives you access to:
 
-* Program details  
-* Evaluation mechanics  
+* Program details
+* Evaluation mechanics
 * Initial onboarding steps
 
 From there, performance determines everything.
