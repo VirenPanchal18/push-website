@@ -3,11 +3,42 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const GlowingEyes = () => {
+interface GlowingEyesProps {
+  backgroundImageName?: string;
+  backgroundTop?: string;
+  backgroundRight?: string;
+  backgroundOpacity?: number;
+}
+
+const GlowingEyes: React.FC<GlowingEyesProps> = ({
+  backgroundImageName,
+  backgroundTop = '0',
+  backgroundRight = '0',
+  backgroundOpacity = 1,
+}) => {
+  // Generate srcset for responsive images
+  const getSrcSet = (imageName: string) => {
+    const basePath = imageName.substring(0, imageName.lastIndexOf('.'));
+    const extension = imageName.substring(imageName.lastIndexOf('.'));
+    return `${basePath}${extension} 1x, ${basePath}@2x${extension} 2x, ${basePath}@3x${extension} 3x`;
+  };
+
   return (
     <EyesContainer>
-      <Eye className='left' />
-      <Eye className='right' />
+      {backgroundImageName && (
+        <BackgroundImage
+          src={backgroundImageName}
+          srcSet={getSrcSet(backgroundImageName)}
+          alt=''
+          $top={backgroundTop}
+          $right={backgroundRight}
+          $opacity={backgroundOpacity}
+        />
+      )}
+      <EyesWrapper>
+        <Eye className='left' />
+        <Eye className='right' />
+      </EyesWrapper>
     </EyesContainer>
   );
 };
@@ -59,12 +90,38 @@ const EyesContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 400px;
-  height: 120px;
   margin: 40px auto;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const BackgroundImage = styled.img<{
+  $top: string;
+  $right: string;
+  $opacity: number;
+}>`
+  position: absolute;
+  top: ${(props) => props.$top};
+  right: ${(props) => props.$right};
+  opacity: ${(props) => props.$opacity};
+  width: 100%;
+  height: auto;
+  display: block;
+`;
+
+const EyesWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 100px;
+  z-index: 2;
+  pointer-events: none;
 `;
 
 const Eye = styled.div`

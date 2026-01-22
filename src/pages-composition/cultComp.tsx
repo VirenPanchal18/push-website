@@ -116,7 +116,12 @@ function CultComp() {
       <Section>
         <Content className='skeletonsmall'>
           <MultiContent>
-            <GlowingEyes />
+            <GlowingEyes
+              backgroundImageName='/assets/website/cult/otterface.webp'
+              backgroundTop='10%'
+              backgroundRight='10%'
+              backgroundOpacity={0.3}
+            />
           </MultiContent>
           <MultiContent>
             <H1>{t('pages.cult.hero-section.title')}</H1>

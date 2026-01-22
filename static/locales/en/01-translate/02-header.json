@@ -82,6 +82,11 @@
         "subtext": "Featured tweets by Push community #LFPush",
         "title": "Featured tweets by Push community #LFPush"
       },
+      "link8": {
+        "text": "Push Cult",
+        "subtext": "A program for creators with 2M token bounty",
+        "title": "Check out Push Cult - A program for creators with 20M token bounty"
+      },
       "link3": {
         "text": "Tokenomics",
         "subtext": "Native token powering everything on Push Chain",
@@ -101,11 +106,6 @@
         "text": "Telegram",
         "subtext": "Join the convo and stay in the loop",
         "title": "Connect with Push Chain community on Telegram for real-time updates"
-      },
-      "link8": {
-        "text": "Push Cult",
-        "subtext": "A program for creators with 2M token bounty",
-        "title": "Check out Push Cult - A program for creators with 2M token bounty"
       }
     },
     "resources": {
