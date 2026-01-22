@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { css, keyframes } from 'styled-components';
 
 import { H2, ItemV } from '@site/src/css/SharedStyling';
@@ -17,12 +18,21 @@ interface FormData {
 interface CultContactProps {
   collapsedText?: string;
   expandedTitle?: string;
+  theme?: 'blood' | 'default';
 }
 
 export const CultContact: React.FC<CultContactProps> = ({
-  collapsedText = '🩸 Join Push Cult - Take the Oath',
-  expandedTitle = 'The Oath',
+  collapsedText,
+  expandedTitle,
+  theme = 'default',
 }) => {
+  const { t } = useTranslation();
+
+  // Use translations with fallbacks
+  const finalCollapsedText =
+    collapsedText || t('components.cult-contact.collapsed-text');
+  const finalExpandedTitle =
+    expandedTitle || t('components.cult-contact.expanded-title');
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
@@ -42,71 +52,84 @@ export const CultContact: React.FC<CultContactProps> = ({
   const steps = [
     {
       id: 'email',
-      title: "What's your email address? 📧",
-      subtitle: 'We need this to contact you',
+      title: t('components.cult-contact.form.steps.email.title'),
+      subtitle: t('components.cult-contact.form.steps.email.subtitle'),
       field: 'email',
       type: 'email',
-      placeholder: 'your.email@example.com',
+      placeholder: t('components.cult-contact.form.steps.email.placeholder'),
       required: true,
     },
     {
       id: 'xUsername',
-      title: "What's your X (Twitter) username?",
-      subtitle: 'We want to see your content and engagement',
+      title: t('components.cult-contact.form.steps.x-username.title'),
+      subtitle: t('components.cult-contact.form.steps.x-username.subtitle'),
       field: 'xUsername',
       type: 'text',
-      placeholder: '@yourhandle',
+      placeholder: t(
+        'components.cult-contact.form.steps.x-username.placeholder'
+      ),
       required: true,
     },
     {
       id: 'telegramId',
-      title: "What's your Telegram ID?",
-      subtitle: 'We use Telegram for direct communication with Disciples',
+      title: t('components.cult-contact.form.steps.telegram-id.title'),
+      subtitle: t('components.cult-contact.form.steps.telegram-id.subtitle'),
       field: 'telegramId',
       type: 'text',
-      placeholder: '@yourtelegramid',
+      placeholder: t(
+        'components.cult-contact.form.steps.telegram-id.placeholder'
+      ),
       required: true,
     },
     {
       id: 'bestContent',
-      title: 'Share your best content',
-      subtitle:
-        'Link to your best thread, video, or article that showcases your work',
+      title: t('components.cult-contact.form.steps.best-content.title'),
+      subtitle: t('components.cult-contact.form.steps.best-content.subtitle'),
       field: 'bestContent',
       type: 'text',
-      placeholder: 'https://x.com/yourhandle/status/...',
+      placeholder: t(
+        'components.cult-contact.form.steps.best-content.placeholder'
+      ),
       required: true,
     },
     {
       id: 'message',
-      title: 'Share your vision',
-      subtitle:
-        'Tell us about your content, audience, and why you want to join',
+      title: t('components.cult-contact.form.steps.message.title'),
+      subtitle: t('components.cult-contact.form.steps.message.subtitle'),
       field: 'message',
       type: 'textarea',
-      placeholder:
-        'Tell us about your content, audience, and why you want to join Push Cult...',
+      placeholder: t('components.cult-contact.form.steps.message.placeholder'),
       required: true,
     },
   ];
 
   const validateField = (field: string, value: string): string | null => {
     if (!value.trim()) {
-      if (field === 'email') return 'Email is required';
-      if (field === 'xUsername') return 'X username is required';
-      if (field === 'telegramId') return 'Telegram ID is required';
-      if (field === 'bestContent') return 'Best content link is required';
-      if (field === 'message') return 'Message is required';
-      return 'This field is required';
+      if (field === 'email')
+        return t('components.cult-contact.form.validation.email-required');
+      if (field === 'xUsername')
+        return t('components.cult-contact.form.validation.x-username-required');
+      if (field === 'telegramId')
+        return t(
+          'components.cult-contact.form.validation.telegram-id-required'
+        );
+      if (field === 'bestContent')
+        return t(
+          'components.cult-contact.form.validation.best-content-required'
+        );
+      if (field === 'message')
+        return t('components.cult-contact.form.validation.message-required');
+      return t('components.cult-contact.form.validation.default');
     }
 
     if (field === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) return 'Please enter a valid email address';
+      if (!emailRegex.test(value))
+        return t('components.cult-contact.form.validation.email-invalid');
     }
 
     if (field === 'bestContent' && !value.startsWith('http')) {
-      return 'Please enter a valid URL';
+      return t('components.cult-contact.form.validation.best-content-invalid');
     }
 
     return null;
@@ -199,13 +222,14 @@ export const CultContact: React.FC<CultContactProps> = ({
 
   if (!isExpanded) {
     return (
-      <CollapsedWrapper>
+      <CollapsedWrapper id='apply-to-cult'>
         <ExpandButton
-          id='cult-contact-expand-button'
+          id='cult-expand-button'
           onClick={() => setIsExpanded(true)}
+          $theme={theme}
         >
           <PlusIcon isExpanded={false}>+</PlusIcon>
-          <ButtonText>{collapsedText}</ButtonText>
+          <ButtonText>{finalCollapsedText}</ButtonText>
         </ExpandButton>
       </CollapsedWrapper>
     );
@@ -216,9 +240,11 @@ export const CultContact: React.FC<CultContactProps> = ({
       <Container>
         <SuccessWrapper>
           <SuccessIcon>🎉</SuccessIcon>
-          <SuccessTitle>Application Submitted!</SuccessTitle>
+          <SuccessTitle>
+            {t('components.cult-contact.form.success.title')}
+          </SuccessTitle>
           <SuccessMessage>
-            Join{' '}
+            {t('components.cult-contact.form.success.message-before-link')}{' '}
             <a
               href='https://discord.com/invite/pushchain'
               target='_blank'
@@ -228,13 +254,16 @@ export const CultContact: React.FC<CultContactProps> = ({
                 textDecoration: 'underline',
               }}
             >
-              Push Chain Discord
+              {t('components.cult-contact.form.success.discord-link-text')}
             </a>{' '}
-            and keep an eye on the <strong>#push-cult</strong> channel for next
-            steps.
+            {t('components.cult-contact.form.success.message-after-link')}{' '}
+            <strong>
+              {t('components.cult-contact.form.success.channel-name')}
+            </strong>{' '}
+            {t('components.cult-contact.form.success.message-end')}
           </SuccessMessage>
           <ResetButton onClick={resetForm}>
-            Submit Another Application
+            {t('components.cult-contact.form.success.button')}
           </ResetButton>
         </SuccessWrapper>
       </Container>
@@ -247,7 +276,7 @@ export const CultContact: React.FC<CultContactProps> = ({
   return (
     <Container>
       <ExpandedHeader>
-        <ExpandedTitle>{expandedTitle}</ExpandedTitle>
+        <ExpandedTitle>{finalExpandedTitle}</ExpandedTitle>
         <CollapseButton onClick={() => setIsExpanded(false)}>
           <PlusIcon isExpanded={true}>+</PlusIcon>
         </CollapseButton>
@@ -258,7 +287,10 @@ export const CultContact: React.FC<CultContactProps> = ({
         </ProgressBar>
 
         <StepCounter>
-          {currentStep + 1} of {steps.length}
+          {t('components.cult-contact.form.progress.step-counter', {
+            current: currentStep + 1,
+            total: steps.length,
+          })}
         </StepCounter>
 
         <StepContent>
@@ -326,7 +358,9 @@ export const CultContact: React.FC<CultContactProps> = ({
 
         <ButtonGroup>
           {currentStep > 0 && (
-            <BackButton onClick={handleBack}>← Back</BackButton>
+            <BackButton onClick={handleBack}>
+              ← {t('components.cult-contact.form.buttons.previous')}
+            </BackButton>
           )}
 
           <NextButton
@@ -335,11 +369,11 @@ export const CultContact: React.FC<CultContactProps> = ({
             isPrimary={currentStep === steps.length - 1}
           >
             {isSubmitting ? (
-              <>⏳ Submitting...</>
+              <>⏳ {t('components.cult-contact.form.buttons.submitting')}</>
             ) : currentStep === steps.length - 1 ? (
-              'Take the Oath →'
+              <>{t('components.cult-contact.form.buttons.submit')} →</>
             ) : (
-              'Continue →'
+              <>{t('components.cult-contact.form.buttons.next')} →</>
             )}
           </NextButton>
         </ButtonGroup>
@@ -390,7 +424,7 @@ const CollapsedWrapper = styled.div`
   padding: 20px 0px;
 `;
 
-const ExpandButton = styled.button`
+const ExpandButton = styled.button<{ $theme?: 'blood' | 'default' }>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -399,10 +433,17 @@ const ExpandButton = styled.button`
   padding: 20px 24px;
   font-size: 24px;
   font-weight: 600;
-  border: 2px solid var(--ifm-color-primary-unified);
+  border: 2px solid
+    ${(props) =>
+      props.$theme === 'blood'
+        ? 'var(--ifm-color-primary-unified)'
+        : 'var(--ifm-color-primary-unified-inverse)'};
   border-radius: 12px;
   background: transparent;
-  color: var(--ifm-color-primary);
+  color: ${(props) =>
+    props.$theme === 'blood'
+      ? 'var(--ifm-color-primary)'
+      : 'var(--ifm-color-primary-unified-inverse)'};
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
