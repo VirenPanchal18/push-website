@@ -47,12 +47,12 @@ export const useChainNotification = () => {
           description={t('notifications.chain-notification.description')}
           position='bottom-left'
           onClick={() => {
-            localStorage.setItem('prelaunchNotification', 'true');
+            localStorage.setItem('cultNotification', 'true');
             window.open('https://portal.push.org', '_blank');
             toast.dismiss(toastId);
           }}
           onClose={() => {
-            localStorage.setItem('prelaunchNotification', 'true');
+            localStorage.setItem('cultNotification', 'true');
             toast.dismiss(toastId);
           }}
           t={t}
@@ -69,7 +69,7 @@ export const useChainNotification = () => {
     // Ensure this code only runs in the browser
     if (typeof window !== 'undefined') {
       const notificationAlreadyShown =
-        localStorage.getItem('prelaunchNotification') === 'true';
+        localStorage.getItem('cultNotification') === 'true';
 
       if (!notificationAlreadyShown && !hasMounted) {
         showNotification();
@@ -125,10 +125,10 @@ const NotificationItem: FC<NotificationProps> = ({
           <Image
             src={
               require(
-                `@site/static/assets/website/notifications/pre-launch.webp`
+                `@site/static/assets/website/notifications/cult-notifs.webp`
               ).default
             }
-            srcSet={`${require(`@site/static/assets/website/notifications/pre-launch@2x.webp`).default} 2x, ${require(`@site/static/assets/website/notifications/pre-launch@3x.webp`).default} 3x`}
+            // srcSet={`${require(`@site/static/assets/website/notifications/cult-notifs@2x.webp`).default} 2x, ${require(`@site/static/assets/website/notifications/cult-notifs@3x.webp`).default} 3x`}
             alt={t?.('notifications.chain-notification.image-alt')}
             loading='lazy'
           />
@@ -157,7 +157,8 @@ const NotificationItem: FC<NotificationProps> = ({
 // Notification Container
 const NotificationContainer = styled.div`
   position: relative;
-  background-color: var(--ifm-link-color);
+  background-color: var(--ifm-color-black);
+  border: 1px solid rgba(232, 123, 247, 0.3);
   border-radius: 24px;
   display: flex;
   flex-direction: column;

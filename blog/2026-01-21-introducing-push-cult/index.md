@@ -35,7 +35,7 @@ Push Cult is a curated, invite-only program designed to honor and reward real co
 
 ## Why the Cult Exists
 
-We are proving that 50 Disciples can outshine an army of mercenaries. We do not pay for empty reach. We reward the Truth, you are fit if you can deliver:
+We are proving that 50 Disciples can outshine an army of mercenaries. We do not pay for empty reach. We reward the Truth, You're a fit, if you can deliver::
 
 * Real usage.
 * Die-hard believers.

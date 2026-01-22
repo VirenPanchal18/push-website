@@ -140,12 +140,12 @@ export default function HomeComp() {
 
             <HeroItem alignItems='center'>
               <HeroBody>
-                <ItemV margin='0 auto 48px auto' flex='0'>
+                {/*<ItemV margin='0 auto 48px auto' flex='0'>
                   <AlertBar
                     text='Apply for Season 3 Pre-Launch Access Eligibility'
                     url='https://portal.push.org'
                   />
-                </ItemV>
+                </ItemV>*/}
                 <H1
                   zIndex='2'
                   fontSize={isMobile ? '2.5rem' : '3.625rem'}

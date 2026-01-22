@@ -127,7 +127,7 @@ export default function Root({ children }) {
           {typeof window !== 'undefined' && showAlertBar && (
             <InfoBar
               translatedTextKey='notifications.info-bar.title'
-              url='https://portal.push.org/'
+              url='https://push.org/cult'
             />
           )}
 
