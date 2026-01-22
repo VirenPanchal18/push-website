@@ -1,16 +1,16 @@
 {
-  "id": 10,
-  "name": "OnchainVampireSurvivors",
-  "description": "Universal vampire survivors like game",
-  "icon": "/assets/ecosystem/onchain-vampires-icon.png",
-  "bgImage": "/assets/ecosystem/onchain-vampires-bg.png",
-  "bgGradientColor": "#5D261E",
+  "id": 9,
+  "name": "Push Ninja",
+  "description": "On-chain skill based game",
+  "icon": "/assets/ecosystem/push-ninja-icon.png",
+  "bgImage": "/assets/ecosystem/push-ninja-bg.png",
+  "bgGradientColor": "#591D5C",
   "tags": [
     "Gaming"
   ],
-  "twitterId": "2003875166850531341",
-  "href": "https://catkevin.github.io/OnchainVampireSurvivors/",
+  "twitterId": "2014018188434964672",
+  "href": "https://push-ninja.abstractstudio.in",
   "titleColor": "white",
   "appoftheweek": true,
-  "spotlighttext": "Universal vampire survivors like game"
+  "spotlighttext": "Slice. Dodge. Score."
 }
