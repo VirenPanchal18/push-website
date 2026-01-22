@@ -10,6 +10,4 @@ tags:
 twitterId: '2003875166850531341'
 href: https://catkevin.github.io/OnchainVampireSurvivors/
 titleColor: white
-appoftheweek: true
-spotlighttext: Universal vampire survivors like game
 ---

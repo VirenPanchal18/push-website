@@ -9,4 +9,5 @@ tags:
   - DeFi
 href: https://pushdex.lovable.app/
 titleColor: '#FFFFFF'
+twitterId: '2011506398597955757'
 ---

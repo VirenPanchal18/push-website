@@ -38,6 +38,8 @@ import { useSiteBaseUrl } from '../hooks/useSiteBaseUrl';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { BsTwitterX } from 'react-icons/bs';
+import DiscordSVG from '@site/static/assets/website/shared/discord.svg';
 
 // Internal Configs
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -607,6 +609,39 @@ function Header() {
                           {HeaderList.testnet.map((item, index) => (
                             <HeaderSpace item={item} index={index} />
                           ))}
+
+                          <ItemH
+                            justifyContent='flex-start'
+                            alignItems='center'
+                            gap='14px'
+                            padding='16px 16px'
+                          >
+                            <HeaderAnchorIcon
+                              href='https://x.com/PushChain'
+                              title={t(
+                                'footer.social-section.twitter-icon-title'
+                              )}
+                              aria-label={t(
+                                'footer.social-section.twitter-icon-aria-label'
+                              )}
+                              target='_blank'
+                            >
+                              <BsTwitterX size={25} />
+                            </HeaderAnchorIcon>
+
+                            <HeaderAnchorIcon
+                              href='https://discord.com/invite/pushchain'
+                              title={t(
+                                'footer.social-section.discord-icon-title'
+                              )}
+                              aria-label={t(
+                                'footer.social-section.discord-icon-aria-label'
+                              )}
+                              target='_blank'
+                            >
+                              <DiscordSVG width={32} height={32} />
+                            </HeaderAnchorIcon>
+                          </ItemH>
                         </HeaderSection>
                       </HeaderDiv>
                     </NavigationMenuContent>
@@ -1753,6 +1788,21 @@ const LiquidGlassOuter = styled(ItemV)`
 
   @media ${device.mobileL} {
     display: none;
+  }
+`;
+
+const HeaderAnchorIcon = styled(A)`
+  border-radius: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  background: transparent;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    transition: transform 0.25s ease-out;
   }
 `;
 

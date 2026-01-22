@@ -98,6 +98,13 @@ export const HeaderList = {
       target: '_self',
     },
     {
+      text: 'header.community.link8.text',
+      subtext: 'header.community.link8.subtext',
+      title: 'header.community.link8.title',
+      href: '/cult',
+      target: '_self',
+    },
+    {
       text: 'header.community.link4.text',
       subtext: 'header.community.link4.subtext',
       title: 'header.community.link4.title',
