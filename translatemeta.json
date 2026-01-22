@@ -1,19 +1,19 @@
 {
   "translations": {
     "generated": {
-      "ar": true,
-      "de": true,
-      "es": true,
-      "fr": true,
-      "hi": true,
-      "id": true,
-      "ja": true,
-      "ko": true,
-      "pt": true,
-      "ru": true,
-      "tr": true,
-      "vi": true,
-      "zh-CN": true
+      "ar": false,
+      "de": false,
+      "es": false,
+      "fr": false,
+      "hi": false,
+      "id": false,
+      "ja": false,
+      "ko": false,
+      "pt": false,
+      "ru": false,
+      "tr": false,
+      "vi": false,
+      "zh-CN": false
     }
   },
   "enChunks": {
@@ -4760,6 +4760,52 @@
           "lastUpdated": "2025-11-12T18:32:49.923Z"
         }
       }
+    },
+    "04-14-pages-cult.json": {
+      "checksum": "9f35a07601ba78e92621a3b532d125fa",
+      "lastUpdated": "2026-01-21T21:36:58.775Z",
+      "keys": {
+        "pages.cult.seo.title": {
+          "checksum": "47e7a070efa31c8bafe3e780915ad0dd",
+          "value": "Push Cult — Creator Program for Signal-Driven Content",
+          "lastUpdated": "2026-01-21T21:36:58.773Z"
+        },
+        "pages.cult.seo.description": {
+          "checksum": "a8be5d550e00cb8e8c9a51a275e425a3",
+          "value": "Push Cult is an invite-only creator program by Push Chain. 50 creators. 20M PC tokens. No noise, only measurable impact.",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.seo.og-title": {
+          "checksum": "9a5e585d38e1d6a6b90ea4054b30ef57",
+          "value": "Push Cult - The Creator Program Built for Signal",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.seo.og-description": {
+          "checksum": "c489a7147298c8dc45ca6e5879c6eefa",
+          "value": "An invite-only order of 50 creators earning from a 20M PC token bounty by driving real usage and belief in Push Chain.",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.seo.twitter-title": {
+          "checksum": "50c9c3eefb996960339782e89c49bdac",
+          "value": "Push Cult - Creator Program by Push Chain",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.seo.twitter-description": {
+          "checksum": "a2b1ed54d4d2c2713629458f5597cfa0",
+          "value": "50 creators. 20M PC tokens. No spam. No vanity metrics. Push Cult rewards real signal and real impact.",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.hero-section.title": {
+          "checksum": "23713fab00a7ca3b591145c812a3195f",
+          "value": "Push Cult",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        },
+        "pages.cult.hero-section.description": {
+          "checksum": "e9175f3dab512fdea8c69671dfc4f610",
+          "value": "An invite-only creator order built to reward signal, conviction, and measurable impact in the Push Chain ecosystem.",
+          "lastUpdated": "2026-01-21T21:36:58.775Z"
+        }
+      }
     }
   },
   "languageChunks": {
@@ -7666,6 +7712,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T18:58:29.086Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "de": {
@@ -10571,6 +10664,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T19:34:11.905Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "es": {
@@ -13476,6 +13616,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T20:06:49.360Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "fr": {
@@ -16381,6 +16568,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T20:41:32.156Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "hi": {
@@ -19286,6 +19520,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T21:14:04.662Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "id": {
@@ -22191,6 +22472,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T21:48:40.244Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "ja": {
@@ -25096,6 +25424,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T22:21:30.561Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "ko": {
@@ -28001,6 +28376,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T22:54:01.261Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "pt": {
@@ -30906,6 +31328,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-12T23:27:53.138Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "ru": {
@@ -33811,6 +34280,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-13T00:01:30.506Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "tr": {
@@ -36716,6 +37232,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-13T00:35:03.994Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "vi": {
@@ -39621,6 +40184,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-13T01:07:34.521Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     },
     "zh-CN": {
@@ -42526,6 +43136,53 @@
         "translated": true,
         "checksum": "ddf497716f1f0504a010a5c4f1f5c7a5",
         "lastUpdated": "2025-11-13T01:40:05.147Z"
+      },
+      "04-14-pages-cult.json": {
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
+        "keys": {
+          "pages.cult.seo.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.og-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.seo.twitter-description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "pages.cult.hero-section.description": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          }
+        }
       }
     }
   }

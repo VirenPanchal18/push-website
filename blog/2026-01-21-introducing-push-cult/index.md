@@ -121,4 +121,4 @@ Registration gives you access to:
 
 From there, performance determines everything.
 
-<CultContact />
+<CultContact theme="blood" />

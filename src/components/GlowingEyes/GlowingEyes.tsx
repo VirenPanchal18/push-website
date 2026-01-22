@@ -32,13 +32,24 @@ const pulseGlow = keyframes`
   }
 `;
 
-const subtleBlink = keyframes`
+const blinkLeft = keyframes`
   0%, 90%, 100% {
-    transform: scaleY(1);
+    transform: rotate(-8deg) scaleY(1);
     opacity: 1;
   }
   95% {
-    transform: scaleY(0.1);
+    transform: rotate(-8deg) scaleY(0.1);
+    opacity: 0.5;
+  }
+`;
+
+const blinkRight = keyframes`
+  0%, 90%, 100% {
+    transform: scaleX(-1) rotate(-8deg) scaleY(1);
+    opacity: 1;
+  }
+  95% {
+    transform: scaleX(-1) rotate(-8deg) scaleY(0.1);
     opacity: 0.5;
   }
 `;
@@ -60,18 +71,19 @@ const Eye = styled.div`
   width: 80px;
   height: 60px;
   background: linear-gradient(135deg, #d946ef 0%, #c026d3 100%);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border-radius: 30% 100% 80% 50% / 40% 100% 30% 90%;
   position: relative;
-  animation:
-    ${pulseGlow} 3s ease-in-out infinite,
-    ${subtleBlink} 8s ease-in-out infinite;
 
   &.left {
-    transform: rotate(-10deg);
+    animation:
+      ${pulseGlow} 3s ease-in-out infinite,
+      ${blinkLeft} 5s ease-in-out infinite;
   }
 
   &.right {
-    transform: rotate(10deg);
+    animation:
+      ${pulseGlow} 3s ease-in-out infinite,
+      ${blinkRight} 5s ease-in-out infinite;
   }
 
   &::before {

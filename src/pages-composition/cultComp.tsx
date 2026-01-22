@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 // React + Web3 Essentials
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 // External Components
 import styled from 'styled-components';
@@ -21,7 +21,91 @@ import {
   Span,
 } from '@site/src/css/SharedStyling';
 
+import QnA from '@site/src/components/QnA/QnA';
+import { getShortCultQsList } from '@site/src/config/ShortCultQsList';
+
 function CultComp() {
+  // Track if user has manually interacted with the page
+  const [userHasInteracted, setUserHasInteracted] = useState(false);
+
+  // Handle anchor link to auto-expand cult registration form
+  useEffect(() => {
+    const handleHashChange = (isInitialLoad = false) => {
+      if (window.location.hash === '#apply-to-cult') {
+        // Only check userHasInteracted on initial load
+        if (isInitialLoad && userHasInteracted) {
+          return;
+        }
+
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+          // Scroll to the cult form
+          const cultForm = document.getElementById('apply-to-cult');
+          if (cultForm) {
+            // Get the element's position and scroll with custom offset
+            const elementTop = cultForm.offsetTop;
+            const offsetPosition = elementTop - 150; // 150px more scroll
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+
+            // Auto-expand the cult form by clicking the button
+            setTimeout(() => {
+              // Look for the expand button by ID
+              const expandButton =
+                document.getElementById('cult-expand-button');
+              if (expandButton) {
+                expandButton.click();
+              }
+            }, 800); // Longer delay to ensure scroll completes
+          }
+        }, 100); // Small delay for DOM readiness
+      }
+    };
+
+    // Track user interactions to prevent auto-expand on initial load after manual interaction
+    const handleUserInteraction = () => {
+      setUserHasInteracted(true);
+    };
+
+    // Add event listeners for user interactions
+    document.addEventListener('scroll', handleUserInteraction, { once: true });
+    document.addEventListener('keydown', handleUserInteraction, { once: true });
+
+    // Check hash on initial load
+    handleHashChange(true);
+
+    // Listen for hash changes (from link clicks)
+    const hashChangeListener = () => handleHashChange(false);
+    window.addEventListener('hashchange', hashChangeListener);
+
+    // Also listen for popstate events (browser navigation)
+    window.addEventListener('popstate', hashChangeListener);
+
+    // Listen for click events on cult application links
+    const handleLinkClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      const link = target.closest('a');
+      if (link && link.href.includes('#apply-to-cult')) {
+        // Small delay to let navigation happen first
+        setTimeout(() => handleHashChange(false), 50);
+      }
+    };
+
+    document.addEventListener('click', handleLinkClick);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('hashchange', hashChangeListener);
+      window.removeEventListener('popstate', hashChangeListener);
+      document.removeEventListener('click', handleLinkClick);
+      document.removeEventListener('scroll', handleUserInteraction);
+      document.removeEventListener('keydown', handleUserInteraction);
+    };
+  }, [userHasInteracted]);
+
   return (
     <>
       {/* Hero Section */}
@@ -37,224 +121,43 @@ function CultComp() {
             </HeroSubtitle>
           </MultiContent>
           <MultiContent>
-            <BountyHighlight>
-              An exclusive order of 50 creators selected to split a{' '}
-              <BountyAmount>20,000,000 PC</BountyAmount> token bounty by
-              delivering pure signal.
-            </BountyHighlight>
-          </MultiContent>
-          <MultiContent>
             <CultContact />
-          </MultiContent>
-        </Content>
-      </Section>
-
-      {/* What is Push Cult */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>What is Push Cult</H2>
-
             <Span>
               Crypto is drowning in noise. Timelines are rotting with AI slop
               and empty engagement. Push Cult rejects this decay. We do not seek
               the loud. We seek visionaries. We are anointing the shepherds who
               guide their flock with truth. Not louder. Not broader. Pure
               Signal.
-            </Span>
-
-            <Span>
-              Push Cult is a curated, invite-only program designed to honor and
-              reward real content creators. It rewards both emerging and
-              established creators for delivering measurable results, not just
-              noise.
-            </Span>
-            <VibeBox>
-              <strong>What's the vibe we are looking for:</strong> If you create
-              thoughtful, quality content that genuinely connects with your
-              audience, you are a fit. If you rely on AI slop or post low-effort
-              content, this is not for you.
-            </VibeBox>
-          </MultiContent>
-        </Content>
-      </Section> */}
-
-      {/* Why the Cult Exists */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>Why the Cult Exists</H2>
-            <Span>
-              We are proving that 50 Disciples can outshine an army of
-              mercenaries. We do not pay for empty reach. We reward the Truth,
-              you are fit if you can deliver:
-            </Span>
-            <BulletList>
-              <li>Real usage.</li>
-              <li>Die-hard believers.</li>
-              <li>Original thinking.</li>
-            </BulletList>
-            <Span>
-              This is not a marketing campaign. We're not trying to create
-              another influencer program or invent a new distribution meta. It
-              is a multi-week crusade to deliver Push Chain to the masses.
+              <p /> <p />
+              Apply now to have a chance to join the cult. 50 quality creators
+              selected will split a <BountyAmount>
+                20,000,000 PC
+              </BountyAmount>{' '}
+              bounty.
             </Span>
           </MultiContent>
         </Content>
-      </Section> */}
+      </Section>
 
-      {/* The Rules */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>The Rules - A Finite Order. You Perform, We Curate.</H2>
-            <Span>
-              We cap the Disciples at 50 to ensure focus. But the doors are
-              never locked.
-            </Span>
-            <Span>
-              Participation is renewed weekly based on impact. If you fall below
-              the threshold, you rotate out. If a new voice rises from the
-              Flock, they rotate in. We do not gatekeep the table. We simply
-              guard the standard. Great creators compete on quality, not volume.
-            </Span>
-
-            <SectionTitle>What Creators Actually Do</SectionTitle>
-            <Span>
-              We do not dictate the medium.{' '}
-              <strong>Threads, videos, articles — the format is yours.</strong>{' '}
-              Your mandate is clear:
-            </Span>
-            <BulletList>
-              <li>
-                Threads, articles, or videos explaining Push Chain concepts
-              </li>
-              <li>Guide the Flock through the Testnet with tutorials.</li>
-              <li>Onboard believers to Season 3.</li>
-              <li>Evangelize the era of Universal Execution.</li>
-            </BulletList>
-
-            <Span>
-              <strong>We arm the Disciples.</strong> We provide the raw intel:
-            </Span>
-            <BulletList>
-              <li>Weekly missions and themes.</li>
-              <li>Alpha before the public sees it.</li>
-            </BulletList>
-            <Span>
-              We provide the ammo. You shape the narrative.{' '}
-              <strong>We judge the resonance.</strong>
-            </Span>
-          </MultiContent>
+      {/* QnA Section */}
+      <Section>
+        <Content>
+          <QnA
+            titleKey='components.short-cult-snippet.title'
+            titleAriaLabelKey='components.short-cult-snippet.title-aria-label'
+            discordLinkTitleKey='components.short-cult-snippet.discord-link-title'
+            discordLinkAriaLabelKey='components.short-cult-snippet.discord-link-aria-label'
+            discordLinkTextKey='components.short-cult-snippet.discord-link-text'
+            accordionAriaLabelKey='components.short-cult-snippet.accordion-aria-label'
+            exploreMoreTitleKey='components.short-cult-snippet.explore-more-title'
+            exploreMoreAriaLabelKey='components.short-cult-snippet.explore-more-aria-label'
+            exploreMoreTextKey='components.short-cult-snippet.explore-more-text'
+            discordUrl='https://discord.com/invite/pushchain'
+            exploreMoreUrl='/blog/introducing-the-push-cult/'
+            getQnAsFunction={getShortCultQsList}
+          />
         </Content>
-      </Section> */}
-
-      {/* Measuring Impact */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>Measuring Impact - Proof of Devotion</H2>
-            <Span>
-              We ignore vanity metrics. We track conversion. Each Disciple is
-              judged weekly by the <strong>Devotion Score</strong>, a fusion of:
-            </Span>
-            <BulletList>
-              <li>
-                <strong>Signal:</strong> Reach across the network.
-              </li>
-              <li>
-                <strong>Gathering:</strong> New believers onboarded.
-              </li>
-              <li>
-                <strong>Faith:</strong> User retention and activity.
-              </li>
-              <li>
-                <strong>Craft:</strong> Manual review by the Push Chain Team.
-              </li>
-            </BulletList>
-            <WarningText>
-              Spam burns to ash. Only the truth survives. A final warning:
-              <br />
-              <strong>Devotion is not declared. It is earned.</strong>
-            </WarningText>
-          </MultiContent>
-        </Content>
-      </Section> */}
-
-      {/* Incentives */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>Incentives - The Sacred Bounty</H2>
-            <Span>
-              This program is designed for creators who want long-term upside,
-              not one-off payouts.
-            </Span>
-            <Span>Top performers receive:</Span>
-            <BulletList>
-              <li>
-                <strong>Guaranteed Allocation</strong> from the 20M Pool.
-              </li>
-              <li>
-                Ultra Rare Shiny Pass, a mainnet NFT that grants:
-                <ul>
-                  <li>Revenue share from chain fees</li>
-                  <li>Validator rewards participation</li>
-                  <li>Staking multipliers</li>
-                  <li>VIP ecosystem perks</li>
-                </ul>
-              </li>
-            </BulletList>
-            <WarningText>
-              <strong>Rank dictates the harvest.</strong>
-              <br />
-              There are no participation trophies.
-            </WarningText>
-          </MultiContent>
-        </Content>
-      </Section> */}
-
-      {/* Who Should Apply */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>Who Should Apply - The Calling</H2>
-            <Span>The Cult is designed for creators who:</Span>
-            <BulletList>
-              <li>
-                Already create content like{' '}
-                <strong>guides, threads, or explainers</strong>
-              </li>
-              <li>Command an engaged audience (not necessarily a huge one)</li>
-              <li>Care about shipping clarity, not hype</li>
-              <li>Want to be early</li>
-            </BulletList>
-            <WarningText>
-              You do not need an army, just a loyal following. If you seek a
-              quick flip, walk away.{' '}
-              <strong>If you seek to build a legacy, step forward.</strong>
-            </WarningText>
-          </MultiContent>
-        </Content>
-      </Section> */}
-
-      {/* Application Section */}
-      {/* <Section>
-        <Content className='skeletonsmall'>
-          <MultiContent>
-            <H2>The Initiation - How to Join</H2>
-            <Span>The gates are open. Registration gives you access to:</Span>
-            <BulletList>
-              <li>Program details</li>
-              <li>Evaluation mechanics</li>
-              <li>Initial onboarding steps</li>
-            </BulletList>
-            <Span>
-              From there, performance determines everything. Apply below 👇.
-            </Span>
-          </MultiContent>
-        </Content>
-      </Section> */}
+      </Section>
     </>
   );
 }
@@ -262,20 +165,6 @@ function CultComp() {
 export default CultComp;
 
 // Styled Components
-const HeroTitle = styled(H1)`
-  font-size: 64px;
-  line-height: 1.2;
-  margin-bottom: 24px;
-
-  @media ${device.tablet} {
-    font-size: 48px;
-  }
-
-  @media ${device.mobileL} {
-    font-size: 36px;
-  }
-`;
-
 const HeroSubtitle = styled.h2`
   font-size: 32px;
   font-weight: 600;
@@ -289,13 +178,6 @@ const HeroSubtitle = styled.h2`
   @media ${device.mobileL} {
     font-size: 24px;
   }
-`;
-
-const HeroDescription = styled(Span)`
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  opacity: 0.9;
 `;
 
 const BountyHighlight = styled.div`
@@ -317,83 +199,4 @@ const BountyHighlight = styled.div`
 const BountyAmount = styled.span`
   color: var(--ifm-color-primary-unified);
   font-weight: 700;
-  font-size: 24px;
-
-  @media ${device.mobileL} {
-    font-size: 20px;
-  }
-`;
-
-const InfoBox = styled.div`
-  display: flex;
-  gap: 12px;
-  padding: 16px 20px;
-  background: rgba(79, 172, 254, 0.1);
-  border: 1px solid rgba(79, 172, 254, 0.3);
-  border-radius: 8px;
-  margin-bottom: 32px;
-`;
-
-const InfoIcon = styled.span`
-  font-size: 20px;
-  flex-shrink: 0;
-`;
-
-const InfoText = styled.span`
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--ifm-color-primary-unified-text);
-`;
-
-const VibeBox = styled.div`
-  padding: 20px 24px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  border-left: 3px solid var(--ifm-color-primary-unified);
-  margin-top: 24px;
-  font-size: 16px;
-  line-height: 1.6;
-`;
-
-const BulletList = styled.ul`
-  margin: 16px 0;
-  padding-left: 24px;
-  line-height: 1.8;
-
-  li {
-    margin-bottom: 12px;
-    font-size: 16px;
-  }
-
-  ul {
-    margin-top: 12px;
-    padding-left: 24px;
-
-    li {
-      margin-bottom: 8px;
-      font-size: 15px;
-    }
-  }
-`;
-
-const SectionTitle = styled.h3`
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 32px;
-  margin-bottom: 16px;
-  color: var(--ifm-color-primary-unified);
-
-  @media ${device.mobileL} {
-    font-size: 20px;
-  }
-`;
-
-const WarningText = styled.div`
-  margin-top: 24px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  font-size: 16px;
-  line-height: 1.6;
-  font-style: italic;
 `;

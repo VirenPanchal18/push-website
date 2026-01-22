@@ -42,7 +42,7 @@ function CultPage() {
         <meta
           property='og:image'
           content={useBaseUrl(
-            require('/static/assets/previews/homepreview.png').default,
+            require('/static/assets/previews/cultpreview.png').default,
             { absolute: true }
           )}
         />
