@@ -1638,7 +1638,7 @@
         },
         "qna5": {
           "question": "What are the rewards?",
-          "answer": "<1><2>Top performers receive:</2> Guaranteed allocation from the 20M PC pool, plus an Ultra Rare Shiny Pass (mainnet NFT).</1><1><2>Shiny Pass grants:</2> revenue share from chain fees, validator rewards participation, staking multipliers, and VIP ecosystem perks.</1><1>Rank dictates the harvest. There are no participation trophies.</1>",
+          "answer": "<1><2>Top performers receive:</2> Guaranteed allocation from the 20M PC pool, plus an Ultra Rare Shiny Pass (mainnet pass).</1><1><2>Shiny Pass grants:</2> revenue share from chain fees, validator rewards participation, staking multipliers, and VIP ecosystem perks.</1><1>Rank dictates the harvest. There are no participation trophies.</1>",
           "docs-url-title": "Learn about rewards.",
           "kb-url-title": "Read the tokenomics."
         },

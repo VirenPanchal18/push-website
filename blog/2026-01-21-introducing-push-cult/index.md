@@ -87,7 +87,7 @@ This program is designed for creators who want long-term upside, not one-off pay
 Top performers receive:
 
 * **Guaranteed Allocation** from the 20M Pool.  
-* Ultra Rare Shiny Pass, a mainnet NFT that grants:  
+* Ultra Rare Shiny Pass, a mainnet pass that grants:  
   * Revenue share from chain fees  
   * Validator rewards participation  
   * Staking multipliers  

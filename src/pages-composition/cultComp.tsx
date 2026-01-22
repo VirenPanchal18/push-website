@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 
 // External Components
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 // Internal Component
@@ -25,6 +26,9 @@ import QnA from '@site/src/components/QnA/QnA';
 import { getShortCultQsList } from '@site/src/config/ShortCultQsList';
 
 function CultComp() {
+  // Internationalization
+  const { t } = useTranslation();
+
   // Track if user has manually interacted with the page
   const [userHasInteracted, setUserHasInteracted] = useState(false);
 
@@ -115,25 +119,19 @@ function CultComp() {
             <GlowingEyes />
           </MultiContent>
           <MultiContent>
-            <H1>Push Cult - Blood Pact for Creators</H1>
-            <HeroSubtitle>
-              A cult of curated yappers. Built for signal, not spam.
-            </HeroSubtitle>
+            <H1>{t('pages.cult.hero-section.title')}</H1>
+            <HeroSubtitle>{t('pages.cult.hero-section.subtitle')}</HeroSubtitle>
           </MultiContent>
           <MultiContent>
             <CultContact />
             <Span>
-              Crypto is drowning in noise. Timelines are rotting with AI slop
-              and empty engagement. Push Cult rejects this decay. We do not seek
-              the loud. We seek visionaries. We are anointing the shepherds who
-              guide their flock with truth. Not louder. Not broader. Pure
-              Signal.
+              {t('pages.cult.hero-section.description-paragraph-1')}
               <p /> <p />
-              Apply now to have a chance to join the cult. 50 quality creators
-              selected will split a <BountyAmount>
-                20,000,000 PC
+              {t('pages.cult.hero-section.description-paragraph-2')}{' '}
+              <BountyAmount>
+                {t('pages.cult.hero-section.bounty-amount')}
               </BountyAmount>{' '}
-              bounty.
+              {t('pages.cult.hero-section.description-paragraph-2-end')}
             </Span>
           </MultiContent>
         </Content>
