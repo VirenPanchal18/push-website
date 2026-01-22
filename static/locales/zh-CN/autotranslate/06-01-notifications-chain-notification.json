@@ -1,14 +1,15 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "第一时间获取积分、倍数和永久奖励。",
+      "title": "",
+      "description": "前50名创作者将获得2000万代币奖励。召集你的社区。加入Push Cult！",
       "button-text": "立即申请",
-      "button-title": "立即获取预发布访问权限",
-      "button-aria-label": "立即获取预发布访问权限. 您可以在这里查看",
-      "image-alt": "Push Chain 预发布访问权限",
+      "button-title": "加入Push Cult！",
+      "button-aria-label": "加入Push Cult！您可以在这里查看",
+      "image-alt": "加入Push Cult！",
       "close-button-title": "关闭通知",
-      "close-button-aria-label": "关闭 Push Chain toast 通知",
-      "container-aria-label": "Push Chain toast notification"
+      "close-button-aria-label": "关闭Push Chain通知",
+      "container-aria-label": "Push Chain通知"
     }
   }
 }

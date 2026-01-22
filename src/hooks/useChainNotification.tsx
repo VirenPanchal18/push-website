@@ -48,7 +48,7 @@ export const useChainNotification = () => {
           position='bottom-left'
           onClick={() => {
             localStorage.setItem('cultNotification', 'true');
-            window.open('https://portal.push.org', '_blank');
+            window.open('https://push.org/cult', '_blank');
             toast.dismiss(toastId);
           }}
           onClose={() => {

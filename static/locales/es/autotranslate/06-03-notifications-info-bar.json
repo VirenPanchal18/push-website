@@ -1,9 +1,13 @@
 {
   "notifications": {
     "info-bar": {
-      "title": "Solicita el acceso anticipado a la Temporada 3. Abierto para participantes de la T1 y T2.",
-      "learn-more-text": "Solicitar Ahora",
-      "learn-more-title": "Solicitar ahora"
+      "title": "Reúne a tu comunidad para un programa de creadores incentivado y curado. ¡Únete a Push Cult!",
+      "learn-more-text": "Aplicar ahora",
+      "learn-more-title": "Aplicar ahora",
+      "dismiss-button-title": "Cerrar anuncio",
+      "dismiss-button-aria-label": "Cerrar barra de anuncios",
+      "container-aria-label": "Anuncio del sitio",
+      "star-icon-alt": "Icono de estrella del anuncio"
     }
   }
 }

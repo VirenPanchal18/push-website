@@ -1,14 +1,15 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "포인트, 멀티플라이어, 그리고 영구적인 보상을 가장 먼저 획득하세요.",
+      "title": "",
+      "description": "상위 50명의 크리에이터가 2천만 토큰 보상을 받습니다. 커뮤니티를 모으세요. Push Cult에 참여하세요!",
       "button-text": "지금 신청",
-      "button-title": "지금 바로 사전 출시 액세스 받기",
-      "button-aria-label": "지금 바로 사전 출시 액세스를 받으세요. 여기서 확인해 보세요",
-      "image-alt": "Push Chain 사전 출시 액세스",
-      "close-button-title": "토스트 알림 닫기",
-      "close-button-aria-label": "Push Chain 토스트 알림 닫기",
-      "container-aria-label": "Push Chain 토스트 알림"
+      "button-title": "Push Cult 참여!",
+      "button-aria-label": "Push Cult 참여! 여기에서 확인하실 수 있습니다",
+      "image-alt": "Push Cult 참여!",
+      "close-button-title": "알림 닫기",
+      "close-button-aria-label": "Push Chain 알림 닫기",
+      "container-aria-label": "Push Chain 알림"
     }
   }
 }

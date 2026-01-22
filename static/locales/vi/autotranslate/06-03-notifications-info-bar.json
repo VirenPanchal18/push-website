@@ -1,9 +1,13 @@
 {
   "notifications": {
     "info-bar": {
-      "title": "Đăng ký tham gia chương trình Pre-Launch Season 3. Mở ra cho người tham gia S1 & S2.",
-      "learn-more-text": "Ứng tuyển ngay",
-      "learn-more-title": "Ứng tuyển ngay"
+      "title": "Tập hợp cộng đồng của bạn cho chương trình nhà sáng tạo có thưởng được tuyển chọn. Tham gia Push Cult!",
+      "learn-more-text": "Đăng ký ngay",
+      "learn-more-title": "Đăng ký ngay",
+      "dismiss-button-title": "Đóng thông báo",
+      "dismiss-button-aria-label": "Đóng thanh thông báo",
+      "container-aria-label": "Thông báo trang web",
+      "star-icon-alt": "Biểu tượng ngôi sao thông báo"
     }
   }
 }
