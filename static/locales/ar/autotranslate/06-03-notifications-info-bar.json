@@ -1,9 +1,13 @@
 {
   "notifications": {
     "info-bar": {
-      "title": "تقدم بطلب للحصول على أهلية الوصول المسبق للموسم الثالث. متاح لمشاركي الموسمين الأول والثاني.",
-      "learn-more-text": "تقدّم الآن",
-      "learn-more-title": "تقدم الآن"
+      "title": "اجمع أتباعك لبرنامج منشئين محفّز ومختار. انضم إلى Push Cult!",
+      "learn-more-text": "قدّم الآن",
+      "learn-more-title": "قدّم الآن",
+      "dismiss-button-title": "إغلاق الإعلان",
+      "dismiss-button-aria-label": "إغلاق شريط الإعلانات",
+      "container-aria-label": "إعلان الموقع",
+      "star-icon-alt": "أيقونة نجمة الإعلان"
     }
   }
 }

@@ -1,14 +1,15 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "Будьте первыми, чтобы заработать очки, множители и постоянные награды.",
+      "title": "",
+      "description": "50 лучших создателей получат награду в 20 млн токенов. Соберите свое сообщество. Присоединяйтесь к Push Cult!",
       "button-text": "Подать заявку",
-      "button-title": "Получить доступ к предзапуску СЕЙЧАС",
-      "button-aria-label": "Получите доступ к предзапуску СЕЙЧАС. Вы можете ознакомиться с ним здесь",
-      "image-alt": "Push Chain Pre-Launch Access",
+      "button-title": "Присоединиться к Push Cult!",
+      "button-aria-label": "Присоединиться к Push Cult!. Вы можете ознакомиться здесь",
+      "image-alt": "Присоединиться к Push Cult!",
       "close-button-title": "Закрыть уведомление",
-      "close-button-aria-label": "Закрыть Push Chain toast-уведомление",
-      "container-aria-label": "Push Chain уведомление"
+      "close-button-aria-label": "Закрыть уведомление Push Chain",
+      "container-aria-label": "Уведомление Push Chain"
     }
   }
 }
