@@ -5,11 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "Fallstudien",
+              "universal-apps": {
                 "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "Apps Möglich Nur mit Shared State - Vol. 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "Apps Möglich Nur mit Shared State - Vol. 2"
                   }
                 }
               }

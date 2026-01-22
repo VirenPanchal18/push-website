@@ -5,11 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "دراسات حالة",
+              "universal-apps": {
                 "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "تطبيقات ممكنة فقط مع الحالة المشتركة - المجلد 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "تطبيقات ممكنة فقط مع الحالة المشتركة - المجلد 2"
                   }
                 }
               }

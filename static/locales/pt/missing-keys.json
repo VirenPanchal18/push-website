@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T19:57:35.077Z",
+  "lastUpdated": "2026-01-22T20:34:20.173Z",
   "keys": {
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de Conhecimento",
@@ -1727,23 +1727,23 @@
       "lastUpdated": "2025-11-14T19:27:06.245Z"
     },
     "global.site-description": {
-      "value": "Camada L1 compartilhada para aplicativos universais. Implante uma vez; chegue aos usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
+      "value": "L1 compartilhado para aplicativos universais. Implante uma vez; chegue a usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-16T16:33:33.196Z"
+      "lastUpdated": "2026-01-22T20:26:55.539Z"
     },
     "components.typeform-support.categories.partnerships.description": {
       "englishChecksum": "9b1482992e5c1d082aeade5319ccb995",
-      "lastUpdated": "2026-01-16T16:33:35.517Z"
+      "lastUpdated": "2026-01-22T20:26:57.798Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Não consigo conectar a minha carteira. O que devo tentar?",
+      "value": "Não consigo conectar minha carteira. O que eu devo tentar?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-16T16:33:37.315Z"
+      "lastUpdated": "2026-01-22T20:26:59.985Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desabilite bloqueadores de anúncios/ Scripts agressivos para push.org.</1><1><2>Sem mudança de rede necessária:</2> fique em sua cadeia principal; Push trata o roteamento atrás dos cenários.</1><1><2>Redefina as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte em <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
+      "value": "<1><2>Afastar as páginas: atualize, desbloqueie a sua carteira e desative bloqueadores de anúncios/ Scripts para push.org.</2></1><1><2>Sem mudança de rede necessária:</2> fique na sua cadeia principal; o Push gerencia a roteagem em segundo plano.</2></1><1><2>Reinicie as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</2></1><1>ainda está com dificuldades? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</2></1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2026-01-16T16:33:48.687Z"
+      "lastUpdated": "2026-01-22T20:27:05.900Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Construtores — Tutoriais & Passo a Passo",
@@ -1918,6 +1918,16 @@
       "value": "## Fique Involvido\n\n- **🧙 Desenvolvedores**\nExplore o nosso SDK e Docs em [Hub de Documentação](/docs/)\n\n- **🦹 Comunidade**  \nSiga [@PushChain](https://x.com/PushChain) no X/Twitter, junte-se ao nosso [Discord](https://discord.com/invite/pushchain) e [Telegram](https://t.me/epnsproject).\n\nJuntos, construamos o futuro da **Web3 Universal**!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
       "lastUpdated": "2026-01-16T17:28:59.752Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
+      "value": "Caso de Estudo",
+      "englishChecksum": "c2a1ad99f32bf4e873aac3caf9f4b836",
+      "lastUpdated": "2026-01-22T20:34:04.121Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.items.hodl-fun.title": {
+      "value": "Hodl.fun",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-01-22T20:34:06.731Z"
     }
   }
 }

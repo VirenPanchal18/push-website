@@ -5,11 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "Vaka Çalışmaları",
+              "universal-apps": {
                 "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "Paylaşımlı Durum ile Mümkün Olan Uygulamalar - Cilt 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "Paylaşımlı Durum ile Mümkün Olan Uygulamalar - Cilt 2"
                   }
                 }
               }

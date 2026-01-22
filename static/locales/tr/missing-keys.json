@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T19:59:27.460Z",
+  "lastUpdated": "2026-01-22T20:34:35.901Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "Bilgi Bankası — Kılavuzlar, SSS ve Nasıl Yapılır",
@@ -1732,53 +1732,53 @@
       "lastUpdated": "2025-11-14T20:23:12.497Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
-      "value": "## Jeton Ailliştiği",
+      "value": "## Token İlgili",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2026-01-16T16:34:35.301Z"
+      "lastUpdated": "2026-01-22T20:28:19.722Z"
     },
     "components.typeform-support.categories.technical.description": {
-      "value": "Bilgi hataları, SDK/API, akıllı sözleşimler ve entegre edilme yardımı",
+      "value": "Hata raporları, SDK/API, akıllı sözleşimler, entegreleme yardım",
       "englishChecksum": "952a0533dce9bf557f94342840ee4720",
-      "lastUpdated": "2026-01-16T16:34:37.386Z"
+      "lastUpdated": "2026-01-22T20:28:21.674Z"
     },
     "global.site-description": {
-      "value": "Herhangi bir zincirde evrensel uygulamalar için paylaşım durumu L1. Tek kez dağıtın; herhangi bir zincirin kullanıcılara erişin. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeyin. Zincir değiştirme gerekmez.",
+      "value": "Herşeyden önce, evrensel uygulamalar için paylaşılan durumlu L1. Bir kez dağıtın; herhangi bir zincirdeki kullanıcılara erişin. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeyin. Ağ değiştirmeye ihtiyac yok.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-16T16:34:40.415Z"
+      "lastUpdated": "2026-01-22T20:28:24.368Z"
     },
     "footer.links.faucet-title": {
-      "value": "Push Çheng'den testi_TOKEN'ler alın",
+      "value": "Push Çarşısı test token'lerini alın",
       "englishChecksum": "926a89f4f88049af1a7d12ce4d54204f",
-      "lastUpdated": "2026-01-16T16:35:20.681Z"
+      "lastUpdated": "2026-01-22T20:28:25.589Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Push Chain'i Wormhole'den ne şekilde ayırdın?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülemeleri üzerinde odaklanıyor.\n- **Sarmallı Mallar**: Farklı zincirlerde farklı versiyonları için tokenleri sarar.\n- **Koruyucu Ağı**: Çapraz zincir iletileri doğrulamak için validator setine güveniyor.\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önce aktarım yapma zorunluluğu var.\n\n**Push Chain:**\n- **Evrensel İcra**: Köprüleme gerektirmeden doğrudan etkileşimler.\n- **Özgün Mallar**: Sarılmış token'lar yok, orijinal malları kullanın.\n- **Doğrudan Doğrulama**: Herhangi bir zincir için örgü imzalama doğrulaması.\n- **Teklem Transaction**: Köprüleme gerektirmeden tek adımda etkileşimler.\n\nPush Chain, çapraz zincir etkileşimlerinde aktarımın ihtiyacını ortadan kaldırırken Wormhole bu için köprüleme gerektirir.",
+      "value": "### Push Zincinden Ne Kadar Farklı?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülenmesi üzerine odaklanmıştır\n- **Sarmallı Eşya**: Çeşitli zincirlerde token'ların sarma sürümlerini oluşturur\n- **Koruma Ağı**: Köprü mesajlarını doğrulamak için doğrulayıcı kümesini kullanır\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önceasstarı köprülemelidirn\n\n**Push Zincir:**\n- **Evrenal Çıkarmanın**: Köprülenmeden doğrudan etkileşimler olur\n- **Orijinal Eşya**: Sarmallı token'lar gerekmez, orijinal eşyaları kullanın\n- **Doğrudan Doğrulama**: Herhangi bir zincirden köprü mesajlarını doğrulamak için imza doğrulama yapar\n- **Tek Transaction**: Köprülemeden etkileşim yapmak için tek adım yeterlidirn\n\nPush Zincir, cross-chain etkileşimlerde asset köprülemeyi gereksiz kılarken Wormhole gerekli hale getirir.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-16T16:34:53.047Z"
+      "lastUpdated": "2026-01-22T20:28:36.553Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "Testnet Docs Launch in",
+      "value": "Testnet Belgeler İndiriliyor %s",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-01-16T16:35:34.766Z"
+      "lastUpdated": "2026-01-22T20:28:37.901Z"
     },
     "pages.litepaper.seo.description": {
-      "value": "Push Çarşısı'nın vizyonu, mimarisi ve ekonomisinin genel bir bakışı evrensel uygulamalar için.",
+      "value": "Push Zincirinin vizyonu, yapısı ve ekonomisinin genel bakışı için bir bakış.",
       "englishChecksum": "2768e2658592fe376add9699d9d49ef6",
-      "lastUpdated": "2026-01-16T16:35:10.861Z"
+      "lastUpdated": "2026-01-22T20:28:39.609Z"
     },
     "components.short-support-snippet.qnas.qna3.question": {
-      "value": "Nasıl Donut testnet tokenleri elde edebilirim?",
+      "value": "Testnet tokenleri (Donut) nasıl alırım?",
       "englishChecksum": "bec0083e54c2e78706bd43f65e5207ae",
-      "lastUpdated": "2026-01-16T16:35:12.767Z"
+      "lastUpdated": "2026-01-22T20:28:43.742Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>Test tokens'ü isteyeniz, <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hız sınırları uygulanabilir; bazı faucet'ler basit doğrulama gerektirebilir. Eğer faucet çalışmıyorsa, lütfen <4>Discord'u</4> kullanarak bizimle iletişime geçin.</1>",
+      "value": "<1>Test tokenleri taleplerinde <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> limitler uygulanabilir; bazı faucet'ler basit doğrulama gerektirir. Eğer faucet çalışmıyorsa, <4>Discord'u</4> pingleyin.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-16T16:35:17.028Z"
+      "lastUpdated": "2026-01-22T20:28:47.428Z"
     },
     "notifications.rewards-notification.description": {
       "englishChecksum": "4a4561fbdd8c6761d8759b0b0ec592ee",
-      "lastUpdated": "2026-01-16T16:35:19.441Z"
+      "lastUpdated": "2026-01-22T20:28:50.666Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Yapıcılar — Nasıl Yapar ve Öğreticiler",
@@ -1954,6 +1954,26 @@
       "value": "{chainName} zincirinde işlemler yapılıyor",
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
       "lastUpdated": "2026-01-16T19:50:52.590Z"
+    },
+    "pages.cult.seo.description": {
+      "value": "Push Cult, davetiye şartıyla çalışan bir yaratıcı programıdır. 50 yaratıcı. 20M PC jetonu. Sadece ölçülebilir etkiye sahip olacak.",
+      "englishChecksum": "0b81287e99702d4f24a964d8e370b3b3",
+      "lastUpdated": "2026-01-22T20:28:41.996Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "value": "### Push Chain üzerinde ne yapılabilir?\n\nPush Chain, tüm L1'ler, L2'ler ve L3'lerden çapraz uyumluluğu sağlar ve bu nedenle yenilik ve uyum oynamak için oyuncak alanı olma potansiyeline sahiptir. Şu web3 kullanım durumlarını inşa edebilirsiniz:\n\n![Push Chain'in temel kullanım alanları](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nveya web3'yi iyileştirmek için yenilikler yaratabilirsiniz:\n\n![Tüketici kullanım durumları](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nveya popüler uygulama örneklerini görerek ilham alabilirsiniz:\n\n![Push Chain üzerinde popüler uygulamalar](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-22T19:58:16.411Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
+      "value": "Uygulamalar",
+      "englishChecksum": "c2a1ad99f32bf4e873aac3caf9f4b836",
+      "lastUpdated": "2026-01-22T20:34:33.276Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.items.hodl-fun.title": {
+      "value": "Hodl.fun",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-01-22T20:34:35.892Z"
     }
   }
 }

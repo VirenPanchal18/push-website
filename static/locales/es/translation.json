@@ -1,4 +1,175 @@
 {
+  "header": {
+    "community": {
+      "link8": {
+        "text": "Cultura Push",
+        "subtext": "Un programa para creadores con una recompensa de 2M token",
+        "title": "Echa un vistazo a Push Cult: un programa para creadores con una recompensa de 20M token"
+      },
+      "title": "Comunidad",
+      "aria-label": "Sección de la comunidad",
+      "link7": {
+        "text": "Ecosistema",
+        "subtext": "Explora apps construidas sobre Push Chain",
+        "title": "Explora apps construidas en Push Chain"
+      },
+      "link1": {
+        "text": "Base de conocimiento",
+        "subtext": "Encuentra análisis detallados de las funciones",
+        "title": "Explora la documentación completa de Push Chain y las guías de funciones"
+      },
+      "link2": {
+        "text": "LFPush",
+        "subtext": "Tweets destacados de la comunidad de Push #LFPush",
+        "title": "Tweets destacados de la comunidad Push #LFPush"
+      },
+      "link3": {
+        "text": "Tokenomics",
+        "subtext": "Token nativo que impulsa todo en Push Chain",
+        "title": "Aprende sobre la tokenomics del Token Push Chain y la utilidad del token $PC"
+      },
+      "link4": {
+        "text": "X/Twitter",
+        "subtext": "Sigue las novedades y noticias del ecosistema",
+        "title": "Sigue a Push Chain en X (Twitter) para las últimas actualizaciones y anuncios"
+      },
+      "link5": {
+        "text": "Discord",
+        "subtext": "Chatea, construye y conéctate con la comunidad",
+        "title": "Únete a la comunidad de Push Chain en Discord para debates y soporte"
+      },
+      "link6": {
+        "text": "Telegram",
+        "subtext": "Únete a la conversación y mantente al día",
+        "title": "Únete a la comunidad de Push Chain en Telegram para actualizaciones en tiempo real"
+      }
+    },
+    "meta": {
+      "logo-aria-label": "Push Chain - Navegar a la página de inicio",
+      "language-icon-alt": "Icono de selección de idioma",
+      "hamburger-menu-alt": "Abrir menú de navegación",
+      "testnet-badge-alt": "Push Chain Testnet Donut - Ver el estado de la testnet"
+    },
+    "logo": {
+      "imagealt": "Imagen del logo de Push Chain",
+      "imagetitle": "Logotipo de Push Chain",
+      "ctatitle": "Ir a la página de inicio de Push Chain"
+    },
+    "testnet": {
+      "title": "Testnet",
+      "aria-label": "Sección de testnet",
+      "link1": {
+        "text": "Push Scan",
+        "subtext": "Explorador de bloques para Push Chain",
+        "title": "Explora las transacciones y bloques de Push Chain Testnet en Push Scan"
+      },
+      "link2": {
+        "text": "Grifo",
+        "subtext": "Obtén tokens de testnet",
+        "title": "Obtén tokens de testnet gratuitos para el desarrollo de Push Chain"
+      },
+      "link3": {
+        "text": "Ecosistema",
+        "subtext": "Mira apps construidas en Push Chain",
+        "title": "Mira las apps construidas en Push Chain"
+      }
+    },
+    "developers": {
+      "title": "Desarrolladores",
+      "aria-label": "Sección para Desarrolladores",
+      "link1": {
+        "text": "Comienza",
+        "subtext": "Introducción a la construcción en Push Chain",
+        "title": "Empieza a construir apps universales en Push Chain - Documentación para desarrolladores"
+      },
+      "link2": {
+        "text": "Comenzar rápido",
+        "subtext": "Configura un entorno de desarrollo en segundos",
+        "title": "Guía de inicio rápido - Configura el entorno de desarrollo de Push Chain al instante"
+      },
+      "link6": {
+        "text": "Ecosistema",
+        "subtext": "Mira las apps construidas en Push Chain",
+        "title": "Ver apps construidas en Push Chain"
+      },
+      "link3": {
+        "text": "Tutoriales",
+        "subtext": "Guías paso a paso para construir con Push",
+        "title": "Aprende con tutoriales prácticos – Construye tu primera app universal en Push Chain"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "Mira el código principal y las herramientas de código abierto",
+        "title": "Explora el código fuente y las herramientas de desarrollo de Push Chain en GitHub"
+      },
+      "link5": {
+        "text": "Discord para desarrolladores",
+        "subtext": "Conéctate con la comunidad de desarrolladores",
+        "title": "Únete a la comunidad de desarrolladores de Push Chain en Discord para obtener soporte y colaboración"
+      }
+    },
+    "resources": {
+      "title": "Recursos",
+      "aria-label": "Sección de Recursos",
+      "link1": {
+        "text": "Blog",
+        "subtext": "Actualizaciones, análisis en profundidad e historias de desarrollo",
+        "title": "Lee el blog de Push Chain para conocer las últimas novedades, análisis técnicos en profundidad e historias de desarrolladores"
+      },
+      "link2": {
+        "text": "Documento técnico",
+        "subtext": "La visión y la tecnología, simplificadas",
+        "title": "Lee el Litepaper de Push Chain - visión simplificada y descripción general técnica"
+      },
+      "link3": {
+        "text": "Preguntas frecuentes",
+        "subtext": "Respuestas rápidas a preguntas frecuentes",
+        "title": "Consulta las preguntas frecuentes sobre Push Chain"
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "aria-label": "Menú desplegable de selección de idioma"
+    },
+    "app-button": {
+      "text": "Push Portal",
+      "title": "Accede a Push Portal - Gana puntos como desarrollador, usuario o validador"
+    },
+    "explore": {
+      "title": "Explorar",
+      "aria-label": "Explorar Sección",
+      "link1": {
+        "text": "Comienza",
+        "subtext": "Introducción a la construcción en Push Chain",
+        "title": "Empieza a construir"
+      },
+      "link2": {
+        "text": "Comenzar rápido",
+        "subtext": "Configura tu entorno de desarrollo en segundos",
+        "title": "Comenzar rápido"
+      },
+      "link3": {
+        "text": "Tutoriales",
+        "subtext": "Guías paso a paso para construir con Push",
+        "title": "Aprende con tutoriales"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "Ver el código principal y las herramientas de código abierto",
+        "title": "Explora Push Chain"
+      },
+      "link5": {
+        "text": "Discord de Desarrolladores",
+        "subtext": "Conéctate con la comunidad de desarrolladores",
+        "title": "Únete a Discord"
+      },
+      "link6": {
+        "text": "Explorar Ejemplos",
+        "subtext": "Explorar Ejemplos",
+        "title": "Explorar Ejemplos"
+      }
+    }
+  },
   "footer": {
     "email-section": {
       "title": "Mantente al tanto de Push Chain",
@@ -159,35 +330,27 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "Casos de Estudio",
-                "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
-                  }
-                }
-              },
-              "builders-intro": {
-                "items": {
-                  "intro": "## Builders\n\n¿Listo para construir en Push Chain? Aquí tienes algunos recursos para inspirarte y empezar.",
-                  "curated-reads": "## Lecturas Seleccionadas 👇"
-                }
-              },
               "universal-apps": {
-                "title": "¡Construyamos Apps Universales 💪",
                 "items": {
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "Aplicaciones posibles solo con estado compartido - Volumen 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "Apps Possible Only with Shared State - Vol. 2"
+                  },
                   "apps-of-the-future": {
                     "title": "Aplicaciones del Futuro — Construyendo sin el caos"
                   },
                   "consumer-apps-that-can-be-built-on-push-chain": {
                     "title": "¿Aplicaciones para el consumidor 🫶 Blockchain?"
-                  },
-                  "apps-only-possible-with-shared-state-v1": {
-                    "title": "Apps Possible Only with Shared State - Vol. 1"
-                  },
-                  "apps-only-possible-with-shared-state-v2": {
-                    "title": "Apps Only Possible with Shared State - Vol. 2"
                   }
+                },
+                "title": "¡Construyamos Apps Universales 💪"
+              },
+              "builders-intro": {
+                "items": {
+                  "intro": "## Builders\n\n¿Listo para construir en Push Chain? Aquí tienes algunos recursos para inspirarte y empezar.",
+                  "curated-reads": "## Lecturas Seleccionadas 👇"
                 }
               },
               "developer-resources": {
@@ -201,6 +364,14 @@
                   },
                   "testnet-explorer": {
                     "title": "Push Testnet Explorer"
+                  }
+                }
+              },
+              "case-studies": {
+                "title": "Estudios de caso",
+                "items": {
+                  "hodl-fun": {
+                    "title": "Hodl.fun"
                   }
                 }
               }
@@ -235,8 +406,7 @@
                   "migration-details": "### Detalles de la Migración\n\nPush Chain es el resultado de años de aprendizaje a partir de la construcción del protocolo de notificaciones y comunicación líder de web3, que fue una de las primeras apps para cripto.\n\nDebido a esto, además del airdrop asignado (ver detalles a continuación) a los usuarios, creadores, desarrolladores y socios del ecosistema de Push Chain, **también hay un drop de migración reservado para los poseedores de $PUSH** (que fue el token nativo de Push Protocol).\n\n<details>\n  <summary>\n  <b>Detalles de la migración para los poseedores existentes de $PUSH</b>\n\n  </summary>\n\n  **Para los poseedores existentes de $PUSH**, la propuesta de tokenomics de Push Chain asigna el 15% del suministro total de tokens de Push Chain específicamente para la migración. La migración ocurrirá a una ratio de **1:15**—lo que significa que por cada token de Push Protocol ($PUSH) que tengas, recibirás 15 tokens de Push Chain. Por ejemplo, si actualmente tienes 40 tokens $PUSH, recibirás 600 tokens de Push Chain después de la migración.\n\n  El lanzamiento de Push Chain está diseñado para recompensar e incentivar a los poseedores anteriores de Push Protocol ($PUSH) por su lealtad y contribución. El proceso de migración para los poseedores existentes de $PUSH funcionará de la siguiente manera:\n\n  - Los tokens migrarán a una ratio de 1:15 (1 token de Push Protocol = 15 tokens de Push Chain).\n  - Los participantes en la migración de Push Chain verán desbloqueados inmediatamente el 50% de sus tokens migrados, y un 50% adicional desbloqueado después de 3 meses.\n  - Los migradores de tokens también se beneficiarán de un pool de yield farming dedicado reservado para ellos. Estas recompensas se distribuirán a los migradores de tokens si apuestan sus tokens de Push Chain migrados, para recompensarlos por su contribución a largo plazo al ecosistema.\n  - Por ejemplo, si tienes 100 tokens de Push Protocol $PUSH, recibirás 750 tokens de Push Chain cuando migres y 750 tokens de Push Chain después de 3 meses — para un total de 1,500 tokens de Push Chain. Puedes elegir apuestar estos tokens para obtener recompensas adicionales del pool de yield farming de Push Chain, distribuidas periódicamente.\n\n  La migración de tokens de Push Chain estará abierta durante 12 meses después del lanzamiento, después de los cuales cualquier token restante irá a la comunidad y a la reserva del ecosistema.\n\n</details>\n<p />",
                   "airdrop-details": "### Detalles del Airdrop\n\nAdemás, la propuesta de tokenomics asigna el 10% del suministro total de tokens Push Chain para airdrops a usuarios pasados y presentes de la aplicación Push Protocol (notificaciones, mensajería, chat). Junto con los nuevos usuarios, creadores, desarrolladores y socios del ecosistema de Push Chain.\n\n<br />",
                   "token-distribution": "## Detalles de la Distribución del Token\n\nEl suministro total de tokens Push Chain se propone en **10 mil millones**, distribuidos de la siguiente manera:\n\n![Push Chain Tokenomics](/assets/website/chain/knowledge/tokenomics/vestingpc.webp)\n\n![Push Chain Tokenomics Vesting Details](/assets/website/chain/knowledge/tokenomics/vestingdetailspc.webp)\n\n1. Las distribuciones de Airdrop comienzan en TGE, pero ocurrirán a lo largo de múltiples temporadas.\n2. Los Contribuyentes Centrales tienen un retraso de 12 meses, seguido de un vesting de 24 meses.\n3. El Tesoro de Push Labs tiene un vesting de 36 meses.\n4. Los Inversores tienen un vesting lineal de 24 meses.\n5. Las Reservas de la Comunidad y el Ecosistema tienen un desbloqueo del 13.5% en TGE, seguido de un vesting de 36 meses.\n\n<br />",
-                  "get-involved": "## Participa\n\n- **🧙 Desarrolladores**\nExplora nuestro SDK y Docs en [Documentation Hub](/docs/)\n\n- **🦹 Comunidad**\nSigue a [@PushChain](https://x.com/PushChain) en X/Twitter, únete a nuestro [Discord](https://discord.com/invite/pushchain) y [Telegram](https://t.me/epnsproject).\n\nJuntos, construyamos el futuro de **Universal Web3**!",
-                  "use-cases": "### What can be built on Push Chain?\n\nPush Chain brings seamless interoperability and unifies all L1s, L2s, & L3s and therefore is poised to become the playground of innovation and interop. You can build existing web3 use cases such as:\n\n![Primary use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nOr you can better web3 and create innovations:\n\n![Consumer use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nOr you can see some popular app examples and to take inspiration from:\n\n![Popular app examples on Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)"
+                  "get-involved": "## Participa\n\n- **🧙 Desarrolladores**\nExplora nuestro SDK y Docs en [Documentation Hub](/docs/)\n\n- **🦹 Comunidad**\nSigue a [@PushChain](https://x.com/PushChain) en X/Twitter, únete a nuestro [Discord](https://discord.com/invite/pushchain) y [Telegram](https://t.me/epnsproject).\n\nJuntos, construyamos el futuro de **Universal Web3**!"
                 }
               }
             },
@@ -628,6 +798,24 @@
         "og-description": "La visión, el diseño y el modelo económico de la capa de ejecución universal—simplificado.",
         "twitter-title": "Litepaper - Push Chain",
         "twitter-description": "Visión, arquitectura y economía de un vistazo."
+      }
+    },
+    "cult": {
+      "seo": {
+        "title": "Push Cult — Programa de Creadores para Contenido Impulsado por Señales",
+        "description": "Push Cult es un programa exclusivo para creadores, solo por invitación, de Push Chain. 50 creadores. 20M PC tokens. Sin ruido, solo impacto medible.",
+        "og-title": "Push Cult - El Programa de Creadores Construido para Signal",
+        "og-description": "Un grupo exclusivo de invitación de 50 creadores que ganan con un premio de 20M PC tokens al impulsar el uso real y la creencia en Push Chain.",
+        "twitter-title": "Push Cult - Programa de Creadores por Push Chain",
+        "twitter-description": "50 creadores. 20M $PC tokens. Sin spam. Sin métricas vacías. Push Cult recompensa la señal real y el impacto real."
+      },
+      "hero-section": {
+        "title": "Push Cult - Pacto de Sangre para Creadores",
+        "subtitle": "Una comunidad de yappers seleccionados. Creada para la señal, no para el spam.",
+        "description-paragraph-1": "El mundo de las criptomonedas está ahogado en ruido. Los timelines se están pudriendo con basura de IA y participación vacía. Push Cult rechaza esta decadencia. No buscamos el ruido. Buscamos visionarios. Estamos ungiento a los pastores que guían a su rebaño con la verdad. No más fuerte. No más amplio. Señal pura.",
+        "description-paragraph-2": "Postúlate ahora para tener la oportunidad de unirte a la comunidad. Los 50 creadores de mayor calidad dividirán un",
+        "bounty-amount": "20,000,000 PC",
+        "description-paragraph-2-end": "recompensa."
       }
     },
     "home": {
@@ -1189,6 +1377,118 @@
         }
       }
     },
+    "cult-contact": {
+      "collapsed-text": "🩸 Únete a la Push Cult - Haz el Juramento",
+      "expanded-title": "El Juramento",
+      "form": {
+        "steps": {
+          "email": {
+            "title": "¿Cuál es tu dirección de correo electrónico? 📧",
+            "subtitle": "Necesitamos esto para contactarte",
+            "placeholder": "tu.correo@ejemplo.com"
+          },
+          "x-username": {
+            "title": "¿Cuál es tu nombre de usuario en X (Twitter)?",
+            "subtitle": "Nos gustaría ver tu contenido y participación",
+            "placeholder": "@tuusuario"
+          },
+          "telegram-id": {
+            "title": "¿Cuál es tu ID de Telegram?",
+            "subtitle": "Usamos Telegram para comunicación directa con Discípulos",
+            "placeholder": "@tuidentrodetelegram"
+          },
+          "best-content": {
+            "title": "Comparte tu mejor contenido",
+            "subtitle": "Enlaza a tu mejor hilo, video o artículo que muestre tu trabajo",
+            "placeholder": "https://x.com/yourhandle/status/..."
+          },
+          "message": {
+            "title": "Comparte tu visión",
+            "subtitle": "Cuéntanos sobre tu contenido, tu audiencia y por qué quieres unirte",
+            "placeholder": "Cuéntanos sobre tu contenido, tu audiencia y por qué quieres unirte a Push Cult..."
+          }
+        },
+        "buttons": {
+          "next": "Siguiente",
+          "previous": "Anterior",
+          "submit": "Enviar solicitud",
+          "submitting": "Enviando..."
+        },
+        "validation": {
+          "email-required": "El correo electrónico es obligatorio",
+          "email-invalid": "Por favor, introduce una dirección de correo electrónico válida",
+          "x-username-required": "Se requiere el nombre de usuario de X",
+          "telegram-id-required": "Se requiere ID de Telegram",
+          "best-content-required": "Se requiere el enlace al mejor contenido",
+          "best-content-invalid": "Por favor, introduce una URL válida",
+          "message-required": "El mensaje es obligatorio",
+          "default": "Este campo es obligatorio"
+        },
+        "success": {
+          "title": "¡Solicitud enviada!",
+          "message-before-link": "Únete",
+          "discord-link-text": "Push Chain Discord",
+          "message-after-link": "y mantente atento a el",
+          "channel-name": "#push-cult",
+          "message-end": "canal para los próximos pasos.",
+          "button": "Enviar otra solicitud"
+        },
+        "progress": {
+          "step-counter": "{{current}} de {{total}}"
+        }
+      }
+    },
+    "short-cult-snippet": {
+      "section-aria-label": "Push Cult - Pacto de Sangre para Creadores",
+      "title": "Discípulo\nDirectrices",
+      "title-aria-label": "Pautas y requisitos para los Discípulos de Push Cult",
+      "discord-link-text": "Únete a la comunidad en Discord",
+      "discord-link-title": "Únete al canal #push-cult del Discord de Push Chain",
+      "discord-link-aria-label": "Abrir la comunidad de Discord en una nueva pestaña",
+      "explore-more-text": "Ver Pact completo",
+      "explore-more-title": "Lee el manifiesto completo de Push Cult y los detalles del programa",
+      "explore-more-aria-label": "Ir a la publicación completa del blog de Push Cult",
+      "accordion-aria-label": "Directrices y requisitos de Push Cult",
+      "answer-aria-label": "Respuesta a la pregunta - ",
+      "qnas": {
+        "qna1": {
+          "question": "¿Qué es Push Cult?",
+          "answer": "<1>Push Cult es un programa curado y solo por invitación para <2>50 creadores de élite</2> que ofrecen señal pura, no spam.</1><1>Recompensamos a los visionarios que guían a su rebaño con la verdad, a través de hilos, videos o artículos que conecten genuinamente con la audiencia.</1><1>Los 50 Discípulos principales dividen una recompensa de <2>20,000,000 PC</2> basada en el impacto medible.</1>",
+          "discord-url-title": "Únete al servidor de Discord de Push Chain.",
+          "support-url-title": "Aprende más sobre el programa."
+        },
+        "qna2": {
+          "question": "¿Quién debería aplicar?",
+          "answer": "<1><2>Creadores que:</2> ya producen guías, hilos o explicaciones con una audiencia comprometida (no necesariamente enorme).</1><1><2>Se preocupan por:</2> enviar claridad por encima del bombo publicitario, construir un legado por encima de ganancias rápidas.</1><1><2>Quieren ser de los primeros:</2> evangelizar la era de Ejecución Universal de Push Chain e incorporar a los creyentes a la Temporada 3.</1><1>Si buscas una ganancia rápida, aléjate. Si buscas construir un legado, <3>adelante</3>.</1>",
+          "scan-url-title": "Solicitar unirte a Push Cult",
+          "support-url-title": "Lee el manifiesto completo."
+        },
+        "qna3": {
+          "question": "¿Cómo se seleccionan y evalúan a los Discípulos?",
+          "answer": "<1>Limitamos a <2>50 Discípulos</2> para asegurar el enfoque. La participación se renueva semanalmente según tu <2>Puntuación de Devoción</2>.</1><1><2>La Puntuación de Devoción</2> combina: Señal (alcance), Reunión (nuevos creyentes incorporados), Fe (retención) y Oficio (revisión manual).</1><1>Si caes por debajo del umbral, sales rotando. Los grandes creadores compiten por la calidad, no por el volumen.</1>",
+          "faucet-url-title": "Aprende sobre los criterios de evaluación.",
+          "discord-url-title": "Haz preguntas en Discord."
+        },
+        "qna4": {
+          "question": "¿Qué hacen exactamente los Discípulos?",
+          "answer": "<1>Crea contenido en <2>tu formato</2>. Puede ser hilos, videos, artículos o lo que más te guste. Tu misión: explicar los conceptos de Push Chain, guiar a la Comunidad a través de Testnet, incorporar a creyentes a la Temporada 3.</1><1>Ofrecemos: misiones semanales, temas y información privilegiada antes que el público. Tú das forma a la narrativa.</1><1>El spam se reduce a cenizas. Solo la verdad sobrevive.</1>",
+          "support-url-title": "Ver ejemplos de contenido.",
+          "discord-url-title": "Únete al Discord."
+        },
+        "qna5": {
+          "question": "¿Cuáles son las recompensas?",
+          "answer": "<1><2>Los mejores participantes reciben:</2> Asignación garantizada del pool de 20M $PC, además de un Pase Brillante Ultra Raro (en mainnet).</1><1><2>El Pase Brillante otorga:</2> participación en los ingresos de las tarifas de la cadena, participación en las recompensas de los validadores, multiplicadores de staking y ventajas exclusivas del ecosistema.</1><1>El rango dicta la cosecha. No hay trofeos de participación.</1>",
+          "docs-url-title": "Aprende sobre las recompensas.",
+          "kb-url-title": "Lee la tokenomics."
+        },
+        "qna6": {
+          "question": "¿Cómo puedo unirme?",
+          "answer": "<1>Las puertas están abiertas, demuestra tu devoción, <3>solicita ahora</3>.</1><1>El registro te da acceso a los detalles del programa, las mecánicas de evaluación y los pasos iniciales de incorporación.</1><1>A partir de ahí, <2>el rendimiento lo determina todo</2>.</1>",
+          "contact-url-title": "Solicita unirte a Push Cult",
+          "github-url-title": "Lee el pacto completo."
+        }
+      }
+    },
     "cookie-banner": {
       "message": "Usamos cookies para personalizar tu experiencia. Aprende más en nuestro",
       "privacy-policy-link": "Política de privacidad",
@@ -1396,171 +1696,5 @@
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
     "site-description": "Capa de ejecución compartida L1 para aplicaciones universales. Implementar una vez; llegar a usuarios en cualquier cadena. Usar cualquier monedero. Pagar con cualquier ficha. Sin cambiar de red."
-  },
-  "header": {
-    "meta": {
-      "logo-aria-label": "Push Chain - Navegar a la página de inicio",
-      "language-icon-alt": "Icono de selección de idioma",
-      "hamburger-menu-alt": "Abrir menú de navegación",
-      "testnet-badge-alt": "Push Chain Testnet Donut - Ver el estado de la testnet"
-    },
-    "logo": {
-      "imagealt": "Imagen del logo de Push Chain",
-      "imagetitle": "Logotipo de Push Chain",
-      "ctatitle": "Ir a la página de inicio de Push Chain"
-    },
-    "testnet": {
-      "title": "Testnet",
-      "aria-label": "Sección de testnet",
-      "link1": {
-        "text": "Push Scan",
-        "subtext": "Explorador de bloques para Push Chain",
-        "title": "Explora las transacciones y bloques de Push Chain Testnet en Push Scan"
-      },
-      "link2": {
-        "text": "Grifo",
-        "subtext": "Obtén tokens de testnet",
-        "title": "Obtén tokens de testnet gratuitos para el desarrollo de Push Chain"
-      },
-      "link3": {
-        "text": "Ecosistema",
-        "subtext": "Mira apps construidas en Push Chain",
-        "title": "Mira las apps construidas en Push Chain"
-      }
-    },
-    "developers": {
-      "title": "Desarrolladores",
-      "aria-label": "Sección para Desarrolladores",
-      "link1": {
-        "text": "Comienza",
-        "subtext": "Introducción a la construcción en Push Chain",
-        "title": "Empieza a construir apps universales en Push Chain - Documentación para desarrolladores"
-      },
-      "link2": {
-        "text": "Comenzar rápido",
-        "subtext": "Configura un entorno de desarrollo en segundos",
-        "title": "Guía de inicio rápido - Configura el entorno de desarrollo de Push Chain al instante"
-      },
-      "link6": {
-        "text": "Ecosistema",
-        "subtext": "Mira las apps construidas en Push Chain",
-        "title": "Ver apps construidas en Push Chain"
-      },
-      "link3": {
-        "text": "Tutoriales",
-        "subtext": "Guías paso a paso para construir con Push",
-        "title": "Aprende con tutoriales prácticos – Construye tu primera app universal en Push Chain"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "Mira el código principal y las herramientas de código abierto",
-        "title": "Explora el código fuente y las herramientas de desarrollo de Push Chain en GitHub"
-      },
-      "link5": {
-        "text": "Discord para desarrolladores",
-        "subtext": "Conéctate con la comunidad de desarrolladores",
-        "title": "Únete a la comunidad de desarrolladores de Push Chain en Discord para obtener soporte y colaboración"
-      }
-    },
-    "community": {
-      "title": "Comunidad",
-      "aria-label": "Sección de la comunidad",
-      "link7": {
-        "text": "Ecosistema",
-        "subtext": "Explora apps construidas sobre Push Chain",
-        "title": "Explora apps construidas en Push Chain"
-      },
-      "link1": {
-        "text": "Base de conocimiento",
-        "subtext": "Encuentra análisis detallados de las funciones",
-        "title": "Explora la documentación completa de Push Chain y las guías de funciones"
-      },
-      "link2": {
-        "text": "LFPush",
-        "subtext": "Tweets destacados de la comunidad de Push #LFPush",
-        "title": "Tweets destacados de la comunidad Push #LFPush"
-      },
-      "link3": {
-        "text": "Tokenomics",
-        "subtext": "Token nativo que impulsa todo en Push Chain",
-        "title": "Aprende sobre la tokenomics del Token Push Chain y la utilidad del token $PC"
-      },
-      "link4": {
-        "text": "X/Twitter",
-        "subtext": "Sigue las novedades y noticias del ecosistema",
-        "title": "Sigue a Push Chain en X (Twitter) para las últimas actualizaciones y anuncios"
-      },
-      "link5": {
-        "text": "Discord",
-        "subtext": "Chatea, construye y conéctate con la comunidad",
-        "title": "Únete a la comunidad de Push Chain en Discord para debates y soporte"
-      },
-      "link6": {
-        "text": "Telegram",
-        "subtext": "Únete a la conversación y mantente al día",
-        "title": "Únete a la comunidad de Push Chain en Telegram para actualizaciones en tiempo real"
-      }
-    },
-    "resources": {
-      "title": "Recursos",
-      "aria-label": "Sección de Recursos",
-      "link1": {
-        "text": "Blog",
-        "subtext": "Actualizaciones, análisis en profundidad e historias de desarrollo",
-        "title": "Lee el blog de Push Chain para conocer las últimas novedades, análisis técnicos en profundidad e historias de desarrolladores"
-      },
-      "link2": {
-        "text": "Documento técnico",
-        "subtext": "La visión y la tecnología, simplificadas",
-        "title": "Lee el Litepaper de Push Chain - visión simplificada y descripción general técnica"
-      },
-      "link3": {
-        "text": "Preguntas frecuentes",
-        "subtext": "Respuestas rápidas a preguntas frecuentes",
-        "title": "Consulta las preguntas frecuentes sobre Push Chain"
-      }
-    },
-    "language": {
-      "title": "Idioma",
-      "aria-label": "Menú desplegable de selección de idioma"
-    },
-    "app-button": {
-      "text": "Push Portal",
-      "title": "Accede a Push Portal - Gana puntos como desarrollador, usuario o validador"
-    },
-    "explore": {
-      "title": "Explorar",
-      "aria-label": "Explorar Sección",
-      "link1": {
-        "text": "Comienza",
-        "subtext": "Introducción a la construcción en Push Chain",
-        "title": "Empieza a construir"
-      },
-      "link2": {
-        "text": "Comenzar rápido",
-        "subtext": "Configura tu entorno de desarrollo en segundos",
-        "title": "Comenzar rápido"
-      },
-      "link3": {
-        "text": "Tutoriales",
-        "subtext": "Guías paso a paso para construir con Push",
-        "title": "Aprende con tutoriales"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "Ver el código principal y las herramientas de código abierto",
-        "title": "Explora Push Chain"
-      },
-      "link5": {
-        "text": "Discord de Desarrolladores",
-        "subtext": "Conéctate con la comunidad de desarrolladores",
-        "title": "Únete a Discord"
-      },
-      "link6": {
-        "text": "Explorar Ejemplos",
-        "subtext": "Explorar Ejemplos",
-        "title": "Explorar Ejemplos"
-      }
-    }
   }
 }

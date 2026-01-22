@@ -3,6 +3,177 @@
     "site-name": "Push Chain — 유니버설 L1 for 앱",
     "site-description": "유니버설 앱을 위한 공유 상태 L1. 한 번 배포하면 어떤 체인의 사용자에게든 도달할 수 있습니다. 어떤 지갑을 사용해도 되고, 어떤 토큰으로든 결제할 수 있습니다. 네트워크 전환은 필요 없습니다."
   },
+  "header": {
+    "community": {
+      "link8": {
+        "text": "Push 커뮤니티",
+        "subtext": "2백만 토큰 보상을 제공하는 크리에이터 프로그램",
+        "title": "Push Cult를 확인하세요 - 2000만 토큰 보상을 제공하는 크리에이터 프로그램"
+      },
+      "title": "커뮤니티",
+      "aria-label": "커뮤니티 섹션",
+      "link7": {
+        "text": "Ecosystem",
+        "subtext": "Push Chain 기반 앱 살펴보기",
+        "title": "Push Chain에서 만들어진 앱 탐색하기"
+      },
+      "link1": {
+        "text": "지식 기반",
+        "subtext": "기능에 대한 심층 분석을 찾아보세요",
+        "title": "Push Chain의 포괄적인 문서 및 기능 가이드를 살펴보세요"
+      },
+      "link2": {
+        "text": "LFPush",
+        "subtext": "Push 커뮤니티의 주요 트윗 #LFPush",
+        "title": "Push 커뮤니티의 주요 트윗 #LFPush"
+      },
+      "link3": {
+        "text": "토큰노믹스",
+        "subtext": "Push Chain을 구동하는 기본 토큰",
+        "title": "Push Chain 토큰omics와 $PC 토큰 유틸리티에 대해 알아보세요"
+      },
+      "link4": {
+        "text": "X/Twitter",
+        "subtext": "업데이트 및 생태계 소식을 팔로우하세요",
+        "title": "최신 업데이트 및 공지 사항을 보려면 X(Twitter)에서 Push Chain을 팔로우하세요"
+      },
+      "link5": {
+        "text": "Discord",
+        "subtext": "커뮤니티와 소통하고 함께 만들어가세요",
+        "title": "Push Chain 커뮤니티에 Discord로 참여하여 토론하고 지원을 받으세요"
+      },
+      "link6": {
+        "text": "Telegram",
+        "subtext": "커뮤니티에 참여하고 최신 정보를 받아보세요",
+        "title": "Telegram에서 Push Chain 커뮤니티와 연결하여 실시간 업데이트를 받으세요"
+      }
+    },
+    "meta": {
+      "logo-aria-label": "Push Chain - 홈페이지로 이동",
+      "language-icon-alt": "언어 선택 아이콘",
+      "hamburger-menu-alt": "탐색 메뉴 열기",
+      "testnet-badge-alt": "Push Chain Testnet Donut - 테스트넷 상태 보기"
+    },
+    "logo": {
+      "imagealt": "Push Chain 로고 이미지",
+      "imagetitle": "Push Chain 로고",
+      "ctatitle": "Push Chain 홈페이지로 이동"
+    },
+    "testnet": {
+      "title": "테스트넷",
+      "aria-label": "테스트넷 섹션",
+      "link1": {
+        "text": "Push 스캔",
+        "subtext": "Push Chain 블록체인 탐색기",
+        "title": "Push Scan에서 Push Chain testnet의 트랜잭션과 블록을 살펴보세요"
+      },
+      "link2": {
+        "text": "Faucet",
+        "subtext": "테스트넷 토큰 받기",
+        "title": "Push Chain 개발을 위한 무료 테스트넷 토큰 받기"
+      },
+      "link3": {
+        "text": "Ecosystem",
+        "subtext": "Push Chain에서 구축된 앱 보기",
+        "title": "Push Chain에서 만들어진 앱 보기"
+      }
+    },
+    "developers": {
+      "title": "개발자",
+      "aria-label": "개발자 섹션",
+      "link1": {
+        "text": "시작하기",
+        "subtext": "Push Chain에서 빌드하는 방법 소개",
+        "title": "Push Chain에서 유니버설 앱 개발 시작 - 개발자 문서"
+      },
+      "link2": {
+        "text": "빠른 시작",
+        "subtext": "몇 초 만에 개발 환경을 설정하세요",
+        "title": "빠른 시작 가이드 - Push Chain 개발 환경을 즉시 설정하세요"
+      },
+      "link6": {
+        "text": "Ecosystem",
+        "subtext": "Push Chain에서 구축된 앱 보기",
+        "title": "Push Chain에서 구축된 앱 보기"
+      },
+      "link3": {
+        "text": "튜토리얼",
+        "subtext": "Push로 개발하는 단계별 가이드",
+        "title": "Push Chain에서 실습 튜토리얼로 배우기 - 첫 번째 유니버설 앱 구축"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "핵심 코드와 오픈소스 도구를 확인하세요",
+        "title": "GitHub에서 Push Chain 소스 코드 및 개발 도구를 살펴보세요"
+      },
+      "link5": {
+        "text": "개발자 Discord",
+        "subtext": "개발자 커뮤니티와 연결하세요",
+        "title": "Push Chain 개발자 커뮤니티에 Discord로 참여하여 지원 및 협업을 받으세요"
+      }
+    },
+    "resources": {
+      "title": "리소스",
+      "aria-label": "리소스 섹션",
+      "link1": {
+        "text": "블로그",
+        "subtext": "업데이트, 심층 분석, 그리고 개발 스토리",
+        "title": "Push Chain 블로그에서 최신 업데이트, 기술 심층 분석 및 개발자 스토리를 확인하세요"
+      },
+      "link2": {
+        "text": "Litepaper",
+        "subtext": "비전을 단순화한 기술",
+        "title": "Push Chain Litepaper 읽기 - 간략화된 비전 및 기술 개요"
+      },
+      "link3": {
+        "text": "FAQ",
+        "subtext": "자주 묻는 질문에 대한 빠른 답변",
+        "title": "Push Chain에 대한 자주 묻는 질문을 찾아보세요"
+      }
+    },
+    "language": {
+      "title": "언어",
+      "aria-label": "언어 선택 드롭다운"
+    },
+    "app-button": {
+      "text": "Push Portal",
+      "title": "Push Portal에 접속 - 개발자, 사용자, 또는 validator로서 포인트를 획득하세요"
+    },
+    "explore": {
+      "title": "탐색",
+      "aria-label": "탐색 섹션",
+      "link1": {
+        "text": "시작하기",
+        "subtext": "Push Chain에서 빌드하는 소개",
+        "title": "시작하기"
+      },
+      "link2": {
+        "text": "빠른 시작",
+        "subtext": "몇 초 만에 개발 환경을 설정하세요",
+        "title": "빠른 시작"
+      },
+      "link3": {
+        "text": "튜토리얼",
+        "subtext": "Push를 사용한 단계별 가이드",
+        "title": "튜토리얼로 배우기"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "코어 코드와 오픈소스 도구를 확인하세요",
+        "title": "Push Chain 살펴보기"
+      },
+      "link5": {
+        "text": "개발자 Discord",
+        "subtext": "개발 커뮤니티와 연결하세요",
+        "title": "Discord에 참여하세요"
+      },
+      "link6": {
+        "text": "예제 살펴보기",
+        "subtext": "예제 살펴보기",
+        "title": "예제 살펴보기"
+      }
+    }
+  },
   "footer": {
     "email-section": {
       "title": "Push Chain 소식을 받아보세요",
@@ -151,7 +322,7 @@
                   },
                   "faq-push-chain": {
                     "title": "Push Chain 자주 묻는 질문",
-                    "subtitle": " Push 체인 및 유니버설 앱에 대한 질문과 답변입니다."
+                    "subtitle": " Push Chain과 유니버셜 앱에 대해 궁금한 점이 있으신가요? 가장 일반적인 대답을 확인하세요."
                   }
                 }
               }
@@ -163,35 +334,27 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "사례 연구",
-                "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
-                  }
-                }
-              },
-              "builders-intro": {
-                "items": {
-                  "intro": "## 빌더들\n\nPush Chain에서 구축하고 싶으신가요? 여기에서 영감을 받고 시작할 수 있는 리소스를 제공합니다.",
-                  "curated-reads": "## 큐레이트드 리딩 👇"
-                }
-              },
               "universal-apps": {
-                "title": "우니버설 앱을 만들어 보자! 💪",
                 "items": {
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "공유 상태에서만 가능한 앱 - Vol. 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "공유 상태에서만 가능한 앱 - Vol. 2"
+                  },
                   "apps-of-the-future": {
                     "title": "미래의 앱 — 혼돈 없이 건설"
                   },
                   "consumer-apps-that-can-be-built-on-push-chain": {
                     "title": " Push Chain 에 Consumer Apps 🫶 만들 수 있어요?"
-                  },
-                  "apps-only-possible-with-shared-state-v1": {
-                    "title": "유니버설 앱은 공유 상태 없인 불가능 - 비. 1권"
-                  },
-                  "apps-only-possible-with-shared-state-v2": {
-                    "title": "shared state로 가능한 앱들 - VOL. 2"
                   }
+                },
+                "title": "우니버설 앱을 만들어 보자! 💪"
+              },
+              "builders-intro": {
+                "items": {
+                  "intro": "## 빌더들\n\nPush Chain에서 구축하고 싶으신가요? 여기에서 영감을 받고 시작할 수 있는 리소스를 제공합니다.",
+                  "curated-reads": "## 큐레이트드 리딩 👇"
                 }
               },
               "developer-resources": {
@@ -205,6 +368,14 @@
                   },
                   "testnet-explorer": {
                     "title": "Push Testnet Explorer"
+                  }
+                }
+              },
+              "case-studies": {
+                "title": "케이스 스터디",
+                "items": {
+                  "hodl-fun": {
+                    "title": "Hodl.fun"
                   }
                 }
               }
@@ -319,7 +490,7 @@
                   "how-does-push-chain-work": "### Push Chain은 어떻게 작동하나요?\n\n![How Normal Apps Work](/assets/website/chain/knowledge/faq/normalapps.webp)\n\n![How Universal Apps Work](/assets/website/chain/knowledge/faq/universalapps.webp)\n\nPush Chain은 모든 체인에서 파편화를 해결하는 데 독특한 접근 방식을 취합니다. 상호 운용성 프로토콜에 의존하는 대신, 사용자와 개발자 모두에게 복잡성을 더하는 대신 모든 사용자가 어떤 체인에서든 기본적으로 사용할 수 있는 진정한 범용 블록체인을 구축하여 새로운 접근 방식을 취합니다.\n\n이를 달성하기 위해 Push Chain은 다음과 같은 **precompiles**를 활용합니다. 사용자 정의 모듈을 생성하여:\n\n1. **Recognize** 다른 체인의 사용자 - 체인에 관계없이 사용자의 주소를 확장하는 범용 주소 표준(CAIP-10 표준([https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-10.md](https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-10.md)) 기반).\n\n2. **Map** 사용자를 Push Chain에 매핑 - 각 외부 체인 사용자에 대해 범용 Executor 계정(UEA)을 배포합니다. 이 모듈은 다른 precompiles를 사용하여 트랜잭션을 처리하는 스마트 계정을 배포하는 데 사용됩니다.\n\n3. **Execute** 범용 트랜잭션 - 이는 USV(Universal Signature Verification) 및 UTXV(Universal Transaction Verifier) precompiles를 사용하여 다른 체인의 서명과 트랜잭션을 확인하고 실행하여 수행됩니다.\n\n4. **Abstract** 체인의 복잡성을 숨김 - 이는 각 체인에 범용 게이트웨이 계약을 배치하여 체인의 기본 토큰(또는 다른 호환 가능한 토큰)으로 gas 자금을 잠그고 UTXV precompiles를 사용하여 gas를 UEA(Executor 계정)에 속성하고 USV를 사용하여 트랜잭션을 실행하여 수행됩니다.\n\n이는 사용자 모두가 어떤 체인에서든 걱정할 필요 없이 Push Chain의 모든 앱과 상호 작용할 수 있도록 사용자뿐만 아니라 개발자 모두에게 추상화를 제공하는 **매우 강력한 접근 방식**입니다.\n\n---",
                   "why-unique-for-users": "### 왜 Push Chain이 사용자에게 특별할까요?\n\nPush Chain은 기존 블록체인의 interoperability, 체인 간 state 접근, programmable solvers 및 월렛 추상화와 같은 특정 격차를 해결하여 **진정한 풀 스택 interoperability**를 제공합니다. 기존 블록체인은 강력하지만 자체 생태계 내에서 작동하며 이러한 체인을 통합하는 통합기가 필요합니다.\n\nPush Chain은 universal (interoperable) 애플리케이션을 위한 **shared state chain**으로 모든 체인이 함께 모여 universal hub으로 Push Chain을 사용하거나 이들 간에 settlement를 수행할 수 있는 통합 레이어 역할을 하는 데 중점을 둡니다.\n\n**Any Chain**에서 작동하고, **Any Wallet / User**에게 적합하며, **Any App**에 적합한 새로운 Web3 패러다임을 제공합니다.\n\n---",
                   "core-innovations": "### 푸시 체인이 혁신적인 이유는 무엇인가요?\n\n![Push Chain Architecture](/assets/website/chain/knowledge/faq/pcoverview.webp)\n\n푸시 체인은 모든 블록체인 간의 단편화를 제거하도록 설계된 지분 증명 레이어 1입니다. 내부적으로는 다음과 같은 몇 가지 핵심 혁신을 결합합니다.\n\n- **유니버설 스마트 컨트랙트**\n  **제로 온체인 코드 변경**으로 배포할 수 있는 100% EVM 호환 스마트 컨트랙트입니다. 배포되면 모든 체인의 사용자와 즉시 호환됩니다.\n\n- **진정한 유니버설 체인**\n  모든 체인을 기본적으로 지원하며 사용자가 동일한 앱과 상호 작용할 수 있도록 합니다. 중앙 집중식 릴레이어, 브리지 또는 기타 해킹이 필요하지 않습니다.\n\n- **유니버설 수수료 & 월렛 추상화**\n  사용자가 수수료나 월렛 메커니즘에 대해 걱정할 필요 없이 어떤 체인에서든 앱과 상호 작용할 수 있도록 합니다.\n\n- **어떤 체인이든 단일 트랜잭션**\n  사용자는 어떤 체인에 있든 상관없이 단 한 번의 트랜잭션만 서명하면 됩니다.\n\n- **유니버설 EVM**\n  푸시 체인은 다른 체인의 사용자를 기본적으로 인식하고 트랜잭션을 올바르게 속성하고 매핑할 만큼 똑똑합니다.\n\n이러한 기능이 함께 사용자가 **유니버설 Web3 앱**을 구축할 수 있도록 합니다. “이더리움의 Uniswap” 또는 “폴리곤의 Uniswap” 대신 사용자는 단순히 **Uniswap 사용자**가 됩니다 — 그게 전부입니다.\n\n---",
-                  "problems-solved": "### Push Chain이 해결하는 문제들\n\n- **분할**\n  EVM 및非EVM 체인을 하나로 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 되게 합니다.\n\n- **인터오퍼래빌리티**\n  모든 블록체인과 온체인 공유 상태에 대한 네이тив 지원입니다.\n\n- **파이널리티**\n  ~1-2초 안에 즉시, 반환 불가능한 네이티브 파이널리티 – 더 기다릴 필요도, 다시 재조정할 필요도 없습니다.\n\n- **onboarding & UX**\n  소셜/이메일 로그인, 모든 토큰 및 지갑 지원으로 체인 간 제로-프리카션 액세스입니다.\n\n- **유니버설 애플리케이션**\n  한 번 건설하고 어디든지 배포 – 모든 웹3 앱이 모든 사용자에게 어디서나 세밀하게 동작합니다.\n\n---",
+                  "problems-solved": "### Push 체인에서 해결하는 문제\n\n- **프라그먼테이션**\n  EVM 및 비-EVM 체인을 하나의 공유 상태 L1으로 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **인터오페라빌리티**\n  모든 블록체인에서 지원되는 트랜잭션과 온체인 공유 상태의 원생 지원을 제공합니다.\n\n- **파이널리티**\n  ~1-2초 내에 즉각적이고 đảo리지 않은 파이널리티를 제공합니다 - 기다리거나 재정렬할 필요가 없습니다.\n\n- **온보딩 및 UX**\n  소셜/이메일 로그인, 그레이스-토큰 및 지갑 지원으로 모든 체인 간 편리한 접근성을 제공합니다.\n\n- **유니버설 앱**\n  한 번 빌드, 어디에서나 배포 - 어떤 웹3 앱도 모든 사용자에게 모든 체인에서 원활하게 작동합니다.\n\n---",
                   "what-apps-can-build": "### 어떤 앱을 Push Chain에서 구축할 수 있나요?\n\n![Universal App Examples](/assets/website/chain/knowledge/faq/appusecases.webp)\n\nPush Chain의 shared-state, cross-chain 아키텍처를 통해 가능성은 무궁무진합니다. 몇 가지 주요 예시는 다음과 같습니다:\n\n- **Universal DEX**  \n  모든 유동성 풀에 대한 단일 스왑 UI–모든 체인에서 CEX의 속도와 UX로 라우팅을 추상화합니다.\n\n- **Universal DeFi**  \n  브라우저의 글로벌 은행: 수동 브리징 없이 생태계를 확장하는 대출, 차입, 수익 집계기.\n\n- **Universal AI Agents**  \n  어떤 체인의 어떤 토큰으로든 지불하고 받을 수 있는 자율 에이전트–구독 서비스, 데이터 봇 등에 적합합니다.\n\n- **Universal DAOs**  \n  토큰 보유자가 원산 체인에 관계없이 투표하고 제안을 실행하는 cross-chain 거버넌스.\n\n- **Universal Gaming**  \n  Ethereum, Solana, Polygon 등을 통합하는 멀티플레이어 토너먼트 및 게임 내 경제.\n\n- **Universal Marketplace**  \n  모든 체인의 NFT 및 토큰을 하나의 통합 마켓플레이스에서 구매, 판매, 거래.\n\n- **Universal Name Service**  \n  여러 블록체인에서 지갑을 확인할 수 있는 사람이 읽을 수 있는 이름.\n\nThe 앱과 혁신은 Push Chain에서 끝없이 일어날 수 있습니다! [더 많은 사용 사례](/blog/consumer-apps-that-can-be-built-on-push-chain/)를 보려면 여기를 방문하세요. 개발자는 [Documentation Hub](/docs/)를 확인하여 시작할 수도 있습니다.\n\n---",
                   "technical-section": "## 기술 정보",
                   "why-not-an-l2": "### 왜 L1이 아닌 L2인가요?\n\nPush Chain은 다른 모든 블록체인의 **공유 결제 레이어** 및 **범용 실행 레이어** 역할을 하도록 구축되었습니다. 이러한 역할을 수행할 수 있는 것은 독립 실행형 L1 뿐입니다.\n\n- **네이티브 크로스체인 결제**  \n  L1로서 Push Chain은 외부 보안 모델이나 사기 증거에 의존하지 않고 모든 체인에서 직접 트랜잭션을 확정할 수 있습니다.\n\n- **범용 실행 및 상태 접근**  \n  자체 합의 및 상태 머신을 실행하면 Push Chain은 Ethereum, Solana 등을 해석하고 실행할 수 있습니다 — 이는 단일 베이스 레이어에 묶인 L2가 기본적으로 수행할 수 없는 작업입니다.\n\n- **L2 제약 조건 또는 지연 없음**  \n  L2는 호스트 체인의 대기 시간, 확정 규칙 및 가스 모델을 상속받습니다(브리징 오버헤드 포함). Push Chain은 이러한 병목 현상을 피하고 베이스 레이어에서 즉각적인 확정 및 범용 수수료 추상화를 제공합니다.\n\n- **진정한 공유 상태**  \n  여러 체인의 상태를 스마트 컨트랙트 내에서 읽고 쓰려면 직접적인 프로토콜 수준 접근이 필요합니다 — 이는 L1 레이어에서만 가능합니다.\n\n간단히 말해서, 목적에 맞게 구축된 L1만이 모든 체인을 하나의 응집력 있는 실행 및 결제 레이어 아래 통일할 수 있습니다 — 추가적인 복잡성이나 추가적인 신뢰 가정을 추가하지 않고.\n\n---",
@@ -737,7 +908,7 @@
       },
       "hero-section": {
         "title": "Push Chain 팀에 문의하세요",
-        "description": "파트너십 및 통합, 장학금, 미디어 및 강연, 검증자, 법적 문제, 職務 혹은 일반적인 질문 등에 대해 연락해보세요. 기술적인 도움을 받거나 보안 문제에 대한 신고가 필요할 경우 지원 센터를 방문하세요."
+        "description": "파트너십 & 통합, 인센티브, 미디어 & 행사, 발데이터, 법적 문제, 경력 또는 일반적인 질문에 대해 연락하세요. 기술적인 도움이 필요하거나 보안 문제에 관해 논의하려면 지원 센터를 방문해주세요."
       }
     },
     "donutsecret": {
@@ -748,6 +919,24 @@
         "og-description": "개발자용 얼리 액세스: Closed Beta Pass를 획득하고, Push Chain (Donut)을 사용해보고, 유니버설 앱을 구축하면서 보상을 받으세요.",
         "twitter-title": "Shhh… Donut Testnet — 비공개 베타",
         "twitter-description": "빌더만 참여 가능한 초대 전용 액세스입니다. Push Chain (Donut) 패스를 확보하고 보상을 획득하세요. 🍩"
+      }
+    },
+    "cult": {
+      "seo": {
+        "title": "Push Cult — 시그널 기반 콘텐츠를 위한 크리에이터 프로그램",
+        "description": "Push Cult은 Push Chain의 초대 전용 크리에이터 프로그램입니다. 50명의 크리에이터, 20M $PC 토큰. 노이즈는 없고, 측정 가능한 영향력만 있습니다.",
+        "og-title": "Push Cult - Signal을 위한 크리에이터 프로그램",
+        "og-description": "50명의 크리에이터만 참여 가능한 비공개 커뮤니티입니다. 푸시 체인의 실제 사용과 신뢰를 높여 2천만 $PC 토큰 보상을 획득합니다.",
+        "twitter-title": "Push Cult - Push Chain의 크리에이터 프로그램",
+        "twitter-description": "50명의 크리에이터. 2000만 $PC 토큰. 스팸 없음. 허영 심리를 자극하는 지표 없음. Push Cult는 진정한 신호와 실제 영향력을 보상합니다."
+      },
+      "hero-section": {
+        "title": "Push Cult - 크리에이터를 위한 혈맹",
+        "subtitle": "신중하게 선별된 얄퍼들의 모임입니다. 스팸이 아닌 핵심 정보에 집중합니다.",
+        "description-paragraph-1": "암호화폐 시장은 소음으로 가득 차고 있습니다. 타임라인은 AI 쓰레기와 의미 없는 참여로 썩어가고 있습니다. Push Cult는 이러한 퇴폐를 거부합니다. 우리는 시끄러움을 추구하지 않습니다. 비전을 추구합니다. 진실로 무리를 이끄는 목자를 기름붓는 자들입니다. 더 크고 더 넓게 나아가는 것이 아니라, 순수한 신호를 추구합니다.",
+        "description-paragraph-2": "지금 바로 지원하여 컬트에 참여할 기회를 얻으세요. 최고의 크리에이터 50명이",
+        "bounty-amount": "20,000,000 PC",
+        "description-paragraph-2-end": "보상."
       }
     },
     "home": {
@@ -1061,11 +1250,11 @@
           "answer": "<1>이미 사용하고 있는 지갑을 사용하세요 — Push가 백그라운드에서 크로스체인 작업을 처리합니다.</1><1>1. <2>어디서든 시작하세요.</2> 어떤 체인의 어떤 지갑이든 사용해도 됩니다 — 네트워크 전환이 필요하지 않습니다.</1><1>2. <2>한 번만 서명하세요.</2> 이미 보유하고 있는 토큰으로 결제하세요. 저희가 홈 체인에서 수수료를 따로 준비합니다.</1><1>3. <2>저희가 경로를 찾습니다.</2> Push에 연결된 계정(여전히 본인 소유)이 앱으로 콜을 전달합니다 — 비수탁 방식입니다.</1><1>4. <2>본인은 항상 본인입니다.</2> 본인의 홈 체인 지갑을 Push에 연결된 계정과 매칭하여 작업이 Push에서 올바르게 확인되고 귀하에게 속하는지 확인합니다.</1><1>5. <2>빠르게 완료됩니다.</2> 앱은 Push에서 실행됩니다. 수수료는 백그라운드에서 처리됩니다. 브리지나 새로운 지갑이 필요하지 않습니다.</1><1>이것이 모든 체인의 사용자가 Push Chain에 배포된 동일한 앱을 사용할 수 있는 방법입니다 — 앱을 진정으로 universal하게 만드는 방법입니다.</1>"
         },
         "qna3": {
-          "question": "다른 지갑이나 가스 토큰이 필요합니까?",
+          "question": "다를까요? 가스 토큰이 필요합니까?",
           "answer": "<1><2>아니요.</2></1><1><2>기존 월렛을 유지하세요.</2> 이미 가지고 있는 월렛을 사용하세요 — 새로운 월렛이나 계정이 필요하지 않습니다.</1><1><2>보유하신 자산으로 결제하세요.</2> 수수료는 홈 체인에서 이미 보유하고 계신 토큰으로 결제할 수 있습니다. 저희가 백그라운드에서 변환을 처리합니다.</1><1><2>네트워크 전환은 필요하지 않습니다.</2> 가스 토큰을 얻기 위해 브리징할 필요가 없습니다 — 홈 체인에 머무르세요.</1><1><2>비수탁입니다.</2> 모든 작업을 직접 서명합니다 — Push는 키를 보관하지 않습니다.</1><1><2>백그라운드에서 처리됩니다.</2> 네트워크는 자동으로 $PC로 수수료를 정산합니다 — 직접 관리할 필요가 없습니다.</1>"
         },
         "qna4": {
-          "question": "기존 브릿지나 메시징 레이어와는 어떻게 다른가요?",
+          "question": "이것은 브릿지나 메시징 레이어와 어떻게 다른가요?",
           "answer": "<1><2>간단한 답변:</2> Push는 앱이 실행되는 곳입니다. 브리지/메시징은 단순히 체인 간에 토큰이나 메시지를 이동시키는 것으로, 사용자 및 개발자에게 복잡성을 더합니다.</1><1><2>단일 홈 vs 많은 복제본.</2> 브리지/메시징을 사용하면 체인별로 배포하고 메시지를 통해 동기화합니다. Push에서는 한 번 배포하면 됩니다. 모든 사용자가 동일한 컨트랙트와 공유 상태에 액세스합니다.</1><1><2>래핑된 자산이나 필수 브리징 없음.</2> 사용자는 자신의 홈 체인에 머물면서 이미 보유하고 있는 것을 사용하여 결제합니다. 저희가 내부적으로 라우팅 및 수수료 변환을 처리합니다.</1><1><2>통합된 신원 및 검증.</2> 모든 지갑/체인에서 서명을 받아 Push에서 동일한 사용자에게 속성합니다 — 비수탁 방식입니다.</1><1><2>더 적은 이동 부품.</2> 체인 간 승인 춤, 가스 토큰 사냥, 동기화를 유지해야 하는 접착 컨트랙트가 없습니다.</1><1><2>브리지는 복잡성을 초래합니다. 체인 기본 상호 운용성이 이를 해결합니다.</2> 브리지는 복잡한 엔지니어링 노력, 시간, 감사 비용 및 추가 인프라가 필요합니다. 체인 기본 상호 운용성은 앱이 기본적으로 상속하므로 작동합니다.</1><1>결과: 더 간단한 앱, 단일 진실 공급원, 사용자가 그렇지 않은 것처럼 보이는 UX.</1>"
         },
         "qna5": {
@@ -1108,7 +1297,7 @@
         },
         "qna3": {
           "question": "Donut 테스트넷 토큰은 어떻게 얻을 수 있나요?",
-          "answer": "<1>테스트 토큰을 요청하려면 <3>페이크</3>를 사용하세요.</1><1><2>참고:</2> 속도 제한이 적용될 수 있고 일부 페이크는 간단한 인증을 요구합니다. 페이크가 실패하면 <4>디스코드</4>에서 알려주세요.</1>",
+          "answer": "<1>테스트 토큰을 요청하려면 <3>페이저</3>를 사용하세요.</1><1><2>메모:</2> 속도 제한이 적용될 수 있으며 일부 페이저는 단순 확인을 요구할 수도 있습니다. 페이저가 실패하면 <4>디스코드</4>에서 알려주세요.</1>",
           "faucet-url-title": "Push Chain 탭에서 탭 열기.",
           "discord-url-title": "Push Chain Discord에 참여하세요."
         },
@@ -1356,6 +1545,118 @@
         "social-youtube": "YouTube",
         "social-linkedin": "Linkedin"
       }
+    },
+    "cult-contact": {
+      "collapsed-text": "🩸 Push 컬트에 참여하여 맹세를 하세요",
+      "expanded-title": "맹세",
+      "form": {
+        "steps": {
+          "email": {
+            "title": "이메일 주소가 어떻게 되나요? 📧",
+            "subtitle": "연락처를 위해 필요합니다",
+            "placeholder": "your.email@example.com"
+          },
+          "x-username": {
+            "title": "X (Twitter) 계정 이름은 무엇인가요?",
+            "subtitle": "저희는 콘텐츠와 참여도를 확인하고 싶습니다",
+            "placeholder": "@yourhandle"
+          },
+          "telegram-id": {
+            "title": "Telegram ID는 무엇인가요?",
+            "subtitle": "저희는 제자들과 직접 소통하기 위해 Telegram을 사용합니다",
+            "placeholder": "@yourtelegramid"
+          },
+          "best-content": {
+            "title": "가장 좋은 콘텐츠를 공유하세요",
+            "subtitle": "가장 훌륭한 작업물을 보여주는 스레드, 비디오 또는 기사 링크를 연결해주세요.",
+            "placeholder": "https://x.com/yourhandle/status/..."
+          },
+          "message": {
+            "title": "여러분의 비전을 공유해주세요",
+            "subtitle": "콘텐츠, 타겟 청중, 그리고 참여하고 싶은 이유를 알려주세요.",
+            "placeholder": "Push Cult에 참여하고 싶은 콘텐츠, 대상, 이유 등을 알려주세요..."
+          }
+        },
+        "buttons": {
+          "next": "다음",
+          "previous": "이전",
+          "submit": "지원 신청",
+          "submitting": "제출 중..."
+        },
+        "validation": {
+          "email-required": "이메일 주소를 입력해주세요.",
+          "email-invalid": "유효한 이메일 주소를 입력해주세요.",
+          "x-username-required": "X 사용자 이름이 필요합니다.",
+          "telegram-id-required": "Telegram ID는 필수 입력 항목입니다.",
+          "best-content-required": "최고의 콘텐츠 링크가 필요합니다.",
+          "best-content-invalid": "유효한 URL을 입력해주세요.",
+          "message-required": "메시지를 입력해주세요",
+          "default": "이 필드를 입력해주세요"
+        },
+        "success": {
+          "title": "신청이 제출되었습니다!",
+          "message-before-link": "참여하세요",
+          "discord-link-text": "Push Chain Discord",
+          "message-after-link": "그리고 계속해서",
+          "channel-name": "#push-cult",
+          "message-end": "다음 단계를 위한 채널입니다.",
+          "button": "다른 신청서 제출"
+        },
+        "progress": {
+          "step-counter": "{{current}} / {{total}}"
+        }
+      }
+    },
+    "short-cult-snippet": {
+      "section-aria-label": "Push Cult - 크리에이터를 위한 혈맹",
+      "title": "제자\n가이드라인",
+      "title-aria-label": "Push Cult 제자들을 위한 가이드라인 및 요구 사항",
+      "discord-link-text": "Discord에서 Cult 커뮤니티에 참여하세요",
+      "discord-link-title": "Push Chain Discord #push-cult 채널에 참여하세요",
+      "discord-link-aria-label": "새 탭에서 Discord 커뮤니티 열기",
+      "explore-more-text": "전체 Pact 보기",
+      "explore-more-title": "Push 컬트 매니페스토 및 프로그램 세부 사항을 모두 읽어보세요",
+      "explore-more-aria-label": "전체 Push Cult 블로그 게시물로 이동",
+      "accordion-aria-label": "Push Cult 가이드라인 및 요구 사항",
+      "answer-aria-label": "질문에 대한 답변 - ",
+      "qnas": {
+        "qna1": {
+          "question": "Push Cult는 무엇인가요?",
+          "answer": "<1>Push Cult는 스팸이 아닌 순수한 신호를 전달하는 <2>50명의 엘리트 크리에이터</2>만을 위한 엄선된 초대 전용 프로그램입니다.</1><1>진정으로 청중과 연결되는 스레드, 비디오 또는 기사를 통해 진실로 무리를 이끄는 비전을 가진 사람들에게 보상을 제공합니다.</1><1>상위 50명의 제자들은 측정 가능한 영향력을 기반으로 <2>20,000,000 PC 상당의 보상</2>을 분배합니다.</1>",
+          "discord-url-title": "Push Chain Discord에 참여하세요.",
+          "support-url-title": "프로그램에 대해 자세히 알아보세요."
+        },
+        "qna2": {
+          "question": "누가 지원해야 할까요?",
+          "answer": "<1><2>다음과 같은 크리에이터:</2> 이미 가이드, 스레드 또는 설명글을 제작하며 참여도가 높은 청중(반드시 거대할 필요는 없음)을 확보한 분.</1><1><2>다음과 같은 가치를 중요하게 생각하는 분:</2> 과장된 홍보보다 명확한 정보 전달, 단기적인 이익보다 장기적인 유산을 구축하는 분.</1><1><2>다음과 같이 행동하고자 하는 분:</2> Push Chain의 Universal Execution 시대에 일찍 참여하여 Season 3에 신념을 가진 사용자를 온보딩하는 분.</1><1>빠른 이익을 추구한다면 여기서 멈추세요. 유산을 구축하고자 한다면 <3>한 걸음 더 나아가세요</3>.</1>",
+          "scan-url-title": "Push Cult 가입 신청하기",
+          "support-url-title": "완전한 선언문을 읽어보세요."
+        },
+        "qna3": {
+          "question": "수습생은 어떻게 선발되고 평가되나요?",
+          "answer": "<1>저희는 집중도를 높이기 위해 <2>50명의 제자</2>로 인원을 제한합니다. 참여는 매주 <2>헌신 점수</2>를 기반으로 갱신됩니다.</1><1><2>헌신 점수</2>는 다음과 같이 구성됩니다: 시그널(도달 범위), 모으기(신규 신도 확보), 믿음(유지율), 그리고 장인 정신(수동 검토).</1><1>기준 미달 시 교체됩니다. 뛰어난 크리에이터는 양보다 질에서 경쟁합니다.</1>",
+          "faucet-url-title": "평가 기준에 대해 알아보세요.",
+          "discord-url-title": "Discord에서 질문하세요."
+        },
+        "qna4": {
+          "question": "수제자들이 실제로 무엇을 하나요?",
+          "answer": "<1>원하는 형식으로 콘텐츠를 제작하세요. 스레드, 비디오, 기사 등 원하는 대로 괜찮습니다. 임무는 Push Chain 개념을 설명하고, Donut Testnet을 통해 Flock을 안내하고, 시즌 3 신봉자를 온보딩하는 것입니다.</1><1>저희는 매주 미션, 테마, 그리고 대중이 보기 전에 획득한 정보를 제공합니다. 여러분이 이야기를 만들어갑니다.</1><1>스팸은 재가 됩니다. 진실만이 살아남습니다.</1>",
+          "support-url-title": "콘텐츠 예시 보기.",
+          "discord-url-title": "Discord에 참여하세요."
+        },
+        "qna5": {
+          "question": "보상은 무엇인가요?",
+          "answer": "<1><2>상위 성과자에게는:</2> 2000만 $PC 풀에 대한 보장 할당과 함께 mainnet에서 Ultra Rare Shiny Pass가 제공됩니다.</1><1><2>Shiny Pass는:</2> 체인 수수료 수익 공유, validator 보상 참여, staking 배수 증가 및 VIP 생태계 혜택을 제공합니다.</1><1>순위가 수확량을 결정합니다. 참여 트로피는 없습니다.</1>",
+          "docs-url-title": "보상에 대해 알아보세요.",
+          "kb-url-title": "토큰omics 읽어보기."
+        },
+        "qna6": {
+          "question": "어떻게 참여할 수 있나요?",
+          "answer": "<1>문이 열렸습니다. 당신의 헌신을 증명하세요, <3>지금 지원하세요</3>.</1><1>등록하면 프로그램 세부 정보, 평가 방식, 초기 온보딩 단계에 액세스할 수 있습니다.</1><1>거기서부터는 <2>성과가 모든 것을 결정합니다</2>.</1>",
+          "contact-url-title": "Push Cult 지원하기",
+          "github-url-title": "pact 전체 내용 읽어보기"
+        }
+      }
     }
   },
   "notifications": {
@@ -1394,172 +1695,6 @@
       "close-button-title": "알림 닫기",
       "close-button-aria-label": "Push Metamask Snap 알림 닫기",
       "container-aria-label": "Push MetaMask Snap 공지"
-    }
-  },
-  "header": {
-    "meta": {
-      "logo-aria-label": "Push Chain - 홈페이지로 이동",
-      "language-icon-alt": "언어 선택 아이콘",
-      "hamburger-menu-alt": "탐색 메뉴 열기",
-      "testnet-badge-alt": "Push Chain Testnet Donut - 테스트넷 상태 보기"
-    },
-    "logo": {
-      "imagealt": "Push Chain 로고 이미지",
-      "imagetitle": "Push Chain 로고",
-      "ctatitle": "Push Chain 홈페이지로 이동"
-    },
-    "testnet": {
-      "title": "테스트넷",
-      "aria-label": "테스트넷 섹션",
-      "link1": {
-        "text": "Push 스캔",
-        "subtext": "Push Chain 블록체인 탐색기",
-        "title": "Push Scan에서 Push Chain testnet의 트랜잭션과 블록을 살펴보세요"
-      },
-      "link2": {
-        "text": "Faucet",
-        "subtext": "테스트넷 토큰 받기",
-        "title": "Push Chain 개발을 위한 무료 테스트넷 토큰 받기"
-      },
-      "link3": {
-        "text": "Ecosystem",
-        "subtext": "Push Chain에서 구축된 앱 보기",
-        "title": "Push Chain에서 만들어진 앱 보기"
-      }
-    },
-    "developers": {
-      "title": "개발자",
-      "aria-label": "개발자 섹션",
-      "link1": {
-        "text": "시작하기",
-        "subtext": "Push Chain에서 빌드하는 방법 소개",
-        "title": "Push Chain에서 유니버설 앱 개발 시작 - 개발자 문서"
-      },
-      "link2": {
-        "text": "빠른 시작",
-        "subtext": "몇 초 만에 개발 환경을 설정하세요",
-        "title": "빠른 시작 가이드 - Push Chain 개발 환경을 즉시 설정하세요"
-      },
-      "link6": {
-        "text": "Ecosystem",
-        "subtext": "Push Chain에서 구축된 앱 보기",
-        "title": "Push Chain에서 구축된 앱 보기"
-      },
-      "link3": {
-        "text": "튜토리얼",
-        "subtext": "Push로 개발하는 단계별 가이드",
-        "title": "Push Chain에서 실습 튜토리얼로 배우기 - 첫 번째 유니버설 앱 구축"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "핵심 코드와 오픈소스 도구를 확인하세요",
-        "title": "GitHub에서 Push Chain 소스 코드 및 개발 도구를 살펴보세요"
-      },
-      "link5": {
-        "text": "개발자 Discord",
-        "subtext": "개발자 커뮤니티와 연결하세요",
-        "title": "Push Chain 개발자 커뮤니티에 Discord로 참여하여 지원 및 협업을 받으세요"
-      }
-    },
-    "community": {
-      "title": "커뮤니티",
-      "aria-label": "커뮤니티 섹션",
-      "link7": {
-        "text": "Ecosystem",
-        "subtext": "Push Chain 기반 앱 살펴보기",
-        "title": "Push Chain에서 만들어진 앱 탐색하기"
-      },
-      "link1": {
-        "text": "지식 기반",
-        "subtext": "기능에 대한 심층 분석을 찾아보세요",
-        "title": "Push Chain의 포괄적인 문서 및 기능 가이드를 살펴보세요"
-      },
-      "link2": {
-        "text": "LFPush",
-        "subtext": "Push 커뮤니티의 주요 트윗 #LFPush",
-        "title": "Push 커뮤니티의 주요 트윗 #LFPush"
-      },
-      "link3": {
-        "text": "토큰노믹스",
-        "subtext": "Push Chain을 구동하는 기본 토큰",
-        "title": "Push Chain 토큰omics와 $PC 토큰 유틸리티에 대해 알아보세요"
-      },
-      "link4": {
-        "text": "X/Twitter",
-        "subtext": "업데이트 및 생태계 소식을 팔로우하세요",
-        "title": "최신 업데이트 및 공지 사항을 보려면 X(Twitter)에서 Push Chain을 팔로우하세요"
-      },
-      "link5": {
-        "text": "Discord",
-        "subtext": "커뮤니티와 소통하고 함께 만들어가세요",
-        "title": "Push Chain 커뮤니티에 Discord로 참여하여 토론하고 지원을 받으세요"
-      },
-      "link6": {
-        "text": "Telegram",
-        "subtext": "커뮤니티에 참여하고 최신 정보를 받아보세요",
-        "title": "Telegram에서 Push Chain 커뮤니티와 연결하여 실시간 업데이트를 받으세요"
-      }
-    },
-    "resources": {
-      "title": "리소스",
-      "aria-label": "리소스 섹션",
-      "link1": {
-        "text": "블로그",
-        "subtext": "업데이트, 심층 분석, 그리고 개발 스토리",
-        "title": "Push Chain 블로그에서 최신 업데이트, 기술 심층 분석 및 개발자 스토리를 확인하세요"
-      },
-      "link2": {
-        "text": "Litepaper",
-        "subtext": "비전을 단순화한 기술",
-        "title": "Push Chain Litepaper 읽기 - 간략화된 비전 및 기술 개요"
-      },
-      "link3": {
-        "text": "FAQ",
-        "subtext": "자주 묻는 질문에 대한 빠른 답변",
-        "title": "Push Chain에 대한 자주 묻는 질문을 찾아보세요"
-      }
-    },
-    "language": {
-      "title": "언어",
-      "aria-label": "언어 선택 드롭다운"
-    },
-    "app-button": {
-      "text": "Push Portal",
-      "title": "Push Portal에 접속 - 개발자, 사용자, 또는 validator로서 포인트를 획득하세요"
-    },
-    "explore": {
-      "title": "탐색",
-      "aria-label": "탐색 섹션",
-      "link1": {
-        "text": "시작하기",
-        "subtext": "Push Chain에서 빌드하는 소개",
-        "title": "시작하기"
-      },
-      "link2": {
-        "text": "빠른 시작",
-        "subtext": "몇 초 만에 개발 환경을 설정하세요",
-        "title": "빠른 시작"
-      },
-      "link3": {
-        "text": "튜토리얼",
-        "subtext": "Push를 사용한 단계별 가이드",
-        "title": "튜토리얼로 배우기"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "코어 코드와 오픈소스 도구를 확인하세요",
-        "title": "Push Chain 살펴보기"
-      },
-      "link5": {
-        "text": "개발자 Discord",
-        "subtext": "개발 커뮤니티와 연결하세요",
-        "title": "Discord에 참여하세요"
-      },
-      "link6": {
-        "text": "예제 살펴보기",
-        "subtext": "예제 살펴보기",
-        "title": "예제 살펴보기"
-      }
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T19:56:29.861Z",
+  "lastUpdated": "2026-01-22T20:39:02.577Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1787,38 +1787,38 @@
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
     "components.short-contact-us-snippet.answer-aria-label": {
-      "value": "उत्तर - ",
+      "value": "जवाब - ",
       "englishChecksum": "84c913b7410cbc873ad0018ac37fb40e",
-      "lastUpdated": "2026-01-16T16:29:58.101Z"
+      "lastUpdated": "2026-01-22T20:22:26.677Z"
     },
     "pages.docs.seo.og-description": {
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-01-16T16:30:01.139Z"
+      "lastUpdated": "2026-01-22T20:22:30.624Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "पाश्ने टीनो जवपिसऍदारवामो गातेअ",
+      "value": "टेस्टनेट डॉक्स लॉन्च में",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-01-16T16:30:08.344Z"
+      "lastUpdated": "2026-01-22T20:22:32.008Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.whatispush.subtitle": {
-      "value": "पीश चेन एकल इंटरफ़ेस प्रदान करता है जो वास्तव में यूनिवर्सल एप्लिकेशन का निर्माण करने के लिए।",
+      "value": "पुश चेन एकीकरण के उपकरण की पोशाक प्रदान करता है ताकि वास्तव में विश्वसारथ्यपूर्ण एप्लिकेशन बनाएं जा सकें।",
       "englishChecksum": "51c5c43c534cc7d1fbafd9c576678705",
-      "lastUpdated": "2026-01-16T16:30:11.661Z"
+      "lastUpdated": "2026-01-22T20:23:13.643Z"
     },
     "pages.privacymobile.seo.twitter-description": {
-      "value": "टोकन के लिए प्राइवेसी और ऑप्शंस आपके पुश मोबाइल एप्लिकेशन में।",
+      "value": "योर डेटा एंड चॉइसेस इन पुश मोबाइल एप्स।",
       "englishChecksum": "eaa1cdd6da251c8602628f9804934510",
-      "lastUpdated": "2026-01-16T16:30:15.192Z"
+      "lastUpdated": "2026-01-22T20:22:59.077Z"
     },
     "components.cookie-banner.message": {
-      "value": "हम कोकीज़ का उपयोग अपनी छवि को व्यक्तिगत बनाकर करते हैं। अधिक जानकारी के लिए हमारे",
+      "value": "हम कोकीज़ का उपयोग अपने अनुभव को व्यक्तिगत बनाते हैं। additional information हमारी",
       "englishChecksum": "371ae79da8a6e6e86e8fb94a8731eadb",
-      "lastUpdated": "2026-01-16T16:30:16.771Z"
+      "lastUpdated": "2026-01-22T20:23:00.558Z"
     },
     "components.blog.footer-item.about-description": {
-      "value": "Push Chain पृथ्वी के पहले वास्तविक इक्विजनशल ब्लॉकचेन है, जो सभी चेयिन पर फ्रागमेंटेशन को खत्म करता है। यह डेवेलपर्स को ऑनसемуर्वरसे फायर करना और सभी चेयिन (इसमें ईथरियम, सोलाना, बिटकॉइन आदि शामिल हैं) पर उपयोगकों के लिए तुरंत उपलब्ध बनना अक्षम करता है। यह 100% ईवीएम संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जिसकी मदद से उपयोगकर्ता Push Chain पर डेप्लॉय किये गये एप्स से किसी भी चेन पर उसी तरह से इंटरैक्ट कर सकते हैं जैसा वे अपनी स्वयं की चेन पर करते हैं।",
+      "value": "पीश चेन प्रथम वास्तविक वंश-रूपी ब्लॉकचेन है, जो सभी चेनों के बीच भंगुरता को खत्म करने के लिए डिजाइन किया गया है। यह विकासकर्ताओं को एक बार डिप्लॉय करना और किसी भी चेन पर उपयोगकों के लिए तत्काल उपलब्ध हो जाना संभव बनाता है, चाहे EVM या non-EVM (इथेरियम, सोलाना, बिटकोईन आदि में से कोई हो) हो। यह 100% EVM संगत, प्रूफ ऑफ स्टेक (PoS) चेन है, जो पीश चेन पर डिप्लॉइड एप्पों के साथ इंटरैक्शन करने के लिए किसी भी चेन से नेटिवल रूप से करता है, जैसे अपने ही चेन पर किया जाता है।",
       "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
-      "lastUpdated": "2026-01-16T16:30:23.354Z"
+      "lastUpdated": "2026-01-22T20:23:07.165Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
       "value": "कंजूमर एप्स 🫶 पुश चेन पर बनाएं?",
@@ -1937,6 +1937,25 @@
       "value": "## शामिल होइए\n\n- **🧙 विकासकर्ता**\nहमारे SDK & Docs को [Documentation Hub](/docs/) पर खोजें\n\n- **🦹 समुदाय**  \n[X/Twitter](https://x.com/PushChain) पर [@PushChain](https://discord.com/invite/pushchain) को फॉलो करें, हमारे [Discord](https://t.me/epnsproject) और [Telegram](https://x.com/PushChain) समूह में शामिल हों\n\nसाथ-साथ चलकर **यूनिवर्सल वेब3** की भविष्यता का निर्माण करें!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
       "lastUpdated": "2026-01-16T17:15:17.229Z"
+    },
+    "components.cult-contact.form.success.message-after-link": {
+      "value": "और ध्यान रखें कि",
+      "englishChecksum": "e4dbaa554e2c8e7ebec5e00f4677c448",
+      "lastUpdated": "2026-01-22T20:23:10.333Z"
+    },
+    "notifications.chain-notification.title": {
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-01-22T20:39:02.577Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
+      "value": "केस स्टडीज",
+      "englishChecksum": "c2a1ad99f32bf4e873aac3caf9f4b836",
+      "lastUpdated": "2026-01-22T20:33:31.062Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.items.hodl-fun.title": {
+      "value": "होदल.फन",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-01-22T20:33:33.741Z"
     }
   }
 }
