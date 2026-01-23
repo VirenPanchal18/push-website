@@ -1,14 +1,14 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "L1 compartilhado para aplicativos universais. Implante uma vez; chegue a usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede."
+    "site-description": "Layer 1 compartilhado para aplicativos universais. Implante uma vez; chegue a usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
   },
   "header": {
     "community": {
       "link8": {
-        "text": "Comunidade Push",
-        "subtext": "Um programa para criadores com uma recompensa de 2M token",
-        "title": "Confira o Push Cult - Um programa para criadores com uma recompensa de 20M token"
+        "subtext": "Um programa para criadores com uma recompensa de 20M token",
+        "text": "Culto Push",
+        "title": "Confira o Push Cult - Um programa para criadores com uma recompensa de 20M tokens"
       },
       "title": "Comunidade",
       "aria-label": "Seção da Comunidade",
@@ -1284,8 +1284,8 @@
       "answer-aria-label": "Resposta à pergunta - ",
       "qnas": {
         "qna1": {
-          "question": "Não consigo conectar minha carteira. O que eu devo tentar?",
-          "answer": "<1><2>Afastar as páginas: atualize, desbloqueie a sua carteira e desative bloqueadores de anúncios/ Scripts para push.org.</2></1><1><2>Sem mudança de rede necessária:</2> fique na sua cadeia principal; o Push gerencia a roteagem em segundo plano.</2></1><1><2>Reinicie as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</2></1><1>ainda está com dificuldades? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</2></1>",
+          "question": "Não consigo conectar minha carteira. O que eu devo fazer?",
+          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> fique na sua rede principal; Push cuida da roteamento nos bastidores.</1><1><2>Redefinir permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda com problemas? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T20:32:51.621Z",
+  "lastUpdated": "2026-01-23T00:26:37.024Z",
   "keys": {
     "pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.items.push-validator.title": {
       "value": "Push Validator",
@@ -2532,9 +2532,9 @@
       "lastUpdated": "2025-11-14T19:27:06.054Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Lassen Sie uns Pushen | Gemeinschaftsinitiative",
+      "value": "Lassen wir pushen | Gemeinschaftsinitiative",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-01-22T20:20:24.902Z"
+      "lastUpdated": "2026-01-23T00:16:57.571Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
       "value": "Lassen Sie uns universelle Apps aufbauen 💪",
@@ -2547,29 +2547,29 @@
       "lastUpdated": "2025-11-14T20:16:25.478Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-bridges-messaging": {
-      "value": "### Wie unterscheidet sich das von Brücken oder Messaging-Schichten?\n\n**Kurze Antwort**: Push ist der Ort, an dem Ihre App läuft. Brücken/Messaging bewegen nur Token oder Nachrichten zwischen Ketten und verkomplizieren alles für den Benutzer und die Entwickler.\n\n- **Einziges Zuhause vs viele Klone**\n\tBei Brücken/Messaging müssen Sie pro Kette deployen und über Nachrichten synchronisieren. Auf Push deployen Sie nur einmal; jeder ruft denselben Vertrag und gemeinsamen Zustand auf.\n\n- **Keine gewickelten Vermögenswerte oder verpflichtende Überbrückung**\n\tBenutzer bleiben auf ihrer Heimkette und zahlen mit dem, was sie bereits besitzen; wir kümmern uns unter der Haube um die Routing- und Gebührsumrechnung.\n\n- **Einheitliche Identität & Verifizierung**\n\tWir akzeptieren Signaturen von jeder Wallet/Kette und führen sie einem Benutzer auf Push zu — nicht verwahrend.\n\n- **Weniger bewegende Teile**\n\tKein Kreuz-Ketten-Genehmigungs-Tanz, kein Gas-Token-Suchen, keine Klebstoff-Verträge zum Synchronisieren.\n\n- **Brücken führen Komplexität ein. Kettenspezifische Interoperabilität löst sie**\n\tBrücken erfordern komplexe Ingenieurleistung, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettenspezifische Interoperabilität funktioniert einfach, da Ihre App nativ davon profitiert.\n\n**Ergebnis**: einfachere Apps, eine einzige Wahrheit und ein UX, der sich wie eine Kette anfühlt – sogar wenn Benutzer nicht auf einer sind.\n\n---",
+      "value": "### Wie unterscheidet sich das von Brücken oder Messaging-Layern?\n\n**Kurze Antwort**: Push ist der Ort, an dem Ihre App läuft. Brücken/Messaging bewegen nur Tokens oder Nachrichten zwischen Ketten und machen alles für den Benutzer und Entwickler kompliziert.\n\n- **Einziges Zuhause vs viele Kopien**  \n\tMit Brücken/Messaging müssen Sie pro Kette einsetzen und via Nachrichten synchronisieren. Auf Push setzen Sie nur einmal ein; alle rufen denselben Vertrag und gemeinsamen Zustand auf.\n\n- **Keine gewickelten Assets oder verpflichtende Überbrückung**  \n\tBenutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumwandlung unter der Haube.\n\n- **Vereinheitlichte Identität & Verifizierung**  \n\tWir akzeptieren Signaturen von jedem Wallet/Kette und führen sie auf denselben Benutzer auf Push zurück — nicht verwahrend.\n\n- **Weniger bewegliche Teile**  \n\tKein Cross-Chain-Genehmigungstanz, kein Gas-Token-Jagen, keine Klebstoffverträge zum Synchronisieren.\n\n- **Brücken bringen Komplexität. Kettennative Interoperabilität löst es**  \n\tBrücken erfordern großen technischen Entwicklungsaufwand, Zeit, Kosten für die Überprüfung und zusätzliche Infrastruktur. Kettennative Interoperabilität funktioniert einfach so, wie Ihre App nativ davon profitiert.\n\n**Ergebnis**: einfachere Apps, eine Wahrheit Quelle und ein UX-Gefühl, das sich wie eine Kette anfühlt – sogar wenn Benutzer es nicht sind.\n\n---",
       "englishChecksum": "9da0bbfa9d3af2251d391086303c5fa0",
-      "lastUpdated": "2026-01-22T20:20:39.466Z"
+      "lastUpdated": "2026-01-23T00:17:11.989Z"
     },
     "pages.docs.seo.og-description": {
       "value": "Baue und führe Apps auf der universellen Ausführungsschicht aus mit klaren Anleitungen und Beispielen.",
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-01-22T20:20:41.273Z"
+      "lastUpdated": "2026-01-23T00:17:13.736Z"
     },
     "pages.tos.seo.og-description": {
-      "value": "Rechtliche Bestimmungen für die Nutzung unserer Websites, Apps und Entwickler-Tools.",
+      "value": "Rechtliche Bestimmungen zur Nutzung unserer Websites, Apps und Entwicklerwerkzeuge.",
       "englishChecksum": "9d071120c8c1e14b03af607cb3059de4",
-      "lastUpdated": "2026-01-22T20:20:44.783Z"
+      "lastUpdated": "2026-01-23T00:17:15.287Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2>Kurze Antwort</2>: Push ist, wo deine App läuft. Brücken/Nachrichten bewegen nur Tokens oder Nachrichten zwischen Ketten und verkomplizieren alles für Nutzer und Entwickler.</1><1><2>Einheitliche Heimat vs viele Klone.</2> Bei Brücken/Nachrichten wird pro Kette eingesetzt und via Nachrichten synchronisiert. Auf Push wird einmal eingesetzt; jeder trifft denselben Vertrag und gemeinsamen Zustand.</1><1><2>Keine gewickelten Assets oder verpflichtende Überführung.</2> Nutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumwandlung unter der Haube.</1><1><2>Einheitliche Identität & Verifizierung.</2> Wir akzeptieren Signaturen von jedem Wallet/Kette und führen sie einheitlich auf Push zurück — nicht verwahrend.</1><1><2>Weniger bewegliche Teile.</2> Kein Überkreuz-Ketten-Genehmigungs-Tanz, kein Gas-Token-Jagen, keine Kleberverträge zur Synchronisierung.</1><1><2>Brücken führen Komplexität ein. Kettennatives Interoperabilitätslösen löst es.</2> Brücken erfordern komplexen Ingenieuraufwand, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettennative Interoperabilität funktioniert einfach, wie deine App nativ davon profitiert.</1><1>Ergebnis: einfachere Apps, eine Wahrheit Quelle und ein UX, der sich wie eine Kette anfühlt – selbst wenn Nutzer es nicht tun.</1>",
+      "value": "<1><2>Kurze Antwort</2>: Push ist, wo deine App läuft. Brücken/Nachrichtenversand bewegt nur Token oder Nachrichten zwischen Ketten und macht alles für den Benutzer und Entwickler kompliziert.</1><1><2>Einheitliches Zuhause vs viele Klone.</2> Mit Brücken/Nachrichtenversanddeployst du pro Kette und synchronisiert über Nachrichten. Auf Push deployst du einmal; jeder trifft auf den selben Vertrag und geteilten Zustand.</1><1><2>Keine gewickelten Assets oder verpflichtende Überbrückung.</2> Benutzer bleiben auf ihrer Heimkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumrechnung unter der Haube.</1><1><2>Einheitliche Identität & Verifikation.</2> Wir akzeptieren Signaturen von jeder Wallet/Kette und ordnen sie dem selben Benutzer auf Push zu - nicht verwahrend.</1><1><2>Weniger bewegliche Teile.</2> Kein Cross-Ketten-Genehmigungs-Tanz, kein Gas-Token-Jagen, keine Klebstoffverträge zum Synchronisieren.</1><1><2>Brücken erfordern Komplexität. Kettennatives Interoperabilitätslösen es.</2> Brücken erfordern komplexen Engineering-Aufwand, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettennative Interoperabilität funktioniert einfach, wie deine App nativ davon erbt.</1><1>Ergebnis: einfachere Apps, eine Wahrheitquelle und ein UX, der sich wie eine Kette anfühlt - sogar wenn Benutzer es nicht sind.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2026-01-22T20:20:56.945Z"
+      "lastUpdated": "2026-01-23T00:17:27.770Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Ich kann meinen Wallet nicht verbinden. Was sollte ich versuchen?",
+      "value": "Ich kann meinen Geldbeutel nicht verbinden. Was sollte ich versuchen?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-22T20:21:00.338Z"
+      "lastUpdated": "2026-01-23T00:17:29.598Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Entwickler — Anleitungen & Tutorials",
@@ -2910,6 +2910,16 @@
       "value": "Hodl.fun",
       "englishChecksum": "e8801f29c811d1f662071a6136828d32",
       "lastUpdated": "2026-01-22T20:32:51.601Z"
+    },
+    "header.community.link8.text": {
+      "value": "Push Kult",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:26:32.335Z"
+    },
+    "header.community.link8.title": {
+      "value": "Schau dir Push Cult an – Ein Programm für Creator mit einer Belohnung von 20M Token",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:26:37.023Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T20:40:33.394Z",
+  "lastUpdated": "2026-01-23T00:28:44.747Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "Kho thư viện — Hướng dẫn, Câu hỏi thường gặp & Cách thực hiện",
@@ -1727,14 +1727,14 @@
       "lastUpdated": "2025-11-14T19:27:06.392Z"
     },
     "footer.footer-image.title": {
-      "value": "Push Chain - Blockchain phổ thông",
+      "value": "Push Chain - Universal Blockchain",
       "englishChecksum": "335a0ee6c9b58e1b96f653feab5a85b2",
-      "lastUpdated": "2026-01-22T20:28:54.706Z"
+      "lastUpdated": "2026-01-23T00:24:08.725Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.how-to-contribute": {
-      "value": "### Tốt, tôi có thể đóng góp như thế nào?\n\nĐể theo dõi tiến độ Push Chain một cách tốt nhất là qua các kênh chính thức của Push: trang web, [Twitter/X](https://x.com/PushChain), [Telegram](https://t.me/epnsproject), và [Discord](https://discord.com/invite/pushchain).\n\nLuôn phải thận trọng với các cuộc tấn công phishing, các trang giả mạo hoặc gian lận yêu cầu tiền điện tử của bạn. Tất cả thông báo chính thức sẽ đi ra từ các tài khoản Push chính thức.\n\n---",
+      "value": "### Tối ưu, tôi có thể đóng góp gì?\n\nĐể theo kịp tiến độ Push Chain tốt nhất, bạn nên theo dõi các kênh Push chính thức: trang web, [X/Twitter](https://x.com/PushChain), [Telegram](https://t.me/epnsproject), và [Discord](https://discord.com/invite/pushchain).\n\nLuôn giữ lòng cảnh giác với các cố gắng lừa đảo, websites giả mạo hoặc scam đòi hỏi bạn chuyển tiền. Tất cả thông tin chính thức sẽ được đưa ra từ các xử lý Push chính thức.\n\n---",
       "englishChecksum": "0c2bafcd0c1a1d55260952bb832fcabf",
-      "lastUpdated": "2026-01-22T20:29:01.496Z"
+      "lastUpdated": "2026-01-23T00:24:15.202Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.airdrop-details": {
       "value": "### Chi Tiết Phát Hành\n\nKế hoạch về tokenomics cũng dành 10% tổng số Push Chain token cho các cuộc phát hành token (airdrop) cho người dùng hiện tại và trước đó của Push Protocol (thông báo, tin nhắn, trò chuyện). Cũng có các người dùng mới, tạo viên, nhà phát triển và đối tác hệ sinh thái Push Chain.\n\n<br />",
@@ -1742,44 +1742,44 @@
       "lastUpdated": "2025-11-14T20:26:52.970Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.how-does-push-chain-work": {
-      "value": "### Push Chain làm sao?\n\n![Hình thức Apps thông thường](/assets/website/chain/knowledge/faq/normalapps.webp)\n\n![Hình thức Apps phổ thông](/assets/website/chain/knowledge/faq/universalapps.webp)\n\nPush Chain có cách tiếp cận độc đáo để giải quyết vấn đề bị phân mảnh trên tất cả các chuỗi. Thay vì dựa vào các giao thức tương tác, nó lấy một phương pháp mới bằng cách xây dựng một khối lượng phổ thông thật mà bất kỳ người dùng nào từ bất kỳ chuỗi nào cũng có thể sử dụng.\n\nĐể đạt được điều này, Push Chain lợi dụng plusieurs **precompiles** qui sont des modules personnalisés créés pour:\n\n1. **Nhận biết** các người dùng của các chuỗi khác - Thuận nghêng địa chỉ phổ thông dựa trên CAIP-10 tiêu chuẩn.\n\n2. **Biến đổi** người dùng sang Push Chain - Một tài khoản Universal Executor Account (UEA) đã được triển khai cho mỗi người dùng chuỗi bên ngoài. Modules này được sử dụng để triển khai một địa chỉ khôn có thể xử lý các giao dịch khác nhau.\n\n3. **Thực hiện** giao dịch phổ thông - Điều này được thực hiện bằng cách sử dụng USV (Universal Signature Verification) và UTXV (Universal Transaction Verifier) precompiles để xác nhận và thực hiện các chữ ký và giao dịch từ các chuỗi khác.\n\n4. **Lường bỏ đi phức tạp của chuỗi mà chúng là một phần** - Điều này được thực hiện bằng cách có các hợp đồng cổng phổ thông trên mỗi chuỗi, khoá gas trong token bản địa của chuỗi (hoặc bất kỳ token nào khác theo quy định) và sau đó sử dụng UTXV để gán gas cho UEA và USV để thực hiện giao dịch.\n\nĐây là phương pháp **lên lịch cực kỳ mạnh mẽ** cho phép người dùng tương tác với bất kỳ ứng dụng nào trên Push Chain mà không cần lo lắng về chuỗi mà họ đang ở hoặc loại ví mà họ sử dụng vì mọi thứ đã bị biến mất, cả đối với người dùng và các nhà phát triển.\n\n---",
+      "value": "### Push Chain hoạt động như thế nào?\n\n![Cách các ứng dụng chuẩn thông thường hoạt động](/assets/website/chain/knowledge/faq/normalapps.webp)\n\n![Cách các ứng dụng phổ thông hoạt động](/assets/website/chain/knowledge/faq/universalapps.webp)\n\nPush Chain mang đến một cách tiếp cận độc đáo để giải quyết vấn đề phân mảnh trên mọi blockchain. Thay vì dựa vào các giao thức tương thích, Push Chain sử dụng một phương pháp mới bằng cách xây dựng một blockchain phổ thông thật sự có thể được sử dụng bởi bất kỳ người dùng nào từ bất kỳ blockchain nào.\n\nĐể đạt được điều này, Push Chain vận dụng nhiều **precompiles** là các module tùy chỉnh đã tạo để:\n\n1. **Nhận diện** người dùng của các blockchain khác - Dải địa chỉ phổ thông mở rộng địa chỉ của một người dùng để trở thành phi khối chuỗi (dựa trên [CAIP-10 tiêu chuẩn](https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-10.md)).\n\n2. **Giao diện** người dùng với Push Chain - Đối tượng tài khoản điều hành phổ thông (UEA) được triển khai cho mỗi người dùng của chuỗi ngoài. Module này được sử dụng để triển khai một tài khoản thông minh và sau đó sử dụng các precompiles khác để xử lý giao dịch.\n\n3. **Thực hiện** giao dịch phổ thông - Điều này được thực hiện bằng cách sử dụng USV (Xác thực Chữ ký Phổ Thông) và UTXV (Người verifier Giao dịch Phổ Thông) để xác minh và thực thi các chữ ký và giao dịch từ các chuỗi khác.\n\n4. **Tránh đi qua** những phức tạp của chuỗi mà họ đang trên - Điều này được thực hiện bằng cách có các hợp đồng cổng phổ thông trên mỗi chuỗi khóa tiền gas theo xu-native hoặc bất kỳ token nào tuân thủ và sau đó sử dụng UTXV để quy trình gas cho UEA (Tài khoản điều hành) và USV để thực hiện giao dịch.\n\nĐây là một cách tiếp cận **lực lượng cực kỳ mạnh mẽ** cho phép người dùng tương tác với bất kỳ ứng dụng nào trên Push Chain mà không phải lo lắng về chuỗi họ đang trên hoặc bản nón gì họ đang sử dụng vì mọi thứ đều được tránh đi qua, cả cho người dùng và các nhà phát triển.\n\n---",
       "englishChecksum": "07d48f00941ab36fdac3693cb5a1a0ea",
-      "lastUpdated": "2026-01-22T20:40:07.850Z"
+      "lastUpdated": "2026-01-23T00:25:52.343Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-bridges-messaging": {
-      "value": "### Push khác với cây cầu hoặc lớp tin nhắn thế nào?\n\n**Tóm tắt ngắn**: Push là nơi chạy ứng dụng của bạn. Cây cầu/tin nhắn chỉ di chuyển token hoặc tin nhắn giữa chuỗi, làm phức tạp mọi thứ cho người dùng và nhà phát triển.\n\n- **Nơi ở đơn nhất vs nhiều bản sao**\n\tVới cây cầu/tin nhắn, bạn triển khai theo chuỗi và đồng bộ qua tin nhắn. Trên Push, bạn triển khai một lần; ai cũng đến hợp đồng cùng một trạng thái chia sẻ.\n\n- **Không có tài sản bọc hoặc cần chuyển đổi**\n\tNgười dùng vẫn ở trên chuỗi của họ và trả bằng những gì họ đã nắm giữ; chúng tôi xử lý định tuyến và chuyển đổi phí dưới đây.\n\n- **Sự nhất quán về nhận dạng và xác thực**\n\tChúng tôi chấp nhận chữ ký từ bất kỳ ví/chuỗi nào và ghi nó vào cùng một người dùng trên Push — phi lưu kho.\n\n- **Phần fewer fewer fewer fewer**\n\tKhông vũ biểu dance chuyển chuỗi, không săn gas-token, không cần glued contracts để giữ theo cùng nhau.\n\n- **Cây cầu giới thiệu phức tạp. Hợp tác chuỗi giải quyết nó**\n\tCây cầu đòi hỏi nỗ lực kỹ thuật cao, thời gian, chi phí kiểm toán và cơ sở hạ tầng bổ sung. Chuỗi hợp tác bản địa chỉ đơn giản như ứng dụng của bạn thừa kế nó.\n\n**Kết quả**: các ứng dụng đơn giản hơn, một nguồn thực tế duy nhất, và UX cảm thấy giống chuỗi — ngay cả khi người dùng không phải là vậy.\n\n---",
+      "value": "### Push khác với cầu hoặc lớp tin nhắn sao?\n\n**Trả lời ngắn**: Push là nơi chạy ứng dụng của bạn. Cầu/trình thông điệp chỉ di chuyển token hoặc tin nhắn giữa chuỗi mà gây phức tạp cho người dùng và nhà phát triển.\n\n- **Nhà một vs nhiều bản sao**\n\tVới cầu/trình thông điệp, bạn triển khai per chuỗi và đồng bộ qua tin nhắn. Với Push, bạn triển khai một lần; mọi người đến cùng hợp đồng và trạng thái chia sẻ.\n\n- **Không có tài sản bị bao phủ hoặc bắt buộc di chuyển**\n\tNgười dùng ở trên chuỗi nhà của họ và trả bằng những gì họ hiện đã sở hữu; chúng tôi xử lý định tuyến và chuyển đổi phí dưới đống.\n\n- **Xác thực và nhận diện thống nhất**\n\tChúng tôi chấp nhận các chữ ký từ bất kỳ ví/chuỗi nào và przypisuje nó đến cùng một người dùng trên Push — không lưu giữ.\n\n- **Không có nhiều bộ phận di chuyển**\n\tKhông có nhảy sự đồng ý chéo, không phải tìm kiếm gas-token, không phải là các hợp đồng dán để giữ ở cùng bước.\n\n- **Cầu giới thiệu phức tạp. Interop chuỗi giải quyết nó**\n\tCầu đòi hỏi nỗ lực kỹ thuật phức tạp, thời gian, chi phí kiểm duyệt và cơ sở hạ tầng bổ sung. Interop chuỗi chỉ cần chạy như ứng dụng của bạn tự nhiên thừa hưởng.\n\n**Kết quả**: các ứng dụng đơn giản, một nguồn thật duy nhất và UX cảm thấy giống một chuỗi — ngay cả khi người dùng không phải là.\n\n---",
       "englishChecksum": "9da0bbfa9d3af2251d391086303c5fa0",
-      "lastUpdated": "2026-01-22T20:30:52.485Z"
+      "lastUpdated": "2026-01-23T00:24:49.698Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Push Chain và Wormhole có gì khác nhau?\n\n**Wormhole:**\n- **Giao thức cầu**: Chuyên chú vào việc chuyển đổi token và NFT giữa các chuỗi\n- **Tài sản bọc kín**: Tạo bản wrappped của tokens trên các chuỗi khác\n- **Mạng giám hộ**: Phụ thuộc vào tập hợp người xác minh để xác minh tin nhắn xuyên chuỗi\n- **Qúa trình nhiều bước**: Người dùng phải chuyển tài sản trước khi sử dụng ứng dụng\n\n**Push Chain:**\n- **Thực thi phổ biến**: Người dùng tương tác trực tiếp mà không cần chuyển đổi\n- **Tài sản gốc**: Không cần tài sản bọc kín, sử dụng tài sản gốc\n- **Xác minh trực tiếp**: Xác minh chữ ký gốc từ bất kỳ chuỗi nào\n- **Giao dịch đơn**: Người dùng tương tác trong một bước, không cần chuyển đổi\n\nPush Chain loại bỏ nhu cầu chuyển đổi tài sản trong khi Wormhole yêu cầu nó cho các tương tác xuyên chuỗi.\n\n---",
+      "value": "### Push Chain và Wormhole có gì khác nhau?\n\n**Wormhole:**\n- **Giao thức cầu**: Phục vụ chủ yếu cho việc chuyển nhượng token và NFT giữa các chuỗi\n- **Tài sản bị bao bọc**: Tạo ra các phiên bản được bao phủ của token trên các chuỗi khác nhau\n- **Mạng bảo vệ**: Lợi dụng tập hợp điểm validators để xác minh tin nhắn giao thông chuỗi kép\n- **Quá trình nhiều bước**: Người dùng phải chuyển nhượng tài sản trước khi sử dụng ứng dụng\n\n**Push Chain:**\n- **Thực hiện phổ biến**: Người dùng tương tác trực tiếp mà không cần chuyển nhượng\n- **Tài sản gốc**: Không cần đến các phiên bản bị bao phủ, sử dụng tài sản ban đầu\n- **Xác minh trực tiếp**: Xác minh chữ ký từ bất kỳ chuỗi nào\n- **Giao dịch đơn một bước**: Người dùng tương tác trong một bước duy nhất, không cần chuyển nhượng\n\nPush Chain loại bỏ nhu cầu chuyển nhượng tài sản khi Wormhole yêu cầu nó cho các tương tác giữa chuỗi.",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-22T20:29:45.648Z"
+      "lastUpdated": "2026-01-23T00:24:59.269Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.new-token": {
-      "value": "### Will there be a new token associated with Push Chain?\n\nAs a new layer 1, Push Chain would have its own native token with tokenomics suited to the functioning, maintenance, and security of a blockchain.\n\nFor full details, see our [Tokenomics deep dive](/knowledge/tokenomics/) 👀.\n\n---",
+      "value": "### Push Chain sẽ có token mới?\n\nVới vai trò là một lớp 1 mới, Push Chain sẽ có token bản địa của riêng nó với(tokenomics) phù hợp với chức năng, bảo trì và bảo mật của chuỗi khối.\n\nXem chi tiết đầy đủ tại [Phân tích sâu Tokenomics](/knowledge/tokenomics/) 👀.\n\n---",
       "englishChecksum": "3a0fcca35af8b08a4da7d4308af2cd7d",
-      "lastUpdated": "2026-01-22T20:40:33.394Z"
+      "lastUpdated": "2026-01-23T00:25:03.760Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.whatispush.subtitle": {
-      "value": "Push Chain cung cấp bộ công cụ thống nhất để xây dựng các ứng dụng thực sự phổ biến.",
+      "value": "Push Chain cung cấp một bộ công cụ thống nhất để xây dựng các ứng dụng hoàn toàn phổ thông.",
       "englishChecksum": "51c5c43c534cc7d1fbafd9c576678705",
-      "lastUpdated": "2026-01-22T20:29:53.557Z"
+      "lastUpdated": "2026-01-23T00:25:06.448Z"
     },
     "pages.donutsecret.seo.description": {
-      "value": "Chương trình beta đóng cửa exclusiv cho các builder. Claim huy hiệu của bạn để truy cập Push Chain Testnet, chuyển đổi ứng dụng phổ biến và giải trí thưởng sớm.",
+      "value": "Beta đóng cửa mời chỉ dành cho người xây dựng. Nhận quyền truy cập Donut để tham gia Push Chain Testnet, phát hành ứng dụng phổ thông và giải thưởng sớm.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
-      "lastUpdated": "2026-01-22T20:29:56.109Z"
+      "lastUpdated": "2026-01-23T00:25:08.614Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2>Câu trả lời ngắn:</2> Push là nơi chạy ứng dụng của bạn. Giao thức/ Tin nhắn chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, gây phức tạp cho người dùng và nhà phát triển.</1><1><2>Nhà so với nhiều bản sao.</2> Với giao thức/tin nhắn, bạn triển khai theo từng chuỗi và đồng bộ qua tin nhắn. Trên Push, bạn triển khai một lần; mọi người truy cập cùng hợp đồng và trạng thái chia sẻ.</1><1><2>Không có tài sản bọc hoặc cầu cảng bắt buộc.</2> Người dùng vẫn ở chuỗi nhà của họ và thanh toán bằng những gì họ đã sở hữu; chúng tôi xử lý định tuyến và chuyển đổi phí dưới mái che.</1><1><2>Sự thống nhất trong nhận dạng và xác minh.</2> Chúng tôi chấp nhận chữ ký từ bất kỳ ví/chuỗi nào và quy ý nó đến cùng một người dùng trên Push — không được lưu trữ trung gian.</1><1><2>Nhiều bộ phận ít hơn.</2> Không có điệu nhảy phê chuẩn chuyển chuỗi, không phải săn lùng token phí-gas, không phải là các hợp đồng dính để giữ đồng bộ.</1><1><2>Cầu cảng giới thiệu sự phức tạp. Interop chuỗi bản địa giải quyết nó.</2> Cầu cảng yêu cầu nỗ lực kỹ thuật phức tạp, thời gian, chi phí kiểm tra và cơ sở hạ tầng bổ sung. Interop chuỗi bản địa chỉ chạy như ứng dụng của bạn tự nhiên thừa hưởng nó.</1><1>Kết quả: các ứng dụng đơn giản hơn, một nguồn sự thật duy nhất và UX có cảm giác giống như một chuỗi — ngay cả khi người dùng không phải là vậy.</1>",
+      "value": "<1><2>Câu Trả Liền</2>: Push là nơi chạy của ứng dụng của bạn. Giao thông/ Tin chỉ di chuyển token hoặc tin nhắn giữa các chuỗi, làm phức tạp cho người dùng và nhà phát triển.</1><1><2>Một nhà thay vì nhiều bản sao.</2> Với giao thông/tin nhắn, bạn triển khai theo chuỗi và đồng bộ qua tin nhắn. Trên Push, bạn triển khai một lần; mọi người đến cùng hợp đồng và trạng thái chia sẻ.</1><1><2>Không có tài sản được bọc hoặc cầu bắt buộc.</2> Người dùng vẫn ở trên chuỗi của họ và trả với những gì họ đang giữ; chúng tôi xử lý định tuyến và chuyển đổi phí dưới màn hình.</1><1><2>Nhận biết nhận dạng thống nhất & xác thực.</2> Chúng tôi chấp nhận ký tự từ bất kỳ ví/chuỗi nào và gắn chúng đến cùng người dùng trên Push — phi chủ sở hữu.</1><1><2>Nhiều bộ phận ít hơn.</2> Không giao thông ngang chuỗi, không săn lùng gas-token, không phải có những hợp đồng dính kết để giữ nó trong cùng một trạng thái.</1><1><2>Cầu introduce phức tạp. Chuỗi nội địa giải quyết nó.</2> Cầu đòi hỏi kỹ thuật phi học hỏi về nỗ lực và chi phí kiểm toán và cơ sở hạ tầng bổ sung. Chuỗi nội địa chỉ việc như ứng dụng của bạn được thừa hưởng theo tự nhiên.</1><1>Kết quả: ứng dụng đơn giản hơn, một nguồn sự thật duy nhất và UX cảm giác giống chuỗi — ngay cả khi người dùng không phải là.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2026-01-22T20:30:14.703Z"
+      "lastUpdated": "2026-01-23T00:25:28.539Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>Sử dụng <3>Faucet</3> để yêu cầu token thử nghiệm.</1><1><2>Ghi chú:</2> giới hạn tốc độ có thể áp dụng; một số faucet đòi hỏi xác minh đơn giản. Nếu faucet thất bại, hãy ping chúng tôi trên <4>Discord</4>.</1>",
+      "value": "<1>Sử dụng <3>Faucet</3> để yêu cầu token thử nghiệm.</1><1><2>Ghi chú:</2> có thể áp dụng giới hạn tốc độ; một số faucets yêu cầu xác minh đơn giản. Nếu faucet không hoạt động, hãy gọi chúng tôi trên <4>Discord</4>.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-22T20:30:18.490Z"
+      "lastUpdated": "2026-01-23T00:25:32.222Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Người tạo — Hướng dẫn & Tư liệu học tập",
@@ -1957,14 +1957,14 @@
       "lastUpdated": "2026-01-16T19:59:46.447Z"
     },
     "pages.cult.seo.description": {
-      "value": "Push Cult là một chương trình dành cho người tạo mời của Push Chain. 50 người sáng tạo. 20M token PC. Không có tiếng ồn, chỉ có tác động đo lường được.",
+      "value": "Push Cult là một chương trình thành viên độc quyền dành cho người sáng tạo do Push Chain điều hành. 50 người sáng tạo. 20M token PC. Không có tiếng ồn, chỉ có tác động đo được.",
       "englishChecksum": "0b81287e99702d4f24a964d8e370b3b3",
-      "lastUpdated": "2026-01-22T20:31:00.492Z"
+      "lastUpdated": "2026-01-23T00:25:13.429Z"
     },
     "pages.cult.seo.twitter-description": {
-      "value": "50 người sáng tạo. 20 triệu token PC. Không quảng cáo không chỉ số hiển thị. Push Cult thưởng tín hiệu thực và ảnh hưởng thực.",
+      "value": "50 tác giả. 20 triệu PC token. Không spam. Không chỉ số hư cấu. Push Cult thưởng tín hiệu thực và ảnh hưởng thực.",
       "englishChecksum": "dee6c5930c64a58cdc6c933807d3c782",
-      "lastUpdated": "2026-01-22T20:30:00.886Z"
+      "lastUpdated": "2026-01-23T00:25:15.752Z"
     },
     "notifications.chain-notification.title": {
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
@@ -1979,6 +1979,16 @@
       "value": "Hodl.fun",
       "englishChecksum": "e8801f29c811d1f662071a6136828d32",
       "lastUpdated": "2026-01-22T20:34:44.194Z"
+    },
+    "header.community.link8.text": {
+      "value": "Push Cult",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:28:42.839Z"
+    },
+    "header.community.link8.title": {
+      "value": "Kiểm tra Push Cult - Chương trình cho các nhà sáng tạo có tặng thưởng 20M token",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:28:44.747Z"
     }
   }
 }
