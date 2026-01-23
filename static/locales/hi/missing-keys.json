@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:27:35.217Z",
+  "lastUpdated": "2026-01-23T01:01:00.350Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1787,38 +1787,39 @@
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
     "components.short-contact-us-snippet.answer-aria-label": {
+      "value": "वेनर चोमशिआ-दार",
       "englishChecksum": "84c913b7410cbc873ad0018ac37fb40e",
-      "lastUpdated": "2026-01-23T00:18:44.558Z"
+      "lastUpdated": "2026-01-23T00:47:39.991Z"
     },
     "pages.docs.seo.og-description": {
-      "value": "उनिवर्सल एक्जीक्यूशन लेयर पर ऐप्स बनाकर चालू करें, क्लियर गाइड्स और उदाहरणों के साथ।",
+      "value": "यूनिवर्सल एक्जीक्यूशन लेयर पर एप्लिकेशन बनाएं और चले। क्लियर गाइड्स व उदाहरणों के साथ।",
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-01-23T00:18:46.720Z"
+      "lastUpdated": "2026-01-23T00:47:42.397Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "टेस्टनेट डॉक्स लॉन्च में",
+      "value": "ऱेना पिकी ब्दालाकेना जोटुनिक्ना पिकेना ब्दालाक्ना",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-01-23T00:18:50.800Z"
+      "lastUpdated": "2026-01-23T00:47:49.937Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.whatispush.subtitle": {
-      "value": "पुश चेन एक यूनिवर्सल टूलकिट प्रदान करता है जिसका उपयोग करके वास्तव में यूनिवर्सल एप्स बना सकते हैं।",
+      "value": "पीश शेयर्ड स्टेट पावर्स प्रोवाइड्स ए यूनिफाईड टूलकिट टू बिल्ड ट्रु यूनिवर्सल एप्स।",
       "englishChecksum": "51c5c43c534cc7d1fbafd9c576678705",
-      "lastUpdated": "2026-01-23T00:18:53.948Z"
+      "lastUpdated": "2026-01-23T00:47:53.497Z"
     },
     "pages.privacymobile.seo.twitter-description": {
-      "value": "आपका डेटा और विकल्प पुश मोबाइल ऐप्स में।",
+      "value": "आपका डाटा और विकल्प Push मोबाइल एप्लिकेशनों में",
       "englishChecksum": "eaa1cdd6da251c8602628f9804934510",
-      "lastUpdated": "2026-01-23T00:18:55.922Z"
+      "lastUpdated": "2026-01-23T00:47:57.424Z"
     },
     "components.cookie-banner.message": {
-      "value": "हम कोकीज़ का उपयोग व्यक्तिगत अनुभव को persoalise करने के लिए करते हैं। इसके बारे में अधिक जानें हमारी",
+      "value": "हम कोकीज़ का प्रयोग करें अपनी अनुभव को व्यक्तिगत करना। हमारी जानकारी के लिए यहां क्लिक करें",
       "englishChecksum": "371ae79da8a6e6e86e8fb94a8731eadb",
-      "lastUpdated": "2026-01-23T00:19:00.101Z"
+      "lastUpdated": "2026-01-23T00:48:01.012Z"
     },
     "components.blog.footer-item.about-description": {
-      "value": "पीश चेन पहली सच्ची यूनिवर्सल ब्लॉकचेन है जिसका उद्देश्य सभी श्रAINS पर फ्राग्मेंटेशन को खत्म करना है। यह विकासकों को एक बार डिप्लॉय करना और किसी भी चेन के उपयोगकों के लिए तत्काल उपलब्ध होने की अनुमति देता है, चाहे एवीएम या नॉन-ईवीएम (इथरियम, सोलाना, बिटकॉइन जैसे) हो। यह 100% ईवीएम संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जो उपयोगकों को पीश चेन पर डिप्लॉय किए गए ऐप्स से इंटरैक्ट करना देता है जैसे कि अपनी अपनी चेन पर वे नेटिवली करते हैं।",
+      "value": "Push चेन पहला वास्तविक यूनिवर्सल ब्लॉकचेन है, जो सभी चैन पर फ्रागमेंटेशन को मिटाता है। यह डेवलपर्स को एक बार डालना और किसी भी चेन (EVM या नॉन-EVM, जिसमें इथीरियम, सोलाना, बिटकोइन शामिल हैं) पर उपयोगकर्ताओं के लिए तुरंत उपलब्ध होने की अनुमति देता है। यह 100% EVM संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जो Push चेन पर डिप्लॉई किए गए ऐप्स से किसी भी चेन पर नेटिवल रूप से इंटरैक्ट करने के लिए उपयोगकर्ताओं को अनुमति देता है, जैसे ही वे अपनीown चेन पर करते हैं।",
       "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
-      "lastUpdated": "2026-01-23T00:19:06.311Z"
+      "lastUpdated": "2026-01-23T00:48:07.586Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.consumer-apps-that-can-be-built-on-push-chain.title": {
       "value": "कंजूमर एप्स 🫶 पुश चेन पर बनाएं?",
@@ -1939,8 +1940,9 @@
       "lastUpdated": "2026-01-16T17:15:17.229Z"
     },
     "components.cult-contact.form.success.message-after-link": {
+      "value": "\nऔर {token} का नजर रखना।\n",
       "englishChecksum": "e4dbaa554e2c8e7ebec5e00f4677c448",
-      "lastUpdated": "2026-01-23T00:19:11.121Z"
+      "lastUpdated": "2026-01-23T00:48:09.281Z"
     },
     "notifications.chain-notification.title": {
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
@@ -1965,6 +1967,36 @@
       "value": "केसा जोदि -द्यी पूकिगे समनोल्तेशी 2₀₁M टूमोक व्रे",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:27:35.216Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "अप्लाई करें",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:00:52.500Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "टोस्ट सूचना को बंद करें",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:00:53.661Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": " Push Chain टोस्ट सूचना को बन्द करें",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:00:56.825Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "पीश चेन टोस्ट नोटिफिकेशन",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:00:58.127Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "अब एप्लाई करें",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:00:59.248Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "आबद्ध होना شروع करें",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:01:00.350Z"
     }
   }
 }

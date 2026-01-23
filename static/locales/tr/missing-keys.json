@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:28:36.929Z",
+  "lastUpdated": "2026-01-23T01:04:17.606Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "Bilgi Bankası — Kılavuzlar, SSS ve Nasıl Yapılır",
@@ -1732,52 +1732,52 @@
       "lastUpdated": "2025-11-14T20:23:12.497Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
-      "value": "## Token Related",
+      "value": "## Token İle İlgili",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2026-01-23T00:23:25.305Z"
+      "lastUpdated": "2026-01-23T00:53:16.882Z"
     },
     "components.typeform-support.categories.technical.description": {
-      "value": "Hata raporları, SDK/API, akıllı sözleşimler hakkında yardım",
+      "value": "Hata bildirimleri, SDK/API, akıllı sözleşimler, entegrasyon yardım",
       "englishChecksum": "952a0533dce9bf557f94342840ee4720",
-      "lastUpdated": "2026-01-23T00:23:30.192Z"
+      "lastUpdated": "2026-01-23T00:53:20.556Z"
     },
     "global.site-description": {
-      "value": "Herşeyden tek bir L1 için paylaşılan durum. Tek seferde dağıt, herhangi bir zincirdeki kullanıcılara erişin. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeme yapın. Ağı değiştirmeden.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-23T00:23:32.609Z"
+      "lastUpdated": "2026-01-23T00:53:25.798Z"
     },
     "footer.links.faucet-title": {
-      "value": "Push Çenesi'nden test tokenleri alın",
+      "value": "Test tokenleri Push Chain faucetten alın",
       "englishChecksum": "926a89f4f88049af1a7d12ce4d54204f",
-      "lastUpdated": "2026-01-23T00:23:33.778Z"
+      "lastUpdated": "2026-01-23T00:53:26.950Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Push Zincirinden Wormhole Nasıl Farklıdır?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülenmesini işler\n- **Sarmallanan Aylar**: Farklı zincirlere ait tokenlar için sarmaşık versiyonlar oluşturur\n- **Koruyucu Ağı**: Köprü mesajlarını doğrulamak için doğrulayıcı setine bağımlıdır\n- **Çok Adımlı İşlem**: Uygulamalar kullanmadan önce paraları köprülemek gerekir\n\n**Push Zinciri:**\n- **Evrensel Gerçekleştirme**: Köprüleme gerektirmeden direkt etkileşimler\n- **Özgün Aylar**: Sarmallanan tokenlar yok, özgün aylar kullanılır\n- **Direk Doğrulama**: Herhangi bir zincirden doğrudan imza doğrulaması\n- **Tek İfade**: Köprüleme gerektirmeden etkileşimler\n\nPush Zinciri köprülemeyi iptal ederken Wormhole bunun için gerekli hale getirir.",
+      "value": "### Push Zinciri Nasıl Wormhole'den Farklıdır?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprücü\n- **Sarmallı Eşya**: Çeşitli zincirlerdeki token'lar için sarmaşıklık oluşturur\n- **Koruyucu Ağı**: Çapraz zincir iletileri için doğrulama setinden kullanılır\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önce aktarım yapmak zorundadır\n\n**Push Zinciri:**\n- **Evrensel Yürütme**: Köprü olmaksızın doğrudan etkileşimler yapılır\n- **Özgün Eşya**: Sarmaşıklık token'ları gerektirmez, orijinal eşyaları kullanın\n- **Direkt Doğrulama**: Herhangi bir zincirden doğal imza doğrulaması sağlanır\n- **Teklem Transaction**: Köprü gerektirmeden tek adımda etkileşimler yapılır\n\nPush Zinciri, çapraz zincir etkileşimleri için aktarımın gerekli olmadığını göstermektedir. Wormhole de bu işlemi gerektirir.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-23T00:23:44.016Z"
+      "lastUpdated": "2026-01-23T00:53:38.338Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "Testnet Belgeler %s İçin Çıkış Yapan",
+      "value": "Testnet Belgelerinin Çıkışında",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-01-23T00:23:45.527Z"
+      "lastUpdated": "2026-01-23T00:53:39.646Z"
     },
     "pages.litepaper.seo.description": {
-      "value": "Push Chain'in vizyonu, yapısı ve ekonomileri için kısa bir bakış, evrensel uygulamalar için.",
+      "value": "Push Chain'in vizyonu, yapısı ve ekonomisi için bir genel bakış. Evrensel uygulamalar için.",
       "englishChecksum": "2768e2658592fe376add9699d9d49ef6",
-      "lastUpdated": "2026-01-23T00:23:47.304Z"
+      "lastUpdated": "2026-01-23T00:53:43.745Z"
     },
     "components.short-support-snippet.qnas.qna3.question": {
+      "value": "Nasıl Donut testnet tokenleri alırım?",
       "englishChecksum": "bec0083e54c2e78706bd43f65e5207ae",
-      "lastUpdated": "2026-01-23T00:23:55.405Z"
+      "lastUpdated": "2026-01-23T00:53:51.027Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>Test token'lerini talep etmek için <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hızı sınırlama yapılabilir; bazı faucetler basit doğrulama gerektirir. Eğer faucet başarısız olursa, lütfen <4>Discord'u</4> kullanarak bize iletişime geçin.</1>",
+      "value": "<1>Test tokens isteyi için <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> sınırlama uygulamayabilir; bazı faucetler temel doğrulama gerektirir. Eğer faucet başarısız olursa, lütfen <4>Discord'u</4> üzerinden bize mesaj gönderin.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-23T00:23:59.397Z"
+      "lastUpdated": "2026-01-23T00:53:54.918Z"
     },
     "notifications.rewards-notification.description": {
       "englishChecksum": "4a4561fbdd8c6761d8759b0b0ec592ee",
-      "lastUpdated": "2026-01-23T00:24:00.994Z"
+      "lastUpdated": "2026-01-23T00:54:00.048Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Yapıcılar — Nasıl Yapar ve Öğreticiler",
@@ -1955,9 +1955,8 @@
       "lastUpdated": "2026-01-16T19:50:52.590Z"
     },
     "pages.cult.seo.description": {
-      "value": "Push Kult, Push Chain tarafından davetiye ile sınırlı Creator programı. 50 creator. 20M PC token. Sadece ölçülebilir etkiye yoldaş.",
       "englishChecksum": "0b81287e99702d4f24a964d8e370b3b3",
-      "lastUpdated": "2026-01-23T00:24:04.743Z"
+      "lastUpdated": "2026-01-23T00:53:46.409Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
       "value": "### Push Chain üzerinde ne yapılabilir?\n\nPush Chain, tüm L1'ler, L2'ler ve L3'lerden çapraz uyumluluğu sağlar ve bu nedenle yenilik ve uyum oynamak için oyuncak alanı olma potansiyeline sahiptir. Şu web3 kullanım durumlarını inşa edebilirsiniz:\n\n![Push Chain'in temel kullanım alanları](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nveya web3'yi iyileştirmek için yenilikler yaratabilirsiniz:\n\n![Tüketici kullanım durumları](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nveya popüler uygulama örneklerini görerek ilham alabilirsiniz:\n\n![Push Chain üzerinde popüler uygulamalar](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
@@ -1983,6 +1982,41 @@
       "value": "Push Kültürü'yu keşfedin - Oluşturucular için 20M token ödülü ile program",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:28:36.929Z"
+    },
+    "notifications.chain-notification.description": {
+      "value": "En iyi 50 içerik üreticisi 20M token ödülü kazanıyor. Sürüyü topla. Push Kültü'ne katıl!",
+      "englishChecksum": "49b3bcd6b310a7da48dda4eaaa7936b3",
+      "lastUpdated": "2026-01-23T00:54:19.610Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "Şimdi Uygula",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:08.696Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "Toast uyarıyı kapat",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:04:11.176Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": "PushChain bildirimlerini görmezden gel",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:04:12.735Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "Push Chain bildirim tostu",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:04:13.857Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "Başvur",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:16.604Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "Uygula",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:17.606Z"
     }
   }
 }

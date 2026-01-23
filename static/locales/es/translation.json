@@ -803,7 +803,7 @@
         "title": "Push Cult — Programa de Creadores para Contenido Impulsado por Señales",
         "description": "Push Cult es un programa exclusivo para creadores, solo por invitación, de Push Chain. 50 creadores. 20M PC tokens. Sin ruido, solo impacto medible.",
         "og-title": "Push Cult - El Programa de Creadores Construido para Signal",
-        "og-description": "Una orden invitacional de 50 creadores que ganan desde un bounty de 20M PC tokens al impulsar el uso real y la creencia en Push Chain.",
+        "og-description": "Un grupo exclusivo de invitación de 50 creadores que ganan con un bounty de 20M PC tokens al impulsar el uso real y la fe en Push Chain.",
         "twitter-title": "Push Cult - Programa de Creadores por Push Chain",
         "twitter-description": "50 creadores. 20M $PC tokens. Sin spam. Sin métricas vacías. Push Cult recompensa la señal real y el impacto real."
       },
@@ -1655,24 +1655,24 @@
   },
   "notifications": {
     "chain-notification": {
-      "description": "Sé el primero en obtener puntos, multiplicadores y recompensas perpetuas.",
+      "description": "50 de los mejores creadores recibirán una recompensa de 20M tokens. ¡Reúne a tu comunidad y únete al Culto Push!",
+      "button-title": "¡Únete a la comunidad de Push!",
+      "button-aria-label": "¡Únete a la comunidad de Push! Puedes echarle un vistazo aquí",
+      "image-alt": "¡Únete a la comunidad Push!",
+      "title": "",
       "button-text": "Aplicar ahora",
-      "button-title": "Obtén acceso previo AHORA",
-      "button-aria-label": "Obtén acceso previo AHORA. Puedes echarle un vistazo aquí",
-      "image-alt": "Acceso previo al lanzamiento de Push Chain",
       "close-button-title": "Cerrar notificación",
-      "close-button-aria-label": "Descartar notificación Push Chain",
-      "container-aria-label": "Notificación Push Chain",
-      "title": ""
+      "close-button-aria-label": "Descartar notificación toast de Push Chain",
+      "container-aria-label": "Notificación del Push Chain"
     },
     "info-bar": {
-      "title": "Solicita el acceso anticipado a la Temporada 3. Abierto para participantes de la T1 y T2.",
-      "learn-more-text": "Solicitar Ahora",
-      "learn-more-title": "Solicitar ahora",
+      "title": "Reúne a tu comunidad para un programa de creadores exclusivo con recompensas. ¡Únete a Push Cult!",
       "dismiss-button-title": "Descartar anuncio",
       "dismiss-button-aria-label": "Cerrar la barra de anuncios",
       "container-aria-label": "Anuncio del sitio",
-      "star-icon-alt": "Icono de estrella de anuncio"
+      "star-icon-alt": "Icono de estrella de anuncio",
+      "learn-more-text": "Aplicar Ahora",
+      "learn-more-title": "Solicitar Ahora"
     },
     "rewards-notification": {
       "title": "¡La beta cerrada de Donut Testnet está en vivo!",

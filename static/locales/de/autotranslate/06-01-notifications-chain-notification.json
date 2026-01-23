@@ -1,15 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "title": "",
-      "description": "Die 50 besten Creator erhalten eine Prämie von 20 Mio. Token. Versammle deine Anhänger. Tritt Push Cult bei!",
-      "button-text": "Jetzt bewerben",
-      "button-title": "Tritt Push Cult bei!",
-      "button-aria-label": "Tritt Push Cult bei!. Hier kannst du es dir ansehen",
-      "image-alt": "Tritt Push Cult bei!",
-      "close-button-title": "Toast-Benachrichtigung schließen",
-      "close-button-aria-label": "Push Chain Benachrichtigung schließen",
-      "container-aria-label": "Push Chain Benachrichtigung"
+      "description": "Die 50 Top-Creators erhalten eine Belohnung von 20 Millionen Token. Sammle deine Community. Werde Teil der Push Cult!",
+      "button-title": "Tritt dem Push Cult bei!",
+      "button-aria-label": "Trete dem Push Cult bei!. Du kannst es hier überprüfen",
+      "image-alt": "Tritt der Push-Community bei!"
     }
   }
 }

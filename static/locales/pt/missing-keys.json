@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:28:22.771Z",
+  "lastUpdated": "2026-01-23T01:03:32.794Z",
   "keys": {
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de Conhecimento",
@@ -1727,23 +1727,23 @@
       "lastUpdated": "2025-11-14T19:27:06.245Z"
     },
     "global.site-description": {
-      "value": "Layer 1 compartilhado para aplicativos universais. Implante uma vez; chegue a usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
+      "value": "L1 compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Nenhum trocando de rede.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-23T00:22:26.726Z"
+      "lastUpdated": "2026-01-23T00:52:10.111Z"
     },
     "components.typeform-support.categories.partnerships.description": {
       "englishChecksum": "9b1482992e5c1d082aeade5319ccb995",
-      "lastUpdated": "2026-01-23T00:22:29.026Z"
+      "lastUpdated": "2026-01-23T00:52:12.115Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Não consigo conectar minha carteira. O que eu devo fazer?",
+      "value": "Não consigo conectar minha carteira. O que devo fazer?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-23T00:22:30.785Z"
+      "lastUpdated": "2026-01-23T00:52:13.882Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> fique na sua rede principal; Push cuida da roteamento nos bastidores.</1><1><2>Redefinir permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda com problemas? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+      "value": "<1><2>Vérificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não precisa mudar de rede:</2> fique na sua rede doméstica; o Push gerencia roteamento por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2026-01-23T00:22:41.868Z"
+      "lastUpdated": "2026-01-23T00:52:19.631Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Construtores — Tutoriais & Passo a Passo",
@@ -1938,6 +1938,36 @@
       "value": "Confira o Push Cult - Um programa para criadores com uma recompensa de 20M tokens",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:28:11.237Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "Aplicar Agora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:02:27.328Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "Fechar notificação",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:02:43.580Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": "Dismiss Push Chain toast notification",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:03:01.758Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "Notificação Push Chain",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:03:04.326Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "Candidatar-se Agora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:03:18.702Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "Candidatar-se agora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:03:32.794Z"
     }
   }
 }

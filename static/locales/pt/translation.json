@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "Layer 1 compartilhado para aplicativos universais. Implante uma vez; chegue a usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
+    "site-description": "L1 compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Nenhum trocando de rede."
   },
   "header": {
     "community": {
@@ -1284,8 +1284,8 @@
       "answer-aria-label": "Resposta à pergunta - ",
       "qnas": {
         "qna1": {
-          "question": "Não consigo conectar minha carteira. O que eu devo fazer?",
-          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> fique na sua rede principal; Push cuida da roteamento nos bastidores.</1><1><2>Redefinir permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda com problemas? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+          "question": "Não consigo conectar minha carteira. O que devo fazer?",
+          "answer": "<1><2>Vérificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não precisa mudar de rede:</2> fique na sua rede doméstica; o Push gerencia roteamento por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1660,15 +1660,15 @@
   },
   "notifications": {
     "chain-notification": {
-      "description": "Seja o primeiro a ganhar pontos, multiplicadores e recompensas perpétuas.",
+      "description": "Os 50 principais criadores recebem uma recompensa de 20M tokens. Reúna sua comunidade. Junte-se ao Push Cult!",
+      "button-title": "Junte-se à Tribo Push!",
+      "button-aria-label": "Junte-se à comunidade Push Cult!. Você pode conferir aqui",
+      "image-alt": "Junte-se à comunidade Push!",
+      "title": "",
       "button-text": "Aplicar Agora",
-      "button-title": "Garanta seu acesso antecipado AGORA",
-      "button-aria-label": "Obtenha acesso pré-lançamento AGORA. Você pode conferir aqui",
-      "image-alt": "Acesso antecipado ao Push Chain",
       "close-button-title": "Fechar notificação",
       "close-button-aria-label": "Dismiss Push Chain toast notification",
-      "container-aria-label": "Notificação toast do Push Chain",
-      "title": ""
+      "container-aria-label": "Notificação Push Chain"
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta está ao vivo!",
@@ -1679,13 +1679,13 @@
       "container-aria-label": "Notificação de recompensas Push Chain"
     },
     "info-bar": {
-      "title": "Candidate-se para a Elegibilidade do Pré-Lançamento da Temporada 3. Aberto para participantes da T1 & T2.",
-      "learn-more-text": "Candidatar-se agora",
-      "learn-more-title": "Candidatar-se Agora",
+      "title": "Reúna sua comunidade para um programa de criadores de conteúdo recompensado e exclusivo. Junte-se ao Push Cult!",
       "dismiss-button-title": "Dismiss announcement",
       "dismiss-button-aria-label": "Fechar barra de anúncio",
       "container-aria-label": "Anúncio do site",
-      "star-icon-alt": "Ícone de estrela de anúncio"
+      "star-icon-alt": "Ícone de estrela de anúncio",
+      "learn-more-text": "Candidatar-se Agora",
+      "learn-more-title": "Candidatar-se agora"
     },
     "alert": {
       "message": "Push Metamask Snap está agora ao vivo,",

@@ -1,15 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "title": "",
-      "description": "Os 50 melhores criadores ganham uma recompensa de 20M de tokens. Reúna sua comunidade. Junte-se ao Push Cult!",
-      "button-text": "Inscreva-se agora",
-      "button-title": "Junte-se ao Push Cult!",
-      "button-aria-label": "Junte-se ao Push Cult!. Você pode conferir aqui",
-      "image-alt": "Junte-se ao Push Cult!",
-      "close-button-title": "Fechar notificação",
-      "close-button-aria-label": "Fechar notificação do Push Chain",
-      "container-aria-label": "Notificação do Push Chain"
+      "description": "Os 50 principais criadores recebem uma recompensa de 20M tokens. Reúna sua comunidade. Junte-se ao Push Cult!",
+      "button-title": "Junte-se à Tribo Push!",
+      "button-aria-label": "Junte-se à comunidade Push Cult!. Você pode conferir aqui",
+      "image-alt": "Junte-se à comunidade Push!"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:28:03.451Z",
+  "lastUpdated": "2026-01-23T01:01:54.956Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1727,39 +1727,39 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.knowledge.push101.explainer-section.blocks.sections.why-push-chain-future.items.faq-push-chain.subtitle": {
-      "value": "Push Chain에 대한 질문을 갖고 계신가요? Push Chain과 유니버설 앱에 대한 가장 일반적인 답변을 찾으실 수 있습니다.",
+      "value": " Push 체인 및 유니버설 앱에 대한 질문 있어요? 여기엔 가장 일반적인 답변이 있습니다.",
       "englishChecksum": "4d9917b7eb8ec31c7d601eb921a8f4ca",
-      "lastUpdated": "2026-01-23T00:21:47.788Z"
+      "lastUpdated": "2026-01-23T00:51:35.365Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.problems-solved": {
-      "value": "### Push Chain이 해결하는 문제\n\n- **분산**  \nEVM &非-EVM 체인을 단일 공유 상태 L1로 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 되게 합니다.\n\n- **인터오페라빌리티**  \n원본 및 온체인 공유 상태를 지원합니다.\n\n- **최종성**  \n~1-2초 만에 즉시, 되돌릴 수 없는 원생 finalist-finality을 제공합니다. – 더 기다릴 필요도, 재조립(Reorgs) 걱정 없이!\n\n- **온보딩 & UX**  \n소셜/이메일 로그인, 토큰 및 지갑 지원으로 모든 체인의 제로 프릭션 액세스를 제공합니다.\n\n- **유니버설 앱**  \n한 번_builder_을 통해 어디서든 배포 – 어느 웹3 앱도 모든 사용자가 아무 네트워크에서나 아무런 문제 없이 작동합니다.\n\n---",
+      "value": "### Push Chain이 해결하는 문제\n\n- **분산**  \n  EVM & 비-EVM 체인 통합, 공유 상태 L1 아래 하나의 단일 상태로 사용자 네트워크/월렛 이동 필요 없음.\n\n- **호환성**  \n  모든 블록체인 및 온체인 공유 상태에 대한 네이티브 지원\n\n- **결론성**  \n  ~1-2초 내 즉각적인, 반전하지 않는 네이티브 결론 – 기다리거나 리오ργ 필요 없음.\n\n- **온보딩 & UX**  \n  소셜/이메일 로그인, 가스-아무-토큰 및 아무-월렛 지원으로 모든 체인에 대해 저비용 액세스.\n\n- **유니버설 어플리케이션**  \n  한 번 작성, 어디에나 배포 – 모든 웹3 앱이 모든 사용자에게 모든 체인에서 무결성 유지.\n\n---",
       "englishChecksum": "a46bbdbb625fb82ad7fe978556186243",
-      "lastUpdated": "2026-01-23T00:21:57.316Z"
+      "lastUpdated": "2026-01-23T00:51:44.619Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.consensus-mechanism": {
-      "value": "### Push 체인스의 Konsensus 메카니즘은 무엇입니까?\n\nPush 체인은 **증거 기반 (PoS) 코넨서스**를 사용하며, **CometBFT** 엔진을 기반으로 하여 여러 개선 사항이 있습니다:\n\n- **빠른 결말성**: ~1–2초 안에 거래가 결말되며, 재구성이 없는 결정적 결말성이 있습니다.\n- **에너지 효율성**: PoS는 PoW보다 환경 친화적인 방법입니다.\n- **밸리데이터 네트워크**: 체인을 안전하게 하는 분산된 밸리데이터 네트워크\n- **슬래싱 보호**: 경제적激励가 밸리데이터의 정직성을 보장합니다.\n\nCometBFT의 검증된 BFT konsensus는 여기서는 유니버설 거래 처리 및 크로스체인 상태 관리와 같은 독특한 요구 사항을 최적화했습니다.\n\n---",
+      "value": "### Push 체인 사용 동의장치는 무엇인가요?\n\nPush 체인은 ** Proof-of-Stake (PoS)** 합의 메커니즘을 사용하며, **CometBFT** 엔진 기반으로 여러 가지 개선 사항이 있습니다:\n\n- **fast finality**: 거래는 약 1–2초 만에 최종화되었으며, 재조직(reorgs) 없음\n- **에너지 효율성**: PoW보다 환경 친화적입니다.\n- **_validator network_: decentraized validators network로 체인을 안전하게 함\n- **slash protection**: validator의 정직성을 보장하는 경제적 장려\n\nuniversal transaction processing 및 cross-chain state management을 위한 CometBFT의 검증된 BFT 합의는 여기에서 최적화되어 있습니다.\n\n---",
       "englishChecksum": "56335834d49f4774c5aa232632523b92",
-      "lastUpdated": "2026-01-23T00:22:06.005Z"
+      "lastUpdated": "2026-01-23T00:51:52.194Z"
     },
     "pages.contact.hero-section.description": {
-      "value": "파트너십 및 통합, 장려금, 미디어 및 강연, 검증자, 법적 문제, 경력 또는 일반적인 질문—여기에 연락하세요. 기술적인 도움이 필요하거나 보안 공지를 하려면 지원 센터를 방문하세요.",
+      "value": "파트너십 & 통합, 기금, 미디어 & 강연, 검증자, 법적, 직업, 일반 질문—여기에서 연락하세요. 기술적인 도움 또는 보안 보고서는 지원 센터를 방문해주세요.",
       "englishChecksum": "a77ba80c097fb24b9c109642038d3abc",
-      "lastUpdated": "2026-01-23T00:22:21.650Z"
+      "lastUpdated": "2026-01-23T00:51:54.693Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "다양한 지갑이나 가스 토큰이 필요합니까?",
+      "value": "이해관계에 따라 다른 지갑이나 가스 토큰이 필요합니까?",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-23T00:22:13.393Z"
+      "lastUpdated": "2026-01-23T00:51:56.655Z"
     },
     "components.short-faq-snippet.qnas.qna4.question": {
-      "value": "이것은 다리나 메시지 레이어와 어떻게 다른가요?",
+      "value": "이것은 브리지나 메시지 레이어와 어떻게 다른가요?",
       "englishChecksum": "b5d86c3d717c6454f3040120ad8fd86c",
-      "lastUpdated": "2026-01-23T00:22:15.184Z"
+      "lastUpdated": "2026-01-23T00:52:01.579Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>테스트 토큰을 요청하려면 <3>페이즙</3>을 사용하세요.</1><1><2>참고 사항:</2> 속도 제한이 적용될 수 있으며 일부 페이즙은 간단한 인증을 요구합니다. 페이즙이 실패하면 <4>디스코드</4>에서 нам와 연락하세요.</1>",
+      "value": "<1>테스트 토큰을 요청하려면 <3>페이크</3>를 사용하세요.</1><1><2>참고:</2> 속도 제한이 적용될 수 있습니다; 일부 페이크는 간단한 인증을 요구합니다. 페이크가 실패하면 <4>디스코드</4>에서 우리를 태그하세요.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-23T00:22:18.986Z"
+      "lastUpdated": "2026-01-23T00:52:05.339Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "빌더 — 방법 및 튜토리얼",
@@ -1965,6 +1965,36 @@
       "value": "푸시 컬트 체크 - 2억 토큰 보상으로 창조자 프로그램",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:28:03.451Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "지금 신청하기",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:01:47.755Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "토스트 알림 닫기",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:01:48.856Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": " Push Chain 알림을 닫습니다.",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:01:50.049Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "푸시체인 토스트 알림",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:01:51.234Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "now apply",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:01:53.937Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "신청하기",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:01:54.956Z"
     }
   }
 }

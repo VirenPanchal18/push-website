@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:28:53.286Z",
+  "lastUpdated": "2026-01-23T01:04:47.776Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1712,24 +1712,23 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![共享状态应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无穷。以下是一些旗舰示例：\n\n- **通用DEX**  \n  一次交易UI，涵盖所有流动池–跨链路由，速度和CXO体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借款、收益聚合器跨链而不需手动桥接。\n\n- **通用AI代理人**  \n  自治代理，在任何代币、任何链上支付和赚取–完美适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：token持有者投票和执行无关其源链。\n\n- **通用游戏**  \n  多玩家锦标赛和跨链游戏经济，统一玩家和资产来自Ethereum、Solana、Polygon等。\n\n- **通用市场**  \n  买卖和交易NFTs和代币的集成市场。\n\n- **通用名称服务**  \n  多链钱包解析的人类可读名称。\n\n在Push Chain上可以构建的应用和创新无穷！查看更多[使用案例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以开始。开发者也可以查看[文档中心](/docs/）开始。\n\n---",
+      "value": "### 什么应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n通过Push Chain的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**  \n  一键交换界面，涵盖所有流动性池–在各链之间高速、优质的路由和CEX一样的体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：跨生态系统的贷款、借贷、收益聚合器，无需手动桥接。\n\n- **通用AI代理**  \n  自主代理，在任何链上付费和获取报酬–适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：令牌持有者在其起源链不论如何都可以投票和执行提案。\n\n- **通用游戏**  \n  多玩家比赛和跨链游戏经济，统一玩家和资产来自以太坊、Solana、Polygon等。\n\n- **通用市场**  \n  买卖和交易NFT和令牌的集成市场，涵盖所有链。\n\n- **通用名称服务**  \n  人类可读名字，解析跨多个区块链的钱包。\n\nPush Chain上可以构建的应用和创新无限！查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以开始。建设者也可以查看[文档中心](/docs/)开始。\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-01-23T00:26:11.709Z"
+      "lastUpdated": "2026-01-23T00:57:50.405Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
-      "value": "## 开发者、用户和节点运营者",
+      "value": "## 开发人员、用户和节点运营商",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-01-23T00:26:14.151Z"
+      "lastUpdated": "2026-01-23T00:57:53.215Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "如何收集、使用和保护推链移动应用程序数据，以及您的选择。",
+      "value": "我们如何收集、使用和保护推链移动应用程序数据，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-01-23T00:26:15.969Z"
+      "lastUpdated": "2026-01-23T00:57:55.182Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "我需要不同的钱包或gas代币吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-23T00:26:17.715Z"
+      "lastUpdated": "2026-01-23T00:57:57.033Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -1930,6 +1929,36 @@
       "value": "查看推动文化 - 面向创作者的计划，总奖励20M代币",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:28:53.286Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "立即申请",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:38.386Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "关闭提示消息",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:04:41.074Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": "关闭“Push Chain”通知",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:04:42.490Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "区块链提示通知",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:04:43.721Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "立即申请",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:44.750Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "申请现在",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:04:47.776Z"
     }
   }
 }

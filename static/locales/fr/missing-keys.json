@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:27:15.098Z",
+  "lastUpdated": "2026-01-23T01:00:48.302Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -2412,33 +2412,34 @@
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
     "pages.lfpush.seo.title": {
-      "value": "Allons-y Push — Initiative communautaire",
+      "value": "Allons-y Pousser - Initiative communautaire",
       "englishChecksum": "7c0dbd394ef56ddb6084285538f6a976",
-      "lastUpdated": "2026-01-23T00:18:09.716Z"
+      "lastUpdated": "2026-01-23T00:47:31.188Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Allons-y Pousser | Initiative communautaire",
+      "value": "Allons-y Push ! | Initiative communautaire",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-01-23T00:18:11.334Z"
+      "lastUpdated": "2026-01-23T00:47:33.791Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — aucun nouveau portefeuille ou compte n'est nécessaire.</1><1><2>Payez avec ce que vous possédez.</2> Les frais peuvent être payés en tokens que vous possédez déjà sur votre chaîne principale ; nous gérons la conversion en arrière-plan.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — aucun pontage n'est nécessaire pour obtenir un jeton de gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action ; Push ne conserve jamais vos clés.</1><1><2>Derrière les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de le gérer.</1>",
+      "value": "<1><2>Non.</2></1><1><2>Gardez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau ou un compte.</1><1><2>Payez avec ce que vous avez.</2> Les frais peuvent être payés en utilisant les jetons que vous avez déjà sur votre chaîne principale; nous gérons la conversion derrière les scenes.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un jeton de gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action; Push ne conserve jamais vos clés.</1><1><2>Dans les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de gérer cela.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-01-23T00:18:18.552Z"
+      "lastUpdated": "2026-01-23T00:47:09.904Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Comment Push Chain diffère-t-il de Wormhole?\n\n**Wormhole :**\n- **Protocole de pont**: Principalement axé sur le transfert de jetons et NFT\n- **Actifs enveloppés**: Crée des versions enveloppées de jetons sur différentes chaînes\n- **Réseau de surveillance**: S'appuie sur un ensemble de validateurs pour vérifier les messages interchaînes\n- **Processus en plusieurs étapes**: Les utilisateurs doivent transférer leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution universelle**: Les utilisateurs interagissent directement sans transfert\n- **Actifs natifs**: Pas besoin de jetons enveloppés, utilisez les originaux\n- **Vérification directe**: Vérification de signature native à partir de n'importe quelle chaîne\n- **Transaction unique**: Les utilisateurs interagissent en une seule étape, pas de transfert requis\n\nPush Chain supprime la nécessité de transférer des actifs alors que Wormhole le requiert pour les interactions interchaînes.\n\n---",
+      "value": "### Comment Push Chain se distingue-t-il de Wormhole ?\n\n**Wormhole :**\n- **Protocole de pont**: Principalement axé sur le ponrage de jetons et NFT\n- **Actifs enveloppés**: Crée des versions enveloppées de jetons sur différentes chaînes\n- **Réseau Gardien**: S'appuie sur un ensemble de validateurs pour vérifier les messages interchaînes\n- **Processus en plusieurs étapes**: Les utilisateurs doivent ponder leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution universelle**: Les utilisateurs interagissent directement sans ponder\n- **Actifs natifs**: Pas de jetons enveloppés nécessaires, utilisez les actifs originaux\n- **Vérification directe**: Vérification de signature native depuis n'importe quelle chaîne\n- **Transaction unique**: Les utilisateurs interagissent en une seule étape, pas de ponrage requis\n\nPush Chain éliminate le besoin de ponder des actifs tout en nécessitant Wormhole pour les interactions interchaînes.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-23T00:18:27.703Z"
+      "lastUpdated": "2026-01-23T00:47:19.200Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
+      "value": "### Y a-t-il des risques de centralisation avec Push Chain?\n\n**Non.** L'architecture de Push Chain met l'accent sur la décentralisation.\n\nPush Chain est entièrement décentralisé et conçu pour être robuste et résistant. Quiconque peut faire fonctionner un nœud et participer au réseau, et est incité ou pénalisé via PoS. Pour résumer:\n\n- Les validateurs et autres acteurs fonctionnent indépendamment et sont incités via PoS.\n- Les mécanismes de gouvernance assurent l'implication de la communauté.\n- Chaque partie de l'écosystème est incluse dans la gouvernance à algun point.\n\nPour en savoir plus sur la façon de faire fonctionner un nœud, voir notre [Base de connaissances](/knowledge/) ou consultez notre [Validator Node Repo](https://github.com/pushchain/push-chain-node).\n\n---",
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-01-23T00:18:36.117Z"
+      "lastUpdated": "2026-01-23T00:47:27.687Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer?",
+      "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer ?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-23T00:18:37.922Z"
+      "lastUpdated": "2026-01-23T00:47:29.858Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
       "value": "Push Chain Tokenomics | Économie du Token",
@@ -2502,6 +2503,36 @@
       "value": "Découvrez Push Cult - Un programme pour les créateurs avec une prime de 20 millions de jetons",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:27:03.140Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "Postuler maintenant",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:00:08.387Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "Fermer la notification",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T01:00:26.687Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": "Fermer la notification Push Chain",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T01:00:29.691Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "Notification Push Chain",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T01:00:43.897Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "Postuler maintenant",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:00:47.300Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "Postuler maintenant",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T01:00:48.302Z"
     }
   }
 }

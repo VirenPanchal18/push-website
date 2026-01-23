@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T00:26:42.884Z",
+  "lastUpdated": "2026-01-23T00:59:49.944Z",
   "keys": {
     "footer.email-section.title-secondary": {
       "value": "¡noticias y actualizaciones!",
@@ -4332,18 +4332,18 @@
       "lastUpdated": "2026-01-16T17:06:06.479Z"
     },
     "pages.cult.seo.og-description": {
-      "value": "Una orden invitacional de 50 creadores que ganan desde un bounty de 20M PC tokens al impulsar el uso real y la creencia en Push Chain.",
+      "value": "Un grupo exclusivo de invitación de 50 creadores que ganan con un bounty de 20M PC tokens al impulsar el uso real y la fe en Push Chain.",
       "englishChecksum": "45df3c59f89f6db4545500d75622968e",
-      "lastUpdated": "2026-01-23T00:17:40.562Z"
+      "lastUpdated": "2026-01-23T00:46:31.112Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
       "value": "Apps Possible Only with Shared State - Vol. 1",
       "englishChecksum": "f4155267906fb77f40ec521aaf9341be",
-      "lastUpdated": "2026-01-23T00:18:03.257Z"
+      "lastUpdated": "2026-01-23T00:46:54.380Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v2.title": {
       "englishChecksum": "a47b06e49f50c64cc10a1035fc814bfe",
-      "lastUpdated": "2026-01-23T00:17:46.806Z"
+      "lastUpdated": "2026-01-23T00:46:37.491Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
       "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
@@ -4368,6 +4368,36 @@
       "value": "Mira Push Cult - Un programa para creadores con una recompensa de 20 millones de tokens",
       "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
       "lastUpdated": "2026-01-23T00:26:42.884Z"
+    },
+    "notifications.chain-notification.button-text": {
+      "value": "Aplicar ahora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T00:58:59.192Z"
+    },
+    "notifications.chain-notification.close-button-title": {
+      "value": "Cerrar notificación",
+      "englishChecksum": "12591ac1e416bdadc1cb78c88ecbe860",
+      "lastUpdated": "2026-01-23T00:59:15.916Z"
+    },
+    "notifications.chain-notification.close-button-aria-label": {
+      "value": "Descartar notificación toast de Push Chain",
+      "englishChecksum": "114029bb866a9f56aedef11e08cdd8be",
+      "lastUpdated": "2026-01-23T00:59:32.409Z"
+    },
+    "notifications.chain-notification.container-aria-label": {
+      "value": "Notificación del Push Chain",
+      "englishChecksum": "dd46ad4bfbc9da437c1dde14f74d3333",
+      "lastUpdated": "2026-01-23T00:59:35.008Z"
+    },
+    "notifications.info-bar.learn-more-text": {
+      "value": "Aplicar Ahora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T00:59:48.731Z"
+    },
+    "notifications.info-bar.learn-more-title": {
+      "value": "Solicitar Ahora",
+      "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
+      "lastUpdated": "2026-01-23T00:59:49.942Z"
     }
   }
 }
