@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T19:53:22.205Z",
+  "lastUpdated": "2026-01-23T00:26:37.024Z",
   "keys": {
     "pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.items.push-validator.title": {
       "value": "Push Validator",
@@ -2532,9 +2532,9 @@
       "lastUpdated": "2025-11-14T19:27:06.054Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Pushen wir gemeinsam | Community-Initiative",
+      "value": "Lassen wir pushen | Gemeinschaftsinitiative",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-01-16T16:28:26.760Z"
+      "lastUpdated": "2026-01-23T00:16:57.571Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.title": {
       "value": "Lassen Sie uns universelle Apps aufbauen 💪",
@@ -2547,29 +2547,29 @@
       "lastUpdated": "2025-11-14T20:16:25.478Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-bridges-messaging": {
-      "value": "### Wie unterscheidet sich das von Brücken oder Messaging-Layers?\n\n**Kurze Antwort**: Push ist der Ort, an dem deine App läuft. Brücken/Messaging bewegen nur Token oder Nachrichten zwischen Ketten und machen alles für den Benutzer und Entwickler komplizierter.\n\n- **Einziges Zuhause vs viele Kopien**  \n\tBei Brücken/Messaging musst du pro Kette einsetzen und über Nachrichten synchronisieren. Auf Push setzt du einmal ein; jeder ruft denselben Vertrag und gemeinsamen Zustand auf.\n\n- **Keine eingeschlossenen Vermögenswerte oder Pflicht-Bridging**  \n\tnBenutzer bleiben auf ihrer Heimatkette und bezahlen mit dem, was sie bereits besitzen; wir kümmern uns unter der Haube um die Weiterleitung und Gebührenumwandlung.\n\n- **Vereinheitlichte Identität und Verifizierung**  \n\tWir akzeptieren Signaturen von jedem Wallet/Chain und attribuieren sie demselben Benutzer auf Push – nicht verwahrend.\n\n- **Weniger bewegliche Teile**  \n\tKein Cross-Chain-Genehmigungstanz, kein Gas-Token-Suchen, keine Klebstoffverträge zum Synchronisieren.\n\n- **Brücken führen Komplexität ein. Kettennative Interoperabilität löst sie**  \n\tBrücken erfordern komplexe Ingenieurleistung, Zeit, Kosten für die Überprüfung und zusätzliche Infrastruktur. Ketten-native Interoperabilität funktioniert einfach, weil deine App nativ davon erbt.\n\n**Ergebnis**: einfachere Apps, eine gemeinsame Wahrheit und ein UX, der sich wie eine Kette anfühlt – sogar wenn Benutzer es nicht sind.\n\n---",
+      "value": "### Wie unterscheidet sich das von Brücken oder Messaging-Layern?\n\n**Kurze Antwort**: Push ist der Ort, an dem Ihre App läuft. Brücken/Messaging bewegen nur Tokens oder Nachrichten zwischen Ketten und machen alles für den Benutzer und Entwickler kompliziert.\n\n- **Einziges Zuhause vs viele Kopien**  \n\tMit Brücken/Messaging müssen Sie pro Kette einsetzen und via Nachrichten synchronisieren. Auf Push setzen Sie nur einmal ein; alle rufen denselben Vertrag und gemeinsamen Zustand auf.\n\n- **Keine gewickelten Assets oder verpflichtende Überbrückung**  \n\tBenutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumwandlung unter der Haube.\n\n- **Vereinheitlichte Identität & Verifizierung**  \n\tWir akzeptieren Signaturen von jedem Wallet/Kette und führen sie auf denselben Benutzer auf Push zurück — nicht verwahrend.\n\n- **Weniger bewegliche Teile**  \n\tKein Cross-Chain-Genehmigungstanz, kein Gas-Token-Jagen, keine Klebstoffverträge zum Synchronisieren.\n\n- **Brücken bringen Komplexität. Kettennative Interoperabilität löst es**  \n\tBrücken erfordern großen technischen Entwicklungsaufwand, Zeit, Kosten für die Überprüfung und zusätzliche Infrastruktur. Kettennative Interoperabilität funktioniert einfach so, wie Ihre App nativ davon profitiert.\n\n**Ergebnis**: einfachere Apps, eine Wahrheit Quelle und ein UX-Gefühl, das sich wie eine Kette anfühlt – sogar wenn Benutzer es nicht sind.\n\n---",
       "englishChecksum": "9da0bbfa9d3af2251d391086303c5fa0",
-      "lastUpdated": "2026-01-16T16:28:42.378Z"
+      "lastUpdated": "2026-01-23T00:17:11.989Z"
     },
     "pages.docs.seo.og-description": {
-      "value": "Erstellen und ausführen von Apps auf der universellen Ausführungs-Schicht mit klaren Anleitungen und Beispielen.",
+      "value": "Baue und führe Apps auf der universellen Ausführungsschicht aus mit klaren Anleitungen und Beispielen.",
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-01-16T16:28:46.043Z"
+      "lastUpdated": "2026-01-23T00:17:13.736Z"
     },
     "pages.tos.seo.og-description": {
-      "value": "Rechtliche Bedingungen für die Nutzung unserer Websites, Apps und Entwicklertools.",
+      "value": "Rechtliche Bestimmungen zur Nutzung unserer Websites, Apps und Entwicklerwerkzeuge.",
       "englishChecksum": "9d071120c8c1e14b03af607cb3059de4",
-      "lastUpdated": "2026-01-16T16:29:03.151Z"
+      "lastUpdated": "2026-01-23T00:17:15.287Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2>Kurze Antwort</2>: Push ist, wo Ihre App läuft. Bridges/Messaging bewegen nur Token oder Nachrichten zwischen Ketten und machen alles für Nutzer und Entwickler kompliziert.</1><1><2>Einheitliche Heimat vs viele Klone.</2> Bei Bridges/Messaging müssen Sie pro Kette bereitstellen und über Nachrichten synchronisieren. Auf Push einmal bereitstellen; jeder ruft den gleichen Vertrag und gemeinsam genutzten Zustand auf.</1><1><2>Keine gewickelten Vermögenswerte oder obligatorisches Bridging.</2> Nutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumwandlung unter der Haube.</1><1><2>Einheitliche Identität & Verifizierung.</2> Wir akzeptieren Signaturen von jeder Wallet/Kette und führen sie einem Nutzer auf Push zu — nicht verwahrend.</1><1><2>Weniger bewegliche Teile.</2> Kein Cross-Ketten-Genehmigungs-Tanz, kein Gas-Token-Jagen, keine Klebstoffverträge, die synchron gehalten werden müssen.</1><1><2>Bridges bringen Komplexität ein. Chain-native Interop löst sie.</2> Bridges erfordern komplexen Ingenieuraufwand, Zeit, Kosten für Audits und zusätzliche Infrastruktur. Chain-native Interop funktioniert einfach, da Ihre App es nativ erbt.</1><1>Ergebnis: einfachere Apps, eine einzige Wahrheit Quelle und ein UX, der sich wie eine Kette anfühlt - sogar wenn Nutzer das nicht tun.</1>",
+      "value": "<1><2>Kurze Antwort</2>: Push ist, wo deine App läuft. Brücken/Nachrichtenversand bewegt nur Token oder Nachrichten zwischen Ketten und macht alles für den Benutzer und Entwickler kompliziert.</1><1><2>Einheitliches Zuhause vs viele Klone.</2> Mit Brücken/Nachrichtenversanddeployst du pro Kette und synchronisiert über Nachrichten. Auf Push deployst du einmal; jeder trifft auf den selben Vertrag und geteilten Zustand.</1><1><2>Keine gewickelten Assets oder verpflichtende Überbrückung.</2> Benutzer bleiben auf ihrer Heimkette und zahlen mit dem, was sie bereits besitzen; wir erledigen Routing und Gebührsumrechnung unter der Haube.</1><1><2>Einheitliche Identität & Verifikation.</2> Wir akzeptieren Signaturen von jeder Wallet/Kette und ordnen sie dem selben Benutzer auf Push zu - nicht verwahrend.</1><1><2>Weniger bewegliche Teile.</2> Kein Cross-Ketten-Genehmigungs-Tanz, kein Gas-Token-Jagen, keine Klebstoffverträge zum Synchronisieren.</1><1><2>Brücken erfordern Komplexität. Kettennatives Interoperabilitätslösen es.</2> Brücken erfordern komplexen Engineering-Aufwand, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettennative Interoperabilität funktioniert einfach, wie deine App nativ davon erbt.</1><1>Ergebnis: einfachere Apps, eine Wahrheitquelle und ein UX, der sich wie eine Kette anfühlt - sogar wenn Benutzer es nicht sind.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2026-01-16T16:29:16.035Z"
+      "lastUpdated": "2026-01-23T00:17:27.770Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Ich kann meinen Wallet nicht verbinden. Was sollte ich versuchen?",
+      "value": "Ich kann meinen Geldbeutel nicht verbinden. Was sollte ich versuchen?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-16T16:29:17.848Z"
+      "lastUpdated": "2026-01-23T00:17:29.598Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Entwickler — Anleitungen & Tutorials",
@@ -2735,6 +2735,191 @@
       "value": "## Mach mit\n\n- **🧙 Entwickler**\nEntdecke unsere SDK & Docs auf [Documentationshub](/docs/)\n\n- **🦹 Community**  \nFolgt [@PushChain](https://x.com/PushChain) auf X/Twitter, trete unserer [Discord](https://discord.com/invite/pushchain) und [Telegram](https://t.me/epnsproject) bei.\n\nLass uns gemeinsam die Zukunft von **Universal Web3** gestalten!",
       "englishChecksum": "00f95fb3cdf50b85a1f456e551492b18",
       "lastUpdated": "2026-01-16T17:05:19.653Z"
+    },
+    "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
+      "value": "### Was kann auf Push Chain gebaut werden?\n\nPush Chain ermöglicht nahtlose Interoperabilität und vereint alle L1s, L2s und L3s und ist daher das Spielplatz der Innovation und Interop. Du kannst bestehende Web3-Anwendungsfälle wie diese bauen:\n\n![Primäre Anwendungsfälle von Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nOder verbessere Web3 und erzeuge Innovationen:\n\n![Consumer-Anwendungsfälle von Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nOder sieh dir einige beliebte App-Beispiele an und hole dir Inspiration:\n\n![Beliebte App-Beispiele auf Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
+      "lastUpdated": "2026-01-22T17:57:06.118Z"
+    },
+    "components.short-cult-snippet.section-aria-label": {
+      "value": "Push Kult - Blutpakt für Kreative",
+      "englishChecksum": "4dbde224cf7d8fb7c284b5a0a3cadc1b",
+      "lastUpdated": "2026-01-22T17:57:07.413Z"
+    },
+    "components.short-cult-snippet.title": {
+      "value": "Diskipel\nRichtlinien",
+      "englishChecksum": "dbccc9b88cacabfaac1a1af9ba63753c",
+      "lastUpdated": "2026-01-22T17:57:08.799Z"
+    },
+    "components.short-cult-snippet.title-aria-label": {
+      "value": "Richtlinien und Anforderungen für Schüler der Push-Kult",
+      "englishChecksum": "3e58d64bfe1a26441938f2d0efbf090b",
+      "lastUpdated": "2026-01-22T17:57:10.093Z"
+    },
+    "components.short-cult-snippet.discord-link-text": {
+      "value": "Tritt der Kult auf Discord bei",
+      "englishChecksum": "cbeb63143c77105398f884f6572e6ac6",
+      "lastUpdated": "2026-01-22T17:57:11.281Z"
+    },
+    "components.short-cult-snippet.discord-link-title": {
+      "value": "Tritt dem Push Chain Discord #push-cult Kanal bei",
+      "englishChecksum": "3bcfb522243a1c608d916d7ee120bee2",
+      "lastUpdated": "2026-01-22T17:57:13.990Z"
+    },
+    "components.short-cult-snippet.discord-link-aria-label": {
+      "value": "Eröffnet die Discord-Gemeinschaft in einem neuen Registerkarte",
+      "englishChecksum": "ddd654d93133e05d0a7ce99efe423f10",
+      "lastUpdated": "2026-01-22T17:57:15.407Z"
+    },
+    "components.short-cult-snippet.explore-more-text": {
+      "value": "Erfahre mehr über den vollständigen Pact",
+      "englishChecksum": "08a72622d5139bbb2605fdc1e2764c2c",
+      "lastUpdated": "2026-01-22T17:57:16.676Z"
+    },
+    "components.short-cult-snippet.explore-more-title": {
+      "value": "Lies die vollständige Push Kult Manifesto und Programmbeschreibungen",
+      "englishChecksum": "7bef48e3d373adee284a1ca639aaade4",
+      "lastUpdated": "2026-01-22T17:57:18.150Z"
+    },
+    "components.short-cult-snippet.explore-more-aria-label": {
+      "value": "Navigiere zum vollständigen Push Cult Blog-Beitrag",
+      "englishChecksum": "4ff3d06228a771d5d8d3579b91b02513",
+      "lastUpdated": "2026-01-22T17:57:20.998Z"
+    },
+    "components.short-cult-snippet.accordion-aria-label": {
+      "value": "Push Kult Richtlinien und Anforderungen",
+      "englishChecksum": "6ed19b7d1e0934b8835e8f76e2688c7c",
+      "lastUpdated": "2026-01-22T17:57:22.498Z"
+    },
+    "components.short-cult-snippet.answer-aria-label": {
+      "value": "Antwort auf die Frage - ",
+      "englishChecksum": "84c913b7410cbc873ad0018ac37fb40e",
+      "lastUpdated": "2026-01-22T17:57:25.415Z"
+    },
+    "components.short-cult-snippet.qnas.qna1.question": {
+      "value": "Was ist Push Cult?",
+      "englishChecksum": "e24e39e9b6999988b988e266c5fed12e",
+      "lastUpdated": "2026-01-22T17:57:27.253Z"
+    },
+    "components.short-cult-snippet.qnas.qna1.answer": {
+      "value": "<1>Push Cult ist ein sorgfältig kuratiertes, nur auf Einladung basierendes Programm für <2>50 elitäre Kreative</2>, die reines Signal und keine Spam liefern.</1><1>Wir belohnen Visionäre, die ihre Herde mit Wahrheit durch Threads, Videos oder Artikel führen, die echt mit dem Publikum verbunden sind.</1><1>Die Top 50 Jünger teilen sich einen <2>20,000,000 PC-Preis</2> basierend auf messbarem Einfluss.</1>",
+      "englishChecksum": "5856a63799b40b622874946a49ff7ddf",
+      "lastUpdated": "2026-01-22T17:57:32.824Z"
+    },
+    "components.short-cult-snippet.qnas.qna1.discord-url-title": {
+      "value": "Tritt der Push Chain Discord bei.",
+      "englishChecksum": "f8a145f6a26c1037bc6d51a27d093445",
+      "lastUpdated": "2026-01-22T19:56:42.659Z"
+    },
+    "components.short-cult-snippet.qnas.qna1.support-url-title": {
+      "value": "Erfahren Sie mehr über das Programm.",
+      "englishChecksum": "0a2474c4b3ca3754ea8479b24c5dd87d",
+      "lastUpdated": "2026-01-22T17:57:38.593Z"
+    },
+    "components.short-cult-snippet.qnas.qna2.question": {
+      "value": "Wer sollte sich bewerben?",
+      "englishChecksum": "9d5efdd651f74fdb4a99cb0f1a233429",
+      "lastUpdated": "2026-01-22T17:57:41.929Z"
+    },
+    "components.short-cult-snippet.qnas.qna2.answer": {
+      "value": "<1><2>Ersteller, die:</2> bereits Anleitungen, Beiträge oder Erklärungen mit einer engagierten Followerschaft (nicht unbedingt groß) erstellen.</1><1><2>Sich dafür interessieren:</2> Klarheit statt Hype zu liefern und bleibenden Einfluss aufzubauen statt schnelle Gewinne zu machen.</1><1><2>Early Adopter sein wollen:</2> die Push Chain-Ära der universellen Ausführung vorstellen und Gläubige für Season 3 gewinnen möchten.</1><1>Wenn du einen schnellen Gewinn suchst, geh weiter. Wenn du etwas Bleibendes aufbauen möchtest, <3>tritt vor</3>.</1>",
+      "englishChecksum": "d5f19b9876743d9ca56bcef4f5023433",
+      "lastUpdated": "2026-01-22T17:57:48.025Z"
+    },
+    "components.short-cult-snippet.qnas.qna2.scan-url-title": {
+      "value": "Antrag zur Mitgliedschaft in Push Cult stellen",
+      "englishChecksum": "77f2b98511cdf787a063af6233314b85",
+      "lastUpdated": "2026-01-22T17:57:52.873Z"
+    },
+    "components.short-cult-snippet.qnas.qna2.support-url-title": {
+      "value": "Lies den vollständigen Manifest.",
+      "englishChecksum": "f1a33f3be048fe47f764b2956c3289c6",
+      "lastUpdated": "2026-01-22T17:57:54.480Z"
+    },
+    "components.short-cult-snippet.qnas.qna3.question": {
+      "value": "Wie werden Jünger ausgewählt und bewertet?",
+      "englishChecksum": "90d1e298ae366ef9dcac8aae3fc699c8",
+      "lastUpdated": "2026-01-22T17:57:57.917Z"
+    },
+    "components.short-cult-snippet.qnas.qna3.answer": {
+      "value": "<1>Wir begrenzen auf <2>50 Jünger</2>, um den Fokus zu gewährleisten. Die Teilnahme wird wöchentlich basierend auf deiner <2>Devotion Score</2> erneuert.</1><1><2>Devotion Score</2> berücksichtigt: Signal (Reichweite), Gathering (neue Gläubige, die an Bord gebracht wurden), Faith (Retention) und Craft (manuelle Überprüfung).</1><1>Wenn du unter den Schwellenwert fällst, wechseln wir dich aus. Große Schöpfer konkurrieren um Qualität, nicht um Menge.</1>",
+      "englishChecksum": "ce4ebe46d68b39c78963b3f555a78d8f",
+      "lastUpdated": "2026-01-22T17:58:03.803Z"
+    },
+    "components.short-cult-snippet.qnas.qna3.faucet-url-title": {
+      "value": "Erfahren Sie mehr über die Bewertungskriterien.",
+      "englishChecksum": "cd65cb8535a01b76aac5920edc4f23e1",
+      "lastUpdated": "2026-01-22T17:58:05.624Z"
+    },
+    "components.short-cult-snippet.qnas.qna3.discord-url-title": {
+      "value": "Fragen auf Discord stellen.",
+      "englishChecksum": "b20dbba4e51ea606e4f6de96b34f4dad",
+      "lastUpdated": "2026-01-22T19:56:44.257Z"
+    },
+    "components.short-cult-snippet.qnas.qna4.question": {
+      "value": "Was machen Disciple tatsächlich?",
+      "englishChecksum": "8ffa02ac8762107e1439cb2815e30f5f",
+      "lastUpdated": "2026-01-22T17:58:08.874Z"
+    },
+    "components.short-cult-snippet.qnas.qna4.answer": {
+      "value": "<1>Erstelle Inhalte in <2>deinem Format</2>. Das kann Diskussionen, Videos, Artikel oder alles andere sein, was zu deinem Stil passt. Deine Aufgabe: Erkläre Push Chain-Konzepte, führe die Herde durch das Testnet und gewinne neue Gläubige für Saison 3.</1><1>Wir stellen dir wöchentlich Missionen, Themen und Alphas zur Verfügung, bevor die Öffentlichkeit davon erfährt. Du entscheidest über den Tenor.</1><1>Spam geht in Flammen auf. Nur die Wahrheit bleibt bestehen.</1>",
+      "englishChecksum": "526784f9a9c832b58d7aa44fd709a38f",
+      "lastUpdated": "2026-01-22T17:58:14.120Z"
+    },
+    "components.short-cult-snippet.qnas.qna4.support-url-title": {
+      "value": "Siehe Inhaltsbeispiele.",
+      "englishChecksum": "f99c73047e328c43a9049ca56038208d",
+      "lastUpdated": "2026-01-22T17:58:16.009Z"
+    },
+    "components.short-cult-snippet.qnas.qna4.discord-url-title": {
+      "value": "Tritt dem Discord bei.",
+      "englishChecksum": "d284e2515bbc0985ca9df5bbccfe1dd7",
+      "lastUpdated": "2026-01-22T17:58:19.523Z"
+    },
+    "components.short-cult-snippet.qnas.qna5.question": {
+      "value": "Welche Belohnungen gibt es?",
+      "englishChecksum": "5f320a5c897066952836468ddbc1cc9d",
+      "lastUpdated": "2026-01-22T17:58:34.963Z"
+    },
+    "components.short-cult-snippet.qnas.qna5.answer": {
+      "value": "<1><2>Top performer erhalten:</2> Garantierte Zuteilung aus dem 20M PC-Pool sowie einen Ultra-Rare Glitzernden Pass (auf mainnet).</1><1><2>Glitzernder Pass gewährt:</2> Einkommensbeteiligung von Kettengebühren, Teilnahme an Validator Belohnungen, Staking Multiplikatoren und VIP-Ökosystem-Vorteile.</1><1>Rang bestimmt den Ertrag. Es gibt keine Teilnehmerpokale.</1>",
+      "englishChecksum": "b5b7033f3a09a38d56967a707dfd4725",
+      "lastUpdated": "2026-01-22T17:58:39.776Z"
+    },
+    "components.short-cult-snippet.qnas.qna5.docs-url-title": {
+      "value": "Erfahren Sie mehr über Belohnungen.",
+      "englishChecksum": "b8667b77fde698adccebc5e10e886a65",
+      "lastUpdated": "2026-01-22T17:58:42.613Z"
+    },
+    "components.short-cult-snippet.qnas.qna5.kb-url-title": {
+      "value": "Die Tokenökonomie lesen.",
+      "englishChecksum": "a03fd420c341b638b24362e71d73e0de",
+      "lastUpdated": "2026-01-22T17:58:44.207Z"
+    },
+    "components.short-cult-snippet.qnas.qna6.question": {
+      "value": "Wie kann ich beitreten?",
+      "englishChecksum": "77811e4b2123e37a3b33e686e9d07787",
+      "lastUpdated": "2026-01-22T17:58:47.180Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
+      "value": "Fallstudien",
+      "englishChecksum": "c2a1ad99f32bf4e873aac3caf9f4b836",
+      "lastUpdated": "2026-01-22T20:32:48.993Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.items.hodl-fun.title": {
+      "value": "Hodl.fun",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-01-22T20:32:51.601Z"
+    },
+    "header.community.link8.text": {
+      "value": "Push Kult",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:26:32.335Z"
+    },
+    "header.community.link8.title": {
+      "value": "Schau dir Push Cult an – Ein Programm für Creator mit einer Belohnung von 20M Token",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:26:37.023Z"
     }
   }
 }

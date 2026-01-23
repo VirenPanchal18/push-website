@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-16T19:56:43.861Z",
+  "lastUpdated": "2026-01-23T00:27:42.751Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "Validators —",
@@ -1727,14 +1727,14 @@
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
     "global.site-description": {
-      "value": "L1 berkongsi keadaan untuk aplikasi universal. Unggah sekali; capai pengguna pada rantai apapun. Gunakan dompet apapun. Bayar dengan token apapun. Tidak ada perpindahan jaringan.",
+      "value": "L1 bersama negara untuk aplikasi universal. Deploy sekali; capai pengguna di setiap rantai. Gunakan apapun dompet. Bayar dengan apapun token. Tidak ada pengalihan jaringan.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-16T16:30:28.472Z"
+      "lastUpdated": "2026-01-23T00:19:45.876Z"
     },
     "footer.footer-image.title": {
-      "value": "Push Chain -_BLOCKCHAIN UNIVERSAL_",
+      "value": "Push Chain - Blokchai universal",
       "englishChecksum": "335a0ee6c9b58e1b96f653feab5a85b2",
-      "lastUpdated": "2026-01-16T16:30:29.595Z"
+      "lastUpdated": "2026-01-23T00:19:18.612Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
       "value": "Dapatkan Token Testnet",
@@ -1742,34 +1742,33 @@
       "lastUpdated": "2025-11-14T20:18:42.666Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-particle-network": {
-      "value": "### Bagaimana Push Chain berbeda dengan Particle Network?\n\n**Particle Network:**\n- **Fokus Abstraksi Akun**: Utamanya fokus pada abstraksi dompet dan login sosial\n- **Dompet Multi-Blockchain**: Membuat pengalaman dompet yang lengkap di seluruh chain\n- **Integrasi SDK**: Memerlukan integrasi Particle SDK untuk fungsionalitas\n- **Layer Pengalaman Pengguna**: Beroperasi sebagai layer di atas chain yang ada\n\n**Push Chain:**\n- **Blockchain Universal**: Blockchain asli yang mendukung semua pengguna chain\n- **Integrasi Tingkat Protokol**: Fungsi multi-chain dibangun dalam konsensus\n- **Tidak Ada SDK yang Dibutuhkan**: Dompet eksisting bekerja secara native tanpa modifikasi\n- **Layer Dasar**: Menyediakan infrastruktur blockchain dasar, tidak hanya layer pengalaman pengguna\n\nPush Chain adalah blockchain universal sementara Particle Network adalah layanan abstraksi dompet.\n\n---",
       "englishChecksum": "5f9fd560753afe99e2d4f16cf66c94a7",
-      "lastUpdated": "2026-01-16T16:30:40.555Z"
+      "lastUpdated": "2026-01-23T00:19:28.281Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
-      "value": "## Token Related",
+      "value": "## Token Berhubungan",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2026-01-16T16:30:42.756Z"
+      "lastUpdated": "2026-01-23T00:19:30.490Z"
     },
     "components.short-faq-snippet.section-aria-label": {
       "value": "Pertanyaan umum tentang Push Chain - Blokchain Universal",
       "englishChecksum": "47c2141cd8381a063c08207a94b28b6f",
-      "lastUpdated": "2026-01-16T16:30:44.187Z"
+      "lastUpdated": "2026-01-23T00:19:32.190Z"
     },
     "notifications.rewards-notification.image-alt": {
-      "value": "Hadiah Jaringan Push Chain Testnet - Bangun Aplikasi Universal",
+      "value": "Blokchain Uji Coba Push - Bangun Aplikasi Universal",
       "englishChecksum": "7e5ffae122997a63a81105184b921cb1",
-      "lastUpdated": "2026-01-16T16:30:47.101Z"
+      "lastUpdated": "2026-01-23T00:19:33.660Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
       "value": "## Pengembang, Pengguna dan Operator Node",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-01-16T16:30:49.682Z"
+      "lastUpdated": "2026-01-23T00:19:36.112Z"
     },
     "pages.donutsecret.seo.description": {
-      "value": "Beta tertutup eksklusif bagi pembuat. klaim kartu Donat Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci hadiah awal.",
+      "value": "Beta tertutup eksklusif untuk pembuat. Klaim kartu Donut Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci Hadiah dini.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
-      "lastUpdated": "2026-01-16T16:30:52.271Z"
+      "lastUpdated": "2026-01-23T00:19:38.419Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Bangun — Panduan & Tutorial",
@@ -1945,6 +1944,30 @@
       "value": "{token} jaringan utama telah diluncurkan!",
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
       "lastUpdated": "2026-01-16T19:56:43.850Z"
+    },
+    "pages.cult.seo.og-description": {
+      "englishChecksum": "45df3c59f89f6db4545500d75622968e",
+      "lastUpdated": "2026-01-23T00:19:48.212Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
+      "value": "Kasus Khusus",
+      "englishChecksum": "c2a1ad99f32bf4e873aac3caf9f4b836",
+      "lastUpdated": "2026-01-22T20:33:38.870Z"
+    },
+    "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.items.hodl-fun.title": {
+      "value": "Hodl.fun",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-01-22T20:33:41.481Z"
+    },
+    "header.community.link8.text": {
+      "value": "Kemahasiswaan Push",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:27:39.725Z"
+    },
+    "header.community.link8.title": {
+      "value": "Lihatlah Push Cult - Program untuk kreator dengan hadiah token sebesar 20M",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:27:42.751Z"
     }
   }
 }

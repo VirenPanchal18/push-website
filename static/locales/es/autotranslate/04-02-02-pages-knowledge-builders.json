@@ -5,11 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "Casos de Estudio",
+              "universal-apps": {
                 "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "Apps Posibles Solo con शेयर्ड-स्टेट - Vol. 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "Aplicaciones Posibles Solo con शेयर्ड-स्टेट - Vol. 2"
                   }
                 }
               }

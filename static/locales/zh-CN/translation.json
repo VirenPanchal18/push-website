@@ -3,6 +3,177 @@
     "site-name": "区块链 — 通用 L1 应用平台",
     "site-description": "共享状态 L1，适用于通用的 app。一次部署，触达任意链上的用户。使用任意钱包。使用任意代币支付。无需切换网络。"
   },
+  "header": {
+    "community": {
+      "link8": {
+        "subtext": "一个为创作者准备的，拥有2000万代币奖励的计划",
+        "text": "推动文化",
+        "title": "查看推动文化 - 面向创作者的计划，总奖励20M代币"
+      },
+      "title": "社区",
+      "aria-label": "社区版块",
+      "link7": {
+        "text": "生态系统",
+        "subtext": "探索基于 Push Chain 的应用",
+        "title": "探索基于 Push Chain 构建的 app"
+      },
+      "link1": {
+        "text": "知识库",
+        "subtext": "深入了解功能细节",
+        "title": "探索全面的 Push Chain 文档和功能指南"
+      },
+      "link2": {
+        "text": "LFPush",
+        "subtext": "精选的 Push 社区推文 #LFPush",
+        "title": "Push 社区精选推文 #LFPush"
+      },
+      "link3": {
+        "text": "代币经济学",
+        "subtext": "原生代币，驱动 Push Chain 上的一切",
+        "title": "了解 Push Chain 代币经济学和 $PC 代币效用"
+      },
+      "link4": {
+        "text": "X/Twitter",
+        "subtext": "关注更新和生态系统新闻",
+        "title": "关注 Push Chain 在 X (Twitter) 上的最新动态和公告"
+      },
+      "link5": {
+        "text": "Discord",
+        "subtext": "和社区聊天、建设和互动",
+        "title": "加入 Push Chain 社区的 Discord 频道参与讨论和获取支持"
+      },
+      "link6": {
+        "text": "Telegram",
+        "subtext": "加入讨论，随时了解最新动态",
+        "title": "加入Push Chain社区的Telegram，获取实时更新"
+      }
+    },
+    "meta": {
+      "logo-aria-label": "Push Chain - 导航到首页",
+      "language-icon-alt": "选择语言的图标",
+      "hamburger-menu-alt": "打开导航菜单",
+      "testnet-badge-alt": "Push Chain 测试网 Donut - 查看测试网状态"
+    },
+    "logo": {
+      "imagealt": "Push Chain Logo 的图片",
+      "imagetitle": "Push Chain Logo",
+      "ctatitle": "跳转到 Push Chain 首页"
+    },
+    "testnet": {
+      "title": "测试网",
+      "aria-label": "测试网部分",
+      "link1": {
+        "text": "Push Scan",
+        "subtext": "区块链的 Push Chain 浏览器",
+        "title": "探索 Push Chain 测试网的交易和区块，尽在 Push Scan"
+      },
+      "link2": {
+        "text": "领取水龙头",
+        "subtext": "获取测试网代币",
+        "title": "获取 Push Chain 开发的免费测试网代币"
+      },
+      "link3": {
+        "text": "生态系统",
+        "subtext": "查看在 Push Chain 上构建的app",
+        "title": "查看构建在区块链上的应用"
+      }
+    },
+    "developers": {
+      "title": "开发者",
+      "aria-label": "开发者专区",
+      "link1": {
+        "text": "开始使用",
+        "subtext": "Push Chain 构建入门",
+        "title": "开始在 Push Chain 上构建通用 app - 开发者文档"
+      },
+      "link2": {
+        "text": "快速上手",
+        "subtext": "几秒钟设置开发环境",
+        "title": "快速入门指南 - 立即设置 Push Chain 开发环境"
+      },
+      "link6": {
+        "text": "生态系统",
+        "subtext": "查看构建在区块链上的应用",
+        "title": "查看基于区块链的app"
+      },
+      "link3": {
+        "text": "教程",
+        "subtext": "使用 Push 构建的分步指南",
+        "title": "通过实践教程学习 - 在 Push Chain 上构建您的第一个 universal app"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "查看核心代码和开源工具",
+        "title": "在 GitHub 上探索 Push Chain 源代码和开发工具"
+      },
+      "link5": {
+        "text": "开发者 Discord",
+        "subtext": "加入开发者社区",
+        "title": "加入 Push Chain 开发者社区的 Discord，获取支持和协作"
+      }
+    },
+    "resources": {
+      "title": "资源",
+      "aria-label": "资源区",
+      "link1": {
+        "text": "博客",
+        "subtext": "更新、深入分析和开发者故事",
+        "title": "阅读区块链博客，了解最新动态、技术深度分析和开发者故事"
+      },
+      "link2": {
+        "text": "轻白皮书",
+        "subtext": "愿景与技术，一见即懂",
+        "title": "阅读 Push Chain Litepaper - 简化的愿景和技术概述"
+      },
+      "link3": {
+        "text": "常见问题",
+        "subtext": "快速解答常见问题",
+        "title": "浏览关于区块链的常见问题"
+      }
+    },
+    "language": {
+      "title": "语言",
+      "aria-label": "语言选择下拉菜单"
+    },
+    "app-button": {
+      "text": "Push Portal",
+      "title": "访问 Push Portal - 作为开发者、用户或验证者赚取积分"
+    },
+    "explore": {
+      "title": "探索",
+      "aria-label": "探索板块",
+      "link1": {
+        "text": "开始体验",
+        "subtext": "简介：在 Push Chain 上构建",
+        "title": "开始构建"
+      },
+      "link2": {
+        "text": "快速上手",
+        "subtext": "几秒钟设置开发环境",
+        "title": "快速上手"
+      },
+      "link3": {
+        "text": "教程",
+        "subtext": "逐步指南，教您如何使用 Push 构建",
+        "title": "通过教程学习"
+      },
+      "link4": {
+        "text": "GitHub",
+        "subtext": "查看核心代码和开源工具",
+        "title": "探索 Push Chain"
+      },
+      "link5": {
+        "text": "开发者 Discord",
+        "subtext": "与开发者社区连接",
+        "title": "加入 Discord"
+      },
+      "link6": {
+        "text": "探索示例",
+        "subtext": "探索示例",
+        "title": "探索示例"
+      }
+    }
+  },
   "footer": {
     "email-section": {
       "title": "随时关注 Push Chain",
@@ -163,35 +334,27 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "案例研究",
-                "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
-                  }
-                }
-              },
-              "builders-intro": {
-                "items": {
-                  "intro": "## 建设者\n\n准备在 Push Chain 上构建吗？这里有资源帮助您启动并取得进展。",
-                  "curated-reads": "## 精选阅读 👇"
-                }
-              },
               "universal-apps": {
-                "title": "构建通用应用程序吧！💪",
                 "items": {
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "只有通过共享状态才能实现的 app - Vol. 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "只有在共享状态下才能实现的app - Vol. 2"
+                  },
                   "apps-of-the-future": {
                     "title": "未来的应用 — 在无序中建设"
                   },
                   "consumer-apps-that-can-be-built-on-push-chain": {
                     "title": "消费者应用程序 🫶 Push Chain？"
-                  },
-                  "apps-only-possible-with-shared-state-v1": {
-                    "title": "只有共享状态才可能的应用程序 - 卷一"
-                  },
-                  "apps-only-possible-with-shared-state-v2": {
-                    "title": "共享状态下唯一可能的应用程序 - 卷2"
                   }
+                },
+                "title": "构建通用应用程序吧！💪"
+              },
+              "builders-intro": {
+                "items": {
+                  "intro": "## 建设者\n\n准备在 Push Chain 上构建吗？这里有资源帮助您启动并取得进展。",
+                  "curated-reads": "## 精选阅读 👇"
                 }
               },
               "developer-resources": {
@@ -205,6 +368,14 @@
                   },
                   "testnet-explorer": {
                     "title": "推送测试网区块链资源浏览器"
+                  }
+                }
+              },
+              "case-studies": {
+                "title": "案例研究",
+                "items": {
+                  "hodl-fun": {
+                    "title": "Hodl.fun"
                   }
                 }
               }
@@ -320,7 +491,7 @@
                   "why-unique-for-users": "### 为什么 Push Chain 对用户来说是独特的？\n\nPush Chain 解决了现有区块链中的特定问题，例如互操作性、跨链状态访问、可编程求解器和钱包抽象，从而实现**真正的全栈互操作性**。 虽然现有的区块链很强大，但它们在自己的生态系统中运行，并且需要一个聚合器来统一这些链。 \n\nPush Chain 的重点是成为一个**共享状态链**，用于通用（可互操作的）应用，充当一个统一层，所有链都可以汇聚到一起，并将 Push Chain 用作通用中心或在它们之间进行结算。\n\n它提供了一种新的 Web3 范式，可以从**Any Chain（任何链）**开始。适用于**Any Wallet / User（任何钱包/用户）**。 并且适用于**Any App（任何应用）**。\n\n---",
                   "core-innovations": "### Push Chain 的创新之处是什么？\n\n![Push Chain Architecture](/assets/website/chain/knowledge/faq/pcoverview.webp)\n\nPush Chain 是一个权益证明 Layer 1，旨在消除所有区块链之间的碎片化。在其底层，它结合了几个关键创新：\n\n- **通用的智能合约**  \n  100% EVM 兼容的智能合约，无需任何**链上代码更改**即可部署。一旦部署，它们就能立即与所有链上的用户兼容。\n\n- **真正的通用链**  \n  原生支持所有链，并使用户能够与同一个 app 进行交互。无需集中式中继器、桥接或其他技巧。\n\n- **通用的费用和钱包抽象**  \n  允许用户无需担心 gas 或钱包机制，即可从任何链与 app 进行交互。\n\n- **为任何链的单次交易**  \n  无论用户在哪条链上，他们只需要签名一次交易。\n\n- **通用的 EVM**  \n  Push Chain 足够智能，能够原生识别其他链上的用户，并正确地归因和映射交易。\n\n总之，这些特性让您可以构建**通用的 web3 app**。用户不再是 “以太坊上的 Uniswap” 或 “Polygon 上的 Uniswap”，而仅仅是 **Uniswap 的用户** — 就这样。\n\n---",
                   "problems-solved": "### Push Chain 解决什么问题？\n\n- **碎片化**  \n  将 EVM 和非 EVM 链整合到一个共享状态 L1 下，用户无需在网络或钱包之间跳转。\n\n- **互操作性**  \n  原生支持来自任何区块链的 transactions 和链上共享状态。\n\n- **最终性**  \n  ~1-2 秒的即时、不可逆的本地 finality – 无需等待或 reorg。\n\n- **Onboarding & UX**  \n  社交/email 登录，支持任何 token 的 gas 和任何钱包，实现跨链的零摩擦访问。\n\n- **Universal Apps**  \n  一次构建，随处部署 — 任何 web3 app 都能为任何链上的任何用户无缝工作。\n\n---",
-                  "what-apps-can-build": "### 什么应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无穷。以下是几个旗舰示例：\n\n- **通用DEX**  \n  通过抽象路由在所有链上实现单一交易界面的流动性池–速度和UX像CEX一样快捷舒适。\n\n- **通用DeFi**  \n  浏览器中的全球银行：跨生态系统的借贷、抵押贷款、收益聚合器，无需手动桥接。\n\n- **通用AI代理**  \n  自主代理，可以在任何链上支付并获取任何令牌–适用于订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理，令牌持有者投票和执行提案，不论其源链如何。\n\n- **通用游戏**  \n  多玩家比赛和跨链游戏经济，统一来自Ethereum、Solana、Polygon等的玩家和资产。\n\n- **通用市场**  \n  在单一集成市场中买卖和交易NFTs和令牌，涵盖所有链。\n\n- **通用名称服务**  \n  人类可读的名称，可以在多个区块链上解析到钱包。\n\nPush Chain 上可以构建的应用和创新无穷无尽！查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。开发者也可以检查[文档中心](/docs/)开始操作。\n\n---",
+                  "what-apps-can-build": "### 什么样的应用可以在Push Chain上构建？\n\n![共享状态应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无穷。以下是一些旗舰示例：\n\n- **通用DEX**  \n  一次交易UI，涵盖所有流动池–跨链路由，速度和CXO体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借款、收益聚合器跨链而不需手动桥接。\n\n- **通用AI代理人**  \n  自治代理，在任何代币、任何链上支付和赚取–完美适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：token持有者投票和执行无关其源链。\n\n- **通用游戏**  \n  多玩家锦标赛和跨链游戏经济，统一玩家和资产来自Ethereum、Solana、Polygon等。\n\n- **通用市场**  \n  买卖和交易NFTs和代币的集成市场。\n\n- **通用名称服务**  \n  多链钱包解析的人类可读名称。\n\n在Push Chain上可以构建的应用和创新无穷！查看更多[使用案例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以开始。开发者也可以查看[文档中心](/docs/）开始。\n\n---",
                   "technical-section": "## 技术",
                   "why-not-an-l2": "### 为什么选择 L1 而不是 L2？\n\nPush Chain 旨在作为所有其他区块链的 **共享结算层** 和 **通用执行层** — 只有独立的 L1 才能实现这些角色：\n\n- **原生跨链结算**  \n  作为 L1，Push Chain 可以直接最终确定来自任何链的交易，而无需依赖外部安全模型或欺诈证明。\n\n- **通用执行与状态访问**  \n  运行自身共识和状态机使 Push Chain 能够解释和执行来自以太坊、Solana 等链的交易 — L2 无法原生实现此功能，因为它与单个基础层绑定。\n\n- **无 L2 限制或延迟**  \n  L2 继承其宿主链的延迟、最终性规则和 gas 模型（以及桥接开销）。Push Chain 通过在基础层提供即时最终性和通用费用抽象来避免这些瓶颈。\n\n- **真正的共享状态**  \n  要在智能合约中读取和写入多个链的状态，您需要直接的、协议层面的访问 — 只有在 L1 层才能实现。\n\n简而言之，只有专用的 L1 才能在不增加额外复杂性或信任假设的情况下将每个链统一到一个连贯的执行和结算层下。\n\n---",
                   "evm-compatibility": "### Push Chain 是否兼容 EVM？\n\n是的，Push Chain **兼容 EVM**，而且功能更多。它支持：\n\n- **EVM 智能合约**: 像在以太坊上一样部署 Solidity 合约\n- **以太坊工具**: 使用 MetaMask、Hardhat、Remix 和其他熟悉的工具\n- **Universal 扩展**: 额外的预编译，用于跨链功能\n- **多 VM 支持**: (Roadmap) 支持其他 VM，例如 SVM (Solana)、MoveVM 等。\n\n这意味着开发者可以：\n- 移植现有的以太坊 DApp，只需进行少量更改\n- 使用熟悉的开发流程和工具\n- 通过 Push Chain 的 universal 特性访问增强的跨链功能\n\n实际上，来自任何链上的用户和应用都可以无缝地与 Push Chain 应用交互，无论其底层的 VM 如何。\n\n---",
@@ -344,7 +515,7 @@
                   "vs-polkadot": "### Push Chain 与 Polkadot 有什么不同？\n\n**Polkadot（波卡）：**\n- **平行链模式**: 连接的链的插槽有限\n- **中继链依赖**: 所有平行链依赖于中继链的安全\n- **Substrate 框架**: 需要特定的开发框架\n- **拍卖系统**: 昂贵的平行链插槽拍卖\n\n**Push Chain：**\n- **通用支持**: 原生支持任何现有链\n- **独立安全**: 自己的共识和 validator set\n- **EVM 兼容**: 使用现有的以太坊工具和合约\n- **无需拍卖**: 直接集成，无需竞争竞标\n\nPush Chain 直接与现有链集成，而 Polkadot 需要将链重建为平行链。\n\n---",
                   "token-section": "## 代币相关",
                   "new-token": "### Push Chain 是否会推出新的代币？\n\n作为新的Layer 1，Push Chain 将拥有自己的原生代币，其代币经济模型适合区块链的运行、维护和安全性。\n\n有关完整详情，请参阅我们的 [代币经济学深度分析](/knowledge/tokenomics/) 👀。\n\n---",
-                  "developers-section": "## 开发人员、用户和节点运营商",
+                  "developers-section": "## 开发者、用户和节点运营者",
                   "early-adopter-incentives": "### **区块链**上是否有针对早期采用者或节点运营商的激励措施？\n\n节点运营商一旦 **mainnet** 上线，将获得 **staking rewards**，并鼓励参与 **Push Points Program** 以赚取奖励。\n\n鼓励早期采用者参与 **Push Points Program** 以赚取奖励。从访问 [Push Portal](https://portal.push.org/) 开始。\n\n---",
                   "developer-user-benefits": "### Push Chain 为开发者和用户提供哪些好处？\n\n**🧙 对于开发者**\n\n- **一次部署，十倍覆盖**  \n将您的 App 部署一次即可——无需更改代码——它可以在每个支持的链上运行，即使是非 EVM 网络。\n\n- **便于审计，100% EVM 兼容**  \n利用现有的 Solidity 合约，无需额外的审计或重写——将预算集中在功能上，而非基础设施。\n\n- **统一、无摩擦的用户体验**  \n用户只需签名一笔交易，可以使用任何 token 支付，并通过任何钱包进行交互——您的 App 可以在任何地方正常工作。\n\n- **闪电般快速的开发体验**  \n使用我们的 SDK、虚拟编辑器和 React 游乐场启动；从零到上线只需几分钟。\n\n**🦹 对于用户**\n\n- **一键注册**  \n使用电子邮件、社交媒体或任何现有钱包登录——无需助记词或链上跳转。\n\n- **无缝交互**  \n隐藏了 gas、钱包和链的复杂性——享受应用程序，就好像它们是您网络的本地应用程序一样。\n\n- **我们速度很快**  \n交易在 1-2 秒内完成，感觉就像在您所在的链上一样。\n\n---",
                   "how-to-build": "### 如何开始在 Push Chain 上开发？\n\n🚀 访问我们的 [文档中心](/docs/) 以获取您需要的一切：\n\n- 🖥️ **虚拟代码编辑器**: 在浏览器中启动 SDK 函数调用  \n- ⚛️ **React Playground**: 实时原型化您的前端  \n- 📚 **端到端示例**: 按照完整的项目演练  \n\n您可以在几分钟内启动一个示例应用—无需本地设置！\n\n---",
@@ -705,7 +876,7 @@
     "privacymobile": {
       "seo": {
         "title": "移动隐私政策",
-        "description": "我们如何收集、使用和保护推链移动应用中的数据，以及您的选择。",
+        "description": "如何收集、使用和保护推链移动应用程序数据，以及您的选择。",
         "og-title": "Push Chain 移动隐私政策 - App 数据保护",
         "og-description": "我们移动应用的数据实践和您的权利。",
         "twitter-title": "移动隐私政策 - Push Chain",
@@ -749,6 +920,24 @@
         "og-description": "开发者早期访问：申领封闭 Beta Pass，试用 Push Chain (Donut)，并在构建通用app的过程中赚取奖励。",
         "twitter-title": "嘘… Donut Testnet — 封闭 Beta",
         "twitter-description": "仅限受邀构建者访问。领取您的通行证，试用 Push Chain (Donut)，并获得奖励。🍩"
+      }
+    },
+    "cult": {
+      "seo": {
+        "title": "Push Cult — 为 Signal 驱动的内容创建者的计划",
+        "description": "Push Cult 是 Push Chain 的一个仅限邀请的创作者计划。50 位创作者。2000 万 $PC 代币。没有噪音，只有可衡量的影响。",
+        "og-title": "Push Cult - 为 Signal 构建的创作者计划",
+        "og-description": "一个仅邀请制的50位创作者组织，通过推动 Push Chain 的实际使用和信念，从 20M $PC 代币奖励中获益。",
+        "twitter-title": "Push Cult - Push Chain 的创作者计划",
+        "twitter-description": "50 位创作者。2000 万 $PC 代币。没有垃圾信息。没有虚假指标。Push Cult 奖励真正的信号和真正的价值。"
+      },
+      "hero-section": {
+        "title": "Push Cult - 为创作者而生的血盟协议",
+        "subtitle": "一个精选的 yappers 社区。专为有效信息而建，而非垃圾信息。",
+        "description-paragraph-1": "加密世界充斥着噪音。时间线被AI垃圾和空洞的互动所腐蚀。Push Cult拒绝这种衰败。我们不寻求喧嚣，我们寻求有远见的人。我们正在册封那些用真相引导羊群的牧羊人。不是更响亮，不是更广泛，而是纯粹的信号。",
+        "description-paragraph-2": "立即申请，有机会加入该组织。排名前50的优质创作者将平分",
+        "bounty-amount": "20,000,000 $PC",
+        "description-paragraph-2-end": "奖励。"
       }
     },
     "home": {
@@ -1062,7 +1251,7 @@
           "answer": "<1>使用你已有的钱包 — Push 会在幕后处理跨链部分。</1><1>1. <2>从任何地方开始。</2> 使用任何链上的任何钱包 — 无需切换网络。</1><1>2. <2>仅需一次签名。</2> 使用你已持有的代币付款；我们会为你主链预留费用。</1><1>3. <2>我们会进行路由。</2> Push 上一个关联的账户（仍然属于你）会将你的调用转发给app — 非托管。</1><1>4. <2>你始终是你自己。</2> 我们将你主链钱包与你关联的账户匹配，以便正确验证操作并将操作归因于你在 Push 上的身份。</1><1>5. <2>快速完成。</2> app 在 Push 上运行；费用在幕后处理。无需桥接，无需新钱包。</1><1>这样，任何链上的用户都可以使用部署在 Push Chain 上的相同app — 使app真正实现universal。</1>"
         },
         "qna3": {
-          "question": "我需要不同的钱包或燃料代币吗？",
+          "question": "我需要不同的钱包或gas代币吗？",
           "answer": "<1><2>不用。</2></1><1><2>请保管好您的钱包。</2>使用您已有的钱包——无需创建新的钱包或帐户。</1><1><2>用您持有的资产支付。</2>费用可以用您在主网已有的代币支付；我们会在后台处理转换。</1><1><2>无需切换网络。</2>留在您的主网上——无需为了获取 gas 代币而进行跨链。</1><1><2>非托管。</2>您签署每个操作；Push 从不持有您的密钥。</1><1><2>在底层进行。</2>网络会自动结算 $PC 费用——您无需管理它。</1>"
         },
         "qna4": {
@@ -1357,6 +1546,118 @@
         "social-youtube": "YouTube",
         "social-linkedin": "领英"
       }
+    },
+    "cult-contact": {
+      "collapsed-text": "🩸 加入 Push Cult - 宣誓",
+      "expanded-title": "誓约",
+      "form": {
+        "steps": {
+          "email": {
+            "title": "请输入您的邮箱地址？📧",
+            "subtitle": "我们需要这个来联系您",
+            "placeholder": "your.email@example.com"
+          },
+          "x-username": {
+            "title": "您的 X (Twitter) 用户名是什么？",
+            "subtitle": "我们想看看您的内容和互动",
+            "placeholder": "@您的用户名"
+          },
+          "telegram-id": {
+            "title": "您的 Telegram ID 是什么？",
+            "subtitle": "我们使用Telegram与信徒进行直接沟通",
+            "placeholder": "@yourtelegramid"
+          },
+          "best-content": {
+            "title": "分享您最优质的内容",
+            "subtitle": "链接到你最好的帖子、视频或文章，以展示你的作品",
+            "placeholder": "https://x.com/yourhandle/status/..."
+          },
+          "message": {
+            "title": "分享你的愿景",
+            "subtitle": "请告诉我们您的内容、受众以及您希望加入的原因",
+            "placeholder": "请告诉我们您的内容、受众以及您想加入Push Cult的原因..."
+          }
+        },
+        "buttons": {
+          "next": "下一步",
+          "previous": "上一步",
+          "submit": "提交申请",
+          "submitting": "提交中..."
+        },
+        "validation": {
+          "email-required": "邮箱必填",
+          "email-invalid": "请输入有效的电子邮件地址",
+          "x-username-required": "需要 X 用户名",
+          "telegram-id-required": "需要 Telegram ID",
+          "best-content-required": "需要提供最佳内容链接",
+          "best-content-invalid": "请输入有效的URL",
+          "message-required": "消息不能为空",
+          "default": "此字段必填"
+        },
+        "success": {
+          "title": "申请提交成功！",
+          "message-before-link": "加入",
+          "discord-link-text": "Push Chain Discord",
+          "message-after-link": "并请关注",
+          "channel-name": "#push-cult",
+          "message-end": "用于后续步骤的渠道。",
+          "button": "提交另一份申请"
+        },
+        "progress": {
+          "step-counter": "{{current}} / {{total}}"
+        }
+      }
+    },
+    "short-cult-snippet": {
+      "section-aria-label": "Push Cult - 为创作者献血的血盟",
+      "title": "信徒\n指南",
+      "title-aria-label": "Push Cult 弟子指南和要求",
+      "discord-link-text": "加入 Discord 上的 Cult 社区",
+      "discord-link-title": "加入 Push Chain Discord #push-cult 频道",
+      "discord-link-aria-label": "在新标签页中打开 Discord 社区",
+      "explore-more-text": "查看完整Pact",
+      "explore-more-title": "阅读完整的 Push Cult 清单和项目详情",
+      "explore-more-aria-label": "跳转到完整的 Push Cult 博客文章",
+      "accordion-aria-label": "Push Cult 指南和要求",
+      "answer-aria-label": "回答问题 - ",
+      "qnas": {
+        "qna1": {
+          "question": "什么是 Push Cult？",
+          "answer": "<1>Push Cult 是一个精挑细选的、仅限邀请的计划，为 <2>50 位精英创作者</2> 提供纯粹的信号，而非垃圾信息。</1><1>我们奖励有远见卓识的引领者，他们通过帖子、视频或文章引导他们的社群，真诚地与受众建立联系。</1><1>排名前 50 的门徒将根据可衡量的影响力瓜分 <2>20,000,000 PC 奖金</2>。</1>",
+          "discord-url-title": "加入 Push Chain Discord。",
+          "support-url-title": "了解更多关于该计划的信息。"
+        },
+        "qna2": {
+          "question": "谁应该申请？",
+          "answer": "<1><2>创作者，他们：</2>已经创作指南、帖子或解释，拥有活跃的受众（不一定很大）。</1><1><2>关心：</2>交付清晰而非炒作，建设遗产而非快速交易。</1><1><2>想要尽早：</2>宣传 Push Chain 的 Universal Execution 时代，并将信徒带入 Season 3。</1><1>如果您寻求快速交易，请离开。如果您寻求建设遗产，<3>向前一步</3>.</1>",
+          "scan-url-title": "申请加入 Push Cult",
+          "support-url-title": "阅读完整的宣言。"
+        },
+        "qna3": {
+          "question": "门徒是如何选拔和评估的？",
+          "answer": "<1>我们限制在<2>50 名信徒</2>以内，以确保专注。参与度每周更新，取决于您的<2>虔诚度</2>。<1><2>虔诚度</2>结合了：信号（触达范围）、聚集（新信徒入会）、信仰（留存率）和工艺（手动审核）。</1><1>如果您的分数低于阈值，您将被轮换出去。优秀的创作者在质量上竞争，而不是数量。</1>",
+          "faucet-url-title": "了解评估标准。",
+          "discord-url-title": "在 Discord 上提问。"
+        },
+        "qna4": {
+          "question": "信徒们实际上都在做什么？",
+          "answer": "<1>用<2>你喜欢的格式</2>创作内容。可以是帖子、视频、文章或任何适合你的风格。你的任务：解释 Push Chain 的概念，引导用户通过 Testnet，引导用户参与 Season 3。<1>我们提供：每周任务、主题和在公开之前提供的 alpha 信息。你塑造叙事。</1><1>垃圾信息化为灰烬。只有真相才能幸存。</1>",
+          "support-url-title": "查看内容示例。",
+          "discord-url-title": "加入 Discord。"
+        },
+        "qna5": {
+          "question": "有哪些奖励？",
+          "answer": "<1><2>表现优异者将获得：</2> 20M $PC 奖励池的保证分配，以及主网上 Ultra Rare Shiny Pass。</1><1><2>Shiny Pass 授予：</2> 链费收入分成、验证者奖励参与、staking 倍数和 VIP 生态系统特权。</1><1>排名决定收获。没有参与奖。</1>",
+          "docs-url-title": "了解奖励。",
+          "kb-url-title": "阅读代币经济学。"
+        },
+        "qna6": {
+          "question": "如何加入？",
+          "answer": "<1>大门已开，证明你的奉献，<3>立即申请</3>.</1><1>注册将使您获得程序详细信息、评估机制和初步入职步骤。</1><1>从那里，<2>表现决定一切</2>.</1>",
+          "contact-url-title": "申请加入 Push Cult",
+          "github-url-title": "阅读完整的 pact。"
+        }
+      }
     }
   },
   "notifications": {
@@ -1395,172 +1696,6 @@
       "close-button-title": "关闭提示",
       "close-button-aria-label": "关闭 Push MetaMask Snap 警报",
       "container-aria-label": "Push MetaMask Snap announcement"
-    }
-  },
-  "header": {
-    "meta": {
-      "logo-aria-label": "Push Chain - 导航到首页",
-      "language-icon-alt": "选择语言的图标",
-      "hamburger-menu-alt": "打开导航菜单",
-      "testnet-badge-alt": "Push Chain 测试网 Donut - 查看测试网状态"
-    },
-    "logo": {
-      "imagealt": "Push Chain Logo 的图片",
-      "imagetitle": "Push Chain Logo",
-      "ctatitle": "跳转到 Push Chain 首页"
-    },
-    "testnet": {
-      "title": "测试网",
-      "aria-label": "测试网部分",
-      "link1": {
-        "text": "Push Scan",
-        "subtext": "区块链的 Push Chain 浏览器",
-        "title": "探索 Push Chain 测试网的交易和区块，尽在 Push Scan"
-      },
-      "link2": {
-        "text": "领取水龙头",
-        "subtext": "获取测试网代币",
-        "title": "获取 Push Chain 开发的免费测试网代币"
-      },
-      "link3": {
-        "text": "生态系统",
-        "subtext": "查看在 Push Chain 上构建的app",
-        "title": "查看构建在区块链上的应用"
-      }
-    },
-    "developers": {
-      "title": "开发者",
-      "aria-label": "开发者专区",
-      "link1": {
-        "text": "开始使用",
-        "subtext": "Push Chain 构建入门",
-        "title": "开始在 Push Chain 上构建通用 app - 开发者文档"
-      },
-      "link2": {
-        "text": "快速上手",
-        "subtext": "几秒钟设置开发环境",
-        "title": "快速入门指南 - 立即设置 Push Chain 开发环境"
-      },
-      "link6": {
-        "text": "生态系统",
-        "subtext": "查看构建在区块链上的应用",
-        "title": "查看基于区块链的app"
-      },
-      "link3": {
-        "text": "教程",
-        "subtext": "使用 Push 构建的分步指南",
-        "title": "通过实践教程学习 - 在 Push Chain 上构建您的第一个 universal app"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "查看核心代码和开源工具",
-        "title": "在 GitHub 上探索 Push Chain 源代码和开发工具"
-      },
-      "link5": {
-        "text": "开发者 Discord",
-        "subtext": "加入开发者社区",
-        "title": "加入 Push Chain 开发者社区的 Discord，获取支持和协作"
-      }
-    },
-    "community": {
-      "title": "社区",
-      "aria-label": "社区版块",
-      "link7": {
-        "text": "生态系统",
-        "subtext": "探索基于 Push Chain 的应用",
-        "title": "探索基于 Push Chain 构建的 app"
-      },
-      "link1": {
-        "text": "知识库",
-        "subtext": "深入了解功能细节",
-        "title": "探索全面的 Push Chain 文档和功能指南"
-      },
-      "link2": {
-        "text": "LFPush",
-        "subtext": "精选的 Push 社区推文 #LFPush",
-        "title": "Push 社区精选推文 #LFPush"
-      },
-      "link3": {
-        "text": "代币经济学",
-        "subtext": "原生代币，驱动 Push Chain 上的一切",
-        "title": "了解 Push Chain 代币经济学和 $PC 代币效用"
-      },
-      "link4": {
-        "text": "X/Twitter",
-        "subtext": "关注更新和生态系统新闻",
-        "title": "关注 Push Chain 在 X (Twitter) 上的最新动态和公告"
-      },
-      "link5": {
-        "text": "Discord",
-        "subtext": "和社区聊天、建设和互动",
-        "title": "加入 Push Chain 社区的 Discord 频道参与讨论和获取支持"
-      },
-      "link6": {
-        "text": "Telegram",
-        "subtext": "加入讨论，随时了解最新动态",
-        "title": "加入Push Chain社区的Telegram，获取实时更新"
-      }
-    },
-    "resources": {
-      "title": "资源",
-      "aria-label": "资源区",
-      "link1": {
-        "text": "博客",
-        "subtext": "更新、深入分析和开发者故事",
-        "title": "阅读区块链博客，了解最新动态、技术深度分析和开发者故事"
-      },
-      "link2": {
-        "text": "轻白皮书",
-        "subtext": "愿景与技术，一见即懂",
-        "title": "阅读 Push Chain Litepaper - 简化的愿景和技术概述"
-      },
-      "link3": {
-        "text": "常见问题",
-        "subtext": "快速解答常见问题",
-        "title": "浏览关于区块链的常见问题"
-      }
-    },
-    "language": {
-      "title": "语言",
-      "aria-label": "语言选择下拉菜单"
-    },
-    "app-button": {
-      "text": "Push Portal",
-      "title": "访问 Push Portal - 作为开发者、用户或验证者赚取积分"
-    },
-    "explore": {
-      "title": "探索",
-      "aria-label": "探索板块",
-      "link1": {
-        "text": "开始体验",
-        "subtext": "简介：在 Push Chain 上构建",
-        "title": "开始构建"
-      },
-      "link2": {
-        "text": "快速上手",
-        "subtext": "几秒钟设置开发环境",
-        "title": "快速上手"
-      },
-      "link3": {
-        "text": "教程",
-        "subtext": "逐步指南，教您如何使用 Push 构建",
-        "title": "通过教程学习"
-      },
-      "link4": {
-        "text": "GitHub",
-        "subtext": "查看核心代码和开源工具",
-        "title": "探索 Push Chain"
-      },
-      "link5": {
-        "text": "开发者 Discord",
-        "subtext": "与开发者社区连接",
-        "title": "加入 Discord"
-      },
-      "link6": {
-        "text": "探索示例",
-        "subtext": "探索示例",
-        "title": "探索示例"
-      }
     }
   }
 }

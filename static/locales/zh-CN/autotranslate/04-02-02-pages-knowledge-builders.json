@@ -5,11 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "case-studies": {
-                "title": "案例研究",
+              "universal-apps": {
                 "items": {
-                  "hodl-fun": {
-                    "title": "Hodl.fun"
+                  "apps-only-possible-with-shared-state-v1": {
+                    "title": "只有通过共享状态才能实现的 app - Vol. 1"
+                  },
+                  "apps-only-possible-with-shared-state-v2": {
+                    "title": "只有在共享状态下才能实现的app - Vol. 2"
                   }
                 }
               }
