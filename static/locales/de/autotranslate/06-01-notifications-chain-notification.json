@@ -1,14 +1,15 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "Seien Sie der Erste, Punkte, Multiplikatoren und dauerhafte Belohnungen zu erhalten.",
-      "button-text": "Jetzt beantragen",
-      "button-title": "Jetzt Pre-launch Zugang sichern!",
-      "button-aria-label": "Erhalte jetzt Zugang vor dem Start. Du kannst es dir hier ansehen",
-      "image-alt": "Push Chain Pre-Launch Access",
+      "title": "",
+      "description": "Die 50 besten Creator erhalten eine Prämie von 20 Mio. Token. Versammle deine Anhänger. Tritt Push Cult bei!",
+      "button-text": "Jetzt bewerben",
+      "button-title": "Tritt Push Cult bei!",
+      "button-aria-label": "Tritt Push Cult bei!. Hier kannst du es dir ansehen",
+      "image-alt": "Tritt Push Cult bei!",
       "close-button-title": "Toast-Benachrichtigung schließen",
       "close-button-aria-label": "Push Chain Benachrichtigung schließen",
-      "container-aria-label": "Push Chain toast notification"
+      "container-aria-label": "Push Chain Benachrichtigung"
     }
   }
 }

@@ -1,14 +1,15 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "Jadilah yang pertama mendapatkan poin, pengganda, dan hadiah abadi.",
-      "button-text": "Ajukan Sekarang",
-      "button-title": "Dapatkan Akses Pra-Peluncuran SEKARANG",
-      "button-aria-label": "Dapatkan Akses Pra-Peluncuran SEKARANG. Anda dapat memeriksanya di sini",
-      "image-alt": "Akses Pra-Peluncuran Push Chain",
+      "title": "",
+      "description": "50 kreator teratas mendapatkan hadiah 20 juta token. Kumpulkan komunitasmu. Bergabunglah dengan Push Cult!",
+      "button-text": "Daftar Sekarang",
+      "button-title": "Bergabung dengan Push Cult!",
+      "button-aria-label": "Bergabung dengan Push Cult!. Anda dapat melihatnya di sini",
+      "image-alt": "Bergabung dengan Push Cult!",
       "close-button-title": "Tutup notifikasi",
-      "close-button-aria-label": "Tutup notifikasi toast Push Chain",
-      "container-aria-label": "Notifikasi toast Push Chain"
+      "close-button-aria-label": "Tutup notifikasi Push Chain",
+      "container-aria-label": "Notifikasi Push Chain"
     }
   }
 }

@@ -1,9 +1,13 @@
 {
   "notifications": {
     "info-bar": {
-      "title": "Daftar untuk Kelayakan Akses Pra-Peluncuran Musim 3. Terbuka untuk peserta S1 & S2.",
+      "title": "Kumpulkan komunitasmu untuk program kreator berinsentif yang terkurasi. Bergabunglah dengan Push Cult!",
       "learn-more-text": "Daftar Sekarang",
-      "learn-more-title": "Daftar Sekarang"
+      "learn-more-title": "Daftar Sekarang",
+      "dismiss-button-title": "Tutup pengumuman",
+      "dismiss-button-aria-label": "Tutup bilah pengumuman",
+      "container-aria-label": "Pengumuman situs",
+      "star-icon-alt": "Ikon bintang pengumuman"
     }
   }
 }

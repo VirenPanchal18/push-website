@@ -1,9 +1,13 @@
 {
   "notifications": {
     "info-bar": {
-      "title": "Candidate-se para a Elegibilidade do Pré-Lançamento da Temporada 3. Aberto para participantes da T1 & T2.",
-      "learn-more-text": "Candidatar-se agora",
-      "learn-more-title": "Candidatar-se Agora"
+      "title": "Reúna sua comunidade para um programa de criadores incentivado e curado. Junte-se ao Push Cult!",
+      "learn-more-text": "Inscreva-se agora",
+      "learn-more-title": "Inscreva-se agora",
+      "dismiss-button-title": "Fechar anúncio",
+      "dismiss-button-aria-label": "Fechar barra de anúncios",
+      "container-aria-label": "Anúncio do site",
+      "star-icon-alt": "Ícone de estrela do anúncio"
     }
   }
 }
