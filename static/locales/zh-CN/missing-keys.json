@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T20:34:52.973Z",
+  "lastUpdated": "2026-01-23T00:28:53.286Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1712,24 +1712,24 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n通过Push Chain的共享状态、跨链架构，可能性无限。以下是一些旗舰示例：\n\n- **通用DEX**  \n  一次交易UI覆盖所有流动性池–快速、高效的跨链路由，类似于CEX体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借贷、收益聚合商在各个生态系统之间无需手动桥接。\n\n- **通用AI代理**  \n  自主代理可以支付和获取任何令牌，完美适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理： tokens持有者无视原始链而投票并实施提案。\n\n- **通用游戏**  \n  多玩家比赛和游戏经济，统一来自以太坊、索拉纳、多边形等的玩家和资产。\n\n- **通用市场**  \n  买、卖、交易NFT和令牌的集中市场，覆盖所有链。\n\n- **通用名称服务**  \n  人类可读名称，解析至多个区块链的钱包。\n\nPush Chain上可以构建的应用和创新无限！请查看一些[更多用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)入门。开发者也可以查看[文档中心](/docs/)开始。\n\n---",
+      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![共享状态应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无穷。以下是一些旗舰示例：\n\n- **通用DEX**  \n  一次交易UI，涵盖所有流动池–跨链路由，速度和CXO体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借款、收益聚合器跨链而不需手动桥接。\n\n- **通用AI代理人**  \n  自治代理，在任何代币、任何链上支付和赚取–完美适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：token持有者投票和执行无关其源链。\n\n- **通用游戏**  \n  多玩家锦标赛和跨链游戏经济，统一玩家和资产来自Ethereum、Solana、Polygon等。\n\n- **通用市场**  \n  买卖和交易NFTs和代币的集成市场。\n\n- **通用名称服务**  \n  多链钱包解析的人类可读名称。\n\n在Push Chain上可以构建的应用和创新无穷！查看更多[使用案例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以开始。开发者也可以查看[文档中心](/docs/）开始。\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-01-22T20:32:27.501Z"
+      "lastUpdated": "2026-01-23T00:26:11.709Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
-      "value": "## 开发者、用户和节点运营商",
+      "value": "## 开发者、用户和节点运营者",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-01-22T20:32:30.011Z"
+      "lastUpdated": "2026-01-23T00:26:14.151Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "推送链移动应用中我们如何收集、使用和保护数据，以及您的选择。",
+      "value": "如何收集、使用和保护推链移动应用程序数据，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-01-22T20:32:33.715Z"
+      "lastUpdated": "2026-01-23T00:26:15.969Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "我需要一个不同的钱包或气体令牌吗？",
+      "value": "我需要不同的钱包或gas代币吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-22T20:32:35.561Z"
+      "lastUpdated": "2026-01-23T00:26:17.715Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -1920,6 +1920,16 @@
       "value": "Hodl.fun",
       "englishChecksum": "e8801f29c811d1f662071a6136828d32",
       "lastUpdated": "2026-01-22T20:34:52.690Z"
+    },
+    "header.community.link8.text": {
+      "value": "推动文化",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:28:50.300Z"
+    },
+    "header.community.link8.title": {
+      "value": "查看推动文化 - 面向创作者的计划，总奖励20M代币",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:28:53.286Z"
     }
   }
 }

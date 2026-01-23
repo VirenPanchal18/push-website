@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T20:33:58.970Z",
+  "lastUpdated": "2026-01-23T00:28:03.451Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1727,38 +1727,39 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.knowledge.push101.explainer-section.blocks.sections.why-push-chain-future.items.faq-push-chain.subtitle": {
-      "value": " Push Chain과 유니버셜 앱에 대해 궁금한 점이 있으신가요? 가장 일반적인 대답을 확인하세요.",
+      "value": "Push Chain에 대한 질문을 갖고 계신가요? Push Chain과 유니버설 앱에 대한 가장 일반적인 답변을 찾으실 수 있습니다.",
       "englishChecksum": "4d9917b7eb8ec31c7d601eb921a8f4ca",
-      "lastUpdated": "2026-01-22T20:25:59.431Z"
+      "lastUpdated": "2026-01-23T00:21:47.788Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.problems-solved": {
-      "value": "### Push 체인에서 해결하는 문제\n\n- **프라그먼테이션**\n  EVM 및 비-EVM 체인을 하나의 공유 상태 L1으로 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **인터오페라빌리티**\n  모든 블록체인에서 지원되는 트랜잭션과 온체인 공유 상태의 원생 지원을 제공합니다.\n\n- **파이널리티**\n  ~1-2초 내에 즉각적이고 đảo리지 않은 파이널리티를 제공합니다 - 기다리거나 재정렬할 필요가 없습니다.\n\n- **온보딩 및 UX**\n  소셜/이메일 로그인, 그레이스-토큰 및 지갑 지원으로 모든 체인 간 편리한 접근성을 제공합니다.\n\n- **유니버설 앱**\n  한 번 빌드, 어디에서나 배포 - 어떤 웹3 앱도 모든 사용자에게 모든 체인에서 원활하게 작동합니다.\n\n---",
+      "value": "### Push Chain이 해결하는 문제\n\n- **분산**  \nEVM &非-EVM 체인을 단일 공유 상태 L1로 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 되게 합니다.\n\n- **인터오페라빌리티**  \n원본 및 온체인 공유 상태를 지원합니다.\n\n- **최종성**  \n~1-2초 만에 즉시, 되돌릴 수 없는 원생 finalist-finality을 제공합니다. – 더 기다릴 필요도, 재조립(Reorgs) 걱정 없이!\n\n- **온보딩 & UX**  \n소셜/이메일 로그인, 토큰 및 지갑 지원으로 모든 체인의 제로 프릭션 액세스를 제공합니다.\n\n- **유니버설 앱**  \n한 번_builder_을 통해 어디서든 배포 – 어느 웹3 앱도 모든 사용자가 아무 네트워크에서나 아무런 문제 없이 작동합니다.\n\n---",
       "englishChecksum": "a46bbdbb625fb82ad7fe978556186243",
-      "lastUpdated": "2026-01-22T20:26:09.046Z"
+      "lastUpdated": "2026-01-23T00:21:57.316Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.consensus-mechanism": {
+      "value": "### Push 체인스의 Konsensus 메카니즘은 무엇입니까?\n\nPush 체인은 **증거 기반 (PoS) 코넨서스**를 사용하며, **CometBFT** 엔진을 기반으로 하여 여러 개선 사항이 있습니다:\n\n- **빠른 결말성**: ~1–2초 안에 거래가 결말되며, 재구성이 없는 결정적 결말성이 있습니다.\n- **에너지 효율성**: PoS는 PoW보다 환경 친화적인 방법입니다.\n- **밸리데이터 네트워크**: 체인을 안전하게 하는 분산된 밸리데이터 네트워크\n- **슬래싱 보호**: 경제적激励가 밸리데이터의 정직성을 보장합니다.\n\nCometBFT의 검증된 BFT konsensus는 여기서는 유니버설 거래 처리 및 크로스체인 상태 관리와 같은 독특한 요구 사항을 최적화했습니다.\n\n---",
       "englishChecksum": "56335834d49f4774c5aa232632523b92",
-      "lastUpdated": "2026-01-22T20:26:17.121Z"
+      "lastUpdated": "2026-01-23T00:22:06.005Z"
     },
     "pages.contact.hero-section.description": {
-      "value": "파트너십 & 통합, 인센티브, 미디어 & 행사, 발데이터, 법적 문제, 경력 또는 일반적인 질문에 대해 연락하세요. 기술적인 도움이 필요하거나 보안 문제에 관해 논의하려면 지원 센터를 방문해주세요.",
+      "value": "파트너십 및 통합, 장려금, 미디어 및 강연, 검증자, 법적 문제, 경력 또는 일반적인 질문—여기에 연락하세요. 기술적인 도움이 필요하거나 보안 공지를 하려면 지원 센터를 방문하세요.",
       "englishChecksum": "a77ba80c097fb24b9c109642038d3abc",
-      "lastUpdated": "2026-01-22T20:26:19.816Z"
+      "lastUpdated": "2026-01-23T00:22:21.650Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "다를까요? 가스 토큰이 필요합니까?",
+      "value": "다양한 지갑이나 가스 토큰이 필요합니까?",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-22T20:26:23.756Z"
+      "lastUpdated": "2026-01-23T00:22:13.393Z"
     },
     "components.short-faq-snippet.qnas.qna4.question": {
-      "value": "이것은 브릿지나 메시징 레이어와 어떻게 다른가요?",
+      "value": "이것은 다리나 메시지 레이어와 어떻게 다른가요?",
       "englishChecksum": "b5d86c3d717c6454f3040120ad8fd86c",
-      "lastUpdated": "2026-01-22T20:26:50.531Z"
+      "lastUpdated": "2026-01-23T00:22:15.184Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>테스트 토큰을 요청하려면 <3>페이저</3>를 사용하세요.</1><1><2>메모:</2> 속도 제한이 적용될 수 있으며 일부 페이저는 단순 확인을 요구할 수도 있습니다. 페이저가 실패하면 <4>디스코드</4>에서 알려주세요.</1>",
+      "value": "<1>테스트 토큰을 요청하려면 <3>페이즙</3>을 사용하세요.</1><1><2>참고 사항:</2> 속도 제한이 적용될 수 있으며 일부 페이즙은 간단한 인증을 요구합니다. 페이즙이 실패하면 <4>디스코드</4>에서 нам와 연락하세요.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-22T20:26:45.591Z"
+      "lastUpdated": "2026-01-23T00:22:18.986Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "빌더 — 방법 및 튜토리얼",
@@ -1954,6 +1955,16 @@
       "value": "Hodl.fun",
       "englishChecksum": "e8801f29c811d1f662071a6136828d32",
       "lastUpdated": "2026-01-22T20:33:58.959Z"
+    },
+    "header.community.link8.text": {
+      "value": " Push Cult",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:27:59.622Z"
+    },
+    "header.community.link8.title": {
+      "value": "푸시 컬트 체크 - 2억 토큰 보상으로 창조자 프로그램",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:28:03.451Z"
     }
   }
 }

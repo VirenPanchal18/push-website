@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-22T20:38:58.572Z",
+  "lastUpdated": "2026-01-23T00:27:15.098Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -2412,33 +2412,33 @@
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
     "pages.lfpush.seo.title": {
-      "value": "Faisons avancer les choses — Initiatives de la communauté",
+      "value": "Allons-y Push — Initiative communautaire",
       "englishChecksum": "7c0dbd394ef56ddb6084285538f6a976",
-      "lastUpdated": "2026-01-22T20:38:58.572Z"
+      "lastUpdated": "2026-01-23T00:18:09.716Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Faisons Pousser | Initiative de la communauté",
+      "value": "Allons-y Pousser | Initiative communautaire",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-01-22T20:21:37.677Z"
+      "lastUpdated": "2026-01-23T00:18:11.334Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payez avec ce que vous possédez.</2> Les frais peuvent être payés en tokens que vous avez déjà sur votre chaîne principale ; nous nous occupons de la conversion en arrière-plan.</1><1><2>Pas besoin de changer de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un token de gaz.</1><1><2>Non custodial.</2> Vous signez chaque action ; Push ne conserve jamais vos clés.</1><1><2>Derrière les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de le gérer.</1>",
+      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — aucun nouveau portefeuille ou compte n'est nécessaire.</1><1><2>Payez avec ce que vous possédez.</2> Les frais peuvent être payés en tokens que vous possédez déjà sur votre chaîne principale ; nous gérons la conversion en arrière-plan.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — aucun pontage n'est nécessaire pour obtenir un jeton de gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action ; Push ne conserve jamais vos clés.</1><1><2>Derrière les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de le gérer.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-01-22T20:21:45.839Z"
+      "lastUpdated": "2026-01-23T00:18:18.552Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Comment Push Chain se distingue-t-il de Wormhole?\n\n**Wormhole :**\n- **Protocole pont**: Principalement axé sur le pontage de jetons et NFT\n- **Assets enveloppés**: Crée des versions enveloppées des jetons sur différentes chaînes\n- **Réseau Gardien**: S'appuie sur un ensemble de validateurs pour vérifier les messages inter-chaînes\n- **Processus en plusieurs étapes**: Les utilisateurs doivent ponteler leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution universelle**: Les utilisateurs interagissent directement sans pontage\n- **Assets natifs**: Pas besoin de jetons enveloppés, utilisez les actifs originaux\n- **Vérification directe**: Vérification de signature native à partir de n'importe quelle chaîne\n- **Transaction unique**: Les utilisateurs interagissent en une seule étape, pas de pontage requis\n\nPush Chain éliminer le besoin de pontage d'actifs alors que Wormhole le nécessite pour les interactions inter-chaînes.\n\n---",
+      "value": "### Comment Push Chain diffère-t-il de Wormhole?\n\n**Wormhole :**\n- **Protocole de pont**: Principalement axé sur le transfert de jetons et NFT\n- **Actifs enveloppés**: Crée des versions enveloppées de jetons sur différentes chaînes\n- **Réseau de surveillance**: S'appuie sur un ensemble de validateurs pour vérifier les messages interchaînes\n- **Processus en plusieurs étapes**: Les utilisateurs doivent transférer leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution universelle**: Les utilisateurs interagissent directement sans transfert\n- **Actifs natifs**: Pas besoin de jetons enveloppés, utilisez les originaux\n- **Vérification directe**: Vérification de signature native à partir de n'importe quelle chaîne\n- **Transaction unique**: Les utilisateurs interagissent en une seule étape, pas de transfert requis\n\nPush Chain supprime la nécessité de transférer des actifs alors que Wormhole le requiert pour les interactions interchaînes.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-22T20:21:55.179Z"
+      "lastUpdated": "2026-01-23T00:18:27.703Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-01-22T20:22:03.607Z"
+      "lastUpdated": "2026-01-23T00:18:36.117Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
       "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-22T20:22:06.848Z"
+      "lastUpdated": "2026-01-23T00:18:37.922Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
       "value": "Push Chain Tokenomics | Économie du Token",
@@ -2492,6 +2492,16 @@
       "value": "Hodl.fun",
       "englishChecksum": "e8801f29c811d1f662071a6136828d32",
       "lastUpdated": "2026-01-22T20:33:10.795Z"
+    },
+    "header.community.link8.text": {
+      "value": "Push Cult",
+      "englishChecksum": "d367db0c0d9c4efcda2c62fba53a5c63",
+      "lastUpdated": "2026-01-23T00:27:01.268Z"
+    },
+    "header.community.link8.title": {
+      "value": "Découvrez Push Cult - Un programme pour les créateurs avec une prime de 20 millions de jetons",
+      "englishChecksum": "b149629a74a96fd785dbac42c4bc9324",
+      "lastUpdated": "2026-01-23T00:27:03.140Z"
     }
   }
 }

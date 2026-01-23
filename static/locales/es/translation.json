@@ -2,9 +2,9 @@
   "header": {
     "community": {
       "link8": {
+        "subtext": "Un programa para creadores con una recompensa de 20M token",
         "text": "Cultura Push",
-        "subtext": "Un programa para creadores con una recompensa de 2M token",
-        "title": "Echa un vistazo a Push Cult: un programa para creadores con una recompensa de 20M token"
+        "title": "Mira Push Cult - Un programa para creadores con una recompensa de 20 millones de tokens"
       },
       "title": "Comunidad",
       "aria-label": "Sección de la comunidad",
@@ -333,11 +333,9 @@
               "universal-apps": {
                 "items": {
                   "apps-only-possible-with-shared-state-v1": {
-                    "title": "Aplicaciones posibles solo con estado compartido - Volumen 1"
+                    "title": "Apps Possible Only with Shared State - Vol. 1"
                   },
-                  "apps-only-possible-with-shared-state-v2": {
-                    "title": "Apps Possible Only with Shared State - Vol. 2"
-                  },
+                  "apps-only-possible-with-shared-state-v2": {},
                   "apps-of-the-future": {
                     "title": "Aplicaciones del Futuro — Construyendo sin el caos"
                   },
@@ -805,7 +803,7 @@
         "title": "Push Cult — Programa de Creadores para Contenido Impulsado por Señales",
         "description": "Push Cult es un programa exclusivo para creadores, solo por invitación, de Push Chain. 50 creadores. 20M PC tokens. Sin ruido, solo impacto medible.",
         "og-title": "Push Cult - El Programa de Creadores Construido para Signal",
-        "og-description": "Un grupo exclusivo de invitación de 50 creadores que ganan con un premio de 20M PC tokens al impulsar el uso real y la creencia en Push Chain.",
+        "og-description": "Una orden invitacional de 50 creadores que ganan desde un bounty de 20M PC tokens al impulsar el uso real y la creencia en Push Chain.",
         "twitter-title": "Push Cult - Programa de Creadores por Push Chain",
         "twitter-description": "50 creadores. 20M $PC tokens. Sin spam. Sin métricas vacías. Push Cult recompensa la señal real y el impacto real."
       },
