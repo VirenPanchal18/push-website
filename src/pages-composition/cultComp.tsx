@@ -33,9 +33,38 @@ function CultComp() {
   // Track if user has manually interacted with the page
   const [userHasInteracted, setUserHasInteracted] = useState(false);
 
+  // Track window width for dynamic eye count
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1920
+  );
+
   // Refs for the boxes
   const leftBoxesRef = useRef([]);
   const rightBoxesRef = useRef([]);
+
+  // Track window resize for dynamic eye count
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Calculate how many eyes to show based on overlay width
+  const calculateEyeCount = () => {
+    // Combined overlay width = windowWidth - MAX_WIDTH
+    const combinedOverlayWidth = windowWidth - GLOBALS.STRUCTURE.MAX_WIDTH;
+
+    if (combinedOverlayWidth < 100) return 1;
+    if (combinedOverlayWidth < 200) return 1;
+    if (combinedOverlayWidth < 400) return 2;
+    if (combinedOverlayWidth < 600) return 3;
+    return 4;
+  };
+
+  const activeEyeCount = calculateEyeCount();
 
   // Animate boxes with GSAP
   useEffect(() => {
@@ -286,24 +315,32 @@ function CultComp() {
     <>
       {/* Side Overlays */}
       <LeftSideOverlay>
-        <FlockEyes ref={(el) => (leftBoxesRef.current[0] = el)}>
-          <FlockEye className='left flock-eye' />
-          <FlockEye className='right flock-eye' />
-        </FlockEyes>
-        <FlockEyes ref={(el) => (leftBoxesRef.current[1] = el)}>
-          <FlockEye className='left flock-eye' />
-          <FlockEye className='right flock-eye' />
-        </FlockEyes>
+        {activeEyeCount >= 1 && (
+          <FlockEyes ref={(el) => (leftBoxesRef.current[0] = el)}>
+            <FlockEye className='left flock-eye' />
+            <FlockEye className='right flock-eye' />
+          </FlockEyes>
+        )}
+        {activeEyeCount >= 3 && (
+          <FlockEyes ref={(el) => (leftBoxesRef.current[1] = el)}>
+            <FlockEye className='left flock-eye' />
+            <FlockEye className='right flock-eye' />
+          </FlockEyes>
+        )}
       </LeftSideOverlay>
       <RightSideOverlay>
-        <FlockEyes ref={(el) => (rightBoxesRef.current[0] = el)}>
-          <FlockEye className='left flock-eye' />
-          <FlockEye className='right flock-eye' />
-        </FlockEyes>
-        <FlockEyes ref={(el) => (rightBoxesRef.current[1] = el)}>
-          <FlockEye className='left flock-eye' />
-          <FlockEye className='right flock-eye' />
-        </FlockEyes>
+        {activeEyeCount >= 2 && (
+          <FlockEyes ref={(el) => (rightBoxesRef.current[0] = el)}>
+            <FlockEye className='left flock-eye' />
+            <FlockEye className='right flock-eye' />
+          </FlockEyes>
+        )}
+        {activeEyeCount >= 4 && (
+          <FlockEyes ref={(el) => (rightBoxesRef.current[1] = el)}>
+            <FlockEye className='left flock-eye' />
+            <FlockEye className='right flock-eye' />
+          </FlockEyes>
+        )}
       </RightSideOverlay>
 
       {/* Hero Section */}
@@ -401,11 +438,11 @@ const BountyAmount = styled.span`
 const SideOverlay = styled.div`
   position: fixed;
   bottom: 0;
-  width: calc((100vw - ${GLOBALS.STRUCTURE.MAX_WIDTH * 0.9}px) / 2);
+  width: calc((100vw - ${GLOBALS.STRUCTURE.MAX_WIDTH}px) / 2);
   height: 33vh;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     display: none;
   }
 `;
