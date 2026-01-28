@@ -4,7 +4,7 @@ title: 'How Hodl Fun Hit ~$1,000,000 Volume as a Universal Token Launchpad - Cas
 authors: [push]
 image: './cover-image.webp'
 description: 'How Hodl Fun Hit ~$1,000,000 Volume as a Universal Token Launchpad - Case Study'
-text: "A Universal Transaction lets any wallet from any blockchain execute transactions directly on Push Chain"
+text: "Hodl.fun, a universal token launchpad that launched 400K+ tokens across 80+ countries using Push Chain's universal blockchain."
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Ecosystem, Case Study]
 ---
 

@@ -4,7 +4,7 @@ title: 'Push Chain x RouteMesh: Unified, Reliable Access to the Donut Testnet'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain x RouteMesh: Unified, Reliable Access to the Donut Testnet'
-text: "Universal Fee Abstraction is a magical mechanism that lets users pay for network fees on any chain, in any token they already hold, while using Universal Apps on Push Chain."
+text: "RouteMesh now supports Push Chain’s Donut Testnet through an intelligent, multi-provider RPC mesh. Developers can access the testnet through one high-uptime endpoint powered by real-time routing, automatic failover, health scoring, and support for 55+ EVM methods.."
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
 twitterId: '1999178565779357821'
 ---
