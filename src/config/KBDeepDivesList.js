@@ -72,6 +72,16 @@ export const KBDeepDivesList = {
           url: '/blog/understand-proof-of-stake',
           target: '_blank',
         },
+        {
+          slug: 'push-chain-silence-labs',
+          image:
+            '/static/assets/website/chain/knowledge/push-chain-silence-labs',
+          imageSrcSet: false,
+          title:
+            'Push Chain × Silence Labs: Building the Distributed Signing Mechanism',
+          url: '/blog/push-chain-silence-labs',
+          target: '_blank',
+        },
       ],
     },
   ],
