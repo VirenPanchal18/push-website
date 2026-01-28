@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'Push Chain × Silence Labs: Building the Distributed Signing Mechanism'
 text: "Push Chain is partnering with Silence Labs to bring institutional-grade MPC security for super secure validator operations & cross chain asset management."
 tags: [Push Chain, Partnerships, Validators, Universal App, Shared App Experience, Shared State Blockchain]
+twitterId: "2016511466199990733"
 ---
 
 ![Push Chain × Silence Labs: Building the Distributed Signing Mechanism](./cover-image.webp)
