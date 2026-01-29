@@ -1,5 +1,5 @@
 ---
-id: 25
+id: 26
 name: Copass
 description: Proof of Human, sybil-resistant identity verification protocol.
 icon: icon.png

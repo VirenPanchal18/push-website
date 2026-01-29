@@ -1,5 +1,5 @@
 ---
-id: 7
+id: 8
 name: Push x402
 description: Pay-per-call API monetization for agentic infrastructure
 icon: icon.png

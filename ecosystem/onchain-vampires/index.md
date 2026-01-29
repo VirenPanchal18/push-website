@@ -1,5 +1,5 @@
 ---
-id: 10
+id: 11
 name: OnchainVampireSurvivors
 description: Universal vampire survivors like game
 icon: icon.png

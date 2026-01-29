@@ -1,5 +1,5 @@
 ---
-id: 19
+id: 20
 name: Push Campus
 description: Reach students on Ethereum, Solana, Base, and 15+ chains
 icon: icon.png

@@ -1,5 +1,5 @@
 ---
-id: 29
+id: 30
 name: Freename
 description: Send Crypto To Domains, Not Hashes
 icon: icon.png

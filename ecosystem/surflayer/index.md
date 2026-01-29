@@ -1,5 +1,5 @@
 ---
-id: 26
+id: 27
 name: SurfLayer
 description: Build your identity and earn rewards across 70+ chains.
 icon: icon.png

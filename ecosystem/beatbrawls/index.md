@@ -1,5 +1,5 @@
 ---
-id: 6
+id: 7
 name: BeatBrawls
 description: Musical battles to never forget
 icon: icon.png

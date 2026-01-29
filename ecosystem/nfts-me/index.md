@@ -1,5 +1,5 @@
 ---
-id: 23
+id: 24
 name: NFTs2Me
 description: Deploy your NFT collection for free on any chain
 icon: icon.png
