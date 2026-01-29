@@ -48,9 +48,10 @@ export const EcosystemAppsList: EcosystemApp[] = [
     bgImage: '/assets/ecosystem/push-bet-bg.png',
     bgGradientColor: 'rgba(0, 0, 0, 0.80)',
     tags: ['Gaming'],
-    href: null,
+    href: 'https://pushbet.fun/',
     titleColor: 'white',
     descriptionColor: 'white',
+    tagsColor: 'white',
   },
   {
     id: 4,

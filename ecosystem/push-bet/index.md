@@ -7,7 +7,7 @@ bgImage: bg.png
 bgGradientColor: rgba(0, 0, 0, 0.80)
 tags:
   - Gaming
-href:
+href: https://pushbet.fun/
 titleColor: white
 descriptionColor: white
 tagsColor: white
