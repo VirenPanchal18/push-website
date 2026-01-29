@@ -1,5 +1,5 @@
 ---
-id: 27
+id: 28
 name: PushDex
 description: DEX built on the Pushchain testnet
 icon: icon.png

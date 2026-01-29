@@ -2,7 +2,7 @@ import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
 
 export const EcosystemAppsList: EcosystemApp[] = [
   {
-    id: 9,
+    id: 10,
     name: 'Push Ninja',
     description: 'On-chain skill based game',
     icon: '/assets/ecosystem/push-ninja-icon.png',
@@ -42,6 +42,18 @@ export const EcosystemAppsList: EcosystemApp[] = [
   },
   {
     id: 3,
+    name: 'Push Bet',
+    description: 'Showcase your degen superpowers to earn rewards.',
+    icon: '/assets/ecosystem/push-bet-icon.png',
+    bgImage: '/assets/ecosystem/push-bet-bg.png',
+    bgGradientColor: 'rgba(0, 0, 0, 0.80)',
+    tags: ['Gaming'],
+    href: null,
+    titleColor: 'white',
+    descriptionColor: 'white',
+  },
+  {
+    id: 4,
     name: 'Hodl.fun',
     description: 'Create & launch ERC-20 tokens',
     icon: '/assets/ecosystem/hodl-fun-icon.png',
@@ -53,7 +65,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 3,
+    id: 4,
     name: 'ZNS',
     description: 'Multi-chain domains, GM + Deploy tools',
     icon: '/assets/ecosystem/zns-icon.png',
@@ -67,7 +79,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '1998756795859550371',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Bountive',
     description: 'Universal growth engine rewarding quality over clicks',
     icon: '/assets/ecosystem/bountive-icon.png',
@@ -79,7 +91,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 5,
+    id: 6,
     name: 'Tachyon',
     description: 'Blazing Fast Multichain Relayer',
     icon: '/assets/ecosystem/tachyon-icon.png',
@@ -90,7 +102,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 6,
+    id: 7,
     name: 'BeatBrawls',
     description: 'Musical battles to never forget',
     icon: '/assets/ecosystem/beatbrawls-icon.png',
@@ -102,7 +114,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '2001278428788715678',
   },
   {
-    id: 7,
+    id: 8,
     name: 'Push x402',
     description: 'Pay-per-call API monetization for agentic infrastructure',
     icon: '/assets/ecosystem/push402-icon.png',
@@ -113,7 +125,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 8,
+    id: 9,
     name: 'APT Casino',
     description: 'Universal, fair, & transparent wager to win',
     icon: '/assets/ecosystem/apt-casino-icon.png',
@@ -125,7 +137,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 10,
+    id: 11,
     name: 'OnchainVampireSurvivors',
     description: 'Universal vampire survivors like game',
     icon: '/assets/ecosystem/onchain-vampires-icon.png',
@@ -137,7 +149,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 11,
+    id: 12,
     name: 'TipUp',
     description: 'Tip on any chain using any wallet',
     icon: '/assets/ecosystem/tip-up-icon.png',
@@ -149,7 +161,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 12,
+    id: 13,
     name: 'CoNFT/CoDomain',
     description: 'Web3 multi-chain hub: Domain Names, NFTs, launchpad.',
     icon: '/assets/ecosystem/conft-icon.png',
@@ -160,7 +172,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 13,
+    id: 14,
     name: 'ChainCircle',
     description: 'Cross chain saving circles',
     icon: '/assets/ecosystem/chaincircle-icon.png',
@@ -172,7 +184,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 14,
+    id: 15,
     name: 'EON: AI Butler',
     description: 'Send, swap, and manage assets across supported networks',
     icon: '/assets/ecosystem/eon-icon.png',
@@ -184,7 +196,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 15,
+    id: 16,
     name: 'Push Swap',
     description: 'Seamless cross-chain token swaps without bridges',
     icon: '/assets/ecosystem/push-swap-icon.png',
@@ -198,7 +210,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'black',
   },
   {
-    id: 16,
+    id: 17,
     name: 'Star Run',
     description: 'A decentralized, player-owned economy',
     icon: '/assets/ecosystem/star-run-icon.png',
@@ -210,9 +222,10 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 17,
+    id: 18,
     name: 'Forge Realm',
-    description: 'Mix and match base characters and traits from multiple creators',
+    description:
+      'Mix and match base characters and traits from multiple creators',
     icon: '/assets/ecosystem/forge-realm-icon.png',
     bgImage: '/assets/ecosystem/forge-realm-bg.png',
     bgGradientColor: '#000000',
@@ -222,7 +235,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 18,
+    id: 19,
     name: 'Push Name Service',
     description: 'Get your own .push domain',
     icon: '/assets/ecosystem/push-name-service-icon.png',
@@ -234,7 +247,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 19,
+    id: 20,
     name: 'Push Campus',
     description: 'Reach students on Ethereum, Solana, Base, and 15+ chains',
     icon: '/assets/ecosystem/push-campus-icon.png',
@@ -246,7 +259,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 20,
+    id: 21,
     name: 'PNS',
     description: 'Your Identity Across Every Chain',
     icon: '/assets/ecosystem/pns-icon.png',
@@ -258,7 +271,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 21,
+    id: 22,
     name: 'Athera',
     description: 'Automated crypto inheritance',
     icon: '/assets/ecosystem/athera-icon.png',
@@ -270,7 +283,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    id: 23,
+    id: 24,
     name: 'NFTs2Me',
     description: 'Deploy your NFT collection for free on any chain',
     icon: '/assets/ecosystem/nfts-me-icon.png',
@@ -281,9 +294,10 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: '#FFFFFF',
   },
   {
-    id: 24,
+    id: 25,
     name: 'Copet',
-    description: 'Feed, play, and grow your virtual pet through on-chain activity',
+    description:
+      'Feed, play, and grow your virtual pet through on-chain activity',
     icon: '/assets/ecosystem/copet-icon.png',
     bgImage: '/assets/ecosystem/copet-bg.png',
     bgGradientColor: '#010101',
@@ -292,9 +306,10 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: '#FFFFFF',
   },
   {
-    id: 25,
+    id: 26,
     name: 'Copass',
-    description: 'Proof of Human, sybil-resistant identity verification protocol.',
+    description:
+      'Proof of Human, sybil-resistant identity verification protocol.',
     icon: '/assets/ecosystem/copass-icon.png',
     bgImage: '/assets/ecosystem/copass-bg.png',
     bgGradientColor: '#020202',
@@ -303,7 +318,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: '#FFFFFF',
   },
   {
-    id: 26,
+    id: 27,
     name: 'SurfLayer',
     description: 'Build your identity and earn rewards across 70+ chains.',
     icon: '/assets/ecosystem/surflayer-icon.png',
@@ -314,7 +329,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: '#FFFFFF',
   },
   {
-    id: 27,
+    id: 28,
     name: 'PushDex',
     description: 'DEX built on the Pushchain testnet',
     icon: '/assets/ecosystem/pushdex-icon.png',
@@ -326,7 +341,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '2011506398597955757',
   },
   {
-    id: 28,
+    id: 29,
     name: 'Omnihub',
     description: 'Create, buy, and sell blockchain collectibles',
     icon: '/assets/ecosystem/omnihub-icon.png',
@@ -337,7 +352,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: '#FFFFFF',
   },
   {
-    id: 29,
+    id: 30,
     name: 'Freename',
     description: 'Send Crypto To Domains, Not Hashes',
     icon: '/assets/ecosystem/freename-icon.png',
@@ -349,7 +364,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    id: 30,
+    id: 31,
     name: 'Hang4.fun',
     description: 'Coming Soon',
     icon: '/assets/ecosystem/hangfun-icon.png',
@@ -361,7 +376,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    id: 32,
+    id: 33,
     name: 'Degen Chess',
     description: 'Play chess, wager, universal',
     icon: '/assets/ecosystem/degen-chess-icon.png',

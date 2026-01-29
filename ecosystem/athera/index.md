@@ -1,5 +1,5 @@
 ---
-id: 21
+id: 22
 name: Athera
 description: Automated crypto inheritance
 icon: icon.png

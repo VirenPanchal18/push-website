@@ -1,5 +1,5 @@
 ---
-id: 11
+id: 12
 name: TipUp
 description: Tip on any chain using any wallet
 icon: icon.png
