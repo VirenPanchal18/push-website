@@ -32,7 +32,7 @@ Together, we remove major friction points in the multichain journey, Zerion stre
 
 ## Unlock for Users:
 
-**• One login that works everywhere:** A single Zerion connection unlocks universal apps with consistent behavior across all supported chains. Currently, supported chains mention ETH, Base, Arbitrum,BNB with support for more chains coming soon.
+**• One login that works everywhere:** A single Zerion connection unlocks universal apps with consistent behavior across all supported chains. Currently, supported chains mention ETH, Base, Arbitrum, and BNB, with support for more chains coming soon.
 
 **• Zero-Friction Interoperability**: No network switching, ever. Users interact with one continuous surface while Push Chain resolves the complexity in the background.
 
