@@ -564,9 +564,9 @@ const Glassy = ({ item }) => {
 
                       <div className='text-content'>
                         {object.texttitle && (
-                          <div className='text-title'>
+                          <TextTitle className='text-title'>
                             {t(object.texttitle)}
-                          </div>
+                          </TextTitle>
                         )}
                         <BodyText
                           size={object.bodytextsize}
@@ -989,6 +989,20 @@ const BodyTextItem = styled(ItemV)`
     @media (min-width: 471px) and (max-width: 1200px) {
       font-size: 1.5rem;
     }
+`;
+
+const TextTitle = styled.h2`
+  color: var(--ifm-color-white);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.64px;
+  margin: 0;
+
+  @media (min-width: 471px) and (max-width: 1200px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const BodyImageWrapper = styled.div`
