@@ -24,8 +24,6 @@ Most multichain apps are built on **chain‑local state + chain‑bound executio
 
 So UX fragments by design 👇
 
----
-
 Every chain maintains its own isolated:
 
 - balances
@@ -36,8 +34,6 @@ Every chain maintains its own isolated:
 
 So your “single app” is actually **N different apps**, each running against a different local state.
 
----
-
 These 5 issues aren't UI flaws, they're physics under today's architecture:
 
 1. Chain-specific UX — Liquidity, quotes, and even features differ per chain → unpredictable results.
@@ -47,8 +43,6 @@ These 5 issues aren't UI flaws, they're physics under today's architecture:
 5. Local wallet logic — App state ≠ wallet state ≠ RPC state → "works on my machine" failures.
 
 You can redesign the UI forever, the architecture won't cooperate.
-
----
 
 **Chain-specific UX: the most visible symptom**
 
@@ -64,8 +58,6 @@ Because every chain holds its own liquidity, balances, storage, and routing path
 - feature missing entirely on Chain D
 
 **One UI → four different realities → zero predictability.**
-
----
 
 **Why network switching exists?**
 
@@ -91,8 +83,6 @@ So “switch network” is really:
 
 Sign once → verify once → not bound to a chain.
 
----
-
 **Why fees feel chaotic?**
 
 A single “Stake 100 USDC” intent touches **multiple fee systems**:
@@ -114,8 +104,6 @@ Solvers handle gas routing.
 
 Apps can sponsor when needed.
 
----
-
 **Conversion killer: “Bridge → Swap → Stake”**
 
 This flow exists because you’re asking the user to manually cross isolated states:
@@ -136,8 +124,6 @@ UEA treats the entire flow as **one intent**, not a sequence of user-driven hops
 
 UEA coordinates the cross-chain work under the hood.
 
----
-
 **Why “Local Wallet Logic” fails?**
 
 Wallets today compute chain context locally:
@@ -156,8 +142,6 @@ Move session state + execution tracking off the device and into a shared executi
 
 The app no longer depends on the fragility of per-device chain context.
 
----
-
 **Everything maps back to one idea:**
 
 UX follows state.
@@ -165,11 +149,6 @@ Fix the state model and the UX collapses to one chain-level simplicity.
 
 Push Chain makes multichain apps behave like single-chain apps, not by hiding fragmentation, but by eliminating the architecture that causes it.
 
----
-
 If you want to explore the primitives mentioned above UVL, UEA, shared-state, fee abstraction.
 
 [push.org/docs](http://push.org/docs) is the best place to start.
-
-
----
