@@ -4,7 +4,7 @@ title: 'How Universal Fee Abstraction Works'
 authors: [push]
 image: './cover-image.webp'
 description: 'How Universal Fee Abstraction Works'
-text: "Push Chain now supports Zerion Wallet as a core login option for all universal apps"
+text: "User clicks 'Stake 500 USDC' they expect one outcome. What they get instead"
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Fee Abstraction]
 ---
 
