@@ -989,6 +989,7 @@ const BodyTextItem = styled(ItemV)`
     @media (min-width: 471px) and (max-width: 1200px) {
       font-size: 1.5rem;
     }
+  }
 `;
 
 const BodyImageWrapper = styled.div`

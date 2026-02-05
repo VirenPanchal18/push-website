@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet'
 text: "Push Chain now supports Zerion Wallet as a core login option for all universal apps"
 tags: [Push Chain, Partnerships, Wallet, Universal App, Shared App Experience, Shared State Blockchain]
+twitterId: "2019051330082418922"
 ---
 
 ![Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet](./cover-image.webp)
