@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'How Universal Fee Abstraction Works'
 text: "User clicks 'Stake 500 USDC' they expect one outcome. What they get instead"
 tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts, Fee Abstraction]
+twitterId: '2019455170200105255'
 ---
 
 ![How Universal Fee Abstraction Works](./cover-image.webp)
