@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import readline from 'readline';
 
+import { buildFeaturedBlogs } from './build.blogs.featured.mjs';
 import { prepForDocsChangelog } from './build.docs.changelog.mjs';
 import { prepAndMoveFilesFromTempLocationToActual } from './build.lite.forprod.mjs';
 import { prepForPreviewDeployment } from './build.preview.mjs';
@@ -33,6 +34,16 @@ const prepForDeployment = async (appEnv, skipTranslation) => {
 
   // Step 2: Do changelog in docs (future feature)
   await prepForDocsChangelog();
+
+  // Step 2.5: Generate featured blogs JSON
+  console.log(chalk.cyan('\n📝 Step 2.5: Generating featured blogs JSON...'));
+  try {
+    await buildFeaturedBlogs();
+    console.log(chalk.green('✅ Featured blogs JSON generated successfully'));
+  } catch (error) {
+    console.warn(chalk.yellow('⚠️  Featured blogs generation failed'));
+    console.warn(chalk.gray(`   Error: ${error.message}`));
+  }
 
   // Step 3: Automated translation generation with MD5 checksum tracking
   console.log(

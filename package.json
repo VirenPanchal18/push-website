@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "generate:ecosystem": "node plugins/generate-ecosystem.js",
+    "generate:featured": "node build.blogs.featured.mjs",
     "translations:nuke": "node build.translation.nuke.mjs",
     "translations:generate": "node build.translation.automation.mjs",
     "translations:generate:force": "node build.translation.nuke.mjs && node build.translation.automation.mjs",

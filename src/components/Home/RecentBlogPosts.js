@@ -62,20 +62,11 @@ const RecentBlogPosts = () => {
         return (
           <BlogPostCardPrimary
             key={index}
+            as='a'
+            href={postItem?.link}
             role='listitem'
-            tabIndex={0}
-            onClick={() => {
-              window.open(`${postItem?.link}`, '_blank');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                window.open(`${postItem?.link}`, '_blank');
-              }
-            }}
             title={blogPostTitle}
             aria-label={blogPostAriaLabel}
-            style={{ cursor: 'pointer' }}
           >
             <Image
               src={postItem?.imageUrl}

@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'An exclusive order of 50 creators selected to split a 20M PC token bounty by delivering pure signal.'
 text: "Crypto is drowning in noise. Timelines are rotting with AI slop and empty engagement. Push Cult rejects this decay. We do not seek the loud. We seek visionaries. "
-tags: [Donut Testnet, Ecosystem, Content Creator]
+tags: [Featured, Donut Testnet, Ecosystem, Content Creator]
 twitterId: '2014337359064789182'
 ---
 
