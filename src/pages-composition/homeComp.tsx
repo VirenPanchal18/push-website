@@ -383,7 +383,7 @@ export default function HomeComp() {
             {!isMobile && (
               <ItemH justifyContent='flex-end'>
                 <SlideLink
-                  href='https://push.org/blog'
+                  href='/blog'
                   title={t('pages.home.blog-section.explore-link-title')}
                   aria-label={t(
                     'pages.home.blog-section.explore-link-aria-label'
