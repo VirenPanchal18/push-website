@@ -69,10 +69,6 @@ const TagsTitle = styled(Span)`
   line-height: 110%;
   letter-spacing: -1.2px;
   display: ${(props) => (props.$scrollingTheme ? 'none' : 'block')};
-
-  @media ${device.desktop} {
-    display: block;
-  }
 `;
 
 const TagsList = styled.div`
