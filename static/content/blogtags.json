@@ -5,7 +5,7 @@
     "link": "/blog/tags/featured/",
     "priority": 0,
     "category": "Featured",
-    "count": 5
+    "count": 4
   },
   {
     "name": "Product",
@@ -85,7 +85,7 @@
     "link": "/blog/tags/deep-dives/",
     "priority": 10,
     "category": "Deep Dives",
-    "count": 7
+    "count": 6
   },
   {
     "name": "Push 101",

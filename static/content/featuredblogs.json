@@ -19,25 +19,6 @@
     "showcase": true
   },
   {
-    "title": "How Universal Fee Abstraction Works",
-    "link": "/blog/how-universal-abstraction-works/",
-    "slug": "how-universal-abstraction-works",
-    "pubDate": "Thu, 05 Feb 2026 00:00:00 GMT",
-    "description": "Click 'Stake 500 USDC' and it just works. No gas token hunting, no chain switching, no wallet juggling. Learn how Universal Fee Abstraction delivers the seamless UX users actually expect.",
-    "readingTime": 1,
-    "imageUrl": "/assets/blog/featured/blog--how-universal-abstraction-works--cover-image.webp",
-    "tags": [
-      "Featured",
-      "Product",
-      "Key Features",
-      "Deep Dives"
-    ],
-    "authors": [
-      "push"
-    ],
-    "showcase": false
-  },
-  {
     "title": "How Universal Transaction Works",
     "link": "/blog/how-universal-transaction-works/",
     "slug": "how-universal-transaction-works",

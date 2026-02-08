@@ -4,7 +4,7 @@ title: 'Why Push Chain is the Missing Layer in Web3'
 authors: [harsh]
 image: './cover-image.webp'
 description: 'How a shared-state L1 can heal web3’s fragmentation and unleash web3’s true potential.'
-text: 'Web3 is broken. Users juggle 30+ chains, developers rebuild apps for each ecosystem, and fragmentation kills adoption. Learn why Push Chain's shared-state architecture is the missing piece to finally unify blockchain.'
+text: "Web3 is broken. Users juggle 30+ chains, developers rebuild apps for each ecosystem, and fragmentation kills adoption. Learn why Push Chain's shared-state architecture is the missing piece to finally unify blockchain."
 tags: [Product, Key Features, Thought Leadership]
 twitterId: '1869392237379092482'
 ---
