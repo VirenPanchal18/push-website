@@ -1,12 +1,12 @@
 // React + Web3 Essentials
 import { useLocation } from '@docusaurus/router';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 // External Components
 import i18nInitialize from '@site/src/utils/i18n';
-import styled from 'styled-components';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import styled from 'styled-components';
 
 // Internal Components
 import { AccountProvider } from '@site/src/context/accountContext';
@@ -56,6 +56,19 @@ export default function Root({ children }) {
     location.pathname
   );
   const isHome = (location.pathname === '/' || isPreview) && showAlertBar;
+
+  // Set data-website-theme="dark" for non-docs/blog pages
+  useEffect(() => {
+    const pathname = location.pathname.toLowerCase();
+    const isDocsOrBlog =
+      pathname.startsWith('/docs') || pathname.startsWith('/blog');
+
+    if (!isDocsOrBlog) {
+      document.documentElement.setAttribute('data-website-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-website-theme');
+    }
+  }, [location.pathname]);
 
   const excludePaths = ['/BRB', '/DOCS'];
   const shouldRenderFooter = excludePaths.every((path) =>
