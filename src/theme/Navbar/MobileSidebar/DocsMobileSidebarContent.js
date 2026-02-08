@@ -1,16 +1,30 @@
 import { useNavbarMobileSidebar } from '@docusaurus/theme-common/internal';
 import { HeaderList } from '@site/src/config/HeaderList';
 import { useSiteBaseUrl } from '@site/src/hooks/useSiteBaseUrl';
-import React from 'react';
+import NavbarMobileSidebarSecondaryMenu from '@theme/Navbar/MobileSidebar/SecondaryMenu';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function DocsMobileSidebarContent() {
   const history = useHistory();
+  const location = useLocation();
   const baseURL = useSiteBaseUrl() || '';
   const mobileSidebar = useNavbarMobileSidebar();
   const { t } = useTranslation();
+  const [showDocsMenu, setShowDocsMenu] = useState(true);
+
+  const pathname = location?.pathname || '';
+  const isDocsRoot =
+    pathname === baseURL + '/docs' || pathname === baseURL + '/docs/';
+  const isInDocsSection =
+    pathname.startsWith(baseURL + '/docs/') && !isDocsRoot;
+
+  useEffect(() => {
+    // Reset to show custom menu when pathname changes
+    setShowDocsMenu(true);
+  }, [pathname]);
 
   const handleNavigation = (path) => {
     mobileSidebar.toggle();
@@ -21,20 +35,46 @@ export default function DocsMobileSidebarContent() {
     }
   };
 
+  // Show SecondaryMenu (documentation sidebar/TOC) if user clicked "Move to Documentation"
+  if (!showDocsMenu) {
+    return (
+      <div className='custom-docs-secondary-menu'>
+        <BackButton onClick={() => setShowDocsMenu(true)}>
+          ← Back to main menu
+        </BackButton>
+        <MenuDivider />
+        <NavbarMobileSidebarSecondaryMenu />
+      </div>
+    );
+  }
+
   return (
     <MobileMenuContainer>
+      {isInDocsSection && (
+        <>
+          <BackButton onClick={() => setShowDocsMenu(false)}>
+            Move to Documentation →
+          </BackButton>
+          <MenuDivider />
+        </>
+      )}
+
       <MenuItem onClick={() => handleNavigation('/')}>Homepage</MenuItem>
+
+      <MenuItem onClick={() => handleNavigation('/docs')}>
+        Developer Docs
+      </MenuItem>
 
       <MenuItem onClick={() => handleNavigation('/docs/chain')}>
         What is Push Chain
       </MenuItem>
 
       <MenuItem onClick={() => handleNavigation('/docs/chain/build')}>
-        Let's Build
+        Core SDK
       </MenuItem>
 
       <MenuItem onClick={() => handleNavigation('/docs/chain/ui-kit')}>
-        UI Kit
+        UI Kit SDK
       </MenuItem>
 
       <ExploreSection>
@@ -53,12 +93,6 @@ export default function DocsMobileSidebarContent() {
       </ExploreSection>
 
       <MenuDivider />
-
-      <MenuItem
-        onClick={() => handleNavigation('https://discord.com/invite/pushchain')}
-      >
-        Ask in Discord
-      </MenuItem>
 
       <MenuItem onClick={() => handleNavigation('https://portal.push.org/')}>
         Push Portal
@@ -116,6 +150,19 @@ const SubMenuItem = styled.div`
     background-color: var(--ifm-navbar-dropdown-hover);
     color: var(--ifm-color-pink-200);
   }
+`;
+
+const BackButton = styled.div`
+  padding: 12px 1rem;
+  font-size: 0.9rem;
+  margin: -8px;
+  font-weight: var(--ifm-button-font-weight);
+  color: var(--ifm-color-primary-text);
+  background: var(--ifm-menu-color-background-active);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 const MenuDivider = styled.div`
