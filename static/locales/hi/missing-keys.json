@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:01:00.350Z",
+  "lastUpdated": "2026-02-08T06:34:39.747Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1787,34 +1787,32 @@
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
     "components.short-contact-us-snippet.answer-aria-label": {
-      "value": "वेनर चोमशिआ-दार",
       "englishChecksum": "84c913b7410cbc873ad0018ac37fb40e",
-      "lastUpdated": "2026-01-23T00:47:39.991Z"
+      "lastUpdated": "2026-02-08T05:49:51.230Z"
     },
     "pages.docs.seo.og-description": {
-      "value": "यूनिवर्सल एक्जीक्यूशन लेयर पर एप्लिकेशन बनाएं और चले। क्लियर गाइड्स व उदाहरणों के साथ।",
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-01-23T00:47:42.397Z"
+      "lastUpdated": "2026-02-08T05:49:58.014Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "ऱेना पिकी ब्दालाकेना जोटुनिक्ना पिकेना ब्दालाक्ना",
+      "value": "टेस्टनेट डॉकस लॉन्च में %s",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-01-23T00:47:49.937Z"
+      "lastUpdated": "2026-02-08T05:49:59.469Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.whatispush.subtitle": {
-      "value": "पीश शेयर्ड स्टेट पावर्स प्रोवाइड्स ए यूनिफाईड टूलकिट टू बिल्ड ट्रु यूनिवर्सल एप्स।",
+      "value": "पुश चेन एक यूनिवर्सल टूलकिट प्रदान करता है जिसका उपयोग करके वास्तव में यूनिवर्सल एप्लिकेशन बनाई जा सकती है।",
       "englishChecksum": "51c5c43c534cc7d1fbafd9c576678705",
-      "lastUpdated": "2026-01-23T00:47:53.497Z"
+      "lastUpdated": "2026-02-08T05:50:02.776Z"
     },
     "pages.privacymobile.seo.twitter-description": {
-      "value": "आपका डाटा और विकल्प Push मोबाइल एप्लिकेशनों में",
+      "value": "आपका डाटा और विकल्प पुश मोबाइल एप्लीकेशन्स में।",
       "englishChecksum": "eaa1cdd6da251c8602628f9804934510",
-      "lastUpdated": "2026-01-23T00:47:57.424Z"
+      "lastUpdated": "2026-02-08T05:50:04.558Z"
     },
     "components.cookie-banner.message": {
-      "value": "हम कोकीज़ का प्रयोग करें अपनी अनुभव को व्यक्तिगत करना। हमारी जानकारी के लिए यहां क्लिक करें",
+      "value": "हम कोकीज़ का उपयोग व्यक्तिगत अनुभव के लिए करते हैं। nostro पर अधिक जानकारी प्राप्त करें",
       "englishChecksum": "371ae79da8a6e6e86e8fb94a8731eadb",
-      "lastUpdated": "2026-01-23T00:48:01.012Z"
+      "lastUpdated": "2026-02-08T05:50:06.151Z"
     },
     "components.blog.footer-item.about-description": {
       "value": "Push चेन पहला वास्तविक यूनिवर्सल ब्लॉकचेन है, जो सभी चैन पर फ्रागमेंटेशन को मिटाता है। यह डेवलपर्स को एक बार डालना और किसी भी चेन (EVM या नॉन-EVM, जिसमें इथीरियम, सोलाना, बिटकोइन शामिल हैं) पर उपयोगकर्ताओं के लिए तुरंत उपलब्ध होने की अनुमति देता है। यह 100% EVM संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जो Push चेन पर डिप्लॉई किए गए ऐप्स से किसी भी चेन पर नेटिवल रूप से इंटरैक्ट करने के लिए उपयोगकर्ताओं को अनुमति देता है, जैसे ही वे अपनीown चेन पर करते हैं।",
@@ -1940,9 +1938,9 @@
       "lastUpdated": "2026-01-16T17:15:17.229Z"
     },
     "components.cult-contact.form.success.message-after-link": {
-      "value": "\nऔर {token} का नजर रखना।\n",
+      "value": "\nऔर \"{token}\" के लिए एक नजर रखना\n",
       "englishChecksum": "e4dbaa554e2c8e7ebec5e00f4677c448",
-      "lastUpdated": "2026-01-23T00:48:09.281Z"
+      "lastUpdated": "2026-02-08T05:50:07.912Z"
     },
     "notifications.chain-notification.title": {
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
@@ -1994,9 +1992,94 @@
       "lastUpdated": "2026-01-23T01:00:59.248Z"
     },
     "notifications.info-bar.learn-more-title": {
-      "value": "आबद्ध होना شروع करें",
+      "value": "अर्ज करें",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
-      "lastUpdated": "2026-01-23T01:01:00.350Z"
+      "lastUpdated": "2026-02-08T06:34:39.747Z"
+    },
+    "components.blog.tags.tag-link-title": {
+      "value": "VIEW POSTS TAGGED WITH {{टागनामे}}",
+      "englishChecksum": "4f71ea84561c9d5015c56d17ac242495",
+      "lastUpdated": "2026-02-08T05:49:54.152Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "और पोस्ट Push Chain से",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:01:36.293Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "फ़ॉलो करें",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:01:37.500Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "अधिक पढ़ें",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:34:36.600Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "पेज {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:01:42.746Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "ब्लॉग लिस्ट पेज नेविगेशन",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:01:59.232Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "और एंट्री",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:02:18.707Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "value": "पहले की प्रविष्टियाँ",
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:02:37.296Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "इस लेख को साझा करके बातचीत में शामिल होएं",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:02:40.854Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "सेडाव्",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:02:46.287Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "साझा करें",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:34:35.375Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "लिंक को कॉपी करें",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:02:48.911Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "About ब्लॉकचेन धारा",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:02:50.203Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "ट्विटर",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:02:54.479Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "डिस्कॉर्ड",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:02:55.714Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": "YouTube",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:02:56.323Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "लिंक्डइन",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:02:57.589Z"
     }
   }
 }
