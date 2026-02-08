@@ -36,6 +36,7 @@ Push Chain is fully EVM-compatible, so you can plug in your favorite Ethereum to
 {`    
     // customPropHighlightRegexStart=ethers\.JsonRpcProvider
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=initialize_evm_client_ethers
     import { ethers } from 'ethers';
 
     // ——— CONFIG ———
@@ -59,6 +60,7 @@ Push Chain is fully EVM-compatible, so you can plug in your favorite Ethereum to
 {`
     // customPropHighlightRegexStart=createPublicClient\\(
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=initialize_evm_client_viem
     import { createPublicClient, http } from 'viem';
   
     function initViem() {
@@ -84,6 +86,7 @@ Push Chain is fully EVM-compatible, so you can plug in your favorite Ethereum to
 {`
     // customPropHighlightRegexStart=provider\.getTransaction
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=initialize_evm_client_readonly
     import { ethers } from 'ethers';
 
     async function fetchTxEthers() {
@@ -107,6 +110,7 @@ Push Chain is fully EVM-compatible, so you can plug in your favorite Ethereum to
 {`
     // customPropHighlightRegexStart=client\.getTransaction
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=initialize_evm_client_viem_fetch_tx
     import { createPublicClient, http } from 'viem';
 
     async function fetchTxViem() {

@@ -41,6 +41,7 @@ For full reference on each library, see:
 {`
 // customPropHighlightRegexStart=ethers\.JsonRpcProvider
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=setup_ethers_http_provider
 import { ethers } from 'ethers';
 
     // HTTP JSON-RPC provider
@@ -58,6 +59,7 @@ import { ethers } from 'ethers';
 {`
 // customPropHighlightRegexStart=createPublicClient\\(
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=setup_viem_http_client
 import { createPublicClient, http } from 'viem';
 
     // HTTP client
@@ -78,6 +80,7 @@ import { createPublicClient, http } from 'viem';
 {`
 // customPropHighlightRegexStart=provider\.getTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=get_transaction_ethers
 import { ethers } from 'ethers';
 
     const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
@@ -97,6 +100,7 @@ import { ethers } from 'ethers';
 {`
 // customPropHighlightRegexStart=viemClient\.getTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=get_transaction_viem
 import { createPublicClient, http } from 'viem';
 
     const viemClient = createPublicClient({ transport: http('https://evm.donut.rpc.push.org/') });
@@ -122,6 +126,7 @@ import { createPublicClient, http } from 'viem';
 
     // customPropHighlightRegexStart=provider\.getBlock
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=get_latest_block_ethers
     import { ethers } from 'ethers';
 
     const provider   = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
@@ -139,6 +144,7 @@ import { createPublicClient, http } from 'viem';
 {`
 // customPropHighlightRegexStart=viemClient\.getBlock
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=get_latest_block_viem
 import { createPublicClient, http } from 'viem';
 
     const viemClient   = createPublicClient({ transport: http('https://evm.donut.rpc.push.org/') });
@@ -162,6 +168,7 @@ import { createPublicClient, http } from 'viem';
 {`
 // customPropHighlightRegexStart=provider\.getBlock
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=get_specific_block_ethers
 import { ethers } from 'ethers';
 
     const provider  = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
@@ -181,6 +188,7 @@ import { ethers } from 'ethers';
 {`
 // customPropHighlightRegexStart=viemClient\.getBlock
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=get_specific_block_viem
 import { createPublicClient, http } from 'viem';
 
     const viemClient = createPublicClient({ transport: http('https://evm.donut.rpc.push.org/') });
@@ -204,6 +212,7 @@ import { createPublicClient, http } from 'viem';
 {`
     // customPropHighlightRegexStart=const ws = new ethers\.Web
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=setup_ethers_websocket_provider
     import { ethers } from 'ethers';
 
     const ws = new ethers.WebSocketProvider('https://evm.donut.rpc.push.org/');
@@ -228,6 +237,7 @@ import { createPublicClient, http } from 'viem';
 
     // customPropHighlightRegexStart=createPublicClient\\(
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=setup_viem_websocket_client
     import { createPublicClient, webSocket } from 'viem';
 
     const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });
@@ -259,6 +269,7 @@ import { createPublicClient, http } from 'viem';
 {`
     // customPropHighlightRegexStart=ws\.on
     // customPropHighlightRegexEnd=}\\);
+    // customPropGTagEvent=subscribe_new_blocks_ethers
     import { ethers } from 'ethers';
 
     const ws = new ethers.WebSocketProvider('https://evm.donut.rpc.push.org/');
@@ -282,6 +293,7 @@ import { createPublicClient, http } from 'viem';
 {`
     // customPropHighlightRegexStart=client\.watchBlocks
     // customPropHighlightRegexEnd=}\\);
+    // customPropGTagEvent=watch_new_blocks_viem
     import { createPublicClient, webSocket } from 'viem';
 
     const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });
@@ -312,6 +324,7 @@ import { createPublicClient, http } from 'viem';
 {`
 // customPropHighlightRegexStart=ws\.on
 // customPropHighlightRegexEnd=}\\);
+// customPropGTagEvent=subscribe_pending_transactions_ethers
 import { ethers } from 'ethers';
 
     const ws = new ethers.WebSocketProvider('https://evm.donut.rpc.push.org/');
@@ -350,6 +363,7 @@ import { ethers } from 'ethers';
 {`
     // customPropHighlightRegexStart=viemClient\.watchBlocks
     // customPropHighlightRegexEnd=}\\);
+    // customPropGTagEvent=watch_pending_transactions_viem
     import { createPublicClient, webSocket } from 'viem';
 
     const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });

@@ -68,6 +68,7 @@ const result = PushChain.utils.helpers.parseUnits('1.5', { decimals: 18 });
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.helpers\.parseUnits
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_parse_units
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -159,6 +160,7 @@ const result = PushChain.utils.helpers.formatUnits('1500000000000000000', { deci
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.helpers\.formatUnits
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_format_units
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -239,6 +241,7 @@ const encodedData = PushChain.utils.helpers.encodeTxData({
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.helpers\.encodeTxData
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_encode_tx_data
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -332,6 +335,7 @@ const chainName = PushChain.utils.chains.getChainNamespace('PUSH_TESTNET_DONUT')
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.chains\.getChainNamespace
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_chain_namespace
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -387,6 +391,7 @@ const chainName = PushChain.utils.chains.getChainName('eip155:42101');
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.chains\.getChainName
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_chain_name
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -452,6 +457,7 @@ const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUS
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.chains\.getSupportedChains
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_supported_chains
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -517,6 +523,7 @@ const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTAN
 {`
 // customPropHighlightRegexStart=PushChain\\.utils\\.chains\\.getSupportedChainsByName
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_supported_chains_by_name
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -576,6 +583,7 @@ const account = PushChain.utils.account.toUniversal(address, {
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.account\.toUniversal
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_account_to_universal
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -632,6 +640,7 @@ const chainAgnosticAddress = PushChain.utils.account.toChainAgnostic(address, {
 {`
     // customPropHighlightRegexStart=PushChain\.utils\.account\.toChainAgnostic
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_account_to_chain_agnostic
     import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -689,6 +698,7 @@ const account = PushChain.utils.account.fromChainAgnostic(chainAgnosticAddress);
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.account\.fromChainAgnostic
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_account_from_chain_agnostic
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -751,6 +761,7 @@ const info =
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.account\.convertOriginToExecutor
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_convert_origin_to_executor
 import { PushChain } from '@pushchain/core'
 
     async function main() {
@@ -823,6 +834,7 @@ const { account, exists } = await PushChain.utils.account.convertExecutorToOrigi
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOriginAccount
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_convert_executor_to_origin
 import { PushChain } from '@pushchain/core'
 
     async function main() {
@@ -902,6 +914,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 {`
     // customPropHighlightRegexStart=PushChain\.utils\.signer\.toUniversalFromKeypair
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_signer_from_keypair_ethers
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
 
@@ -929,6 +942,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 {`
     // customPropHighlightRegexStart=PushChain\.utils\.signer\.toUniversalFromKeypair
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_signer_from_keypair_viem
     import { PushChain } from '@pushchain/core'
     import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
     import { createWalletClient, http } from 'viem';
@@ -963,6 +977,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.signer\.toUniversalFromKeypair
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_signer_from_keypair_solana
 import { PushChain } from '@pushchain/core';
 import { Keypair } from '@solana/web3.js';
 
@@ -1037,6 +1052,7 @@ const { tokens: sepoliaMoveable } = PushChain.utils.tokens.getMoveableTokens(
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.tokens\.getMoveableTokens
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_moveable_tokens
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -1103,6 +1119,7 @@ const { tokens: solanaDevnetPayable } = PushChain.utils.tokens.getPayableTokens(
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.tokens\.getPayableTokens
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_payable_tokens
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -1163,6 +1180,7 @@ const prc20Alt = PushChain.utils.tokens.getPRC20Address({
 {`
 // customPropHighlightRegexStart=PushChain\\.utils\\.tokens\\.getPRC20Address
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_prc20_address
 import { PushChain } from '@pushchain/core';
 
     async function main() {
@@ -1238,6 +1256,7 @@ const minOut = PushChain.utils.conversion.slippageToMinAmount('100000000', {
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.conversion\.slippageToMinAmount
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_slippage_to_min_amount
 import { PushChain } from '@pushchain/core';
 
     function main() {
@@ -1384,6 +1403,7 @@ const url = pushChainClient.explorer.getTransactionUrl(txHash);
 {`
     // customPropHighlightRegexStart=pushChainClient\.explorer\.getTransactionUrl
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_explorer_get_transaction_url
     // Using ethers for example - You can use any library
     // ethers, viem, solana web3js, etc
     import { PushChain } from '@pushchain/core';
@@ -1449,6 +1469,7 @@ const urls = pushChainClient.explorer.listUrls();
 {`
     // customPropHighlightRegexStart=pushChainClient\.explorer\.listUrls
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_explorer_list_urls
     // Using ethers for example - You can use any library
     // ethers, viem, solana web3js, etc
     import { PushChain } from '@pushchain/core';

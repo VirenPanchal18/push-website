@@ -354,6 +354,7 @@ For multicall, the `to` should always be zero address (`0x0000000000000000000000
 
     // customPropHighlightRegexStart=universal\.sendTransaction
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=send_transaction_ethers_basic
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
 
@@ -405,6 +406,7 @@ For multicall, the `to` should always be zero address (`0x0000000000000000000000
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_ethers_with_prompt
 import { PushChain } from '@pushchain/core';
 import { ethers } from 'ethers';
 import \* as readline from 'node:readline/promises';
@@ -501,6 +503,7 @@ import \* as readline from 'node:readline/promises';
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_viem_basic
 import { PushChain } from '@pushchain/core';
 import { createWalletClient, http } from 'viem';
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
@@ -599,6 +602,7 @@ import \* as readline from 'node:readline/promises';
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_solana_basic
 import { PushChain } from '@pushchain/core';
 import { Connection, Keypair } from '@solana/web3.js';
 import \* as readline from 'node:readline/promises';
@@ -673,6 +677,7 @@ import \* as readline from 'node:readline/promises';
     ```jsx live
     // customPropHighlightRegexStart=<PushUniversalWalletProvider
     // customPropHighlightRegexEnd=</PushUniversalWalletProvider>
+    // customPropGTagEvent=send_transaction_ui_kit
     // customPropMinimized='false'
     // Import necessary components from @pushchain/ui-kit
     import {
@@ -776,6 +781,7 @@ import \* as readline from 'node:readline/promises';
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_contract_call_from_push_chain
 
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
@@ -905,6 +911,7 @@ import \* as readline from 'node:readline/promises';
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_contract_interaction_ethers
 
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
@@ -1035,6 +1042,7 @@ import \* as readline from 'node:readline/promises';
 {`
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_with_custom_gas_ethers
 
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
@@ -1171,7 +1179,7 @@ import \* as readline from 'node:readline/promises';
   {`
 
   // customPropHighlightRegexStart=universal\.sendTransaction
-  // customPropHighlightRegexEnd=\\);
+  // customPropHighlightRegexEnd=\\);// customPropGTagEvent=send_transaction_move_funds_native_viem
   import { PushChain } from '@pushchain/core';
   import { createWalletClient, http } from 'viem';
   import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
@@ -1223,6 +1231,7 @@ import \* as readline from 'node:readline/promises';
 
   // customPropHighlightRegexStart=universal\.sendTransaction
   // customPropHighlightRegexEnd=\\);
+  // customPropGTagEvent=send_transaction_funds_erc20
   import { PushChain } from '@pushchain/core';
   import { createWalletClient, http } from 'viem';
   import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
@@ -1280,6 +1289,7 @@ import \* as readline from 'node:readline/promises';
 
   // customPropHighlightRegexStart=universal\.sendTransaction
   // customPropHighlightRegexEnd=\\);
+  // customPropGTagEvent=send_transaction_funds_payload
   import { PushChain } from '@pushchain/core';
   import { createWalletClient, http } from 'viem';
   import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
@@ -1354,6 +1364,7 @@ import \* as readline from 'node:readline/promises';
 
     // customPropHighlightRegexStart=universal\.sendTransaction
     // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=send_transaction_full_example
     // Full Documentation: https://push.org/docs/chain/build/send-universal-transaction
 
     // Import Push Chain Core

@@ -124,6 +124,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
   {`
   // customPropHighlightRegexStart=PushChain\.initialize
   // customPropHighlightRegexEnd=}\\);
+  // customPropGTagEvent=initialize_client_ethers
   import { PushChain } from '@pushchain/core';
   import { ethers } from 'ethers';
 
@@ -160,6 +161,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
   {`
   // customPropHighlightRegexStart=PushChain\.initialize
   // customPropHighlightRegexEnd=}\\);
+  // customPropGTagEvent=initialize_client_viem
   import { PushChain } from '@pushchain/core';
   import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
   import { createWalletClient, http } from 'viem';
@@ -199,6 +201,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
   {`
   // customPropHighlightRegexStart=PushChain\.initialize
   // customPropHighlightRegexEnd=}\\);
+  // customPropGTagEvent=initialize_client_solana
   import { PushChain } from '@pushchain/core';
   import { Keypair } from '@solana/web3.js';
 
@@ -232,6 +235,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
     ```jsx live
     // customPropHighlightRegexStart=<PushUniversalWalletProvider
     // customPropHighlightRegexEnd=</PushUniversalWalletProvider>
+    // customPropGTagEvent=initialize_client_ui_kit
     // customPropMinimized='false'
     // Import necessary components from @pushchain/ui-kit
     import {
@@ -298,6 +302,7 @@ const pushChainClient = await PushChain.initialize(universalAccount, {
   {`
   // customPropHighlightRegexStart=PushChain\.initialize
   // customPropHighlightRegexEnd=}\\);
+  // customPropGTagEvent=initialize_client_custom_signer
   import { PushChain } from '@pushchain/core';
 
   async function main() {
@@ -377,6 +382,7 @@ const pushChainClient2 = await pushChainClient1.reinitialize(newSignerOrAccount,
   {`
   // customPropHighlightRegexStart=client1\.reinitialize
   // customPropHighlightRegexEnd=\\);
+  // customPropGTagEvent=reinitialize_client
   import { PushChain } from '@pushchain/core';
   import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
   import { createWalletClient, http } from 'viem';
