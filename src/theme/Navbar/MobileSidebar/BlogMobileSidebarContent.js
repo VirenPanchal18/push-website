@@ -14,8 +14,11 @@ export default function BlogMobileSidebarContent() {
   const [tocHeadings, setTocHeadings] = useState([]);
 
   const pathname = location?.pathname || '';
+  const isBlogRoot =
+    pathname === baseURL + '/blog' || pathname === baseURL + '/blog/';
   const isBlogPost =
     pathname.startsWith(baseURL + '/blog/') &&
+    !isBlogRoot &&
     pathname !== baseURL + '/blog/tags' &&
     !pathname.includes('/blog/tags/');
 
@@ -96,7 +99,7 @@ export default function BlogMobileSidebarContent() {
       {isBlogPost && (
         <>
           <BackButton onClick={() => setShowBlogMenu(false)}>
-            Move to Article →
+            Go to Article →
           </BackButton>
           <MenuDivider />
         </>

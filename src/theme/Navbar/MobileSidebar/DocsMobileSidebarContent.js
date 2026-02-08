@@ -53,7 +53,7 @@ export default function DocsMobileSidebarContent() {
       {isInDocsSection && (
         <>
           <BackButton onClick={() => setShowDocsMenu(false)}>
-            Move to Documentation →
+            Go to Documentation →
           </BackButton>
           <MenuDivider />
         </>
