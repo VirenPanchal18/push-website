@@ -126,6 +126,17 @@ export default function NavbarContent() {
     const openLink = (e, href, id, target) => {
       e.stopPropagation();
 
+      // Track header navigation click
+      if (typeof window !== 'undefined' && window.gtag) {
+        const isExternal = href && href.includes('http');
+        window.gtag('event', 'header_nav_click', {
+          event_category: 'navigation',
+          event_label: href || id || 'unknown',
+          link_type: isExternal ? 'external' : 'internal',
+          value: 1,
+        });
+      }
+
       if (href) {
         if (target && target !== '_blank') {
           if (target === '_self') {
@@ -205,6 +216,17 @@ export default function NavbarContent() {
   const FeaturedBlogItem = ({ blog }) => {
     const openLink = (e, href) => {
       e.stopPropagation();
+
+      // Track featured blog click from header
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'header_featured_blog_click', {
+          event_category: 'navigation',
+          event_label: blog.slug || href,
+          blog_title: blog.title,
+          value: 1,
+        });
+      }
+
       history.push(baseURL + href);
     };
 

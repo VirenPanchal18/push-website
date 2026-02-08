@@ -52,6 +52,17 @@ const useEmailValidationAndSend: FC<EmailValidationType> = (chain) => {
         if (sendyAPIResponse.toString() === '1') {
           setEmailError('');
           setEmailSuccess(MESSAGES.SUCCESS);
+
+          // Track successful newsletter signup
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'newsletter_signup', {
+              event_category: 'engagement',
+              event_label: chain
+                ? 'chain_mailing_list'
+                : 'general_mailing_list',
+              value: 1,
+            });
+          }
         } else {
           setEmailSuccess('');
           setEmailError(sendyAPIResponse);

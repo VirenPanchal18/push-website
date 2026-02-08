@@ -84,6 +84,22 @@ function returnPlaygroundCode({
     userPassedCode = lines.join('\n');
   }
 
+  // check if customPropGTagEvent is present
+  let gtagEventLabel = 'code_execution';
+  lines = userPassedCode.split('\n');
+  const gtagLine = lines.find((line) => {
+    return line.trim().startsWith('// customPropGTagEvent=');
+  });
+  const gtagMatch = gtagLine?.match(/\/\/\s*customPropGTagEvent=(.+)$/);
+  if (gtagMatch) {
+    // rawValue is everything after the "=" on that comment line
+    gtagEventLabel = gtagMatch[1].trim();
+
+    // remove the line from the code
+    lines.splice(lines.indexOf(gtagLine), 1);
+    userPassedCode = lines.join('\n');
+  }
+
   // escape backticks in the snippet
   const escaped = userPassedCode.replace(/`/g, '\\`');
 
@@ -122,6 +138,15 @@ function App() {
   const runCode = async () => {
     setIsRunning(true);
     setLogs([]);
+
+    // Track Virtual IDE code execution
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'virtual_ide_run', {
+        event_category: 'documentation_core',
+        event_label: '${gtagEventLabel}',
+        value: 1,
+      });
+    }
 
     // let React paint the loader
     await new Promise((r) => setTimeout(r, 0));

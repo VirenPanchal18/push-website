@@ -3,13 +3,13 @@
 //
 import React from 'react';
 
-import styled from 'styled-components';
 import Link from '@docusaurus/Link';
 import { BsHeart, BsTwitterX } from 'react-icons/bs';
+import styled from 'styled-components';
 
+import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
 import { device } from '@site/src/config/globals';
 import useMediaQuery from '@site/src/hooks/useMediaQuery';
-import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
 
 import { H2, ItemH } from '@site/src/css/SharedStyling';
 import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount';
@@ -17,6 +17,26 @@ import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount';
 const LikeAndRetweetItem = ({ twitterId, text }) => {
   const isMobile = useMediaQuery(device.tablet);
   const { data: twitterData } = useTweetMetrics(twitterId);
+
+  const trackLikeClick = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'blog_like_click', {
+        event_category: 'engagement',
+        event_label: twitterId,
+        value: 1,
+      });
+    }
+  };
+
+  const trackRetweetClick = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'blog_retweet_click', {
+        event_category: 'engagement',
+        event_label: twitterId,
+        value: 1,
+      });
+    }
+  };
 
   if (!twitterData) return null;
 
@@ -44,6 +64,7 @@ const LikeAndRetweetItem = ({ twitterId, text }) => {
           target='_blank'
           rel='noopener noreferrer'
           title='Like this post'
+          onClick={trackLikeClick}
         >
           <BsHeart
             size={22}
@@ -59,6 +80,7 @@ const LikeAndRetweetItem = ({ twitterId, text }) => {
           target='_blank'
           rel='noopener noreferrer'
           title='Retweet this post'
+          onClick={trackRetweetClick}
         >
           <BsTwitterX
             size={22}

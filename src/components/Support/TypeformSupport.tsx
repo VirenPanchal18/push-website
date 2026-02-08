@@ -213,6 +213,15 @@ export const TypeformSupport: React.FC<TypeformSupportProps> = ({
 
     setErrors({ ...errors, [currentField]: undefined });
 
+    // Track step progression
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'support_form_step_complete', {
+        event_category: 'support',
+        event_label: `step_${currentStep + 1}_${currentField}`,
+        value: currentStep + 1,
+      });
+    }
+
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
@@ -256,10 +265,28 @@ export const TypeformSupport: React.FC<TypeformSupportProps> = ({
     sendSupportMessage(payload, {
       onSuccess: () => {
         setIsComplete(true);
+
+        // Track successful form submission
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'support_form_submit', {
+            event_category: 'support',
+            event_label: `category_${formData.category}`,
+            value: 1,
+          });
+        }
       },
       onError: (error) => {
         console.error('Error submitting form:', error);
         setSubmitError(t('components.typeform-support.form.error.message'));
+
+        // Track form submission error
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'support_form_error', {
+            event_category: 'support',
+            event_label: 'submission_failed',
+            value: 0,
+          });
+        }
       },
     });
   };
@@ -302,7 +329,17 @@ export const TypeformSupport: React.FC<TypeformSupportProps> = ({
       <CollapsedWrapper>
         <ExpandButton
           id='typeform-expand-button'
-          onClick={() => setIsExpanded(true)}
+          onClick={() => {
+            setIsExpanded(true);
+            // Track form expansion
+            if (typeof window !== 'undefined' && window.gtag) {
+              window.gtag('event', 'support_form_start', {
+                event_category: 'support',
+                event_label: 'form_opened',
+                value: 1,
+              });
+            }
+          }}
         >
           <PlusIcon isExpanded={false}>+</PlusIcon>
           <ButtonText>{finalCollapsedText}</ButtonText>

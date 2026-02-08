@@ -43,6 +43,26 @@ function Footer() {
     document.documentElement.scrollTo(0, 0);
   };
 
+  const trackSocialClick = (platform) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'social_link_click', {
+        event_category: 'footer',
+        event_label: platform,
+        value: 1,
+      });
+    }
+  };
+
+  const trackFooterLinkClick = (linkName) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'footer_link_click', {
+        event_category: 'navigation',
+        event_label: linkName,
+        value: 1,
+      });
+    }
+  };
+
   return (
     <ChainFooterContainer>
       <StyledFooter>
@@ -181,6 +201,7 @@ function Footer() {
                               target={urlConfig.target}
                               rel='noopener'
                               title={t(`footer.links.${linkKey}-title`)}
+                              onClick={() => trackFooterLinkClick(linkKey)}
                             >
                               {t(`footer.links.${linkKey}`)}
                             </FooterAnchorSecondary>
@@ -210,6 +231,7 @@ function Footer() {
                       'footer.social-section.twitter-icon-aria-label'
                     )}
                     target='_blank'
+                    onClick={() => trackSocialClick('twitter')}
                   >
                     <BsTwitterX size={30} />
                   </FooterAnchorIcon>
@@ -221,6 +243,7 @@ function Footer() {
                       'footer.social-section.github-icon-aria-label'
                     )}
                     target='_blank'
+                    onClick={() => trackSocialClick('github')}
                   >
                     <GithubSVG width={30} height={30} />
                   </FooterAnchorIcon>
@@ -232,6 +255,7 @@ function Footer() {
                       'footer.social-section.discord-icon-aria-label'
                     )}
                     target='_blank'
+                    onClick={() => trackSocialClick('discord')}
                   >
                     <DiscordSVG width={30} height={30} />
                   </FooterAnchorIcon>
@@ -244,7 +268,10 @@ function Footer() {
                   to={useBaseUrl('/privacy')}
                   title={t('footer.legal.privacy-policy-title')}
                   aria-label={t('footer.legal.privacy-policy-aria-label')}
-                  onClick={() => document.documentElement.scrollTo(0, 0)}
+                  onClick={() => {
+                    trackFooterLinkClick('privacy');
+                    document.documentElement.scrollTo(0, 0);
+                  }}
                 >
                   {t('footer.legal.privacy-policy')}
                 </FooterIconSecondary>
@@ -253,7 +280,10 @@ function Footer() {
                   to={useBaseUrl('/tos')}
                   title={t('footer.legal.terms-of-service-title')}
                   aria-label={t('footer.legal.terms-of-service-aria-label')}
-                  onClick={() => document.documentElement.scrollTo(0, 0)}
+                  onClick={() => {
+                    trackFooterLinkClick('terms-of-service');
+                    document.documentElement.scrollTo(0, 0);
+                  }}
                 >
                   {t('footer.legal.terms-of-service')}
                 </FooterIconSecondary>

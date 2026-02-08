@@ -147,6 +147,15 @@ export const CultContact: React.FC<CultContactProps> = ({
 
     setErrors({ ...errors, [currentField]: undefined });
 
+    // Track step progression
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'cult_form_step_complete', {
+        event_category: 'cult_registration',
+        event_label: `step_${currentStep + 1}_${currentField}`,
+        value: currentStep + 1,
+      });
+    }
+
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
@@ -181,12 +190,30 @@ export const CultContact: React.FC<CultContactProps> = ({
     sendCultMessage(payload, {
       onSuccess: () => {
         setIsComplete(true);
+
+        // Track successful form submission
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'cult_form_submit', {
+            event_category: 'cult_registration',
+            event_label: 'form_completed',
+            value: 1,
+          });
+        }
       },
       onError: (error) => {
         console.error('Error submitting form:', error);
         setSubmitError(
           'Error submitting your application. Please try again later.'
         );
+
+        // Track form submission error
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'cult_form_error', {
+            event_category: 'cult_registration',
+            event_label: 'submission_failed',
+            value: 0,
+          });
+        }
       },
     });
   };
@@ -225,7 +252,17 @@ export const CultContact: React.FC<CultContactProps> = ({
       <CollapsedWrapper id='apply-to-cult'>
         <ExpandButton
           id='cult-expand-button'
-          onClick={() => setIsExpanded(true)}
+          onClick={() => {
+            setIsExpanded(true);
+            // Track form expansion
+            if (typeof window !== 'undefined' && window.gtag) {
+              window.gtag('event', 'cult_form_start', {
+                event_category: 'cult_registration',
+                event_label: 'form_opened',
+                value: 1,
+              });
+            }
+          }}
           $theme={theme}
         >
           <PlusIcon isExpanded={false}>+</PlusIcon>
