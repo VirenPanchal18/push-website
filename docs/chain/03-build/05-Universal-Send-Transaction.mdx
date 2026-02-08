@@ -1201,8 +1201,7 @@ import \* as readline from 'node:readline/promises';
             token: client.moveable.token.ETH // for native, can omit token, ie: same as { amount: BigInt(1) }
           },
         });
-        const receipt = await res.wait();
-        console.log('✅ Receipt status:', receipt.status);
+        console.log('✅ Sent. Tx:', JSON.stringify(res));
       } catch (err) {
         console.error('❌ Failed:', err && err.message ? err.message : err);
         console.log('Note: Ensure adequate Sepolia ETH for gas.');
@@ -1259,8 +1258,7 @@ import \* as readline from 'node:readline/promises';
           funds: { amount: oneCents, token: usdt },
         });
 
-        const receipt = await res.wait();
-        console.log('✅ Receipt status:', receipt.status);
+        console.log('✅ Sent. Tx:', JSON.stringify(res));
       } catch (err) {
         console.error('❌ Failed:', err && err.message ? err.message : err);
         console.log('Note: Ensure Sepolia ETH for gas and USDT balance.');

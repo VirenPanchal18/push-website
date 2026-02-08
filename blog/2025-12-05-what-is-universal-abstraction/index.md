@@ -4,8 +4,8 @@ title: 'What is Universal Fee Abstraction?'
 authors: [push]
 image: './cover-image.webp'
 description: 'What is Universal Fee Abstraction?'
-text: "Universal Fee Abstraction is a magical mechanism that lets users pay for network fees on any chain, in any token they already hold, while using Universal Apps on Push Chain."
-tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+text: "Pay gas fees in any token from any chain. Universal Fee Abstraction eliminates the hassle of acquiring native tokens, letting users transact seamlessly across all blockchains."
+tags: [Product, Key Features, Push 101]
 twitterId: '1997651446880518174'
 ---
 

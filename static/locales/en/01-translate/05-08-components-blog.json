@@ -6,8 +6,18 @@
         "follow-button": "Follow",
         "read-more": "Read More"
       },
+      "featured": {
+        "title": "Featured Posts",
+        "post-aria-label": "Featured blog post: {{title}}",
+        "image-alt": "Featured image for {{title}}"
+      },
+      "tags": {
+        "title": "Browse by Topic",
+        "tag-link-title": "View posts tagged with {{tagName}}",
+        "tag-link-aria-label": "View posts tagged with {{tagName}}"
+      },
       "list": {
-        "recent-updates": "Recent Updates",
+        "recent-updates": "Recent Posts",
         "page-title": "Page {{page}}"
       },
       "paginator": {

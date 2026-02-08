@@ -1,19 +1,19 @@
 {
   "translations": {
     "generated": {
-      "ar": true,
-      "de": true,
-      "es": true,
-      "fr": true,
-      "hi": true,
-      "id": true,
-      "ja": true,
-      "ko": true,
-      "pt": true,
-      "ru": true,
-      "tr": true,
-      "vi": true,
-      "zh-CN": true
+      "ar": false,
+      "de": false,
+      "es": false,
+      "fr": false,
+      "hi": false,
+      "id": false,
+      "ja": false,
+      "ko": false,
+      "pt": false,
+      "ru": false,
+      "tr": false,
+      "vi": false,
+      "zh-CN": false
     }
   },
   "enChunks": {
@@ -4218,8 +4218,8 @@
       }
     },
     "05-08-components-blog.json": {
-      "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-      "lastUpdated": "2026-01-23T00:44:31.309Z",
+      "checksum": "49a2083f0ed1f7f0885182aadccdc929",
+      "lastUpdated": "2026-02-08T00:22:16.482Z",
       "keys": {
         "components.blog.more-posts.title": {
           "checksum": "61005f8df8f6a3fb54a451b8f20f4208",
@@ -4236,10 +4236,40 @@
           "value": "Read More",
           "lastUpdated": "2025-11-08T13:06:33.009Z"
         },
+        "components.blog.featured.title": {
+          "checksum": "5ab5f1e413050b4625f9ab9f5faff9a1",
+          "value": "Featured Posts",
+          "lastUpdated": "2026-02-08T00:22:16.480Z"
+        },
+        "components.blog.featured.post-aria-label": {
+          "checksum": "819b6e9aa6cccfc4dfbf0af4003c2dc1",
+          "value": "Featured blog post: {{title}}",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
+        },
+        "components.blog.featured.image-alt": {
+          "checksum": "a19410e4ab697e40910b8f9f33969170",
+          "value": "Featured image for {{title}}",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
+        },
+        "components.blog.tags.title": {
+          "checksum": "71e9b0dc3b6cc9b11ea1314ebbd11e0e",
+          "value": "Browse by Topic",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
+        },
+        "components.blog.tags.tag-link-title": {
+          "checksum": "a64611a6fa91c6bb271a91df33b8bd91",
+          "value": "View posts tagged with {{tagName}}",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
+        },
+        "components.blog.tags.tag-link-aria-label": {
+          "checksum": "a64611a6fa91c6bb271a91df33b8bd91",
+          "value": "View posts tagged with {{tagName}}",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
+        },
         "components.blog.list.recent-updates": {
-          "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-          "value": "Recent Updates",
-          "lastUpdated": "2025-11-08T13:06:33.009Z"
+          "checksum": "341825a909ae0a19dd9dbea98ef3e021",
+          "value": "Recent Posts",
+          "lastUpdated": "2026-02-08T00:22:16.482Z"
         },
         "components.blog.list.page-title": {
           "checksum": "8d81534f9560182b0a984c1b2b979e27",
@@ -7793,9 +7823,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.953Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -7813,9 +7843,9 @@
             "lastUpdated": "2025-11-08T13:09:03.953Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.953Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -7886,6 +7916,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.953Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -10713,9 +10773,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.956Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -10733,9 +10793,9 @@
             "lastUpdated": "2025-11-08T13:09:03.956Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -10806,6 +10866,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.956Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -13633,9 +13723,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.958Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -13653,9 +13743,9 @@
             "lastUpdated": "2025-11-08T13:09:03.958Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.958Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -13726,6 +13816,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.958Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -16553,9 +16673,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.959Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -16573,9 +16693,9 @@
             "lastUpdated": "2025-11-08T13:09:03.959Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -16646,6 +16766,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.959Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -19473,9 +19623,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.960Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -19493,9 +19643,9 @@
             "lastUpdated": "2025-11-08T13:09:03.960Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -19566,6 +19716,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.960Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -22393,9 +22573,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.961Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -22413,9 +22593,9 @@
             "lastUpdated": "2025-11-08T13:09:03.961Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -22486,6 +22666,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.961Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -25313,9 +25523,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.962Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -25333,9 +25543,9 @@
             "lastUpdated": "2025-11-08T13:09:03.962Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -25406,6 +25616,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.962Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -28233,9 +28473,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.963Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -28253,9 +28493,9 @@
             "lastUpdated": "2025-11-08T13:09:03.963Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.963Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -28326,6 +28566,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.963Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -31153,9 +31423,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.967Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -31173,9 +31443,9 @@
             "lastUpdated": "2025-11-08T13:09:03.967Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.967Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -31246,6 +31516,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.967Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -34073,9 +34373,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.969Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -34093,9 +34393,9 @@
             "lastUpdated": "2025-11-08T13:09:03.969Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.969Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -34166,6 +34466,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.969Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -36993,9 +37323,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.972Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -37013,9 +37343,9 @@
             "lastUpdated": "2025-11-08T13:09:03.972Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -37086,6 +37416,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.972Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -39913,9 +40273,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.974Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -39933,9 +40293,9 @@
             "lastUpdated": "2025-11-08T13:09:03.974Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.974Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -40006,6 +40366,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.974Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -42833,9 +43223,9 @@
         }
       },
       "05-08-components-blog.json": {
-        "translated": true,
-        "checksum": "bde1ae5c37e11b66adfbe35cfb493605",
-        "lastUpdated": "2025-11-08T13:09:03.978Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "components.blog.more-posts.title": {
             "translated": true,
@@ -42853,9 +43243,9 @@
             "lastUpdated": "2025-11-08T13:09:03.978Z"
           },
           "components.blog.list.recent-updates": {
-            "translated": true,
-            "checksum": "3f926de32b7ea6c6bb1175ab3964dc27",
-            "lastUpdated": "2025-11-08T13:09:03.978Z"
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           },
           "components.blog.list.page-title": {
             "translated": true,
@@ -42926,6 +43316,36 @@
             "translated": true,
             "checksum": "44e2308cdc51a0a1a5350ba3937e0b5e",
             "lastUpdated": "2025-11-08T13:09:03.978Z"
+          },
+          "components.blog.featured.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.post-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.featured.image-alt": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "components.blog.tags.tag-link-aria-label": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },

@@ -4,15 +4,8 @@ title: 'Is Push Chain Another L1?'
 authors: [harsh, sid]
 image: './cover-image.webp'
 description: 'Learn why Push Chain is built different'
-text: 'The move towards Push Chain was driven by the realisation that we had to do our bit to move the needle on interoperability, not in order to create our own fragmented ecosystem.'
-tags:
-  [
-    Push Chain,
-    Insights,
-    Vision,
-    Shared State Blockchain,
-    Universal Execution Layer,
-  ]
+text: "Another L1? Not quite. Learn why Push Chain isn't competing with existing blockchains but instead unifying them. A candid look at the motivation behind building a shared-state blockchain."
+tags: [Product, Thought Leadership]
 twitterId: '1920475763322630510'
 ---
 

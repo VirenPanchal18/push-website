@@ -4,8 +4,8 @@ title: 'Apps Possible Only with Shared State - Vol.2'
 authors: [push]
 image: './cover-image.webp'
 description: 'Apps Possible Only with Shared State - Vol.2'
-text: 'Welcome to the 2nd Volume of  - Apps that are only possible with Push Chain’s shared state architecture!'
-tags: [Push Chain, Shared App Experience, Universal Apps, Consumer Crypto]
+text: 'Volume 2 explores more revolutionary use cases enabled by shared state. Discover how universal gaming, social platforms, and AI agents become reality when blockchain fragmentation disappears.'
+tags: [Product, Key Features, Push 101]
 twitterId: '1922675646725275972'
 ---
 

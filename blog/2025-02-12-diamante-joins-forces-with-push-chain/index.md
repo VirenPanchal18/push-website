@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Diamante'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Diamante'
-text: 'Push Chain is teaming up with Diamante to bring unified exposure to the way enterprises and users transact and operate in the web3 economy. Learn what usecases does this collaboration unlocks and how devs and users can make the best of it!'
-tags: [Push Chain, Partnerships]
+text: "Quantum-resistant security meets universal blockchain. Diamante's institutional-grade L1 integrates with Push Chain, bringing enterprise-ready infrastructure to universal apps across all chains."
+tags: [Partnerships]
 twitterId: '1889683548942245905'
 ---
 

@@ -4,8 +4,8 @@ title: 'Introducing Push Chain Devnet Drop Points Program S2'
 authors: [push]
 image: './cover-image.webp'
 description: 'Introducing Push Chain Devnet Drop Points Program S2'
-text: "Say Hello to Points Program S2 - Earn Points for Exploring Push Chain Devnet's Early Ecosystem Apps. Level Up, Climb Leaderboards and Secure Your Drop Eligibility!"
-tags: [Push Chain, Push Points, Rewards, Announcements]
+text: "Season 2 of Push Chain's Points Program is live! Explore early ecosystem apps, complete quests, climb leaderboards, and earn points toward the upcoming token drop."
+tags: [Programs, Ecosystem]
 twitterId: '1902739304809656771'
 ---
 

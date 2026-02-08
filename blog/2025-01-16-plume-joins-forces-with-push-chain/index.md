@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Plume'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain joins forces with Plume!'
-text: 'Push Chain is set to revolutionize RWAfi by joining forces with Plume! Learn what this announcement means for Plume and Push Chain users, the use cases it unlocks, and how the collaboration benefits the greater Web3 ecosystem.'
-tags: [Push Chain, Partnerships]
+text: "Real-world assets meet universal blockchain. Plume's RWAfi ecosystem integrates with Push Chain, enabling tokenized assets to be accessible from any chain, any wallet, anywhere."
+tags: [Partnerships]
 twitterId: '1879899425117806791'
 ---
 

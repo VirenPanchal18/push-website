@@ -196,6 +196,8 @@ const processBlogPost = async (blogDir) => {
       imageUrl,
       tags,
       authors: frontmatter.authors || [],
+      showcase:
+        frontmatter.showcase === true || frontmatter.showcase === 'true',
     };
   } catch (error) {
     console.error(
@@ -236,6 +238,15 @@ const buildFeaturedBlogs = async () => {
       console.log(chalk.yellow('⚠️  No featured blog posts found'));
       return;
     }
+
+    // Sort featured blogs: showcase:true first, then by date
+    featuredBlogs.sort((a, b) => {
+      // Showcase blogs come first
+      if (a.showcase && !b.showcase) return -1;
+      if (!a.showcase && b.showcase) return 1;
+      // If both have same showcase status, maintain date order (already sorted newest first)
+      return 0;
+    });
 
     // Ensure output directory exists
     await fs.mkdir(OUTPUT_DIR, { recursive: true });

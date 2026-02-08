@@ -4,8 +4,8 @@ title: 'Push Chain’s Frequently Asked Questions'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain’s Frequently Asked Questions'
-text: 'The place to find answers to all the popular questions the community has asked about Push Chain. Crowdsourced from Push Fam ❤️ and curated by the Push team 💪.'
-tags: [Push Chain, Shared App Experience, Community & Ecosystem, Tokenomics]
+text: 'Got questions about Push Chain? This comprehensive FAQ covers everything from how universal apps work to tokenomics, validators, and what makes Push Chain different from traditional L1s.'
+tags: [Product, Ecosystem, Push 101]
 twitterId: '1869789799810277800'
 ---
 

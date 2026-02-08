@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import readline from 'readline';
 
 import { buildFeaturedBlogs } from './build.blogs.featured.mjs';
+import { buildBlogTags } from './build.blogs.tags.mjs';
 import { prepForDocsChangelog } from './build.docs.changelog.mjs';
 import { prepAndMoveFilesFromTempLocationToActual } from './build.lite.forprod.mjs';
 import { prepForPreviewDeployment } from './build.preview.mjs';
@@ -42,6 +43,16 @@ const prepForDeployment = async (appEnv, skipTranslation) => {
     console.log(chalk.green('✅ Featured blogs JSON generated successfully'));
   } catch (error) {
     console.warn(chalk.yellow('⚠️  Featured blogs generation failed'));
+    console.warn(chalk.gray(`   Error: ${error.message}`));
+  }
+
+  // Step 2.6: Generate blog tags JSON
+  console.log(chalk.cyan('\n🏷️  Step 2.6: Generating blog tags JSON...'));
+  try {
+    await buildBlogTags();
+    console.log(chalk.green('✅ Blog tags JSON generated successfully'));
+  } catch (error) {
+    console.warn(chalk.yellow('⚠️  Blog tags generation failed'));
     console.warn(chalk.gray(`   Error: ${error.message}`));
   }
 

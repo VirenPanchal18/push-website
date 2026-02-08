@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With zkLink'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain joins forces with zkLink!'
-text: "Push Chain's road to testnet has kickstarted in full swing.  Learn everything about our collaboration with zkLink - what it means for Push and zkLink users, the use cases it unlocks and more!"
-tags: [Push Chain, Partnerships]
+text: "zkLink's aggregated liquidity meets Push Chain's universal apps. Learn how this integration enables seamless cross-chain trading and unified DeFi experiences across all blockchains."
+tags: [Partnerships]
 twitterId: '1879180729554555074'
 ---
 

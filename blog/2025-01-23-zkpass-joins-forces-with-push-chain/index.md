@@ -4,9 +4,8 @@ title: 'Push Chain Joins Forces With zkPass'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain joins forces with zkPass!'
-text: "Push chain is pumped to join forces with zkPass to transform user privacy in the new internet world. Discover how this collaboration empowers devs, users and the entire web3 ecosystem!
-"
-tags: [Push Chain, Partnerships]
+text: "Privacy-preserving identity meets universal blockchain. zkPass integration brings zero-knowledge proofs to Push Chain, enabling secure, private authentication across all chains without compromising user data."
+tags: [Partnerships]
 twitterId: '1882435635937673639'
 ---
 

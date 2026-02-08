@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Fuse'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Fuse'
-text: 'Push Chain is joining forces with the Fuse Network to transform the way enterprises and users transact and operate in the web3 economy. Learn what usecases does this collaboration unlocks and how devs and users can make the best of it!'
-tags: [Push Chain, Partnerships]
+text: "Enterprise-grade payments meet universal blockchain. Fuse Network's mobile-first infrastructure integrates with Push Chain, enabling businesses to accept payments from any chain with zero friction."
+tags: [Partnerships]
 twitterId: '1887151022898119019'
 ---
 
