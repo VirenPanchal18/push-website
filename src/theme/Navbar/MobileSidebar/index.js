@@ -13,6 +13,7 @@ import NavbarMobileSidebarPrimaryMenu from '@theme/Navbar/MobileSidebar/PrimaryM
 import NavbarMobileSidebarSecondaryMenu from '@theme/Navbar/MobileSidebar/SecondaryMenu';
 import React from 'react';
 import BlogMobileSidebarContent from './BlogMobileSidebarContent';
+import DocsMobileSidebarContent from './DocsMobileSidebarContent';
 import './styles.module.css';
 
 export default function NavbarMobileSidebar() {
@@ -20,13 +21,16 @@ export default function NavbarMobileSidebar() {
   const pathname = location?.pathname;
   const baseURL = useSiteBaseUrl() || '';
 
-  const isBlogPage = !pathname?.startsWith(baseURL + '/docs');
+  const isDocsPage = pathname?.startsWith(baseURL + '/docs');
+  const isBlogPage = pathname?.startsWith(baseURL + '/blog');
 
   return (
     <NavbarMobileSidebarLayout
       header={<NavbarMobileSidebarHeader />}
       primaryMenu={
-        isBlogPage ? (
+        isDocsPage ? (
+          <DocsMobileSidebarContent />
+        ) : isBlogPage ? (
           <BlogMobileSidebarContent />
         ) : (
           <NavbarMobileSidebarPrimaryMenu />
