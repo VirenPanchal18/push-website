@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React, { useRef, useState, useMemo } from 'react';
-import styled from 'styled-components';
+import React, { useMemo, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
+import styled from 'styled-components';
 import { isSafari } from './isSafari';
 
 type CustomReactPlayerProps = {
@@ -28,13 +28,8 @@ const CustomReactPlayer: React.FC<CustomReactPlayerProps> = ({
 }) => {
   const videoUrl = useMemo(() => {
     if (isSafari() && url.endsWith('.webm')) {
-      try {
-        const mp4Url = url.replace('.webm', '.mp4');
-        require(mp4Url);
-        return mp4Url;
-      } catch {
-        return url;
-      }
+      // Safari doesn't support webm, use mp4 instead
+      return url.replace('.webm', '.mp4');
     }
     return url;
   }, [url]);

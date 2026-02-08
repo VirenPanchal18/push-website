@@ -140,30 +140,6 @@ export const SdkItemsList: ISdkListItem[] = [
     PinkSvg: require('@site/static/assets/docs/ArrowUpRight-pink.svg').default,
     link: 'https://github.com/pushchain/push-chain-sdk/tree/main/packages/core',
   },
-  // {
-  //   title: 'REST API',
-  //   Svg: require('@site/static/assets/docs/arrowupright.svg').default,
-  //   PinkSvg: require('@site/static/assets/docs/ArrowUpRight-pink.svg').default,
-  //   link: 'https://www.npmjs.com/package/@pushprotocol/restapi',
-  // },
-  // {
-  //   title: 'React Native',
-  //   Svg: require('@site/static/assets/docs/arrowupright.svg').default,
-  //   PinkSvg: require('@site/static/assets/docs/ArrowUpRight-pink.svg').default,
-  //   link: 'https://www.npmjs.com/package/@pushprotocol/react-native-sdk',
-  // },
-  // {
-  //   title: 'Socket',
-  //   Svg: require('@site/static/assets/docs/arrowupright.svg').default,
-  //   PinkSvg: require('@site/static/assets/docs/ArrowUpRight-pink.svg').default,
-  //   link: 'https://www.npmjs.com/package/@pushprotocol/socket',
-  // },
-  // {
-  //   title: 'UIWeb',
-  //   Svg: require('@site/static/assets/docs/arrowupright.svg').default,
-  //   PinkSvg: require('@site/static/assets/docs/ArrowUpRight-pink.svg').default,
-  //   link: 'https://www.npmjs.com/package/@pushprotocol/uiweb',
-  // },
   {
     title: 'UI Kit',
     Svg: require('@site/static/assets/docs/arrowupright.svg').default,
