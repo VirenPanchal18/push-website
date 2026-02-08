@@ -1,0 +1,28 @@
+/* Ensure backdrop stays fixed and doesn't fade while scrolling */
+:global(.navbar-sidebar__backdrop) {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  z-index: 9998 !important;
+  opacity: 1 !important;
+}
+
+/* Ensure mobile sidebar is above backdrop */
+:global(.navbar-sidebar) {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* Prevent body scroll when mobile sidebar is open */
+:global(html.navbar-sidebar--show) {
+  overflow: hidden !important;
+}
+
+:global(body.navbar-sidebar--show) {
+  overflow: hidden !important;
+}

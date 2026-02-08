@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'How Universal Fee Abstraction Works'
 text: "Click 'Stake 500 USDC' and it just works. No gas token hunting, no chain switching, no wallet juggling. Learn how Universal Fee Abstraction delivers the seamless UX users actually expect."
-tags: [Featured, Product, Key Features, Deep Dives]
+tags: [Product, Key Features, Deep Dives]
 twitterId: '2019455170200105255'
 ---
 

@@ -30,6 +30,7 @@ import {
   LinkTo,
   Span,
 } from '@site/src/css/SharedStyling';
+import featuredBlogsData from '@site/static/content/featuredblogs.json';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
@@ -201,6 +202,45 @@ export default function NavbarContent() {
     );
   };
 
+  const FeaturedBlogItem = ({ blog }) => {
+    const openLink = (e, href) => {
+      e.stopPropagation();
+      history.push(baseURL + href);
+    };
+
+    // Remove emojis from title
+    const stripEmojis = (text) => {
+      return text
+        .replace(
+          /[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F000}-\u{1F02F}]|[\u{1F0A0}-\u{1F0FF}]|[\u{1F100}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1FA00}-\u{1FA6F}]|[\u{1FA70}-\u{1FAFF}]|[\u{FE00}-\u{FE0F}]|[\u{20D0}-\u{20FF}]|[\u{E0020}-\u{E007F}]/gu,
+          ''
+        )
+        .trim();
+    };
+
+    return (
+      <HeaderItem onClick={(e) => openLink(e, blog.link)}>
+        <ItemH
+          flexDirection='column'
+          alignItems='flex-start'
+          gap='0px'
+          padding='0px'
+        >
+          <H2
+            fontSize='16px'
+            fontFamily='DM Sans, san-serif'
+            color='var(--ifm-color-primary-text)'
+            lineHeight='130%'
+            letterSpacing='normal'
+            fontWeight='500'
+          >
+            {stripEmojis(blog.title)}
+          </H2>
+        </ItemH>
+      </HeaderItem>
+    );
+  };
+
   const textIds = ['text0', 'text1', 'text2', 'text3', 'text4'];
 
   const handleMouseEnter = (e, activeId) => {
@@ -261,7 +301,9 @@ export default function NavbarContent() {
                   lineHeight='150%'
                   padding='16px'
                 >
-                  Explore
+                  {pathname?.startsWith(baseURL + '/docs')
+                    ? 'Explore'
+                    : 'Featured'}
                 </Span>
                 <CaretSVG color='var(--ifm-header-caret-color)' />
               </NavigationMenuHeader>
@@ -270,10 +312,23 @@ export default function NavbarContent() {
                 className='menuContent'
                 expanded={mobileMenuMap[0]}
               >
-                {HeaderList.explore &&
-                  HeaderList.explore.map((item, index) => (
-                    <HeaderSpace item={item} index={index} />
-                  ))}
+                {pathname?.startsWith(baseURL + '/docs')
+                  ? HeaderList.explore &&
+                    HeaderList.explore.map((item, index) => (
+                      <HeaderSpace item={item} index={index} key={index} />
+                    ))
+                  : HeaderList.blogExplore === 'featured'
+                    ? featuredBlogsData.map((blog, index) => (
+                        <FeaturedBlogItem
+                          blog={blog}
+                          index={index}
+                          key={index}
+                        />
+                      ))
+                    : HeaderList.explore &&
+                      HeaderList.explore.map((item, index) => (
+                        <HeaderSpace item={item} index={index} key={index} />
+                      ))}
               </NavigationMenuContent>
             </NavigationMenuItem>
           )}
@@ -285,7 +340,7 @@ export default function NavbarContent() {
         <>
           <NavbarItems items={rightItems} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          {!searchBarItem && (
+          {!searchBarItem && pathname?.startsWith(baseURL + '/docs') && (
             <NavbarSearch>
               <SearchBar />
             </NavbarSearch>
