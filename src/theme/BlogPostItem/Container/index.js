@@ -4,9 +4,9 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
-import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
+import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
+import React from 'react';
 import styled from 'styled-components';
 
 export default function BlogPostItemContainer({ children, className }) {
@@ -24,7 +24,6 @@ export default function BlogPostItemContainer({ children, className }) {
       itemProp='blogPost'
       itemScope
       itemType='https://schema.org/BlogPosting'
-      style={{ width: 'calc(100vw - 32px)' }}
     >
       {description && <meta itemProp='description' content={description} />}
       {image && (
@@ -39,7 +38,11 @@ export default function BlogPostItemContainer({ children, className }) {
 }
 
 const StyledArticle = styled.article`
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
   @media (min-width: 1200px) {
-    max-width: 75%;
+    max-width: 90%;
   }
 `;

@@ -6,13 +6,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {
-  HtmlClassNameProvider,
-  ThemeClassNames,
-} from '@docusaurus/theme-common';
-import {
   BlogPostProvider,
   useBlogPost,
 } from '@docusaurus/plugin-content-blog/client';
+import {
+  HtmlClassNameProvider,
+  ThemeClassNames,
+} from '@docusaurus/theme-common';
+import { MultiContent } from '@site/src/css/SharedStyling';
 import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata';
@@ -21,7 +22,6 @@ import clsx from 'clsx';
 import styled from 'styled-components';
 import FooterItem from './FooterItem';
 import MorePosts from './MorePosts';
-import { MultiContent } from '@site/src/css/SharedStyling';
 
 function BlogPostPageContent({ allPosts, post, children }) {
   const { metadata, toc } = useBlogPost();

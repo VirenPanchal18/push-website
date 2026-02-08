@@ -4,24 +4,24 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
-import clsx from 'clsx';
 import {
-  PageMetadata,
   HtmlClassNameProvider,
+  PageMetadata,
   ThemeClassNames,
   translateTagsPageTitle,
 } from '@docusaurus/theme-common';
+import { MultiContent } from '@site/src/css/SharedStyling';
 import BlogLayout from '@theme/BlogLayout';
-import TagsListByLetter from '@theme/TagsListByLetter';
 import SearchMetadata from '@theme/SearchMetadata';
-// import styles from "./styles.module.css";
+import TagsListByLetter from '@theme/TagsListByLetter';
+import clsx from 'clsx';
+import React from 'react';
 import styled from 'styled-components';
 
-// Internal Configs
-import { device } from '@site/src/config/globals';
+// Internal Components
+import BlogTags from '@site/src/components/Blog/BlogTags';
 
-export default function BlogTagsListPage({ tags, sidebar }) {
+export default function BlogTagsListPage({ tags }) {
   const title = translateTagsPageTitle();
   return (
     <HtmlClassNameProvider
@@ -32,23 +32,53 @@ export default function BlogTagsListPage({ tags, sidebar }) {
     >
       <PageMetadata title={title} />
       <SearchMetadata tag='blog_tags_list' />
-      <BlogLayout />
-      <TagSection>
-        <h1>{title}</h1>
-        <TagsListByLetter tags={tags} />
-      </TagSection>
+      <BlogLayout>
+        <MultiContent className='large'>
+          <OtterArt>
+            {`    __
+  /  \\
+ | oo |
+ |  >  |  
+  \\__/
+  /  \\
+ /    \\
+(______)
+`}
+          </OtterArt>
+        </MultiContent>
+        <MultiContent className='large'>
+          <BlogTags scrollingTheme={false} />
+        </MultiContent>
+      </BlogLayout>
     </HtmlClassNameProvider>
   );
 }
 
-const TagSection = styled.div`
-  width: 1120px !important;
-  margin: 50px auto;
-  &.h1 {
-    color: var(--ifm-color-secondary-blog);
-  }
+const OtterArt = styled.pre`
+  font-family: monospace;
+  color: var(--ifm-color-primary-blog);
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0;
+  white-space: pre;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
 
-  @media ${device.laptopL} {
-    width: 90% !important;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+`;
+
+const TagSection = styled.div`
+  margin: 50px 0;
+
+  & h1 {
+    color: var(--ifm-color-secondary-blog);
   }
 `;

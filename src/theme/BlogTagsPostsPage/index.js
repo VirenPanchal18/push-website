@@ -4,20 +4,20 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Translate, { translate } from '@docusaurus/Translate';
 import {
-  PageMetadata,
   HtmlClassNameProvider,
+  PageMetadata,
   ThemeClassNames,
   usePluralForm,
 } from '@docusaurus/theme-common';
-import Link from '@docusaurus/Link';
 import BlogLayout from '@theme/BlogLayout';
 import BlogListPaginator from '@theme/BlogListPaginator';
-import SearchMetadata from '@theme/SearchMetadata';
 import BlogPostItems from '@theme/BlogPostItems';
+import SearchMetadata from '@theme/SearchMetadata';
+import clsx from 'clsx';
+import React from 'react';
 import styled from 'styled-components';
 
 // Internal Configs
@@ -103,26 +103,49 @@ const TagsHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 1120px !important;
-  margin: 20px auto 0 auto;
+  margin: 20px 0 0 0;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  & h1 {
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  & a {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
   @media ${device.tablet} {
     flex-direction: column;
-    width: 90% !important;
     align-items: flex-start;
+    gap: 12px;
   }
 `;
 
 const GridItem = styled.div`
-  width: 1120px !important;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 33px;
+  gap: 96px;
   box-sizing: border-box;
-  margin: 50px auto 0 auto;
+  margin-top: 50px;
+
+  & > *:nth-child(odd) {
+    justify-self: start;
+  }
+
+  & > *:nth-child(even) {
+    justify-self: end;
+  }
 
   @media ${device.laptopL} {
-    width: 90% !important;
+    gap: 64px;
   }
 
   @media ${device.tablet} {

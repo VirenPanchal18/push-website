@@ -5,8 +5,8 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 // import Link from "@docusaurus/Link";
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -50,4 +50,9 @@ const NavLink = styled.div`
   border: 1px solid #bac4d6;
   width: fit-content;
   cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--ifm-color-primary);
+  }
 `;
