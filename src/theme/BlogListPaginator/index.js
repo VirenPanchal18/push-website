@@ -6,8 +6,8 @@
  */
 import PaginatorNavLink from '@theme/PaginatorNavLink';
 import React from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 // Internal Configs
 import { device } from '@site/src/config/globals';
@@ -21,11 +21,13 @@ export default function BlogListPaginator(props) {
       // className="pagination-nav"
       aria-label={t('components.blog.paginator.nav-aria-label')}
     >
-      {previousPage && (
+      {previousPage ? (
         <PaginatorNavLink
           permalink={previousPage}
           title={t('components.blog.paginator.newer-entries')}
         />
+      ) : (
+        <div />
       )}
       {nextPage && (
         <PaginatorNavLink
@@ -43,14 +45,14 @@ const NavItem = styled.nav`
   display: flex;
   flex-direction: row;
   gap: 32px;
-  justify-content: center;
-  width: 1120px !important;
+  justify-content: space-between;
+  width: 100%;
 
-  @media ${device.laptopL} {
-    width: 100% !important;
-  }
+  /* If only one button exists, it will be on the right (nextPage) or left (previousPage) */
+  /* space-between handles both cases automatically */
 
   @media ${device.tablet} {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    flex-direction: column;
+    gap: 16px;
   }
 `;

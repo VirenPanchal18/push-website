@@ -21,7 +21,7 @@ function BRBPage() {
     <Layout
       title={t('pages.brb.seo.title')}
       description={t('pages.brb.seo.description')}
-      showNavbar={false}
+      showNavbar={'website'}
     >
       <Head>
         {/* <!-- Facebook Meta Tags --> */}

@@ -13,14 +13,14 @@ import Spinner, {
 import GLOBALS from '@site/src/config/globals';
 import {
   Button,
+  CopyButton,
+  CopyContainer,
   ItemH,
   ItemV,
-  CopyContainer,
-  CopyButton,
 } from '@site/src/css/SharedStyling';
 import clsx from 'clsx';
-import React, { useState, useEffect } from 'react';
-import { FiChevronDown, FiChevronUp, FiCopy, FiCheck } from 'react-icons/fi';
+import React, { useEffect, useState } from 'react';
+import { FiCheck, FiChevronDown, FiChevronUp, FiCopy } from 'react-icons/fi';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import styles from './styles.module.css';
 
@@ -255,6 +255,7 @@ export default function Playground({
   let isNodeJSEnv = false;
   let highlightRegexStart = null;
   let highlightRegexEnd = null;
+  let gtagEventLabel = 'code_execution';
 
   // Process all top comment lines
   while (idx < lines.length && lines[idx].trim().startsWith('//')) {
@@ -277,13 +278,20 @@ export default function Playground({
       highlightRegexEnd = matchEnd[1].trim();
     }
 
+    // Check for gtag event label
+    const matchGtag = line.match(/\/\/\s*customPropGTagEvent=(.+)$/);
+    if (matchGtag) {
+      gtagEventLabel = matchGtag[1].trim();
+    }
+
     // remove any customProp flags from this line
     lines[idx] = lines[idx]
       .replace(/\/\/\s*customPropMinimized=['"](\w+)['"]/, '')
       .replace(/\/\/\s*customPropHidden=['"](\w+)['"]/, '')
       .replace(/\/\/\s*customPropNodeJSEnv=['"](\w+)['"]/, '')
       .replace(/\/\/\s*customPropHighlightRegexStart=.*$/, '')
-      .replace(/\/\/\s*customPropHighlightRegexEnd=.*$/, '');
+      .replace(/\/\/\s*customPropHighlightRegexEnd=.*$/, '')
+      .replace(/\/\/\s*customPropGTagEvent=.*$/, '');
 
     // if line is now just whitespace or comment, drop it
     if (lines[idx].trim() === '//') {
@@ -337,9 +345,19 @@ export default function Playground({
       <LiveProvider
         code={execCode}
         noInline={noInline}
-        transformCode={(code) =>
-          `${changeToExecutableCode(code, isNodeJSEnv)};`
-        }
+        transformCode={(code) => {
+          // Track React Live code execution
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'react_live_run', {
+              event_category: isNodeJSEnv
+                ? 'documentation_core'
+                : 'documentation_ui',
+              event_label: gtagEventLabel,
+              value: 1,
+            });
+          }
+          return `${changeToExecutableCode(code, isNodeJSEnv)};`;
+        }}
         theme={prismTheme}
         scope={liveScope}
         {...props}

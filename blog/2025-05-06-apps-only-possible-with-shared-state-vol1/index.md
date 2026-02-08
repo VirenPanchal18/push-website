@@ -4,8 +4,8 @@ title: 'Apps Possible Only with Shared State - Vol.1'
 authors: [push]
 image: './cover-image.webp'
 description: 'Apps Possible Only with Shared State - Vol.1'
-text: 'Learn about 5 super helpful use cases that are only only possible with shared state blockchains like Push Chain'
-tags: [Push Chain, Shared App Experience, Universal Apps, Consumer Crypto]
+text: 'Five game-changing use cases that only work with shared-state architecture. From cross-chain DeFi to universal NFTs, discover what becomes possible when all chains share the same state.'
+tags: [Product, Key Features, Push 101]
 twitterId: '1919758550777356776'
 ---
 

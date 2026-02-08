@@ -4,8 +4,9 @@ title: 'Introducing Push Cult 👁️⃤  -  Blood Pact for Creators'
 authors: [push]
 image: './cover-image.webp'
 description: 'An exclusive order of 50 creators selected to split a 20M PC token bounty by delivering pure signal.'
-text: "Crypto is drowning in noise. Timelines are rotting with AI slop and empty engagement. Push Cult rejects this decay. We do not seek the loud. We seek visionaries. "
-tags: [Donut Testnet, Ecosystem, Content Creator]
+text: "Push Cult is an exclusive order of 50 elite creators splitting 20M PC tokens. No AI slop. No empty engagement. Just pure signal from visionaries building the future of universal blockchain."
+tags: [Featured, Programs, Ecosystem, Maker Monday]
+showcase: true
 twitterId: '2014337359064789182'
 ---
 

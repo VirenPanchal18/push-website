@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Scroll'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Scroll'
-text: "Scroll is coming to Push Chain! Learn what usecases does this collaboration unlocks and how devs and users can make the best of it!"
-tags: [Push Chain, Partnerships]
+text: "Scroll's zkEVM scalability meets Push Chain's universal reach. Ethereum users can now access universal apps with Scroll's efficiency and Push Chain's cross-chain interoperability."
+tags: [Partnerships]
 twitterId: '1890446538091991283'
 ---
 

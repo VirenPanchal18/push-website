@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Aptos'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Aptos'
-text: "Push Chain's road to testnet has kickstarted in full swing. Learn everything about our collaboration with Aptos - what it means for Push and Aptos users, the use cases it unlocks and more!"
-tags: [Push Chain, Partnerships]
+text: "Aptos users can now access universal apps on Push Chain without leaving their ecosystem. Discover how this partnership unlocks cross-chain DeFi, NFTs, and seamless user experiences."
+tags: [Partnerships]
 twitterId: '1877362460950253622'
 ---
 

@@ -256,11 +256,6 @@ const config = {
             label: 'Docs',
           },
           {
-            to: 'https://discord.com/invite/pushchain',
-            label: 'Discord',
-            position: 'right',
-          },
-          {
             to: 'https://portal.push.org/',
             label: 'Push Portal',
             position: 'right',

@@ -504,7 +504,7 @@
                   "true-universal-chain": "### Was bedeutet True Universal Chain?\n\nEine **True Universal Chain** ist eine Blockchain, die jedes andere Netzwerk als gleichwertig behandelt – keine Bridges, keine zentralisierten Relayer und keine Kompatibilitäts-Hacks. Sie bietet:\n\n1. **Native Multichain-Identität**\n\tWallets von Ethereum, Solana, jeder EVM- oder non-EVM-Chain signieren, verifizieren und führen nativ auf Push Chain aus. So müssen Benutzer niemals Konten wechseln oder sich mit der Komplexität mehrerer Wallets herumschlagen.\n\n2. **Einheitliche Abwicklung**\n\tTransaktionen von jedem Netzwerk werden auf Push Chain endgültig abgeschlossen, wodurch jeder eine einzige Quelle der Wahrheit erhält und dieselbe App für Benutzer aller Chains zugänglich wird.\n\n3. **Single Transaction und Universal Fee Abstraction**\n\tBenutzer signieren nur eine Transaktion, unabhängig von ihrer Quell-Chain und zahlen Gas in jedem Token. Kein Wartung oder Austausch unzähliger Token mehr, um eine App zu nutzen.\n\n4. **Einmal bereitstellen, überall nutzen**\n\tEntwickler schreiben und stellen Smart Contracts einmal (EVM oder anders) ohne **zusätzlichen** Code bereit – eine Bereitstellung deckt alle Chains ab.\n\nPush Chain ist die erste, die diese Funktionen direkt in ihren Konsens und ihre Laufzeit einbaut und Fragmentierung wirklich beseitigt – keine Workarounds, keine zusätzlichen Layers, nur eine universelle Chain für jeden.\n\n---",
                   "competitors-section": "## Wettbewerber",
                   "vs-other-universal": "### Was Push Chain Push Chain von anderen Universal Solutions unterscheidet?\n\nTagesaktuell sogenannte \"universal\" Lösungen verlassen sich immer noch auf Bridges, benötigen doppelte Transaktionen oder zentralisierte Relayer, um Daten und Wert zu bewegen. Push Chain ist anders—es ist die erste **wahre** Universal L1, die:\n\n- **Nutzer über Ketten hinweg vereinheitlicht**  \n\tJede Blockchain-Adresse wird nativ unterstützt. Wallets wie MetaMask, Phantom, usw. sind alle kompatibel mit Push Chain. Gas wird in jedem Token auf jeder Kette bezahlt.\n\n- **Als universelle Execution Layer fungiert**  \n\tAlle Transaktionen finalisieren auf derselben Kette, was sicherstellt, dass jeder mit derselben app interagiert—keine Hacks, keine Umwege.\n\n- **Transaktionen korrekt zuordnet & ausführt von jeder Kette**  \n\tTransaktionen werden signiert, verifiziert und Wallets auf ihren Quellketten zugeordnet. Eine wahre Universal Kette unterstützt sie alle.\n\n---",
-                  "vs-bridges-messaging": "### Wie unterscheidet sich das von Brücken oder Messaging-Lagen?\n\n**Kurze Antwort**: Push ist der Ort, an dem Ihre App ausgeführt wird. Brücken/Messaging bewegen nur Token oder Nachrichten zwischen Ketten und erschweren alles für den Benutzer und Entwickler.\n\n- **Einheitlicher Wohnsitz vs viele Kopien**  \n\tBei Brücken/Messaging müssen Sie pro Kette einsetzen und über Nachrichten synchronisieren. Auf Push setzt ihr einmal ein; alle rufen denselben Vertrag und gemeinsamen Status auf.\n\n- **Keine gewickelten Assets oder erforderliche Überbrückung**  \n\tnBenutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits haben; wir kümmern uns unter der Haube um die Routing- und Gebührenumwandlung.\n\n- **Vereinheitlichte Identität und Verifizierung**  \n\tWir akzeptieren Signaturen von jeder Wallet/Kette und führen sie einem Benutzer auf Push zu – nicht verwahrungsfrei.\n\n- **Weniger bewegliche Teile**  \n\tKein Cross-Chain-Genehmigungs-Tanz, kein Gas-Token-Jagen, keine Haftverträge zur Synchronisierung.\n\n- **Brücken führen Komplexität ein. Kettennatives Interop löst sie**  \n\tBrücken erfordern komplexe Entwicklungsbemühungen, Zeit, Kosten für die Überprüfung und zusätzliche Infrastruktur. Kettennative Interop funktioniert einfach, da Ihre App es nativ erbt.\n\n**Ergebnis**: einfachere Apps, eine Wahrheitquelle und ein UX, der sich wie eine Kette anfühlt – sogar wenn Benutzer es nicht tun.\n\n---",
+                  "vs-bridges-messaging": "### Wie unterscheidet sich dies von Brücken oder Messaging-Schichten?\n\n**Kurze Antwort**: Push ist der Ort, an dem Ihre App ausgeführt wird. Brücken/Messaging bewegen nur Tokens oder Nachrichten zwischen Ketten und machen alles für den Benutzer und Entwickler kompliziert.\n\n- **Einzige Heimat vs viele Klone**  \n\tBei Brücken/Messaging müssen Sie pro Kette deployen und via Nachrichten synchronisieren. Auf Push können Sie einmal deployen; jeder ruft denselben Vertrag und gemeinsamen Status ab.\n\n- **Keine gewickelten Assets oder Pflichtbrücke**  \n\tBenutzer bleiben auf ihrer Heimatkette und zahlen mit dem, was sie bereits haben; wir erledigen Routing und Gebührsumwandlung unter der Haube.\n\n- **Einheitliche Identität & Verifizierung**  \n\tWir akzeptieren Signaturen von jeder Wallet/Kette und führen sie demselben Benutzer auf Push zu – nicht verwahrend.\n\n- **Weniger bewegliche Teile**  \n\tKein Cross-Chain-Approve-Tanz, kein Gas-Token-Suchen, keine Klebstoffverträge, die synchron gehalten werden müssen.\n\n- **Brücken einführen Komplexität. Chain-native Interoperability löst es**  \n\tBrücken erfordern komplexen Entwicklungsaufwand, Zeit, Kosten für das Auditing und zusätzliche Infrastruktur. Chain-native Interoperability funktioniert einfach, da Ihre App es nativ erbt.\n\n**Ergebnis**: einfachere Apps, eine gemeinsame Wahrheit und ein UX, der sich wie eine Kette anfühlt – sogar wenn Benutzer nicht sind.\n\n---",
                   "vs-layerzero": "### Wie unterscheidet sich Push Chain von LayerZero?\n\n**LayerZero:**\n- **Messaging Protokoll**: Ermöglicht Cross-Chain-Nachrichtenübertragung\n- **Relayer-Abhängigkeit**: Verlässt sich auf externe Relayer und Orakel\n- **Entwicklerintegration**: Apps müssen das LayerZero SDK integrieren\n- **Vertrauensannahmen**: Benutzer müssen der Relayer-Infrastruktur vertrauen\n\n**Push Chain:**\n- **Native Ausführung**: Direkte Transaktionsausführung von jeder Chain\n- **Keine Relayer**: Integrierte Cross-Chain-Funktionalität auf Protokollebene\n- **Zero Integration**: Bestehende Apps funktionieren ohne Änderungen\n- **Trust-Minimiert**: Keine zusätzlichen Vertrauensannahmen über den Konsens von Push Chain hinaus\n\nPush Chain bietet native Cross-Chain-Ausführung, während LayerZero zusätzliche Infrastruktur und Integration erfordert.\n\n---",
                   "vs-wormhole": "### Wie unterscheidet sich Push Chain von Wormhole?\n\n**Wormhole:**\n- **Bridge Protocol**: Hauptsächlich auf Token- und NFT-Bridging konzentriert\n- **Wrapped Assets**: Erstellt Wrapped-Versionen von Tokens auf verschiedenen Chains\n- **Guardian Network**: Verlässt sich auf ein Validator Set zur Verifizierung von Cross-Chain-Nachrichten\n- **Mehrschrittiger Prozess**: Benutzer müssen Assets brücken, bevor sie Apps nutzen\n\n**Push Chain:**\n- **Universal Execution**: Benutzer interagieren direkt ohne Bridging\n- **Native Assets**: Keine Wrapped Tokens erforderlich, verwenden Sie Original-Assets\n- **Direkte Verifizierung**: Native Signaturverifizierung von jeder Chain\n- **Single Transaction**: Benutzer interagieren in einem Schritt, kein Bridging erforderlich\n\nPush Chain eliminiert die Notwendigkeit von Asset-Bridging, während Wormhole dies für Cross-Chain-Interaktionen erfordert.\n\n---",
                   "vs-axelar": "### Wie unterscheidet sich Push Chain von Axelar?\n\n**Axelar:**\n- **Netzwerk der Netzwerke**: Verbindet Chains über das Axelar-Netzwerk\n- **Validator-Abhängigkeit**: Verlässt sich für die Sicherheit auf das Axelar validator set\n- **Gateway-Kontrakte**: Erfordert Gateway-Deployments auf jeder Chain\n- **Message Passing**: Konzentriert sich auf cross-chain Kommunikation\n\n**Push Chain:**\n- **Direkte Ausführung**: Transaktionen werden nativ auf Push Chain ohne Zwischenhändler verarbeitet\n- **Unabhängige Sicherheit**: Eigenständiger Konsens ohne externe Abhängigkeiten\n- **Universal Contracts**: Ein einzelner Deployment funktioniert für alle Chains\n- **Native Ausführung**: Direkte Transaktionsverarbeitung von jeder Chain\n\nPush Chain bietet direkten, universellen Zugriff, während Axelar eine Zwischenschicht hinzufügt.\n\n---",
@@ -744,7 +744,7 @@
         "title": "Dokumentation — Universale Apps erstellen",
         "description": "Alles, was Sie für den Versand auf Push Chain benötigen: Schnellstarts, SDKs, API-Referenz, Beispiele und Node-Setup.",
         "og-title": "Push Chain Docs - Schnellstarts, SDKs & API",
-        "og-description": "Erstelle und führe Apps auf der universellen Ausführungsschicht mit klaren Anleitungen und Beispielen aus.",
+        "og-description": "Bauen und führen Sie Apps auf der universellen Ausführungsschicht aus mit klaren Anleitungen und Beispielen.",
         "twitter-title": "Push Chain Docs - Jetzt entwickeln",
         "twitter-description": "Schnellstarts, SDKs, API-Referenz und Beispiele, um schnell loszulegen."
       },
@@ -797,7 +797,7 @@
         "description": "Push Community-Initiativen, Posts und mehr.",
         "og-title": "Let's Push - Community Initiative für Push Chain",
         "og-description": "Eine Community-Initiative und Anteile für Push Chain.",
-        "twitter-title": "Lasst uns Pushen | Gemeinschaftsinitiative",
+        "twitter-title": "Lass uns pushen | Gemeindeinitiative",
         "twitter-description": "Sehen Sie die Community-Initiative für Push Chain."
       },
       "hero-section": {
@@ -848,7 +848,7 @@
         "title": "Nutzungsbedingungen",
         "description": "Regeln für die Nutzung von Push Chain Websites, Apps und Services, einschließlich Ihrer Rechte und Pflichten.",
         "og-title": "Push Chain Nutzungsbedingungen - Rechtliche Bedingungen",
-        "og-description": "Rechtliche Bestimmungen zur Nutzung unserer Websites, Apps und Entwicklerwerkzeuge.",
+        "og-description": "Rechtliche Bedingungen für die Nutzung unserer Websites, Apps und Entwicklerwerkzeuge.",
         "twitter-title": "Nutzungsbedingungen - Push Chain",
         "twitter-description": "Lesen Sie die rechtlichen Bedingungen für die Nutzung von Push Chain."
       },
@@ -1256,7 +1256,7 @@
         },
         "qna4": {
           "question": "Wie unterscheidet sich das von Bridges oder Messaging-Layern?",
-          "answer": "<1><2>Kurze Antwort</2>: Push ist der Ort, an dem Ihre App läuft. Bridges/Messaging bewegt nur Tokens oder Nachrichten zwischen Ketten und erschwert alles für den Benutzer und Entwickler.</1><1><2>Einheitlicher Heimatort vs viele Kopien.</2> Mit Bridges/Messaging müssen Sie pro Kette bereitstellen und über Nachrichten synchronisieren. Auf Push bereitstellen Sie einmal; jeder ruft denselben Vertrag und den gemeinsamen Zustand auf.</1><1><2>Keine gewickelten Assets oder zwingende Überbrückung.</2> Benutzer bleiben auf ihrer Heimatkette und bezahlen mit dem, was sie bereits besitzen; wir kümmern uns unter der Haube um die Leitung und die Gebührsumwandlung.</1><1><2>Einheitliche Identität und Verifizierung.</2> Wir akzeptieren Signaturen von jeder Wallet/Kette und führen sie einem Benutzer auf Push zu – nicht verwahrend.</1><1><2>Weniger bewegliche Teile.</2> Kein Tanz der Ketten-Approbung, kein Gas-Token-Suchen, keine Klebverträge, die synchron gehalten werden müssen.</1><1><2>Bridges führen Komplexität ein. Kettenspezifische Interoperabilität löst das Problem.</2> Bridges erfordern großen technischen Aufwand, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettenspezifische Interoperabilität funktioniert einfach, da Ihre App dies als nativen Erbe inhärent hat.</1><1>Ergebnis: einfachere Apps, eine Wahrheit Quelle und ein UX-Gefühl wie eine Kette – sogar wenn Benutzer es nicht tun.</1>"
+          "answer": "<1><2>Kurze Antwort</2>: Push ist der Ort, an dem Ihre App läuft. Brücken/Nachrichten bewegen nur Token oder Nachrichten zwischen Ketten und erschweren alles für den Benutzer und Entwickler.</1><1><2>Einheitliche Heimat vs. viele Klone.</2> Bei Brücken/Nachrichten werden sie pro Kette bereitgestellt und über Nachrichten synchronisiert. Auf Push werden Sie einmal bereitgestellt; jeder trifft auf denselben Vertrag und den gemeinsamen Zustand.</1><1><2>Keine gehüllten Vermögenswerte oder zwingende Überbrückung.</2> Benutzer bleiben auf ihrer Heimatkette und bezahlen mit dem, was sie bereits besitzen; wir erledigen die Routing- und Gebührenkonvertierung unter der Haube.</1><1><2>Einheitliche Identität & Verifizierung.</2> Wir akzeptieren Signaturen von jedem Wallet/Chain und führen sie einem selben Benutzer auf Push zu — nicht verwahrend.</1><1><2>Weniger Einzelteile.</2> Kein cross-chain Genehmigungs-Tanz, keine Gas-Token-Jagd, keine Klebstoff-Verträge zum Synchronisieren.</1><1><2>Brücken erfordern komplexe ingenieurstechnische Anstrengungen. Kettennatives Interop löst sie.</2> Brücken erfordern komplexe ingenieurstechnische Anstrengung, Zeit, Auditkosten und zusätzliche Infrastruktur. Kettennative Interop funktioniert einfach, da Ihre App nativ davon profitiert.</1><1>Ergebnis: einfachere Apps, eine Quelle der Wahrheit und ein UX, der sich wie eine Kette anfühlt — sogar wenn Benutzer es nicht tun.</1>"
         },
         "qna5": {
           "question": "Ist es EVM-only? Welche Chains werden unterstützt?",
@@ -1285,7 +1285,7 @@
       "answer-aria-label": "Antwort auf die Frage - ",
       "qnas": {
         "qna1": {
-          "question": "Ich kann meinen Wallet nicht verbinden. Was sollte ich ausprobieren?",
+          "question": "Ich kann meinen Geldbeutel nicht verbinden. Was sollte ich versuchen?",
           "answer": "<1><2>Schnelle Überprüfungen:</2> Seite aktualisieren, Wallet entsperren und aggressive Werbe-/Script-Blocker für push.org deaktivieren.</1><1><2>Kein Netzwerkwechsel erforderlich:</2> Bleiben Sie auf Ihrer Home-Chain; Push übernimmt die Weiterleitung im Hintergrund.</1><1><2>Website-Berechtigungen zurücksetzen:</2> Entfernen Sie die Verbindung der Website in Ihrer Wallet und verbinden Sie sie erneut.</1><1>Immer noch Probleme? Fragen Sie auf <3>Discord</3> oder öffnen Sie ein <4>Support-Ticket</4>.</1>",
           "discord-url-title": "Trete dem Push Chain Discord bei, um Hilfe in Echtzeit zu erhalten.",
           "support-url-title": "Ein Support-Ticket öffnen."
@@ -1498,6 +1498,44 @@
         }
       }
     },
+    "blog": {
+      "featured": {
+        "title": "Ausgewählte Beiträge",
+        "post-aria-label": "Hervorgehobener Blog-Post: {{title}}",
+        "image-alt": "Featured image for {{title}}"
+      },
+      "tags": {
+        "title": "Durchstöbern nach Thema",
+        "tag-link-title": "Beiträge mit {{tagName}} anzeigen",
+        "tag-link-aria-label": "Beiträge mit {{tagName}} anzeigen"
+      },
+      "list": {
+        "recent-updates": "Neueste Beiträge",
+        "page-title": "Seite {{page}}"
+      },
+      "more-posts": {
+        "title": "Mehr von Push Chain",
+        "follow-button": "Folgen",
+        "read-more": "Mehr erfahren"
+      },
+      "paginator": {
+        "nav-aria-label": "Navigation zur Blog-Listenseite",
+        "newer-entries": "Neuere Einträge",
+        "older-entries": "Ältere Einträge"
+      },
+      "footer-item": {
+        "share-title": "Werde Teil der Diskussion und teile diesen Artikel",
+        "share-button": "Teilen",
+        "share-modal-title": "Teilen",
+        "copy-link": "Link kopieren",
+        "about-title": "Über Push Chain",
+        "about-description": "Push Chain ist die erste echte universelle Blockchain, die Fragmentierung über alle Chains hinweg beseitigt. Sie ermöglicht Entwicklern, einmalig zu deployen und sofort für Nutzer auf jeder Chain verfügbar zu sein, egal ob EVM oder Non-EVM (einschließlich Ethereum, Solana, Bitcoin und andere). Sie ist eine 100% EVM-kompatible Proof of Stake (PoS) Chain, die es Nutzern ermöglicht, mit den auf Push Chain deployten Apps von jeder Chain aus zu interagieren, so wie sie es nativ auf ihrer eigenen Chain tun würden.",
+        "social-twitter": "Twitter",
+        "social-discord": "Discord",
+        "social-youtube": "YouTube",
+        "social-linkedin": "Linkedin"
+      }
+    },
     "cult-contact": {
       "collapsed-text": "🩸 Trete der Push Cult bei - Leiste den Eid",
       "expanded-title": "Der Eid",
@@ -1629,34 +1667,6 @@
         "link-prepend": "Explore ",
         "link-append": "",
         "cta-title": "Mehr erfahren"
-      }
-    },
-    "blog": {
-      "more-posts": {
-        "title": "Mehr von Push Chain",
-        "follow-button": "Folgen",
-        "read-more": "Mehr erfahren"
-      },
-      "list": {
-        "recent-updates": "Neueste Updates",
-        "page-title": "Seite {{page}}"
-      },
-      "paginator": {
-        "nav-aria-label": "Navigation zur Blog-Listenseite",
-        "newer-entries": "Neuere Einträge",
-        "older-entries": "Ältere Einträge"
-      },
-      "footer-item": {
-        "share-title": "Werde Teil der Diskussion und teile diesen Artikel",
-        "share-button": "Teilen",
-        "share-modal-title": "Teilen",
-        "copy-link": "Link kopieren",
-        "about-title": "Über Push Chain",
-        "about-description": "Push Chain ist die erste echte universelle Blockchain, die Fragmentierung über alle Chains hinweg beseitigt. Sie ermöglicht Entwicklern, einmalig zu deployen und sofort für Nutzer auf jeder Chain verfügbar zu sein, egal ob EVM oder Non-EVM (einschließlich Ethereum, Solana, Bitcoin und andere). Sie ist eine 100% EVM-kompatible Proof of Stake (PoS) Chain, die es Nutzern ermöglicht, mit den auf Push Chain deployten Apps von jeder Chain aus zu interagieren, so wie sie es nativ auf ihrer eigenen Chain tun würden.",
-        "social-twitter": "Twitter",
-        "social-discord": "Discord",
-        "social-youtube": "YouTube",
-        "social-linkedin": "Linkedin"
       }
     }
   },

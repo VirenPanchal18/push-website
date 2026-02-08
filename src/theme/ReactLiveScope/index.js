@@ -64,18 +64,6 @@ function loadClientSideLibraryOpenZepplinMerkleTree(constantName) {
   return require('@openzeppelin/merkle-tree/dist/core.js')[constantName];
 }
 
-function loadClientSideLibraryPushProtocolRestAPI(constantName) {
-  return typeof window !== 'undefined'
-    ? require('@pushprotocol/restapi')[constantName]
-    : Promise.resolve({}); // Return an empty object or appropriate placeholder for SSR.
-}
-
-function loadClientSideLibraryPushProtocolUIWeb(constantName) {
-  return typeof window !== 'undefined'
-    ? require('@pushprotocol/uiweb')[constantName]
-    : Promise.resolve({}); // Return an empty object or appropriate placeholder for SSR.
-}
-
 function loadClientSideLibraryPushChainUIKit(constantName) {
   return typeof window !== 'undefined'
     ? require('@pushchain/ui-kit')[constantName]
@@ -92,28 +80,6 @@ function loadClientSideReactIconsBS(iconName) {
   return typeof window !== 'undefined'
     ? require('react-icons/bs')[iconName]
     : () => null;
-}
-
-// For @pushprotocol/UIWeb components, we will dynamically load them in the BrowserOnly component.
-function createBrowserOnlyLibComponentUIWeb(componentExportName) {
-  return function LibComponentBrowserOnly(props) {
-    return (
-      <BrowserOnly
-        fallback={
-          <Spinner
-            size={42}
-            color={GLOBALS.COLORS.PRIMARY_COLOR}
-            type={SPINNER_TYPE.PROCESSING}
-          />
-        }
-      >
-        {() => {
-          const Component = require('@pushprotocol/uiweb')[componentExportName];
-          return <Component {...props} />;
-        }}
-      </BrowserOnly>
-    );
-  };
 }
 
 const ReactLiveScope = {
@@ -157,32 +123,6 @@ const ReactLiveScope = {
   StandardMerkleTree:
     loadClientSideLibraryOpenZepplinMerkleTree('StandardMerkleTree'),
 
-  PushAPI: loadClientSideLibraryPushProtocolRestAPI('PushAPI'),
-  // CONSTANTS: loadClientSideLibraryPushProtocolRestAPI('CONSTANTS'),
-  MODAL_POSITION_TYPE: loadClientSideLibraryPushProtocolUIWeb(
-    'MODAL_POSITION_TYPE'
-  ),
-  // Continue using the BrowserOnly component for UI components
-  SupportChat: createBrowserOnlyLibComponentUIWeb('SupportChat'),
-  ChatWidget: createBrowserOnlyLibComponentUIWeb('ChatWidget'),
-  NotificationItem: createBrowserOnlyLibComponentUIWeb('NotificationItem'),
-  ChatUIProvider: createBrowserOnlyLibComponentUIWeb('ChatUIProvider'),
-  ChatView: createBrowserOnlyLibComponentUIWeb('ChatView'),
-  CreateGroupModal: createBrowserOnlyLibComponentUIWeb('CreateGroupModal'),
-  ChatProfile: createBrowserOnlyLibComponentUIWeb('ChatProfile'),
-  MessageInput: createBrowserOnlyLibComponentUIWeb('MessageInput'),
-  ChatViewBubble: createBrowserOnlyLibComponentUIWeb('ChatViewBubble'),
-  ChatViewList: createBrowserOnlyLibComponentUIWeb('ChatViewList'),
-  UserProfile: createBrowserOnlyLibComponentUIWeb('UserProfile'),
-  ChatPreview: createBrowserOnlyLibComponentUIWeb('ChatPreview'),
-  ChatPreviewList: createBrowserOnlyLibComponentUIWeb('ChatPreviewList'),
-  darkChatTheme: createBrowserOnlyLibComponentUIWeb('darkChatTheme'),
-  lightChatTheme: createBrowserOnlyLibComponentUIWeb('lightChatTheme'),
-  // NotificationItem: createBrowserOnlyLibComponentUIWeb('NotificationItem'),
-  SubscriptionManager: createBrowserOnlyLibComponentUIWeb(
-    'SubscriptionManager'
-  ),
-  WidgetUIProvider: createBrowserOnlyLibComponentUIWeb('WidgetUIProvider'),
   PushUniversalWalletProvider: loadClientSideLibraryPushChainUIKit(
     'PushUniversalWalletProvider'
   ),

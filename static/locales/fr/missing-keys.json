@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:00:48.302Z",
+  "lastUpdated": "2026-02-08T06:41:28.168Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -2412,34 +2412,33 @@
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
     "pages.lfpush.seo.title": {
-      "value": "Allons-y Pousser - Initiative communautaire",
+      "value": "Faisons Pousser — Initiative communautaire",
       "englishChecksum": "7c0dbd394ef56ddb6084285538f6a976",
-      "lastUpdated": "2026-01-23T00:47:31.188Z"
+      "lastUpdated": "2026-02-08T05:49:10.511Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Allons-y Push ! | Initiative communautaire",
+      "value": "Allons-y Pousser | Initiative communautaire",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-01-23T00:47:33.791Z"
+      "lastUpdated": "2026-02-08T05:49:13.932Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>Non.</2></1><1><2>Gardez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau ou un compte.</1><1><2>Payez avec ce que vous avez.</2> Les frais peuvent être payés en utilisant les jetons que vous avez déjà sur votre chaîne principale; nous gérons la conversion derrière les scenes.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un jeton de gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action; Push ne conserve jamais vos clés.</1><1><2>Dans les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de gérer cela.</1>",
+      "value": "<1><2>Non.</2></1><1><2>Gardez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payez avec ce que vous avez.</2> Les frais peuvent être payés en utilisant les jetons que vous possédez déjà sur votre chaîne principale ; nous nous chargeons de la conversion en arrière-plan.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un jeton de gaz.</1><1><2>Non custodial.</2> Vous signez chaque action ; Push ne détient jamais vos clés.</1><1><2>Derrière les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de gérer cela.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-01-23T00:47:09.904Z"
+      "lastUpdated": "2026-02-08T05:49:21.440Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
-      "value": "### Comment Push Chain se distingue-t-il de Wormhole ?\n\n**Wormhole :**\n- **Protocole de pont**: Principalement axé sur le ponrage de jetons et NFT\n- **Actifs enveloppés**: Crée des versions enveloppées de jetons sur différentes chaînes\n- **Réseau Gardien**: S'appuie sur un ensemble de validateurs pour vérifier les messages interchaînes\n- **Processus en plusieurs étapes**: Les utilisateurs doivent ponder leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution universelle**: Les utilisateurs interagissent directement sans ponder\n- **Actifs natifs**: Pas de jetons enveloppés nécessaires, utilisez les actifs originaux\n- **Vérification directe**: Vérification de signature native depuis n'importe quelle chaîne\n- **Transaction unique**: Les utilisateurs interagissent en une seule étape, pas de ponrage requis\n\nPush Chain éliminate le besoin de ponder des actifs tout en nécessitant Wormhole pour les interactions interchaînes.\n\n---",
+      "value": "### Comment Push Chain diffère-t-il de Wormhole?\n\n**Wormhole :**\n- **Protocole Pont**: Principalement axé sur le pontage de jetons et NFT\n- **Actifs Emballés**: Crée des versions emballées des jetons sur différentes chaînes\n- **Réseau Gardien**: S'appuie sur un ensemble de validateurs pour vérifier les messages interchaînes\n- **Processus EnSeveral Évolutions**: Les utilisateurs doivent pontasser leurs actifs avant d'utiliser des applications\n\n**Push Chain :**\n- **Exécution Universelle**: Les utilisateurs interagissent directement sans pontage\n- **Actifs Natifs**: Pas besoin de jetons emballés, utilisez les actifs originaux\n- **Vérification Directe**: Vérification de signature native à partir de n'importe quelle chaîne\n- **Transaction Unique**: Les utilisateurs interagissent en une seule étape, pas de pontage requis\n\nPush Chain supprime la nécessité de pontage d'actifs tandis que Wormhole nécessite un pontage pour les interactions interchaînes.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-01-23T00:47:19.200Z"
+      "lastUpdated": "2026-02-08T05:49:31.665Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
-      "value": "### Y a-t-il des risques de centralisation avec Push Chain?\n\n**Non.** L'architecture de Push Chain met l'accent sur la décentralisation.\n\nPush Chain est entièrement décentralisé et conçu pour être robuste et résistant. Quiconque peut faire fonctionner un nœud et participer au réseau, et est incité ou pénalisé via PoS. Pour résumer:\n\n- Les validateurs et autres acteurs fonctionnent indépendamment et sont incités via PoS.\n- Les mécanismes de gouvernance assurent l'implication de la communauté.\n- Chaque partie de l'écosystème est incluse dans la gouvernance à algun point.\n\nPour en savoir plus sur la façon de faire fonctionner un nœud, voir notre [Base de connaissances](/knowledge/) ou consultez notre [Validator Node Repo](https://github.com/pushchain/push-chain-node).\n\n---",
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-01-23T00:47:27.687Z"
+      "lastUpdated": "2026-02-08T05:49:40.283Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer ?",
+      "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-23T00:47:29.858Z"
+      "lastUpdated": "2026-02-08T05:49:44.239Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
       "value": "Push Chain Tokenomics | Économie du Token",
@@ -2533,6 +2532,95 @@
       "value": "Postuler maintenant",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
       "lastUpdated": "2026-01-23T01:00:48.302Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "Plus de publications sur Push Chain",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:00:41.645Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "Suivre",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:00:43.279Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "Lire la suite",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:00:44.619Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "Page {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:00:45.757Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "Navigation de la liste des articles du blog",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:00:49.109Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "Entrées plus récentes",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:34:29.119Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "value": "Entrées Plus Anciens",
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:00:51.735Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "Faites partie de la discussion en partageant cet article",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:00:53.506Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "Partager",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:34:30.173Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "Partager",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:00:55.894Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "Copier le lien",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:00:58.270Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "À propos de la Chaîne Push",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:00:59.541Z"
+    },
+    "components.blog.footer-item.about-description": {
+      "value": "Push Chain est la première blockchain universelle véritable conçue pour éliminer la fragmentation sur toutes les chaînes. Elle permet aux développeurs de déployer une seule fois et de devenir immédiatement disponibles pour les utilisateurs sur n'importe quelle chaîne, que ce soit EVM ou Non-EVM (y compris Ethereum, Solana, Bitcoin, etc.). Il s'agit d'une chaîne EVM compatible à 100 %, Proof of Stake (PoS) qui permet aux utilisateurs d'interagir avec les applications déployées sur Push Chain depuis n'importe quelle chaîne, comme ils le font naturellement sur leur propre chaîne.",
+      "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
+      "lastUpdated": "2026-02-08T06:01:04.464Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "X/Twitter",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:01:08.919Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "Discuter",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:01:11.577Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": "YouTube",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:01:12.723Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "LinkedIn",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:01:13.947Z"
+    },
+    "notifications.chain-notification.title": {
+      "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
+      "lastUpdated": "2026-02-08T06:41:28.168Z"
     }
   }
 }

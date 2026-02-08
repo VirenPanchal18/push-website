@@ -332,9 +332,7 @@
             "sections": {
               "universal-apps": {
                 "items": {
-                  "apps-only-possible-with-shared-state-v1": {
-                    "title": "Apps Possible Only with Shared State - Vol. 1"
-                  },
+                  "apps-only-possible-with-shared-state-v1": {},
                   "apps-only-possible-with-shared-state-v2": {},
                   "apps-of-the-future": {
                     "title": "Aplicaciones del Futuro — Construyendo sin el caos"
@@ -803,7 +801,7 @@
         "title": "Push Cult — Programa de Creadores para Contenido Impulsado por Señales",
         "description": "Push Cult es un programa exclusivo para creadores, solo por invitación, de Push Chain. 50 creadores. 20M PC tokens. Sin ruido, solo impacto medible.",
         "og-title": "Push Cult - El Programa de Creadores Construido para Signal",
-        "og-description": "Un grupo exclusivo de invitación de 50 creadores que ganan con un bounty de 20M PC tokens al impulsar el uso real y la fe en Push Chain.",
+        "og-description": "Un grupo de creadores selectos de 50 personas que obtienen ingresos a partir de una recompensa de 20 millones de tokens PC al impulsar la utilización real y la fe en Push Chain.",
         "twitter-title": "Push Cult - Programa de Creadores por Push Chain",
         "twitter-description": "50 creadores. 20M $PC tokens. Sin spam. Sin métricas vacías. Push Cult recompensa la señal real y el impacto real."
       },
@@ -1375,6 +1373,44 @@
         }
       }
     },
+    "blog": {
+      "featured": {
+        "title": "Artículos Destacados",
+        "post-aria-label": "Publicación destacada del blog: {{title}}",
+        "image-alt": "Imagen destacada para {{title}}"
+      },
+      "tags": {
+        "title": "Explorar por Tema",
+        "tag-link-title": "Ver publicaciones etiquetadas con {{tagName}}",
+        "tag-link-aria-label": "Ver publicaciones etiquetadas con {{tagName}}"
+      },
+      "list": {
+        "recent-updates": "Publicaciones recientes",
+        "page-title": "Página {{page}}"
+      },
+      "more-posts": {
+        "title": "Más de Push Chain",
+        "follow-button": "Seguir",
+        "read-more": "Leer más"
+      },
+      "paginator": {
+        "nav-aria-label": "Navegación por las páginas de la lista del blog",
+        "newer-entries": "Entradas más recientes",
+        "older-entries": "Entradas anteriores"
+      },
+      "footer-item": {
+        "share-title": "¡Participa en la conversación compartiendo este artículo!",
+        "share-button": "Compartir",
+        "share-modal-title": "Compartir",
+        "copy-link": "Copiar enlace",
+        "about-title": "Acerca de Push Chain",
+        "about-description": "Push Chain es la primera verdadera blockchain universal diseñada para eliminar la fragmentación entre todas las cadenas. Permite a los desarrolladores desplegar una vez, y estar instantáneamente disponibles para los usuarios en cualquier cadena, ya sea EVM o Non-EVM (incluyendo Ethereum, Solana, Bitcoin entre otros). Es una cadena 100% compatible con EVM, Proof of Stake (PoS) que permite a los usuarios interactuar con las apps desplegadas en Push Chain desde cualquier cadena, como lo hacen nativamente en su propia cadena.",
+        "social-twitter": "Twitter",
+        "social-discord": "Discord",
+        "social-youtube": "YouTube",
+        "social-linkedin": "Linkedin"
+      }
+    },
     "cult-contact": {
       "collapsed-text": "🩸 Únete a la Push Cult - Haz el Juramento",
       "expanded-title": "El Juramento",
@@ -1622,34 +1658,6 @@
         "link-prepend": "Explora ",
         "link-append": "",
         "cta-title": "Leer más"
-      }
-    },
-    "blog": {
-      "more-posts": {
-        "title": "Más de Push Chain",
-        "follow-button": "Seguir",
-        "read-more": "Leer más"
-      },
-      "list": {
-        "recent-updates": "Últimas novedades",
-        "page-title": "Página {{page}}"
-      },
-      "paginator": {
-        "nav-aria-label": "Navegación por las páginas de la lista del blog",
-        "newer-entries": "Entradas más recientes",
-        "older-entries": "Entradas anteriores"
-      },
-      "footer-item": {
-        "share-title": "¡Participa en la conversación compartiendo este artículo!",
-        "share-button": "Compartir",
-        "share-modal-title": "Compartir",
-        "copy-link": "Copiar enlace",
-        "about-title": "Acerca de Push Chain",
-        "about-description": "Push Chain es la primera verdadera blockchain universal diseñada para eliminar la fragmentación entre todas las cadenas. Permite a los desarrolladores desplegar una vez, y estar instantáneamente disponibles para los usuarios en cualquier cadena, ya sea EVM o Non-EVM (incluyendo Ethereum, Solana, Bitcoin entre otros). Es una cadena 100% compatible con EVM, Proof of Stake (PoS) que permite a los usuarios interactuar con las apps desplegadas en Push Chain desde cualquier cadena, como lo hacen nativamente en su propia cadena.",
-        "social-twitter": "Twitter",
-        "social-discord": "Discord",
-        "social-youtube": "YouTube",
-        "social-linkedin": "Linkedin"
       }
     }
   },

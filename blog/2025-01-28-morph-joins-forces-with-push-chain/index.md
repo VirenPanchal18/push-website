@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Morph'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Morph'
-text: 'Push Chain is about to facelift the consumer app experience by teaming up with Morph L2!. Learn everything about our collaboration with Morph - what it means for Push and Morph users, the use cases it unlocks and more!'
-tags: [Push Chain, Partnerships]
+text: "Morph L2's optimistic zkEVM joins Push Chain's universal ecosystem. Ethereum users can now access universal apps with Morph's security and Push Chain's cross-chain capabilities."
+tags: [Partnerships]
 twitterId: '1884247572430340115'
 ---
 

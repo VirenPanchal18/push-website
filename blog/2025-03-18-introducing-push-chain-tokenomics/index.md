@@ -4,8 +4,8 @@ title: 'Introducing Push Chain Tokenomics'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Tokenomics - Details and Deepdive'
-text: 'A deepdive into the tokenomics of Push Chain, vesting details and how it will power and unify all blockchains!'
-tags: [Push Chain, Tokenomics]
+text: 'Everything you need to know about Push Chain tokenomics. Token distribution, vesting schedules, validator economics, and how $PC powers the universal blockchain ecosystem.'
+tags: [Product, Ecosystem]
 ---
 
 ![Cover image of Push Chain Tokenomics](./cover-image.webp)

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:04:47.776Z",
+  "lastUpdated": "2026-02-08T06:37:00.452Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1712,23 +1712,24 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n通过Push Chain的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**  \n  一键交换界面，涵盖所有流动性池–在各链之间高速、优质的路由和CEX一样的体验。\n\n- **通用DeFi**  \n  浏览器中的全球银行：跨生态系统的贷款、借贷、收益聚合器，无需手动桥接。\n\n- **通用AI代理**  \n  自主代理，在任何链上付费和获取报酬–适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：令牌持有者在其起源链不论如何都可以投票和执行提案。\n\n- **通用游戏**  \n  多玩家比赛和跨链游戏经济，统一玩家和资产来自以太坊、Solana、Polygon等。\n\n- **通用市场**  \n  买卖和交易NFT和令牌的集成市场，涵盖所有链。\n\n- **通用名称服务**  \n  人类可读名字，解析跨多个区块链的钱包。\n\nPush Chain上可以构建的应用和创新无限！查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以开始。建设者也可以查看[文档中心](/docs/)开始。\n\n---",
+      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助Push Chain的共享状态、跨链架构，可能性无穷。以下是几个旗舰示例：\n\n- **通用DEX**  \n  单一交易界面适用于每个流动性池–通过所有链进行快速路由，提供类似集中式交易所的体验和速度。\n\n- **通用DeFi**  \n  浏览器中的全球银行：跨生态系统的借贷、放贷、收益聚合器，无需手动桥接。\n\n- **通用AI代理**  \n  自主代理，可以在任何链上支付和获取 tokens –适用于订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：不论起源链如何，令牌持有者投票并实施提案。\n\n- **通用游戏**  \n  多玩家比赛和跨链游戏经济，统一玩家和资产来自以太坊、索拉纳、多边形等。\n\n- **通用市场**  \n  买卖和交易NFTs和tokens，覆盖所有链的集成市场。\n\n- **通用名称服务**  \n  可读性强的名称，在多个区块链上解析钱包。\n\nPush Chain上的应用和创新无穷无尽！点击这里查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。构建者也可以访问[文档中心](/docs/)开始操作。\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-01-23T00:57:50.405Z"
+      "lastUpdated": "2026-02-08T05:58:25.127Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
-      "value": "## 开发人员、用户和节点运营商",
+      "value": "## 开发人员、用户和节点运营者",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-01-23T00:57:53.215Z"
+      "lastUpdated": "2026-02-08T05:58:27.677Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "我们如何收集、使用和保护推链移动应用程序数据，以及您的选择。",
+      "value": "Push Chain 移动应用收集、使用和保护数据的方式，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-01-23T00:57:55.182Z"
+      "lastUpdated": "2026-02-08T05:58:31.080Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
+      "value": "我需要一种不同的钱包或燃气代币吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-23T00:57:57.033Z"
+      "lastUpdated": "2026-02-08T05:58:34.860Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -1959,6 +1960,91 @@
       "value": "申请现在",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
       "lastUpdated": "2026-01-23T01:04:47.776Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "更多来自 Push Chain 的内容",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:08:53.131Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "关注",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:08:55.205Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "阅读更多",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:08:59.615Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "页面 {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:09:00.777Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "博客列表页导航",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:09:02.264Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "更早的条目",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:09:04.728Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "value": "更多条目",
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:36:59.227Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "分享文章参与对话",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:09:07.649Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "分享",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:09:08.767Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "分享",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:09:12.749Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "复制链接",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:09:15.815Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "关于Push Chain",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:09:16.980Z"
+    },
+    "components.blog.footer-item.about-description": {
+      "value": "Push Chain是第一个真正的通用区块链，旨在消除所有链之间的碎片化。它允许开发者一次部署即可立即在任何链上变得可用，无论是EVM还是非EVM（包括以太坊、索拉纳、比特币等）。它是100% EVM兼容的 Proof of Stake（PoS）链，允许用户从任何链与 Push Chain 上部署的应用进行交互，就像在自己链上一样。",
+      "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
+      "lastUpdated": "2026-02-08T06:09:22.076Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "推特",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:37:00.452Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "Discord",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:09:24.581Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": " YouTube",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:09:25.312Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "领英",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:09:38.686Z"
     }
   }
 }

@@ -4,8 +4,8 @@ title: 'Apps of the Future - Building without the Chaos'
 authors: [push]
 image: './cover-image.webp'
 description: 'Apps of the Future - Building without the Chaos'
-text: "Crypto has matured. The next generation of apps need to compete and build with finesse."
-tags: [Deployathon, Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+text: "Crypto has matured, but app development is still chaotic. Learn how Push Chain eliminates the complexity of multi-chain deployment, letting developers focus on building great products instead of managing infrastructure."
+tags: [Programs, Product, Thought Leadership]
 twitterId: '1981300141622804664'
 ---
 

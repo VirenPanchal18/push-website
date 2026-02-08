@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:01:54.956Z",
+  "lastUpdated": "2026-02-08T06:35:27.808Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1727,39 +1727,39 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.knowledge.push101.explainer-section.blocks.sections.why-push-chain-future.items.faq-push-chain.subtitle": {
-      "value": " Push 체인 및 유니버설 앱에 대한 질문 있어요? 여기엔 가장 일반적인 답변이 있습니다.",
+      "value": " Push 체인과 유니버설 앱에 대한 질문 사항이 많으신가요? 가장 일반적인 답변을 확인하세요.",
       "englishChecksum": "4d9917b7eb8ec31c7d601eb921a8f4ca",
-      "lastUpdated": "2026-01-23T00:51:35.365Z"
+      "lastUpdated": "2026-02-08T05:52:40.324Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.problems-solved": {
-      "value": "### Push Chain이 해결하는 문제\n\n- **분산**  \n  EVM & 비-EVM 체인 통합, 공유 상태 L1 아래 하나의 단일 상태로 사용자 네트워크/월렛 이동 필요 없음.\n\n- **호환성**  \n  모든 블록체인 및 온체인 공유 상태에 대한 네이티브 지원\n\n- **결론성**  \n  ~1-2초 내 즉각적인, 반전하지 않는 네이티브 결론 – 기다리거나 리오ργ 필요 없음.\n\n- **온보딩 & UX**  \n  소셜/이메일 로그인, 가스-아무-토큰 및 아무-월렛 지원으로 모든 체인에 대해 저비용 액세스.\n\n- **유니버설 어플리케이션**  \n  한 번 작성, 어디에나 배포 – 모든 웹3 앱이 모든 사용자에게 모든 체인에서 무결성 유지.\n\n---",
+      "value": "### Push Chain이 해결하는 문제\n\n- **분산**\n  EVM 및 비-EVM 체인을 단일 공유 상태 L1 아래 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **인터오퍼rability**\n  모든 블록체인과 온체인 공유 상태에 대한 원시 지원\n\n- **최종성**\n  ~1-2초 내에 즉각적이고 영구적인 나티브 최종성 – 더 이상 기다리거나 재정렬(x)\n\n- **온보딩 & UX**\n  소셜/이메일 로그인, 모든 토큰으로 가스 지불 및 모든 지갑 지원으로 네트워크 간에 제로 프랙션 액세스\n\n- **유니버설 애플리케이션**\n  한 번 빌드, 어디든 배포 – 모든 웹3 앱이 모든 사용자에게 모든 체인에서 원활하게 작동\n\n---",
       "englishChecksum": "a46bbdbb625fb82ad7fe978556186243",
-      "lastUpdated": "2026-01-23T00:51:44.619Z"
+      "lastUpdated": "2026-02-08T05:52:49.561Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.consensus-mechanism": {
-      "value": "### Push 체인 사용 동의장치는 무엇인가요?\n\nPush 체인은 ** Proof-of-Stake (PoS)** 합의 메커니즘을 사용하며, **CometBFT** 엔진 기반으로 여러 가지 개선 사항이 있습니다:\n\n- **fast finality**: 거래는 약 1–2초 만에 최종화되었으며, 재조직(reorgs) 없음\n- **에너지 효율성**: PoW보다 환경 친화적입니다.\n- **_validator network_: decentraized validators network로 체인을 안전하게 함\n- **slash protection**: validator의 정직성을 보장하는 경제적 장려\n\nuniversal transaction processing 및 cross-chain state management을 위한 CometBFT의 검증된 BFT 합의는 여기에서 최적화되어 있습니다.\n\n---",
+      "value": "### Push Chain의 Konsensus 메커니즘은 무엇입니까?\n\nPush Chain는 **proof-of-stake (PoS)** konsensus를 사용하며, **CometBFT** 엔진에 기반하고 여러 가지 개선이 있습니다:\n\n- **빠른 최종성**: ~1–2초 만에 트랜잭션이 최종화되며, 재구성이 없는 결정적인 최종성\n- **에너지 효율적**: PoW에 비해 환경 친화적입니다\n- **validater 네트워크**: 체인을 보장하는 분산된 validater 네트워크\n- **슬래싱 보호**: 경제적 인센티브는 validater의 정직성을 보장합니다\n\nCometBFT의 검증된 BFT konsensus는here에서 범용 트랜잭션 처리 및 크로스체인 상태 관리 요구에 최적화되었습니다.\n\n---",
       "englishChecksum": "56335834d49f4774c5aa232632523b92",
-      "lastUpdated": "2026-01-23T00:51:52.194Z"
+      "lastUpdated": "2026-02-08T05:53:17.364Z"
     },
     "pages.contact.hero-section.description": {
-      "value": "파트너십 & 통합, 기금, 미디어 & 강연, 검증자, 법적, 직업, 일반 질문—여기에서 연락하세요. 기술적인 도움 또는 보안 보고서는 지원 센터를 방문해주세요.",
+      "value": "파트너십 및 통합, 보조금, 미디어 및 강연, 유효성 검사자, 법률, 채용 또는 일반 문의—여기에서 문의하세요. 기술 지원이나 보안 공개를 위해서는 지원 센터를 방문해 주세요.",
       "englishChecksum": "a77ba80c097fb24b9c109642038d3abc",
-      "lastUpdated": "2026-01-23T00:51:54.693Z"
+      "lastUpdated": "2026-02-08T05:53:36.855Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "이해관계에 따라 다른 지갑이나 가스 토큰이 필요합니까?",
+      "value": "다른 지갑이나 가스 토큰을 필요로 하나요?",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-01-23T00:51:56.655Z"
+      "lastUpdated": "2026-02-08T05:53:03.158Z"
     },
     "components.short-faq-snippet.qnas.qna4.question": {
-      "value": "이것은 브리지나 메시지 레이어와 어떻게 다른가요?",
+      "value": "이건 다리나 메시지 레이어와 어떻게 다른가요?",
       "englishChecksum": "b5d86c3d717c6454f3040120ad8fd86c",
-      "lastUpdated": "2026-01-23T00:52:01.579Z"
+      "lastUpdated": "2026-02-08T05:53:22.062Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>테스트 토큰을 요청하려면 <3>페이크</3>를 사용하세요.</1><1><2>참고:</2> 속도 제한이 적용될 수 있습니다; 일부 페이크는 간단한 인증을 요구합니다. 페이크가 실패하면 <4>디스코드</4>에서 우리를 태그하세요.</1>",
+      "value": "<1>테스트 토큰을 요청하려면 <3>페이크트</3>를 사용하세요.</1><1><2>참고:</2> 속도 제한이 적용될 수 있습니다; 일부 페이크트는 간단한 확인을 요구할 수 있습니다. 페이크트가 실패하면 <4>디스코드</4>에서 우리에게 메시지를 보내주세요.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-01-23T00:52:05.339Z"
+      "lastUpdated": "2026-02-08T05:53:09.054Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "빌더 — 방법 및 튜토리얼",
@@ -1995,6 +1995,91 @@
       "value": "신청하기",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
       "lastUpdated": "2026-01-23T01:01:54.956Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "Push 체인에서 더 보기",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:04:22.985Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "팔로우",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:04:24.179Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "더 읽기",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:34:53.933Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "페이지 {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:04:28.508Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "블로그 목록 페이지 네비게이션",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:04:29.908Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "새 게시물",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:04:35.669Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "value": "이전 게시물들",
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:04:38.140Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "이 게시물을 공유하고 대화의 일부분이 되세요",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:04:39.552Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "공유하기",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:35:16.550Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "공유하기",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:35:27.808Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "링크 복사",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:34:59.506Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "Push 체인 정보",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:04:46.606Z"
+    },
+    "components.blog.footer-item.about-description": {
+      "value": "Push Chain은 모든 체인 간ragmentation을 제거하기 위한 첫 번째 진정한 보편적인 블록체인입니다. EVM 또는 Non-EVM(에테리움, 솔라나, 비트코인 등 포함) 모든 체인에서 사용자에게 즉시 доступ이 되는 응용프로그램을 배포할 수 있도록 하는 것을 가능하게 합니다. 100% EVM 호환, 프로오브스테이크(PoS) 체인으로, Push Chain에 배포된 응용프로그램과 상호 작용하기 위해 어떤 체인에서든 사용자가 자신의 체인에서처럼 할 수 있습니다.",
+      "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
+      "lastUpdated": "2026-02-08T06:04:51.639Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "트위터",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:04:52.805Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "디스코드",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:35:00.666Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": "유튜브",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:04:55.292Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "링크드인",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:04:56.487Z"
     }
   }
 }

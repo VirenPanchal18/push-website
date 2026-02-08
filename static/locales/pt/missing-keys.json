@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:03:32.794Z",
+  "lastUpdated": "2026-02-08T06:05:56.879Z",
   "keys": {
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de Conhecimento",
@@ -1727,23 +1727,23 @@
       "lastUpdated": "2025-11-14T19:27:06.245Z"
     },
     "global.site-description": {
-      "value": "L1 compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Nenhum trocando de rede.",
+      "value": "L1 de estado compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-23T00:52:10.111Z"
+      "lastUpdated": "2026-02-08T05:53:42.148Z"
     },
     "components.typeform-support.categories.partnerships.description": {
       "englishChecksum": "9b1482992e5c1d082aeade5319ccb995",
-      "lastUpdated": "2026-01-23T00:52:12.115Z"
+      "lastUpdated": "2026-02-08T05:53:44.228Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Não consigo conectar minha carteira. O que devo fazer?",
+      "value": "Não consigo conectar minha carteira. O que eu devo tentar?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-01-23T00:52:13.882Z"
+      "lastUpdated": "2026-02-08T05:53:47.942Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>Vérificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não precisa mudar de rede:</2> fique na sua rede doméstica; o Push gerencia roteamento por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+      "value": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desabilite bloqueadores de anúncios/script agressivos para push.org.</1><1><2>Não há necessidade de alternar a rede:</2> fique em sua rede principal; Push cuida da roteação por trás dos cenários.</1><1><2>Redefina as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim estiver com problemas? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2026-01-23T00:52:19.631Z"
+      "lastUpdated": "2026-02-08T05:53:53.918Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Construtores — Tutoriais & Passo a Passo",
@@ -1968,6 +1968,91 @@
       "value": "Candidatar-se agora",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
       "lastUpdated": "2026-01-23T01:03:32.794Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "Mais sobre a Push Chain",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:05:00.888Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "Seguir",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:05:02.619Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "Leia Mais",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:05:03.808Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "Página {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:05:04.999Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "Navegação da lista de artigos do blog",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:05:06.342Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "Entradas Mais Recentes",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:05:07.568Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "value": "Entradas Antigas",
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:05:08.744Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "Participe da conversa compartilhando este artigo",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:05:24.233Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "Compartilhar",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:05:25.893Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "Compartilhar",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:05:27.503Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "Copiar ligação",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:05:30.616Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "Sobre a Push Chain",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:05:31.753Z"
+    },
+    "components.blog.footer-item.about-description": {
+      "value": "Push Chain é o primeiro blockchain universal verdadeiro projetado para eliminar fragmentação em todas as cadeias. Isso permite que desenvolvedores implantem uma vez e fiquem disponíveis instantaneamente para usuários em qualquer cadeia, sejam EVM ou não-EVM (incluindo Ethereum, Solana, Bitcoin entre outros). É 100% compatível com EVM, cadeia Proof of Stake (PoS) que permite aos usuários interagir com os aplicativos implantados na Push Chain de qualquer cadeia, como eles fazem nativamente em sua própria cadeia.",
+      "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
+      "lastUpdated": "2026-02-08T06:05:36.577Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "X/Twitter",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:05:37.724Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "Discord",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:05:38.842Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": "YouTube",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:05:40.945Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "LinkedIn",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:05:42.049Z"
     }
   }
 }

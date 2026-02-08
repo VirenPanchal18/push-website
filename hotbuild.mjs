@@ -3,7 +3,10 @@ import { execSync, spawn } from 'child_process';
 import { watch } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { prepAndMoveFilesFromTempLocationToActual } from './build.lite.forprod.mjs';
+import {
+  copyChangedBlogsFromLite,
+  prepAndMoveFilesFromTempLocationToActual,
+} from './build.lite.forprod.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,7 +44,9 @@ try {
 }
 
 // Start Docusaurus with blog mode environment variable
-console.log(chalk.blue(`🚀 Starting Docusaurus in ${mode.toUpperCase()} mode...`));
+console.log(
+  chalk.blue(`🚀 Starting Docusaurus in ${mode.toUpperCase()} mode...`)
+);
 const docusaurus = spawn('npx', ['docusaurus', 'start'], {
   stdio: 'inherit',
   cwd: process.cwd(),
@@ -85,8 +90,12 @@ const restoreBlogsIfNeeded = async () => {
   if (isRestoring || !isLiteMode) return;
   isRestoring = true;
 
-  console.log(chalk.blue('🔄 Restoring all blog posts...'));
+  console.log(chalk.blue('🔄 Restoring blog posts...'));
   try {
+    // First, copy any changed blogs from blog-lite back to main blog directory
+    await copyChangedBlogsFromLite();
+
+    // Then clean up blog-lite directory
     await prepAndMoveFilesFromTempLocationToActual('full');
     console.log(chalk.green('✅ Blog posts restored successfully'));
   } catch (error) {

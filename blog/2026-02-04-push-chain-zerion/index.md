@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet'
 text: "Push Chain now supports Zerion Wallet as a core login option for all universal apps"
-tags: [Push Chain, Partnerships, Wallet, Universal App, Shared App Experience, Shared State Blockchain]
+tags: [Partnerships, Product]
 twitterId: "2019051330082418922"
 ---
 
@@ -19,7 +19,7 @@ This integration supports a shared goal: making universal apps simpler to use, e
 
 ## What is Zerion?
 
-Zerion is a multichain wallet and portfolio tool that lets users track assets and transactions across 50+ networks from one interface. It supports a large set of networks and consolidates activity in one place.
+Zerion Wallet integrates Push Chain's Donut Testnet. Manage universal apps, track cross-chain assets, and experience seamless multi-chain interactions in one beautiful interface. It supports a large set of networks and consolidates activity in one place.
 
 ## What does this integration unlock?
 

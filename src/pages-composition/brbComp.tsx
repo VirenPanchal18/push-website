@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 // React + Web3 Essentials
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 // External Components
 import { gsap } from 'gsap';
@@ -10,14 +10,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
 
 // Internal Components
-import { BRBAlert } from '@site/src/components/BRB/BRBAlert';
 import { CommunityPartners } from '@site/src/components/BRB/BRBCommunityPartners';
 import BRBParallax from '@site/src/components/BRB/BRBParallax';
 import { PartnerBounties } from '@site/src/components/BRB/BRBPartnerBounties';
 import { Partners } from '@site/src/components/BRB/BRBPartners';
 import Schedules from '@site/src/components/BRB/BRBSchedules';
 import ImageHolder from '@site/src/components/ImageHolder';
-import { ChatComponent } from '@site/src/components/PushChat/PushChatComponent';
 import {
   Button,
   Content,
@@ -34,14 +32,10 @@ import Discord from '@site/static/assets/website/brb/Discord-BRB.svg';
 import ImageBRB from '@site/static/assets/website/brb/Image-BRB.png';
 import MobileBRB from '@site/static/assets/website/brb/Mobile-BRB.png';
 import X from '@site/static/assets/website/brb/X-BRB.svg';
-import PushLogo from '@site/static/assets/website/brb/pushIcon.svg';
-import { AiOutlineClose } from 'react-icons/ai';
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 // Internal Configs
 import BRBOnline from '@site/src/components/BRB/BRBOnline';
-import GLOBALS, { device, structure } from '@site/src/config/globals';
-import { useScrollDirection } from '@site/src/hooks/useScrollDirection';
+import { device } from '@site/src/config/globals';
 
 // Interfaces and Props
 
@@ -56,26 +50,8 @@ const BRBComp = () => {
   const d = new Date();
   const year = d.getFullYear();
   const isMobile = useMediaQuery(device.mobileL);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrollDirection] = useScrollDirection(isMobileMenuOpen);
 
-  const [isAlertVisible, setIsAlertVisible] = React.useState(true);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((lastOpen) => !lastOpen);
-  };
-
-  const showMobileMenu = isMobile && isMobileMenuOpen;
-  const headerClass = `${scrollDirection === 'scrollDown' ? 'hide' : 'show'}`;
-
-  const handleSectionNavigation = (id) => {
-    if (showMobileMenu) toggleMobileMenu();
-
-    gsap.to(window, {
-      duration: 0.75,
-      scrollTo: { y: `#${id}` },
-    });
-  };
+  const [isAlertVisible] = React.useState(true);
 
   const openLink = (link: string) => {
     window.open(link, '_blank');
@@ -83,150 +59,8 @@ const BRBComp = () => {
 
   const elem0 = useRef(null);
 
-  const openHomePage = () => {
-    window.open('/', '_self');
-  };
-
   return (
     <BrbWrapper background='var(--ifm-color-black)'>
-      {/* header style */}
-      <StyledHeader
-        showMobileMenu={showMobileMenu}
-        className={`header ${headerClass}`}
-      >
-        <BRBAlert
-          isAlertVisible={isAlertVisible}
-          setIsAlertVisible={setIsAlertVisible}
-        />
-
-        <Section>
-          <Content alignSelf='center' className='contentBox'>
-            <NavList isMobileMenuOpen={isMobileMenuOpen}>
-              <MenuTop flex='initial'>
-                <PushLogoBlackContainer className='headerlogo' flex='initial'>
-                  <PushLogo
-                    style={{ margin: '0px 9px 0px 4px' }}
-                    onClick={openHomePage}
-                  />
-
-                  <Span
-                    fontSize='24px'
-                    fontWeight='400'
-                    style={{ fontFamily: 'Glancyr' }}
-                  >
-                    #BRB
-                  </Span>
-                </PushLogoBlackContainer>
-
-                <MobileMenuToggleIcon>
-                  {isMobileMenuOpen ? (
-                    <AiOutlineClose
-                      size={28}
-                      color='var(--ifm-color-white)'
-                      onClick={toggleMobileMenu}
-                    />
-                  ) : (
-                    <GiHamburgerMenu
-                      size={28}
-                      color='var(--ifm-color-white)'
-                      onClick={toggleMobileMenu}
-                    />
-                  )}
-                </MobileMenuToggleIcon>
-              </MenuTop>
-
-              <HeaderNavItemV showMobileMenu={isMobileMenuOpen} margin>
-                <NavigationMenu
-                  role='menu'
-                  className='navigationMenu'
-                  showMobileMenu={isMobileMenuOpen}
-                >
-                  {/* <NavigationMenuItem onClick={() => handleSectionNavigation('partners')}>
-                      <NavigationMenuHeader>
-                        <Span
-                          fontSize="18px"
-                        >
-                          Partners
-                        </Span>
-                      </NavigationMenuHeader>
-                    </NavigationMenuItem> */}
-
-                  <NavigationMenuItem
-                    onClick={() => handleSectionNavigation('bounties')}
-                  >
-                    <NavigationMenuHeader>
-                      <Span fontSize='18px'>Bounties</Span>
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem
-                    onClick={() => handleSectionNavigation('schedule')}
-                  >
-                    <NavigationMenuHeader>
-                      <Span fontSize='18px'>Schedule</Span>
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem
-                    onClick={() => handleSectionNavigation('online')}
-                  >
-                    <NavigationMenuHeader>
-                      <Span fontSize='18px'>BRB Online</Span>
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem
-                    onClick={() => handleSectionNavigation('playground')}
-                  >
-                    <NavigationMenuHeader>
-                      <Span fontSize='18px'>BRB Chat</Span>
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem
-                    onClick={() => handleSectionNavigation('support')}
-                  >
-                    <NavigationMenuHeader>
-                      <Span fontSize='18px'>Support</Span>
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-                </NavigationMenu>
-              </HeaderNavItemV>
-
-              <HeaderFocusItems flex='initial' alignSelf='stretch'>
-                <IconMenu
-                  role='menu'
-                  className='navigationMenu'
-                  showMobileMenu={isMobileMenuOpen}
-                >
-                  <NavigationMenuItem
-                    onClick={() => {
-                      if (isMobileMenuOpen) toggleMobileMenu();
-                      openLink('https://discord.com/invite/pushchain');
-                    }}
-                  >
-                    <NavigationMenuHeader>
-                      <Discord />
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem
-                    onClick={() => {
-                      if (isMobileMenuOpen) toggleMobileMenu();
-                      openLink('https://x.com/PushChain');
-                    }}
-                  >
-                    <NavigationMenuHeader>
-                      <X />
-                    </NavigationMenuHeader>
-                  </NavigationMenuItem>
-                </IconMenu>
-              </HeaderFocusItems>
-            </NavList>
-          </Content>
-        </Section>
-      </StyledHeader>
-
       <ItemTop>
         <ItemV
           id='new'
@@ -257,17 +91,6 @@ const BRBComp = () => {
           >
             Register Now
           </ButtonItem>
-          <ButtonBar
-            borderRadius='24px'
-            background='var(--ifm-color-black)'
-            border='1px solid var(--ifm-color-pink-secondary)'
-            fontSize='18px'
-            padding='16px 32px'
-            fontWeight='400'
-            onClick={() => handleSectionNavigation('playground')}
-          >
-            Join the conversation
-          </ButtonBar>
         </NavButtons>
       </ItemTop>
 
@@ -303,15 +126,9 @@ const BRBComp = () => {
         </Content>
       </Section>
 
-      <Section id='playground'>
-        <Content>
-          <ChatComponent />
-        </Content>
-      </Section>
-
       <Section id='support'>
         <Content>
-          <ItemFooter>
+          <ItemV>
             <ItemH gap='28px'>
               <ItemV
                 minWidth='280px'
@@ -334,7 +151,9 @@ const BRBComp = () => {
               <ItemV gap='28px' minWidth='280px' alignItems='stretch'>
                 <FooterBar
                   style={{ cursor: 'pointer' }}
-                  onClick={() => openLink('https://discord.gg/cTRqvYzXpW')}
+                  onClick={() =>
+                    openLink('https://discord.com/invite/pushchain')
+                  }
                 >
                   <i>
                     <Discord />
@@ -389,7 +208,7 @@ const BRBComp = () => {
                 </FooterBar>
               </ItemV>
             </ItemH>
-          </ItemFooter>
+          </ItemV>
         </Content>
       </Section>
 
@@ -439,17 +258,6 @@ const ButtonItem = styled(Button)`
   }
 `;
 
-const ButtonBar = styled(Button)`
-  letter-spacing: 0.03em;
-  font-family: Glancyr, sans-serif;
-  &:hover {
-    border: 1px solid var(--ifm-color-pink-secondary);
-  }
-  @media ${device.mobileL} {
-    width: 100%;
-  }
-`;
-
 const BrbWrapper = styled(ItemV)`
   overflow: hidden;
   width: 100%;
@@ -467,102 +275,6 @@ const BrbWrapper = styled(ItemV)`
     }
     @media ${device.mobileL} {
       width: 248px;
-    }
-  }
-`;
-
-const NavList = styled.div`
-  position: relative;
-  width: 100%;
-  height: ${(props) => (!props.isMobileMenuOpen ? '78px' : 'auto')};
-  max-height: ${(props) => (!props.isMobileMenuOpen ? '78px' : 'auto')};
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-
-  border-radius: 55px;
-  border: 1px solid var(--ifm-color-gray-200);
-  background: var(--ifm-color-overlay-black-50);
-  backdrop-filter: blur(12px);
-  padding: 0px 23px;
-  margin: 51px auto 0 auto;
-
-  @media ${device.laptop} {
-    flex-direction: column;
-    width: 100%;
-    padding: 14px 10px 14px 20px;
-    margin: 10px auto;
-    box-sizing: border-box;
-    align-items: center;
-    border-radius: ${(props) => (props.isMobileMenuOpen ? '32px' : '55px')};
-  }
-`;
-
-const StyledHeader = styled.header`
-  font-family: 'Strawford', sans-serif;
-
-  /* padding: 0px 160px; */
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 78px;
-
-  /* color: var(--ifm-color-white);
-  background: var(--ifm-color-neutral-1000); */
-  opacity: 1;
-  z-index: 99999 !important;
-
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
-
-  transition: top 0.3s ease-in-out;
-
-  &.hide {
-    top: -100%;
-  }
-
-  &.light {
-    & span {
-      color: var(--ifm-color-neutral-1000);
-    }
-
-    & svg.chevronIcon {
-      fill: var(--ifm-color-neutral-1000);
-
-      & path {
-        stroke: var(--ifm-color-neutral-1000);
-      }
-    }
-  }
-
-  z-index: 999;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  & .contentBox {
-    padding: 0px ${structure.PADDING.DESKTOP.RIGHT}px !important;
-    max-width: ${GLOBALS.STRUCTURE.MAX_WIDTH}px !important;
-
-    @media ${device.tablet} {
-      padding: 0px ${structure.PADDING.TABLET.RIGHT}px !important;
-    }
-
-    @media ${device.mobile} {
-      padding: 0px ${structure.PADDING.MOBILE.RIGHT}px !important;
-    }
-  }
-
-  @media ${device.laptop} {
-    flex-direction: column;
-
-    &.hide {
-      top: -100%;
     }
   }
 `;
@@ -611,173 +323,6 @@ const NavButtons = styled.div`
     flex-direction: column;
     width: 252px;
   }
-`;
-
-const MenuTop = styled(ItemV)`
-  display: flex;
-
-  & svg {
-    cursor: pointer;
-  }
-
-  @media ${device.laptop} {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-`;
-
-const PushLogoBlackContainer = styled(ItemV)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
-  color: var(--ifm-color-white);
-  font-size: 24.207px;
-  font-style: normal;
-  font-weight: 400;
-`;
-
-const MobileMenuToggleIcon = styled.span`
-  display: none;
-
-  @media ${device.laptop} {
-    display: flex;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-`;
-
-const HeaderNavItemV = styled(ItemV)`
-  margin: 0px ${GLOBALS.ADJUSTMENTS.PADDING.SMALL} 0
-    ${GLOBALS.ADJUSTMENTS.PADDING.SMALL};
-
-  @media ${device.laptop} {
-    margin: ${(props) => (props.showMobileMenu ? '30px 20px 20px 20px' : '0')};
-  }
-`;
-
-const HeaderFocusItems = styled(ItemH)`
-  align-self: stretch;
-  flex-wrap: nowrap;
-
-  @media ${device.laptop} {
-    flex-direction: collumn;
-    align-self: flex-start;
-    flex-wrap: wrap;
-  }
-`;
-
-const NavigationMenu = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-
-  gap: 36px;
-
-  z-index: 999;
-
-  @media ${device.laptop} {
-    flex-direction: column;
-    flex: 0 0 75%;
-    align-self: stretch;
-    display: ${(props) => (props.showMobileMenu ? 'flex' : 'none')};
-  }
-`;
-
-const IconMenu = styled.ul`
-  list-style: none;
-  margin: 0 20px 0 0;
-  justify-content: flex-start;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-  z-index: 999;
-
-  @media ${device.laptop} {
-    flex-direction: row;
-    flex: 1;
-    margin: 10px 20px 20px 20px;
-    align-self: stretch;
-    display: ${(props) => (props.showMobileMenu ? 'flex' : 'none')};
-  }
-`;
-
-/**
- * HOVER happens on this element
- */
-const NavigationMenuItem = styled.li`
-  position: relative;
-  font-family: Glancyr, sans-serif;
-  // Styles for the flags
-  .flag-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-  }
-
-  & span {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 142%;
-    color: var(--ifm-color-primary-inverse);
-  }
-
-  &:hover {
-    & span {
-      color: var(--ifm-color-primary);
-      transition-duration: 0.7s;
-    }
-
-    & .chevronIcon {
-      transform: rotate(180deg);
-    }
-
-    & .menuContent {
-      display: block;
-    }
-  }
-`;
-
-const NavigationMenuHeader = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  & .chevronIcon {
-    transition-duration: 0.4s;
-    transition-property: transform;
-  }
-
-  & span {
-    color: var(--ifm-color-white);
-  }
-
-  @media ${device.laptop} {
-    justify-content: space-between;
-
-    & .chevronIcon {
-      width: 16px;
-      height: 16px;
-      transform: ${(props) =>
-        props.expanded ? 'rotate(180deg)' : 'none  !important'};
-    }
-  }
-`;
-
-const ItemFooter = styled(ItemV)`
-  position: relative;
-  top: 80px;
-  display: flex;
-  align-self: center;
-  width: 100%;
 `;
 
 const SpanContent = styled(Span)`

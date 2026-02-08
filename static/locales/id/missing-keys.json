@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-23T01:01:12.927Z",
+  "lastUpdated": "2026-02-08T06:34:44.972Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "Validators —",
@@ -1727,14 +1727,14 @@
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
     "global.site-description": {
-      "value": "L1 berbagi keadaan untuk aplikasi universal. Tebaskan sekali; capai pengguna di rantai apapun. Gunakan dompet apapun. Bayar dengan token apapun. Tidak perlu berganti jaringan.",
+      "value": "L1 berbagi keadaan untuk aplikasi universal. Deploy sekali; capai pengguna di semua chain. Gunakan dompet apa saja. Bayar dengan Token apa saja. Tidak perlu berganti jaringan.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-01-23T00:48:14.146Z"
+      "lastUpdated": "2026-02-08T05:50:14.833Z"
     },
     "footer.footer-image.title": {
-      "value": "Push Chain - Universal Blokchain",
+      "value": "Push Chain - Blochain Universal",
       "englishChecksum": "335a0ee6c9b58e1b96f653feab5a85b2",
-      "lastUpdated": "2026-01-23T00:48:17.103Z"
+      "lastUpdated": "2026-02-08T05:50:17.228Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
       "value": "Dapatkan Token Testnet",
@@ -1742,34 +1742,34 @@
       "lastUpdated": "2025-11-14T20:18:42.666Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-particle-network": {
-      "value": "### Bagaimana Push Chain berbeda dengan Particle Network?\n\n**Particle Network:**\n- **Fokus Abstraksi Akun**: Utamanya fokus pada abstraksi dompet dan login sosial\n- **Dompet Multi-Chain**: Membuat pengalaman dompet yang berintegrasi di seluruh rantai\n- **Integrasi SDK**: Memerlukan integrasi Particle SDK untuk fungsionalitas\n- **Layer Pengalaman Pengguna**: Beroperasi sebagai lapisan di atas rantai yang ada\n\n**Push Chain:**\n- **Blockchain Universal**: Blockchain asli yang mendukung pengguna semua rantai\n- **Integrasi Tingkat Protokol**: Fungsi silang rantai dibangun ke konsensus\n- **Tidak Memerlukan SDK**: Dompet yang ada bekerja secara langsung tanpa modifikasi\n- **Lapis Base**: Menyediakan infrastruktur blockchain dasar, tidak hanya lapisan UX\n\nPush Chain adalah blockchain universal sementara Particle Network adalah layanan abstraksi dompet.",
+      "value": "### Bagaimana Push Chain berbeda dengan Particle Network?\n\n**Particle Network:**\n- **Fokus Abstraksi Akun**: Utamanya fokus pada abstraksi dompet dan login sosial\n- **Dompet Multi-Rantai**: Membuat pengalaman dompet seragam di seluruh rantai\n- **Integrasi SDK**: Memerlukan integrasi Particle SDK untuk fungsionalitas\n- **Lapisan Pengalaman Pengguna**: Berfungsi sebagai lapisan di atas rantai yang ada\n\n**Push Chain:**\n- **Blokchain Universal**: Blokchain asli yang mendukung semua pengguna rantai\n- **Integrasi Tingkat Protokol**: Fungsi silang-rantai dibangun ke konsensus\n- **Tidak Ada SDK Diperlukan**: Dompet eksisting bekerja secara native tanpa modifikasi\n- **Lapisan Dasar**: Menyediakan infrastruktur blokchain dasar, tidak hanya lapisan UX\n\nPush Chain adalah blokchain universal sementara Particle Network adalah layanan abstraksi dompet.\n\n---",
       "englishChecksum": "5f9fd560753afe99e2d4f16cf66c94a7",
-      "lastUpdated": "2026-01-23T00:48:26.122Z"
+      "lastUpdated": "2026-02-08T05:50:26.707Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
-      "value": "## Token Bersangkutan",
+      "value": "## Token Related",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2026-01-23T00:48:28.342Z"
+      "lastUpdated": "2026-02-08T05:50:28.900Z"
     },
     "components.short-faq-snippet.section-aria-label": {
-      "value": "Pertanyaan umum tentang Push Chain - Blokchain Universal",
+      "value": "Pertanyaan umum tentang Push Chain - Universal Blockchain",
       "englishChecksum": "47c2141cd8381a063c08207a94b28b6f",
-      "lastUpdated": "2026-01-23T00:48:29.775Z"
+      "lastUpdated": "2026-02-08T05:50:30.618Z"
     },
     "notifications.rewards-notification.image-alt": {
-      "value": "Blokchain Uji Coba Push Chain – Bangun Aplikasi Universal",
+      "value": "Hadiah Push Chain Testnet - Bangun Aplikasi Universal",
       "englishChecksum": "7e5ffae122997a63a81105184b921cb1",
-      "lastUpdated": "2026-01-23T00:48:31.193Z"
+      "lastUpdated": "2026-02-08T05:50:33.853Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
       "value": "## Pengembang, Pengguna dan Operator Node",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-01-23T00:48:33.651Z"
+      "lastUpdated": "2026-02-08T05:50:36.373Z"
     },
     "pages.donutsecret.seo.description": {
-      "value": "Beta tertutup untuk para pembuat. Dapatkan kartu Donutmu untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci hadiah awal.",
+      "value": "Beta tertutup untuk pendaftaran khusus bagi pembuat. Ambil kartu Donut Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci hadiah awal.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
-      "lastUpdated": "2026-01-23T00:48:35.800Z"
+      "lastUpdated": "2026-02-08T05:50:40.137Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Bangun — Panduan & Tutorial",
@@ -1947,8 +1947,9 @@
       "lastUpdated": "2026-01-16T19:56:43.850Z"
     },
     "pages.cult.seo.og-description": {
+      "value": "Sebuah kelompok eksklusif 50 kreator yang mendapatkan penghargaan PC token sebesar 20M oleh cara mendorong penggunaan dan kepercayaan yang nyata dalam Push Chain.",
       "englishChecksum": "45df3c59f89f6db4545500d75622968e",
-      "lastUpdated": "2026-01-23T00:48:38.084Z"
+      "lastUpdated": "2026-02-08T05:50:42.738Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
       "value": "Kasus Khusus",
@@ -1999,6 +2000,90 @@
       "value": "Aplikasikan Sekarang",
       "englishChecksum": "5c8fc6dfaf940715ec1f2e5d18e8afd2",
       "lastUpdated": "2026-01-23T01:01:12.927Z"
+    },
+    "components.blog.more-posts.title": {
+      "value": "Lagi dari Push Chain",
+      "englishChecksum": "692049673b5cf4a4bb4cf07fcf936fc4",
+      "lastUpdated": "2026-02-08T06:34:43.793Z"
+    },
+    "components.blog.more-posts.follow-button": {
+      "value": "Ikuti",
+      "englishChecksum": "2fe47cae19519a3562b108e94e4f5c12",
+      "lastUpdated": "2026-02-08T06:03:03.937Z"
+    },
+    "components.blog.more-posts.read-more": {
+      "value": "Baca Selanjutnya",
+      "englishChecksum": "ffea8cbbeceb80da22704c60d9779c83",
+      "lastUpdated": "2026-02-08T06:03:07.350Z"
+    },
+    "components.blog.list.page-title": {
+      "value": "Halaman {{page}}",
+      "englishChecksum": "e5ab5388fdb433130458fb7e9d74b4a2",
+      "lastUpdated": "2026-02-08T06:03:08.525Z"
+    },
+    "components.blog.paginator.nav-aria-label": {
+      "value": "Navigasi daftar blog",
+      "englishChecksum": "8342ae25d3c8a491e45840ad1693880f",
+      "lastUpdated": "2026-02-08T06:03:09.829Z"
+    },
+    "components.blog.paginator.newer-entries": {
+      "value": "Masukkan Entri Baru",
+      "englishChecksum": "c4046f18eb4988bf13b9eba78fdda702",
+      "lastUpdated": "2026-02-08T06:03:11.116Z"
+    },
+    "components.blog.paginator.older-entries": {
+      "englishChecksum": "a8b6857dca6cbfd17b35f7bc7d75b154",
+      "lastUpdated": "2026-02-08T06:34:44.972Z"
+    },
+    "components.blog.footer-item.share-title": {
+      "value": "Jadi bagian dari diskusi dengan membagikan artikel ini",
+      "englishChecksum": "4e3b02069b627a2e5083d3e5af8c7ded",
+      "lastUpdated": "2026-02-08T06:03:13.937Z"
+    },
+    "components.blog.footer-item.share-button": {
+      "value": "Bagikan",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:03:15.184Z"
+    },
+    "components.blog.footer-item.share-modal-title": {
+      "value": "Bagikan",
+      "englishChecksum": "d6f754ae95158abf97ac1455ec03dd1c",
+      "lastUpdated": "2026-02-08T06:03:17.835Z"
+    },
+    "components.blog.footer-item.copy-link": {
+      "value": "Salin tautan",
+      "englishChecksum": "c37cab31be2e428e02608826ce5f3c4d",
+      "lastUpdated": "2026-02-08T06:03:20.166Z"
+    },
+    "components.blog.footer-item.about-title": {
+      "value": "Tentang Push Chain",
+      "englishChecksum": "56a560352a1a64e27ff8e376b9df8040",
+      "lastUpdated": "2026-02-08T06:03:27.159Z"
+    },
+    "components.blog.footer-item.about-description": {
+      "value": "Push Chain adalah blockchain universal pertama yang sebenarnya dirancang untuk menghilangkan fragmentasi di semua rantai. Ia memungkinkan pengembang untuk menyebarkan sekali, dan langsung menjadi tersedia bagi pengguna di mana saja rantai, baik EVM atau Non-EVM (termasuk Ethereum, Solana, Bitcoin antara lain). Ini 100% kompatibel dengan EVM, Proof of Stake (PoS) rantai yang memungkinkan pengguna untuk interaktif dengan aplikasi yang dipasang di Push Chain dari mana saja rantai, seperti halnya mereka secara alami di rantai mereka sendiri.",
+      "englishChecksum": "5a9bdce5b5220e99b2cd9d0d3ed530a7",
+      "lastUpdated": "2026-02-08T06:03:32.529Z"
+    },
+    "components.blog.footer-item.social-twitter": {
+      "value": "X/Twitter",
+      "englishChecksum": "ed2643585105e084dad17fbf7a73f35b",
+      "lastUpdated": "2026-02-08T06:03:35.983Z"
+    },
+    "components.blog.footer-item.social-discord": {
+      "value": "Diskord",
+      "englishChecksum": "8987ae81152c473c2b4941dc001e9cd8",
+      "lastUpdated": "2026-02-08T06:03:40.108Z"
+    },
+    "components.blog.footer-item.social-youtube": {
+      "value": "Youtube",
+      "englishChecksum": "9dfa8705879b6d276a5c2024e4cdbcab",
+      "lastUpdated": "2026-02-08T06:03:41.252Z"
+    },
+    "components.blog.footer-item.social-linkedin": {
+      "value": "LiniedIn",
+      "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
+      "lastUpdated": "2026-02-08T06:03:42.420Z"
     }
   }
 }

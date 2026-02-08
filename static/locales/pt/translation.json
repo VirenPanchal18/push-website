@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "L1 compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Nenhum trocando de rede."
+    "site-description": "L1 de estado compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede."
   },
   "header": {
     "community": {
@@ -1284,8 +1284,8 @@
       "answer-aria-label": "Resposta à pergunta - ",
       "qnas": {
         "qna1": {
-          "question": "Não consigo conectar minha carteira. O que devo fazer?",
-          "answer": "<1><2>Vérificações rápidas:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/ scriptes agressivos para push.org.</1><1><2>Não precisa mudar de rede:</2> fique na sua rede doméstica; o Push gerencia roteamento por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+          "question": "Não consigo conectar minha carteira. O que eu devo tentar?",
+          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desabilite bloqueadores de anúncios/script agressivos para push.org.</1><1><2>Não há necessidade de alternar a rede:</2> fique em sua rede principal; Push cuida da roteação por trás dos cenários.</1><1><2>Redefina as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim estiver com problemas? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1518,28 +1518,38 @@
       }
     },
     "blog": {
+      "featured": {
+        "title": "Posts em Destaque",
+        "post-aria-label": "Postagem de blog em destaque: {{title}}",
+        "image-alt": "Imagem destacada para {{title}}"
+      },
+      "tags": {
+        "title": "Navegue por Tópico",
+        "tag-link-title": "Ver publicações marcadas com {{tagName}}",
+        "tag-link-aria-label": "Ver posts marcados com {{tagName}}"
+      },
+      "list": {
+        "recent-updates": "Posts Recentes",
+        "page-title": "Página {{page}}"
+      },
       "more-posts": {
-        "title": "Mais do Push Chain",
+        "title": "Mais sobre a Push Chain",
         "follow-button": "Seguir",
         "read-more": "Leia Mais"
       },
-      "list": {
-        "recent-updates": "Atualizações Recentes",
-        "page-title": "Página {{page}}"
-      },
       "paginator": {
-        "nav-aria-label": "Navegação pelas páginas da lista de blogs",
+        "nav-aria-label": "Navegação da lista de artigos do blog",
         "newer-entries": "Entradas Mais Recentes",
-        "older-entries": "Entradas Anteriores"
+        "older-entries": "Entradas Antigas"
       },
       "footer-item": {
         "share-title": "Participe da conversa compartilhando este artigo",
         "share-button": "Compartilhar",
         "share-modal-title": "Compartilhar",
-        "copy-link": "Copiar link",
-        "about-title": "Sobre o Push Chain",
-        "about-description": "Push Chain é a primeira blockchain universal verdadeira, projetada para eliminar a fragmentação entre todas as chains. Ela permite que desenvolvedores implantem uma vez e se tornem instantaneamente disponíveis para usuários em qualquer chain, seja EVM ou Non-EVM (incluindo Ethereum, Solana, Bitcoin entre outras). É uma chain 100% compatível com EVM e Proof of Stake (PoS) que permite aos usuários interagir com os apps implantados na Push Chain de qualquer chain, como eles nativamente fazem em suas próprias chains.",
-        "social-twitter": "Twitter",
+        "copy-link": "Copiar ligação",
+        "about-title": "Sobre a Push Chain",
+        "about-description": "Push Chain é o primeiro blockchain universal verdadeiro projetado para eliminar fragmentação em todas as cadeias. Isso permite que desenvolvedores implantem uma vez e fiquem disponíveis instantaneamente para usuários em qualquer cadeia, sejam EVM ou não-EVM (incluindo Ethereum, Solana, Bitcoin entre outros). É 100% compatível com EVM, cadeia Proof of Stake (PoS) que permite aos usuários interagir com os aplicativos implantados na Push Chain de qualquer cadeia, como eles fazem nativamente em sua própria cadeia.",
+        "social-twitter": "X/Twitter",
         "social-discord": "Discord",
         "social-youtube": "YouTube",
         "social-linkedin": "LinkedIn"
@@ -1664,11 +1674,11 @@
       "button-title": "Junte-se à Tribo Push!",
       "button-aria-label": "Junte-se à comunidade Push Cult!. Você pode conferir aqui",
       "image-alt": "Junte-se à comunidade Push!",
-      "title": "",
       "button-text": "Aplicar Agora",
       "close-button-title": "Fechar notificação",
       "close-button-aria-label": "Dismiss Push Chain toast notification",
-      "container-aria-label": "Notificação Push Chain"
+      "container-aria-label": "Notificação Push Chain",
+      "title": ""
     },
     "rewards-notification": {
       "title": "Donut Testnet Closed beta está ao vivo!",

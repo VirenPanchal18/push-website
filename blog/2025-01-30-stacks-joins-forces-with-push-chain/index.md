@@ -4,8 +4,8 @@ title: 'Push Chain Joins Forces With Stacks'
 authors: [push]
 image: './cover-image.webp'
 description: 'Push Chain Joins Forces With Stacks'
-text: 'Push Chain is building with Stacks to unlock accessibility to Bitcoin apps from any chain, any app, and any wallet.'
-tags: [Push Chain, Partnerships]
+text: "Bitcoin DeFi goes universal. Stacks integration brings Bitcoin-secured apps to Push Chain, letting users from any blockchain access Bitcoin's ecosystem without bridges or wrapped tokens."
+tags: [Partnerships]
 twitterId: '1884990363053793759'
 ---
 

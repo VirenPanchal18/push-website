@@ -4,8 +4,8 @@ title: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
 authors: [harsh]
 image: './cover-image.webp'
 description: 'A Universal Era Begins. Introducing Push Chain’s Donut Testnet 🍩'
-text: "After years of fragmentation, the time has come to unite all chains."
-tags: [Donut Testnet, Universal Apps, Shared App Experience, Shared State Blockchain, Universal Smart Contracts]
+text: "The universal era begins. Push Chain's Donut Testnet is now public, letting developers build apps that work across all blockchains. One deployment, infinite reach."
+tags: [Featured, Product, Ecosystem]
 twitterId: '1988261231128703213'
 ---
 

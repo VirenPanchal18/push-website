@@ -186,4 +186,5 @@ export const HeaderList = {
       target: '_blank',
     },
   ],
+  blogExplore: 'featured',
 };

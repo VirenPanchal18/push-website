@@ -5,8 +5,8 @@
 // React + Web3 Essentials
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useContext, useState } from 'react';
-import styled from 'styled-components';
 import ReactPlayer from 'react-player';
+import styled from 'styled-components';
 
 // External Components
 import { useTranslation } from 'react-i18next';
@@ -383,7 +383,7 @@ export default function HomeComp() {
             {!isMobile && (
               <ItemH justifyContent='flex-end'>
                 <SlideLink
-                  href='https://push.org/blog'
+                  href='/blog'
                   title={t('pages.home.blog-section.explore-link-title')}
                   aria-label={t(
                     'pages.home.blog-section.explore-link-aria-label'
@@ -395,7 +395,7 @@ export default function HomeComp() {
                   color='var(--ifm-color-pink-400)'
                   borderRadius='0'
                   padding='0px 0px'
-                  target='_blank'
+                  target='_self'
                 >
                   <SpanLink>
                     {t('pages.home.blog-section.explore-link-text')}
