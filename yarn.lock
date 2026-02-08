@@ -2676,7 +2676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:3.9.2, @docusaurus/core@npm:^3.8.1":
+"@docusaurus/core@npm:3.9.2, @docusaurus/core@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/core@npm:3.9.2"
   dependencies:
@@ -2732,7 +2732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/cssnano-preset@npm:3.9.2, @docusaurus/cssnano-preset@npm:^3.8.1":
+"@docusaurus/cssnano-preset@npm:3.9.2, @docusaurus/cssnano-preset@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/cssnano-preset@npm:3.9.2"
   dependencies:
@@ -2819,7 +2819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-client-redirects@npm:^3.8.1":
+"@docusaurus/plugin-client-redirects@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/plugin-client-redirects@npm:3.9.2"
   dependencies:
@@ -2839,7 +2839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-content-blog@npm:3.9.2, @docusaurus/plugin-content-blog@npm:^3.8.1":
+"@docusaurus/plugin-content-blog@npm:3.9.2, @docusaurus/plugin-content-blog@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/plugin-content-blog@npm:3.9.2"
   dependencies:
@@ -2869,7 +2869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-content-docs@npm:3.9.2, @docusaurus/plugin-content-docs@npm:^3.8.1":
+"@docusaurus/plugin-content-docs@npm:3.9.2, @docusaurus/plugin-content-docs@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/plugin-content-docs@npm:3.9.2"
   dependencies:
@@ -2962,7 +2962,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-google-gtag@npm:3.9.2, @docusaurus/plugin-google-gtag@npm:^3.8.1":
+"@docusaurus/plugin-google-gtag@npm:3.9.2, @docusaurus/plugin-google-gtag@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/plugin-google-gtag@npm:3.9.2"
   dependencies:
@@ -3032,7 +3032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:^3.8.1":
+"@docusaurus/preset-classic@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/preset-classic@npm:3.9.2"
   dependencies:
@@ -3118,7 +3118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-live-codeblock@npm:^3.8.1":
+"@docusaurus/theme-live-codeblock@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/theme-live-codeblock@npm:3.9.2"
   dependencies:
@@ -3138,7 +3138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-mermaid@npm:^3.8.1":
+"@docusaurus/theme-mermaid@npm:^3.9.2":
   version: 3.9.2
   resolution: "@docusaurus/theme-mermaid@npm:3.9.2"
   dependencies:
@@ -18558,17 +18558,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "push-chain-website@workspace:."
   dependencies:
-    "@docusaurus/core": "npm:^3.8.1"
-    "@docusaurus/cssnano-preset": "npm:^3.8.1"
+    "@docusaurus/core": "npm:^3.9.2"
+    "@docusaurus/cssnano-preset": "npm:^3.9.2"
     "@docusaurus/eslint-plugin": "npm:^3.8.1"
     "@docusaurus/module-type-aliases": "npm:^3.8.1"
-    "@docusaurus/plugin-client-redirects": "npm:^3.8.1"
-    "@docusaurus/plugin-content-blog": "npm:^3.8.1"
-    "@docusaurus/plugin-content-docs": "npm:^3.8.1"
-    "@docusaurus/plugin-google-gtag": "npm:^3.8.1"
-    "@docusaurus/preset-classic": "npm:^3.8.1"
-    "@docusaurus/theme-live-codeblock": "npm:^3.8.1"
-    "@docusaurus/theme-mermaid": "npm:^3.8.1"
+    "@docusaurus/plugin-client-redirects": "npm:^3.9.2"
+    "@docusaurus/plugin-content-blog": "npm:^3.9.2"
+    "@docusaurus/plugin-content-docs": "npm:^3.9.2"
+    "@docusaurus/plugin-google-gtag": "npm:^3.9.2"
+    "@docusaurus/preset-classic": "npm:^3.9.2"
+    "@docusaurus/theme-live-codeblock": "npm:^3.9.2"
+    "@docusaurus/theme-mermaid": "npm:^3.9.2"
     "@docusaurus/types": "npm:^3.8.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"

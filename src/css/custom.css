@@ -1380,8 +1380,14 @@ a:hover {
   background-color: rgba(18, 19, 21, 0.75) !important;
 } */
 
-.navbar-sidebar__back {
-  display: none;
+/* Hide Docusaurus back button only when showing custom SecondaryMenu via "Move to Documentation" */
+.custom-docs-secondary-menu .navbar-sidebar__back {
+  display: none !important;
+}
+
+/* Prevent body scroll when mobile menu is open */
+html:has(.navbar-sidebar--show) {
+  overflow: hidden;
 }
 
 .navbar-sidebar {
