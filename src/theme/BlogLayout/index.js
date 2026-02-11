@@ -48,7 +48,7 @@ export default function BlogLayout(props) {
               content={t('pages.blog.seo.og-description')}
             />
             <meta
-              name='twitter:image'
+              property='og:image'
               content={useBaseUrl(
                 require('/static/assets/previews/blogpreview.png').default,
                 { absolute: true }
