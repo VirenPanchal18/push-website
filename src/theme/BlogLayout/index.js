@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 import SchemaMarkup from '@site/src/components/SEO/SchemaMarkup';
 import Footer from '@site/src/segments/Footer';
 import Layout from '@theme/Layout';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function BlogLayout(props) {
   const { children } = props;
@@ -47,10 +48,11 @@ export default function BlogLayout(props) {
               content={t('pages.blog.seo.og-description')}
             />
             <meta
-              property='og:image'
-              content={
-                require('@site/static/assets/previews/blogpreview.png').default
-              }
+              name='twitter:image'
+              content={useBaseUrl(
+                require('/static/assets/previews/blogpreview.png').default,
+                { absolute: true }
+              )}
             />
 
             {/* <!-- Twitter Meta Tags --> */}
@@ -67,9 +69,10 @@ export default function BlogLayout(props) {
             />
             <meta
               name='twitter:image'
-              content={
-                require('@site/static/assets/previews/blogpreview.png').default
-              }
+              content={useBaseUrl(
+                require('/static/assets/previews/blogpreview.png').default,
+                { absolute: true }
+              )}
             />
           </Head>
 
