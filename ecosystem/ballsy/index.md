@@ -9,4 +9,5 @@ tags:
   - Gaming
 href: https://ballsy.push.org/
 titleColor: white
+featured: true
 ---

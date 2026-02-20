@@ -12,4 +12,5 @@ titleColor: black
 descriptionColor: black
 twitterId: '1993681001076478131'
 tagsColor: black
+featured: true
 ---

@@ -10,4 +10,5 @@ tags:
 twitterId: '1989664475784663041'
 href: https://www.thehodl.fun/
 titleColor: white
+featured: true
 ---
