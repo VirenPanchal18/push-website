@@ -14,6 +14,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
     appoftheweek: true,
     spotlighttext: 'Slice. Dodge. Score.',
+    featured: true,
   },
   {
     id: 1,
@@ -28,6 +29,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     descriptionColor: 'black',
     twitterId: '1993681001076478131',
     tagsColor: 'black',
+    featured: true,
   },
   {
     id: 2,
@@ -39,6 +41,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tags: ['Gaming'],
     href: 'https://ballsy.push.org/',
     titleColor: 'white',
+    featured: true,
   },
   {
     id: 3,
@@ -64,6 +67,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '1989664475784663041',
     href: 'https://www.thehodl.fun/',
     titleColor: 'white',
+    featured: true,
   },
   {
     id: 4,

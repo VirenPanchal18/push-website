@@ -12,4 +12,5 @@ href: https://push-ninja.abstractstudio.in
 titleColor: white
 appoftheweek: true
 spotlighttext: Slice. Dodge. Score.
+featured: true
 ---
