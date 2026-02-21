@@ -217,6 +217,7 @@ const LoadingContainer = styled.div`
 `;
 
 const Grid = styled.div`
+  position: relative;
   display: grid;
   margin-top: 32px;
   gap: clamp(16px, 2.5vw, 24px);
@@ -228,6 +229,7 @@ const Grid = styled.div`
 `;
 
 const SecondaryGrid = styled.div`
+  position: relative;
   display: grid;
   margin-top: 32px;
   gap: clamp(16px, 2.5vw, 24px);
