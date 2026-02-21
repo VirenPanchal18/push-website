@@ -6,7 +6,7 @@ import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
 import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount';
 import Starsvg from '@site/static/assets/ecosystem/star.svg';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsHeart } from 'react-icons/bs';
 import styled from 'styled-components';
@@ -15,6 +15,15 @@ import type { EcosystemApp } from './EcosystemBlocks';
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
   const { t } = useTranslation();
   const { data: twitterData } = useTweetMetrics(app.twitterId || '');
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Call useBaseUrl hooks unconditionally at the top
+  const bgImageUrl = useBaseUrl(app.bgImage || '');
+  const iconUrl = useBaseUrl(app.icon || '');
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   // Support both old format (name/description) and new format (nameKey/descriptionKey)
   const appName = app.nameKey ? t(app.nameKey) : app.name;
@@ -50,6 +59,18 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
         }
       : { href: '#', onClick: (e: React.MouseEvent) => e.preventDefault() };
 
+  if (!isHydrated) {
+    return (
+      <Card
+        as='div'
+        $secondary={app.secondary}
+        className={app.secondary ? 'secondary' : ''}
+      >
+        <SkeletonLoader $secondary={app.secondary} />
+      </Card>
+    );
+  }
+
   return (
     <Card
       {...hrefProps}
@@ -63,14 +84,14 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
       {app.appoftheweek && (
         <CardTag>
           <Starsvg />
-          <Span>APP SPOTLIGHT</Span>
+          <Span>{t('components.ecosystem-apps-partners.app-spotlight')}</Span>
         </CardTag>
       )}
       {app.bgImage && !app.secondary && (
         <BackgroundWrapper>
           <Background
             style={{
-              backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
+              backgroundImage: `url(${bgImageUrl})`,
             }}
           />
         </BackgroundWrapper>
@@ -80,7 +101,7 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
         $secondary={app.secondary}
       >
         <TopRow>
-          <Icon src={useBaseUrl(app.icon)} alt='' appId={app.id} />
+          <Icon src={iconUrl} alt='' appId={app.id} />
           <Name titleColor={app.titleColor}>{appName}</Name>
           <P
             fontSize='16px'
@@ -90,6 +111,17 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
           >
             {appDescription}
           </P>
+          {app.appoftheweek && appSpotlightText && (
+            <P
+              fontSize='14px'
+              lineHeight='20px'
+              color={app.descriptionColor || 'var(--ifm-color-neutral-300)'}
+              margin='8px 0 0 0'
+              fontStyle='italic'
+            >
+              {appSpotlightText}
+            </P>
+          )}
         </TopRow>
         <Meta>
           <Tags>
@@ -130,7 +162,9 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
       </ContentWrap>
       {app.comingsoon && (
         <ComingSoonOverlay>
-          <ComingSoonText>Coming Soon</ComingSoonText>
+          <ComingSoonText>
+            {t('components.ecosystem-apps-partners.coming-soon')}
+          </ComingSoonText>
         </ComingSoonOverlay>
       )}
     </Card>
@@ -166,6 +200,7 @@ const Card = styled.a<{
     box-shadow 0.2s ease;
   z-index: 6;
   cursor: ${(props) => (props.$comingsoon ? 'not-allowed' : 'pointer')};
+  contain: layout style paint;
 
   &.secondary {
     height: auto !important;
@@ -351,4 +386,27 @@ const ComingSoonText = styled.span`
   font-weight: 600;
   line-height: 32px;
   margin-top: 50px;
+`;
+
+const SkeletonLoader = styled.div<{ $secondary?: boolean }>`
+  width: 100%;
+  height: ${(props) => (props.$secondary ? '300px' : '426px')};
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 16px;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
 `;

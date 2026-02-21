@@ -1,6 +1,8 @@
 {
   "components": {
     "ecosystem-apps-partners": {
+      "coming-soon": "Coming Soon",
+      "app-spotlight": "APP SPOTLIGHT",
       "partners": {
         "silence-labs": {
           "name": "Silence Labs",

@@ -1,20 +1,18 @@
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
 
-const ecosystemDir = path.join(__dirname, '../ecosystem');
-const partnersDir = path.join(__dirname, '../partners');
-const outputFile = path.join(__dirname, '../src/config/EcosystemAppsList.ts');
+const ecosystemAppsListFile = path.join(
+  __dirname,
+  '../src/config/EcosystemAppsList.ts'
+);
 const appOfTheWeekFile = path.join(
   __dirname,
   '../static/content/appoftheweek.json'
 );
-const publicAssetsDir = path.join(__dirname, '../static/assets/ecosystem');
-
-// Ensure public assets directory exists
-if (!fs.existsSync(publicAssetsDir)) {
-  fs.mkdirSync(publicAssetsDir, { recursive: true });
-}
+const mainTranslationFile = path.join(
+  __dirname,
+  '../static/locales/en/translation.json'
+);
 
 // Ensure static/content directory exists
 const contentDir = path.join(__dirname, '../static/content');
@@ -22,167 +20,150 @@ if (!fs.existsSync(contentDir)) {
   fs.mkdirSync(contentDir, { recursive: true });
 }
 
-const apps = [];
-const partners = [];
-let appOfTheWeek = null;
-const folders = fs.readdirSync(ecosystemDir);
-
-folders.forEach((folder) => {
-  const folderPath = path.join(ecosystemDir, folder);
-  const indexPath = path.join(folderPath, 'index.md');
-
-  if (fs.existsSync(indexPath)) {
-    const fileContent = fs.readFileSync(indexPath, 'utf-8');
-    const { data } = matter(fileContent);
-
-    // Skip if frontmatter is empty or has no name
-    if (!data || Object.keys(data).length === 0 || !data.name) {
-      console.log(`⏭️  Skipping ${folder} (empty or no name)`);
-      return;
-    }
-
-    // Copy icon if it exists
-    if (data.icon) {
-      const iconSource = path.join(folderPath, data.icon);
-      if (fs.existsSync(iconSource)) {
-        const iconDest = path.join(
-          publicAssetsDir,
-          `${folder}-icon${path.extname(data.icon)}`
-        );
-        fs.copyFileSync(iconSource, iconDest);
-        data.icon = `/assets/ecosystem/${folder}-icon${path.extname(data.icon)}`;
-      }
-    }
-
-    // Copy bgImage if it exists
-    if (data.bgImage) {
-      const bgSource = path.join(folderPath, data.bgImage);
-      if (fs.existsSync(bgSource)) {
-        const bgDest = path.join(
-          publicAssetsDir,
-          `${folder}-bg${path.extname(data.bgImage)}`
-        );
-        fs.copyFileSync(bgSource, bgDest);
-        data.bgImage = `/assets/ecosystem/${folder}-bg${path.extname(data.bgImage)}`;
-      }
-    }
-
-    // Check if this is the app of the week
-    if (data.appoftheweek) {
-      appOfTheWeek = data;
-    }
-
-    apps.push(data);
-  }
-});
-
-// Process partners directory if it exists
-if (fs.existsSync(partnersDir)) {
-  const partnerFolders = fs.readdirSync(partnersDir);
-
-  partnerFolders.forEach((folder) => {
-    const folderPath = path.join(partnersDir, folder);
-    const indexPath = path.join(folderPath, 'index.md');
-
-    if (fs.existsSync(indexPath)) {
-      const fileContent = fs.readFileSync(indexPath, 'utf-8');
-      const { data } = matter(fileContent);
-
-      // Skip if frontmatter is empty or has no name
-      if (!data || Object.keys(data).length === 0 || !data.name) {
-        console.log(`⏭️  Skipping partner ${folder} (empty or no name)`);
-        return;
-      }
-
-      // Copy icon if it exists
-      if (data.icon) {
-        const iconSource = path.join(folderPath, data.icon);
-        if (fs.existsSync(iconSource)) {
-          const iconDest = path.join(
-            publicAssetsDir,
-            `${folder}-icon${path.extname(data.icon)}`
-          );
-          fs.copyFileSync(iconSource, iconDest);
-          data.icon = `/assets/ecosystem/${folder}-icon${path.extname(data.icon)}`;
-        }
-      }
-
-      // Copy bgImage if it exists
-      if (data.bgImage) {
-        const bgSource = path.join(folderPath, data.bgImage);
-        if (fs.existsSync(bgSource)) {
-          const bgDest = path.join(
-            publicAssetsDir,
-            `${folder}-bg${path.extname(data.bgImage)}`
-          );
-          fs.copyFileSync(bgSource, bgDest);
-          data.bgImage = `/assets/ecosystem/${folder}-bg${path.extname(data.bgImage)}`;
-        }
-      }
-
-      partners.push(data);
-    }
-  });
-}
-
-// Sort apps: appoftheweek first, then by id (ascending order)
-apps.sort((a, b) => {
-  if (a.appoftheweek && !b.appoftheweek) return -1;
-  if (!a.appoftheweek && b.appoftheweek) return 1;
-  return (a.id || 999) - (b.id || 999);
-});
-
-// Custom JSON stringify with single quotes
-const formatAppsList = (apps) => {
-  const formattedApps = apps.map((app) => {
-    const entries = Object.entries(app).map(([key, value]) => {
-      if (Array.isArray(value)) {
-        const items = value.map((v) => `'${v}'`).join(', ');
-        return `    ${key}: [${items}]`;
-      }
-      if (typeof value === 'string') {
-        return `    ${key}: '${value}'`;
-      }
-      return `    ${key}: ${value}`;
-    });
-    return `  {\n${entries.join(',\n')},\n  }`;
-  });
-  return formattedApps.join(',\n');
-};
-
-const output = `import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
-
-export const EcosystemFeaturedListUrls = [
-  'https://www.lastone.fun/',
-  'https://eon-five.vercel.app',
-  'https://pushbet.fun/',
-  'https://www.thehodl.fun/',
-] as const;
-
-export const EcosystemPartnersList: EcosystemApp[] = [
-${formatAppsList(partners)},
-];
-
-export const EcosystemAppsList: EcosystemApp[] = [
-${formatAppsList(apps)},
-];
-`;
-
-fs.writeFileSync(outputFile, output);
 console.log(
-  '✅ Generated EcosystemAppsList.ts with',
-  apps.length,
-  'apps and',
-  partners.length,
-  'partners'
+  'ℹ️  EcosystemAppsList.ts is manually maintained with translation keys'
 );
 
-// Generate App of the Week JSON file
+// Read translation files
+let mainTranslations = {};
+
+try {
+  const mainContent = fs.readFileSync(mainTranslationFile, 'utf-8');
+  mainTranslations = JSON.parse(mainContent);
+} catch (error) {
+  console.warn('⚠️  Could not read main translation file:', error.message);
+}
+
+// Helper function to get translation value from key with fallback
+const getTranslation = (key) => {
+  if (!key) return null;
+
+  const parts = key.split('.');
+
+  // Fallback to main translation file
+  let value = mainTranslations;
+  for (const part of parts) {
+    if (value && typeof value === 'object' && part in value) {
+      value = value[part];
+    } else {
+      return null;
+    }
+  }
+
+  return typeof value === 'string' ? value : null;
+};
+
+// Read and parse EcosystemAppsList.ts to find app with appoftheweek: true
+let appOfTheWeek = null;
+
+try {
+  const fileContent = fs.readFileSync(ecosystemAppsListFile, 'utf-8');
+
+  // Check if appoftheweek field exists
+  if (/appoftheweek:\s*true/i.test(fileContent)) {
+    const lines = fileContent.split('\n');
+    let inAppObject = false;
+    let braceCount = 0;
+    let currentApp = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+
+      if (line.trim().startsWith('{') && !inAppObject) {
+        inAppObject = true;
+        braceCount = 1;
+        currentApp = [line];
+        continue;
+      }
+
+      if (inAppObject) {
+        currentApp.push(line);
+
+        const openBraces = (line.match(/\{/g) || []).length;
+        const closeBraces = (line.match(/\}/g) || []).length;
+        braceCount += openBraces - closeBraces;
+
+        if (braceCount === 0) {
+          const appText = currentApp.join('\n');
+
+          if (/appoftheweek:\s*true/i.test(appText)) {
+            const getValue = (key) => {
+              const regex = new RegExp(`${key}:\\s*['"]([^'"]+)['"]`, 'i');
+              const match = appText.match(regex);
+              return match ? match[1] : null;
+            };
+
+            const getBoolean = (key) => {
+              const regex = new RegExp(`${key}:\\s*(true|false)`, 'i');
+              const match = appText.match(regex);
+              return match ? match[1] === 'true' : false;
+            };
+
+            const getArray = (key) => {
+              const regex = new RegExp(`${key}:\\s*\\[([^\\]]+)\\]`, 'i');
+              const match = appText.match(regex);
+              if (match) {
+                return match[1]
+                  .split(',')
+                  .map((item) => item.trim().replace(/['"]/g, ''));
+              }
+              return [];
+            };
+
+            const nameKey = getValue('nameKey');
+            const descriptionKey = getValue('descriptionKey');
+            const spotlighttextKey = getValue('spotlighttextKey');
+
+            const name = getTranslation(nameKey) || getValue('name');
+            const description =
+              getTranslation(descriptionKey) || getValue('description');
+            const spotlighttext =
+              getTranslation(spotlighttextKey) || getValue('spotlighttext');
+
+            appOfTheWeek = {
+              name: name,
+              description: description,
+              icon: getValue('icon'),
+              bgImage: getValue('bgImage'),
+              bgGradientColor: getValue('bgGradientColor'),
+              tags: getArray('tags'),
+              twitterId: getValue('twitterId'),
+              href: getValue('href'),
+              titleColor: getValue('titleColor'),
+              descriptionColor: getValue('descriptionColor'),
+              tagsColor: getValue('tagsColor'),
+              appoftheweek: true,
+              spotlighttext: spotlighttext,
+              featured: getBoolean('featured'),
+            };
+
+            Object.keys(appOfTheWeek).forEach((key) => {
+              if (
+                appOfTheWeek[key] === null ||
+                appOfTheWeek[key] === undefined
+              ) {
+                delete appOfTheWeek[key];
+              }
+            });
+
+            break;
+          }
+
+          inAppObject = false;
+          currentApp = [];
+        }
+      }
+    }
+  }
+} catch (error) {
+  console.error('❌ Error reading EcosystemAppsList.ts:', error.message);
+  process.exit(1);
+}
+
 if (appOfTheWeek) {
   fs.writeFileSync(appOfTheWeekFile, JSON.stringify(appOfTheWeek, null, 2));
   console.log('✅ Generated appoftheweek.json with app:', appOfTheWeek.name);
 } else {
-  // Write empty object if no app of the week
   fs.writeFileSync(appOfTheWeekFile, JSON.stringify({}, null, 2));
   console.log(
     '⚠️  No app marked as appoftheweek - created empty appoftheweek.json'
