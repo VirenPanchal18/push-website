@@ -1,40 +1,58 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React from 'react';
-import styled from 'styled-components';
-import { ItemV, H2 } from '@site/src/css/SharedStyling';
-import { device } from '@site/src/config/globals';
-import { EcosystemPushApps } from '@site/src/config/EcosystemsPushApps';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { EcosystemPushApps } from '@site/src/config/EcosystemsPushApps';
+import { device } from '@site/src/config/globals';
+import { H2, ItemV } from '@site/src/css/SharedStyling';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
-const EcosystemApps: React.FC = () => {
+const EcosystemEssentials: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <ItemV gap='32px' alignItems='flex-start'>
       <H2 fontSize='26px' fontWeight='600'>
-        Explore Essential Testnet Apps
+        {t('components.ecosystem-essentials.title')}
       </H2>
       <EssentialGrid>
-        {EcosystemPushApps?.map((app) => (
-          <EssentialCard
-            key={app.name}
-            href={app.href}
-            target='_blank'
-            rel='noopener'
-            bgGradient={app.bgGradient}
-          >
-            <EssentialIcon src={useBaseUrl(app.icon)} alt='' />
-            <EssentialContent>
-              <EssentialName>{app.name}</EssentialName>
-              <EssentialDesc>{app.description}</EssentialDesc>
-            </EssentialContent>
-          </EssentialCard>
-        ))}
+        {EcosystemPushApps?.map((app) => {
+          const handleEssentialAppClick = () => {
+            // Track essential app click in Google Analytics
+            if (typeof window !== 'undefined' && window.gtag) {
+              window.gtag('event', 'essential_app_click', {
+                event_category: 'ecosystem',
+                event_label: t(app.nameKey),
+                app_name: t(app.nameKey),
+                app_url: app.href,
+              });
+            }
+          };
+
+          return (
+            <EssentialCard
+              key={app.nameKey}
+              href={app.href}
+              target='_blank'
+              rel='noopener'
+              bgGradient={app.bgGradient}
+              onClick={handleEssentialAppClick}
+            >
+              <EssentialIcon src={useBaseUrl(app.icon)} alt='' />
+              <EssentialContent>
+                <EssentialName>{t(app.nameKey)}</EssentialName>
+                <EssentialDesc>{t(app.descriptionKey)}</EssentialDesc>
+              </EssentialContent>
+            </EssentialCard>
+          );
+        })}
       </EssentialGrid>
     </ItemV>
   );
 };
 
-export default EcosystemApps;
+export default EcosystemEssentials;
 
 const EssentialGrid = styled.div`
   display: grid;

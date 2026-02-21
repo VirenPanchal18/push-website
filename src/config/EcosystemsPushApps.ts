@@ -1,31 +1,35 @@
 export const EcosystemPushApps = [
   {
-    name: 'PC Faucet',
-    description: 'Grab your PC Testnet tokens here',
+    nameKey: 'components.ecosystem-essentials.apps.pc-faucet.name',
+    descriptionKey:
+      'components.ecosystem-essentials.apps.pc-faucet.description',
     icon: '/assets/website/ecosystem/pushfaucet.png',
     href: 'https://faucet.push.org/',
   },
   {
-    name: 'Push Bridge',
-    description: 'Bridge tokens between chains',
+    nameKey: 'components.ecosystem-essentials.apps.push-bridge.name',
+    descriptionKey:
+      'components.ecosystem-essentials.apps.push-bridge.description',
     icon: '/assets/website/ecosystem/pushbridge.png',
     href: 'https://bridge.push.org/',
   },
   {
-    name: 'Simulate Tx',
-    description: 'Simulate a universal transaction',
+    nameKey: 'components.ecosystem-essentials.apps.simulate-tx.name',
+    descriptionKey:
+      'components.ecosystem-essentials.apps.simulate-tx.description',
     icon: '/assets/website/ecosystem/pushsimulate.png',
     href: 'https://simulate.push.org/',
   },
   {
-    name: 'Push Chain Scan',
-    description: "Push Chain's blockchain explorer",
+    nameKey: 'components.ecosystem-essentials.apps.push-chain-scan.name',
+    descriptionKey:
+      'components.ecosystem-essentials.apps.push-chain-scan.description',
     icon: '/assets/website/ecosystem/pushscan.png',
     href: 'https://donut.push.network',
   },
   // {
-  //   name: 'Wallet',
-  //   description: "Push Chain's universal wallet",
+  //   nameKey: 'components.ecosystem-essentials.apps.wallet.name',
+  //   descriptionKey: 'components.ecosystem-essentials.apps.wallet.description',
   //   icon: '/assets/website/ecosystem/pushwallet.png',
   //   href: 'https://wallet.push.org/',
   // },

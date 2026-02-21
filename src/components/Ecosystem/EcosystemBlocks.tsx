@@ -3,6 +3,7 @@
 //
 import { device } from '@site/src/config/globals';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import Spinner, {
@@ -15,8 +16,10 @@ import {
 import EcosystemCard from './EcosystemCard';
 
 export type EcosystemApp = {
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
+  nameKey?: string;
+  descriptionKey?: string;
   icon: string;
   bgImage?: string;
   bgGradientColor: string;
@@ -29,6 +32,7 @@ export type EcosystemApp = {
   comingsoon?: boolean;
   appoftheweek?: true;
   spotlighttext?: string;
+  spotlighttextKey?: string;
   secondary?: boolean;
 };
 
@@ -40,6 +44,8 @@ type Props = {
 type TabKey = 'featured' | 'integration' | 'all';
 
 const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
+  const { t } = useTranslation();
+
   const getInitialTab = (): TabKey => {
     if (typeof window === 'undefined') return 'featured';
 
@@ -58,21 +64,26 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
   const handleTabChange = (tab: TabKey) => {
     setIsLoading(true);
     setActiveTab(tab);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('flagship');
-      url.searchParams.delete('allapps');
-      url.searchParams.delete('partners');
 
-      if (tab === 'featured') {
-        url.searchParams.set('flagship', 'true');
-      } else if (tab === 'all') {
-        url.searchParams.set('allapps', 'true');
-      } else if (tab === 'integration') {
-        url.searchParams.set('partners', 'true');
-      }
+    const params = new URLSearchParams();
+    if (tab === 'featured') params.set('flagship', 'true');
+    else if (tab === 'integration') params.set('partners', 'true');
+    else if (tab === 'all') params.set('allapps', 'true');
 
-      window.history.pushState({}, '', url.toString());
+    window.history.pushState({}, '', `?${params.toString()}`);
+
+    // Track tab change in Google Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      const tabNames = {
+        featured: 'Flagship Apps',
+        integration: 'Partners',
+        all: 'All Apps',
+      };
+      window.gtag('event', 'ecosystem_tab_change', {
+        event_category: 'ecosystem',
+        event_label: tabNames[tab],
+        tab_type: tab,
+      });
     }
 
     setTimeout(() => setIsLoading(false), 300);
@@ -144,7 +155,7 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
             $active={activeTab === 'featured'}
             onClick={() => handleTabChange('featured')}
           >
-            Flagship Apps
+            {t('pages.ecosystem.tabs.flagship-apps')}
           </TabButton>
 
           <TabButton
@@ -152,7 +163,7 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
             $active={activeTab === 'integration'}
             onClick={() => handleTabChange('integration')}
           >
-            Partners
+            {t('pages.ecosystem.tabs.partners')}
           </TabButton>
 
           <TabButton
@@ -160,7 +171,7 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
             $active={activeTab === 'all'}
             onClick={() => handleTabChange('all')}
           >
-            All Apps
+            {t('pages.ecosystem.tabs.all-apps')}
           </TabButton>
 
           <ActiveUnderline
@@ -220,14 +231,20 @@ const SecondaryGrid = styled.div`
   display: grid;
   margin-top: 32px;
   gap: clamp(16px, 2.5vw, 24px);
-  grid-template-columns: repeat(auto-fill, minmax(200px, calc(33.33% - 16px)));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, calc(33.33% - 16px))
+  ) !important;
 
   @media ${device.tablet} {
-    grid-template-columns: repeat(auto-fill, minmax(160px, calc(50% - 12px)));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(160px, calc(50% - 12px))
+    ) !important;
   }
 
   @media ${device.mobileL} {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 100%));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 100%)) !important;
   }
 `;
 

@@ -17,7 +17,7 @@ import {
   Span,
 } from '@site/src/css/SharedStyling';
 import { BsArrowRight } from 'react-icons/bs';
-import EcosystemApps from '../components/Ecosystem/EcosystemApps';
+import EcosystemEssentials from '../components/Ecosystem/EcosystemEssentials';
 
 // ----- Page -----
 const EcosystemComp: React.FC = () => {
@@ -46,7 +46,7 @@ const EcosystemComp: React.FC = () => {
       {/* Essential Apps */}
       <Section>
         <AppsContent>
-          <EcosystemApps />
+          <EcosystemEssentials />
         </AppsContent>
       </Section>
 
@@ -67,17 +67,16 @@ const EcosystemComp: React.FC = () => {
               fontWeight='600'
               color='var(--ifm-color-white)'
             >
-              Want to join the fastest growing universal app ecosystem and 10x
-              your userbase?
+              {t('pages.ecosystem.cta.title')}
             </H1>
             <PrimaryA
-              href={'https://portal.push.org'}
-              title={'Start Building'}
-              aria-label={'Start Building'}
+              href={'/docs'}
+              title={t('pages.ecosystem.cta.button')}
+              aria-label={t('pages.ecosystem.cta.button')}
               zIndex='2'
               alignItems='center'
             >
-              Start Building
+              {t('pages.ecosystem.cta.button')}
               <BsArrowRight className='start-svg' />
             </PrimaryA>
           </CTAWrap>

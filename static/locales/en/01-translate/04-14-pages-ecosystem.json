@@ -11,7 +11,16 @@
       },
       "hero-section": {
         "title": "Explore the Universal Ecosystem",
-        "description": "Discover apps, partners, and early adopters building the next era of universal experiences on Push Chain’s Donut Testnet."
+        "description": "Discover apps, partners, and early adopters building the next era of universal experiences on Push Chain's Donut Testnet."
+      },
+      "tabs": {
+        "flagship-apps": "Flagship Apps",
+        "partners": "Partners",
+        "all-apps": "All Apps"
+      },
+      "cta": {
+        "title": "Want to join the fastest growing universal app ecosystem and 10x your userbase?",
+        "button": "Start Building"
       }
     }
   }

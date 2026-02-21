@@ -15,8 +15,9 @@ export const EcosystemFeaturedListUrls = [
 
 export const EcosystemPartnersList: EcosystemApp[] = [
   {
-    name: 'Silence Labs',
-    description: 'MPC-TSS & Privacy Preserving Compute.',
+    nameKey: 'components.ecosystem-apps-partners.partners.silence-labs.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.partners.silence-labs.description',
     icon: '/assets/ecosystem/silencelabs-icon.png',
     bgImage: '/assets/ecosystem/silencelabs-bg.png',
     bgGradientColor: '#000000',
@@ -26,8 +27,9 @@ export const EcosystemPartnersList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Human.tech',
-    description: 'MPC-TSS & Privacy Preserving Compute.',
+    nameKey: 'components.ecosystem-apps-partners.partners.human-tech.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.partners.human-tech.description',
     icon: '/assets/ecosystem/humantech-icon.png',
     bgImage: '/assets/ecosystem/humantech-bg.png',
     bgGradientColor: '#201D28',
@@ -39,8 +41,9 @@ export const EcosystemPartnersList: EcosystemApp[] = [
 
 export const EcosystemAppsList: EcosystemApp[] = [
   {
-    name: 'Ramen Swap',
-    description: 'Serving tokens of your choice from any chain',
+    nameKey: 'components.ecosystem-apps-partners.apps.ramen-swap.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.ramen-swap.description',
     icon: '/assets/ecosystem/ramenfi-icon.png',
     bgImage: '/assets/ecosystem/ramenfi-bg.png',
     bgGradientColor: '#DB2D33',
@@ -51,8 +54,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'white',
   },
   {
-    name: 'HALO',
-    description: 'The unified infrastructure layer for agentic commerce.',
+    nameKey: 'components.ecosystem-apps-partners.apps.halo.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.halo.description',
     icon: '/assets/ecosystem/halo-icon.png',
     bgImage: '/assets/ecosystem/halo-bg.png',
     bgGradientColor: '#F3F6EC',
@@ -63,8 +66,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'black',
   },
   {
-    name: 'Cetra',
-    description: 'Suppy assets, borrow against them, and earn optimized yields',
+    nameKey: 'components.ecosystem-apps-partners.apps.cetra.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.cetra.description',
     icon: '/assets/ecosystem/cetra-icon.png',
     bgImage: '/assets/ecosystem/cetra-bg.png',
     bgGradientColor: '#000000',
@@ -75,8 +78,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'white',
   },
   {
-    name: 'Hodl.fun',
-    description: 'Create & launch ERC-20 tokens',
+    nameKey: 'components.ecosystem-apps-partners.apps.hodl-fun.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.hodl-fun.description',
     icon: '/assets/ecosystem/hodl-fun-icon.png',
     bgImage: '/assets/ecosystem/hodl-fun-bg.png',
     bgGradientColor: 'rgba(0, 0, 0, 0.80)',
@@ -86,8 +90,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'EON: AI Butler',
-    description: 'Send, swap, and manage assets across supported networks',
+    nameKey: 'components.ecosystem-apps-partners.apps.eon-ai-butler.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.eon-ai-butler.description',
     icon: '/assets/ecosystem/eon-icon.png',
     bgImage: '/assets/ecosystem/eon-bg.png',
     bgGradientColor: '#000000',
@@ -97,8 +102,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Push Bet',
-    description: 'Showcase your degen superpowers to earn rewards.',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-bet.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-bet.description',
     icon: '/assets/ecosystem/push-bet-icon.png',
     bgImage: '/assets/ecosystem/push-bet-bg.png',
     bgGradientColor: 'rgba(0, 0, 0, 0.80)',
@@ -109,8 +115,10 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'white',
   },
   {
-    name: 'OnchainVampireSurvivors',
-    description: 'Universal vampire survivors like game',
+    nameKey:
+      'components.ecosystem-apps-partners.apps.onchain-vampire-survivors.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.onchain-vampire-survivors.description',
     icon: '/assets/ecosystem/onchain-vampires-icon.png',
     bgImage: '/assets/ecosystem/onchain-vampires-bg.png',
     bgGradientColor: '#5D261E',
@@ -120,8 +128,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Last One',
-    description: 'Last one to bid before timer runs out takes the pot',
+    nameKey: 'components.ecosystem-apps-partners.apps.last-one.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.last-one.description',
     icon: '/assets/ecosystem/last-one-icon.png',
     bgImage: '/assets/ecosystem/last-one-bg.png',
     bgGradientColor: '#E5B92A',
@@ -133,8 +142,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'black',
   },
   {
-    name: 'PNS',
-    description: 'Your Identity Across Every Chain',
+    nameKey: 'components.ecosystem-apps-partners.apps.pns.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.pns.description',
     icon: '/assets/ecosystem/pns-icon.png',
     bgImage: '/assets/ecosystem/pns-bg.png',
     bgGradientColor: '#4A1756',
@@ -144,8 +153,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Push x402',
-    description: 'Pay-per-call API monetization for agentic infrastructure',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-x402.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-x402.description',
     icon: '/assets/ecosystem/push402-icon.png',
     bgImage: '/assets/ecosystem/push402-bg.png',
     bgGradientColor: '#010101',
@@ -154,8 +164,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Bountive',
-    description: 'Universal growth engine rewarding quality over clicks',
+    nameKey: 'components.ecosystem-apps-partners.apps.bountive.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.bountive.description',
     icon: '/assets/ecosystem/bountive-icon.png',
     bgImage: '/assets/ecosystem/bountive-bg.png',
     bgGradientColor: '#000000',
@@ -165,8 +176,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'BeatBrawls',
-    description: 'Musical battles to never forget',
+    nameKey: 'components.ecosystem-apps-partners.apps.beat-brawls.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.beat-brawls.description',
     icon: '/assets/ecosystem/beatbrawls-icon.png',
     bgImage: '/assets/ecosystem/beatbrawls-bg.png',
     bgGradientColor: '#301139',
@@ -176,8 +188,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '2001278428788715678',
   },
   {
-    name: 'APT Casino',
-    description: 'Universal, fair, & transparent wager to win',
+    nameKey: 'components.ecosystem-apps-partners.apps.apt-casino.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.apt-casino.description',
     icon: '/assets/ecosystem/apt-casino-icon.png',
     bgImage: '/assets/ecosystem/apt-casino-bg.png',
     bgGradientColor: '#5E1140',
@@ -187,8 +200,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Push Ninja',
-    description: 'On-chain skill based game',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-ninja.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-ninja.description',
     icon: '/assets/ecosystem/push-ninja-icon.png',
     bgImage: '/assets/ecosystem/push-ninja-bg.png',
     bgGradientColor: '#591D5C',
@@ -196,11 +210,13 @@ export const EcosystemAppsList: EcosystemApp[] = [
     twitterId: '2014018188434964672',
     href: 'https://push-ninja.abstractstudio.in',
     titleColor: 'white',
-    spotlighttext: 'Slice. Dodge. Score.',
+    spotlighttextKey:
+      'components.ecosystem-apps-partners.apps.push-ninja.spotlight-text',
   },
   {
-    name: 'TipUp',
-    description: 'Tip on any chain using any wallet',
+    nameKey: 'components.ecosystem-apps-partners.apps.tip-up.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.tip-up.description',
     icon: '/assets/ecosystem/tip-up-icon.png',
     bgImage: '/assets/ecosystem/tip-up-bg.png',
     bgGradientColor: '#000000',
@@ -210,8 +226,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Push Swap',
-    description: 'Seamless cross-chain token swaps without bridges',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-swap.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-swap.description',
     icon: '/assets/ecosystem/push-swap-icon.png',
     bgImage: '/assets/ecosystem/push-swap-bg.png',
     bgGradientColor: '#DD60C4',
@@ -223,8 +240,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'black',
   },
   {
-    name: 'ChainCircle',
-    description: 'Cross chain saving circles',
+    nameKey: 'components.ecosystem-apps-partners.apps.chain-circle.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.chain-circle.description',
     icon: '/assets/ecosystem/chaincircle-icon.png',
     bgImage: '/assets/ecosystem/chaincircle-bg.png',
     bgGradientColor: '#000000',
@@ -234,8 +252,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Push Campus',
-    description: 'Reach students on Ethereum, Solana, Base, and 15+ chains',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-campus.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-campus.description',
     icon: '/assets/ecosystem/push-campus-icon.png',
     bgImage: '/assets/ecosystem/push-campus-bg.png',
     bgGradientColor: '#000000',
@@ -245,8 +264,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    name: 'Ballsy',
-    description: 'Battle for glory by logging in with your favorite chain',
+    nameKey: 'components.ecosystem-apps-partners.apps.ballsy.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.ballsy.description',
     icon: '/assets/ecosystem/ballsy-icon.png',
     bgImage: '/assets/ecosystem/ballsy-bg.png',
     bgGradientColor: 'rgba(0, 0, 0, 0.80)',
@@ -267,9 +287,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
   //   titleColor: 'white',
   // },
   {
-    name: 'PUSD',
-    description:
-      '1:1 pegged stablecoin combining USD liquidity from all chains',
+    nameKey: 'components.ecosystem-apps-partners.apps.pusd.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.pusd.description',
     icon: '/assets/ecosystem/pusd-icon.png',
     bgImage: '/assets/ecosystem/pusd-bg.png',
     bgGradientColor: '#371243',
@@ -282,8 +301,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    name: 'Freename',
-    description: 'Send Crypto To Domains, Not Hashes',
+    nameKey: 'components.ecosystem-apps-partners.apps.freename.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.freename.description',
     icon: '/assets/ecosystem/freename-icon.png',
     bgImage: '/assets/ecosystem/freename-bg.png',
     bgGradientColor: '#030303',
@@ -293,8 +313,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    name: 'Hang4.fun',
-    description: 'Coming Soon',
+    nameKey: 'components.ecosystem-apps-partners.apps.hang4-fun.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.hang4-fun.description',
     icon: '/assets/ecosystem/hangfun-icon.png',
     bgImage: '/assets/ecosystem/hangfun-bg.png',
     bgGradientColor: 'rgba(148, 163, 184, 0.25)',
@@ -304,8 +325,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    name: 'Degen Chess',
-    description: 'Play chess, wager, universal',
+    nameKey: 'components.ecosystem-apps-partners.apps.degen-chess.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.degen-chess.description',
     icon: '/assets/ecosystem/degen-chess-icon.png',
     bgImage: '/assets/ecosystem/degen-chess-bg.png',
     bgGradientColor: 'rgba(148, 163, 184, 0.25)',
@@ -315,8 +337,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     comingsoon: true,
   },
   {
-    name: 'Omnihub',
-    description: 'Create, buy, and sell blockchain collectibles',
+    nameKey: 'components.ecosystem-apps-partners.apps.omnihub.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.omnihub.description',
     icon: '/assets/ecosystem/omnihub-icon.png',
     bgImage: '/assets/ecosystem/omnihub-bg.png',
     bgGradientColor: '#030303',
@@ -326,8 +349,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'PushDex',
-    description: 'DEX built on the Pushchain testnet',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-dex.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-dex.description',
     icon: '/assets/ecosystem/pushdex-icon.png',
     bgImage: '/assets/ecosystem/pushdex-bg.png',
     bgGradientColor: '#030303',
@@ -338,8 +362,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'ZNS',
-    description: 'Multi-chain domains, GM + Deploy tools',
+    nameKey: 'components.ecosystem-apps-partners.apps.zns.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.zns.description',
     icon: '/assets/ecosystem/zns-icon.png',
     bgImage: '/assets/ecosystem/zns-bg.png',
     bgGradientColor: '#A9D20A',
@@ -352,8 +376,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'Star Run',
-    description: 'A decentralized, player-owned economy',
+    nameKey: 'components.ecosystem-apps-partners.apps.star-run.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.star-run.description',
     icon: '/assets/ecosystem/star-run-icon.png',
     bgImage: '/assets/ecosystem/star-run-bg.png',
     bgGradientColor: '#000000',
@@ -364,9 +389,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'Forge Realm',
-    description:
-      'Mix and match base characters and traits from multiple creators',
+    nameKey: 'components.ecosystem-apps-partners.apps.forge-realm.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.forge-realm.description',
     icon: '/assets/ecosystem/forge-realm-icon.png',
     bgImage: '/assets/ecosystem/forge-realm-bg.png',
     bgGradientColor: '#000000',
@@ -377,8 +402,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'CoNFT/CoDomain',
-    description: 'Web3 multi-chain hub: Domain Names, NFTs, launchpad.',
+    nameKey: 'components.ecosystem-apps-partners.apps.conft-codomain.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.conft-codomain.description',
     icon: '/assets/ecosystem/conft-icon.png',
     bgImage: '/assets/ecosystem/conft-bg.png',
     bgGradientColor: '#000',
@@ -388,9 +414,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'Copet',
-    description:
-      'Feed, play, and grow your virtual pet through on-chain activity',
+    nameKey: 'components.ecosystem-apps-partners.apps.copet.name',
+    descriptionKey: 'components.ecosystem-apps-partners.apps.copet.description',
     icon: '/assets/ecosystem/copet-icon.png',
     bgImage: '/assets/ecosystem/copet-bg.png',
     bgGradientColor: '#010101',
@@ -400,8 +425,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'SurfLayer',
-    description: 'Build your identity and earn rewards across 70+ chains.',
+    nameKey: 'components.ecosystem-apps-partners.apps.surf-layer.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.surf-layer.description',
     icon: '/assets/ecosystem/surflayer-icon.png',
     bgImage: '/assets/ecosystem/surflayer-bg.png',
     bgGradientColor: '#030303',
@@ -411,8 +437,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'Push Name Service',
-    description: 'Get your own .push domain',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-name-service.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.push-name-service.description',
     icon: '/assets/ecosystem/push-name-service-icon.png',
     bgImage: '/assets/ecosystem/push-name-service-bg.png',
     bgGradientColor: '#000000',
@@ -423,8 +450,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'NFTs2Me',
-    description: 'Deploy your NFT collection for free on any chain',
+    nameKey: 'components.ecosystem-apps-partners.apps.nfts2me.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.nfts2me.description',
     icon: '/assets/ecosystem/nfts-me-icon.png',
     bgImage: '/assets/ecosystem/nfts-me-bg.png',
     bgGradientColor: '#010101',
@@ -434,8 +462,9 @@ export const EcosystemAppsList: EcosystemApp[] = [
     secondary: true,
   },
   {
-    name: 'Tachyon',
-    description: 'Blazing Fast Multichain Relayer',
+    nameKey: 'components.ecosystem-apps-partners.apps.tachyon.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.tachyon.description',
     icon: '/assets/ecosystem/tachyon-icon.png',
     bgImage: '/assets/ecosystem/tachyon-bg.png',
     bgGradientColor: '#0536A0',

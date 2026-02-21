@@ -83,6 +83,6 @@ export const FooterUrls = {
 export const FooterList = {
   resources: ['knowledge-base', 'blog', 'litepaper', 'push-scan', 'faucet'],
   developers: ['get-started', 'docs', 'github'],
-  community: ['push-portal', 'twitter', 'discord', 'reddit', 'telegram'],
+  community: ['push-portal', 'twitter', 'discord', 'telegram'],
   help: ['support', 'security', 'contact-us', 'careers', 'brand-kit'],
 };
