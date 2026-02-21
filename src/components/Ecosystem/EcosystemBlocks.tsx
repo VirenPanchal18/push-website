@@ -1,18 +1,24 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 //
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { device } from '@site/src/config/globals';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import styled from 'styled-components';
 
+import Spinner, {
+  SPINNER_TYPE,
+} from '@site/src/components/reusables/spinners/SpinnerUnit';
+import {
+  EcosystemFeaturedListUrls,
+  EcosystemPartnersList,
+} from '@site/src/config/EcosystemAppsList';
 import EcosystemCard from './EcosystemCard';
 
 export type EcosystemApp = {
-  id: number;
   name: string;
   description: string;
   icon: string;
-  bgImage: string;
+  bgImage?: string;
   bgGradientColor: string;
   tags: string[];
   twitterId?: string;
@@ -23,8 +29,7 @@ export type EcosystemApp = {
   comingsoon?: boolean;
   appoftheweek?: true;
   spotlighttext?: string;
-  featured?: boolean;
-  integration_partner?: boolean;
+  secondary?: boolean;
 };
 
 type Props = {
@@ -35,17 +40,86 @@ type Props = {
 type TabKey = 'featured' | 'integration' | 'all';
 
 const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
-  const [activeTab, setActiveTab] = useState<TabKey>('featured');
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const getInitialTab = (): TabKey => {
+    if (typeof window === 'undefined') return 'featured';
 
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('allapps') === 'true') return 'all';
+    if (params.get('partners') === 'true') return 'integration';
+    if (params.get('flagship') === 'true') return 'featured';
+    return 'featured';
+  };
+
+  const [activeTab, setActiveTab] = useState<TabKey>(getInitialTab);
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const [isLoading, setIsLoading] = useState(false);
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
+  const handleTabChange = (tab: TabKey) => {
+    setIsLoading(true);
+    setActiveTab(tab);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('flagship');
+      url.searchParams.delete('allapps');
+      url.searchParams.delete('partners');
+
+      if (tab === 'featured') {
+        url.searchParams.set('flagship', 'true');
+      } else if (tab === 'all') {
+        url.searchParams.set('allapps', 'true');
+      } else if (tab === 'integration') {
+        url.searchParams.set('partners', 'true');
+      }
+
+      window.history.pushState({}, '', url.toString());
+    }
+
+    setTimeout(() => setIsLoading(false), 300);
+  };
+
   const filteredApps = useMemo(() => {
-    if (activeTab === 'featured') return apps.filter((a) => !!a.featured);
-    if (activeTab === 'integration')
-      return apps.filter((a) => !!a.integration_partner);
-    return apps;
+    let filtered = [];
+    if (activeTab === 'featured') {
+      // Sort featured apps by the order in EcosystemFeaturedListUrls
+      const featuredApps = apps.filter(
+        (a) =>
+          a.href &&
+          EcosystemFeaturedListUrls &&
+          EcosystemFeaturedListUrls.includes(a.href)
+      );
+
+      // Sort by the order in EcosystemFeaturedListUrls
+      filtered = featuredApps.sort((a, b) => {
+        const indexA = EcosystemFeaturedListUrls.indexOf(a.href);
+        const indexB = EcosystemFeaturedListUrls.indexOf(b.href);
+        return indexA - indexB;
+      });
+    } else if (activeTab === 'integration') {
+      filtered = EcosystemPartnersList || [];
+    } else {
+      filtered = apps;
+    }
+
+    // For non-featured tabs, sort: appoftheweek first, then rest
+    if (activeTab !== 'featured') {
+      return filtered.sort((a, b) => {
+        if (a.appoftheweek && !b.appoftheweek) return -1;
+        if (!a.appoftheweek && b.appoftheweek) return 1;
+        return 0;
+      });
+    }
+
+    return filtered;
   }, [apps, activeTab]);
+
+  const primaryApps = useMemo(() => {
+    return filteredApps.filter((app) => !app.secondary);
+  }, [filteredApps]);
+
+  const secondaryApps = useMemo(() => {
+    return filteredApps.filter((app) => app.secondary);
+  }, [filteredApps]);
 
   useEffect(() => {
     const current =
@@ -68,23 +142,23 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
           <TabButton
             ref={(el) => (tabsRef.current[0] = el)}
             $active={activeTab === 'featured'}
-            onClick={() => setActiveTab('featured')}
+            onClick={() => handleTabChange('featured')}
           >
             Flagship Apps
           </TabButton>
 
-          {/* <TabButton
+          <TabButton
             ref={(el) => (tabsRef.current[1] = el)}
             $active={activeTab === 'integration'}
-            onClick={() => setActiveTab('integration')}
+            onClick={() => handleTabChange('integration')}
           >
-            Integration Partners
-          </TabButton> */}
+            Partners
+          </TabButton>
 
           <TabButton
             ref={(el) => (tabsRef.current[2] = el)}
             $active={activeTab === 'all'}
-            onClick={() => setActiveTab('all')}
+            onClick={() => handleTabChange('all')}
           >
             All Apps
           </TabButton>
@@ -97,16 +171,39 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
           />
         </Tabs>
       </HeaderRow>
-      <Grid>
-        {filteredApps.map((app) => (
-          <EcosystemCard key={app.name} app={app} />
-        ))}
-      </Grid>
+      {isLoading ? (
+        <LoadingContainer>
+          <Spinner size={48} type={SPINNER_TYPE.PROCESSING} />
+        </LoadingContainer>
+      ) : (
+        <>
+          <Grid>
+            {primaryApps.map((app) => (
+              <EcosystemCard key={app.name} app={app} />
+            ))}
+          </Grid>
+          {secondaryApps.length > 0 && (
+            <SecondaryGrid>
+              {secondaryApps.map((app) => (
+                <EcosystemCard key={app.name} app={app} />
+              ))}
+            </SecondaryGrid>
+          )}
+        </>
+      )}
     </>
   );
 };
 
 export default EcosystemBlocks;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin-top: 32px;
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -116,6 +213,21 @@ const Grid = styled.div`
 
   @media ${device.laptop} {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+`;
+
+const SecondaryGrid = styled.div`
+  display: grid;
+  margin-top: 32px;
+  gap: clamp(16px, 2.5vw, 24px);
+  grid-template-columns: repeat(auto-fill, minmax(200px, calc(33.33% - 16px)));
+
+  @media ${device.tablet} {
+    grid-template-columns: repeat(auto-fill, minmax(160px, calc(50% - 12px)));
+  }
+
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 100%));
   }
 `;
 

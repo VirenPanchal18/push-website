@@ -24,7 +24,7 @@ const EcosystemComp: React.FC = () => {
   // Localization
   const { t } = useTranslation();
   return (
-    <>
+    <Container>
       {/* Hero */}
       <Section>
         <Content className='skeletonsmall'>
@@ -83,11 +83,16 @@ const EcosystemComp: React.FC = () => {
           </CTAWrap>
         </BodyContent>
       </Section>
-    </>
+    </Container>
   );
 };
 
 export default EcosystemComp;
+
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 
 const HeroWrap = styled.div`
   max-width: 970px;
@@ -121,6 +126,7 @@ const BodyContent = styled(Content)`
 `;
 
 const GlowCircle = styled.div`
+  overflow: hidden;
   position: absolute;
   border-radius: 50%;
   background: rgba(179, 72, 236, 0.2);
@@ -153,6 +159,13 @@ const GlowCircle = styled.div`
   @media ${device.mobileL} {
     width: 395px;
     height: 392px;
+    left: -12px;
+    top: 102px;
+  }
+
+  @media ${device.mobileM} {
+    width: 295px;
+    height: 292px;
     left: -12px;
     top: 102px;
   }

@@ -1,15 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React from 'react';
-import styled from 'styled-components';
-import { ItemH, P, Span } from '@site/src/css/SharedStyling';
-import type { EcosystemApp } from './EcosystemBlocks';
+import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
-import { BsHeart } from 'react-icons/bs';
+import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount';
-import Link from '@docusaurus/Link';
 import Starsvg from '@site/static/assets/ecosystem/star.svg';
+import React from 'react';
+import { BsHeart } from 'react-icons/bs';
+import styled from 'styled-components';
+import type { EcosystemApp } from './EcosystemBlocks';
 
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
   const { data: twitterData } = useTweetMetrics(app.twitterId || '');
@@ -27,6 +27,8 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
       title={app.name}
       $comingsoon={app.comingsoon}
       appoftheweek={app.appoftheweek}
+      $secondary={app.secondary}
+      className={app.secondary ? 'secondary' : ''}
     >
       {app.appoftheweek && (
         <CardTag>
@@ -34,14 +36,19 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
           <Span>APP SPOTLIGHT</Span>
         </CardTag>
       )}
-      <BackgroundWrapper>
-        <Background
-          style={{
-            backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
-          }}
-        />
-      </BackgroundWrapper>
-      <ContentWrap bgGradientColor={app.bgGradientColor}>
+      {app.bgImage && !app.secondary && (
+        <BackgroundWrapper>
+          <Background
+            style={{
+              backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
+            }}
+          />
+        </BackgroundWrapper>
+      )}
+      <ContentWrap
+        bgGradientColor={app.bgGradientColor}
+        $secondary={app.secondary}
+      >
         <TopRow>
           <Icon src={useBaseUrl(app.icon)} alt='' appId={app.id} />
           <Name titleColor={app.titleColor}>{app.name}</Name>
@@ -90,7 +97,11 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
 
 export default EcosystemCard;
 
-const Card = styled.a<{ $comingsoon?: boolean; appoftheweek?: boolean }>`
+const Card = styled.a<{
+  $comingsoon?: boolean;
+  appoftheweek?: boolean;
+  $secondary?: boolean;
+}>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -105,12 +116,19 @@ const Card = styled.a<{ $comingsoon?: boolean; appoftheweek?: boolean }>`
       : props.appoftheweek
         ? '1px solid #EF46F8'
         : '1px solid rgba(171, 70, 248, 0.4)'};
+  width: 100%;
   height: 426px;
+  min-height: 426px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   z-index: 6;
   cursor: ${(props) => (props.$comingsoon ? 'not-allowed' : 'pointer')};
+
+  &.secondary {
+    height: auto;
+    min-height: auto;
+  }
 
   &::before {
     content: '';
@@ -160,20 +178,26 @@ const CardTag = styled.div`
   }
 `;
 
-const ContentWrap = styled.div<{ bgGradientColor: string }>`
+const ContentWrap = styled.div<{
+  bgGradientColor: string;
+  $secondary?: boolean;
+}>`
   position: relative;
   z-index: 2;
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 55%;
-  background: linear-gradient(
+  height: ${(props) => (props.$secondary ? '100%' : '55%')};
+  background: ${(props) =>
+    props.$secondary
+      ? props.bgGradientColor
+      : `linear-gradient(
     to bottom,
     transparent 0%,
     transparent 10%,
-    ${(props) => props.bgGradientColor} 20%
-  );
+    ${props.bgGradientColor} 20%
+  )`};
 `;
 
 const BackgroundWrapper = styled.div`
@@ -214,6 +238,10 @@ const Icon = styled.img<{ appId?: number }>`
   background: ${(props) =>
     props.appId === 3 || props.appId === 8 ? '#000' : 'transparent'};
   object-fit: cover;
+
+  .secondary & {
+    margin-top: 10px;
+  }
 `;
 
 const Name = styled(Span)<{ titleColor?: string }>`
