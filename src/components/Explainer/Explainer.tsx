@@ -143,6 +143,17 @@ const ChainKnowledgeBaseIndexList = ({ block, blockIndex }) => {
     // Scroll to the target heading
     const targetId = e.currentTarget.getAttribute('href')?.replace('#', '');
     if (targetId) {
+      // Track TOC navigation in Google Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        const sectionTitle = e.currentTarget.textContent || targetId;
+        window.gtag('event', 'kb_toc_navigation', {
+          event_category: 'knowledge_base',
+          event_label: sectionTitle,
+          section_id: targetId,
+          section_title: sectionTitle,
+        });
+      }
+
       // Immediately set the active heading to the target
       setActiveHeadingIdSafely(targetId);
 
@@ -756,8 +767,8 @@ const ChainKnowledgeBaseIndexList = ({ block, blockIndex }) => {
                       isExternal
                         ? 'noopener noreferrer'
                         : isInternal
-                        ? 'noopener'
-                        : undefined
+                          ? 'noopener'
+                          : undefined
                     }
                   >
                     {props.children}

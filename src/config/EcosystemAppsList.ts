@@ -1,5 +1,16 @@
 import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
 
+export const EcosystemFeaturedListUrls = [
+  'https://www.lastone.fun/',
+  'https://eon-five.vercel.app',
+  'https://pushbet.fun/',
+  'https://www.thehodl.fun/',
+] as const;
+
+export const EcosystemPartnersList: EcosystemApp[] = [
+,
+];
+
 export const EcosystemAppsList: EcosystemApp[] = [
   {
     id: 10,

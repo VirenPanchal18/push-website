@@ -1,32 +1,64 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React from 'react';
-import styled from 'styled-components';
-import { ItemH, P, Span } from '@site/src/css/SharedStyling';
-import type { EcosystemApp } from './EcosystemBlocks';
+import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { useTweetMetrics } from '@site/src/api/GetTwitterMetrics';
-import { BsHeart } from 'react-icons/bs';
+import { ItemH, P, Span } from '@site/src/css/SharedStyling';
 import { formatTwitterCount } from '@site/src/utils/FormatTwitterCount';
-import Link from '@docusaurus/Link';
 import Starsvg from '@site/static/assets/ecosystem/star.svg';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { BsHeart } from 'react-icons/bs';
+import styled from 'styled-components';
+import type { EcosystemApp } from './EcosystemBlocks';
 
 const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
+  const { t } = useTranslation();
   const { data: twitterData } = useTweetMetrics(app.twitterId || '');
+
+  // Support both old format (name/description) and new format (nameKey/descriptionKey)
+  const appName = app.nameKey ? t(app.nameKey) : app.name;
+  const appDescription = app.descriptionKey
+    ? t(app.descriptionKey)
+    : app.description;
+  const appSpotlightText = app.spotlighttextKey
+    ? t(app.spotlighttextKey)
+    : app.spotlighttext;
+
+  const handleAppClick = () => {
+    // Track app click in Google Analytics
+    if (typeof window !== 'undefined' && window.gtag && app.href) {
+      const appType = app.secondary ? 'secondary' : 'primary';
+      window.gtag('event', 'ecosystem_app_click', {
+        event_category: 'ecosystem',
+        event_label: appName,
+        app_name: appName,
+        app_type: appType,
+        app_url: app.href,
+      });
+    }
+  };
 
   const hrefProps = app.comingsoon
     ? { onClick: (e: React.MouseEvent) => e.preventDefault() }
     : app.href
-      ? { href: app.href, target: '_blank', rel: 'noopener' }
+      ? {
+          href: app.href,
+          target: '_blank',
+          rel: 'noopener',
+          onClick: handleAppClick,
+        }
       : { href: '#', onClick: (e: React.MouseEvent) => e.preventDefault() };
 
   return (
     <Card
       {...hrefProps}
-      aria-label={app.name}
-      title={app.name}
+      aria-label={appName}
+      title={appName}
       $comingsoon={app.comingsoon}
       appoftheweek={app.appoftheweek}
+      $secondary={app.secondary}
+      className={app.secondary ? 'secondary' : ''}
     >
       {app.appoftheweek && (
         <CardTag>
@@ -34,24 +66,29 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
           <Span>APP SPOTLIGHT</Span>
         </CardTag>
       )}
-      <BackgroundWrapper>
-        <Background
-          style={{
-            backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
-          }}
-        />
-      </BackgroundWrapper>
-      <ContentWrap bgGradientColor={app.bgGradientColor}>
+      {app.bgImage && !app.secondary && (
+        <BackgroundWrapper>
+          <Background
+            style={{
+              backgroundImage: `url(${useBaseUrl(app.bgImage)})`,
+            }}
+          />
+        </BackgroundWrapper>
+      )}
+      <ContentWrap
+        bgGradientColor={app.bgGradientColor}
+        $secondary={app.secondary}
+      >
         <TopRow>
           <Icon src={useBaseUrl(app.icon)} alt='' appId={app.id} />
-          <Name titleColor={app.titleColor}>{app.name}</Name>
+          <Name titleColor={app.titleColor}>{appName}</Name>
           <P
             fontSize='16px'
             lineHeight='23px'
             color={app.descriptionColor || 'var(--ifm-color-neutral-300)'}
             margin='4px 0 0 0'
           >
-            {app.description}
+            {appDescription}
           </P>
         </TopRow>
         <Meta>
@@ -67,6 +104,18 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
               href={`https://x.com/PushChain/status/${app.twitterId}`}
               target='_blank'
               rel='noopener noreferrer'
+              onClick={() => {
+                // Track like button click in Google Analytics
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'ecosystem_like_click', {
+                    event_category: 'engagement',
+                    event_label: appName,
+                    app_name: appName,
+                    twitter_id: app.twitterId,
+                    like_count: twitterData?.like_count || 0,
+                  });
+                }
+              }}
             >
               <Tag tagsColor={app?.tagsColor}>
                 {formatTwitterCount(twitterData?.like_count)}
@@ -90,7 +139,11 @@ const EcosystemCard: React.FC<{ app: EcosystemApp }> = ({ app }) => {
 
 export default EcosystemCard;
 
-const Card = styled.a<{ $comingsoon?: boolean; appoftheweek?: boolean }>`
+const Card = styled.a<{
+  $comingsoon?: boolean;
+  appoftheweek?: boolean;
+  $secondary?: boolean;
+}>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -105,12 +158,19 @@ const Card = styled.a<{ $comingsoon?: boolean; appoftheweek?: boolean }>`
       : props.appoftheweek
         ? '1px solid #EF46F8'
         : '1px solid rgba(171, 70, 248, 0.4)'};
+  width: 100%;
   height: 426px;
+  min-height: 426px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   z-index: 6;
   cursor: ${(props) => (props.$comingsoon ? 'not-allowed' : 'pointer')};
+
+  &.secondary {
+    height: auto !important;
+    min-height: auto !important;
+  }
 
   &::before {
     content: '';
@@ -160,20 +220,26 @@ const CardTag = styled.div`
   }
 `;
 
-const ContentWrap = styled.div<{ bgGradientColor: string }>`
+const ContentWrap = styled.div<{
+  bgGradientColor: string;
+  $secondary?: boolean;
+}>`
   position: relative;
   z-index: 2;
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 55%;
-  background: linear-gradient(
+  height: ${(props) => (props.$secondary ? '100%' : '55%')};
+  background: ${(props) =>
+    props.$secondary
+      ? props.bgGradientColor
+      : `linear-gradient(
     to bottom,
     transparent 0%,
     transparent 10%,
-    ${(props) => props.bgGradientColor} 20%
-  );
+    ${props.bgGradientColor} 20%
+  )`};
 `;
 
 const BackgroundWrapper = styled.div`
@@ -214,6 +280,10 @@ const Icon = styled.img<{ appId?: number }>`
   background: ${(props) =>
     props.appId === 3 || props.appId === 8 ? '#000' : 'transparent'};
   object-fit: cover;
+
+  .secondary & {
+    margin-top: 10px;
+  }
 `;
 
 const Name = styled(Span)<{ titleColor?: string }>`

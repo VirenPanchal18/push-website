@@ -3,6 +3,7 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const ecosystemDir = path.join(__dirname, '../ecosystem');
+const partnersDir = path.join(__dirname, '../partners');
 const outputFile = path.join(__dirname, '../src/config/EcosystemAppsList.ts');
 const appOfTheWeekFile = path.join(
   __dirname,
@@ -22,6 +23,7 @@ if (!fs.existsSync(contentDir)) {
 }
 
 const apps = [];
+const partners = [];
 let appOfTheWeek = null;
 const folders = fs.readdirSync(ecosystemDir);
 
@@ -74,6 +76,55 @@ folders.forEach((folder) => {
   }
 });
 
+// Process partners directory if it exists
+if (fs.existsSync(partnersDir)) {
+  const partnerFolders = fs.readdirSync(partnersDir);
+
+  partnerFolders.forEach((folder) => {
+    const folderPath = path.join(partnersDir, folder);
+    const indexPath = path.join(folderPath, 'index.md');
+
+    if (fs.existsSync(indexPath)) {
+      const fileContent = fs.readFileSync(indexPath, 'utf-8');
+      const { data } = matter(fileContent);
+
+      // Skip if frontmatter is empty or has no name
+      if (!data || Object.keys(data).length === 0 || !data.name) {
+        console.log(`⏭️  Skipping partner ${folder} (empty or no name)`);
+        return;
+      }
+
+      // Copy icon if it exists
+      if (data.icon) {
+        const iconSource = path.join(folderPath, data.icon);
+        if (fs.existsSync(iconSource)) {
+          const iconDest = path.join(
+            publicAssetsDir,
+            `${folder}-icon${path.extname(data.icon)}`
+          );
+          fs.copyFileSync(iconSource, iconDest);
+          data.icon = `/assets/ecosystem/${folder}-icon${path.extname(data.icon)}`;
+        }
+      }
+
+      // Copy bgImage if it exists
+      if (data.bgImage) {
+        const bgSource = path.join(folderPath, data.bgImage);
+        if (fs.existsSync(bgSource)) {
+          const bgDest = path.join(
+            publicAssetsDir,
+            `${folder}-bg${path.extname(data.bgImage)}`
+          );
+          fs.copyFileSync(bgSource, bgDest);
+          data.bgImage = `/assets/ecosystem/${folder}-bg${path.extname(data.bgImage)}`;
+        }
+      }
+
+      partners.push(data);
+    }
+  });
+}
+
 // Sort apps: appoftheweek first, then by id (ascending order)
 apps.sort((a, b) => {
   if (a.appoftheweek && !b.appoftheweek) return -1;
@@ -101,13 +152,30 @@ const formatAppsList = (apps) => {
 
 const output = `import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
 
+export const EcosystemFeaturedListUrls = [
+  'https://www.lastone.fun/',
+  'https://eon-five.vercel.app',
+  'https://pushbet.fun/',
+  'https://www.thehodl.fun/',
+] as const;
+
+export const EcosystemPartnersList: EcosystemApp[] = [
+${formatAppsList(partners)},
+];
+
 export const EcosystemAppsList: EcosystemApp[] = [
 ${formatAppsList(apps)},
 ];
 `;
 
 fs.writeFileSync(outputFile, output);
-console.log('✅ Generated EcosystemAppsList.ts with', apps.length, 'apps');
+console.log(
+  '✅ Generated EcosystemAppsList.ts with',
+  apps.length,
+  'apps and',
+  partners.length,
+  'partners'
+);
 
 // Generate App of the Week JSON file
 if (appOfTheWeek) {

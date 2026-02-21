@@ -93,6 +93,19 @@ const ExploreCard: FC = ({ item, index, variant = 'tile' }) => {
     return `${prepend}${title}${append}`;
   };
 
+  const handleArticleClick = () => {
+    // Track Knowledge Base article click in Google Analytics
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'kb_article_click', {
+        event_category: 'knowledge_base',
+        event_label: resolvedTitle,
+        article_title: resolvedTitle,
+        article_url: getHref(item),
+        article_type: variant,
+      });
+    }
+  };
+
   return (
     <Card
       key={index}
@@ -108,6 +121,7 @@ const ExploreCard: FC = ({ item, index, variant = 'tile' }) => {
       variant={variant}
       title={getLinkText(resolvedTitle)}
       aria-label={getLinkText(resolvedTitle)}
+      onClick={handleArticleClick}
     >
       {variant === 'tile' && item.bgStylizing && (
         <ItemStylizing {...item.bgStylizing} />

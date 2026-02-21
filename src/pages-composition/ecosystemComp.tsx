@@ -17,14 +17,14 @@ import {
   Span,
 } from '@site/src/css/SharedStyling';
 import { BsArrowRight } from 'react-icons/bs';
-import EcosystemApps from '../components/Ecosystem/EcosystemApps';
+import EcosystemEssentials from '../components/Ecosystem/EcosystemEssentials';
 
 // ----- Page -----
 const EcosystemComp: React.FC = () => {
   // Localization
   const { t } = useTranslation();
   return (
-    <>
+    <Container>
       {/* Hero */}
       <Section>
         <Content className='skeletonsmall'>
@@ -46,7 +46,7 @@ const EcosystemComp: React.FC = () => {
       {/* Essential Apps */}
       <Section>
         <AppsContent>
-          <EcosystemApps />
+          <EcosystemEssentials />
         </AppsContent>
       </Section>
 
@@ -67,27 +67,31 @@ const EcosystemComp: React.FC = () => {
               fontWeight='600'
               color='var(--ifm-color-white)'
             >
-              Want to join the fastest growing universal app ecosystem and 10x
-              your userbase?
+              {t('pages.ecosystem.cta.title')}
             </H1>
             <PrimaryA
-              href={'https://portal.push.org'}
-              title={'Start Building'}
-              aria-label={'Start Building'}
+              href={'/docs'}
+              title={t('pages.ecosystem.cta.button')}
+              aria-label={t('pages.ecosystem.cta.button')}
               zIndex='2'
               alignItems='center'
             >
-              Start Building
+              {t('pages.ecosystem.cta.button')}
               <BsArrowRight className='start-svg' />
             </PrimaryA>
           </CTAWrap>
         </BodyContent>
       </Section>
-    </>
+    </Container>
   );
 };
 
 export default EcosystemComp;
+
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 
 const HeroWrap = styled.div`
   max-width: 970px;
@@ -121,6 +125,7 @@ const BodyContent = styled(Content)`
 `;
 
 const GlowCircle = styled.div`
+  overflow: hidden;
   position: absolute;
   border-radius: 50%;
   background: rgba(179, 72, 236, 0.2);
@@ -153,6 +158,13 @@ const GlowCircle = styled.div`
   @media ${device.mobileL} {
     width: 395px;
     height: 392px;
+    left: -12px;
+    top: 102px;
+  }
+
+  @media ${device.mobileM} {
+    width: 295px;
+    height: 292px;
     left: -12px;
     top: 102px;
   }
