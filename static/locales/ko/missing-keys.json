@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-08T06:35:27.808Z",
+  "lastUpdated": "2026-02-21T21:35:11.428Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1222,9 +1222,9 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.ecosystem.hero-section.description": {
-      "value": "Push Chain의 Donut 테스트넷에서 차세대 유니버설 경험을 구축하고 있는 앱, 파트너 및 얼리 어답터를 만나보세요.",
-      "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
-      "lastUpdated": "2025-11-14T19:27:06.204Z"
+      "value": "Push 체인에서 돈넛 테스트넷을 기반으로 한 다음 세대의 유니버설 경험을 위한 앱, 파트너, 그리고 초기 채택자를 발견하세요.",
+      "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
+      "lastUpdated": "2026-02-21T21:34:43.393Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "공지 닫기",
@@ -1727,39 +1727,39 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.knowledge.push101.explainer-section.blocks.sections.why-push-chain-future.items.faq-push-chain.subtitle": {
-      "value": " Push 체인과 유니버설 앱에 대한 질문 사항이 많으신가요? 가장 일반적인 답변을 확인하세요.",
+      "value": " Push체인 및 보편적인 앱에 대한 궁금증을 해결하세요.",
       "englishChecksum": "4d9917b7eb8ec31c7d601eb921a8f4ca",
-      "lastUpdated": "2026-02-08T05:52:40.324Z"
+      "lastUpdated": "2026-02-21T21:34:22.892Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.problems-solved": {
-      "value": "### Push Chain이 해결하는 문제\n\n- **분산**\n  EVM 및 비-EVM 체인을 단일 공유 상태 L1 아래 통합하여 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **인터오퍼rability**\n  모든 블록체인과 온체인 공유 상태에 대한 원시 지원\n\n- **최종성**\n  ~1-2초 내에 즉각적이고 영구적인 나티브 최종성 – 더 이상 기다리거나 재정렬(x)\n\n- **온보딩 & UX**\n  소셜/이메일 로그인, 모든 토큰으로 가스 지불 및 모든 지갑 지원으로 네트워크 간에 제로 프랙션 액세스\n\n- **유니버설 애플리케이션**\n  한 번 빌드, 어디든 배포 – 모든 웹3 앱이 모든 사용자에게 모든 체인에서 원활하게 작동\n\n---",
+      "value": "### Push 체인에서 해결하는 문제\n\n- **분산**  \n  EVM 및 비-EVM 체인을 단일 공유 상태 L1 아래 하나로 통합하여, 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **호환성**  \n  모든 블록체인에서 내장 지원 트랜잭션 및 온체인 공유 상태입니다.\n\n- **결정성**  \n  ~1-2초 만에 즉시, 되돌릴 수 없는 내장 결정성 – 더 이상 기다리거나 리오र्ग 하지 않습니다.\n\n- **온보딩 & UX**  \n  소셜/이메일 로그인, 모든 토큰 및 지갑 지원으로 체인 간 제로 프릭션 접근 방식입니다.\n\n- **유니버설 앱**  \n  한 번_BUILD_, 모든 웹3 앱이 모든 사용자에 대한 모든 체인에서 매끄럽게 작동합니다.\n\n---",
       "englishChecksum": "a46bbdbb625fb82ad7fe978556186243",
-      "lastUpdated": "2026-02-08T05:52:49.561Z"
+      "lastUpdated": "2026-02-21T21:34:31.744Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.consensus-mechanism": {
-      "value": "### Push Chain의 Konsensus 메커니즘은 무엇입니까?\n\nPush Chain는 **proof-of-stake (PoS)** konsensus를 사용하며, **CometBFT** 엔진에 기반하고 여러 가지 개선이 있습니다:\n\n- **빠른 최종성**: ~1–2초 만에 트랜잭션이 최종화되며, 재구성이 없는 결정적인 최종성\n- **에너지 효율적**: PoW에 비해 환경 친화적입니다\n- **validater 네트워크**: 체인을 보장하는 분산된 validater 네트워크\n- **슬래싱 보호**: 경제적 인센티브는 validater의 정직성을 보장합니다\n\nCometBFT의 검증된 BFT konsensus는here에서 범용 트랜잭션 처리 및 크로스체인 상태 관리 요구에 최적화되었습니다.\n\n---",
+      "value": "### Push 체인에서는 어떤 합의 메커니즘을 사용하나요?\n\nPush 체인은 **증거 기반 스테이크 (PoS)** 합의 메커니즘을 사용하며, **CometBFT** 엔진을 기반으로 여러 가지 개선을 적용했습니다.\n\n- **빠른 최종성**: 거래는 ~1–2초 내에 최종화되며, 재조직(reorg)이 없음\n- **에너지 효율성**: PoW보다 환경 친화적임\n- **발표자 네트워크**: 체인 보안을 위한 분산된 발행자 네트워크\n- **벌금 보호**: 경제적인 장려는 발행자의 정직성을 보장함\n\nCometBFT의 전투 검증 BFT 합의는here의 특수한 요구에 따라 최적화되었으며, 전송처리 및 교체 상태 관리와 같은 범용 거래 처리를 위해 사용됩니다.\n\n---",
       "englishChecksum": "56335834d49f4774c5aa232632523b92",
-      "lastUpdated": "2026-02-08T05:53:17.364Z"
+      "lastUpdated": "2026-02-21T21:34:38.993Z"
     },
     "pages.contact.hero-section.description": {
-      "value": "파트너십 및 통합, 보조금, 미디어 및 강연, 유효성 검사자, 법률, 채용 또는 일반 문의—여기에서 문의하세요. 기술 지원이나 보안 공개를 위해서는 지원 센터를 방문해 주세요.",
+      "value": "파트너십 및 통합, 장학금, 미디어 및 연설, 검증자, 법적 문제, 직업 기회 또는 일반적인 질문—여기에서 연락하세요. 기술적인 도움이나 보안 문제를 해결하기 위해서는 지원 센터를 방문해 주시기 바랍니다.",
       "englishChecksum": "a77ba80c097fb24b9c109642038d3abc",
-      "lastUpdated": "2026-02-08T05:53:36.855Z"
+      "lastUpdated": "2026-02-21T21:34:41.436Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "다른 지갑이나 가스 토큰을 필요로 하나요?",
+      "value": "다iferent 지갑이나 기스 토큰이 필요하나요?",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-02-08T05:53:03.158Z"
+      "lastUpdated": "2026-02-21T21:34:51.562Z"
     },
     "components.short-faq-snippet.qnas.qna4.question": {
-      "value": "이건 다리나 메시지 레이어와 어떻게 다른가요?",
+      "value": "이것은 다리나 메시징 계층과 어떻게 다른가요?",
       "englishChecksum": "b5d86c3d717c6454f3040120ad8fd86c",
-      "lastUpdated": "2026-02-08T05:53:22.062Z"
+      "lastUpdated": "2026-02-21T21:34:53.202Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>테스트 토큰을 요청하려면 <3>페이크트</3>를 사용하세요.</1><1><2>참고:</2> 속도 제한이 적용될 수 있습니다; 일부 페이크트는 간단한 확인을 요구할 수 있습니다. 페이크트가 실패하면 <4>디스코드</4>에서 우리에게 메시지를 보내주세요.</1>",
+      "value": "<1>테스트 토큰을 요청하려면 <3>페이크</3>를 사용하세요.</1><1><2>메모:</2> 속도 제한이 적용될 수 있습니다; 일부 페이크는 간단한 검증이 필요합니다. 페이크가 실패하면 <4>디스코드</4>에서-nos로 연결하세요.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-02-08T05:53:09.054Z"
+      "lastUpdated": "2026-02-21T21:34:56.528Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "빌더 — 방법 및 튜토리얼",
@@ -2080,6 +2080,45 @@
       "value": "링크드인",
       "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
       "lastUpdated": "2026-02-08T06:04:56.487Z"
+    },
+    "pages.ecosystem.cta.title": {
+      "value": "가장 빠르게 성장하고 있는 유니버설 앱 에코시스템에 참여해서 사용자 기반을 10배로 늘리고 싶으세요?",
+      "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
+      "lastUpdated": "2026-02-21T21:35:11.428Z"
+    },
+    "components.ecosystem-apps-partners.apps.halo.description": {
+      "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
+      "lastUpdated": "2026-02-21T21:34:58.158Z"
+    },
+    "components.ecosystem-apps-partners.apps.tip-up.description": {
+      "value": "다른 체인에서든, 다른 지갑이든, 언제든지 Tip을 줄 수 있습니다",
+      "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
+      "lastUpdated": "2026-02-21T21:35:00.096Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-swap.description": {
+      "value": "다중 체인 토큰 교환을 위해 브리지를 사용하지 않고 원할하게 실행",
+      "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
+      "lastUpdated": "2026-02-21T21:35:02.136Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-campus.description": {
+      "value": "에테르리움, 솔라나, 베이스, 및 15개 이상의 체인에서 학생을 연결하세요",
+      "englishChecksum": "96177f6dc7967d71fea626c729e5b4d7",
+      "lastUpdated": "2026-02-21T21:35:04.165Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-dex.description": {
+      "value": "푸시체인 테스트넷 위에 건설된 DEX",
+      "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
+      "lastUpdated": "2026-02-21T21:35:06.708Z"
+    },
+    "components.ecosystem-essentials.title": {
+      "value": "테스트넷 앱의 필수적인 것을 탐구하세요",
+      "englishChecksum": "9d4ba33fc7e6db6c398a1fe55d4f906b",
+      "lastUpdated": "2026-02-21T21:35:08.164Z"
+    },
+    "components.ecosystem-essentials.apps.wallet.description": {
+      "value": "Push 체인의 유니버셜 월릿",
+      "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
+      "lastUpdated": "2026-02-21T21:35:09.609Z"
     }
   }
 }

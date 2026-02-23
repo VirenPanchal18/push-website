@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "L1 de estado compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem mudança de rede."
+    "site-description": "Camada de execução L1 compartilhada para aplicativos universais. Implante uma vez; chegue aos usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
   },
   "header": {
     "community": {
@@ -939,6 +939,28 @@
         "description-paragraph-2-end": "recompensa."
       }
     },
+    "ecosystem": {
+      "hero-section": {
+        "title": "Explore o Ecossistema Universal"
+      },
+      "tabs": {
+        "flagship-apps": "Aplicativos Principais",
+        "partners": "Parceiros",
+        "all-apps": "Todos os apps"
+      },
+      "cta": {
+        "title": "Quer fazer parte do ecossistema de apps universais de crescimento mais rápido e multiplicar sua base de usuários por 10?",
+        "button": "Comece a Construir"
+      },
+      "seo": {
+        "title": "Ecossistema Push Chain — Apps Universais e Parceiros",
+        "description": "Explore o ecossistema de aplicativos universais, parceiros e projetos construídos na Push Chain. Construa uma vez, alcance usuários em todas as chains com interoperabilidade de shared-state.",
+        "og-title": "Ecossistema Push Chain - Explore aplicativos universais e parceiros",
+        "og-description": "Explore o ecossistema de aplicativos universais e projetos ativos na Push Chain. Experimente a verdadeira usabilidade cross-chain. Sem pontes ou trocas.",
+        "twitter-title": "Explore Push Chain Ecosystem - Universal Apps & Partners",
+        "twitter-description": "Descubra apps universais e parceiros na Push Chain. Construa uma vez, alcance usuários em Ethereum, Solana, Base e muito mais."
+      }
+    },
     "home": {
       "seo": {
         "title": "Home — Push Chain | A blockchain universal para Apps",
@@ -1180,20 +1202,6 @@
           "aria-label": "Comece a desenvolver com Push Chain"
         }
       }
-    },
-    "ecosystem": {
-      "seo": {
-        "title": "Ecossistema Push Chain — Apps Universais e Parceiros",
-        "description": "Explore o ecossistema de aplicativos universais, parceiros e projetos construídos na Push Chain. Construa uma vez, alcance usuários em todas as chains com interoperabilidade de shared-state.",
-        "og-title": "Ecossistema Push Chain - Explore aplicativos universais e parceiros",
-        "og-description": "Explore o ecossistema de aplicativos universais e projetos ativos na Push Chain. Experimente a verdadeira usabilidade cross-chain. Sem pontes ou trocas.",
-        "twitter-title": "Explore Push Chain Ecosystem - Universal Apps & Partners",
-        "twitter-description": "Descubra apps universais e parceiros na Push Chain. Construa uma vez, alcance usuários em Ethereum, Solana, Base e muito mais."
-      },
-      "hero-section": {
-        "title": "Explore o Ecossistema Universal",
-        "description": "Descubra apps, parceiros e os primeiros a adotar a tecnologia, construindo a próxima era de experiências universais na Donut Testnet da Push Chain."
-      }
     }
   },
   "components": {
@@ -1284,8 +1292,8 @@
       "answer-aria-label": "Resposta à pergunta - ",
       "qnas": {
         "qna1": {
-          "question": "Não consigo conectar minha carteira. O que eu devo tentar?",
-          "answer": "<1><2>Verificações rápidas:</2> atualize a página, desbloqueie sua carteira e desabilite bloqueadores de anúncios/script agressivos para push.org.</1><1><2>Não há necessidade de alternar a rede:</2> fique em sua rede principal; Push cuida da roteação por trás dos cenários.</1><1><2>Redefina as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim estiver com problemas? Pergunte no <3>Discord</3> ou abra um <4>Ticket de Suporte</4>.</1>",
+          "question": "Não consigo conectar minha carteira. O que eu deveria tentar?",
+          "answer": "<1><2>Afastar as verificações:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/script aggressivos para push.org.</1><1><2>Sem mudança de rede necessária:</2> fique em sua rede doméstica; Push cuida da roteagem por trás dos cenários.</1><1><2>Redefinir as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1664,6 +1672,184 @@
           "answer": "<1>Os portões estão abertos, prove sua devoção, <3>candidate-se agora</3>.</1><1>O registro te dá acesso aos detalhes do programa, mecânicas de avaliação e os primeiros passos de integração.</1><1>A partir daí, <2>o desempenho determina tudo</2>.</1>",
           "contact-url-title": "Candidatar-se ao Push Cult",
           "github-url-title": "Leia o pact completo."
+        }
+      }
+    },
+    "ecosystem-apps-partners": {
+      "coming-soon": "Em breve",
+      "app-spotlight": "DESTAQUE DE APPS",
+      "partners": {
+        "silence-labs": {
+          "name": "Silence Labs",
+          "description": "Computação com Preservação de Privacidade e MPC-TSS."
+        },
+        "human-tech": {
+          "name": "Human.tech",
+          "description": "Computação com MPC-TSS e preservação de privacidade."
+        }
+      },
+      "apps": {
+        "ramen-swap": {
+          "name": "Ramen Swap"
+        },
+        "halo": {
+          "name": "HALO",
+          "description": "A camada de infraestrutura unificada para comércio baseado em agentes."
+        },
+        "cetra": {
+          "name": "Cetra",
+          "description": "Forneça ativos, pegue-os emprestados e ganhe rendimentos otimizados"
+        },
+        "hodl-fun": {
+          "name": "Hodl.fun",
+          "description": "Crie e lance tokens ERC-20"
+        },
+        "eon-ai-butler": {
+          "name": "EON: Assistente de IA",
+          "description": "Envie, troque e gerencie ativos em redes suportadas"
+        },
+        "push-bet": {
+          "name": "Push Bet",
+          "description": "Mostre seus poderes de 'degen' para ganhar recompensas."
+        },
+        "onchain-vampire-survivors": {
+          "name": "OnchainVampireSurvivors",
+          "description": "Jogo universal estilo vampire survivors"
+        },
+        "last-one": {
+          "name": "Último",
+          "description": "O último a dar um lance antes do tempo acabar leva o prêmio"
+        },
+        "pns": {
+          "name": "PNS",
+          "description": "Sua identidade em todas as blockchains"
+        },
+        "push-x402": {
+          "name": "Push x402",
+          "description": "Monetização de API por chamada para infraestrutura agente"
+        },
+        "bountive": {
+          "name": "Bountive",
+          "description": "Motor de crescimento universal que recompensa a qualidade em vez de cliques"
+        },
+        "beat-brawls": {
+          "name": "BeatBrawls",
+          "description": "Batalhas musicais inesquecíveis"
+        },
+        "apt-casino": {
+          "name": "APT Casino",
+          "description": "Universal, justo e transparente para apostar e ganhar"
+        },
+        "push-ninja": {
+          "name": "Push Ninja",
+          "description": "Jogo baseado em habilidades na blockchain",
+          "spotlight-text": "Corte. Esquive. Marque."
+        },
+        "tip-up": {
+          "name": "TipUp"
+        },
+        "push-swap": {
+          "name": "Push Swap"
+        },
+        "chain-circle": {
+          "name": "ChainCircle",
+          "description": "Círculos de poupança cross-chain"
+        },
+        "push-campus": {
+          "name": "Push Campus",
+          "description": "Alcance estudantes em Ethereum, Solana, Base e mais de 15 blockchains"
+        },
+        "ballsy": {
+          "name": "Ballsy"
+        },
+        "athera": {
+          "name": "Athera",
+          "description": "Herança automática de criptomoedas"
+        },
+        "pusd": {
+          "name": "PUSD",
+          "description": "Stablecoin pareada 1:1 combinando liquidez em USD de todas as blockchains"
+        },
+        "freename": {
+          "name": "Freename",
+          "description": "Envie criptomoedas para domínios, não para hashes."
+        },
+        "hang4-fun": {
+          "name": "Hang4.fun",
+          "description": "Em breve"
+        },
+        "degen-chess": {
+          "name": "Degen Chess",
+          "description": "Jogue xadrez, aposte, universal"
+        },
+        "omnihub": {
+          "name": "Omnihub",
+          "description": "Crie, compre e venda colecionáveis â blockchain"
+        },
+        "push-dex": {
+          "name": "PushDex",
+          "description": "DEX construído na testnet Pushchain"
+        },
+        "zns": {
+          "name": "ZNS",
+          "description": "Domínios multi-cadeia, GM + ferramentas de Deploy"
+        },
+        "star-run": {
+          "name": "Star Run",
+          "description": "Uma economia descentralizada e pertencente aos jogadores"
+        },
+        "forge-realm": {
+          "name": "Forge Realm",
+          "description": "Combine e personalize personagens base e traços de vários criadores"
+        },
+        "conft-codomain": {
+          "name": "CoNFT/CoDomain",
+          "description": "Hub multi-blockchain Web3: Nomes de Domínio, NFTs, plataforma de lançamento."
+        },
+        "copet": {
+          "name": "Copet",
+          "description": "Alimente, brinque e faça seu bichinho virtual crescer através de atividades na blockchain"
+        },
+        "surf-layer": {
+          "name": "SurfLayer",
+          "description": "Crie sua identidade e ganhe recompensas em mais de 70 blockchains."
+        },
+        "push-name-service": {
+          "name": "Serviço de Nomes Push",
+          "description": "Tenha seu próprio domínio .push"
+        },
+        "nfts2me": {
+          "name": "NFTs2Me",
+          "description": "Implante sua coleção de NFT gratuitamente em qualquer blockchain"
+        },
+        "tachyon": {
+          "name": "Tachyon",
+          "description": "Relayer Multichain Super Rápido"
+        }
+      }
+    },
+    "ecosystem-essentials": {
+      "title": "Descubra os aplicativos essenciais do testnet",
+      "apps": {
+        "pc-faucet": {
+          "name": "Torneira PC",
+          "description": "Pegue seus tokens PC Testnet aqui"
+        },
+        "push-bridge": {
+          "name": "Push Bridge",
+          "description": "Transfira tokens entre blockchains"
+        },
+        "simulate-tx": {
+          "name": "Simular Tx",
+          "description": "Simular uma transação universal"
+        },
+        "push-chain-scan": {
+          "name": "Explorador Push Chain",
+          "description": "O explorador de blockchain do Push Chain"
+        },
+        "wallet": {
+          "name": "Carteira",
+          "description": "A carteira universal da Push Chain"
         }
       }
     }

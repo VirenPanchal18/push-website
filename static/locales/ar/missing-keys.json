@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-08T06:00:36.843Z",
+  "lastUpdated": "2026-02-21T21:28:50.821Z",
   "keys": {
     "global.site-name": {
       "value": "بلوشكين — Universal L1 for Apps",
@@ -552,9 +552,9 @@
       "lastUpdated": "2025-11-14T19:27:06.032Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### ماذا يمكن بنائه على Push Chain؟\n\nPush Chain يجلب تكاملًا سلسًا وإنهاءً جميع L1s, L2s, & L3s وبالتالي فهو مصموم على أن يصبح أرضية للابتكارات والتكامل. ويمكن بناء أوضاع استخدامات وورب 3 المتوفرة مثل:\n\n![أهم تطبيقات Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nأو يمكنك تحسين وورب 3 وإنشاء ابتكارين:\n\n![تطبيقات المستهلك على Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nأو يمكنك رؤية بعض أمثلة التطبيقات الشائعة وأخذ إلهام منها:\n\n![أمثلة تطبيقات شعبية على Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "value": "### ما يمكن بناؤه على Push Chain؟\n\nتُحَضُرُ Push Chain الإنتقائية والوحدة بين جميع L1s, L2s, & L3s، وقد أصبحت بذلك ساحة الابتكار والتنسيق. يمكنك بناء الحالات المستعملة الحالية such as:\n\n![الاستخدامات الرئيسية لـ Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nأو تحسين و3ب وبنشر ابتكارات جديدة:\n\n![تطبيقات استهلاكية لـ Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nأو يمكنك رؤية بعض الأمثلة الشعبية للبرامج واستمد الإلهام منها:\n\n![أمثلة popular apps على Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
       "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
-      "lastUpdated": "2026-02-08T05:47:27.526Z"
+      "lastUpdated": "2026-02-21T21:27:52.868Z"
     },
     "pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.why-push-exists": {
       "value": "## Why Push Chain Exists\n\nToday's Web3 ecosystem is heavily fragmented and overly complex.\n\nDevelopers redeploy smart contracts across multiple chains, users have to manually bridge tokens or switch wallets, and teams spend months maintaining chain-specific codebases and audits.\n\nEach new chain adds overhead, complexity, cost and friction, which massively slows innovation and adoption.\n\n**Push Chain eliminates this.**",
@@ -1592,9 +1592,9 @@
       "lastUpdated": "2025-11-14T19:27:06.033Z"
     },
     "pages.ecosystem.hero-section.description": {
-      "value": "اكتشف التطبيقات والشركاء والمتبنين الأوائل الذين يبنون حقبة جديدة من التجارب الشاملة على شبكة Push Chain Donut Testnet.",
-      "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
-      "lastUpdated": "2025-11-14T19:27:06.033Z"
+      "value": "اكتشف التطبيقات والشركاء والمبكرين الذين يبنون عصراً عاماً من الخبرات على شبكة Push Chain في Donut Testnet.",
+      "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
+      "lastUpdated": "2026-02-21T21:28:11.167Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "إغلاق الإعلان",
@@ -1621,39 +1621,39 @@
       "lastUpdated": "2025-11-14T20:15:34.955Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.decentralization-scaling": {
-      "value": "### كيف سيعمل Push Chain على الحفاظ على اللامركزية أثناء التوسعة؟\n\nأظهر Devnet الخاص بنا كيفية التوسع باستخدام التشعيع الديناميكي.execUTION وتطبيق التنفيذ الموازي – مما يرفع من قدرته على التعامل دون أن ينكف عن اللامركزية.\n\nفي اختبار الشبكة، تكلّصنا بالتكامل الكامل مع كل من تاجر على [CometBFT](https://github.com/cometbft/cometbft) – محرك resistant لدرء الفشل بالبيزنطي، ومثبت ضد الخرق. وصلت الشبكة إلى نهائية تحت ثانية وسعت قدرتها إلى أن تتعامل مع 20,000 عملية تداول في الدقيقة.\n\nهذا ما هو مألوف من التوسيع. ونحن مهتمون بتوسيع Capitán Push Chain أكثر – بميزات تحسينات التوسع الأخرى. نحن مقتنعون بأن Push Chain يمكن أن يفي برغبات التطبيقات العالمية – بسلامة وبدون لامركزية.\n\n---",
+      "value": "### كيف سيحافظ Push Chain على اللامركزية بينما يتم التوسعة؟\n\nأظهر Devnet الخاص بنا كيف سننتعش باستخدام الشردات الديناميكية والتنفيذ الموازي - مما يزيد من قدرته على التفاعل دون تنازل عن اللامركزية.\n\nفي اختبار الشبكة، قمنا بتحليل الإتصال الكامل مع سلسلة تعمل على [CometBFT](https://github.com/cometbft/cometbft) - وهو محرك يدرّس مقاومة للصدمة البيزنطية. وحققت الشبكة نهجًا تحت ثانية وبطاقة تصل إلى [20k عملية في الدقيقة](https://github.com/push-protocol/push-chain/blob/main/docs/testnet-performance.md).\n\nوهذا الدليل هو مجرد بداية. ونحن واثقون من أن Push Chain يمكنها تجديد الطلبات من التطبيقات الشاملة - بحدوثات آمنة ودون مركزيه.\n\n---",
       "englishChecksum": "e3882a526d7c41194cbc04a7399040cb",
-      "lastUpdated": "2026-02-08T05:47:36.862Z"
+      "lastUpdated": "2026-02-21T21:27:59.868Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.builders.subtitle": {
-      "value": "كل شيء تحتاج إليه مع SDK Push Chain لإعداد تطبيقك العالمي",
+      "value": "ارتيدرة صيبرسة ارشةرامتةورجه المًخطاىرودترهة حجصةتًر",
       "englishChecksum": "1403e34d598a63b64a6f92a880e7c414",
-      "lastUpdated": "2026-02-08T05:47:41.870Z"
+      "lastUpdated": "2026-02-21T21:28:09.208Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>لا.</2></1><1><2>حافظ على محفظةك.</2> استعمل المحفظة التي تمتلكها بالفعل - لا حاجة لمحفظة أو حساب جديد.</1><1><2>ادفع بما تملكه.</2> يمكن دفع الرسوم في التوكين الذي تمتلكه على شبكتك الرئيسية - نحكم التحويل من وراء الستار.</1><1><2>لا انتقال الشبكة.</2> ابق على شبكتك الرئيسية - لا الحاجة إلى الجسر لجلب توكين غاز.</1><1><2>غير خزاني.</2> подпиت كل الإجراء - لن noi لا نمتلك مفاتيحك أبداً.</1><1><2>تحتوي.</2> الشبكة تسوي الرسوم في $PC تلقائياً - ليس عليك أن تحميه.</1>",
+      "value": "<1><2>لا.</2></1><1><2>أحفظ حافظتك.</2> استخدم المحفظة التي تمتلكها بالفعل - لا محفظة أو حساب جديد.</1><1><2>دفع بما تملك.</2> يمكن دفع الرسوم في المعاملات التي تمتلكها على سلسلة المنزلية; نتحكم في التحويل من الخلف.</1><1><2>لا تغيير الشبكة.</2> ابق على سلسلتك المنزلية - لا جسبر فقط لالحصول على رمز غاز.</1><1><2>غير مؤيد.</2> توقع كل فعل; لا يحرز Push مفاتيحك.</1><1><2>من وراء الشاشة.</2> تحسّن الشبكة الرسوم في $PC تلقائيا - لا تتحتم إدارة ذلك.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-02-08T05:47:49.527Z"
+      "lastUpdated": "2026-02-21T21:28:18.417Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2>أجابة قصيرة</2>: بوش هو المكان الذي يعمل التطبيق. الجسور/الرسائل مجرد نقل التوكين أو الرسائل بين سلاسل مما ي complicates everything للمستخدمين مطوري.</1><1><2>موطن واحد ضد العديد من النسخ.</2> مع الجسور/الرسائل تفعيل لكل سلسلة وتزامن عبر رسائل. على بوش تفعيل مرة واحدة; الجميع يصل إلى نفس العقد وشيرد ستيت.</1><1><2>لا أصول مطورة أو جسر مطلوب.</2> يظل المستخدمون في موطنهم وسلسلة ودفع بما يحتفظون به بالفعل; نحن ننجز التوجيه ورفاهية التحويل تحت الحود.</1><1><2>وحدة الهوية وتأكيد.</2> نقبل التوقيعات من أي محفظة/سلسلة ونخصها إلى نفس المستخدم على بوش — غير مستودعي.</1><1><2>أجزاء أقل تتحرك.</2> لا ترقص مع個月 الإذن عبر السلسلة، لا تتبدّد غاز-التوكين، لا عقد لاصق للحفاظ عليها في التزام.</1><1><2>البرجيج يintroduces تعقيد.Chain-native interop يحلها.</2> الجسور تتطلب جهد مهندسين معقد، وقت، كلفة تفتيش وتشغيل البنية التحتية. Chain-native interop simply just works as تطبيقي natively يرثه.</1><1>نتيجة: تطبيقات أبسط، مصدر واحد للحقيقة، وUX feels like واحدة السلسلة — حتى عندما المستخدمون ليست.</1>",
+      "value": "<1><2> réponse courte</2>: بلوكشين هو حيث ينفذ تطبيقك. الجسور/الإرسال مجرد نقل عملات أو رسائل بين سلاسل وتجعل كل شيء معقدًا للمستخدمين وللمطورين.</1><1><2>وطيد واحد ضد نسخ كثيرة.</2> مع الجسور/الإرسال، تنشر لكل سلسلة وتنهي عن طريق الرسائل. على بلوكشين، تنشر مرة واحدة؛ يضرب الجميع نفس العقد/shared state.</1><1><2>لا أصول متدولة أو جسور إجباريّة.</2> يظل المستخدمون على سلسلة منزلهم ويريدون بأول ما يملكونه; ندير التوجيهات وتحويل رسومنا تحت السطح.</1><1><2>هوية متحدّة وتسجيل.</2> نقبل توقيعات من أي محفظة/سلسلة ونمنيها لنفس المستخدم على بلوكشين — غير مرصود.</1><1><2>أجزاء أقل.</2> لا رقابة متدولة عبر السلسلة، ولا بحث عن غاز-عملات، ولا عقد لاصق للحفاظ عليها في انسجام.</1><1><2>الجسور تسبّب تعقيدًا. الانتروب معاكس للسلسله يحلّها.</2> الجسور تتطلب جهد هندسي معقد ومدة وتكلفه تفتيش وinfrastructure إضافية. Interop معاكس للسلسلة simply works كما ينفذ تطبيقاتك بنشاط.</1><1>النتائج: تطبيقات أبسط، مصدر الحقيقة الوحيد، ودكتور يوجي يشعر بما يتعلّق به — حتى عندما يكون المستخدمون بعيدين.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2026-02-08T05:48:01.602Z"
+      "lastUpdated": "2026-02-21T21:28:28.407Z"
     },
     "components.short-support-snippet.qnas.qna4.answer": {
-      "value": "<1><2>أشكال التطبيق:</2> تقديم <3>تذكرة دعم</3> أو النشر في <4>ديزكورد</4> مع الخطوات للتكرار.</1><1><2>سبل أمنية:</2> إرسال بريد إلكتروني إلى <5>security@push.org</5>. يرجى تجنب الكشف العام حتى noi نقوم بتأكيد الصيانة.</1>",
+      "value": "<1><2>بأشكال التطبيق:</2> ارفع تذكرة <3>دعم</3> أو poste في <4>ديسكورد</4> مع خطوات التكرير.</1><1><2>سبل الامن:</2> ارسل بريدا لل <5>security@push.org</5>. يرجى تجنب الإفصاح العام حتى نؤكد على حل.</1>",
       "englishChecksum": "e3864f1b6ec8ea7832ffe6c8aeb8af09",
-      "lastUpdated": "2026-02-08T05:48:05.754Z"
+      "lastUpdated": "2026-02-21T21:28:31.757Z"
     },
     "pages.knowledge.testnet.seo.description": {
-      "value": "دونات هو شبكة اختبار بوش تشين العام. ابحث عن كيفية التوصّل إليها، بناء تطبيقات عالمية، استخدام صهريج الماء، و تشغيل بوكير.",
+      "value": "دونوت هو شبكة الاختبار العامة لكفاية. اكتشف كيفية التوصيل، وإنشاء التطبيقات العالمية، واستخدام الفوارة، والعدم عن تشغيل المحرر.",
       "englishChecksum": "e2161002d0e2ec61a020f0d3384bf236",
-      "lastUpdated": "2026-02-08T05:47:39.295Z"
+      "lastUpdated": "2026-02-21T21:28:01.845Z"
     },
     "pages.knowledge.deepdives.seo.twitter-description": {
-      "value": "شرح عن عمل شين البوش",
+      "value": "شرح عن عملPush Chain.",
       "englishChecksum": "f1c4328ab68714a0fc2e2f591d9dc9ac",
-      "lastUpdated": "2026-02-08T05:48:09.326Z"
+      "lastUpdated": "2026-02-21T21:27:46.094Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "بناء – كيفية عملات وإرشادات",
@@ -2103,6 +2103,43 @@
       "value": "لينكد إن",
       "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
       "lastUpdated": "2026-02-08T06:00:36.842Z"
+    },
+    "pages.ecosystem.cta.title": {
+      "value": "تحتاج إلى الانضمام إلى أعلى مستوًى من بيئات التطبيق العالمية وزيادة عدد المستخدمين بـ10 مرات؟",
+      "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
+      "lastUpdated": "2026-02-21T21:28:12.744Z"
+    },
+    "components.ecosystem-apps-partners.apps.hodl-fun.description": {
+      "value": "إنشاء وتدفق توكنات ERC-20",
+      "englishChecksum": "bacd459d533b38e6c14384420e4436d2",
+      "lastUpdated": "2026-02-21T21:28:33.627Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-bet.description": {
+      "englishChecksum": "33db2cc900ba48e417f8f908709df8e1",
+      "lastUpdated": "2026-02-21T21:28:35.302Z"
+    },
+    "components.ecosystem-apps-partners.apps.omnihub.description": {
+      "englishChecksum": "012a780784dc5c40673a14fbcc5cc11a",
+      "lastUpdated": "2026-02-21T21:28:38.642Z"
+    },
+    "components.ecosystem-apps-partners.apps.conft-codomain.description": {
+      "value": "حشد متعدد-شاتين Web3: أسماء تنازلي, NFTs, منصة الإطلاق.",
+      "englishChecksum": "888fd2c40021557761b4a820c86314b9",
+      "lastUpdated": "2026-02-21T21:28:43.120Z"
+    },
+    "components.ecosystem-apps-partners.apps.copet.description": {
+      "englishChecksum": "5812e6849ddd7912141b70f845abbd71",
+      "lastUpdated": "2026-02-21T21:28:46.291Z"
+    },
+    "components.ecosystem-apps-partners.apps.surf-layer.description": {
+      "value": "بني ديكتاتك و كسب المكافآت على 70+ سلاسل.",
+      "englishChecksum": "1ccc9edcd548a714fd00fcbdcf68088a",
+      "lastUpdated": "2026-02-21T21:28:49.683Z"
+    },
+    "components.ecosystem-essentials.title": {
+      "value": "اكتشف التطبيقات الحامة في شبكة الإختبار",
+      "englishChecksum": "9d4ba33fc7e6db6c398a1fe55d4f906b",
+      "lastUpdated": "2026-02-21T21:28:50.821Z"
     }
   }
 }

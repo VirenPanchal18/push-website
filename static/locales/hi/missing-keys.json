@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-08T06:34:39.747Z",
+  "lastUpdated": "2026-02-21T21:50:20.676Z",
   "keys": {
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-of-the-future.title": {
       "value": "भविष्य के ऐप्स — बिना किसी अराजकता के निर्माण",
@@ -1282,9 +1282,9 @@
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
     "pages.ecosystem.hero-section.description": {
-      "value": "Push Chain के Donut Testnet पर universal अनुभवों के अगले युग का निर्माण करने वाले apps, partners, और early adopters को discover करें।",
-      "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
-      "lastUpdated": "2025-11-14T19:27:06.117Z"
+      "value": "पुश चेन के डोनट टेस्टनेट पर अगले युग की विश्वसनीय अनुभवों का पता लगाएं, जो एप्लिकेशंस, भागीदार और प्रारंभिक आडॉप्टर बना रहे हैं।",
+      "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
+      "lastUpdated": "2026-02-21T21:31:31.307Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "घोषणा खारिज करें",
@@ -1787,32 +1787,33 @@
       "lastUpdated": "2025-11-14T19:27:06.117Z"
     },
     "components.short-contact-us-snippet.answer-aria-label": {
+      "value": "वेनुग वालिन्-बश",
       "englishChecksum": "84c913b7410cbc873ad0018ac37fb40e",
-      "lastUpdated": "2026-02-08T05:49:51.230Z"
+      "lastUpdated": "2026-02-21T21:31:16.359Z"
     },
     "pages.docs.seo.og-description": {
       "englishChecksum": "4f218256c33decd445ac3e2dffc34c50",
-      "lastUpdated": "2026-02-08T05:49:58.014Z"
+      "lastUpdated": "2026-02-21T21:31:21.991Z"
     },
     "pages.docs.header.countdown-title": {
-      "value": "टेस्टनेट डॉकस लॉन्च में %s",
+      "value": "\nटेस्टनेट डॉक्स लॉन्च होने में {time}\n",
       "englishChecksum": "f79a8cf0846ab46e9992670fb25f2eda",
-      "lastUpdated": "2026-02-08T05:49:59.469Z"
+      "lastUpdated": "2026-02-21T21:31:23.418Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.whatispush.subtitle": {
-      "value": "पुश चेन एक यूनिवर्सल टूलकिट प्रदान करता है जिसका उपयोग करके वास्तव में यूनिवर्सल एप्लिकेशन बनाई जा सकती है।",
+      "value": "पीश चेन एक यूनिवर्सल एप्लिकेशन बनाने के लिए एकीकृत उपकरण किट प्रदान करता है।",
       "englishChecksum": "51c5c43c534cc7d1fbafd9c576678705",
-      "lastUpdated": "2026-02-08T05:50:02.776Z"
+      "lastUpdated": "2026-02-21T21:31:26.101Z"
     },
     "pages.privacymobile.seo.twitter-description": {
-      "value": "आपका डाटा और विकल्प पुश मोबाइल एप्लीकेशन्स में।",
+      "value": "Your data and choices in पुष्ट मोबाइल एप्प्स।",
       "englishChecksum": "eaa1cdd6da251c8602628f9804934510",
-      "lastUpdated": "2026-02-08T05:50:04.558Z"
+      "lastUpdated": "2026-02-21T21:31:27.537Z"
     },
     "components.cookie-banner.message": {
-      "value": "हम कोकीज़ का उपयोग व्यक्तिगत अनुभव के लिए करते हैं। nostro पर अधिक जानकारी प्राप्त करें",
+      "value": "हम कोकीज़ का उपयोग करके आपका अनुभव व्यक्तिगत बनाते हैं। हमारे में अधिक जानने के लिए क्लिक करें",
       "englishChecksum": "371ae79da8a6e6e86e8fb94a8731eadb",
-      "lastUpdated": "2026-02-08T05:50:06.151Z"
+      "lastUpdated": "2026-02-21T21:31:39.577Z"
     },
     "components.blog.footer-item.about-description": {
       "value": "Push चेन पहला वास्तविक यूनिवर्सल ब्लॉकचेन है, जो सभी चैन पर फ्रागमेंटेशन को मिटाता है। यह डेवलपर्स को एक बार डालना और किसी भी चेन (EVM या नॉन-EVM, जिसमें इथीरियम, सोलाना, बिटकोइन शामिल हैं) पर उपयोगकर्ताओं के लिए तुरंत उपलब्ध होने की अनुमति देता है। यह 100% EVM संगत, प्रूफ ऑफ स्टेक (PoS) चेन है जो Push चेन पर डिप्लॉई किए गए ऐप्स से किसी भी चेन पर नेटिवल रूप से इंटरैक्ट करने के लिए उपयोगकर्ताओं को अनुमति देता है, जैसे ही वे अपनीown चेन पर करते हैं।",
@@ -1938,9 +1939,9 @@
       "lastUpdated": "2026-01-16T17:15:17.229Z"
     },
     "components.cult-contact.form.success.message-after-link": {
-      "value": "\nऔर \"{token}\" के लिए एक नजर रखना\n",
+      "value": "\nऔर Eye रखे रहो पर",
       "englishChecksum": "e4dbaa554e2c8e7ebec5e00f4677c448",
-      "lastUpdated": "2026-02-08T05:50:07.912Z"
+      "lastUpdated": "2026-02-21T21:31:40.988Z"
     },
     "notifications.chain-notification.title": {
       "englishChecksum": "9d4568c009d203ab10e33ea9953a0264",
@@ -1997,9 +1998,8 @@
       "lastUpdated": "2026-02-08T06:34:39.747Z"
     },
     "components.blog.tags.tag-link-title": {
-      "value": "VIEW POSTS TAGGED WITH {{टागनामे}}",
       "englishChecksum": "4f71ea84561c9d5015c56d17ac242495",
-      "lastUpdated": "2026-02-08T05:49:54.152Z"
+      "lastUpdated": "2026-02-21T21:31:18.487Z"
     },
     "components.blog.more-posts.title": {
       "value": "और पोस्ट Push Chain से",
@@ -2080,6 +2080,345 @@
       "value": "लिंक्डइन",
       "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
       "lastUpdated": "2026-02-08T06:02:57.589Z"
+    },
+    "pages.ecosystem.cta.title": {
+      "value": "सबसे तेज़ी से बढ़ रहा विश्व-व्यापक एप्लिकेशन मंडल में शामिल होना चाहते हो और अपने उपयोगकों की संख्या को 10 गुना करना चाहते हो?",
+      "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
+      "lastUpdated": "2026-02-21T21:31:35.573Z"
+    },
+    "components.ecosystem-essentials.title": {
+      "value": "अनुभव करें आवश्यक टेस्टनेट एप्प्स",
+      "englishChecksum": "9d4ba33fc7e6db6c398a1fe55d4f906b",
+      "lastUpdated": "2026-02-21T21:31:42.180Z"
+    },
+    "components.ecosystem-essentials.apps.simulate-tx.description": {
+      "value": "एक यूनिवर्सल ट्रांजैक्शन सिमुलेट करें",
+      "englishChecksum": "93a1dbc5de1a2b469a1d5e7e7422804e",
+      "lastUpdated": "2026-02-21T21:31:45.157Z"
+    },
+    "components.ecosystem-essentials.apps.wallet.description": {
+      "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
+      "lastUpdated": "2026-02-21T21:31:46.616Z"
+    },
+    "components.ecosystem-apps-partners.coming-soon": {
+      "value": "<1>आने वाला है</1>",
+      "englishChecksum": "5f2e4ff62859cd3386f72e27fe429497",
+      "lastUpdated": "2026-02-21T21:42:36.917Z"
+    },
+    "components.ecosystem-apps-partners.app-spotlight": {
+      "value": "<keep>APP स्पॉटलाइट</keep>",
+      "englishChecksum": "3a447e6e50e41a2e8770c75feab7e435",
+      "lastUpdated": "2026-02-21T21:42:38.148Z"
+    },
+    "components.ecosystem-apps-partners.partners.silence-labs.name": {
+      "value": "साइलेंस लेब्स",
+      "englishChecksum": "c635c7ab760b57b5b24800c80dd78e80",
+      "lastUpdated": "2026-02-21T21:42:42.615Z"
+    },
+    "components.ecosystem-apps-partners.partners.silence-labs.description": {
+      "value": "MPC-TSS और गोपनीयता को सुरक्षित रखने वाली कंप्यूटिंग।",
+      "englishChecksum": "a6b9a97c767643f157f93ac4be4d3820",
+      "lastUpdated": "2026-02-21T21:43:00.840Z"
+    },
+    "components.ecosystem-apps-partners.partners.human-tech.name": {
+      "value": "ჰүმან.թექ",
+      "englishChecksum": "b643fb748f065b2c1f7944525f73d435",
+      "lastUpdated": "2026-02-21T21:43:03.579Z"
+    },
+    "components.ecosystem-apps-partners.partners.human-tech.description": {
+      "value": "एमपीसी-टीएसएस एवं प्राइवसी प्रीसर्विंग कंप्यूट.",
+      "englishChecksum": "a6b9a97c767643f157f93ac4be4d3820",
+      "lastUpdated": "2026-02-21T21:43:05.348Z"
+    },
+    "components.ecosystem-apps-partners.apps.ramen-swap.name": {
+      "value": "रामेन स्वैप",
+      "englishChecksum": "5940dd1727cb53669a74876ab6bdd5d0",
+      "lastUpdated": "2026-02-21T21:43:06.791Z"
+    },
+    "components.ecosystem-apps-partners.apps.ramen-swap.description": {
+      "value": "आपके इच्छा के अनुसार किसी भी चेन से टोकन सर्व कर रहा है",
+      "englishChecksum": "6f363665a7c8a6770e301bcaaaf135b4",
+      "lastUpdated": "2026-02-21T21:43:11.556Z"
+    },
+    "components.ecosystem-apps-partners.apps.halo.name": {
+      "value": "HALO",
+      "englishChecksum": "5ae9feb33e3f9aa51641d7a7cd6587cc",
+      "lastUpdated": "2026-02-21T21:43:28.563Z"
+    },
+    "components.ecosystem-apps-partners.apps.halo.description": {
+      "value": "एकिफ़ाद इन्फ्रास्ट्रक्चर लेयर फॉर एजेंटिक कमर्स।",
+      "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
+      "lastUpdated": "2026-02-21T21:43:31.861Z"
+    },
+    "components.ecosystem-apps-partners.apps.cetra.name": {
+      "value": "सीटरा",
+      "englishChecksum": "b06279d7a2c1ef8aab9546c5215b0ba5",
+      "lastUpdated": "2026-02-21T21:43:32.585Z"
+    },
+    "components.ecosystem-apps-partners.apps.cetra.description": {
+      "value": "सम्पत्ति आपूर्ति करें, उनके खिलाफ उधार लें और मापित नफ़े कमाएँ",
+      "englishChecksum": "669e61255889e1be25d9b81161ad9c3b",
+      "lastUpdated": "2026-02-21T21:43:36.559Z"
+    },
+    "components.ecosystem-apps-partners.apps.hodl-fun.name": {
+      "value": "होडल.फुन",
+      "englishChecksum": "e8801f29c811d1f662071a6136828d32",
+      "lastUpdated": "2026-02-21T21:43:38.126Z"
+    },
+    "components.ecosystem-apps-partners.apps.hodl-fun.description": {
+      "value": "ERC-20 टोकन बनाएं और लॉन्च करें",
+      "englishChecksum": "bacd459d533b38e6c14384420e4436d2",
+      "lastUpdated": "2026-02-21T21:43:41.451Z"
+    },
+    "components.ecosystem-apps-partners.apps.eon-ai-butler.name": {
+      "value": "ईओएन: एआई बटलर",
+      "englishChecksum": "a164a9e8bdcfc0e10eeeb3da690652d9",
+      "lastUpdated": "2026-02-21T21:43:43.060Z"
+    },
+    "components.ecosystem-apps-partners.apps.eon-ai-butler.description": {
+      "value": "सपोर्टेड नेटवर्क्स के बीच एसेट्स भेजें, स्वैपर करें, तथा मैनेज करें",
+      "englishChecksum": "d2822a0f2c751033d49a46e8a093c0e3",
+      "lastUpdated": "2026-02-21T21:43:48.611Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-bet.name": {
+      "value": "पुश-बेट",
+      "englishChecksum": "85dd2b4a6830443df0995de3f6fdaad6",
+      "lastUpdated": "2026-02-21T21:43:51.225Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-bet.description": {
+      "value": "<1>दिखाएँ आपके डीजेन सुपरपॉवर को पुरस्कार के लिए कमाने के लिए<1>",
+      "englishChecksum": "33db2cc900ba48e417f8f908709df8e1",
+      "lastUpdated": "2026-02-21T21:43:53.129Z"
+    },
+    "components.ecosystem-apps-partners.apps.onchain-vampire-survivors.name": {
+      "value": "ओनचेनवांप्रियसर्वाइवर",
+      "englishChecksum": "9e5e8a4e7b2695cb2356cbc42e599751",
+      "lastUpdated": "2026-02-21T21:43:56.686Z"
+    },
+    "components.ecosystem-apps-partners.apps.onchain-vampire-survivors.description": {
+      "value": "यूनिवर्सल वैम्पायर सर्वाइवर्स जैसे गेम",
+      "englishChecksum": "198898d88d773f4b4f43e86f05c638f0",
+      "lastUpdated": "2026-02-21T21:44:15.549Z"
+    },
+    "components.ecosystem-apps-partners.apps.last-one.name": {
+      "value": " Last One ",
+      "englishChecksum": "efa586fc1f25befff78cf7b39000ae0a",
+      "lastUpdated": "2026-02-21T21:44:18.217Z"
+    },
+    "components.ecosystem-apps-partners.apps.last-one.description": {
+      "value": "जान्त देर फून्द बिला परुलाऋल्द धूटर",
+      "englishChecksum": "52a2f5698ff42539399b6b424702f1b7",
+      "lastUpdated": "2026-02-21T21:44:23.227Z"
+    },
+    "components.ecosystem-apps-partners.apps.pns.name": {
+      "value": "PNS",
+      "englishChecksum": "6d21aa7daec30dfc7a2d145045971149",
+      "lastUpdated": "2026-02-21T21:44:41.297Z"
+    },
+    "components.ecosystem-apps-partners.apps.pns.description": {
+      "value": "<1>आपकी पहचान हर चेन पर<2>",
+      "englishChecksum": "d2ba1343b8445eeda74a0c5839ca9d52",
+      "lastUpdated": "2026-02-21T21:44:47.024Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-x402.name": {
+      "value": "पुश x402",
+      "englishChecksum": "d3619edf8f9cbb1da49b8cd7218d8bc6",
+      "lastUpdated": "2026-02-21T21:44:50.521Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-x402.description": {
+      "value": "एजेंटिक इंफ्रास्ट्रक्चर के लिए प्रति-कॉल API मुद्रीकरण",
+      "englishChecksum": "522b2e49700be9e95c24d9e972b2805f",
+      "lastUpdated": "2026-02-21T21:45:08.670Z"
+    },
+    "components.ecosystem-apps-partners.apps.bountive.name": {
+      "value": "Bountive",
+      "englishChecksum": "77907e6a6f8a96f91bde18d2d927a929",
+      "lastUpdated": "2026-02-21T21:45:26.869Z"
+    },
+    "components.ecosystem-apps-partners.apps.bountive.description": {
+      "value": "सार्वभौमिक विकास इंजन जो क्लिक से ज़्यादा गुणवत्ता को पुरस्कृत करता है",
+      "englishChecksum": "b11654d18004ce8a435345b64a103ecd",
+      "lastUpdated": "2026-02-21T21:45:44.844Z"
+    },
+    "components.ecosystem-apps-partners.apps.beat-brawls.name": {
+      "value": "बीट ब्रावल्स",
+      "englishChecksum": "a901cdbf300774859c093a14e418e2ee",
+      "lastUpdated": "2026-02-21T21:45:47.648Z"
+    },
+    "components.ecosystem-apps-partners.apps.beat-brawls.description": {
+      "value": "कभी न भूलने वाले म्यूजिकल बैटल्स",
+      "englishChecksum": "3fd83fbf7b087be7c59604faf2832589",
+      "lastUpdated": "2026-02-21T21:46:04.401Z"
+    },
+    "components.ecosystem-apps-partners.apps.apt-casino.name": {
+      "value": "APT Casino",
+      "englishChecksum": "01f97c1652a54dc7d416bc102d137c01",
+      "lastUpdated": "2026-02-21T21:46:23.738Z"
+    },
+    "components.ecosystem-apps-partners.apps.apt-casino.description": {
+      "value": "युनिवर्सल, फेयर और ट्रान्स्पेरेंट बैटिंग करने के लिए",
+      "englishChecksum": "03591614d5bea997ab5413de4298c0db",
+      "lastUpdated": "2026-02-21T21:46:31.047Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-ninja.name": {
+      "value": "पुश निंजा",
+      "englishChecksum": "b86e1b6f9d1e04c831ac2e3a54ed9cbb",
+      "lastUpdated": "2026-02-21T21:46:32.449Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-ninja.description": {
+      "value": "ऑन-चेन कौशल आधारित गेम",
+      "englishChecksum": "8787bd2656821a4c52f671486cbf9e7a",
+      "lastUpdated": "2026-02-21T21:46:48.447Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-ninja.spotlight-text": {
+      "value": "काटें. बचें. स्कोर करें.",
+      "englishChecksum": "0c2c91f61d34f525ed855279f425dbfe",
+      "lastUpdated": "2026-02-21T21:47:07.524Z"
+    },
+    "components.ecosystem-apps-partners.apps.tip-up.name": {
+      "value": "टिपअप",
+      "englishChecksum": "488c37dfaa955b605e9437e4856879ad",
+      "lastUpdated": "2026-02-21T21:47:11.492Z"
+    },
+    "components.ecosystem-apps-partners.apps.tip-up.description": {
+      "value": "कोई भी श्रृंखला पर किसी भी वॉलेट का उपयोग करके टिप दें",
+      "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
+      "lastUpdated": "2026-02-21T21:47:15.192Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-swap.name": {
+      "value": "पुश स्वीप",
+      "englishChecksum": "14e94494e10054a90567e76742d9cc9f",
+      "lastUpdated": "2026-02-21T21:47:16.587Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-swap.description": {
+      "value": "बिना ब्रिज के आसान क्रॉस-चेन टोकन स्वैप",
+      "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
+      "lastUpdated": "2026-02-21T21:47:34.124Z"
+    },
+    "components.ecosystem-apps-partners.apps.chain-circle.name": {
+      "value": "चेन सर्कल",
+      "englishChecksum": "0dc06c3039eee4f6e4b70fddc944610c",
+      "lastUpdated": "2026-02-21T21:47:37.684Z"
+    },
+    "components.ecosystem-apps-partners.apps.chain-circle.description": {
+      "value": "क्रॉस-चेेन सেভिंग सर्कल्स",
+      "englishChecksum": "4f006bfe92fe7e36f82e22762f29cded",
+      "lastUpdated": "2026-02-21T21:47:41.207Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-campus.name": {
+      "value": "पुश कैंपस",
+      "englishChecksum": "e60b6dc6a4b8dda6c7e65ae094400aca",
+      "lastUpdated": "2026-02-21T21:47:42.636Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-campus.description": {
+      "value": "Ethereum, Solana, Base, और 15+ शेयर्ड-स्टेट्स पर स्टूडेंट्स को पहुंचाएं",
+      "englishChecksum": "96177f6dc7967d71fea626c729e5b4d7",
+      "lastUpdated": "2026-02-21T21:47:47.146Z"
+    },
+    "components.ecosystem-apps-partners.apps.ballsy.name": {
+      "value": "Ballsy",
+      "englishChecksum": "2dce491318f3a8c30d4243db0ed2efa7",
+      "lastUpdated": "2026-02-21T21:48:06.928Z"
+    },
+    "components.ecosystem-apps-partners.apps.ballsy.description": {
+      "value": "अपनी पसंदीदा <blockchain> से लॉग इन करके गौरव के लिए लड़ें",
+      "englishChecksum": "ed525116f9353cf0d99b87bb61be9dd7",
+      "lastUpdated": "2026-02-21T21:48:27.011Z"
+    },
+    "components.ecosystem-apps-partners.apps.athera.name": {
+      "value": "एथेरा",
+      "englishChecksum": "62eaf8b2ff19c85203b91181aaec159f",
+      "lastUpdated": "2026-02-21T21:48:31.175Z"
+    },
+    "components.ecosystem-apps-partners.apps.athera.description": {
+      "value": "स्वतः क्रिप्टो विरासत",
+      "englishChecksum": "b858d9e3e797003c2bc27d7ea415eae2",
+      "lastUpdated": "2026-02-21T21:48:32.678Z"
+    },
+    "components.ecosystem-apps-partners.apps.pusd.name": {
+      "value": "PUSD",
+      "englishChecksum": "c754532c4ca53e2b6bf5559697220908",
+      "lastUpdated": "2026-02-21T21:48:48.700Z"
+    },
+    "components.ecosystem-apps-partners.apps.pusd.description": {
+      "value": "1:1 पेग्ड स्टेबलकोइन, सभी श्रेनों से यूएसडी लिक्विडिटी का मिक्स",
+      "englishChecksum": "a528d378828b52af79e3093736899028",
+      "lastUpdated": "2026-02-21T21:48:52.110Z"
+    },
+    "components.ecosystem-apps-partners.apps.freename.name": {
+      "value": "फ़्रीनेम",
+      "englishChecksum": "fa78f290e666570a113964a4f10d4696",
+      "lastUpdated": "2026-02-21T21:48:55.096Z"
+    },
+    "components.ecosystem-apps-partners.apps.freename.description": {
+      "value": "क्रिप्टो को डोमेन के बजाय हैशों में भेजा जाए",
+      "englishChecksum": "9db0b31f0e2f6e15c74e86812e4395b9",
+      "lastUpdated": "2026-02-21T21:48:56.799Z"
+    },
+    "components.ecosystem-apps-partners.apps.hang4-fun.name": {
+      "value": "हँग ४.फन",
+      "englishChecksum": "92b8133ccc79161539d23d4305a32a6e",
+      "lastUpdated": "2026-02-21T21:49:00.884Z"
+    },
+    "components.ecosystem-apps-partners.apps.hang4-fun.description": {
+      "value": "आगामी है",
+      "englishChecksum": "5f2e4ff62859cd3386f72e27fe429497",
+      "lastUpdated": "2026-02-21T21:49:02.275Z"
+    },
+    "components.ecosystem-apps-partners.apps.degen-chess.name": {
+      "value": "डेगेन शतरंज",
+      "englishChecksum": "6f509f930a51f2466313d613b79b88f0",
+      "lastUpdated": "2026-02-21T21:49:07.222Z"
+    },
+    "components.ecosystem-apps-partners.apps.degen-chess.description": {
+      "value": "शतरंज खेलें, दांव लगाएं, युनिवर्सल",
+      "englishChecksum": "e615a86c9a6d0d2489928155479b5e04",
+      "lastUpdated": "2026-02-21T21:49:24.444Z"
+    },
+    "components.ecosystem-apps-partners.apps.omnihub.name": {
+      "value": "<keep>ओमनीहब</keep>",
+      "englishChecksum": "cec5a3b7f2cb33073d108bccbe1a6fa1",
+      "lastUpdated": "2026-02-21T21:49:28.925Z"
+    },
+    "components.ecosystem-apps-partners.apps.omnihub.description": {
+      "value": "<2>ब्लॉकचेन कलेक्टिबल्स बनाएँ, खरीदें और बेचें<2>",
+      "englishChecksum": "012a780784dc5c40673a14fbcc5cc11a",
+      "lastUpdated": "2026-02-21T21:49:32.276Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-dex.name": {
+      "value": "PushDex",
+      "englishChecksum": "714cf8323f39fa139567f66f7935c25f",
+      "lastUpdated": "2026-02-21T21:49:47.704Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-dex.description": {
+      "value": "DEX Pushchain टेस्टनेट पर बनाया गया",
+      "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
+      "lastUpdated": "2026-02-21T21:50:05.522Z"
+    },
+    "components.ecosystem-apps-partners.apps.zns.name": {
+      "value": "ज़ेणएस",
+      "englishChecksum": "f5cae9fb73065bd6b28efd8b19cd0501",
+      "lastUpdated": "2026-02-21T21:50:09.562Z"
+    },
+    "components.ecosystem-apps-partners.apps.zns.description": {
+      "value": "मल्टी-चेन डोमैन्स, GM + डिप्लॉइट टूल्स",
+      "englishChecksum": "aa15cc9016159b819e78b7b8eaa4aad7",
+      "lastUpdated": "2026-02-21T21:50:15.851Z"
+    },
+    "components.ecosystem-apps-partners.apps.star-run.name": {
+      "value": "स्टार रन",
+      "englishChecksum": "c1011cf04146074ef134e5ee22c721a6",
+      "lastUpdated": "2026-02-21T21:50:17.188Z"
+    },
+    "components.ecosystem-apps-partners.apps.star-run.description": {
+      "value": "एक डिसेंtrlाइज़्ड, प्लेयर-owed इकॉनोमी",
+      "englishChecksum": "33f707aba5e959459f2af021a3adf6da",
+      "lastUpdated": "2026-02-21T21:50:19.149Z"
+    },
+    "components.ecosystem-apps-partners.apps.forge-realm.name": {
+      "value": "फॉर्च रियलम",
+      "englishChecksum": "36fab03f05692f524d94f9e4a92219da",
+      "lastUpdated": "2026-02-21T21:50:20.676Z"
     }
   }
 }
