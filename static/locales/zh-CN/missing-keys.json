@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-08T06:37:00.452Z",
+  "lastUpdated": "2026-02-21T21:50:38.361Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1206,11 +1206,6 @@
       "englishChecksum": "fe68c572bef7a7bcecc2316924ceb555",
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
-    "pages.ecosystem.hero-section.description": {
-      "value": "探索在 Push Chain 的 Donut 测试网上构建下一代 universal 体验的 app、合作伙伴和早期采用者。",
-      "englishChecksum": "70f52e04c9429af0acf89f79a06f1df1",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
     "notifications.info-bar.dismiss-button-title": {
       "value": "关闭通知",
       "englishChecksum": "cd8059d4a0d2dfe57e5c3460f468f71a",
@@ -1712,24 +1707,24 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助Push Chain的共享状态、跨链架构，可能性无穷。以下是几个旗舰示例：\n\n- **通用DEX**  \n  单一交易界面适用于每个流动性池–通过所有链进行快速路由，提供类似集中式交易所的体验和速度。\n\n- **通用DeFi**  \n  浏览器中的全球银行：跨生态系统的借贷、放贷、收益聚合器，无需手动桥接。\n\n- **通用AI代理**  \n  自主代理，可以在任何链上支付和获取 tokens –适用于订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理：不论起源链如何，令牌持有者投票并实施提案。\n\n- **通用游戏**  \n  多玩家比赛和跨链游戏经济，统一玩家和资产来自以太坊、索拉纳、多边形等。\n\n- **通用市场**  \n  买卖和交易NFTs和tokens，覆盖所有链的集成市场。\n\n- **通用名称服务**  \n  可读性强的名称，在多个区块链上解析钱包。\n\nPush Chain上的应用和创新无穷无尽！点击这里查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。构建者也可以访问[文档中心](/docs/)开始操作。\n\n---",
+      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![通用App示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**  \n  一键交换UI，覆盖所有流动性池–跨链路由，速度和体验如同集中交易所(Centralized Exchange, CEX)。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借贷、收益聚合器跨链而无需手动桥接。\n\n- **通用AI代理人**  \n  自主代理人，在任何链上支付和获取任何代币–适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理，令牌持有者投票和执行提案，不论其来源链。\n\n- **通用游戏**  \n  多玩家比赛和游戏经济，统一玩家和资产来自以太坊、索拉纳、多边形等链。\n\n- **通用市场**  \n  买卖和交易NFT和代币的集中市场，涵盖所有链。\n\n- **通用名称服务**  \n  人类可读名称，解析到多个区块链的钱包。\n\n在Push Chain上可以构建的应用和创新无尽！请查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。开发者也可以查看[文档中心](/docs/)开始。\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-02-08T05:58:25.127Z"
+      "lastUpdated": "2026-02-21T21:42:15.790Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
-      "value": "## 开发人员、用户和节点运营者",
+      "value": "## 开发者、用户和节点运营商",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-02-08T05:58:27.677Z"
+      "lastUpdated": "2026-02-21T21:42:17.994Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "Push Chain 移动应用收集、使用和保护数据的方式，以及您的选择。",
+      "value": "Push Chain 移动应用中如何收集、使用和保护数据，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-02-08T05:58:31.080Z"
+      "lastUpdated": "2026-02-21T21:42:19.602Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "我需要一种不同的钱包或燃气代币吗？",
+      "value": "我需要不同的钱包或气费令牌吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-02-08T05:58:34.860Z"
+      "lastUpdated": "2026-02-21T21:42:22.907Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -2045,6 +2040,25 @@
       "value": "领英",
       "englishChecksum": "f5cf4ee73b3b81298d6f8949271c2c23",
       "lastUpdated": "2026-02-08T06:09:38.686Z"
+    },
+    "components.ecosystem-apps-partners.apps.halo.description": {
+      "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
+      "lastUpdated": "2026-02-21T21:42:24.795Z"
+    },
+    "components.ecosystem-apps-partners.apps.push-dex.description": {
+      "value": "在Push Chain测试网上建立的DEX",
+      "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
+      "lastUpdated": "2026-02-21T21:42:28.220Z"
+    },
+    "components.ecosystem-essentials.apps.pc-faucet.description": {
+      "value": "这里可以领取PC测试网代币",
+      "englishChecksum": "7d5eea9c1d62836ae78b6ac64cf7b30b",
+      "lastUpdated": "2026-02-21T21:42:29.806Z"
+    },
+    "components.ecosystem-essentials.apps.wallet.description": {
+      "value": " PushChain 的通用钱包",
+      "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
+      "lastUpdated": "2026-02-21T21:42:31.201Z"
     }
   }
 }
