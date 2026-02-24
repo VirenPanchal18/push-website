@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'Push Chain × human.tech: Enabling Social Login–Native, Self-Custodial Wallets'
 text: "Push Chain has integrated human.tech’s Wallet as a Protocol (WaaP) infrastructure to enable social login based, self-custodial wallet access directly within the Push Chain ecosystem"
 tags: [Partnerships, Product]
+twitterId: '2026296963877269847'
 ---
 
 ![Push Chain × human.tech: Enabling Social Login–Native, Self-Custodial Wallets](./cover-image.webp)
