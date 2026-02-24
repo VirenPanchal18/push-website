@@ -100,6 +100,7 @@
   --ifm-playground-border-stable: #c4cbd5;
   --ifm-iframe-icon-color: #202124;
   --ifm-link-color: #c742dd;
+  --ifm-positive-action-color: #37b142;
   --ifm-surface-alert-warning-subtle: #fff0cb;
   --ifm-stroke-alert-warning-subtle: #8a4900;
   --ifm-border-alert-warning-subtle: #ffbb16;
@@ -484,6 +485,7 @@
   --ifm-playground-border-stable: #484d58;
   --ifm-iframe-icon-color: #b0b3b9;
   --ifm-link-color: #cf59e2;
+  --ifm-positive-action-color: #50fa7b;
   --ifm-surface-alert-warning-subtle: #472600;
   --ifm-stroke-alert-warning-subtle: #fff0cb;
   --ifm-border-alert-warning-subtle: #8a4900;
