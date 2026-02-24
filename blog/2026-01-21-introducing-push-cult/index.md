@@ -6,7 +6,6 @@ image: './cover-image.webp'
 description: 'An exclusive order of 50 creators selected to split a 20M PC token bounty by delivering pure signal.'
 text: "Push Cult is an exclusive order of 50 elite creators splitting 20M PC tokens. No AI slop. No empty engagement. Just pure signal from visionaries building the future of universal blockchain."
 tags: [Featured, Programs, Ecosystem, Maker Monday]
-showcase: true
 twitterId: '2014337359064789182'
 ---
 

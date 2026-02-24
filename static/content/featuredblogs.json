@@ -1,5 +1,23 @@
 [
   {
+    "title": "Push Chain × human.tech: Enabling Social Login–Native, Self-Custodial Wallets",
+    "link": "/blog/push-chain-human-tech/",
+    "slug": "push-chain-human-tech",
+    "pubDate": "Tue, 24 Feb 2026 00:00:00 GMT",
+    "description": "Push Chain has integrated human.tech’s Wallet as a Protocol (WaaP) infrastructure to enable social login based, self-custodial wallet access directly within the Push Chain ecosystem",
+    "readingTime": 1,
+    "imageUrl": "/assets/blog/featured/blog--push-chain-human-tech--cover-image.webp",
+    "tags": [
+      "Featured",
+      "Partnerships",
+      "Product"
+    ],
+    "authors": [
+      "push"
+    ],
+    "showcase": true
+  },
+  {
     "title": "Introducing Push Cult 👁️⃤  -  Blood Pact for Creators",
     "link": "/blog/introducing-the-push-cult/",
     "slug": "introducing-the-push-cult",
@@ -16,7 +34,7 @@
     "authors": [
       "push"
     ],
-    "showcase": true
+    "showcase": false
   },
   {
     "title": "How Universal Transaction Works",
