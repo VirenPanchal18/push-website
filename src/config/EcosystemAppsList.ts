@@ -52,7 +52,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
     descriptionColor: 'white',
     tagsColor: 'white',
-    appoftheweek: true,
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.halo.name',
@@ -114,6 +113,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
     descriptionColor: 'white',
     tagsColor: 'white',
+    appoftheweek: true,
   },
   {
     nameKey:

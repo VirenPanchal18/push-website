@@ -4914,9 +4914,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/ui-kit@npm:^4.0.14":
-  version: 4.0.14
-  resolution: "@pushchain/ui-kit@npm:4.0.14"
+"@pushchain/ui-kit@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@pushchain/ui-kit@npm:4.1.0"
   dependencies:
     "@coral-xyz/anchor": "npm:^0.31.1"
     "@metamask/sdk": "npm:^0.32.0"
@@ -4932,7 +4932,7 @@ __metadata:
   peerDependencies:
     react: ">=18.3.0 <20.0.0"
     react-dom: ">=18.3.0 <20.0.0"
-  checksum: 10c0/d6f9b8904aaec12e6e243e5655059961a2b2abed492ef3de4425b30b61f9e20b7a695402f7adaa8eb4f26909b90109dca3259ef67914748d4386cb9c82735c3b
+  checksum: 10c0/1e3871952fbf0c2a51bf0e274591fbb7bb6faebb594f6beb8ddf7ee9fd8bcdf360cb0be92b27fbbc6a14c2a3ef40400bdf560fe428d38a622f0b61c8e92ff128
   languageName: node
   linkType: hard
 
@@ -18573,7 +18573,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pushchain/core": "npm:^4.0.13"
-    "@pushchain/ui-kit": "npm:^4.0.14"
+    "@pushchain/ui-kit": "npm:^4.1.0"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@solana/web3.js": "npm:^1.98.2"
     "@splidejs/react-splide": "npm:^0.7.12"

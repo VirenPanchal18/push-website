@@ -34,7 +34,7 @@ export const KBDeepDivesList = {
             '/static/assets/website/chain/knowledge/what-is-fee-abstraction',
           imageSrcSet: false,
           valueKey:
-            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-is-universal-fee-abstraction.title',
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-is-universal-fee-abstraction',
           url: '/blog/what-is-universal-abstraction',
           target: '_blank',
         },
@@ -44,7 +44,7 @@ export const KBDeepDivesList = {
             '/static/assets/website/chain/knowledge/what-are-executor-accounts',
           imageSrcSet: false,
           valueKey:
-            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-are-universal-executor-accounts.title',
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-are-universal-executor-accounts',
           url: '/blog/what-are-universal-executor-accounts',
           target: '_blank',
         },
@@ -54,7 +54,7 @@ export const KBDeepDivesList = {
             '/static/assets/website/chain/knowledge/how-universal-transaction-works',
           imageSrcSet: false,
           valueKey:
-            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.how-universal-transaction-works.title',
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.how-universal-transaction-works',
           url: '/blog/how-universal-transaction-works',
           target: '_blank',
         },
@@ -64,7 +64,7 @@ export const KBDeepDivesList = {
             '/static/assets/website/chain/knowledge/push-chain-silence-labs',
           imageSrcSet: false,
           valueKey:
-            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.push-chain-silence-labs.title',
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.push-chain-silence-labs',
           url: '/blog/push-chain-silence-labs',
           target: '_blank',
         },
@@ -73,7 +73,7 @@ export const KBDeepDivesList = {
           image: '/static/assets/website/chain/knowledge/interop-spectrum',
           imageSrcSet: false,
           valueKey:
-            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title',
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum',
           url: '/blog/interop-spectrum',
           target: '_blank',
         },
