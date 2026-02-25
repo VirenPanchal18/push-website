@@ -20,7 +20,13 @@ import {
 } from '@site/src/css/SharedStyling';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
-import { FiCheck, FiChevronDown, FiChevronUp, FiCopy } from 'react-icons/fi';
+import {
+  FiCheck,
+  FiChevronDown,
+  FiChevronUp,
+  FiCopy,
+  FiLink,
+} from 'react-icons/fi';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import styles from './styles.module.css';
 
@@ -73,6 +79,7 @@ function Preview({ codeEnv }) {
 
 function ResultWithHeader({ title, codeEnv, hidden, code }) {
   const [copied, setCopied] = useState(false);
+  const [shared, setShared] = useState(false);
 
   const displayTitle = title || (
     <Translate
@@ -84,7 +91,20 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
   );
   const previewClass = `${styles.playgroundPreview} preview${codeEnv}`;
 
-  const handleCopy = async (e) => {
+  const compressCode = (code) => {
+    try {
+      // Use TextEncoder for proper Unicode handling
+      const encoder = new TextEncoder();
+      const data = encoder.encode(code);
+      const binaryString = String.fromCharCode(...data);
+      return btoa(binaryString);
+    } catch (err) {
+      console.error('Compression failed, using plain encoding', err);
+      return encodeURIComponent(code);
+    }
+  };
+
+  const handleCopy = async () => {
     try {
       const match = code.match(/const\s+defaultCode\s*=\s*`([\s\S]*?)`;/);
       const extractedCode = match ? match[1] : '';
@@ -96,6 +116,21 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
     }
   };
 
+  const handleShare = async (e) => {
+    try {
+      const match = code.match(/const\s+defaultCode\s*=\s*`([\s\S]*?)`;/);
+      const extractedCode = match ? match[1] : '';
+      const compressedCode = compressCode(extractedCode);
+      const ideType = codeEnv === CodingEnvironment.NODEJS ? 'node' : 'react';
+      const shareUrl = `${window.location.origin}/docs/chain/code-snippet#code=${compressedCode}&ide=${ideType}`;
+      await navigator.clipboard.writeText(shareUrl);
+      setShared(true);
+      setTimeout(() => setShared(false), 2000); // reset after 2s
+    } catch (err) {
+      console.error('Failed to share', err);
+    }
+  };
+
   return (
     <>
       <Header>
@@ -104,9 +139,22 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
             {displayTitle}
           </ItemV>
           {hidden && (
-            <CopyButton onClick={handleCopy}>
-              {copied ? <FiCheck color='#50FA7B' /> : <FiCopy />}
-            </CopyButton>
+            <>
+              <CopyButton onClick={handleShare} style={{ marginRight: '8px' }}>
+                {shared ? (
+                  <FiCheck color='var(--ifm-positive-action-color)' />
+                ) : (
+                  <FiLink />
+                )}
+              </CopyButton>
+              <CopyButton onClick={handleCopy}>
+                {copied ? (
+                  <FiCheck color='var(--ifm-positive-action-color)' />
+                ) : (
+                  <FiCopy />
+                )}
+              </CopyButton>
+            </>
           )}
         </ItemH>
       </Header>
@@ -131,6 +179,7 @@ function ThemedLiveEditor({ code, className }) {
 function EditorWithHeader({ minimized, code, title, codeEnv }) {
   const [minimizedState, setMinimizedState] = useState(minimized);
   const [copied, setCopied] = useState(false);
+  const [shared, setShared] = useState(false);
   const liveEditorClasses = `liveEditor${codeEnv}`;
 
   const displayTitle = title || (
@@ -150,6 +199,33 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
       setTimeout(() => setCopied(false), 2000); // reset after 2s
     } catch (err) {
       console.error('Failed to copy', err);
+    }
+  };
+
+  const compressCode = (code) => {
+    try {
+      // Use TextEncoder for proper Unicode handling
+      const encoder = new TextEncoder();
+      const data = encoder.encode(code);
+      const binaryString = String.fromCharCode(...data);
+      return btoa(binaryString);
+    } catch (err) {
+      console.error('Compression failed, using plain encoding', err);
+      return encodeURIComponent(code);
+    }
+  };
+
+  const handleShare = async (e) => {
+    e.stopPropagation();
+    try {
+      const compressedCode = compressCode(code);
+      const ideType = codeEnv === CodingEnvironment.NODEJS ? 'node' : 'react';
+      const shareUrl = `${window.location.origin}/docs/chain/code-snippet#code=${compressedCode}&ide=${ideType}`;
+      await navigator.clipboard.writeText(shareUrl);
+      setShared(true);
+      setTimeout(() => setShared(false), 2000); // reset after 2s
+    } catch (err) {
+      console.error('Failed to share', err);
     }
   };
 
@@ -176,8 +252,19 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
             {displayTitle}
           </ItemV>
           <CopyContainer>
+            <CopyButton onClick={handleShare} style={{ marginRight: '8px' }}>
+              {shared ? (
+                <FiCheck color='var(--ifm-positive-action-color)' />
+              ) : (
+                <FiLink />
+              )}
+            </CopyButton>
             <CopyButton onClick={handleCopy}>
-              {copied ? <FiCheck color='#50FA7B' /> : <FiCopy />}
+              {copied ? (
+                <FiCheck color='var(--ifm-positive-action-color)' />
+              ) : (
+                <FiCopy />
+              )}
             </CopyButton>
             {minimizedState ? <FiChevronDown /> : <FiChevronUp />}
           </CopyContainer>

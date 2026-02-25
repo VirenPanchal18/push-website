@@ -261,7 +261,9 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
             <PushUniversalAccountButton />
 
             {connectionStatus == PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED &&
-              <p>Push Chain Client Initialized: ${JSON.stringify(pushChainClient)}</p>
+              <p>Push Chain Client Initialized: {JSON.stringify(pushChainClient, (key, value) =>
+                typeof value === 'bigint' ? value.toString() : value
+              )}</p>
             }
           </div>
         );

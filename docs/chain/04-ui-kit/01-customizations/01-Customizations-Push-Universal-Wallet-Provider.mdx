@@ -111,8 +111,25 @@ Customize the behavior of the wallet connection, logins, and modals by using the
 | ---------------------- | ---------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `email`                | `boolean`                                | `true`                                        | Enables email sign in when `true`                                                                                                                                                                                                              |
 | `google`               | `boolean`                                | `true`                                        | Enables google sign in when `true`                           |
+| `phone`               | `boolean`                                | `true`                                        | Enables phone sign in when `true`                           |
+| `socials`               | `Object`                                | _\*\*_                                         | Enables additional social login providers. _\*\*_ See `config.login.socials` Options.                              |
 | `wallet`               | `Object`                                 | _\*\*_                                        | External wallet configuration. _\*\*_ See `config.login.wallet` Options.                                         |
 | `appPreview`           | `boolean`                                | `false`                                       | Show app preview in modal                                                                                                                                                                                                                          |
+
+</PushAPIReference>
+
+</Details>
+
+<Details summary="`config.login.socials` Options" className="alert alert--minimal code">
+
+<PushAPIReference showRequiredNotice={false}>
+
+| Property               | Type                                     | Default                                       | Description                                                                                                                                                                                                                                        |
+| ---------------------- | ---------------------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `discord`                | `boolean`                                | `true`                                        | Enables discord sign in when `true`                                                                                                                                                                                                              |
+| `github`               | `boolean`                                | `true`                                        | Enables github sign in when `true`                           |
+| `x`               | `boolean`                                | `true`                                        | Enables twitter sign in when `true`                           |
+| `bluesky`               | `boolean`                                | `true`                                       | Enables bluesky sign in when `true`                             |
 
 </PushAPIReference>
 
