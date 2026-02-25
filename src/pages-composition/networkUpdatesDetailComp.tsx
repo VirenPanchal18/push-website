@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { Content, Section } from '@site/src/css/SharedStyling';
 
 import ContentBlocks from '@site/src/components/ContentBlocks/ContentBlocks';
-import { KBReportIncidentList } from '../config/KBReportIncidentList';
+import { KBNetworkUpdatesDetailList } from '../config/KBNetworkUpdatesDetailList';
 
 // Internal Configs
 
@@ -22,7 +22,7 @@ import { KBReportIncidentList } from '../config/KBReportIncidentList';
 // Helper Component
 
 // Main
-const ReportIncidentsComp = () => {
+const NetworkUpdatesDetailComp = ({ incidentId }: { incidentId: string }) => {
   // Localization
   const { t } = useTranslation();
 
@@ -41,17 +41,20 @@ const ReportIncidentsComp = () => {
     },
     {
       text: t('pages.knowledge.report.explainer-section.breadcrumbs.report'),
-      link: '/knowledge/testnet/report',
+      link: '/knowledge/testnet/updates',
     },
   ];
 
   return (
     <Section>
       <Content className='skeletonsmall'>
-        <ContentBlocks item={KBReportIncidentList} breadcrumbs={breadcrumbs} />
+        <ContentBlocks
+          item={KBNetworkUpdatesDetailList[incidentId]}
+          breadcrumbs={breadcrumbs}
+        />
       </Content>
     </Section>
   );
 };
 
-export default ReportIncidentsComp;
+export default NetworkUpdatesDetailComp;

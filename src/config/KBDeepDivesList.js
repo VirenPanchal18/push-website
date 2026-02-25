@@ -21,7 +21,8 @@ export const KBDeepDivesList = {
     },
 
     {
-      title: 'Learn what makes Push Chain tick!',
+      title:
+        'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title',
       type: 'list',
       topGap: true,
       bottomGap: true,
@@ -32,7 +33,8 @@ export const KBDeepDivesList = {
           image:
             '/static/assets/website/chain/knowledge/what-is-fee-abstraction',
           imageSrcSet: false,
-          title: 'What is Universal Fee Abstraction and How do they work?',
+          valueKey:
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-is-universal-fee-abstraction.title',
           url: '/blog/what-is-universal-abstraction',
           target: '_blank',
         },
@@ -41,8 +43,8 @@ export const KBDeepDivesList = {
           image:
             '/static/assets/website/chain/knowledge/what-are-executor-accounts',
           imageSrcSet: false,
-          title:
-            'What are Universal Executor Accounts (UEAs) and How do they work?',
+          valueKey:
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-are-universal-executor-accounts.title',
           url: '/blog/what-are-universal-executor-accounts',
           target: '_blank',
         },
@@ -51,25 +53,9 @@ export const KBDeepDivesList = {
           image:
             '/static/assets/website/chain/knowledge/how-universal-transaction-works',
           imageSrcSet: false,
-          title: 'How Universal Transaction Works',
+          valueKey:
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.how-universal-transaction-works.title',
           url: '/blog/how-universal-transaction-works',
-          target: '_blank',
-        },
-        {
-          slug: 'interop-spectrum',
-          image: '/static/assets/website/chain/knowledge/interop-spectrum',
-          imageSrcSet: false,
-          title: 'Interop as a Spectrum',
-          url: '/blog/interop-spectrum',
-          target: '_blank',
-        },
-        {
-          slug: 'understand-proof-of-stake-part-1',
-          image:
-            '/static/assets/website/chain/knowledge/understand-proof-of-stake',
-          imageSrcSet: false,
-          title: 'Understanding Proof of Stake (POS) - Part 1',
-          url: '/blog/understand-proof-of-stake',
           target: '_blank',
         },
         {
@@ -77,9 +63,18 @@ export const KBDeepDivesList = {
           image:
             '/static/assets/website/chain/knowledge/push-chain-silence-labs',
           imageSrcSet: false,
-          title:
-            'Push Chain × Silence Labs: Building the Distributed Signing Mechanism',
+          valueKey:
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.push-chain-silence-labs.title',
           url: '/blog/push-chain-silence-labs',
+          target: '_blank',
+        },
+        {
+          slug: 'interop-spectrum',
+          image: '/static/assets/website/chain/knowledge/interop-spectrum',
+          imageSrcSet: false,
+          valueKey:
+            'pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title',
+          url: '/blog/interop-spectrum',
           target: '_blank',
         },
       ],

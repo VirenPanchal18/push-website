@@ -27,11 +27,20 @@
               "learn-push-chain": {
                 "title": "Learn what makes Push Chain tick!",
                 "items": {
+                  "what-is-universal-fee-abstraction": {
+                    "title": "What is Universal Fee Abstraction and How do they work?"
+                  },
+                  "what-are-universal-executor-accounts": {
+                    "title": "What are Universal Executor Accounts (UEAs) and How do they work?"
+                  },
+                  "how-universal-transaction-works": {
+                    "title": "How Universal Transaction Works"
+                  },
+                  "push-chain-silence-labs": {
+                    "title": "Push Chain × Silence Labs: Building the Distributed Signing Mechanism"
+                  },
                   "interop-spectrum": {
                     "title": "Interop as a Spectrum"
-                  },
-                  "understand-proof-of-stake-part-1": {
-                    "title": "Understanding Proof of Stake (POS) - Part 1"
                   }
                 }
               }
