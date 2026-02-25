@@ -111,6 +111,19 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
       await navigator.clipboard.writeText(extractedCode);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // reset after 2s
+
+      // Track copy event
+      if (typeof window !== 'undefined' && window.gtag) {
+        const pageUrl = window.location.pathname;
+        const codeHash = extractedCode.substring(0, 50).replace(/\s+/g, '_');
+        window.gtag('event', 'code_snippet_copy', {
+          event_category: 'code_playground',
+          event_label: `${pageUrl}::${codeHash}`,
+          page_url: pageUrl,
+          snippet_preview: codeHash,
+          code_env: codeEnv,
+        });
+      }
     } catch (err) {
       console.error('Failed to copy', err);
     }
@@ -126,6 +139,17 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
       await navigator.clipboard.writeText(shareUrl);
       setShared(true);
       setTimeout(() => setShared(false), 2000); // reset after 2s
+
+      // Track share event
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'code_snippet_share', {
+          event_category: 'code_playground',
+          event_label: shareUrl,
+          share_url: shareUrl,
+          code_env: codeEnv,
+          page_url: window.location.pathname,
+        });
+      }
     } catch (err) {
       console.error('Failed to share', err);
     }
@@ -197,6 +221,19 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // reset after 2s
+
+      // Track copy event
+      if (typeof window !== 'undefined' && window.gtag) {
+        const pageUrl = window.location.pathname;
+        const codeHash = code.substring(0, 50).replace(/\s+/g, '_');
+        window.gtag('event', 'code_snippet_copy', {
+          event_category: 'code_playground',
+          event_label: `${pageUrl}::${codeHash}`,
+          page_url: pageUrl,
+          snippet_preview: codeHash,
+          code_env: codeEnv,
+        });
+      }
     } catch (err) {
       console.error('Failed to copy', err);
     }
@@ -224,6 +261,17 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
       await navigator.clipboard.writeText(shareUrl);
       setShared(true);
       setTimeout(() => setShared(false), 2000); // reset after 2s
+
+      // Track share event
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'code_snippet_share', {
+          event_category: 'code_playground',
+          event_label: shareUrl,
+          share_url: shareUrl,
+          code_env: codeEnv,
+          page_url: window.location.pathname,
+        });
+      }
     } catch (err) {
       console.error('Failed to share', err);
     }
