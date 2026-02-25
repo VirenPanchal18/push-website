@@ -19,7 +19,7 @@
   "enChunks": {
     "01-global.json": {
       "checksum": "3d53e5506bca5216eec0fce15911267e",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.576Z",
       "keys": {
         "global.site-name": {
           "checksum": "ab90175701a07de068e1398e3f039705",
@@ -35,7 +35,7 @@
     },
     "02-header.json": {
       "checksum": "163996837158971675718bb113abb802",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "header.meta.logo-aria-label": {
           "checksum": "ddb15ed31e10e523a0ae18b1605ef229",
@@ -536,7 +536,7 @@
     },
     "03-footer.json": {
       "checksum": "841d19e9dc5c942784f44588986760c8",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "footer.email-section.title": {
           "checksum": "8ed988fe5e29bb5d37ff55ffe9adf418",
@@ -887,7 +887,7 @@
     },
     "04-01-pages-home.json": {
       "checksum": "1334c3805422d16b830729f53aee6d74",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.home.seo.title": {
           "checksum": "06af9bb5b7bfb45ac4a4b90719173c50",
@@ -1633,7 +1633,7 @@
     },
     "04-02-00-pages-knowledge.json": {
       "checksum": "3ce0a53ef454103c5edbeb1d71d4d34b",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.seo.title": {
           "checksum": "e8e1e84abb2b2b3fdf58100ec4ac0ad5",
@@ -1849,7 +1849,7 @@
     },
     "04-02-01-pages-knowledge-push101.json": {
       "checksum": "b690b188a70464d8561c81afafa962a1",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.push101.seo.title": {
           "checksum": "4e4a3871154442ab37aeb8b0b33f6950",
@@ -1990,7 +1990,7 @@
     },
     "04-02-02-pages-knowledge-builders.json": {
       "checksum": "a1cac4b11665b5490d44bd8d12aebddb",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.builders.seo.title": {
           "checksum": "2c4b579dbf6c79202249c4eaec8da451",
@@ -2100,8 +2100,8 @@
       }
     },
     "04-02-03-pages-knowledge-deepdives.json": {
-      "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "checksum": "e6eb4231132b4ad514628c4f7210130b",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.deepdives.seo.title": {
           "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
@@ -2158,21 +2158,36 @@
           "value": "Learn what makes Push Chain tick!",
           "lastUpdated": "2025-11-08T13:06:33.000Z"
         },
+        "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-is-universal-fee-abstraction.title": {
+          "checksum": "a93a7ceb3df56554836925f4c5088b82",
+          "value": "What is Universal Fee Abstraction and How do they work?",
+          "lastUpdated": "2026-02-25T17:11:24.456Z"
+        },
+        "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.what-are-universal-executor-accounts.title": {
+          "checksum": "96213f6caf9fffa3ee71f065bd606db8",
+          "value": "What are Universal Executor Accounts (UEAs) and How do they work?",
+          "lastUpdated": "2026-02-25T17:11:24.456Z"
+        },
+        "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.how-universal-transaction-works.title": {
+          "checksum": "2adb8b70e000ca1234572c981fb35ccc",
+          "value": "How Universal Transaction Works",
+          "lastUpdated": "2026-02-25T17:11:24.456Z"
+        },
+        "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.push-chain-silence-labs.title": {
+          "checksum": "1677383f42c264aaee8759b935f07322",
+          "value": "Push Chain × Silence Labs: Building the Distributed Signing Mechanism",
+          "lastUpdated": "2026-02-25T17:11:24.456Z"
+        },
         "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
           "checksum": "956394d53b4dd935cd625d2f017ea0cb",
           "value": "Interop as a Spectrum",
-          "lastUpdated": "2025-11-08T13:06:33.000Z"
-        },
-        "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-          "checksum": "7afb91777a795d50154d35da70231e4e",
-          "value": "Understanding Proof of Stake (POS) - Part 1",
           "lastUpdated": "2025-11-08T13:06:33.000Z"
         }
       }
     },
     "04-02-04-pages-knowledge-tokenomics.json": {
       "checksum": "2395015f46e4ee17a2017de87bf1f9d2",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.tokenomics.seo.title": {
           "checksum": "c1d74ac838447f0ba74714d9570fab97",
@@ -2273,7 +2288,7 @@
     },
     "04-02-05-pages-knowledge-faq.json": {
       "checksum": "99b7e792d8167d9621fe7da3eaa6000a",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.faq.seo.title": {
           "checksum": "aaa9a3e4e5a4265aa383c98af54cba78",
@@ -2549,7 +2564,7 @@
     },
     "04-03-pages-docs.json": {
       "checksum": "d87ce37e63283ea9f1b7af1d128342ea",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.docs.seo.title": {
           "checksum": "d975add027d1034fa65ac20fb1d50727",
@@ -2655,7 +2670,7 @@
     },
     "04-04-pages-blog.json": {
       "checksum": "cf02a9d4b5a7373ae858866e5c71f3be",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.blog.seo.title": {
           "checksum": "f8d9960b2ef2f61e0c1f06e453327bf8",
@@ -2691,7 +2706,7 @@
     },
     "04-05-pages-lfpush.json": {
       "checksum": "af4d7f84b0f23159f2a7667ad8b003eb",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.lfpush.seo.title": {
           "checksum": "491a4781a2632f88c9b11f39eda2687f",
@@ -2777,7 +2792,7 @@
     },
     "04-06-pages-support.json": {
       "checksum": "7909d6d2a8121c70f9e886ac2bae0230",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.support.seo.title": {
           "checksum": "9f722592a545e65f2d8c6ecfcfd762f3",
@@ -2823,7 +2838,7 @@
     },
     "04-07-pages-litepaper.json": {
       "checksum": "148621a63ec39532bf53a877d8f3ea70",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.litepaper.seo.title": {
           "checksum": "63f4e13f51450cbf454a73aeffdad4cf",
@@ -2859,7 +2874,7 @@
     },
     "04-08-pages-tos.json": {
       "checksum": "cc6632e61103809c2851511a43ae0dfc",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.tos.seo.title": {
           "checksum": "3b6c2b4caaf4f14f8d7feeddc4ac3f4d",
@@ -2910,7 +2925,7 @@
     },
     "04-09-pages-privacy.json": {
       "checksum": "6968f96ac9a2e31d7d142794270e1505",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.privacy.seo.title": {
           "checksum": "fa2ead697d9998cbc65c81384e6533d5",
@@ -2961,7 +2976,7 @@
     },
     "04-10-pages-privacymobile.json": {
       "checksum": "f8698ed91d9fa0bbcc0615f4879ef2c2",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.privacymobile.seo.title": {
           "checksum": "c0be9b5157f3597624c64f96e2b59153",
@@ -3012,7 +3027,7 @@
     },
     "04-11-pages-brb.json": {
       "checksum": "5d1a28e581dd93e4f8490f5de8b247d3",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.brb.seo.title": {
           "checksum": "512532965092ab5a452c18f90d89c710",
@@ -3048,7 +3063,7 @@
     },
     "04-12-pages-contact.json": {
       "checksum": "2de955069e3b52cbc0f5383ff4c988f9",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.contact.seo.title": {
           "checksum": "d076c93ff727a1354c14644902a49ea4",
@@ -3094,7 +3109,7 @@
     },
     "04-13-donut-testnet-secret.json": {
       "checksum": "85a18ce7a9a4d6bd18c6f70553111760",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.donutsecret.seo.title": {
           "checksum": "693f882fb38ac6945a5bf4fc94c89e0e",
@@ -3130,7 +3145,7 @@
     },
     "05-01-components-mailing-signup.json": {
       "checksum": "8ed8619f70f3747e5a3746eb499fe0c5",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.mailing-signup.title": {
           "checksum": "708313e1e306a3c6d6203624779492b3",
@@ -3211,7 +3226,7 @@
     },
     "05-02-components-cookie-banner.json": {
       "checksum": "13470269cc56c1ddb08fb8272603fe2f",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.cookie-banner.message": {
           "checksum": "677861b85aa90c36f33ce08606f7548c",
@@ -3277,7 +3292,7 @@
     },
     "05-03-components-short-faq-snippet.json": {
       "checksum": "21e16abcc9dba8a091d7aa65e92c9042",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.short-faq-snippet.section-aria-label": {
           "checksum": "d8225eba6d8ea4cb8c98e998faae4ed2",
@@ -3413,7 +3428,7 @@
     },
     "05-04-components-short-support-snippet.json": {
       "checksum": "460b75d2b0f53f044f812c404beb2991",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.short-support-snippet.section-aria-label": {
           "checksum": "18f8e4c16ed7d0342d2a2b06fbb13ddb",
@@ -3594,7 +3609,7 @@
     },
     "05-05-components-short-contact-us-snippet.json": {
       "checksum": "cf410564bece679560794b375b8e9059",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.short-contact-us-snippet.section-aria-label": {
           "checksum": "b9e7f03998e0af83ad08961d215f2984",
@@ -3800,7 +3815,7 @@
     },
     "05-06-components-typeform-support.json": {
       "checksum": "a388ce789952bcec83d08eed2b168101",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.typeform-support.collapsed-text-for-support": {
           "checksum": "22d6dfdfffa420807dbf9860ca010ade",
@@ -4136,7 +4151,7 @@
     },
     "05-07-components-breadcrumbs.json": {
       "checksum": "fba771938394b9afb71beac12c4baade",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.breadcrumbs.navigation-aria-label": {
           "checksum": "24dddb45a7fd74ddfa78a398628d800b",
@@ -4172,7 +4187,7 @@
     },
     "05-07-components-explainer.json": {
       "checksum": "1a2fe6661bb43cefb9b9229f57317ea3",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.explainer.prepend": {
           "checksum": "9c433bbfd38024f89f81f6419846feb5",
@@ -4188,7 +4203,7 @@
     },
     "05-07-components-explore-collection.json": {
       "checksum": "baf45e7f0401093a5d98b5018d481997",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.explore-collection.explore-card.image-prepend": {
           "checksum": "9aa7afb360abc986b11cc3ca018f22ee",
@@ -4219,7 +4234,7 @@
     },
     "05-08-components-blog.json": {
       "checksum": "49a2083f0ed1f7f0885182aadccdc929",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.blog.more-posts.title": {
           "checksum": "61005f8df8f6a3fb54a451b8f20f4208",
@@ -4345,7 +4360,7 @@
     },
     "06-01-notifications-chain-notification.json": {
       "checksum": "362ab21bf64b5bea2cda50b7a4785a85",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "notifications.chain-notification.title": {
           "checksum": "d41d8cd98f00b204e9800998ecf8427e",
@@ -4396,7 +4411,7 @@
     },
     "06-02-notifications-rewards-notification.json": {
       "checksum": "d07652ad319976ddab84a56667273019",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "notifications.rewards-notification.title": {
           "checksum": "4855edd99c96834921b39b20ca508f70",
@@ -4432,7 +4447,7 @@
     },
     "06-03-notifications-info-bar.json": {
       "checksum": "a8dcc110e23d07bccc2251f6ef616b40",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "notifications.info-bar.title": {
           "checksum": "79d6abe35a6b5b3528b41eed62f37430",
@@ -4473,7 +4488,7 @@
     },
     "06-04-notifications-alert.json": {
       "checksum": "ded0d9e63163213597e3491f8e75e53a",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "notifications.alert.message": {
           "checksum": "7e1a0e7f4fcf772b48be90f3d700b060",
@@ -4509,7 +4524,7 @@
     },
     "04-02-06-00-pages-knowledge-testnet.json": {
       "checksum": "34f586c1078693819e2c41d019161bdd",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.testnet.seo.title": {
           "checksum": "470c2d1ec04fb2bbed087ebf841085b5",
@@ -4716,7 +4731,7 @@
     },
     "04-02-07-pages-knowledge-validators.json": {
       "checksum": "77b0d638ba75a9c6c7e8b532560cff51",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.knowledge.validators.seo.title": {
           "checksum": "69895f03329163136454c2d2adead5b7",
@@ -4762,7 +4777,7 @@
     },
     "04-14-pages-ecosystem.json": {
       "checksum": "4341a422ba6a3f0db81c321398d2c30e",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.ecosystem.seo.title": {
           "checksum": "e6d635698ff7104de0e5c08f0c511c08",
@@ -4833,7 +4848,7 @@
     },
     "04-14-pages-cult.json": {
       "checksum": "2ec2753454626ebb5a510f0e084328f2",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "pages.cult.seo.title": {
           "checksum": "47e7a070efa31c8bafe3e780915ad0dd",
@@ -4899,7 +4914,7 @@
     },
     "05-09-components-cult-contact.json": {
       "checksum": "dee5d05142de7ca727851065a7544416",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.cult-contact.collapsed-text": {
           "checksum": "65063a53ea117ff6932b31d9484e91f1",
@@ -5090,7 +5105,7 @@
     },
     "05-10-components-short-cult-snippet.json": {
       "checksum": "08b98c98a31359918f8fda6b6eb670f1",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.short-cult-snippet.section-aria-label": {
           "checksum": "4e559ed747da59d9663574298b424b18",
@@ -5271,7 +5286,7 @@
     },
     "05-11-components-ecosystem-apps-partners.json": {
       "checksum": "0ad65d1aa0c3a655cd8583a5b1f855b2",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.ecosystem-apps-partners.coming-soon": {
           "checksum": "f2407056c089170d4df9dac66a284f38",
@@ -5662,7 +5677,7 @@
     },
     "05-11-components-ecosystem-essentials.json": {
       "checksum": "9cecea687d4a9d180dabd9ae679e933d",
-      "lastUpdated": "2026-02-21T21:26:32.656Z",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
       "keys": {
         "components.ecosystem-essentials.title": {
           "checksum": "687534be7392f5c4a6c912c121bdffcf",
@@ -5718,6 +5733,212 @@
           "checksum": "05ea665d17f409a402f41203a267a266",
           "value": "Push Chain's universal wallet",
           "lastUpdated": "2026-02-21T05:44:08.465Z"
+        }
+      }
+    },
+    "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+      "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+      "lastUpdated": "2026-02-25T23:21:22.577Z",
+      "keys": {
+        "pages.knowledge.report.seo.title": {
+          "checksum": "462d627de16602bab10ebdb9a6532055",
+          "value": "Network Updates",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.seo.description": {
+          "checksum": "7c6609c9e69af7169cd203b5f40dfdc7",
+          "value": "Real-time network status updates for Push Chain. Stay informed about outages, maintenance, and resolved issues.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.seo.og-title": {
+          "checksum": "f95ec8a3bde6394f64f48873d7c3f5a0",
+          "value": "Push Chain Network Updates - Network Status",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.seo.og-description": {
+          "checksum": "060044f57ddcd5c4c4c65a925c1da684",
+          "value": "Track Push Chain network updates, maintenance windows, and service updates. Get real-time status information.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.seo.twitter-title": {
+          "checksum": "a2a33c4275ed558e41c5194ab66f96dc",
+          "value": "Push Chain Network Updates",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.seo.twitter-description": {
+          "checksum": "37953f95959064dd4d7f6ad73cb3b0c0",
+          "value": "Live updates on Push Chain network status and maintenance.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
+          "checksum": "083065d6760791eb1195154619e5813c",
+          "value": "Knowledge Base",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
+          "checksum": "da44231736894bc9e328a8e98b28d206",
+          "value": "Donut Testnet",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.breadcrumbs.report": {
+          "checksum": "462d627de16602bab10ebdb9a6532055",
+          "value": "Network Updates",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.title": {
+          "checksum": "462d627de16602bab10ebdb9a6532055",
+          "value": "Network Updates",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.updates-overview.items.intro": {
+          "checksum": "9a0364b9e99bb480dd25e1f0284c8555",
+          "value": "content",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.title": {
+          "checksum": "8ee04a37ff651017482f1fe4cec19272",
+          "value": "Chain Upgrade - Token Rebalancing - 10 Billion PC Tokens",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.status-heading": {
+          "checksum": "6988672f90bca957068b26f01d1cb0b9",
+          "value": "## Status",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.status-timeline": {
+          "checksum": "6fe22320286f39473e372d721b2ba186",
+          "value": "25th Feb 2026 - Started<br />25th Feb 2026 - ✅ Completed",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-heading": {
+          "checksum": "c576bf2f4a77afe12b882ba265fe07c4",
+          "value": "## Overview",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-text": {
+          "checksum": "83c7cf0d7ecceccbf04ac0f4a2b6f811",
+          "value": "Push Chain executed a token rebalancing proposal to reduce the total PC token supply from 75T+ tokens to approximately 10 billion tokens. This upgrade addresses a technical debt from the early days of the testnet and prepares the chain for a mainnet-like environment.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-heading": {
+          "checksum": "ed94b30993086c77a2eddbb947839765",
+          "value": "### Why was this done?",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-text": {
+          "checksum": "1bf401d0cd8885a3b839eec6f3898a6c",
+          "value": "In the early days of Push Chain testnet, there was no burn and mint process for PC tokens. This resulted in extremely low price calculations for universal transactions and allowed a handful of token holders to accumulate massive token supplies (going into trillions). This created an imbalanced token economy that needed correction before mainnet launch.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-necessary": {
+          "checksum": "3fb8e895f87f49ab6a5f665b56c8a732",
+          "value": "The rebalancing was necessary to:",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-mainnet": {
+          "checksum": "e7897bca81b727ad76071a426ec32c14",
+          "value": "- Prepare for mainnet-like environment",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-season3": {
+          "checksum": "9ad32c01787b1407340c3e46b0317048",
+          "value": "- Enable Season 3 rewards distribution",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-tech-debt": {
+          "checksum": "87d120915a3feca5564c195f11fe6ab3",
+          "value": "- Remove old technical debt from early testnet",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-token-economy": {
+          "checksum": "c4ca68d122f6626251a883269a4badc6",
+          "value": "- Establish a fair and sustainable token economy",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-heading": {
+          "checksum": "5f84b923cdb1d3f1c8725895e03f57a9",
+          "value": "### What changed?",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+          "checksum": "688d927f3cbb0253bcaed00f9219a677",
+          "value": "The proposal affected the top 1,950 wallets out of 1.178M total addresses. Wallets holding 1,100 PC tokens or more (including those with trillions) were rebalanced to hold between 1,100-2,000 PC tokens.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.key-changes-heading": {
+          "checksum": "36579dbf1fba91e2da6206e6ae9fc784",
+          "value": "**Key Changes:**",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-supply": {
+          "checksum": "d53289b3890eef1224b9ccb17006b512",
+          "value": "- Total supply reduced from 75T+ to ~10B PC tokens",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
+          "checksum": "d154df45cdb095fdf7687e7717f060e1",
+          "value": "- Top 1,950 wallets rebalanced to 1,100-2,000 PC token range",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-percentage": {
+          "checksum": "c3db98334ad82f887b12e31f7e74576d",
+          "value": "- Affects only 0.17% of total addresses (1,950 out of 1.178M)",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-unaffected": {
+          "checksum": "d9580367c50e352393abc9d77dd47280",
+          "value": "- 99.83% of users remain unaffected",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-heading": {
+          "checksum": "a4c2720919b4b3e1273c75e198150c6a",
+          "value": "### Why weren't users informed beforehand?",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+          "checksum": "23c04095c4d508965be75cfb2f888f90",
+          "value": "Users were not notified in advance to prevent malicious actors from redistributing tokens to other wallets before the rebalancing. This security measure ensured the integrity of the rebalancing process and prevented gaming of the system.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.validator-period": {
+          "checksum": "e1ff4f8a75dcd430053764bcec677278",
+          "value": "The testnet validator proposal period is currently set to 5 minutes to help eliminate edge cases like this before full decentralized validator ownership is implemented.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-heading": {
+          "checksum": "d183100a025e3622adef4ead8e04016c",
+          "value": "### Why I still see 52T supply?",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+          "checksum": "274f334bc3372cc2878a9ed5c06d4afe",
+          "value": "The rebalance is a two-phase approach. The tokens are now collected to a team-controlled wallet and will be burned soon.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.how-affect-heading": {
+          "checksum": "d076dc65a8709104a85978b8f69b4ee9",
+          "value": "### How does it affect me?",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
+          "checksum": "cf606421f58ebc3e745f84399f5a0403",
+          "value": "**For 99.83% of users:** This change does not affect you. Your wallet balance remains unchanged.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-top-wallets": {
+          "checksum": "5583ddaf8ee20e8105d7a6b1b4500761",
+          "value": "**For affected wallets (top 1,950):** If your wallet held 1,100+ PC tokens (or trillions), your balance has been rebalanced to the 1,100-2,000 PC token range.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.need-help-heading": {
+          "checksum": "3131c18f7a611e8326d7af80ae78bbc6",
+          "value": "**Need Help?**",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
+        },
+        "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.need-help-text": {
+          "checksum": "2b7b5f17b9142af1a784fe70558b2c67",
+          "value": "If you believe you are affected by this rebalancing and have questions or concerns, please reach out to the Push Chain team on Discord for assistance.",
+          "lastUpdated": "2026-02-25T17:11:24.458Z"
         }
       }
     }
@@ -6257,75 +6478,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.952Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.952Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T17:12:45.468Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -8559,6 +8713,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T06:05:10.473Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T20:04:42.873Z"
       }
     },
     "de": {
@@ -9095,75 +9254,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.956Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.956Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T20:05:48.691Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -11397,6 +11489,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T06:25:41.087Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T20:16:53.178Z"
       }
     },
     "es": {
@@ -11933,75 +12030,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.957Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.957Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T20:18:00.083Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -14235,6 +14265,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T06:46:32.857Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T20:29:12.570Z"
       }
     },
     "fr": {
@@ -14771,75 +14806,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.959Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.959Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T20:30:21.120Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -17073,6 +17041,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T07:07:39.716Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T20:41:44.052Z"
       }
     },
     "hi": {
@@ -17609,75 +17582,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.960Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T20:42:54.134Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -19911,6 +19817,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T18:35:57.511Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T20:54:07.805Z"
       }
     },
     "id": {
@@ -20447,75 +20358,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.960Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.960Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T20:55:16.462Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -22749,6 +22593,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T18:56:24.373Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T21:06:26.483Z"
       }
     },
     "ja": {
@@ -23285,75 +23134,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.961Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.961Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T21:07:35.542Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -25587,6 +25369,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T19:17:25.319Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T21:19:14.347Z"
       }
     },
     "ko": {
@@ -26123,75 +25910,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.962Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.962Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T21:20:22.955Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -28425,6 +28145,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T19:38:32.100Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T21:32:05.337Z"
       }
     },
     "pt": {
@@ -28961,75 +28686,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.966Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.966Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T21:33:14.489Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -31263,6 +30921,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T19:59:47.166Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T21:44:34.204Z"
       }
     },
     "ru": {
@@ -31799,75 +31462,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.968Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.968Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T21:45:43.662Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -34101,6 +33697,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T20:21:08.552Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T21:57:07.774Z"
       }
     },
     "tr": {
@@ -34637,75 +34238,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.972Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.972Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T21:58:18.679Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -36939,6 +36473,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T20:43:14.586Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T22:09:46.076Z"
       }
     },
     "vi": {
@@ -37475,75 +37014,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.973Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.973Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T22:10:56.017Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -39777,6 +39249,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T21:04:36.891Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T22:22:25.056Z"
       }
     },
     "zh-CN": {
@@ -40313,75 +39790,8 @@
       },
       "04-02-03-pages-knowledge-deepdives.json": {
         "translated": true,
-        "checksum": "e75b9b452c73acd4cdd07aa19862ce46",
-        "lastUpdated": "2025-11-08T13:09:03.976Z",
-        "keys": {
-          "pages.knowledge.deepdives.seo.title": {
-            "translated": true,
-            "checksum": "df5f86dbe5872c54abbf184d7bdd6401",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.seo.description": {
-            "translated": true,
-            "checksum": "cb992e794d207b8074f5fff11951ac37",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.seo.og-title": {
-            "translated": true,
-            "checksum": "315bb12a3be4c6288d74d5a13dd1792b",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.seo.og-description": {
-            "translated": true,
-            "checksum": "042aebbfdefaa060db459494b574e429",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-title": {
-            "translated": true,
-            "checksum": "58f51597175b7b9f4f6b09f76485a8ef",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.seo.twitter-description": {
-            "translated": true,
-            "checksum": "8bf74f14fada24d3572619e60de64e5f",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
-            "translated": true,
-            "checksum": "083065d6760791eb1195154619e5813c",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.title": {
-            "translated": true,
-            "checksum": "c62ca754f89265b81b54944e6af8e4ff",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
-            "translated": true,
-            "checksum": "a676399b89bb849ce3526e4f071f9534",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
-            "translated": true,
-            "checksum": "3d5f8ae497d0433388bfee02aeb658f0",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
-            "translated": true,
-            "checksum": "f765e1aaede6b2565b4590d9933242d5",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
-            "translated": true,
-            "checksum": "956394d53b4dd935cd625d2f017ea0cb",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          },
-          "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.understand-proof-of-stake-part-1.title": {
-            "translated": true,
-            "checksum": "7afb91777a795d50154d35da70231e4e",
-            "lastUpdated": "2025-11-08T13:09:03.976Z"
-          }
-        }
+        "checksum": "e6eb4231132b4ad514628c4f7210130b",
+        "lastUpdated": "2026-02-25T22:23:34.476Z"
       },
       "04-02-04-pages-knowledge-tokenomics.json": {
         "translated": true,
@@ -42615,6 +42025,11 @@
         "translated": true,
         "checksum": "9cecea687d4a9d180dabd9ae679e933d",
         "lastUpdated": "2026-02-21T21:26:32.436Z"
+      },
+      "04-02-06-01-pages-knowledge-testnet-network-updates.json": {
+        "translated": true,
+        "checksum": "47cdfe20052f3d45f41ccf53d1bc5506",
+        "lastUpdated": "2026-02-25T22:34:45.801Z"
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "Camada de execução L1 compartilhada para aplicativos universais. Implante uma vez; chegue aos usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
+    "site-description": "Camada L1 compartilhada para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
   },
   "header": {
     "community": {
@@ -396,40 +396,49 @@
         }
       },
       "deepdives": {
-        "seo": {
-          "title": "Explorações Profundas — Conceitos & Arquitetura",
-          "description": "Explicações claras sobre shared state, abstração de taxas, USV/UEA e a universal execution layer.",
-          "og-title": "Mergulhos Profundos - Conceitos & Arquitetura",
-          "og-description": "Artigos aprofundados sobre módulos Push Chain, decisões de design e desempenho.",
-          "twitter-title": "Deep Dives - Por dentro",
-          "twitter-description": "Explicações sobre como a Push Chain funciona."
-        },
         "explainer-section": {
-          "breadcrumbs": {
-            "knowledge-base": "Base de Conhecimento"
-          },
           "blocks": {
-            "title": "Mergulhos Profundos",
             "sections": {
+              "learn-push-chain": {
+                "items": {
+                  "what-is-universal-fee-abstraction": {
+                    "title": "O que é Abstração Universal de Taxas e como funciona?"
+                  },
+                  "what-are-universal-executor-accounts": {
+                    "title": "O que são Contas de Executor Universal (UEAs) e como funcionam?"
+                  },
+                  "how-universal-transaction-works": {
+                    "title": "Como funciona uma Transação Universal"
+                  },
+                  "push-chain-silence-labs": {
+                    "title": "Push Chain × Silence Labs: Construindo o Mecanismo de Assinatura Distribuída"
+                  },
+                  "interop-spectrum": {
+                    "title": "Interoperabilidade como Espectro"
+                  }
+                },
+                "title": "Aprenda o que faz Push Chain funcionar!"
+              },
               "architecture-deep-dives": {
                 "items": {
-                  "intro": "## Architecture Deep Dives\n\nConheça as complexidades da arquitetura do Push Chain e como ela funciona - um módulo de cada vez.",
-                  "curated-reads": "## Leituras Selecionadas 👇"
-                }
-              },
-              "learn-push-chain": {
-                "title": "Aprenda o que faz o Push Chain funcionar!",
-                "items": {
-                  "interop-spectrum": {
-                    "title": "Interop como um Espectro"
-                  },
-                  "understand-proof-of-stake-part-1": {
-                    "title": "Entendendo Proof of Stake (POS) - Parte 1"
-                  }
+                  "intro": "## mergulhos profundos na arquitetura\n\nAprenda sobre os detalhes da arquitetura do Push Chain e como ela funciona - Um módulo de cada vez.",
+                  "curated-reads": "## Leituras Curadas 👇"
                 }
               }
-            }
+            },
+            "title": "Mergulhos Profundos"
+          },
+          "breadcrumbs": {
+            "knowledge-base": "Base de Conhecimento"
           }
+        },
+        "seo": {
+          "title": "Pesquisas Avançadas — Conceitos e Arquitetura",
+          "description": "Explicações acessíveis sobre estado compartilhado, abstração de taxas, USV/UEA e a camada de execução universal.",
+          "og-title": "Mergulhos Profundos - Conceitos e Arquitetura",
+          "og-description": "Artigos aprofundados sobre módulos do Push Chain, decisões de design e desempenho.",
+          "twitter-title": "Merendas Funda - Sob o capô",
+          "twitter-description": "Explique como a Push Chain funciona."
         }
       },
       "tokenomics": {
@@ -537,30 +546,62 @@
         }
       },
       "report": {
+        "seo": {
+          "title": "Atualizações da Rede",
+          "description": "Atualizações de status da rede em tempo real para o Push Chain. Mantenha-se informado sobre interrupções, manutenções e problemas resolvidos.",
+          "og-title": "Atualizações da Rede Push Chain - Status da Rede",
+          "og-description": "Acompanhe atualizações da rede Push Chain, janelas de manutenção e atualizações do serviço. Obtenha informações de status em tempo real.",
+          "twitter-title": "Atualizações da Rede Push Chain",
+          "twitter-description": "Atualizações ao vivo sobre o status e a manutenção da rede Push Chain."
+        },
         "explainer-section": {
           "breadcrumbs": {
             "knowledge-base": "Base de Conhecimento",
             "donut-testnet": "Donut Testnet",
-            "report": "Relatórios de Incidentes"
+            "report": "Atualizações da Rede"
           },
           "blocks": {
-            "title": "Relatórios de Incidentes",
+            "title": "Atualizações da Rede",
             "sections": {
-              "reports-overview": {
+              "updates-overview": {
                 "items": {
                   "intro": "conteúdo"
+                }
+              },
+              "chain-upgrade-token-rebalance-25-feb-2026": {
+                "title": "Atualização da Blockchain - Rebalanceamento de Token - 10 Bilhões de PC Tokens",
+                "items": {
+                  "status-heading": "## Status",
+                  "status-timeline": "25 de Fevereiro de 2026 - Iniciado<br />25 de Fevereiro de 2026 - ✅ Concluído",
+                  "overview-heading": "## Visão Geral",
+                  "overview-text": "A rede Push Chain executou uma proposta de reequilíbrio de tokens para reduzir a oferta total de tokens PC de 75T+ para aproximadamente 10 bilhões de tokens. Esta atualização aborda uma dívida técnica dos primeiros dias do testnet e prepara a cadeia para um ambiente semelhante ao mainnet.",
+                  "why-heading": "### Por que isso foi feito?",
+                  "why-text": "Nos primeiros dias da Push Chain testnet, não havia processo de queima e criação de tokens PC. Isso resultou em cálculos de preço extremamente baixos para transações universais e permitiu que um pequeno grupo de detentores de tokens acumulassem grandes quantidades de tokens (chegando a trilhões). Isso criou uma economia de tokens desequilibrada que precisava ser corrigida antes do lançamento da mainnet.",
+                  "why-necessary": "O reequilíbrio foi necessário para:",
+                  "reason-mainnet": "- Prepare para um ambiente semelhante ao mainnet",
+                  "reason-season3": "- Habilitar a distribuição de recompensas da Temporada 3",
+                  "reason-tech-debt": "- Remover dívida técnica antiga do início do testnet",
+                  "what-changed-heading": "### O que mudou?",
+                  "what-changed-text": "A proposta afetou as 1.950 carteiras principais de um total de 1.178 milhões de endereços. Carteiras que possuíam 1.100 $PC tokens ou mais (incluindo aquelas com trilhões) foram reequilibradas para manter entre 1.100 e 2.000 $PC tokens.",
+                  "key-changes-heading": "**Principais Mudanças:**",
+                  "change-supply": "- Abastecimento total reduzido de 75T+ para ~10B PC tokens",
+                  "change-wallets": "- As 1.950 carteiras principais foram reequilibradas para a faixa de 1.100-2.000 PC token.",
+                  "change-percentage": "- Afeta apenas 0,17% dos endereços totais (1.950 de 1,178 milhão)",
+                  "change-unaffected": "- 99.83% dos usuários não são afetados",
+                  "why-not-informed-heading": "### Por que os usuários não foram informados com antecedência?",
+                  "why-not-informed-text": "Os usuários não foram notificados com antecedência para evitar que atores maliciosos redistribuíssem tokens para outras carteiras antes do reequilíbrio. Esta medida de segurança garantiu a integridade do processo de reequilíbrio e impediu o aproveitamento do sistema.",
+                  "validator-period": "O período atual de proposta de validador de testnet é definido como 5 minutos para ajudar a eliminar casos marginais como este antes que a propriedade completa dos validadores seja implementada.",
+                  "why-52t-heading": "### Por que ainda vejo 52T de oferta?",
+                  "why-52t-text": "A rebalance é uma abordagem em duas fases. Os tokens estão sendo recolhidos para uma carteira controlada pela equipe e serão queimados em breve.",
+                  "how-affect-heading": "### Como isso me afeta?",
+                  "affect-majority": "**Para 99,83% dos usuários:** Esta alteração não afeta você. O saldo da sua carteira remains unchanged.",
+                  "affect-top-wallets": "**Para carteiras afetadas (as 1.950 principais):** Se sua carteira continha 1.100+ $PC tokens (ou trilhões), seu saldo foi rebalanceado para a faixa de 1.100 a 2.000 $PC tokens.",
+                  "need-help-heading": "**Precisa de Ajuda?**",
+                  "need-help-text": "Se você acredita que foi afetado por este rebalanceamento e tem dúvidas ou preocupações, entre em contato com a equipe Push Chain no Discord para obter ajuda."
                 }
               }
             }
           }
-        },
-        "seo": {
-          "title": "Relatórios de Incidentes",
-          "description": "Relatórios de incidentes em tempo real e atualizações de status da rede para Push Chain. Mantenha-se informado sobre interrupções, manutenções e problemas resolvidos.",
-          "og-title": "Relatórios de Incidentes Push Chain - Status da Rede",
-          "og-description": "Acompanhe incidentes na rede Push Chain, janelas de manutenção e atualizações de serviço. Obtenha informações de status em tempo real.",
-          "twitter-title": "Relatórios de Incidentes Push Chain",
-          "twitter-description": "Atualizações ao vivo sobre o status da rede Push Chain, incidentes e manutenção."
         }
       },
       "seo": {
@@ -1292,8 +1333,8 @@
       "answer-aria-label": "Resposta à pergunta - ",
       "qnas": {
         "qna1": {
-          "question": "Não consigo conectar minha carteira. O que eu deveria tentar?",
-          "answer": "<1><2>Afastar as verificações:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/script aggressivos para push.org.</1><1><2>Sem mudança de rede necessária:</2> fique em sua rede doméstica; Push cuida da roteagem por trás dos cenários.</1><1><2>Redefinir as permissões do site:</2> em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
+          "question": "Não consigo conectar minha carteira. O que eu devo fazer?",
+          "answer": "<1><2>A verificação rápida:</2> Atualize a página, desbloqueie sua carteira e desative os bloqueadores de anúncios/ script agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> Fique na sua rede principal; o Push gerencia a roteagem por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> Em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim, você ficou preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1749,7 +1790,8 @@
           "name": "TipUp"
         },
         "push-swap": {
-          "name": "Push Swap"
+          "name": "Push Swap",
+          "description": "Troca de tokens sem problemas entre diferentes blockchains sem a necessidade de pontes"
         },
         "chain-circle": {
           "name": "ChainCircle",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:50:38.361Z",
+  "lastUpdated": "2026-02-25T23:06:29.647Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -376,36 +376,6 @@
       "englishChecksum": "8b31b9b9aa97d92b4d044ae139d4ff47",
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
-    "pages.knowledge.report.seo.title": {
-      "value": "事件报告",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.seo.description": {
-      "value": "Push Chain 的实时事件报告和网络状态更新。及时了解中断、维护和已解决的问题。",
-      "englishChecksum": "79dcfac5268064e8b57342b415ef92ee",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.seo.og-title": {
-      "value": "Push Chain 事件报告 - 网络状态",
-      "englishChecksum": "4d7d658a59feaab09d75675c1452e779",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.seo.og-description": {
-      "value": "跟踪 Push Chain 网络事件、维护窗口和服务更新。获取实时状态信息。",
-      "englishChecksum": "489d40e83781acad7ab86c3ebff89565",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.seo.twitter-title": {
-      "value": "Push Chain 事件报告",
-      "englishChecksum": "f0f20d8b7ac140244bee728ad40551f2",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.seo.twitter-description": {
-      "value": "Push Chain 网络状态、事件和维护的实时更新。",
-      "englishChecksum": "0e97fd38f27262727851bc7583882da3",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "知识库",
       "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
@@ -414,16 +384,6 @@
     "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
       "value": "Donut Testnet",
       "englishChecksum": "9409079fa25c142f9373653a87ce2464",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.explainer-section.breadcrumbs.report": {
-      "value": "事故报告",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.444Z"
-    },
-    "pages.knowledge.report.explainer-section.blocks.title": {
-      "value": "事件报告",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.reports-overview.items.intro": {
@@ -1707,24 +1667,24 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么样的应用可以在Push Chain上构建？\n\n![通用App示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**  \n  一键交换UI，覆盖所有流动性池–跨链路由，速度和体验如同集中交易所(Centralized Exchange, CEX)。\n\n- **通用DeFi**  \n  浏览器中的全球银行：贷款、借贷、收益聚合器跨链而无需手动桥接。\n\n- **通用AI代理人**  \n  自主代理人，在任何链上支付和获取任何代币–适合订阅服务、数据机器人等。\n\n- **通用DAO**  \n  跨链治理，令牌持有者投票和执行提案，不论其来源链。\n\n- **通用游戏**  \n  多玩家比赛和游戏经济，统一玩家和资产来自以太坊、索拉纳、多边形等链。\n\n- **通用市场**  \n  买卖和交易NFT和代币的集中市场，涵盖所有链。\n\n- **通用名称服务**  \n  人类可读名称，解析到多个区块链的钱包。\n\n在Push Chain上可以构建的应用和创新无尽！请查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。开发者也可以查看[文档中心](/docs/)开始。\n\n---",
+      "value": "### 什么样的应用程序可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助Push Chain的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**\n  单一交易UI支持所有流动性池–跨链路由以CEX速度和体验。\n\n- **通用DeFi**\n  浏览器中的全球银行：跨生态系统的贷款、借贷、收益聚合。\n\n- **通用AI代理**\n  自主代理支付并接受任何链上的任意代币——适用于订阅服务、数据机器人等。\n\n- **通用DAO**\n  不论起源链如何，跨链治理使令牌持有者投票并执行提案。\n\n- **通用游戏**\n  多玩家比赛和跨链游戏经济统一玩家和资产。\n\n- **通用市场**\n  购买、出售和交易来自每条链的NFT和代币的集中式市场。\n\n- **通用名称服务**\n  解析多个区块链钱包的可读性强的人类名称。\n\n在Push Chain上可以构建的应用程序无限！请查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。开发者也可以查看[文档中心](/docs/)开始。\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-02-21T21:42:15.790Z"
+      "lastUpdated": "2026-02-25T22:55:21.640Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
       "value": "## 开发者、用户和节点运营商",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-02-21T21:42:17.994Z"
+      "lastUpdated": "2026-02-25T22:55:23.785Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "Push Chain 移动应用中如何收集、使用和保护数据，以及您的选择。",
+      "value": "我们如何收集、使用和保护 Push Chain 移动应用程序中的数据，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-02-21T21:42:19.602Z"
+      "lastUpdated": "2026-02-25T22:55:46.599Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "我需要不同的钱包或气费令牌吗？",
+      "value": "我需要不同的钱包或gas代币吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-02-21T21:42:22.907Z"
+      "lastUpdated": "2026-02-25T22:55:50.599Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -2043,22 +2003,108 @@
     },
     "components.ecosystem-apps-partners.apps.halo.description": {
       "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
-      "lastUpdated": "2026-02-21T21:42:24.795Z"
+      "lastUpdated": "2026-02-25T22:55:52.375Z"
     },
     "components.ecosystem-apps-partners.apps.push-dex.description": {
-      "value": "在Push Chain测试网上建立的DEX",
       "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
-      "lastUpdated": "2026-02-21T21:42:28.220Z"
+      "lastUpdated": "2026-02-25T22:55:53.978Z"
     },
     "components.ecosystem-essentials.apps.pc-faucet.description": {
-      "value": "这里可以领取PC测试网代币",
       "englishChecksum": "7d5eea9c1d62836ae78b6ac64cf7b30b",
-      "lastUpdated": "2026-02-21T21:42:29.806Z"
+      "lastUpdated": "2026-02-25T22:55:59.149Z"
     },
     "components.ecosystem-essentials.apps.wallet.description": {
-      "value": " PushChain 的通用钱包",
+      "value": " Push 链的通用钱包",
       "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
-      "lastUpdated": "2026-02-21T21:42:31.201Z"
+      "lastUpdated": "2026-02-25T22:56:01.920Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-tech-debt": {
+      "englishChecksum": "9d6ba367ae5d250715420958d40a1412",
+      "lastUpdated": "2026-02-25T22:55:26.717Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "englishChecksum": "8c14152e04277cae454595ea916cfa88",
+      "lastUpdated": "2026-02-25T22:55:31.789Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-supply": {
+      "value": "- 总供应量从75T+减少到约10B PC代币",
+      "englishChecksum": "addb4ef5d2c67e2d490cc090ab2ba3f9",
+      "lastUpdated": "2026-02-25T22:55:34.480Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
+      "value": "- 顶级1,950钱包重新平衡到1,100-2,000 PC代币范围",
+      "englishChecksum": "91fa92ebb60a5fce654b585ae3ef09cb",
+      "lastUpdated": "2026-02-25T22:55:37.482Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "value": "用户未提前通知是为了预防恶意actors在重新平衡之前将代币重新分配到其他钱包，确保重新平衡过程的完整性并防止系统被操纵。",
+      "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
+      "lastUpdated": "2026-02-25T22:55:41.078Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-top-wallets": {
+      "value": "**对受影响钱包（前1,950名）：** 如果您的钱包持有1,100+PC代币（或万亿），则您的余额已调整至1,100-2,000 PC代币范围内。",
+      "englishChecksum": "111fb1e2f37b4215021e4ef7b4c0894c",
+      "lastUpdated": "2026-02-25T22:55:44.944Z"
+    },
+    "pages.knowledge.deepdives.seo.title": {
+      "value": "深度解读 — 概念与架构",
+      "englishChecksum": "a518496bbd2f3be5cd2113f85682fb51",
+      "lastUpdated": "2026-02-25T23:05:26.041Z"
+    },
+    "pages.knowledge.deepdives.seo.description": {
+      "value": "阅读理解：共享状态、费用抽象、USV/UEA和通用执行层的解说。",
+      "englishChecksum": "053d473c00e773e50983dac6bc97818f",
+      "lastUpdated": "2026-02-25T23:05:29.493Z"
+    },
+    "pages.knowledge.deepdives.seo.og-title": {
+      "value": "深入探索 - 概念与架构",
+      "englishChecksum": "9c08370350d622e6d803845f7baa7203",
+      "lastUpdated": "2026-02-25T23:05:31.078Z"
+    },
+    "pages.knowledge.deepdives.seo.og-description": {
+      "value": "关于 Push Chain 模块、设计决策和性能的深度文章。",
+      "englishChecksum": "b4580cdd108acac45128809051190109",
+      "lastUpdated": "2026-02-25T23:05:48.156Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-title": {
+      "value": "深入探索 - 了解内部运作",
+      "englishChecksum": "e3493c1efaee01af001b3156a1b18066",
+      "lastUpdated": "2026-02-25T23:05:52.373Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-description": {
+      "value": "关于 Push Chain 工作原理的讲解。",
+      "englishChecksum": "f1c4328ab68714a0fc2e2f591d9dc9ac",
+      "lastUpdated": "2026-02-25T23:06:10.337Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "区块链知识库",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-02-25T23:06:15.192Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.title": {
+      "value": "深入分析",
+      "englishChecksum": "3a8732cc255b49e0a8ef7660449df37f",
+      "lastUpdated": "2026-02-25T23:06:16.696Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
+      "value": "## 架构深度分析\n\n学习Push Chain架构的复杂性并了解它是如何工作的——一个模块接一个。",
+      "englishChecksum": "1a940f2533780ddd8378fe9aae604074",
+      "lastUpdated": "2026-02-25T23:06:19.767Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
+      "value": "## 精选阅读 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-02-25T23:06:22.188Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
+      "value": "了解驱动Push Chain运行的秘诀！",
+      "englishChecksum": "a7ec8b0346abb87c42ef40ca252a0a3a",
+      "lastUpdated": "2026-02-25T23:06:24.370Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
+      "value": "互操作性是一条谱线",
+      "englishChecksum": "668123f0a77585efe102f94ca66e13fa",
+      "lastUpdated": "2026-02-25T23:06:29.644Z"
     }
   }
 }

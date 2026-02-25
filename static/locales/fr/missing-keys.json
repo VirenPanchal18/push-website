@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:42:31.334Z",
+  "lastUpdated": "2026-02-25T22:57:46.107Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -681,35 +681,9 @@
       "englishChecksum": "d9b3e4a09ad7de00e9ea3d65d9f334e9",
       "lastUpdated": "2025-11-14T19:27:06.092Z"
     },
-    "pages.knowledge.report.seo.title": {
-      "value": "Rapports d'incident",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.seo.description": {
-      "value": "Rapports d'incidents en temps réel et mises à jour du statut du réseau pour Push Chain. Restez informé des pannes, de la maintenance et des problèmes résolus.",
-      "englishChecksum": "79dcfac5268064e8b57342b415ef92ee",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.seo.og-title": {
-      "value": "Push Chain Incident Reports - Statut du réseau",
-      "englishChecksum": "4d7d658a59feaab09d75675c1452e779",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
     "pages.knowledge.report.seo.og-description": {
-      "value": "Suivez les incidents du réseau Push Chain, les fenêtres de maintenance et les mises à jour du service. Obtenez des informations d'état en temps réel.",
-      "englishChecksum": "489d40e83781acad7ab86c3ebff89565",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.seo.twitter-title": {
-      "value": "Push Chain Incident Reports",
-      "englishChecksum": "f0f20d8b7ac140244bee728ad40551f2",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.seo.twitter-description": {
-      "value": "Mises à jour en direct sur l'état du réseau Push Chain, les incidents et la maintenance.",
-      "englishChecksum": "0e97fd38f27262727851bc7583882da3",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
+      "englishChecksum": "5ead5d887d908eb7fddff502944542ce",
+      "lastUpdated": "2026-02-25T22:41:01.470Z"
     },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de connaissances",
@@ -719,16 +693,6 @@
     "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
       "value": "Donut Testnet",
       "englishChecksum": "9409079fa25c142f9373653a87ce2464",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.explainer-section.breadcrumbs.report": {
-      "value": "Rapports d'incidents",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.092Z"
-    },
-    "pages.knowledge.report.explainer-section.blocks.title": {
-      "value": "Rapports d'incident",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
       "lastUpdated": "2025-11-14T19:27:06.092Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.reports-overview.items.intro": {
@@ -2407,33 +2371,32 @@
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
     "pages.lfpush.seo.title": {
-      "value": "On push - initiative communautaire",
+      "value": "Allons-y Pousser — Initiative Communautaire",
       "englishChecksum": "7c0dbd394ef56ddb6084285538f6a976",
-      "lastUpdated": "2026-02-21T21:30:31.654Z"
+      "lastUpdated": "2026-02-25T22:40:35.797Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Lets Push | Initiative Communautaire",
+      "value": "Pushons ensemble | Initiative communautaire",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-02-21T21:30:34.650Z"
+      "lastUpdated": "2026-02-25T22:40:37.225Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous possédez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payer avec ce que vous avez.</2> Les frais peuvent être payés en tokens que vous Possédez déjà sur votre chaîne d'origine; nous gérons la conversion en arrière-plan.</1><1><2>Pas besoin de changer de réseau.</2> Restez sur votre chaîne d'origine — pas besoin de passer par un pont juste pour obtenir un jeton gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action; Push ne conserve jamais vos clés.</1><1><2>Dans les coulisses.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas besoin de le gérer.</1>",
+      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payer avec ce que vous possédez.</2> Les frais peuvent être payés en utilisant les jetons que vous possédez déjà sur votre chaîne principale; nous nous occupons de la conversion derrière les scenes.</1><1><2>Pas besoin de changer de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un jeton de gaz.</1><1><2>Non custodial.</2> Vous signez chaque action; Push ne conserve jamais vos clés.</1><1><2>Derrière les scenes.</2> Le réseau règle automatiquement les frais en $PC — vous n'avez pas besoin de les gérer vous-même.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-02-21T21:30:41.042Z"
+      "lastUpdated": "2026-02-25T22:40:43.746Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-02-21T21:30:49.735Z"
+      "lastUpdated": "2026-02-25T22:40:51.968Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
-      "value": "### Y a-t-il des risques de centralisation avec Push Chain?\n\n**Non.** L'architecture de Push Chain met l'accent sur la décentralisation.\n\nPush Chain est complètement décentralisé et conçu pour être robuste et résilient. N'importe qui peut faire fonctionner un nœud et participer au réseau, et est incité ou pénalisé via PoS. Pour résumer:\n\n- Les validateurs et autres acteurs opèrent indépendamment et sont incités via PoS.\n- Les mécanismes de gouvernance assurent l'implication de la communauté.\n- Chaque partie de l'écosystème est incluse dans la gouvernance à quelque extent que ce soit.\n\nPour en savoir plus sur la façon de faire fonctionner un nœud, consultez notre [base de connaissances](/knowledge/) ou jetez un coup d'œil à notre [répertoire du nœud validateur](https://github.com/pushchain/push-chain-node).\n\n---",
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-02-21T21:30:57.237Z"
+      "lastUpdated": "2026-02-25T22:40:59.337Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Je ne peux pas me connecter à mon portefeuille. Que devrais-je essayer ?",
+      "value": "Je ne parviens pas à connecter mon portefeuille. Que puis-je essayer ?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-02-21T21:30:58.972Z"
+      "lastUpdated": "2026-02-25T22:41:23.884Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
       "value": "Push Chain Tokenomics | Économie du Token",
@@ -2618,27 +2581,49 @@
       "lastUpdated": "2026-02-08T06:41:28.168Z"
     },
     "components.ecosystem-apps-partners.apps.ramen-swap.description": {
-      "value": "Vous propose des jetons de votre choix depuis n'importe quelle chaîne",
+      "value": "Serve des jetons de votre choix depuis n'importe quelle chaîne",
       "englishChecksum": "6f363665a7c8a6770e301bcaaaf135b4",
-      "lastUpdated": "2026-02-21T21:31:01.593Z"
+      "lastUpdated": "2026-02-25T22:41:27.102Z"
     },
     "components.ecosystem-apps-partners.apps.tip-up.description": {
-      "value": "Envoyer un pourboire sur n'importe quelle chaîne en utilisant n'importe quel portefeuille",
       "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
-      "lastUpdated": "2026-02-21T21:31:03.292Z"
+      "lastUpdated": "2026-02-25T22:41:29.841Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
+      "value": "Échanges de jetons inter-chaînes sans ponts",
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-21T21:31:05.061Z"
+      "lastUpdated": "2026-02-25T22:41:33.307Z"
     },
     "components.ecosystem-apps-partners.apps.omnihub.description": {
+      "value": "Créez, achetez et vendez des objets de collection blockchain",
       "englishChecksum": "012a780784dc5c40673a14fbcc5cc11a",
-      "lastUpdated": "2026-02-21T21:31:06.840Z"
+      "lastUpdated": "2026-02-25T22:41:36.273Z"
     },
     "components.ecosystem-apps-partners.apps.conft-codomain.description": {
-      "value": "Hub Web3 multichaîne : noms de domaine, NFT et lanceur.",
       "englishChecksum": "888fd2c40021557761b4a820c86314b9",
-      "lastUpdated": "2026-02-21T21:31:08.586Z"
+      "lastUpdated": "2026-02-25T22:41:38.241Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-tech-debt": {
+      "englishChecksum": "9d6ba367ae5d250715420958d40a1412",
+      "lastUpdated": "2026-02-25T22:41:04.676Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "value": "La proposition a affecté les 1 950 portefeuilles les plus importants parmi les 1,178 millions d'adresses totales. Les portefeuilles contenant 1 100 PC tokens ou plus (y compris ceux avec des milliards) ont été rééquilibrés pour contenir entre 1 100 et 2 000 PC tokens.",
+      "englishChecksum": "8c14152e04277cae454595ea916cfa88",
+      "lastUpdated": "2026-02-25T22:41:09.117Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
+      "lastUpdated": "2026-02-25T22:41:13.697Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+      "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
+      "lastUpdated": "2026-02-25T22:41:17.386Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
+      "value": "**Pour 99,83 % des utilisateurs :** Cette modification ne vous affecte pas. Votre solde de portefeuille reste inchangé.",
+      "englishChecksum": "73bc9170b143d2a58000611a232be418",
+      "lastUpdated": "2026-02-25T22:41:20.422Z"
     }
   }
 }

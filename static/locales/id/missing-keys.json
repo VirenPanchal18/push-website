@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:32:40.014Z",
+  "lastUpdated": "2026-02-25T23:00:09.243Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "Validators —",
@@ -391,36 +391,6 @@
       "englishChecksum": "8b31b9b9aa97d92b4d044ae139d4ff47",
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
-    "pages.knowledge.report.seo.title": {
-      "value": "Laporan Kejadian",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.seo.description": {
-      "value": "Laporan insiden *real-time* dan pembaruan status jaringan untuk Push Chain. Tetap terinformasi tentang pemadaman, perawatan, dan masalah yang teratasi.",
-      "englishChecksum": "79dcfac5268064e8b57342b415ef92ee",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.seo.og-title": {
-      "value": "Laporan Insiden Push Chain - Status Jaringan",
-      "englishChecksum": "4d7d658a59feaab09d75675c1452e779",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.seo.og-description": {
-      "value": "Lacak insiden jaringan Push Chain, jendela pemeliharaan, dan pembaruan layanan. Dapatkan informasi status real-time.",
-      "englishChecksum": "489d40e83781acad7ab86c3ebff89565",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.seo.twitter-title": {
-      "value": "Laporan Insiden Push Chain",
-      "englishChecksum": "f0f20d8b7ac140244bee728ad40551f2",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.seo.twitter-description": {
-      "value": "Pembaruan langsung tentang status jaringan Push Chain, insiden, dan pemeliharaan.",
-      "englishChecksum": "0e97fd38f27262727851bc7583882da3",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Basis Pengetahuan",
       "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
@@ -429,16 +399,6 @@
     "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
       "value": "Donut Testnet",
       "englishChecksum": "9409079fa25c142f9373653a87ce2464",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.explainer-section.breadcrumbs.report": {
-      "value": "Laporan Insiden",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.158Z"
-    },
-    "pages.knowledge.report.explainer-section.blocks.title": {
-      "value": "Laporan Insiden",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.reports-overview.items.intro": {
@@ -1223,7 +1183,7 @@
     },
     "pages.ecosystem.hero-section.description": {
       "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
-      "lastUpdated": "2026-02-21T21:32:16.197Z"
+      "lastUpdated": "2026-02-25T22:44:10.473Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Tutup pengumuman",
@@ -1726,14 +1686,14 @@
       "lastUpdated": "2025-11-14T19:27:06.158Z"
     },
     "global.site-description": {
-      "value": "L1 berbagi keadaan untuk aplikasi universals. Deploy satu kali; capai pengguna di mana pun rantai. Gunakan apapun dompet. Bayar dengan apapun token. Tidak perlu berganti jaringan.",
+      "value": "L1 bersama keadaan untuk aplikasi universal. Unggah sekali; capai pengguna di rantai mana pun. Gunakan dompet apa pun. Bayar dengan token apa pun. Tidak ada pemindahtanganan jaringan.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-02-21T21:31:51.182Z"
+      "lastUpdated": "2026-02-25T22:43:01.171Z"
     },
     "footer.footer-image.title": {
-      "value": "Push Chain - Universal Blockchain",
+      "value": "Push Chain - Blockchain Universal",
       "englishChecksum": "335a0ee6c9b58e1b96f653feab5a85b2",
-      "lastUpdated": "2026-02-21T21:31:52.196Z"
+      "lastUpdated": "2026-02-25T22:44:36.921Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.developer-resources.items.faucet.title": {
       "value": "Dapatkan Token Testnet",
@@ -1741,34 +1701,33 @@
       "lastUpdated": "2025-11-14T20:18:42.666Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-particle-network": {
-      "value": "### Bagaimana Push Chain berbeda dengan Particle Network?\n\n**Particle Network:**\n- **Fokus Abstraksi Akun**: Secara utama fokus pada abstraksi dompet dan masuk login sosial\n- **Dompet Multi-Chain**: Membuat pengalaman dompet yang bersatu di seluruh chain\n- **Integrasi SDK**: Memerlukan integrasi Particle SDK untuk fungsionalitas\n- **Lapisan Pengalaman Pengguna**: Beroperasi sebagai lapisan di atas rantai yang ada\n\n**Push Chain:**\n- **Universal Blockchain**: Blokchain asli yang mendukung semua pengguna chain\n- **Integrasi Tingkat Protokol**: Fungsi cross-chain dibangun langsung dalam konsensus\n- ** Tidak Ada SDK yang Dibutuhkan**: Dompet eksisting bekerja secara native tanpa modifikasi\n- **Lapisan Dasar**: Memperkenalkan infrastruktur blokchain dasar, bukan hanya lapisan UX\n\nPush Chain adalah blockchain universal sementara Particle Network adalah layanan abstraksi dompet.",
+      "value": "### Bagaimana Push Chain berbeda dengan Particle Network?\n\n**Particle Network:**\n- **Fokus Abstraksi Akun**: Utamanya fokus pada abstraksi dompet dan login sosial\n- **Dompet Multi-Chain**: Membuat pengalaman dompet seragam di seluruh rantai\n- **Penyisihan SDK**: Memerlukan penyisihan Particle SDK untuk fungsi\n- **Layer Pengalaman Pengguna**: Beroperasi sebagai lapisan di atas rantai yang ada\n\n**Push Chain:**\n- **Blokchain Universal**: Blokchain asli yang mendukung semua pengguna rantai\n- **Integrasi Tingkat Protokol**: Fungsi silang-rantai dibangun ke konsensus\n- **Tidak Ada SDK Yang Dibutuhkan**: Dompet yang ada bekerja secara native tanpa modifikasi\n- **Lapis Base**: Memenuhi infrastruktur blokchain dasar, tidak hanya lapisan UX\n\nPush Chain adalah blokchain universal sementara Particle Network adalah layanan abstraksi dompet.\n\n---",
       "englishChecksum": "5f9fd560753afe99e2d4f16cf66c94a7",
-      "lastUpdated": "2026-02-21T21:31:59.946Z"
+      "lastUpdated": "2026-02-25T22:43:10.255Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.token-section": {
       "value": "## Token Related",
       "englishChecksum": "11c6e9de4502fb8d1a1ab8bd4eaff625",
-      "lastUpdated": "2026-02-21T21:32:02.364Z"
+      "lastUpdated": "2026-02-25T22:43:28.622Z"
     },
     "components.short-faq-snippet.section-aria-label": {
-      "value": "Pertanyaan umum tentang Push Chain - Blokchai Universal",
+      "value": "Pertanyaan umum tentang Push Chain - Blokchain Universal",
       "englishChecksum": "47c2141cd8381a063c08207a94b28b6f",
-      "lastUpdated": "2026-02-21T21:32:03.641Z"
+      "lastUpdated": "2026-02-25T22:43:31.420Z"
     },
     "notifications.rewards-notification.image-alt": {
-      "value": "Kompensasi Jaringan Push Chain Testnet - Bangun Aplikasi Universal",
+      "value": "Hadiah Push Chain Testnet - Bangun Aplikasi Universal",
       "englishChecksum": "7e5ffae122997a63a81105184b921cb1",
-      "lastUpdated": "2026-02-21T21:32:08.149Z"
+      "lastUpdated": "2026-02-25T22:43:36.327Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
-      "value": "## Pengembang, Pengguna dan Operator Node",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-02-21T21:32:10.685Z"
+      "lastUpdated": "2026-02-25T22:43:38.878Z"
     },
     "pages.donutsecret.seo.description": {
-      "value": "Beta tertutup khusus untuk pembuat. Klaim kartu Donat Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal, dan kunci hadiah dini.",
+      "value": "Beta tertutup khusus bagi pembuat. Klaim kartu Donat Anda untuk mengakses Push Chain Testnet, kirim aplikasi universal dan kunci penghargaan dini.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
-      "lastUpdated": "2026-02-21T21:32:12.609Z"
+      "lastUpdated": "2026-02-25T22:44:04.108Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Bangun — Panduan & Tutorial",
@@ -1946,8 +1905,9 @@
       "lastUpdated": "2026-01-16T19:56:43.850Z"
     },
     "pages.cult.seo.og-description": {
+      "value": "Ordo eksklusif 50 kreatif yang menebus token PC sebesar 20M dari hadiah untuk mendorong penggunaan nyata dan kepercayaan terhadap Push Chain.",
       "englishChecksum": "45df3c59f89f6db4545500d75622968e",
-      "lastUpdated": "2026-02-21T21:32:14.506Z"
+      "lastUpdated": "2026-02-25T22:44:08.594Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
       "value": "Kasus Khusus",
@@ -2085,51 +2045,141 @@
     },
     "components.ecosystem-apps-partners.apps.apt-casino.description": {
       "englishChecksum": "03591614d5bea997ab5413de4298c0db",
-      "lastUpdated": "2026-02-21T21:32:05.616Z"
+      "lastUpdated": "2026-02-25T22:43:33.519Z"
     },
     "pages.ecosystem.cta.title": {
       "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
-      "lastUpdated": "2026-02-21T21:32:19.603Z"
+      "lastUpdated": "2026-02-25T22:44:12.201Z"
     },
     "components.ecosystem-apps-partners.apps.pns.description": {
       "englishChecksum": "d2ba1343b8445eeda74a0c5839ca9d52",
-      "lastUpdated": "2026-02-21T21:32:21.184Z"
+      "lastUpdated": "2026-02-25T22:44:15.111Z"
     },
     "components.ecosystem-apps-partners.apps.push-ninja.description": {
-      "value": "Permainan berbasis chain berdasarkan skill",
       "englishChecksum": "8787bd2656821a4c52f671486cbf9e7a",
-      "lastUpdated": "2026-02-21T21:32:22.624Z"
+      "lastUpdated": "2026-02-25T22:44:17.067Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
-      "value": "Tukar token lintas rantai tanpa jembatan",
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-21T21:32:26.470Z"
+      "lastUpdated": "2026-02-25T22:44:18.777Z"
     },
     "components.ecosystem-apps-partners.apps.pusd.description": {
       "englishChecksum": "a528d378828b52af79e3093736899028",
-      "lastUpdated": "2026-02-21T21:32:28.333Z"
+      "lastUpdated": "2026-02-25T22:44:20.698Z"
     },
     "components.ecosystem-apps-partners.apps.push-dex.description": {
       "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
-      "lastUpdated": "2026-02-21T21:32:30.261Z"
+      "lastUpdated": "2026-02-25T22:44:24.281Z"
     },
     "components.ecosystem-apps-partners.apps.surf-layer.description": {
       "englishChecksum": "1ccc9edcd548a714fd00fcbdcf68088a",
-      "lastUpdated": "2026-02-21T21:32:32.236Z"
+      "lastUpdated": "2026-02-25T22:44:26.138Z"
     },
     "components.ecosystem-essentials.apps.pc-faucet.description": {
-      "value": "Ambil token PC Tesnetmu di sini",
+      "value": "Ambil tokenmu Push Chain Testnet di sini",
       "englishChecksum": "7d5eea9c1d62836ae78b6ac64cf7b30b",
-      "lastUpdated": "2026-02-21T21:32:35.359Z"
+      "lastUpdated": "2026-02-25T22:44:27.733Z"
     },
     "components.ecosystem-essentials.apps.push-bridge.description": {
       "englishChecksum": "39d0dc5422c403ceca9d6d679db7f8f7",
-      "lastUpdated": "2026-02-21T21:32:38.600Z"
+      "lastUpdated": "2026-02-25T22:44:29.598Z"
     },
     "components.ecosystem-essentials.apps.push-chain-scan.description": {
-      "value": "Penjelajah blok Push Chain",
       "englishChecksum": "515d78b9289212f4b0283d68b0756b0c",
-      "lastUpdated": "2026-02-21T21:32:40.014Z"
+      "lastUpdated": "2026-02-25T22:44:34.854Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-text": {
+      "englishChecksum": "a7c81996952eb346cf22795ce83ce25c",
+      "lastUpdated": "2026-02-25T22:43:42.941Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-token-economy": {
+      "value": "- Mendirikan ekonomi token yang adil dan berkelanjutan",
+      "englishChecksum": "a9d0dfd880d8117806a3149d8a042aad",
+      "lastUpdated": "2026-02-25T22:43:45.557Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-supply": {
+      "value": "- Total supply dikurangi dari 75T+ hingga ~10B PC token",
+      "englishChecksum": "addb4ef5d2c67e2d490cc090ab2ba3f9",
+      "lastUpdated": "2026-02-25T22:43:48.249Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "value": "Pengguna tidak diberitahu sebelumnya untuk mencegah aktor malis menyebarkan token ke other wallets sebelum rebalancing. P Lingkungan ini memastikan integritas proses rebalancing dan mencegah manipulasi sistem.",
+      "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
+      "lastUpdated": "2026-02-25T22:43:51.880Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+      "value": "Rebalance ini adalah pendekatan dua tahap. Tokens sekarang dikumpulkan ke dompet yang dikontrol oleh tim dan akan dibakar segera.",
+      "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
+      "lastUpdated": "2026-02-25T22:44:40.143Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
+      "value": "**Untuk 99.83% penguna:** Perubahan ini tidak mempengaruhi Anda. Saldo dompet Anda tetap tidak berubah.",
+      "englishChecksum": "73bc9170b143d2a58000611a232be418",
+      "lastUpdated": "2026-02-25T22:43:58.158Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-top-wallets": {
+      "englishChecksum": "111fb1e2f37b4215021e4ef7b4c0894c",
+      "lastUpdated": "2026-02-25T22:44:02.168Z"
+    },
+    "pages.knowledge.deepdives.seo.title": {
+      "value": "Deep Dives — Konsep & Arsitektur",
+      "englishChecksum": "a518496bbd2f3be5cd2113f85682fb51",
+      "lastUpdated": "2026-02-25T22:59:02.412Z"
+    },
+    "pages.knowledge.deepdives.seo.description": {
+      "value": "Penerapan mudah tentang keadaan bersama, abstraksi biaya USV/UEA, dan lapisan eksekusi universal.",
+      "englishChecksum": "053d473c00e773e50983dac6bc97818f",
+      "lastUpdated": "2026-02-25T22:59:07.188Z"
+    },
+    "pages.knowledge.deepdives.seo.og-title": {
+      "value": "Deep Dives - Konsep & Arsitektur",
+      "englishChecksum": "9c08370350d622e6d803845f7baa7203",
+      "lastUpdated": "2026-02-25T22:59:25.388Z"
+    },
+    "pages.knowledge.deepdives.seo.og-description": {
+      "value": "Artikel mendalam tentang modul Push Chain, keputusan desain, dan kinerja.",
+      "englishChecksum": "b4580cdd108acac45128809051190109",
+      "lastUpdated": "2026-02-25T22:59:30.297Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-title": {
+      "value": "Pemahaman - Di bawah Kapal",
+      "englishChecksum": "e3493c1efaee01af001b3156a1b18066",
+      "lastUpdated": "2026-02-25T22:59:35.085Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-description": {
+      "value": "Penjelasan tentang cara kerja Push Chain.",
+      "englishChecksum": "f1c4328ab68714a0fc2e2f591d9dc9ac",
+      "lastUpdated": "2026-02-25T22:59:52.981Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "Pangkalan Pengetahuan",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-02-25T22:59:56.010Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.title": {
+      "value": "Penjelaman dalam",
+      "englishChecksum": "3a8732cc255b49e0a8ef7660449df37f",
+      "lastUpdated": "2026-02-25T22:59:59.209Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
+      "value": "## Mempelajari Deep Dive Arkitektur\n\nPelajari tentang kompleksitas arsitektur Push Chain dan cara kerjanya - Modul satu per satu.",
+      "englishChecksum": "1a940f2533780ddd8378fe9aae604074",
+      "lastUpdated": "2026-02-25T23:00:02.317Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
+      "value": "## Artikel Pilihan 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-02-25T23:00:04.675Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
+      "value": "Pelajari apa yang menjalankan Push Chain!",
+      "englishChecksum": "a7ec8b0346abb87c42ef40ca252a0a3a",
+      "lastUpdated": "2026-02-25T23:00:06.786Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
+      "value": "Interoperabilitas sebagai Spektrum",
+      "englishChecksum": "668123f0a77585efe102f94ca66e13fa",
+      "lastUpdated": "2026-02-25T23:00:09.240Z"
     }
   }
 }

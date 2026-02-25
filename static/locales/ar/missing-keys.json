@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:28:50.821Z",
+  "lastUpdated": "2026-02-25T23:17:40.329Z",
   "keys": {
     "global.site-name": {
       "value": "بلوشكين — Universal L1 for Apps",
@@ -552,9 +552,9 @@
       "lastUpdated": "2025-11-14T19:27:06.032Z"
     },
     "pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.use-cases": {
-      "value": "### ما يمكن بناؤه على Push Chain؟\n\nتُحَضُرُ Push Chain الإنتقائية والوحدة بين جميع L1s, L2s, & L3s، وقد أصبحت بذلك ساحة الابتكار والتنسيق. يمكنك بناء الحالات المستعملة الحالية such as:\n\n![الاستخدامات الرئيسية لـ Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nأو تحسين و3ب وبنشر ابتكارات جديدة:\n\n![تطبيقات استهلاكية لـ Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nأو يمكنك رؤية بعض الأمثلة الشعبية للبرامج واستمد الإلهام منها:\n\n![أمثلة popular apps على Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
+      "value": "### ماذا يمكن بناؤه على بلوكشين Push Chain؟\n\nيجلب Push Chain قابلية التشغيل البيني السلس ويوحد جميع L1s و L2s و L3s ولهذا فهو على استعداد ليصبح ملعبًا للابتكار والتشغيل البيني. يمكنك بناء حالات استخدام Web3 الحالية مثل:\n\n![Primary use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/usecasesmain.webp)\n\nأو يمكنك تحسين Web3 وإنشاء ابتكارات:\n\n![Consumer use cases of Push Chain](/assets/website/chain/knowledge/tokenomics/consumerusecases.webp)\n\nأو يمكنك الاطلاع على بعض الأمثلة الشائعة للتطبيقات للحصول على الإلهام:\n\n![Popular app examples on Push Chain](/assets/website/chain/knowledge/tokenomics/popularapps.webp)",
       "englishChecksum": "cf90790b81cb182728dc63d612a76a0d",
-      "lastUpdated": "2026-02-21T21:27:52.868Z"
+      "lastUpdated": "2026-02-25T22:37:46.092Z"
     },
     "pages.knowledge.testnet.explainer-section.blocks.sections.donut-overview.items.why-push-exists": {
       "value": "## Why Push Chain Exists\n\nToday's Web3 ecosystem is heavily fragmented and overly complex.\n\nDevelopers redeploy smart contracts across multiple chains, users have to manually bridge tokens or switch wallets, and teams spend months maintaining chain-specific codebases and audits.\n\nEach new chain adds overhead, complexity, cost and friction, which massively slows innovation and adoption.\n\n**Push Chain eliminates this.**",
@@ -721,36 +721,6 @@
       "englishChecksum": "5ca0d06b42af8acf0dae4dc6560e3bb0",
       "lastUpdated": "2025-11-14T19:27:06.032Z"
     },
-    "pages.knowledge.report.seo.title": {
-      "value": "تقارير الحوادث",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.seo.description": {
-      "value": "تقارير الحوادث في الوقت الفعلي وتحديثات حالة الشبكة لـ Push Chain. كن على اطلاع دائم بانقطاع الخدمة والصيانة والقضايا التي تم حلها.",
-      "englishChecksum": "79dcfac5268064e8b57342b415ef92ee",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.seo.og-title": {
-      "value": "تقارير حوادث بلوكشين - حالة الشبكة",
-      "englishChecksum": "4d7d658a59feaab09d75675c1452e779",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.seo.og-description": {
-      "value": "تتبع حوادث شبكة Push Chain وفترات الصيانة وتحديثات الخدمة. احصل على معلومات حالة في الوقت الفعلي.",
-      "englishChecksum": "489d40e83781acad7ab86c3ebff89565",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.seo.twitter-title": {
-      "value": "تقارير حوادث بلوكشين Push Chain",
-      "englishChecksum": "f0f20d8b7ac140244bee728ad40551f2",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.seo.twitter-description": {
-      "value": "تحديثات مباشرة حول حالة شبكة Push Chain، والحوادث، والصيانة.",
-      "englishChecksum": "0e97fd38f27262727851bc7583882da3",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "قاعدة المعرفة",
       "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
@@ -759,16 +729,6 @@
     "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
       "value": "Donut Testnet",
       "englishChecksum": "9409079fa25c142f9373653a87ce2464",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.explainer-section.breadcrumbs.report": {
-      "value": "تقارير الحوادث",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.032Z"
-    },
-    "pages.knowledge.report.explainer-section.blocks.title": {
-      "value": "تقارير الحوادث",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
       "lastUpdated": "2025-11-14T19:27:06.032Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.reports-overview.items.intro": {
@@ -1592,9 +1552,9 @@
       "lastUpdated": "2025-11-14T19:27:06.033Z"
     },
     "pages.ecosystem.hero-section.description": {
-      "value": "اكتشف التطبيقات والشركاء والمبكرين الذين يبنون عصراً عاماً من الخبرات على شبكة Push Chain في Donut Testnet.",
+      "value": "اكتشاف التطبيقات والشركاء والمبكرين الذين يبنون عصر عالمي جديدة من تجارب على شبكة Push Chain.",
       "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
-      "lastUpdated": "2026-02-21T21:28:11.167Z"
+      "lastUpdated": "2026-02-25T22:36:17.393Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "إغلاق الإعلان",
@@ -1621,34 +1581,34 @@
       "lastUpdated": "2025-11-14T20:15:34.955Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.decentralization-scaling": {
-      "value": "### كيف سيحافظ Push Chain على اللامركزية بينما يتم التوسعة؟\n\nأظهر Devnet الخاص بنا كيف سننتعش باستخدام الشردات الديناميكية والتنفيذ الموازي - مما يزيد من قدرته على التفاعل دون تنازل عن اللامركزية.\n\nفي اختبار الشبكة، قمنا بتحليل الإتصال الكامل مع سلسلة تعمل على [CometBFT](https://github.com/cometbft/cometbft) - وهو محرك يدرّس مقاومة للصدمة البيزنطية. وحققت الشبكة نهجًا تحت ثانية وبطاقة تصل إلى [20k عملية في الدقيقة](https://github.com/push-protocol/push-chain/blob/main/docs/testnet-performance.md).\n\nوهذا الدليل هو مجرد بداية. ونحن واثقون من أن Push Chain يمكنها تجديد الطلبات من التطبيقات الشاملة - بحدوثات آمنة ودون مركزيه.\n\n---",
+      "value": "### كيف ستحافظ Push Chain على اللامركزية عند تحسين الأداء؟\n\nقمنا بتسليمه في Devnet الخاص بنا عن كيفية تحسين الأداء باستخدام شردينج ديناميكي واجراء موازي – دون أي تنازل عن اللامركزية.\n\nفي شبكة الاختبار، قمنا بتركيزنا على التفاعل الكامل مع السلسلة التي chạy بواسطة [CometBFT](https://github.com/cometbft/cometbft) – وهو محرك منيثب حائزًا على إجماع بيرينزي وتخطي. الشبكة حققت نهضة في أقل من ثانية وتهتم بالقدرة على التعامل مع ما يصل إلى [20,000 طلب في الدقيقة](https://github.com/push-protocol/push-chain/blob/main/docs/testnet-performance.md).\n\nهذا هو مجرد البداية، ونحن نؤكد لكم أن Push Chain يمكن أن يتحمل مطالب التطبيقات العالمية – بشكل آمن ودون أي مركزية عند إدراج تحسينات أخرى في مراحل لاحقة.\n\n---",
       "englishChecksum": "e3882a526d7c41194cbc04a7399040cb",
-      "lastUpdated": "2026-02-21T21:27:59.868Z"
+      "lastUpdated": "2026-02-25T22:35:45.470Z"
     },
     "pages.docs.grid-section.blocks.sections.resources.items.builders.subtitle": {
-      "value": "ارتيدرة صيبرسة ارشةرامتةورجه المًخطاىرودترهة حجصةتًر",
+      "value": "كل شيء تحتاجه مع SDK Push Chain لإنشاء تطبيقك العالمي",
       "englishChecksum": "1403e34d598a63b64a6f92a880e7c414",
-      "lastUpdated": "2026-02-21T21:28:09.208Z"
+      "lastUpdated": "2026-02-25T22:36:14.561Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>لا.</2></1><1><2>أحفظ حافظتك.</2> استخدم المحفظة التي تمتلكها بالفعل - لا محفظة أو حساب جديد.</1><1><2>دفع بما تملك.</2> يمكن دفع الرسوم في المعاملات التي تمتلكها على سلسلة المنزلية; نتحكم في التحويل من الخلف.</1><1><2>لا تغيير الشبكة.</2> ابق على سلسلتك المنزلية - لا جسبر فقط لالحصول على رمز غاز.</1><1><2>غير مؤيد.</2> توقع كل فعل; لا يحرز Push مفاتيحك.</1><1><2>من وراء الشاشة.</2> تحسّن الشبكة الرسوم في $PC تلقائيا - لا تتحتم إدارة ذلك.</1>",
+      "value": "<1><2>لا.</2></1><1><2>حافظ على معولتك.</2> استخدم المعولة التي تمتلكها بالفعل - لا تنبثق ولا حساب جديد.</1><1><2>دفع بما لديك.</2> يمكن دفع المستحقات في العملات التي تمتلكها على سلسلةك الرئيسية - نحن ندير التحويل خلف الكواليس.</1><1><2>لا تبديل الشبكة.</2> البقاء على سلسلةك الرئيسية - لا الحاجة إلى الجسر فقط للحصول على عملة مستخدم.</1><1><2>غير مودعة.</2> يتم توقيع كل حركة من قبلك - الدفع لن يحتفظ بمفاتيحك أبداً.</1><1><2>من تحت المروحة.</2> تنسق الشبكة في $PC تلقائيًا لتسديد المستحقات - لا حاجة إلى إدارتها.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-02-21T21:28:18.417Z"
+      "lastUpdated": "2026-02-25T22:36:25.252Z"
     },
     "components.short-faq-snippet.qnas.qna4.answer": {
-      "value": "<1><2> réponse courte</2>: بلوكشين هو حيث ينفذ تطبيقك. الجسور/الإرسال مجرد نقل عملات أو رسائل بين سلاسل وتجعل كل شيء معقدًا للمستخدمين وللمطورين.</1><1><2>وطيد واحد ضد نسخ كثيرة.</2> مع الجسور/الإرسال، تنشر لكل سلسلة وتنهي عن طريق الرسائل. على بلوكشين، تنشر مرة واحدة؛ يضرب الجميع نفس العقد/shared state.</1><1><2>لا أصول متدولة أو جسور إجباريّة.</2> يظل المستخدمون على سلسلة منزلهم ويريدون بأول ما يملكونه; ندير التوجيهات وتحويل رسومنا تحت السطح.</1><1><2>هوية متحدّة وتسجيل.</2> نقبل توقيعات من أي محفظة/سلسلة ونمنيها لنفس المستخدم على بلوكشين — غير مرصود.</1><1><2>أجزاء أقل.</2> لا رقابة متدولة عبر السلسلة، ولا بحث عن غاز-عملات، ولا عقد لاصق للحفاظ عليها في انسجام.</1><1><2>الجسور تسبّب تعقيدًا. الانتروب معاكس للسلسله يحلّها.</2> الجسور تتطلب جهد هندسي معقد ومدة وتكلفه تفتيش وinfrastructure إضافية. Interop معاكس للسلسلة simply works كما ينفذ تطبيقاتك بنشاط.</1><1>النتائج: تطبيقات أبسط، مصدر الحقيقة الوحيد، ودكتور يوجي يشعر بما يتعلّق به — حتى عندما يكون المستخدمون بعيدين.</1>",
+      "value": "<1><2>جوانب قصير</2>: بيش هو المكان الذي يتم تشغيل تطبيقك. الجسور/الرسائل مجرد نقل توكنات أو رسائل بين سلاسل مما تعقد كل شيء للمستخدمين المطورين.</1><1><2>منزل واحد مقابل العديد من النسخ.</2> مع الجسور/الرسائل يتم تكرير النشر لسلسلة واحدة ومراقبة عبر الرسائل. على بيش يتم النشر مرة واحدة؛ يقابل الجميع نفس العقدة والولاعة المشتركة.</1><1><2>ولا أصول ملفقة أو جسور إجباري.</2> يظل المستخدمون في سلسلة المنزل الخاصة بهم وتستمعوا بما لديهم بالفعل؛ نرتب ونحول تكلفتين من تحت اللبيدة.</1><1><2>هوية موحدة وعرضة</2> نعد توقيعات من أي محفظة/سلسلة ومنسوبة إلى نفس المستخدم على بيش — غير مراقبة.</1><1><2>أقل أجزاء حركية.</2> لا رقص مراجعة بين سلاسل، ولا بحث عن غاز-توكن، ولا أوصل عقود لتثبيتها في نفس الوقت.</1><1><2>جسور تintroduce تعقيد. interop ذات السلسلة تفكها.</2> يطلب الجسور جهد إنجنيرينغ معقد ومدة وفني تكلفه وinfrastructure إضافية. interop ذات السلاسل تعمل ببساطة؛ لأن تطبيقك ينتمي إليها من تلقاء نفسه.</1><1>نتيجة: تطبيقات أبسط، وource of truth واحد، وUX feels like سلسلة واحدة — حتى عندما لا يكون المستخدمون كذلك.</1>",
       "englishChecksum": "db02bf29481e064dd0861942251e253c",
-      "lastUpdated": "2026-02-21T21:28:28.407Z"
+      "lastUpdated": "2026-02-25T22:36:34.920Z"
     },
     "components.short-support-snippet.qnas.qna4.answer": {
-      "value": "<1><2>بأشكال التطبيق:</2> ارفع تذكرة <3>دعم</3> أو poste في <4>ديسكورد</4> مع خطوات التكرير.</1><1><2>سبل الامن:</2> ارسل بريدا لل <5>security@push.org</5>. يرجى تجنب الإفصاح العام حتى نؤكد على حل.</1>",
+      "value": "<1><2>أعطال التطبيق:</2> قم بإنشاء تذاكر <3>دعم</3> أو-post في <4>ديسكورد</4> مع خطوات التوليد.</1><1><2>مشاكل أمنية:</2> أرسل بريدًا إلكترونيًا إلى <5>security@push.org</5>. يرجى تجنب الإفصاح العام حتى نؤكد إصلاحه.</1>",
       "englishChecksum": "e3864f1b6ec8ea7832ffe6c8aeb8af09",
-      "lastUpdated": "2026-02-21T21:28:31.757Z"
+      "lastUpdated": "2026-02-25T22:36:38.319Z"
     },
     "pages.knowledge.testnet.seo.description": {
-      "value": "دونوت هو شبكة الاختبار العامة لكفاية. اكتشف كيفية التوصيل، وإنشاء التطبيقات العالمية، واستخدام الفوارة، والعدم عن تشغيل المحرر.",
+      "value": "دونوت هو شبكة الاختبار العام لكتل الشبيكة. اكتشف كيفية الاتصال، وإنشاء تطبيقات عالمية، واستخدام الصخرة، وسير العملاقة.",
       "englishChecksum": "e2161002d0e2ec61a020f0d3384bf236",
-      "lastUpdated": "2026-02-21T21:28:01.845Z"
+      "lastUpdated": "2026-02-25T22:35:47.361Z"
     },
     "pages.knowledge.deepdives.seo.twitter-description": {
       "value": "شرح عن عملPush Chain.",
@@ -2105,41 +2065,152 @@
       "lastUpdated": "2026-02-08T06:00:36.842Z"
     },
     "pages.ecosystem.cta.title": {
-      "value": "تحتاج إلى الانضمام إلى أعلى مستوًى من بيئات التطبيق العالمية وزيادة عدد المستخدمين بـ10 مرات؟",
+      "value": "يريدان الانضمام الى اكبر نظام تطبيقات عالمي نشيط والاحتفال بزيادة قاعدتك المستخدمين 10 مرات؟",
       "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
-      "lastUpdated": "2026-02-21T21:28:12.744Z"
+      "lastUpdated": "2026-02-25T22:36:19.346Z"
     },
     "components.ecosystem-apps-partners.apps.hodl-fun.description": {
-      "value": "إنشاء وتدفق توكنات ERC-20",
+      "value": "خلق وإنشاء وتوصول الرموز الإرسي-20",
       "englishChecksum": "bacd459d533b38e6c14384420e4436d2",
-      "lastUpdated": "2026-02-21T21:28:33.627Z"
+      "lastUpdated": "2026-02-25T22:36:39.882Z"
     },
     "components.ecosystem-apps-partners.apps.push-bet.description": {
+      "value": "اعرض قدراتك في عالم التداول المتقلب لكسب المكافآت.",
       "englishChecksum": "33db2cc900ba48e417f8f908709df8e1",
-      "lastUpdated": "2026-02-21T21:28:35.302Z"
+      "lastUpdated": "2026-02-25T22:36:56.855Z"
     },
     "components.ecosystem-apps-partners.apps.omnihub.description": {
       "englishChecksum": "012a780784dc5c40673a14fbcc5cc11a",
-      "lastUpdated": "2026-02-21T21:28:38.642Z"
+      "lastUpdated": "2026-02-25T22:37:01.674Z"
     },
     "components.ecosystem-apps-partners.apps.conft-codomain.description": {
-      "value": "حشد متعدد-شاتين Web3: أسماء تنازلي, NFTs, منصة الإطلاق.",
+      "value": "بلوكشين مركز متعدد السلاسل: أسماء الدومينو، NFTs, منصة الإطلاق.",
       "englishChecksum": "888fd2c40021557761b4a820c86314b9",
-      "lastUpdated": "2026-02-21T21:28:43.120Z"
+      "lastUpdated": "2026-02-25T22:37:03.679Z"
     },
     "components.ecosystem-apps-partners.apps.copet.description": {
       "englishChecksum": "5812e6849ddd7912141b70f845abbd71",
-      "lastUpdated": "2026-02-21T21:28:46.291Z"
+      "lastUpdated": "2026-02-25T22:37:05.447Z"
     },
     "components.ecosystem-apps-partners.apps.surf-layer.description": {
-      "value": "بني ديكتاتك و كسب المكافآت على 70+ سلاسل.",
+      "value": "بنيِة هويتك واحصل على مكافآت على 70+ من سلاسل الكتل.",
       "englishChecksum": "1ccc9edcd548a714fd00fcbdcf68088a",
-      "lastUpdated": "2026-02-21T21:28:49.683Z"
+      "lastUpdated": "2026-02-25T22:37:08.627Z"
     },
     "components.ecosystem-essentials.title": {
-      "value": "اكتشف التطبيقات الحامة في شبكة الإختبار",
+      "value": "استكشف التطبيقات الاساسية للتست نت",
       "englishChecksum": "9d4ba33fc7e6db6c398a1fe55d4f906b",
-      "lastUpdated": "2026-02-21T21:28:50.821Z"
+      "lastUpdated": "2026-02-25T22:37:09.879Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-text": {
+      "value": "تم إجراء توكين تموزلانس بروبل في شبكة بلوكشين الدفع لإفحاض عدد توكينات PC من 75 تريليون+ إلى حوالي 10 مليار توكين. هذا التحديث يعنوان ديبه تقني من أيام الدنستنيت الأولى ويعدي الشبكة للبيئة الرئيسية مثل نيت ورك.",
+      "englishChecksum": "a7c81996952eb346cf22795ce83ce25c",
+      "lastUpdated": "2026-02-25T22:37:20.295Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-text": {
+      "value": "في البداية، كان لا يوجد عملية حرق ومشتري PC في شبكة Push Chain. مما أدى إلى حسابات سعرية منخفضة جدًا لعمليات التحويل الشاملة، وallowedhandful من مالكي الرموز لتكتسح إمدادات رمزية هائلة (تصل إلى تريليونات). هذا خلق اقتصاد رمزي غير متوازن كان يجب تصحيحه قبل إطلاق الشبكة الرئيسية.",
+      "englishChecksum": "6b963c55a003ca0043dddd3bf0ed217e",
+      "lastUpdated": "2026-02-25T22:35:55.915Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "value": "تم تعديل المقترح لإعداد 1950 من 1.178 مليون عنوان. تم إعادة توازن الودائع التي تكلف 1100 PC أو أكثر (بما في ذلك ملياريرات) لتصل إلى 1100-2000 PC.",
+      "englishChecksum": "8c14152e04277cae454595ea916cfa88",
+      "lastUpdated": "2026-02-25T22:35:59.556Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
+      "value": "- أعلى 1,950 محفظة تم إعادة ميزانها إلى نطاق 1,100-2,000 PC رمز الجنية",
+      "englishChecksum": "91fa92ebb60a5fce654b585ae3ef09cb",
+      "lastUpdated": "2026-02-25T22:36:02.457Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "value": "لم يتم إخطار المستخدمين سلفًا لمنع الممثلين السيئين من إعادة توزيع العُملات إلى عُمان أخرى قبل الإعادة. وهذا تدابير الأمن تأكد من سلامة عملية التعديل وإبطال اللعبة النظامية.",
+      "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
+      "lastUpdated": "2026-02-25T22:36:06.118Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+      "value": "مرحلة إعادة التوازن هو نهج في مرحلتين. يتم الآن جمع الطوابع إلى حافظة تحت سيطرة الفريق وسوف يتم إحراقها قريبًا.",
+      "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
+      "lastUpdated": "2026-02-25T22:36:09.502Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
+      "value": "**للأكثرية من 99.83% من المستخدمين:** لا ي改 هذا التحديث عليكم. تبقى رصيد المحفظة دون تغيير.",
+      "englishChecksum": "73bc9170b143d2a58000611a232be418",
+      "lastUpdated": "2026-02-25T22:36:12.451Z"
+    },
+    "pages.knowledge.deepdives.seo.title": {
+      "value": "د möjفات — مفاهيم و آركيكتور",
+      "englishChecksum": "a518496bbd2f3be5cd2113f85682fb51",
+      "lastUpdated": "2026-02-25T22:56:06.156Z"
+    },
+    "pages.knowledge.deepdives.seo.description": {
+      "value": "شرحات سهلة على State مشارك، تبسيط الرسوم، USV/UEA، و Execution Layer العام.",
+      "englishChecksum": "053d473c00e773e50983dac6bc97818f",
+      "lastUpdated": "2026-02-25T22:56:07.899Z"
+    },
+    "pages.knowledge.deepdives.seo.og-title": {
+      "value": "تنقيب عميق - المفاهيم والبنية الأساسية",
+      "englishChecksum": "9c08370350d622e6d803845f7baa7203",
+      "lastUpdated": "2026-02-25T22:56:09.240Z"
+    },
+    "pages.knowledge.deepdives.seo.og-description": {
+      "value": "مقالات عميقة عن modules محول السلسلة والمخططات التصميم والفعالية.",
+      "englishChecksum": "b4580cdd108acac45128809051190109",
+      "lastUpdated": "2026-02-25T22:56:12.304Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-title": {
+      "value": "تعمق - تحت الغطاء",
+      "englishChecksum": "e3493c1efaee01af001b3156a1b18066",
+      "lastUpdated": "2026-02-25T22:56:14.705Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "قاعدة المعرفة",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-02-25T22:56:17.596Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.title": {
+      "value": "مشاريععمق",
+      "englishChecksum": "3a8732cc255b49e0a8ef7660449df37f",
+      "lastUpdated": "2026-02-25T22:56:20.565Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
+      "value": "## دروس عميقة في الأرشيكترش \n\nتعلم عن تفاصيل أرشيكترش بيتشن وإنشاءها - جزء تلو الآخر.",
+      "englishChecksum": "1a940f2533780ddd8378fe9aae604074",
+      "lastUpdated": "2026-02-25T22:56:23.329Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
+      "value": "## قراءة مفضلة 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-02-25T22:56:25.516Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
+      "value": "تعلم ما يجعل Push Chain يعمل!",
+      "englishChecksum": "a7ec8b0346abb87c42ef40ca252a0a3a",
+      "lastUpdated": "2026-02-25T22:56:27.698Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
+      "value": "جورط الصت العب",
+      "englishChecksum": "668123f0a77585efe102f94ca66e13fa",
+      "lastUpdated": "2026-02-25T22:56:31.376Z"
+    },
+    "pages.knowledge.report.seo.title": {
+      "value": "تحديثات الشبكة",
+      "englishChecksum": "05f03fe11075c95426df9f8f7343b529",
+      "lastUpdated": "2026-02-25T23:17:34.286Z"
+    },
+    "pages.knowledge.report.seo.description": {
+      "value": "تحديثات حالة الشبكة في الوقت الحقيقي لبرنامج Push Chain. ابق على علم بالقطع، الصيانة، وتحسينات الحلول.",
+      "englishChecksum": "d15d4947463c1ad0264ceb6932f685c2",
+      "lastUpdated": "2026-02-25T23:17:36.052Z"
+    },
+    "pages.knowledge.report.seo.og-title": {
+      "value": "تحديثات شبكة Push Chain - حالة الشبكة",
+      "englishChecksum": "05a42e4744fa072efd062348811a6e75",
+      "lastUpdated": "2026-02-25T23:17:38.478Z"
+    },
+    "pages.knowledge.report.seo.og-description": {
+      "value": "تتبع تحديثات شبكة Push Chain وحلقات الصيانة وحالات الخدمة. الحصول على معلومات حالة في الوقت الحقيقي.",
+      "englishChecksum": "5ead5d887d908eb7fddff502944542ce",
+      "lastUpdated": "2026-02-25T23:17:40.329Z"
     }
   }
 }

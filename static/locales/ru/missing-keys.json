@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T21:36:24.835Z",
+  "lastUpdated": "2026-02-25T23:17:28.443Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "База знаний — Руководства, часто задаваемые вопросы и инструкции",
@@ -351,36 +351,6 @@
       "englishChecksum": "8b31b9b9aa97d92b4d044ae139d4ff47",
       "lastUpdated": "2025-11-14T19:27:06.290Z"
     },
-    "pages.knowledge.report.seo.title": {
-      "value": "Отчеты об инцидентах",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.seo.description": {
-      "value": "Отчёты об инцидентах в реальном времени и обновления статуса сети для Push Chain. Будьте в курсе отключений, технического обслуживания и решённых проблем.",
-      "englishChecksum": "79dcfac5268064e8b57342b415ef92ee",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.seo.og-title": {
-      "value": "Отчёты об инцидентах Push Chain - Статус сети",
-      "englishChecksum": "4d7d658a59feaab09d75675c1452e779",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.seo.og-description": {
-      "value": "Следите за инцидентами в сети Push Chain, периодами обслуживания и обновлениями сервиса. Получайте информацию о статусе в режиме реального времени.",
-      "englishChecksum": "489d40e83781acad7ab86c3ebff89565",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.seo.twitter-title": {
-      "value": "Отчёты об инцидентах Push Chain",
-      "englishChecksum": "f0f20d8b7ac140244bee728ad40551f2",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.seo.twitter-description": {
-      "value": "Актуальные обновления статуса сети Push Chain, инцидентов и технического обслуживания.",
-      "englishChecksum": "0e97fd38f27262727851bc7583882da3",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "База знаний",
       "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
@@ -389,16 +359,6 @@
     "pages.knowledge.report.explainer-section.breadcrumbs.donut-testnet": {
       "value": "Donut Testnet",
       "englishChecksum": "9409079fa25c142f9373653a87ce2464",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.explainer-section.breadcrumbs.report": {
-      "value": "Отчеты об инцидентах",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
-      "lastUpdated": "2025-11-14T19:27:06.290Z"
-    },
-    "pages.knowledge.report.explainer-section.blocks.title": {
-      "value": "Отчёты об инцидентах",
-      "englishChecksum": "7606ee90577cd767c75c606f58800e41",
       "lastUpdated": "2025-11-14T19:27:06.290Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.reports-overview.items.intro": {
@@ -1222,9 +1182,9 @@
       "lastUpdated": "2025-11-14T19:27:06.295Z"
     },
     "pages.ecosystem.hero-section.description": {
-      "value": "Откройте для себя приложения, партнеров и ранних поклонников, строящих следующий этап универсальных опытов на Push Chain's Donut Testnet.",
+      "value": "Откройте для себя приложения, партнеров и ранних пользователей, которые строят следующее поколение универсальных опытов на тестовой сети Donut Push Chain.",
       "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
-      "lastUpdated": "2026-02-21T21:36:24.835Z"
+      "lastUpdated": "2026-02-25T22:49:47.357Z"
     },
     "components.typeform-support.categories.legal.label": {
       "value": "⚖️ Юридические вопросы и соответствие требованиям",
@@ -1877,34 +1837,34 @@
       "lastUpdated": "2026-02-21T21:35:44.209Z"
     },
     "global.site-description": {
-      "value": "Универсальный Л1 с общим состоянием для универсальных приложений. Разверните один раз; достигайте пользователей на любой цепочке. Используйте любой кошелек. Платите любыми токенами. Нет переключения сети.",
+      "value": "Универсальный Л1 с общим состоянием для универсальных приложений. Разместите один раз; достичь пользователей на любой цепи. Используйте любую кошелек. Платите любыми токенами. Нет переключения сети.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-02-21T21:35:46.378Z"
+      "lastUpdated": "2026-02-25T22:50:08.225Z"
     },
     "footer.links.faucet-title": {
-      "value": "Получить тестовые токены из крана Push Chain",
+      "value": "Получить тестовые токены с фейка Push Chain",
       "englishChecksum": "926a89f4f88049af1a7d12ce4d54204f",
-      "lastUpdated": "2026-02-21T21:35:47.545Z"
+      "lastUpdated": "2026-02-25T22:49:02.365Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
-      "value": "### Существуют ли риски центральлизации Push Chain?\n\n**Нет.** Архитектура Push Chain подчеркивает децентрализацию.\n\nPush Chain полностью децентрализован и спроектирован таким образом, чтобы быть стойким и выносливым. Любой может запустить узел и участвовать в сети и получать вознаграждение или штраф через PoS. Для краткого резюме:\n\n- Валидаторы и другие акторы работают независимо и получают вознаграждение через PoS.\n- Механизмы управления гарантируют участие сообщества.\n- Каждая сторона экосистемы включена в управление в той или иной степени.\n\nЧтобы узнать больше о том, как запустить узел, посмотрите нашу [Базу знаний](/knowledge/) или проверьте наш репозиторий [Узла валидатора](https://github.com/pushchain/push-chain-node).\n\n---",
+      "value": "### Есть ли риски централизации в Push Chain?\n\n**Нет.** Архитектура Push Chain подчёркивает децентрализацию.\n\nPush Chain полностью децентрализован и спроектирован для прочности и надёжности. Любой может запустить узел и участвовать в сети, и получить стимул или штраф через PoS. Кратко:\n\n- Валидаторы и другие участники работают независимо и получают стимул через PoS.\n- Механизмы управления обеспечивают участие сообщества.\n- Каждая сторона экосистемы включена в управление в той или иной степени.\n\nЧтобы узнать больше о том, как запустить узел, посмотрите нашу [Базу знаний](/knowledge/) или изучите наш [Репозиторий узла валидатора](https://github.com/pushchain/push-chain-node).\n\n---",
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-02-21T21:35:58.555Z"
+      "lastUpdated": "2026-02-25T22:49:12.983Z"
     },
     "pages.donutsecret.seo.description": {
-      "value": "Приглашения только для закрытого бета-тестирования среди создателей. Зарегистрируйтесь, чтобы получить доступ к Push Chain Тестнету и развернуть универсальные приложения.",
+      "value": "Пригласительное закрытое бета-тестирование для разработчиков. Заявите свой Donut-пasses, чтобы получить доступ к Push Chain Testnet, запустить универсальные приложения и разблокировать ранние награды.",
       "englishChecksum": "64b7335ba91ea24daa0a93878be5b067",
-      "lastUpdated": "2026-02-21T21:36:00.988Z"
+      "lastUpdated": "2026-02-25T22:49:45.129Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Я не могу подключить свой кошелёк. Что я должен попробовать?",
+      "value": "Я не могу подключить кошелек. Что я должен попробовать?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-02-21T21:36:05.365Z"
+      "lastUpdated": "2026-02-25T22:49:49.154Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>Быстрые проверки:</2> обновите страницу, разблокируйте свой кошелек и отключите агрессивные блокировщики рекламы/скриптов для push.org.</1><1><2>Переключать цепочку не нужно:</2> оставайтесь на своей домашней цепочке; Push обрабатывает маршрутизацию в фоновом режиме.</1><1><2>Сброс разрешений сайта:</2> в своем кошельке, удалите связь сайта и снова подключитесь.</1><1>Все еще застряли? Задайте вопрос на <3>Discord</3> или откройте <4>Заявку на поддержку</4>.</1>",
+      "value": "<1><2>Быстрые проверки:</2> обновите страницу, разблокируйте свой кошелек и отключите агрессивные блокировщики объявлений и скриптов для push.org.</1><1><2>Переключать сети не нужно:</2> оставайтесь на своей домашней цепи; Push обрабатывает маршрутизацию в фоновом режиме.</1><1><2>Сброс разрешений сайта:</2> в своем кошельке удалите соединение сайта и снова подключите его.</1><1>Все равно застряли? Спросите на <3>Discord</3> или откройте <4>билет поддержки</4>.</1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2026-02-21T21:36:11.020Z"
+      "lastUpdated": "2026-02-25T22:49:55.522Z"
     },
     "components.blog.footer-item.about-description": {
       "value": "Push Chain — первый настоящий универсальный блокчейн, разработанный для устранения фрагментации во всех цепочках. Он позволяет разработчикам развертывать приложения один раз и мгновенно становиться доступными для пользователей на любой цепи, независимо от того, является ли она EVM или не-EVM (включая Ethereum, Solana, Bitcoin и другие). Это полностью совместимая с EVM, Proof of Stake (PoS) цепь, которая позволяет пользователям взаимодействовать с приложениями, развернутыми на Push Chain, так же, как они естественно делают на своей собственной цепи.",
@@ -2097,9 +2057,9 @@
       "lastUpdated": "2026-01-22T19:58:04.664Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.universal-apps.items.apps-only-possible-with-shared-state-v1.title": {
-      "value": "Приложения возможны только с общим состоянием - том 1",
+      "value": "Приложения возможны только с общим состоянием - Т. 1",
       "englishChecksum": "f4155267906fb77f40ec521aaf9341be",
-      "lastUpdated": "2026-02-21T21:35:50.331Z"
+      "lastUpdated": "2026-02-25T22:49:05.175Z"
     },
     "pages.knowledge.builders.explainer-section.blocks.sections.case-studies.title": {
       "value": "Примеры",
@@ -2232,25 +2192,119 @@
       "lastUpdated": "2026-02-08T06:35:51.678Z"
     },
     "components.ecosystem-apps-partners.apps.halo.description": {
-      "value": "Единый инфраструктурный слой для агентного бизнеса.",
       "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
-      "lastUpdated": "2026-02-21T21:36:14.253Z"
+      "lastUpdated": "2026-02-25T22:49:57.583Z"
     },
     "components.ecosystem-apps-partners.apps.tip-up.description": {
       "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
-      "lastUpdated": "2026-02-21T21:36:16.339Z"
+      "lastUpdated": "2026-02-25T22:49:59.910Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-21T21:36:18.433Z"
+      "lastUpdated": "2026-02-25T22:50:02.053Z"
     },
     "components.ecosystem-apps-partners.apps.push-dex.description": {
       "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
-      "lastUpdated": "2026-02-21T21:36:20.358Z"
+      "lastUpdated": "2026-02-25T22:50:04.015Z"
     },
     "components.ecosystem-apps-partners.apps.tachyon.description": {
       "englishChecksum": "a0cfffc38fbc3da77696e61e869441ad",
-      "lastUpdated": "2026-02-21T21:36:22.647Z"
+      "lastUpdated": "2026-02-25T22:50:05.919Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.title": {
+      "value": "Обновление цепи - Перебалансировка жетонов - 10 миллиардов PC жетонов",
+      "englishChecksum": "47c4883068fe6b0c96673e994701b191",
+      "lastUpdated": "2026-02-25T22:49:15.762Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-text": {
+      "value": "В начале Push Chain тестнета не было процесса сжигания и выпуска токенов PC. Это привело к крайне низким расчётам цены для универсальных транзакций и позволило небольшой группе владельцев tokens накопить огромные запасы токенов (доходя до триллионов). Это создало дисбаланс в экономике токенов, который нужно было исправить перед запуском основной сети.",
+      "englishChecksum": "6b963c55a003ca0043dddd3bf0ed217e",
+      "lastUpdated": "2026-02-25T22:49:20.811Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-token-economy": {
+      "value": "- Установить справедливую и устойчивую экономику токенов",
+      "englishChecksum": "a9d0dfd880d8117806a3149d8a042aad",
+      "lastUpdated": "2026-02-25T22:49:23.605Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "value": "Предложение затронуло 1,950 кошельков из общего количества 1.178М адресов. Кошельки, содержащие 1,100 PC или больше (включая те, у которых были миллиарды), были перебалансированы для содержания от 1,100 до 2,000 PC.",
+      "englishChecksum": "8c14152e04277cae454595ea916cfa88",
+      "lastUpdated": "2026-02-25T22:49:28.079Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
+      "value": "- Верхние 1,950 кошельков перебалансированы в диапазон 1,100-2,000 PC токенов",
+      "englishChecksum": "91fa92ebb60a5fce654b585ae3ef09cb",
+      "lastUpdated": "2026-02-25T22:49:31.462Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "value": "Пользователи не были заранее уведомлены, чтобы предотвратить перераспределение монет на другие кошельки злонамеренными акторами до перебалансировки. Эта мера безопасности гарантировала целостность процесса перебалансировки и предотвратила манипуляции системой.",
+      "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
+      "lastUpdated": "2026-02-25T22:49:35.815Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+      "value": "Перебалансировка проходит в два этапа. Токены сейчас собираются в кошелек, контролируемый командой, и скоро будут сожжены.",
+      "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
+      "lastUpdated": "2026-02-25T22:49:39.085Z"
+    },
+    "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
+      "value": "**Для 99.83% пользователей:** Данное изменение не повлияет на вас. Баланс вашего кошелька останется прежним.",
+      "englishChecksum": "73bc9170b143d2a58000611a232be418",
+      "lastUpdated": "2026-02-25T22:49:42.499Z"
+    },
+    "pages.knowledge.deepdives.seo.title": {
+      "value": "Глубокие исследования — Концепции и Архитектура",
+      "englishChecksum": "a518496bbd2f3be5cd2113f85682fb51",
+      "lastUpdated": "2026-02-25T23:03:03.059Z"
+    },
+    "pages.knowledge.deepdives.seo.og-title": {
+      "value": "Глубокие погружения - Концепции и Архитектура",
+      "englishChecksum": "9c08370350d622e6d803845f7baa7203",
+      "lastUpdated": "2026-02-25T23:03:05.057Z"
+    },
+    "pages.knowledge.deepdives.seo.og-description": {
+      "value": "Подробные статьи о модулях Push Chain, решениях в области дизайна и производительности.",
+      "englishChecksum": "b4580cdd108acac45128809051190109",
+      "lastUpdated": "2026-02-25T23:03:08.202Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-title": {
+      "value": "Подробные исследования - Под капотом",
+      "englishChecksum": "e3493c1efaee01af001b3156a1b18066",
+      "lastUpdated": "2026-02-25T23:17:28.443Z"
+    },
+    "pages.knowledge.deepdives.seo.twitter-description": {
+      "value": "Разъяснения о том, как работает Push Chain.",
+      "englishChecksum": "f1c4328ab68714a0fc2e2f591d9dc9ac",
+      "lastUpdated": "2026-02-25T23:03:13.138Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.breadcrumbs.knowledge-base": {
+      "value": "База знаний",
+      "englishChecksum": "65a812822038eac996e42c04eff4f6b5",
+      "lastUpdated": "2026-02-25T23:03:15.040Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.title": {
+      "value": "Глубокие исследования",
+      "englishChecksum": "3a8732cc255b49e0a8ef7660449df37f",
+      "lastUpdated": "2026-02-25T23:03:17.131Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.intro": {
+      "value": "## Архитектурные Глубокие Исследования\n\nУзнайте о внутренностях архитектуры Push Chain и как она работает - Один модуль за раз.",
+      "englishChecksum": "1a940f2533780ddd8378fe9aae604074",
+      "lastUpdated": "2026-02-25T23:03:20.218Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.architecture-deep-dives.items.curated-reads": {
+      "value": "## Отобранные статьи 👇",
+      "englishChecksum": "c9fefca8484fa54c4cc35f978ba442b5",
+      "lastUpdated": "2026-02-25T23:17:26.871Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.title": {
+      "value": "Узнайте, что делает Push Chain тикать!",
+      "englishChecksum": "a7ec8b0346abb87c42ef40ca252a0a3a",
+      "lastUpdated": "2026-02-25T23:03:25.240Z"
+    },
+    "pages.knowledge.deepdives.explainer-section.blocks.sections.learn-push-chain.items.interop-spectrum.title": {
+      "value": "Интероп как спектр",
+      "englishChecksum": "668123f0a77585efe102f94ca66e13fa",
+      "lastUpdated": "2026-02-25T23:03:27.700Z"
     }
   }
 }
