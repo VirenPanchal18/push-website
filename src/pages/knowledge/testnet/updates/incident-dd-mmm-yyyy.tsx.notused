@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 // Internal Configs
 import SchemaMarkup from '@site/src/components/SEO/SchemaMarkup';
 import { DefaultDarkTheme } from '@site/src/css/SharedStyling';
-import ReportIncidentsComp from '@site/src/pages-composition/reportsIncidentsComp';
+import NetworkUpdatesDetailComp from '@site/src/pages-composition/networkUpdatesDetailComp';
 
 // Main
 function ReportPage() {
@@ -31,7 +31,7 @@ function ReportPage() {
         {/* <!-- Update Facebook Meta Tags --> */}
         <meta
           property='og:url'
-          content='https://push.org/knowledge/testnet/report'
+          content='https://push.org/knowledge/testnet/updates'
         />
         <meta property='og:type' content='website' />
         <meta
@@ -71,10 +71,10 @@ function ReportPage() {
         />
       </Head>
 
-      {/* report Schema Markup with default FAQs */}
-      <SchemaMarkup type='ReportsPage' />
+      {/* Network updates Schema Markup */}
+      <SchemaMarkup type='WebPage' />
       <DefaultDarkTheme>
-        <ReportIncidentsComp />
+        <NetworkUpdatesDetailComp incidentId='chain-upgrade-token-rebalance-25-feb-2026' />
       </DefaultDarkTheme>
     </Layout>
   );

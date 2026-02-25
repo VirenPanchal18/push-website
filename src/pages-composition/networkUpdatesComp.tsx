@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { Content, Section } from '@site/src/css/SharedStyling';
 
 import ContentBlocks from '@site/src/components/ContentBlocks/ContentBlocks';
-import { KBReportList } from '../config/KBReportList';
+import { KBNetworkUpdatesList } from '../config/KBNetworkUpdatesList';
 
 // Internal Configs
 
@@ -22,7 +22,7 @@ import { KBReportList } from '../config/KBReportList';
 // Helper Component
 
 // Main
-const ReportComp = () => {
+const NetworkUpdatesComp = () => {
   // Localization
   const { t } = useTranslation();
 
@@ -44,10 +44,10 @@ const ReportComp = () => {
   return (
     <Section>
       <Content className='skeletonsmall'>
-        <ContentBlocks item={KBReportList} breadcrumbs={breadcrumbs} />
+        <ContentBlocks item={KBNetworkUpdatesList} breadcrumbs={breadcrumbs} />
       </Content>
     </Section>
   );
 };
 
-export default ReportComp;
+export default NetworkUpdatesComp;

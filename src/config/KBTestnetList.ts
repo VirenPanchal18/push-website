@@ -57,16 +57,14 @@ export const KBTestnetList = {
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.documentation',
-          slug: 'documentation',
           image: '/static/assets/website/chain/knowledge/developer-docs',
           imageSrcSet: false,
-          url: 'https://push.org/docs',
+          url: '/docs',
           target: '_blank',
         },
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.push-explorer',
-          slug: 'push-explorer',
           image: '/static/assets/website/chain/knowledge/developer-explorer',
           imageSrcSet: false,
           title: 'Push Explorer',
@@ -76,19 +74,17 @@ export const KBTestnetList = {
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.push-faucet',
-          slug: 'apply-glassroots',
           image: '/static/assets/website/chain/knowledge/grassroots',
           imageSrcSet: false,
-          url: 'https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO',
+          url: 'https://faucet.pusj.org',
           target: '_blank',
         },
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.grassroots-program',
-          slug: 'apply-glassroots',
           image: '/static/assets/website/chain/knowledge/developer-explorer',
           imageSrcSet: false,
-          url: 'https://zv9atndluia.typeform.com/to/ItQ7i2sO](https://zv9atndluia.typeform.com/to/ItQ7i2sO',
+          url: 'https://zv9atndluia.typeform.com/to/ItQ7i2sO',
           target: '_blank',
         },
       ],
@@ -103,29 +99,26 @@ export const KBTestnetList = {
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.ecosystem-apps',
-          slug: 'ecosystem-apps',
           image: '/static/assets/website/chain/knowledge/ecosystem',
           imageSrcSet: false,
-          url: 'http://push.org/ecosystem',
+          url: '/ecosystem',
           target: '_blank',
         },
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.knowledge-base',
-          slug: 'knowledge-base',
           image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
-          url: 'https://push.org/knowledge',
+          url: '/knowledge',
           target: '_blank',
         },
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.lets-push-yaps',
-          slug: 'lets-push-yaps',
           image: '/static/assets/website/chain/knowledge/lfpush',
           imageSrcSet: false,
           title: `Let's Push Yaps`,
-          url: 'https://push.org/lfpush',
+          url: '/lfpush',
           target: '_blank',
         },
       ],
@@ -140,32 +133,29 @@ export const KBTestnetList = {
         {
           valueKey:
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.items.push-validator',
-          slug: 'push-validator',
           image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
           title: 'Push Validator',
-          url: 'https://push.org/docs/chain/node-and-system-tools/running-push-validator/',
+          url: '/docs/chain/node-and-system-tools/running-push-validator/',
           target: '_blank',
         },
       ],
     },
-    // {
-    //   type: 'list',
-    //   title: 'Incident Reports',
-    //   topGap: true,
-    //   bottomGap: true,
-    //   variant: 'row',
-    //   items: [
-    //     {
-    //       slug: 'ecosystem-apps',
-    //       image: '/static/assets/website/chain/knowledge/developer-docs',
-    //       imageSrcSet: false,
-    //       title:
-    //         'Service Outage - Donut Testnet - Date',
-    //       url: '/knowledge/testnet/report/incident-12-nov-2025',
-    //       target: '_blank',
-    //     },
-    //   ],
-    // },
+    {
+      type: 'list',
+      title: 'Network Updates',
+      topGap: true,
+      bottomGap: true,
+      variant: 'row',
+      items: [
+        {
+          image: '/static/assets/website/chain/knowledge/network-updates',
+          imageSrcSet: false,
+          title: 'Chain Upgrade - Token Rebalancing - Donut Testnet',
+          url: '/knowledge/testnet/updates/chain-upgrade-token-rebalance-25-feb-2026',
+          target: '_blank',
+        },
+      ],
+    },
   ],
 };
