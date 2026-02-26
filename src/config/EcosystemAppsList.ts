@@ -113,6 +113,7 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
     descriptionColor: 'white',
     tagsColor: 'white',
+    twitterId: '2026619668560289884',
     appoftheweek: true,
   },
   {
