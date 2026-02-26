@@ -3,6 +3,30 @@
 
 // List of tweet URLs to fetch
 export const LFPushTweetsList: string[] = [
+  // Feb 10th to Feb 24th
+  'https://x.com/NanakNihal/status/2026322305710719451?s=20',
+  'https://x.com/WaaPxyz/status/2026280473417363648?s=20',
+  'https://x.com/stake_shark/status/2020889017814815145?s=20',
+  'https://x.com/easynodexyz/status/2024505503183781918?s=20',
+  'https://x.com/pufflesio/status/2023790547341897851?s=20',
+  'https://x.com/pushbetfun/status/2022757532465295497?s=20',
+  'https://x.com/humntech/status/2025960857952571460?s=20',
+
+  // Jan to Feb 9th
+  'https://x.com/silencelabs_sl/status/2016539219318252026?s=20',
+  'https://x.com/silencelabs_sl/status/2018310201586409928?s=20',
+  'https://x.com/zerion/status/2019135154267324866?s=20',
+  'https://x.com/fere_ai/status/2019795348731150762?s=20',
+  'https://x.com/grok/status/2020442204225843630?s=20',
+  'https://x.com/TheSherpaDAO/status/2009507807662571986?s=20',
+  'https://x.com/ZNSConnect/status/2008955650106380731?s=20',
+  'https://x.com/BeatBRAWLS/status/2011832862551785960?s=20',
+  'https://x.com/alveejack1/status/2017246985762603296?s=20',
+  'https://x.com/dut469/status/2013614284862038405?s=20',
+  'https://x.com/pushbetfun/status/2012280427801645116?s=20',
+  'https://x.com/thehodldotfun/status/2018703829282296218?s=20',
+  'https://x.com/SurfLayer/status/2008736931761582314?s=20',
+
   // Till 2nd Dec
   'https://x.com/1inchdevs/status/2000995958214078550?s=20',
   'https://x.com/BeatBRAWLS/status/1995801210130235586?s=20',
