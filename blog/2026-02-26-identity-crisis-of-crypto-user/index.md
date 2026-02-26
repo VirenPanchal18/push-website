@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'Unspoken truth about what happens with your identity when you perform any cross-chain actions.'
 text: "Unspoken truth about what happens with your identity when you perform any cross-chain actions"
 tags: [Deep Dives]
+twitterId: '2027024266894708839'
 ---
 
 ![Cover Image of Identity Crisis of a Crypto User in a Cross-Chain World](./cover-image.webp)
