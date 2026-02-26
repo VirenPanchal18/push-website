@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-25T23:02:54.046Z",
+  "lastUpdated": "2026-02-25T23:58:20.465Z",
   "keys": {
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de Conhecimento",
@@ -17,9 +17,9 @@
       "lastUpdated": "2025-11-14T19:27:06.242Z"
     },
     "pages.knowledge.report.seo.og-description": {
-      "value": "Acompanhe atualizações da rede Push Chain, janelas de manutenção e atualizações do serviço. Obtenha informações de status em tempo real.",
+      "value": "Acompanhe atualizações da rede Push Chain, janelas de manutenção e atualizações de serviço. Receba informações de status em tempo real.",
       "englishChecksum": "5ead5d887d908eb7fddff502944542ce",
-      "lastUpdated": "2026-02-25T22:48:14.201Z"
+      "lastUpdated": "2026-02-25T23:57:41.118Z"
     },
     "pages.knowledge.seo.title": {
       "value": "Base de Conhecimento — Guias, Perguntas Frequentes e Tutoriais",
@@ -1188,7 +1188,7 @@
     },
     "pages.ecosystem.hero-section.description": {
       "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
-      "lastUpdated": "2026-02-25T22:48:32.877Z"
+      "lastUpdated": "2026-02-25T23:58:03.099Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "Dismiss announcement",
@@ -1691,23 +1691,23 @@
       "lastUpdated": "2025-11-14T19:27:06.245Z"
     },
     "global.site-description": {
-      "value": "Camada L1 compartilhada para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
+      "value": "Camada L1 de estado compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede.",
       "englishChecksum": "1d43097af09adf17ad01e9f772fffb50",
-      "lastUpdated": "2026-02-25T22:48:06.879Z"
+      "lastUpdated": "2026-02-25T23:57:32.616Z"
     },
     "components.typeform-support.categories.partnerships.description": {
       "englishChecksum": "9b1482992e5c1d082aeade5319ccb995",
-      "lastUpdated": "2026-02-25T22:48:11.936Z"
+      "lastUpdated": "2026-02-25T23:57:38.350Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
       "value": "Não consigo conectar minha carteira. O que eu devo fazer?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-02-25T22:48:34.477Z"
+      "lastUpdated": "2026-02-25T23:58:06.613Z"
     },
     "components.short-support-snippet.qnas.qna1.answer": {
-      "value": "<1><2>A verificação rápida:</2> Atualize a página, desbloqueie sua carteira e desative os bloqueadores de anúncios/ script agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> Fique na sua rede principal; o Push gerencia a roteagem por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> Em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim, você ficou preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+      "value": "<1><2>Afastar as verificações:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/roteiros agressivos para push.org.</1><1><2>Sem necessidade de alternar a rede:</2> fique em sua rede principal; o Push cuida do roteamento por trás dos panos.</1><1><2>Redefina as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
       "englishChecksum": "2711fad7973d2c585095969a584bfc01",
-      "lastUpdated": "2026-02-25T22:48:55.964Z"
+      "lastUpdated": "2026-02-25T23:58:11.877Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "Construtores — Tutoriais & Passo a Passo",
@@ -2020,49 +2020,47 @@
     },
     "components.ecosystem-apps-partners.apps.ramen-swap.description": {
       "englishChecksum": "6f363665a7c8a6770e301bcaaaf135b4",
-      "lastUpdated": "2026-02-25T22:48:41.243Z"
+      "lastUpdated": "2026-02-25T23:58:13.714Z"
     },
     "components.ecosystem-apps-partners.apps.tip-up.description": {
       "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
-      "lastUpdated": "2026-02-25T22:48:44.460Z"
+      "lastUpdated": "2026-02-25T23:58:15.363Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
-      "value": "Troca de tokens sem problemas entre diferentes blockchains sem a necessidade de pontes",
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-25T22:48:47.656Z"
+      "lastUpdated": "2026-02-25T23:58:18.723Z"
     },
     "components.ecosystem-apps-partners.apps.ballsy.description": {
       "englishChecksum": "ed525116f9353cf0d99b87bb61be9dd7",
-      "lastUpdated": "2026-02-25T22:48:50.720Z"
+      "lastUpdated": "2026-02-25T23:58:20.465Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.validator-period": {
-      "value": "O período atual de proposta de validador de testnet é definido como 5 minutos para ajudar a eliminar casos marginais como este antes que a propriedade completa dos validadores seja implementada.",
+      "value": "O período de proposta do validador do testnet está atualmente definido em 5 minutos para ajudar a eliminar casos marginais como este antes da implementação da propriedade completa do validador descentralizado.",
       "englishChecksum": "b1a156d417faacce984c38775b416372",
-      "lastUpdated": "2026-02-25T22:48:10.160Z"
+      "lastUpdated": "2026-02-25T23:57:36.231Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-text": {
-      "value": "A rede Push Chain executou uma proposta de reequilíbrio de tokens para reduzir a oferta total de tokens PC de 75T+ para aproximadamente 10 bilhões de tokens. Esta atualização aborda uma dívida técnica dos primeiros dias do testnet e prepara a cadeia para um ambiente semelhante ao mainnet.",
+      "value": "A proposta de reequilíbrio de tokens da Push Chain foi executada para reduzir a oferta total de tokens PC de mais de 75T para aproximadamente 10 bilhões de tokens. Esta atualização aborda uma dívida técnica dos primeiros dias do teste e prepara a cadeia para um ambiente semelhante ao mainnet.",
       "englishChecksum": "a7c81996952eb346cf22795ce83ce25c",
-      "lastUpdated": "2026-02-25T22:48:18.185Z"
+      "lastUpdated": "2026-02-25T23:57:45.720Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-token-economy": {
       "englishChecksum": "a9d0dfd880d8117806a3149d8a042aad",
-      "lastUpdated": "2026-02-25T22:48:20.745Z"
+      "lastUpdated": "2026-02-25T23:57:48.500Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
-      "value": "Os usuários não foram notificados com antecedência para evitar que atores maliciosos redistribuíssem tokens para outras carteiras antes do reequilíbrio. Esta medida de segurança garantiu a integridade do processo de reequilíbrio e impediu o aproveitamento do sistema.",
+      "value": "Os usuários não foram notificados antecipadamente para evitar que atores maliciosos redistribuíssem tokens para outras carteiras antes do reequilíbrio. Esta medida de segurança garantiu a integridade do processo de reequilíbrio e impediu a manipulação do sistema.",
       "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
-      "lastUpdated": "2026-02-25T22:48:24.536Z"
+      "lastUpdated": "2026-02-25T23:57:52.939Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
-      "value": "A rebalance é uma abordagem em duas fases. Os tokens estão sendo recolhidos para uma carteira controlada pela equipe e serão queimados em breve.",
       "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
-      "lastUpdated": "2026-02-25T22:48:27.625Z"
+      "lastUpdated": "2026-02-25T23:57:57.656Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
-      "value": "**Para 99,83% dos usuários:** Esta alteração não afeta você. O saldo da sua carteira remains unchanged.",
+      "value": "**Para 99,83% dos usuários:** Esta mudança não afeta você. O saldo da sua carteira permanece inalterado.",
       "englishChecksum": "73bc9170b143d2a58000611a232be418",
-      "lastUpdated": "2026-02-25T22:48:30.550Z"
+      "lastUpdated": "2026-02-25T23:58:01.107Z"
     },
     "pages.knowledge.deepdives.seo.title": {
       "value": "Pesquisas Avançadas — Conceitos e Arquitetura",

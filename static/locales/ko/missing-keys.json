@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-25T23:17:21.613Z",
+  "lastUpdated": "2026-02-26T00:08:14.713Z",
   "keys": {
     "pages.knowledge.seo.title": {
       "value": "지식 기반 — 가이드, FAQ 및 방법",
@@ -1182,8 +1182,9 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.ecosystem.hero-section.description": {
+      "value": "Push 체인에서 다음 시대의 보편적인 경험을 만들고 있는 앱, 파트너, 그리고 초창기 채용자를 발견하세요. Donut 테스트넷으로 builders의 세상을 만나보세요.",
       "englishChecksum": "94f3912f6a18a9736abb88b2414682c7",
-      "lastUpdated": "2026-02-25T22:47:13.158Z"
+      "lastUpdated": "2026-02-25T23:55:59.989Z"
     },
     "notifications.info-bar.dismiss-button-title": {
       "value": "공지 닫기",
@@ -1686,38 +1687,38 @@
       "lastUpdated": "2025-11-14T19:27:06.204Z"
     },
     "pages.knowledge.push101.explainer-section.blocks.sections.why-push-chain-future.items.faq-push-chain.subtitle": {
-      "value": "Push Chain과 유니버셜 앱에 대한 질문 있으면? 여기에서 가장 일반적인 답변을 볼 수 있습니다.",
+      "value": "Push Chain과 유니버설 앱에 대한 궁금한 점? 가장 일반적이며 자주 묻는 답변들을 제공합니다.",
       "englishChecksum": "4d9917b7eb8ec31c7d601eb921a8f4ca",
-      "lastUpdated": "2026-02-25T22:46:26.674Z"
+      "lastUpdated": "2026-02-25T23:55:12.459Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.problems-solved": {
-      "value": "### Push Chain이 해결하는 문제\n\n- **분산**\nEVM 및 비-EVM 체인을 단일 공유 상태 L1로 통합하여 사용자가 네트워크나 지갑을 뛰어다닐 필요가 없음.\n\n- **인터오페rability**\n어디서든 거래를 지원하고 온체인 공유 상태로 나쁨.\n\n- **결정성**\n~1-2초 내에 순간적이고 불변적인 네이티브 결정을 제공함 – 더 이상 기다리거나 재조직되지 않음.\n\n- **온보딩 및 UX**\n소셜/이메일 로그인, Gas-in-any-token 및 any-wallet 지원으로 모든 체인에서 제로 마찰 액세스를 제공함.\n\n- **유니버설 앱**\n한 번에 빌드하고 어디든 배포 – 어느 웹3 앱이든 모든 사용자가 어떤 체인에서든 순조롭게 작동함.\n\n---",
+      "value": "### Push 체인에서 해결하는 문제점\n\n- **분할** \n  EVM & 비-EVM 체인을 단일 공유 상태 L1로 통합하여, 사용자가 네트워크나 지갑을 건너뛰지 않아도 됩니다.\n\n- **호환성** \n  모든 블록체인에서 지원되는.Native 거래 및 온체인 공유 상태 지원.\n\n- **결론성** \n ~1-2초 내에 즉시, 반전되지 않는 네이티브 결론성 – 기다리거나 다시 구성할 필요가 없습니다.\n\n- **온보딩 & UX** \n  소셜/이메일 로그인, Gas-in-any-token 및 Any-wallet 지원으로 모든 체인에서 제로피처 접근 지원.\n\n- **통합 앱** \n  한 번만 작성하고 어디든지 배포 – 모든 웹3 앱이 모든 사용자에게 모든 체인에서 원활하게 작동합니다.\n\n---",
       "englishChecksum": "a46bbdbb625fb82ad7fe978556186243",
-      "lastUpdated": "2026-02-25T22:46:34.480Z"
+      "lastUpdated": "2026-02-25T23:55:20.541Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.consensus-mechanism": {
+      "value": "### Push Chain은 어떤 Konsensus 메커니즘을 사용하나?\n\nPush Chain은 **Proof-of-Stake (PoS)** konsensus를 사용하며, **CometBFT** 엔진 기반으로 다양한 개선점들을 가지고 있다:\n\n- **빠른 최종성**: 거래는 ~1–2초에 결제되며, 재조직(Reorgs)이 없는 결정적 최종성이 있다.\n- **에너지 효율적인**: PoS는 PoW와 비교하여 환경 친화적으로 유지된다.\n- **발리데이터 네트워크**: 체인을 안전하게 하는 분산 발리데이터 네트워크\n- **슬래싱 보호**: 경제적 인센티브로 발리데이터의 정직성을 보장한다.\n\nCometBFT의 검증된 BFT konsensus는 여기서는 유니버설 거래 처리를 위한 최적화 및 체인 간 상태 관리와 같은 독특한 요구 사항을 위해 조정된다.\n\n---",
       "englishChecksum": "56335834d49f4774c5aa232632523b92",
-      "lastUpdated": "2026-02-25T22:46:41.414Z"
+      "lastUpdated": "2026-02-25T23:55:28.182Z"
     },
     "pages.contact.hero-section.description": {
-      "value": "파트너십 및 통합, 지출, 미디어 및 강연, 밸리데이터, 법적 문제, 경력 또는 일반 질문—여기에서 접촉하세요. 기술적인 도움이나 보안 문제에 대한 지원은 지원을 방문하시기 바랍니다.",
+      "value": "파트너십 및 통합, 장려금, 미디어 및 발표, 검증자, 법적 문제, 직업 또는 일반적인 질문—여기에서 연락을 취하세요. 기술적인 도움이 필요하거나 보안 문제에 대한 신고가 있는 경우 지원을 방문하세요.",
       "englishChecksum": "a77ba80c097fb24b9c109642038d3abc",
-      "lastUpdated": "2026-02-25T22:47:41.939Z"
+      "lastUpdated": "2026-02-25T23:55:57.890Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "이더리움 네트워크에서 가스 토큰을 사용해야 하나요?",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-02-25T22:47:16.747Z"
+      "lastUpdated": "2026-02-25T23:56:03.566Z"
     },
     "components.short-faq-snippet.qnas.qna4.question": {
-      "value": "이것은 브릿지나 메시징 레이어와 어떻게 다른가요?",
+      "value": "이것이 브리지나 메시지 레이어와 어떻게 다른가요?",
       "englishChecksum": "b5d86c3d717c6454f3040120ad8fd86c",
-      "lastUpdated": "2026-02-25T22:47:43.596Z"
+      "lastUpdated": "2026-02-25T23:56:28.825Z"
     },
     "components.short-support-snippet.qnas.qna3.answer": {
-      "value": "<1>테스트 토큰을 요청하려면 <3>페이크</3>를 사용하세요.</1><1><2>메모:</2> 속도 한계가 적용될 수 있습니다; 일부 페이크는 간단한 인증을 요구합니다. 페이크가 실패하면 <4>디스코드</4>에서 우리에게 메시지를 보내세요.</1>",
+      "value": "<1>테스트 토큰을 요청하려면 <3>페이서</3>를 사용하세요.</1><1><2>참고사항:</2> 속도 제한이 적용될 수 있습니다; 일부 페이서는 간단한 확인을 요구합니다. 페이서가 실패하면 <4>디스코드</4>에서 우리를 호출하세요.</1>",
       "englishChecksum": "7f83302c6145ea56a16d5722c8fe0257",
-      "lastUpdated": "2026-02-25T22:47:22.084Z"
+      "lastUpdated": "2026-02-25T23:56:11.710Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "빌더 — 방법 및 튜토리얼",
@@ -2042,74 +2043,71 @@
     "pages.ecosystem.cta.title": {
       "value": "가장 빠르게 성장하는 유니버설 앱 생태계에 참여하고 사용자 기반을 10배로 늘리고 싶으신가요?",
       "englishChecksum": "ed9cee94f66b2ed5c1118bb8725708d4",
-      "lastUpdated": "2026-02-25T22:47:14.942Z"
+      "lastUpdated": "2026-02-25T23:56:01.919Z"
     },
     "components.ecosystem-apps-partners.apps.halo.description": {
       "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
-      "lastUpdated": "2026-02-25T22:47:25.341Z"
+      "lastUpdated": "2026-02-25T23:56:14.776Z"
     },
     "components.ecosystem-apps-partners.apps.tip-up.description": {
-      "value": "아무 체인에서 아무 지갑으로 팁을 줄 수 있습니다.",
       "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
-      "lastUpdated": "2026-02-25T22:47:26.924Z"
+      "lastUpdated": "2026-02-26T00:08:14.713Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
-      "value": "브리지 없이 원활한 다체인 토큰 스왑",
+      "value": "브릿지 없이 크로스 체인 토큰 스왑을 원활하게提供합니다",
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-25T22:47:28.512Z"
+      "lastUpdated": "2026-02-25T23:56:19.821Z"
     },
     "components.ecosystem-apps-partners.apps.push-campus.description": {
-      "value": "이더리움, 솔라나, 베이스 및 15개 이상 블록체인에서 학생에 도달하세요",
       "englishChecksum": "96177f6dc7967d71fea626c729e5b4d7",
-      "lastUpdated": "2026-02-25T22:47:30.458Z"
+      "lastUpdated": "2026-02-25T23:56:22.147Z"
     },
     "components.ecosystem-apps-partners.apps.push-dex.description": {
-      "value": "Push체인 테스트넷 위에 빌드된 DEX",
       "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
-      "lastUpdated": "2026-02-25T22:47:32.140Z"
+      "lastUpdated": "2026-02-25T23:56:24.050Z"
     },
     "components.ecosystem-essentials.title": {
-      "value": "필수 테스트넷 앱 탐구하기",
+      "value": "테스트넷 앱 살펴보기",
       "englishChecksum": "9d4ba33fc7e6db6c398a1fe55d4f906b",
-      "lastUpdated": "2026-02-25T22:47:34.325Z"
+      "lastUpdated": "2026-02-25T23:57:14.513Z"
     },
     "components.ecosystem-essentials.apps.wallet.description": {
+      "value": "Push Chain's universal wallet",
       "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
-      "lastUpdated": "2026-02-25T22:47:35.897Z"
+      "lastUpdated": "2026-02-25T23:57:26.320Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.overview-text": {
-      "value": "Push Chain은 PC 토큰 공급량을 테스트넷 초기에 75T+에서 대략 10억 개로 줄이는 것을 위한 토큰 재조정 제안을 시행했습니다. 이 업그레이드는 메인넷과 같은 환경으로 전환하기 위해 과거의 기술 부채를 해결합니다.",
+      "value": "PC 체인이 토큰 재조정 제안을 실행하여 총 PC 토큰 공급량을 약 10억 토큰으로 줄였습니다. 이 업그레이드는 테스트넷 초기의 기술적 부채를 해결하고 메인넷과 유사한 환경으로 준비합니다.",
       "englishChecksum": "a7c81996952eb346cf22795ce83ce25c",
-      "lastUpdated": "2026-02-25T22:46:45.687Z"
+      "lastUpdated": "2026-02-25T23:55:32.155Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "value": "이 제안은 총 주소 1,178M 중 1,950개 지갑을 영향을 받았습니다. 1,100PC 토큰 이상(트리션까지 포함)을 보유한 지갑들이 1,100-2,000PC 토큰을 보유하도록 재조정되었습니다.",
       "englishChecksum": "8c14152e04277cae454595ea916cfa88",
-      "lastUpdated": "2026-02-25T22:46:50.488Z"
+      "lastUpdated": "2026-02-25T23:55:36.342Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
-      "value": "- 가장 큰 1,950 지갑이 1,100~2,000 PC 토큰 범위로 재조정되었습니다",
       "englishChecksum": "91fa92ebb60a5fce654b585ae3ef09cb",
-      "lastUpdated": "2026-02-25T22:46:53.528Z"
+      "lastUpdated": "2026-02-25T23:55:39.994Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
-      "value": "사용자들이 미리 통보받지 않은 이유는 악의적인 행위자들로 하여금 재조정을 앞두고 토큰을 다른 지갑으로 다시 배분하는 것을 방지하기 위함입니다. 이 보안 조치는 재조정 과정의 완전성을 보장하고 시스템 게임화를 예방하는 안전장치였습니다.",
+      "value": "사용자에게 사전에 통보하지 않았습니다. 재조정을 앞두고 다른 지갑으로 토큰을 분산할 수 있도록 하는 것을 방해하기 위해 보안 조치로 취했습니다.",
       "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
-      "lastUpdated": "2026-02-25T22:46:58.125Z"
+      "lastUpdated": "2026-02-25T23:55:43.621Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
-      "value": "토큰은 이제 팀 컨트롤드 월릿에 모였고 곧 불타게 될 것입니다.",
+      "value": "리밸런스는 두 단계로 이루어진 접근법입니다. 토큰은 이제 팀 컨트롤 월렛에 모였고 곧 불태워질 예정입니다.",
       "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
-      "lastUpdated": "2026-02-25T23:17:21.613Z"
+      "lastUpdated": "2026-02-25T23:55:47.127Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
-      "value": "**99.83%의 대다수 사용자들을 위한 변경:** 당신의 지갑 잔고는 변하지 않습니다.",
+      "value": "**99.83%의 사용자 대부분에게는:** 이 변경 사항이 영향을 주지 않습니다. 지갑 잔액은 변동되지 않습니다.",
       "englishChecksum": "73bc9170b143d2a58000611a232be418",
-      "lastUpdated": "2026-02-25T22:47:04.191Z"
+      "lastUpdated": "2026-02-25T23:55:50.300Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-top-wallets": {
-      "value": "**영향받은 지갑 (top 1,950)에게:** 지갑에 1,100만 PC 토큰 이상 보유한 경우, 잔액이 자동으로 1,100-2,000만 PC 토큰 범위로 조정됩니다.",
       "englishChecksum": "111fb1e2f37b4215021e4ef7b4c0894c",
-      "lastUpdated": "2026-02-25T22:47:08.502Z"
+      "lastUpdated": "2026-02-25T23:55:55.061Z"
     },
     "pages.knowledge.deepdives.seo.title": {
       "value": "심화 분석 — 개념 및 아키텍처",

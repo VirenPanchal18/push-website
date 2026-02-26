@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-25T22:57:46.107Z",
+  "lastUpdated": "2026-02-26T00:06:45.150Z",
   "keys": {
     "pages.knowledge.tokenomics.seo.title": {
       "value": "Tokenomics — $PC Value Accrual & Economics",
@@ -683,7 +683,7 @@
     },
     "pages.knowledge.report.seo.og-description": {
       "englishChecksum": "5ead5d887d908eb7fddff502944542ce",
-      "lastUpdated": "2026-02-25T22:41:01.470Z"
+      "lastUpdated": "2026-02-25T23:48:24.359Z"
     },
     "pages.knowledge.report.explainer-section.breadcrumbs.knowledge-base": {
       "value": "Base de connaissances",
@@ -2371,32 +2371,34 @@
       "lastUpdated": "2025-11-14T19:27:06.093Z"
     },
     "pages.lfpush.seo.title": {
-      "value": "Allons-y Pousser — Initiative Communautaire",
+      "value": "Pushons Ensemble — Initiative Communautaire",
       "englishChecksum": "7c0dbd394ef56ddb6084285538f6a976",
-      "lastUpdated": "2026-02-25T22:40:35.797Z"
+      "lastUpdated": "2026-02-25T23:47:58.644Z"
     },
     "pages.lfpush.seo.twitter-title": {
-      "value": "Pushons ensemble | Initiative communautaire",
+      "value": "Allons-y ! | Initiative de la communauté",
       "englishChecksum": "a74bc769352dc913ac90019b078b3fe7",
-      "lastUpdated": "2026-02-25T22:40:37.225Z"
+      "lastUpdated": "2026-02-25T23:47:59.835Z"
     },
     "components.short-faq-snippet.qnas.qna3.answer": {
-      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payer avec ce que vous possédez.</2> Les frais peuvent être payés en utilisant les jetons que vous possédez déjà sur votre chaîne principale; nous nous occupons de la conversion derrière les scenes.</1><1><2>Pas besoin de changer de réseau.</2> Restez sur votre chaîne principale — pas besoin de passer par un pont juste pour obtenir un jeton de gaz.</1><1><2>Non custodial.</2> Vous signez chaque action; Push ne conserve jamais vos clés.</1><1><2>Derrière les scenes.</2> Le réseau règle automatiquement les frais en $PC — vous n'avez pas besoin de les gérer vous-même.</1>",
+      "value": "<1><2>Non.</2></1><1><2>Conservez votre portefeuille.</2> Utilisez le portefeuille que vous avez déjà — pas besoin de créer un nouveau portefeuille ou compte.</1><1><2>Payer avec ce que vous possédez.</2> Les frais peuvent être payés en tokens que vous possédez déjà sur votre chaîne principale; nous gérons la conversion derrière les scenes.</1><1><2>Pas de changement de réseau.</2> Restez sur votre chaîne principale — pas besoin de pont juste pour obtenir un jeton de gaz.</1><1><2>Non-custodial.</2> Vous signez chaque action ; Push ne conserve jamais vos clés.</1><1><2>Derrière la scène.</2> Le réseau règle les frais en $PC automatiquement — vous n'avez pas à gérer cela.</1>",
       "englishChecksum": "861159a0d74b54a38d9321254f6f8043",
-      "lastUpdated": "2026-02-25T22:40:43.746Z"
+      "lastUpdated": "2026-02-25T23:48:06.270Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.vs-wormhole": {
+      "value": "### Comment Push Chain est-il différent de Wormhole?\n\n**Wormhole :**\n- **Protocole Pont**: Principalement axé sur le pontage de jetons et NFT \n- **Actifs Enroulés** : Crée des versions enveloppées des jetons sur différentes chaînes \n- **Réseau Gardien** : Se fie à l'ensemble des validateurs pour vérifier les messages interchaînes \n- **Processus en plusieurs étapes**: Les utilisateurs doivent acheminer les actifs avant d'utiliser les applications\n\n**Push Chain**\n- **Exécution Universelle**: Les utilisateurs interagissent directement sans acheminement \n- **Actifs Natifs** : Pas besoin de jetons enveloppés, utilisez les actifs originaux\n- **Vérification Directe** : Vérification de signature native à partir de n'importe quelle chaîne \n- **Transaction Unique**: Les utilisateurs interagissent en une seule étape, pas d'acheminement requis\n\nPush Chain supprime le besoin d'acheminement d'actifs tandis que Wormhole nécessite un acheminement pour les interactions interchaînes.\n\n---",
       "englishChecksum": "b42c978c22c50f8c67751d98728c12ce",
-      "lastUpdated": "2026-02-25T22:40:51.968Z"
+      "lastUpdated": "2026-02-25T23:48:14.804Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.centralization-risks": {
+      "value": "### Y a-t-il des risques de centralisation avec Push Chain?\n\n**Non.** L'architecture de Push Chain met l'accent sur la décentralisation.\n\nPush Chain est entièrement décentralisé et est conçu pour être robuste et résilient. N'importe qui peut faire fonctionner un nœud et participer au réseau, et est incité ou pénalisé grâce à PoS. Pour résumer:\n\n- Les validateurs et autres acteurs fonctionnent indépendamment et sont incités grâce à PoS.\n- Les mécanismes de gouvernance assurent l'implication de la communauté.\n- Chaque partie de l'écosystème est incluse dans la gouvernance dans une certaine mesure.\n\nPour en savoir plus sur la façon de faire fonctionner un nœud, consultez notre [Base de connaissances](/knowledge/) ou jetez un coup d'œil à notre [Validator Node Repo](https://github.com/pushchain/push-chain-node).\n\n---",
       "englishChecksum": "f7e4ee7e1c25d1707799ec218aaf421f",
-      "lastUpdated": "2026-02-25T22:40:59.337Z"
+      "lastUpdated": "2026-02-25T23:48:22.281Z"
     },
     "components.short-support-snippet.qnas.qna1.question": {
-      "value": "Je ne parviens pas à connecter mon portefeuille. Que puis-je essayer ?",
+      "value": "Je ne peux pas connecter mon portefeuille. Que devrais-je essayer ?",
       "englishChecksum": "d830538471ae5e43fb4ba375b6e6eec3",
-      "lastUpdated": "2026-02-25T22:41:23.884Z"
+      "lastUpdated": "2026-02-25T23:48:44.344Z"
     },
     "pages.knowledge.tokenomics.seo.twitter-title": {
       "value": "Push Chain Tokenomics | Économie du Token",
@@ -2581,49 +2583,53 @@
       "lastUpdated": "2026-02-08T06:41:28.168Z"
     },
     "components.ecosystem-apps-partners.apps.ramen-swap.description": {
-      "value": "Serve des jetons de votre choix depuis n'importe quelle chaîne",
       "englishChecksum": "6f363665a7c8a6770e301bcaaaf135b4",
-      "lastUpdated": "2026-02-25T22:41:27.102Z"
+      "lastUpdated": "2026-02-25T23:48:46.013Z"
     },
     "components.ecosystem-apps-partners.apps.tip-up.description": {
       "englishChecksum": "6c9bee02cde8c85a8dd3e4fa9b0df0a9",
-      "lastUpdated": "2026-02-25T22:41:29.841Z"
+      "lastUpdated": "2026-02-25T23:48:48.215Z"
     },
     "components.ecosystem-apps-partners.apps.push-swap.description": {
-      "value": "Échanges de jetons inter-chaînes sans ponts",
       "englishChecksum": "de2b3bf95e3ed660f78c959450838463",
-      "lastUpdated": "2026-02-25T22:41:33.307Z"
+      "lastUpdated": "2026-02-25T23:48:49.822Z"
     },
     "components.ecosystem-apps-partners.apps.omnihub.description": {
-      "value": "Créez, achetez et vendez des objets de collection blockchain",
       "englishChecksum": "012a780784dc5c40673a14fbcc5cc11a",
-      "lastUpdated": "2026-02-25T22:41:36.273Z"
+      "lastUpdated": "2026-02-25T23:48:51.448Z"
     },
     "components.ecosystem-apps-partners.apps.conft-codomain.description": {
+      "value": "Hub multi-chaîne Web3 : domaines, NFT et plateforme de lancement.",
       "englishChecksum": "888fd2c40021557761b4a820c86314b9",
-      "lastUpdated": "2026-02-25T22:41:38.241Z"
+      "lastUpdated": "2026-02-25T23:48:53.199Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-tech-debt": {
       "englishChecksum": "9d6ba367ae5d250715420958d40a1412",
-      "lastUpdated": "2026-02-25T22:41:04.676Z"
+      "lastUpdated": "2026-02-25T23:48:27.482Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
-      "value": "La proposition a affecté les 1 950 portefeuilles les plus importants parmi les 1,178 millions d'adresses totales. Les portefeuilles contenant 1 100 PC tokens ou plus (y compris ceux avec des milliards) ont été rééquilibrés pour contenir entre 1 100 et 2 000 PC tokens.",
       "englishChecksum": "8c14152e04277cae454595ea916cfa88",
-      "lastUpdated": "2026-02-25T22:41:09.117Z"
+      "lastUpdated": "2026-02-25T23:48:32.323Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
+      "value": "Les utilisateurs n'ont pas été prévenus à l'avance afin d'empêcher les acteurs malveillants de redistribuer les jetons vers d'autres portefeuilles avant le rééquilibrage. Cette mesure de sécurité a garantit l'intégrité du processus de rééquilibrage et a empêché toute tricherie.",
       "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
-      "lastUpdated": "2026-02-25T22:41:13.697Z"
+      "lastUpdated": "2026-02-25T23:48:36.311Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-52t-text": {
+      "value": "Le rééquilibrage est une approche en deux phases. Les jetons sont désormais collectés dans un portefeuille contrôlé par l'équipe et seront bientôt brûlés.",
       "englishChecksum": "4b54a097f58e9e2e45001365ac2439bc",
-      "lastUpdated": "2026-02-25T22:41:17.386Z"
+      "lastUpdated": "2026-02-25T23:48:39.685Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-majority": {
-      "value": "**Pour 99,83 % des utilisateurs :** Cette modification ne vous affecte pas. Votre solde de portefeuille reste inchangé.",
+      "value": "**Pour 99,83% des utilisateurs :** Cette modification ne vous concerne pas. Votre solde de portefeuille reste inchangé.",
       "englishChecksum": "73bc9170b143d2a58000611a232be418",
-      "lastUpdated": "2026-02-25T22:41:20.422Z"
+      "lastUpdated": "2026-02-25T23:48:42.664Z"
+    },
+    "pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.ecosystem-apps.title": {
+      "value": "Applications de l’écosystème",
+      "englishChecksum": "dc823856ce2323ac975d320463d0176e",
+      "lastUpdated": "2026-02-26T00:06:45.150Z"
     }
   }
 }

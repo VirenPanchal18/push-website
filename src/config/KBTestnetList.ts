@@ -67,7 +67,6 @@ export const KBTestnetList = {
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-developers.items.push-explorer',
           image: '/static/assets/website/chain/knowledge/developer-explorer',
           imageSrcSet: false,
-          title: 'Push Explorer',
           url: 'https://donut.push.network',
           target: '_blank',
         },
@@ -91,7 +90,8 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'For Users',
+      title:
+        'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.title',
       topGap: true,
       bottomGap: true,
       variant: 'row',
@@ -117,7 +117,6 @@ export const KBTestnetList = {
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-users.items.lets-push-yaps',
           image: '/static/assets/website/chain/knowledge/lfpush',
           imageSrcSet: false,
-          title: `Let's Push Yaps`,
           url: '/lfpush',
           target: '_blank',
         },
@@ -125,7 +124,8 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'For Validators',
+      title:
+        'pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.title',
       topGap: true,
       bottomGap: true,
       variant: 'row',
@@ -135,7 +135,6 @@ export const KBTestnetList = {
             'pages.knowledge.testnet.explainer-section.blocks.sections.for-validators.items.push-validator',
           image: '/static/assets/website/chain/knowledge/knowledgebase',
           imageSrcSet: false,
-          title: 'Push Validator',
           url: '/docs/chain/node-and-system-tools/running-push-validator/',
           target: '_blank',
         },
@@ -143,15 +142,17 @@ export const KBTestnetList = {
     },
     {
       type: 'list',
-      title: 'Network Updates',
+      title:
+        'pages.knowledge.testnet.explainer-section.blocks.sections.network-updates.title',
       topGap: true,
       bottomGap: true,
       variant: 'row',
       items: [
         {
+          valueKey:
+            'pages.knowledge.testnet.explainer-section.blocks.sections.network-updates.items.chain-upgrade-token-rebalance',
           image: '/static/assets/website/chain/knowledge/network-updates',
           imageSrcSet: false,
-          title: 'Chain Upgrade - Token Rebalancing - Donut Testnet',
           url: '/knowledge/testnet/updates/chain-upgrade-token-rebalance-25-feb-2026',
           target: '_blank',
         },

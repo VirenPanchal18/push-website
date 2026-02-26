@@ -5,8 +5,13 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "for-validators": {
-                "title": "Für Validatoren"
+              "network-updates": {
+                "title": "Netzwerk-Updates",
+                "items": {
+                  "chain-upgrade-token-rebalance": {
+                    "title": "Chain Upgrade - Token Rebalancing - Donut Testnet"
+                  }
+                }
               }
             }
           }

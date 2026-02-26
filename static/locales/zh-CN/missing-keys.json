@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-25T23:06:29.647Z",
+  "lastUpdated": "2026-02-26T00:04:53.228Z",
   "keys": {
     "pages.knowledge.validators.seo.title": {
       "value": "验证者 —",
@@ -1667,24 +1667,24 @@
       "lastUpdated": "2025-11-14T19:27:06.444Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.what-apps-can-build": {
-      "value": "### 什么样的应用程序可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助Push Chain的共享状态、跨链架构，可能性无限。以下是几个旗舰示例：\n\n- **通用DEX**\n  单一交易UI支持所有流动性池–跨链路由以CEX速度和体验。\n\n- **通用DeFi**\n  浏览器中的全球银行：跨生态系统的贷款、借贷、收益聚合。\n\n- **通用AI代理**\n  自主代理支付并接受任何链上的任意代币——适用于订阅服务、数据机器人等。\n\n- **通用DAO**\n  不论起源链如何，跨链治理使令牌持有者投票并执行提案。\n\n- **通用游戏**\n  多玩家比赛和跨链游戏经济统一玩家和资产。\n\n- **通用市场**\n  购买、出售和交易来自每条链的NFT和代币的集中式市场。\n\n- **通用名称服务**\n  解析多个区块链钱包的可读性强的人类名称。\n\n在Push Chain上可以构建的应用程序无限！请查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)以入门。开发者也可以查看[文档中心](/docs/)开始。\n\n---",
+      "value": "### 什么应用可以在Push Chain上构建？\n\n![通用应用示例](/assets/website/chain/knowledge/faq/appusecases.webp)\n\n借助 Push Chain 的共享状态、跨链架构，可能性无穷无尽。以下是几个旗舰示例：\n\n- **通用DEX**\n  所有流动性池的单一交换UI–通过速度和CXO的体验进行跨链路由抽象.\n\n- **通用DeFi**\n  浏览器中的全球银行：跨生态系统的贷款、借贷、收益聚合器，无需手动桥接.\n\n- **通用AI代理人**\n  自治代理人支付并接受任意链上任何令牌– perfect for 订阅服务、数据机器人等.\n\n- **通用DAO**\n  跨链治理，令牌持有者投票并执行提案，无需原始链.\n\n- **通用游戏**\n  多玩家比赛和跨链游戏经济，统一玩家和资产来自Ethereum、Solana、Polygon等.\n\n- **通用市场**\n  买卖和交易NFTs和令牌的单一集成市场.\n\n- **通用名称服务**\n  跨多个区块链解析人类可读名称的钱包.\n\nPush Chain 上可以构建的应用和创新无穷无尽！查看更多[用例](/blog/consumer-apps-that-can-be-built-on-push-chain/)获取启动。开发者也可以查看[文档中心](/docs/)开始.\n\n---",
       "englishChecksum": "799908a6e48c469eb2b317beed9dd088",
-      "lastUpdated": "2026-02-25T22:55:21.640Z"
+      "lastUpdated": "2026-02-26T00:04:10.648Z"
     },
     "pages.knowledge.faq.explainer-section.blocks.sections.faq-overview.items.developers-section": {
       "value": "## 开发者、用户和节点运营商",
       "englishChecksum": "3e32786584a34093ac405ea1c254e3ab",
-      "lastUpdated": "2026-02-25T22:55:23.785Z"
+      "lastUpdated": "2026-02-26T00:04:13.144Z"
     },
     "pages.privacymobile.seo.description": {
-      "value": "我们如何收集、使用和保护 Push Chain 移动应用程序中的数据，以及您的选择。",
+      "value": "我们如何在Push Chain移动应用中收集、使用和保护数据，以及您的选择。",
       "englishChecksum": "f48114206228db0b9d9cf7e18aa08505",
-      "lastUpdated": "2026-02-25T22:55:46.599Z"
+      "lastUpdated": "2026-02-26T00:04:39.415Z"
     },
     "components.short-faq-snippet.qnas.qna3.question": {
-      "value": "我需要不同的钱包或gas代币吗？",
+      "value": "我需要一个不同的钱包或燃料令牌吗？",
       "englishChecksum": "bad5371a0ad97ea964ac3793698d5ef2",
-      "lastUpdated": "2026-02-25T22:55:50.599Z"
+      "lastUpdated": "2026-02-26T00:04:41.111Z"
     },
     "pages.knowledge.builders.seo.title": {
       "value": "构建者 — 方法与教程",
@@ -2003,48 +2003,51 @@
     },
     "components.ecosystem-apps-partners.apps.halo.description": {
       "englishChecksum": "e2d4d3fa708b5b228bbcd4ca3b5b9fdf",
-      "lastUpdated": "2026-02-25T22:55:52.375Z"
+      "lastUpdated": "2026-02-26T00:04:44.409Z"
     },
     "components.ecosystem-apps-partners.apps.push-dex.description": {
+      "value": "在PushChain测试网上构建的DEX",
       "englishChecksum": "6e79596adf46880630b94d8aed70ac68",
-      "lastUpdated": "2026-02-25T22:55:53.978Z"
+      "lastUpdated": "2026-02-26T00:04:47.687Z"
     },
     "components.ecosystem-essentials.apps.pc-faucet.description": {
+      "value": "在这里获取您的测试网代币",
       "englishChecksum": "7d5eea9c1d62836ae78b6ac64cf7b30b",
-      "lastUpdated": "2026-02-25T22:55:59.149Z"
+      "lastUpdated": "2026-02-26T00:04:51.770Z"
     },
     "components.ecosystem-essentials.apps.wallet.description": {
-      "value": " Push 链的通用钱包",
+      "value": "区块链的通用钱包",
       "englishChecksum": "258a71a14dbe59778ba2f85609a4e3a5",
-      "lastUpdated": "2026-02-25T22:56:01.920Z"
+      "lastUpdated": "2026-02-26T00:04:53.228Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.reason-tech-debt": {
       "englishChecksum": "9d6ba367ae5d250715420958d40a1412",
-      "lastUpdated": "2026-02-25T22:55:26.717Z"
+      "lastUpdated": "2026-02-26T00:04:16.177Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.what-changed-text": {
+      "value": "该提案影响了总共17.8万个地址中约1950个钱包。拥有1100个PC令牌或更多（包括数十亿）的钱包被重新平衡，以持有1100-2000个PC令牌。",
       "englishChecksum": "8c14152e04277cae454595ea916cfa88",
-      "lastUpdated": "2026-02-25T22:55:31.789Z"
+      "lastUpdated": "2026-02-26T00:04:22.163Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-supply": {
       "value": "- 总供应量从75T+减少到约10B PC代币",
       "englishChecksum": "addb4ef5d2c67e2d490cc090ab2ba3f9",
-      "lastUpdated": "2026-02-25T22:55:34.480Z"
+      "lastUpdated": "2026-02-26T00:04:24.915Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.change-wallets": {
       "value": "- 顶级1,950钱包重新平衡到1,100-2,000 PC代币范围",
       "englishChecksum": "91fa92ebb60a5fce654b585ae3ef09cb",
-      "lastUpdated": "2026-02-25T22:55:37.482Z"
+      "lastUpdated": "2026-02-26T00:04:28.285Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.why-not-informed-text": {
-      "value": "用户未提前通知是为了预防恶意actors在重新平衡之前将代币重新分配到其他钱包，确保重新平衡过程的完整性并防止系统被操纵。",
+      "value": "用户未提前通知，以防止恶意行为者在重新平衡之前将代币转移到其他钱包中。这一安全措施确保了重新平衡过程的完整性，并防止系统被操纵。",
       "englishChecksum": "0969bae9cf2ff1b89133fb3a6bbef811",
-      "lastUpdated": "2026-02-25T22:55:41.078Z"
+      "lastUpdated": "2026-02-26T00:04:32.370Z"
     },
     "pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.items.affect-top-wallets": {
-      "value": "**对受影响钱包（前1,950名）：** 如果您的钱包持有1,100+PC代币（或万亿），则您的余额已调整至1,100-2,000 PC代币范围内。",
+      "value": "**对受影响的钱包（前 1,950 名）：**如果您的钱包持有 1,100+ PC 代币（或万亿），则您的余额已调整到 1,100-2,000 PC 代币范围。",
       "englishChecksum": "111fb1e2f37b4215021e4ef7b4c0894c",
-      "lastUpdated": "2026-02-25T22:55:44.944Z"
+      "lastUpdated": "2026-02-26T00:04:36.673Z"
     },
     "pages.knowledge.deepdives.seo.title": {
       "value": "深度解读 — 概念与架构",

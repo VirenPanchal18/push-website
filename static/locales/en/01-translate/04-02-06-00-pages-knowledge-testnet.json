@@ -77,6 +77,14 @@
                     "title": "Push Validator"
                   }
                 }
+              },
+              "network-updates": {
+                "title": "Network Updates",
+                "items": {
+                  "chain-upgrade-token-rebalance": {
+                    "title": "Chain Upgrade - Token Rebalancing - Donut Testnet"
+                  }
+                }
               }
             }
           }

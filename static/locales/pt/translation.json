@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Universal L1 para Apps",
-    "site-description": "Camada L1 compartilhada para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
+    "site-description": "Camada L1 de estado compartilhado para aplicativos universais. Implante uma vez; alcance usuários em qualquer cadeia. Use qualquer carteira. Pague com qualquer token. Sem alternância de rede."
   },
   "header": {
     "community": {
@@ -545,12 +545,94 @@
           }
         }
       },
+      "testnet": {
+        "explainer-section": {
+          "blocks": {
+            "sections": {
+              "network-updates": {
+                "title": "Atualizações da Rede",
+                "items": {
+                  "chain-upgrade-token-rebalance": {
+                    "title": "Atualização da Blockchain - Rebalanceamento de Token - Donut Testnet"
+                  }
+                }
+              },
+              "donut-overview": {
+                "items": {
+                  "intro": "**Passamos uma década construindo silos de blockchain. Agora é hora de quebrá-los.**\n\n<iframe src=\"https://www.youtube.com/embed/-cojsUIHcLE?rel=0\" title=\"Push Chain Public Testnet is Live\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+                  "welcome-donut": "## Donut testnet 🍩\n\nDonut é a testnet pública do Push Chain para Apps Universais que funcionam em várias chains. É um marco importante para trazer apps universais para as pessoas.\n\n![Push Chain Roadmap](/assets/website/chain/knowledge/testnet/image-1.webp)",
+                  "what-is-push-chain": "## O que é Push Chain?\n\nPush Chain é uma blockchain universal de estado compartilhado onde a **interoperabilidade é uma primitiva fundamental da cadeia**, não um pensamento posterior adicionado através de protocolos externos. **Implante uma vez** e seu app é executado nativamente em cadeias conectadas.\n\n**Donut é onde testamos isso na prática.**",
+                  "quick-links": "## Links Rápidos\n\n🧠 [Base de Conhecimento](/knowledge) — Aprenda a arquitetura e o design.\n\n🌳 [Aplicativos do Ecossistema](/ecosystem) — Explore Aplicativos Universais implantados na Push Chain.\n\n**🪩 Aplicativos Populares para Experimentar**\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Ballsy](https://ballsy.push.org/) — Experimente a mesma lógica de aplicativo funcionando perfeitamente em várias chains.\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Simulate](https://simulate.push.org/) — Teste e visualize interações cross-chain.\n\n📖 [Documentação para Desenvolvedores](/docs) — Mergulhe na documentação da Push Chain.\n\n💧 [Faucet](https://faucet.push.org/) — Obtenha tokens de testnet.\n\n🔍 [Push Scan](https://donut.push.network/) — Rastreie transações e dados da rede.",
+                  "why-push-exists": "## Por que o Push Chain Existe\n\nO ecossistema Web3 de hoje é altamente fragmentado e excessivamente complexo.\n\nDesenvolvedores reimplantam contratos inteligentes em várias chains, usuários têm que fazer bridge de tokens manualmente ou trocar de carteiras, e equipes gastam meses mantendo bases de código e auditorias específicas para cada chain.\n\nCada nova chain adiciona sobrecarga, complexidade, custo e atrito, o que diminui massivamente a inovação e a adoção.\n\n**O Push Chain elimina isso.**",
+                  "how-reimagines-interoperability": "## Interoperabilidade Nativa da Cadeia\n\nHoje, a maioria da interoperabilidade depende de camadas de mensagens externas ou pontes. Você gerencia vários contratos, auditorias e integrações em cada cadeia.\n\n**Push Chain inverte esse modelo.** Com Push, você:\n\n* **Implante uma vez, alcance em todos os lugares.** Seu app se torna instantaneamente disponível em várias cadeias, EVM ou não-EVM.\n* **Elimine contratos e pontes redundantes.** A interoperabilidade é nativa da cadeia, para que você se concentre em seu app, não na infraestrutura.\n* **Mantenha total compatibilidade com EVM.** Use as mesmas ferramentas, frameworks e auditorias que você já tem.\n* **Atenda usuários de qualquer cadeia ou carteira.** Os usuários fazem transações de sua cadeia nativa usando a carteira existente. Sem bridging manual, sem tokens de gás, sem troca de rede, sem configuração.",
+                  "how-to-participate": "## Como participar da Rede?\n\n### Desenvolvedores\n\nPush Chain dá aos desenvolvedores o poder de **construir uma vez e implantar em todos os lugares.**\n\nCada **app roda nativamente** em todas as chains sem integrações extras ou implantações separadas.\n\nA chain atualmente suporta **Ethereum, Solana, Base, Arbitrum e BNB Chain** em testnet, com mais chains chegando em breve.\n\n👉 [Explore Recursos para Desenvolvedores](#for-developers)\n\n### Usuários\n\nExperimente um Web3 que simplesmente funciona: Sem alternar chains, fazer bridge de tokens ou precisar aprender algo novo.\n\nUse sua carteira existente para acessar qualquer app em Push Chain e pague diretamente em seu token nativo.\n\n👉 [Explore Recursos para Usuários](#for-users)\n\n### Validadores\n\nA rede Push Chain é alimentada por um conjunto descentralizado de validadores.\n\n**Por que rodar um validador em testnet?**\n\nRodar um validador em testnet ajuda a fortalecer a rede e moldar sua prontidão para a mainnet. Também pode incluir vantagens e benefícios que virão com a Temporada 3 do [Push Points Program](https://portal.push.org).\n\nMarque [@pushchain](https://x.com/PushChain) e compartilhe sua experiência conosco no X.\n\n👉 [Explore Recursos para Validadores](#for-validators)",
+                  "curated-reads": "## Leituras Selecionadas 👇"
+                }
+              },
+              "for-developers": {
+                "title": "Para Desenvolvedores",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Aplicativos do Ecossistema"
+                  },
+                  "documentation": {
+                    "title": "Documentação"
+                  },
+                  "push-explorer": {
+                    "title": "Push Scan"
+                  },
+                  "push-faucet": {
+                    "title": "Push Faucet"
+                  },
+                  "grassroots-program": {
+                    "title": "Candidate-se ao Programa Grassroots"
+                  }
+                }
+              },
+              "for-users": {
+                "title": "Para Usuários",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Aplicativos do Ecossistema"
+                  },
+                  "knowledge-base": {
+                    "title": "Base de Conhecimento"
+                  },
+                  "lets-push-yaps": {
+                    "title": "Vamos Pushar Yaps"
+                  }
+                }
+              },
+              "for-validators": {
+                "title": "Para Validadores",
+                "items": {
+                  "push-validator": {
+                    "title": "Push Validator"
+                  }
+                }
+              }
+            },
+            "title": "Donut Testnet 🍩"
+          },
+          "breadcrumbs": {
+            "knowledge-base": "Base de Conhecimento"
+          }
+        },
+        "seo": {
+          "title": "Donut Testnet 🍩 – Push Chain's Universal Testnet",
+          "description": "Donut é a testnet pública do Push Chain. Aprenda como conectar, construir Apps Universais, usar a torneira e executar um validador.",
+          "og-title": "Donut Testnet 🍩 - Push Chain's Universal testnet",
+          "og-description": "Explore Donut, Push Chain’s first public testnet. Construa uma vez, implemente em qualquer lugar e experimente aplicativos universais ao vivo.",
+          "twitter-title": "Donut Testnet 🍩 - Comece por aqui",
+          "twitter-description": "Respostas rápidas sobre Donut Testnet: cadeias suportadas, Universal Apps, faucet e configuração de validator."
+        }
+      },
       "report": {
         "seo": {
           "title": "Atualizações da Rede",
           "description": "Atualizações de status da rede em tempo real para o Push Chain. Mantenha-se informado sobre interrupções, manutenções e problemas resolvidos.",
           "og-title": "Atualizações da Rede Push Chain - Status da Rede",
-          "og-description": "Acompanhe atualizações da rede Push Chain, janelas de manutenção e atualizações do serviço. Obtenha informações de status em tempo real.",
+          "og-description": "Acompanhe atualizações da rede Push Chain, janelas de manutenção e atualizações de serviço. Receba informações de status em tempo real.",
           "twitter-title": "Atualizações da Rede Push Chain",
           "twitter-description": "Atualizações ao vivo sobre o status e a manutenção da rede Push Chain."
         },
@@ -574,7 +656,7 @@
                   "status-heading": "## Status",
                   "status-timeline": "25 de Fevereiro de 2026 - Iniciado<br />25 de Fevereiro de 2026 - ✅ Concluído",
                   "overview-heading": "## Visão Geral",
-                  "overview-text": "A rede Push Chain executou uma proposta de reequilíbrio de tokens para reduzir a oferta total de tokens PC de 75T+ para aproximadamente 10 bilhões de tokens. Esta atualização aborda uma dívida técnica dos primeiros dias do testnet e prepara a cadeia para um ambiente semelhante ao mainnet.",
+                  "overview-text": "A proposta de reequilíbrio de tokens da Push Chain foi executada para reduzir a oferta total de tokens PC de mais de 75T para aproximadamente 10 bilhões de tokens. Esta atualização aborda uma dívida técnica dos primeiros dias do teste e prepara a cadeia para um ambiente semelhante ao mainnet.",
                   "why-heading": "### Por que isso foi feito?",
                   "why-text": "Nos primeiros dias da Push Chain testnet, não havia processo de queima e criação de tokens PC. Isso resultou em cálculos de preço extremamente baixos para transações universais e permitiu que um pequeno grupo de detentores de tokens acumulassem grandes quantidades de tokens (chegando a trilhões). Isso criou uma economia de tokens desequilibrada que precisava ser corrigida antes do lançamento da mainnet.",
                   "why-necessary": "O reequilíbrio foi necessário para:",
@@ -589,12 +671,11 @@
                   "change-percentage": "- Afeta apenas 0,17% dos endereços totais (1.950 de 1,178 milhão)",
                   "change-unaffected": "- 99.83% dos usuários não são afetados",
                   "why-not-informed-heading": "### Por que os usuários não foram informados com antecedência?",
-                  "why-not-informed-text": "Os usuários não foram notificados com antecedência para evitar que atores maliciosos redistribuíssem tokens para outras carteiras antes do reequilíbrio. Esta medida de segurança garantiu a integridade do processo de reequilíbrio e impediu o aproveitamento do sistema.",
-                  "validator-period": "O período atual de proposta de validador de testnet é definido como 5 minutos para ajudar a eliminar casos marginais como este antes que a propriedade completa dos validadores seja implementada.",
+                  "why-not-informed-text": "Os usuários não foram notificados antecipadamente para evitar que atores maliciosos redistribuíssem tokens para outras carteiras antes do reequilíbrio. Esta medida de segurança garantiu a integridade do processo de reequilíbrio e impediu a manipulação do sistema.",
+                  "validator-period": "O período de proposta do validador do testnet está atualmente definido em 5 minutos para ajudar a eliminar casos marginais como este antes da implementação da propriedade completa do validador descentralizado.",
                   "why-52t-heading": "### Por que ainda vejo 52T de oferta?",
-                  "why-52t-text": "A rebalance é uma abordagem em duas fases. Os tokens estão sendo recolhidos para uma carteira controlada pela equipe e serão queimados em breve.",
                   "how-affect-heading": "### Como isso me afeta?",
-                  "affect-majority": "**Para 99,83% dos usuários:** Esta alteração não afeta você. O saldo da sua carteira remains unchanged.",
+                  "affect-majority": "**Para 99,83% dos usuários:** Esta mudança não afeta você. O saldo da sua carteira permanece inalterado.",
                   "affect-top-wallets": "**Para carteiras afetadas (as 1.950 principais):** Se sua carteira continha 1.100+ $PC tokens (ou trilhões), seu saldo foi rebalanceado para a faixa de 1.100 a 2.000 $PC tokens.",
                   "need-help-heading": "**Precisa de Ajuda?**",
                   "need-help-text": "Se você acredita que foi afetado por este rebalanceamento e tem dúvidas ou preocupações, entre em contato com a equipe Push Chain no Discord para obter ajuda."
@@ -680,80 +761,6 @@
                   "title": "Validadores",
                   "subtitle": "",
                   "ctatitle": "Leia Mais"
-                }
-              }
-            }
-          }
-        }
-      },
-      "testnet": {
-        "seo": {
-          "title": "Donut Testnet 🍩 – Push Chain's Universal Testnet",
-          "description": "Donut é a testnet pública do Push Chain. Aprenda como conectar, construir Apps Universais, usar a torneira e executar um validador.",
-          "og-title": "Donut Testnet 🍩 - Push Chain's Universal testnet",
-          "og-description": "Explore Donut, Push Chain’s first public testnet. Construa uma vez, implemente em qualquer lugar e experimente aplicativos universais ao vivo.",
-          "twitter-title": "Donut Testnet 🍩 - Comece por aqui",
-          "twitter-description": "Respostas rápidas sobre Donut Testnet: cadeias suportadas, Universal Apps, faucet e configuração de validator."
-        },
-        "explainer-section": {
-          "breadcrumbs": {
-            "knowledge-base": "Base de Conhecimento"
-          },
-          "blocks": {
-            "title": "Donut Testnet 🍩",
-            "sections": {
-              "donut-overview": {
-                "items": {
-                  "intro": "**Passamos uma década construindo silos de blockchain. Agora é hora de quebrá-los.**\n\n<iframe src=\"https://www.youtube.com/embed/-cojsUIHcLE?rel=0\" title=\"Push Chain Public Testnet is Live\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
-                  "welcome-donut": "## Donut testnet 🍩\n\nDonut é a testnet pública do Push Chain para Apps Universais que funcionam em várias chains. É um marco importante para trazer apps universais para as pessoas.\n\n![Push Chain Roadmap](/assets/website/chain/knowledge/testnet/image-1.webp)",
-                  "what-is-push-chain": "## O que é Push Chain?\n\nPush Chain é uma blockchain universal de estado compartilhado onde a **interoperabilidade é uma primitiva fundamental da cadeia**, não um pensamento posterior adicionado através de protocolos externos. **Implante uma vez** e seu app é executado nativamente em cadeias conectadas.\n\n**Donut é onde testamos isso na prática.**",
-                  "quick-links": "## Links Rápidos\n\n🧠 [Base de Conhecimento](/knowledge) — Aprenda a arquitetura e o design.\n\n🌳 [Aplicativos do Ecossistema](/ecosystem) — Explore Aplicativos Universais implantados na Push Chain.\n\n**🪩 Aplicativos Populares para Experimentar**\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Ballsy](https://ballsy.push.org/) — Experimente a mesma lógica de aplicativo funcionando perfeitamente em várias chains.\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Simulate](https://simulate.push.org/) — Teste e visualize interações cross-chain.\n\n📖 [Documentação para Desenvolvedores](/docs) — Mergulhe na documentação da Push Chain.\n\n💧 [Faucet](https://faucet.push.org/) — Obtenha tokens de testnet.\n\n🔍 [Push Scan](https://donut.push.network/) — Rastreie transações e dados da rede.",
-                  "why-push-exists": "## Por que o Push Chain Existe\n\nO ecossistema Web3 de hoje é altamente fragmentado e excessivamente complexo.\n\nDesenvolvedores reimplantam contratos inteligentes em várias chains, usuários têm que fazer bridge de tokens manualmente ou trocar de carteiras, e equipes gastam meses mantendo bases de código e auditorias específicas para cada chain.\n\nCada nova chain adiciona sobrecarga, complexidade, custo e atrito, o que diminui massivamente a inovação e a adoção.\n\n**O Push Chain elimina isso.**",
-                  "how-reimagines-interoperability": "## Interoperabilidade Nativa da Cadeia\n\nHoje, a maioria da interoperabilidade depende de camadas de mensagens externas ou pontes. Você gerencia vários contratos, auditorias e integrações em cada cadeia.\n\n**Push Chain inverte esse modelo.** Com Push, você:\n\n* **Implante uma vez, alcance em todos os lugares.** Seu app se torna instantaneamente disponível em várias cadeias, EVM ou não-EVM.\n* **Elimine contratos e pontes redundantes.** A interoperabilidade é nativa da cadeia, para que você se concentre em seu app, não na infraestrutura.\n* **Mantenha total compatibilidade com EVM.** Use as mesmas ferramentas, frameworks e auditorias que você já tem.\n* **Atenda usuários de qualquer cadeia ou carteira.** Os usuários fazem transações de sua cadeia nativa usando a carteira existente. Sem bridging manual, sem tokens de gás, sem troca de rede, sem configuração.",
-                  "how-to-participate": "## Como participar da Rede?\n\n### Desenvolvedores\n\nPush Chain dá aos desenvolvedores o poder de **construir uma vez e implantar em todos os lugares.**\n\nCada **app roda nativamente** em todas as chains sem integrações extras ou implantações separadas.\n\nA chain atualmente suporta **Ethereum, Solana, Base, Arbitrum e BNB Chain** em testnet, com mais chains chegando em breve.\n\n👉 [Explore Recursos para Desenvolvedores](#for-developers)\n\n### Usuários\n\nExperimente um Web3 que simplesmente funciona: Sem alternar chains, fazer bridge de tokens ou precisar aprender algo novo.\n\nUse sua carteira existente para acessar qualquer app em Push Chain e pague diretamente em seu token nativo.\n\n👉 [Explore Recursos para Usuários](#for-users)\n\n### Validadores\n\nA rede Push Chain é alimentada por um conjunto descentralizado de validadores.\n\n**Por que rodar um validador em testnet?**\n\nRodar um validador em testnet ajuda a fortalecer a rede e moldar sua prontidão para a mainnet. Também pode incluir vantagens e benefícios que virão com a Temporada 3 do [Push Points Program](https://portal.push.org).\n\nMarque [@pushchain](https://x.com/PushChain) e compartilhe sua experiência conosco no X.\n\n👉 [Explore Recursos para Validadores](#for-validators)",
-                  "curated-reads": "## Leituras Selecionadas 👇"
-                }
-              },
-              "for-developers": {
-                "title": "Para Desenvolvedores",
-                "items": {
-                  "ecosystem-apps": {
-                    "title": "Aplicativos do Ecossistema"
-                  },
-                  "documentation": {
-                    "title": "Documentação"
-                  },
-                  "push-explorer": {
-                    "title": "Push Scan"
-                  },
-                  "push-faucet": {
-                    "title": "Push Faucet"
-                  },
-                  "grassroots-program": {
-                    "title": "Candidate-se ao Programa Grassroots"
-                  }
-                }
-              },
-              "for-users": {
-                "title": "Para Usuários",
-                "items": {
-                  "ecosystem-apps": {
-                    "title": "Aplicativos do Ecossistema"
-                  },
-                  "knowledge-base": {
-                    "title": "Base de Conhecimento"
-                  },
-                  "lets-push-yaps": {
-                    "title": "Vamos Pushar Yaps"
-                  }
-                }
-              },
-              "for-validators": {
-                "title": "Para Validadores",
-                "items": {
-                  "push-validator": {
-                    "title": "Push Validator"
-                  }
                 }
               }
             }
@@ -1334,7 +1341,7 @@
       "qnas": {
         "qna1": {
           "question": "Não consigo conectar minha carteira. O que eu devo fazer?",
-          "answer": "<1><2>A verificação rápida:</2> Atualize a página, desbloqueie sua carteira e desative os bloqueadores de anúncios/ script agressivos para push.org.</1><1><2>Não é necessário alternar a rede:</2> Fique na sua rede principal; o Push gerencia a roteagem por trás dos cenários.</1><1><2>Reinicie as permissões do site:</2> Em sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda assim, você ficou preso? Pergunte no <3>Discord</3> ou abra um <4>bilhete de suporte</4>.</1>",
+          "answer": "<1><2>Afastar as verificações:</2> atualize a página, desbloqueie sua carteira e desative bloqueadores de anúncios/roteiros agressivos para push.org.</1><1><2>Sem necessidade de alternar a rede:</2> fique em sua rede principal; o Push cuida do roteamento por trás dos panos.</1><1><2>Redefina as permissões do site:</2> na sua carteira, remova a conexão do site e reconecte-se.</1><1> Ainda preso? Pergunte no <3>Discord</3> ou abra um <4>Ticket de suporte</4>.</1>",
           "discord-url-title": "Junte-se ao Discord do Push Chain para obter ajuda em tempo real.",
           "support-url-title": "Abra um chamado de suporte."
         },
@@ -1790,8 +1797,7 @@
           "name": "TipUp"
         },
         "push-swap": {
-          "name": "Push Swap",
-          "description": "Troca de tokens sem problemas entre diferentes blockchains sem a necessidade de pontes"
+          "name": "Push Swap"
         },
         "chain-circle": {
           "name": "ChainCircle",

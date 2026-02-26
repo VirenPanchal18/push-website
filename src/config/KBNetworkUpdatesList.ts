@@ -8,9 +8,10 @@ export const KBNetworkUpdatesList = {
       variant: 'row',
       items: [
         {
+          valueKey:
+            'pages.knowledge.report.explainer-section.blocks.sections.chain-upgrade-token-rebalance-25-feb-2026.title',
           image: '/static/assets/website/chain/knowledge/network-updates',
           imageSrcSet: false,
-          title: 'Proposal (Completed) - Token Rebalancing - Donut Testnet',
           url: '/knowledge/testnet/updates/chain-upgrade-token-rebalance-25-feb-2026',
         },
       ],

@@ -5,10 +5,11 @@
         "explainer-section": {
           "blocks": {
             "sections": {
-              "for-users": {
+              "network-updates": {
+                "title": "Mises à jour du réseau",
                 "items": {
-                  "ecosystem-apps": {
-                    "title": "Applications de l'écosystème"
+                  "chain-upgrade-token-rebalance": {
+                    "title": "Mise à niveau de la chaîne - Rééquilibrage des Token - Donut Testnet"
                   }
                 }
               }

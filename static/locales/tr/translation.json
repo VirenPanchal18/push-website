@@ -1,7 +1,7 @@
 {
   "global": {
     "site-name": "Push Chain — Evrensel L1, Uygulamalar İçin",
-    "site-description": "Herşeyden ev sahibi L1 şartı. Tek seferde dağıtın; her zincirdeki kullanıcılara ulaşın. Her cüzdanı kullanın. Her token ile ödeyin. Ağ geçişi yok."
+    "site-description": "Herşeyden önce bir L1 şeması, evrensel uygulamalar için ortak durumlar sunuyor. Bir kez dağıtın; herhangi bir zincirdeki kullanıcılara ulaşın. Herhangi bir cüzdan kullanın. Herhangi bir token ile ödeyin. Ağı değiştirmekte ihtiyacınız yoktur."
   },
   "header": {
     "community": {
@@ -223,7 +223,7 @@
       "push-scan": "Push Scan",
       "push-scan-title": "Push Chain blokçen tarayıcı",
       "faucet": "Musluk",
-      "faucet-title": "Push Çetenin test tokenleri alın",
+      "faucet-title": "Push Chain'den test tokenler almak için",
       "push-portal": "Push Portal",
       "push-portal-title": "Push Chain topluluğu portalı",
       "support": "Destek",
@@ -515,7 +515,7 @@
                   "vs-other-universal": "### Push Chain'i diğer Evrensel Çözümlerden ayıran nedir?\n\nGünümüzün sözde \"evrensel\" çözümleri hala köprülere, veri ve değeri taşımak için çift işlemlere veya merkezi röleyicilere güveniyor. Push Chain farklıdır—doğru bir Evrensel L1'dir:\n\n- **Kullanıcıları zincirler arasında birleştirir**  \n\tHer blockchain adresi yerel olarak desteklenir. MetaMask, Phantom gibi cüzdanların tamamı Push Chain ile uyumludur. Gas, herhangi bir zincirdeki herhangi bir token ile ödenir.\n\n- **Evrensel bir yürütme katmanı görevi görür**  \n\tTüm işlemler aynı zincirde sonlanır ve herkesin aynı uygulama ile etkileşim kurmasını sağlar—hile yok, çözüm yok.\n\n- **Her zincirin işlemlerini doğru şekilde atar ve yürütür**  \n\tİşlemler imzalanır, doğrulanır ve kaynak zincirlerindeki cüzdanlara atanır. Doğru bir evrensel zincir hepsini destekler.\n\n---",
                   "vs-bridges-messaging": "### Bu, köprülerden veya mesajlaşma katmanlarından nasıl farklıdır?\n\n**Kısa Cevap**: Push, uygulamanızın çalıştığı yerdir. Köprüler/mesajlaşma sadece token'ları veya mesajları zincirler arasında taşır; bu da kullanıcılar ve geliştiriciler için her şeyi karmaşıklaştırır.\n\n- **Tek ana ev vs birçok klon**  \n\tKöprüler/mesajlaşma ile zincir başına dağıtım yaparsınız ve mesajlar aracılığıyla senkronize edersiniz. Push'ta bir kez dağıtım yaparsınız; herkes aynı sözleşmeye ve paylaşılan duruma ulaşır.\n\n- **Sarılı varlıklar veya zorunlu köprüleme yok**  \n\tKullanıcılar kendi ana zincirlerinde kalır ve zaten sahip olduklarıyla ödeme yapar; yönlendirmeyi ve ücret dönüşümünü arka planda biz hallederiz.\n\n- **Birleşik kimlik ve doğrulama**  \n\tHerhangi bir cüzdandan/zincirden imzaları kabul ediyoruz ve bunları Push'taki aynı kullanıcıya atfediyoruz — saklama dışı.\n\n- **Daha az hareketli parça**  \n\tZincirler arası onay dansı yok, gaz token avı yok, senkronize tutulması gereken yapıştırıcı sözleşmeler yok.\n\n- **Köprüler karmaşıklık getirir. Zincir yerel birlikte çalışabilirlik onu çözer**  \n\tKöprüler karmaşık mühendislik çabası, zaman, denetim maliyeti ve ek altyapı gerektirir. Zincir yerel birlikte çalışabilirlik sadece çalışır çünkü uygulamanız yerel olarak onu miras alır.\n\n**Sonuç**: daha basit uygulamalar, tek bir gerçek kaynağı ve kullanıcıların olmadığı gibi hissettiren bir kullanıcı deneyimi.\n\n---",
                   "vs-layerzero": "### Push Chain, LayerZero’dan nasıl farklı?\n\n**LayerZero:**\n- **Mesajlaşma Protokolü**: Zincirler arası mesajlaşmayı sağlar\n- **Relayer Bağımlılığı**: Harici relayers ve orakollere bağlıdır\n- **Geliştirici Entegrasyonu**: Uygulamaların LayerZero SDK’sını entegre etmesi gerekir\n- **Güven Varsayımları**: Kullanıcıların relayers altyapısına güvenmesi gerekir\n\n**Push Chain:**\n- **Yerel Yürütme**: Herhangi bir zincirden doğrudan işlem yürütme\n- **Relayer Yok**: Protokol seviyesinde yerleşik zincirler arası işlevsellik\n- **Sıfır Entegrasyon**: Mevcut uygulamalar herhangi bir değişiklik olmadan çalışır\n- **Güven Minimasyonu**: Push Chain’in kendi konsensüsü dışında ek güven varsayımları yoktur\n\nPush Chain, yerel zincirler arası yürütme sağlarken LayerZero ek altyapı ve entegrasyon gerektirir.\n\n---",
-                  "vs-wormhole": "### Push Chain ve Wormhole arasında nedir fark?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprülebilmesi için tasarlanmıştır.\n- **Sarmal Üstünler**: İhtiyaç duyulan farklı zincirlerdeki tokenları sarmala döktürür.\n- **Koruma Ağı**: Köprü mesajlarını doğrulamak için valideci setine ihtiyacı vardır.\n- **Çok Adımlı İşlem**: Uygulamalar kullanmadan önce aktarım yapılması gerekir.\n\n**Push Chain:**\n- **Evrimli Çalışma**: Köprüleme gerektirmeden doğrudan etkileşimler sağlanır.\n- **Orijinal Üstünler**: Sarmala döğümlenen tokenlar ihtiyacı yoktur, orijinal üstünleri kullanınız.\n- **Direk Doğrulama**: Herhangi bir zincirden orijinal imza doğrulaması sağlanır.\n- **Teklem Transaction**: Köprüleme gerekmeden tek işlemle etkileşimler sağlanır.\n\nPush Chain, aktarım gereksinimini ortadan kaldırırken Wormhole, çapraz zincir etkileşimlerinde aktarımı gerektirir.",
+                  "vs-wormhole": "### Push Çekiç Nasıl Wormhole'den Farklıdır?\n\n**Wormhole:**\n- **Köprü Protokolü**: Ana olarak token ve NFT köprümesi yapma üzerine odaklanır\n- **Saranşık Varsiyonlar**: Farklı zincirlerde token'lerin saransestock versiyonlarını oluşturur\n- **Koruyucu Ağı**: Köprü iletileri doğrulamak için validator setine güvenir\n- **Çok Adımlı Süreç**: Uygulamalar kullanmadan önce aktarım yapma gereklidir\n\n**Push Çekiç:**\n- **Evrenel Gerçekleştirme**: Köprüleme gereksiniminden kurtulur, doğrudan etkileşimler\n- **Orijinal Varlıklar**: Saransestock token'ler gerekmez, özgün varlıkları kullanır\n- **Direkt Doğrulama**: Herhangi bir zincirden orijinal imza doğrulaması yapar\n- **Teklem Transaction**: Köprüleme gereksinimi olmadan tek adım etkileşimler\n\nPush Çekiç, zincirlerarası etkileşimlerde aktarımın gerekliliğini ortadan kaldırırken Wormhole gerekliyor.\n\n---",
                   "vs-axelar": "### Push Chain, Axelar'dan nasıl farklı?\n\n**Axelar:**\n- **Ağlar Ağı**: Zincirleri Axelar ağı üzerinden bağlar\n- **Doğrulayıcı Bağımlılığı**: Güvenlik için Axelar doğrulayıcı kümesine güvenir\n- **Gateway Sözleşmeleri**: Her zincirde gateway dağıtımları gerektirir\n- **Mesajlaşma**: Zincirler arası iletişim üzerine odaklanır\n\n**Push Chain:**\n- **Doğrudan Yürütme**: İşlemler aracı kurumlar olmadan Push Chain üzerinde yerel olarak işlenir\n- **Bağımsız Güvenlik**: Harici bağımlılıklar olmadan kendi fikir birliği\n- **Evrensel Sözleşmeler**: Tek bir dağıtım tüm zincirler için çalışır\n- **Yerel Yürütme**: Herhangi bir zincirden doğrudan işlem işleme\n\nPush Chain doğrudan evrensel erişim sağlarken Axelar aracı bir katman ekler.\n\n---",
                   "vs-chainlink-ccip": "### Push Chain, Chainlink CCIP'den nasıl farklıdır?\n\n**Chainlink CCIP:**\n- **Oracle Ağı**: Chainlink oracle altyapısını kullanır\n- **Mesaj Yönlendirme**: Farklı zincirler arasında mesajları yönlendirir\n- **Harici Bağımlılık**: Chainlink'in merkeziyetsiz ağına bağımlıdır\n- **Entegrasyon Gerekliliği**: Uygulamaların çapraz zincir özellikler için CCIP'yi entegre etmesi gerekir\n\n**Push Chain:**\n- **Yerleşik Protokol**: Çapraz zincir işlevselliği blokzincire özgüdür\n- **Doğrudan Yürütme**: Harici bir oracle ağına ihtiyaç duyulmaz\n- **Kendi Kendine Yeterli**: Tüm doğrulama ve yürütme Push Chain üzerinde gerçekleşir\n- **Otomatik Uyumluluk**: Mevcut sözleşmeleri dağıtın — tüm kullanıcılar için kutudan çıkar kutudan çalışırlar\n\nPush Chain, çekirdek protokolüne yerleşik çapraz zincir yeteneklerine sahipken, CCIP harici bir hizmet katmanıdır.\n\n---",
                   "vs-particle-network": "### Push Chain, Particle Network'dan nasıl farklı?\n\n**Particle Network:**\n- **Hesap Soyutlama Odaklı**: Öncelikle cüzdan soyutlama ve sosyal girişe odaklanır\n- **Çok Zincirli Cüzdanlar**: Zincirler arasında birleşik bir cüzdan deneyimi oluşturur\n- **SDK Entegrasyonu**: İşlevsellik için Particle SDK entegrasyonu gerektirir\n- **Kullanıcı Deneyimi Katmanı**: Mevcut zincirlerin üzerinde bir katman olarak çalışır\n\n**Push Chain:**\n- **Evrensel Blockchain**: Tüm zincir kullanıcılarını destekleyen yerel blockchain\n- **Protokol Düzeyi Entegrasyonu**: Çapraz zincirli işlevsellik, fikir birliği içine yerleşiktir\n- **SDK Gerekmez**: Mevcut cüzdanlar herhangi bir değişikliğe gerek kalmadan doğal olarak çalışır\n- **Temel Katman**: Sadece bir UX katmanı değil, altta yatan blockchain altyapısı sağlar\n\nPush Chain evrensel bir blockchain iken, Particle Network bir cüzdan soyutlama hizmetidir.\n\n---",
@@ -546,6 +546,88 @@
           }
         }
       },
+      "testnet": {
+        "explainer-section": {
+          "blocks": {
+            "sections": {
+              "network-updates": {
+                "title": "Ağ Güncellemeleri",
+                "items": {
+                  "chain-upgrade-token-rebalance": {
+                    "title": "Zincir Yükseltmesi - Token Dengelemesi - Donut Testnet"
+                  }
+                }
+              },
+              "donut-overview": {
+                "items": {
+                  "intro": "**On decade yiyen şemaları inşa ettik. Şimdi onları kırıp bırakın.**\n\n<iframe src=\"https://www.youtube.com/embed/-cojsUIHcLE?rel=0\" title=\"Push Chain Kamu Test Ağı Canlı\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+                  "welcome-donut": "## Donut Testnet 🍩\n\nDonut, Push Chain’in Universal Uygulamalar için halka açık testnetidir ve zincirler arasında çalışan uygulamalardır. Bu, evrensel uygulamaları kitlelere ulaştırmada önemli bir kilometre taşıdır.\n\n![Push Chain Roadmap](/assets/website/chain/knowledge/testnet/image-1.webp)",
+                  "what-is-push-chain": "## Push Chain Nedir?\n\nPush Chain, **interoperabilite temel bir zincir ilkesi** olan, paylaşımlı durumlu, evrensel bir blockchain'dir, harici protokoller aracılığıyla sonradan eklenen bir düşünce değildir. **Tek seferde dağıtın** ve uygulamanız bağlı zincirler genelinde yerel olarak çalışır.\n\n**Donut, bunu test ettiğimiz yerdir.**",
+                  "quick-links": "## Hızlı Bağlantılar\n\n🧠 [Bilgi Tabanı](/knowledge) — Mimari ve tasarımı öğrenin.\n\n🌳 [Ekosistem Uygulamaları](/ecosystem) — Push Chain üzerinde dağıtılan Evrensel Uygulamaları keşfedin.\n\n**🪩 Denemek İçin Popüler Uygulamalar**\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Ballsy](https://ballsy.push.org/) — Aynı uygulama mantığının zincirler arasında sorunsuz bir şekilde çalıştığını deneyimleyin.\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Simulate](https://simulate.push.org/) — Zincirler arası etkileşimleri test edin ve görselleştirin.\n\n📖 [Geliştirici Belgeleri](/docs) — Push Chain'ın belgelerine dalın.\n\n💧 [Musluk](https://faucet.push.org/) — testnet token'ları alın.\n\n🔍 [Push Scan](https://donut.push.network/) — işlemleri ve ağ verilerini takip edin.",
+                  "why-push-exists": "## Neden Push Chain Var?\n\nGünümüzdeki Web3 ekosistemi oldukça parçalanmış ve aşırı karmaşık.\n\nGeliştiriciler akıllı sözleşmeleri birden fazla zincire yeniden dağıtıyor, kullanıcılar token'ları manuel olarak köprülemek veya cüzdanları değiştirmek zorunda kalıyor ve ekipler zincire özgü kod tabanlarını ve denetimleri sürdürmek için aylarca zaman harcıyor.\n\nHer yeni zincir ek yük, karmaşıklık, maliyet ve sürtünme ekler ve bu da yeniliği ve benimsemeyi büyük ölçüde yavaşlatır.\n\n**Push Chain bunu ortadan kaldırır.**",
+                  "how-reimagines-interoperability": "## Zincir-doğal Birlikte Çalışabilirlik\n\nMevcut birlikte çalışabilirlik çoğu zaman harici mesajlaşma katmanlarına veya köprülere dayanır. Her zincirde birden fazla sözleşmeyi, denetimi ve entegrasyonu yönetirsiniz.\n\n**Push Chain bu modeli tersine çeviriyor.** Push ile:\n\n* **Tek seferde dağıtın, her yere ulaşın.** Uygulamanız anında tüm zincirlere, EVM veya non-EVM'ye erişilebilir hale gelir.\n* **Gereksiz sözleşmeleri ve köprüleri bırakın.** Birlikte çalışabilirlik zincirin doğasında var, bu nedenle altyapı yerine uygulamanıza odaklanırsınız.\n* **Tamamen EVM uyumlu kalın.** Zaten kullandığınız aynı araçları, çerçeveleri ve denetimleri kullanın.\n* **Kullanıcılara herhangi bir zincirden veya cüzdandan hizmet verin.** Kullanıcılar, mevcut cüzdanlarını kullanarak ana zincirlerinden işlem yaparlar. Manuel köprüleme, gas token'ları, ağ geçişi, takas veya kurulum gerekmez.",
+                  "how-to-participate": "## Ağa Katılımı Nasıl Sağlanır?\n\n### Geliştiriciler\n\nPush Chain, geliştiricilere **bir kere oluşturup her yerde dağıtabilme** gücü verir.\n\nHer **uygulama**, ekstra entegrasyonlar veya ayrı dağıtımlar olmadan tüm zincirlere doğal olarak çalışır.\n\nZincir şu anda test ağında **Ethereum, Solana, Base, Arbitrum ve BNB Chain**'i destekliyor ve yakında daha fazla zincir eklenecek.\n\n👉 [Geliştirici Kaynaklarını Keşfet](#for-developers)\n\n### Kullanıcılar\n\nBasitçe çalışan bir Web3 deneyimleyin: Zincir değiştirmeye, token köprülemeye veya öğrenmeye gerek yok.\n\nPush Chain üzerindeki herhangi bir uygulamaya erişmek ve doğrudan yerel token'ınızla ödeme yapmak için mevcut cüzdanınızı kullanın.\n\n👉 [Kullanıcı Kaynaklarını Keşfet](#for-users)\n\n### Doğrulayıcılar\n\nPush Chain ağı, merkeziyetsiz bir doğrulayıcı kümesi tarafından desteklenmektedir.\n\n**Neden bir test ağı doğrulayıcısı çalıştırılmalı?**\n\nBir test ağı doğrulayıcısı çalıştırmak, ağın güçlenmesine ve ana ağa hazırlık sürecine yardımcı olur. Ayrıca, [Push Points Program](https://portal.push.org) 3. Sezonu ile birlikte avantajlar ve faydalar da içerebilir.\n\n[@pushchain](https://x.com/PushChain) etiketleyin ve deneyimlerinizi bizimle X'te paylaşın.\n\n👉 [Doğrulayıcı Kaynaklarını Keşfet](#for-validators)",
+                  "curated-reads": "## Özenle Seçilmiş Okumalar 👇"
+                }
+              },
+              "for-developers": {
+                "title": "Geliştiriciler İçin",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Ecosystem Uygulamaları"
+                  },
+                  "documentation": {
+                    "title": "Belgeleme"
+                  },
+                  "push-explorer": {
+                    "title": "Push Scan"
+                  },
+                  "push-faucet": {
+                    "title": "Push Faucet"
+                  },
+                  "grassroots-program": {
+                    "title": "Grassroots Program'a Başvur"
+                  }
+                }
+              },
+              "for-users": {
+                "title": "Kullanıcılar İçin",
+                "items": {
+                  "ecosystem-apps": {
+                    "title": "Ekosistem Uygulamaları"
+                  },
+                  "knowledge-base": {
+                    "title": "Bilgi Tabanı"
+                  },
+                  "lets-push-yaps": {
+                    "title": "Hadi Yaps'leri Gönderelim"
+                  }
+                }
+              },
+              "for-validators": {
+                "title": "Doğrulayıcılar İçin",
+                "items": {
+                  "push-validator": {
+                    "title": "Push Validator"
+                  }
+                }
+              }
+            },
+            "title": "Donut Testnet 🍩"
+          },
+          "breadcrumbs": {
+            "knowledge-base": "Bilgi Tabanı"
+          }
+        },
+        "seo": {
+          "title": "Donut Testnet 🍩 – Push Chain'ın Evrensel Testnet'i",
+          "description": "Donut, Push Chain’ın herkese açık test ağdır. Nasıl bağlanacağınızı, Evrensel Uygulamalar oluşturabileceğinizi, musluğu kullanabileceğinizi ve bir doğrulayıcı çalıştırabileceğinizi öğrenin.",
+          "og-title": "Donut Testnet 🍩 - Push Chain'in Evrensel Test Ağı",
+          "og-description": "Donut'u keşfedin, Push Chain’in ilk herkese açık test ağı. Bir kere oluştur, her yere dağıt ve Evrensel Uygulamaları canlı olarak deneyimle.",
+          "twitter-title": "Donut Testnet 🍩 - Buradan başlayın",
+          "twitter-description": "Donut Testnet hakkında hızlı cevaplar: desteklenen zincirler, Universal Uygulamalar, musluk ve doğrulayıcı kurulumu."
+        }
+      },
       "report": {
         "seo": {
           "title": "Ağ Güncellemeleri",
@@ -570,34 +652,33 @@
                 }
               },
               "chain-upgrade-token-rebalance-25-feb-2026": {
-                "title": "Zincirde Geliştirme - Jeton Dönüşümler - 10 Milyar PC Jetonu",
+                "title": "Zincir Geçişi - Token Yeniden Dağıtımı - 10 Milyar PC Token",
                 "items": {
                   "status-heading": "## Durum",
                   "status-timeline": "25 Şubat 2026 - Başladı<br />25 Şubat 2026 - ✅ Tamamlandı",
                   "overview-heading": "## Genel Bakış",
-                  "overview-text": "Push Chain bir token yeniden denge önerisi gerçekleştirdi ve PC token toplamı sayısını yaklaşık 10 milyar token'e indirdi. Bu upgrade, testnet'in erken günlerinden kalma teknik borcun çözümünü sağlar ve zincirinin ana ağı gibi bir ortama hazırlığı yapar.",
+                  "overview-text": "Push Chain, bir token tekrardağılım önerisini gerçekleştirdi ve PC jetonu toplam tedarikini yaklaşık 10 milyar jetondan daha az olan seviyelere indirdi. Bu güncelleme, testnet'in erken günlerinden kalma teknik borçları içerir ve zincir için ana ağına hazırlanmayı sağlar.",
                   "why-heading": "### Bunun sebebi neydi?",
-                  "why-text": "Push Chain testnet'in erken dönemlerinde, PC token'lar için yakma ve basma işlemi yoktu. Bu, evrensel işlemler için oldukça düşük fiyat hesaplamaları ve az sayıda token sahiplerinin trilyonlara varan token tedarikleri birikmesine neden oldu. Ana ağına geçmeden önce düzeltmeye ihtiyaç duyulan bir dengesizlik yarattı.",
+                  "why-text": "Push Chain testi ağı'nın erken günlerinde, PC jetonlarının yakma ve üretim işlemi yoktu. Bunu takiben evrensel işlemler için ekstrem olarak düşük fiyat hesaplamaları oluşmuş ve az sayıda jeton sahiplerinin trilyonlarca jeton miktarlarına ulaşmasına izin vermiştir. Bu, ana ağı açılışına kadar düzeltmeye ihtiyaç duyulan dengesiz bir jeton ekonomisini yaratmıştır.",
                   "why-necessary": "Yeniden dengeleme şunlar için gerekliydi:",
                   "reason-mainnet": "- Mainnet benzeri ortam için hazırlık yapın",
                   "reason-season3": "- Sezon 3 ödüllerinin dağıtımını etkinleştir",
                   "reason-tech-debt": "- Erken testnet'ten eski teknik borcu kaldır",
-                  "reason-token-economy": "- Adil ve sürdürülebilir bir jeton ekonomisini kurma",
+                  "reason-token-economy": "- Adil ve sürdürülebilir bir token ekonomisi kur",
                   "what-changed-heading": "### Neler Değişti?",
-                  "what-changed-text": "Öneri, 1.178M toplam adreslerden 1,950 cüzeye etki etti. 1,100 PC jetonu veya daha fazla barındıran cüzeler (trilyonlar dahil), 1,100-2,000 arası PC jetonuna yeniden dengelenmiş durumda kaldı.",
+                  "what-changed-text": "Öneri, 1.178M toplam adresden 1,950 adet en üst seviye cüzdanı etkiledi. 1,100 PC jetonu veya daha fazla tutan (trilyonlar da dahil) cüzdanları yeniden dengelendi ve bunların hepsi 1,100-2,000 arasında PC jetonu tutacak şekilde ayarlandı.",
                   "key-changes-heading": "**Önemli Değişiklikler:**",
-                  "change-supply": "- Total supply azaldı 75T+'den yaklaşık 10B PC jetonu",
                   "change-wallets": "- En çok 1.950 cüzdan, 1.100-2.000 PC token aralığına yeniden dengelendi",
                   "change-percentage": "- Toplam adreslerin yalnızca %0,17'sini etkiler (1,178M adresin 1,950'sini)",
                   "change-unaffected": "- Kullanıcıların %99,83'ü etkilenmedi",
                   "why-not-informed-heading": "### Neden kullanıcılar önceden bilgilendirilmedi?",
-                  "why-not-informed-text": "Kullanıcılar önceden bilgilendirilmediler. Bu, rebalancing işlemi öncesinde token'leri diğer cüzdanlara dağıtmak için kötü niyetli aktörler tarafından oyuniojunu önlemek için güvenlik önlemidir. Sistem oyununun engellenmesi ve rebalancing işleminin bütünlüğünün sağlanması amacıyla bu tedbir alınmıştır.",
+                  "why-not-informed-text": "Kullanıcıları önceden bilgilendirmek, rebalanslama sürecinden önce kötü niyetli aktörler tarafından token'ların diğer cüzdanlara yeniden dağıtılmasını önlemek için güvenlik önlemidir. Bu önlem, rebalanslama işleminin bütünlüğünü sağlamak ve sistem oyununu önlemektir.",
                   "validator-period": "Testnet validadör teklif süresi şu anda bu tür durumları tam olarak merkezi olmayan validadör sahipliği uygulanmadan önce ortadan kaldırmaya yardımcı olmak için 5 dakikaya ayarlanmıştır.",
                   "why-52t-heading": "### Hala 52T arzı görmeye devam ediyorum?",
-                  "why-52t-text": "Daha fazla karışım, iki aşamalı bir yaklaşımdır. Şimdi, takımın kontrolündeki bir cüzdanda toplama işlemi yapılıyor ve kısa sürede yaktırılacak.",
+                  "why-52t-text": "Token dengesizliği iki aşamalı bir yaklaşım. Şimdi, bir takım kontrolü altındaki cüzdanda toplanmaktadır ve yakın zamanda yaktırılacaklar.",
                   "how-affect-heading": "### Beni nasıl etkiler?",
                   "affect-majority": "**%99.83 kullanıcı için:** Bu değişiklik sizi etkilemez. Cüzdan bakiyeniz değişmeden kalır.",
-                  "affect-top-wallets": "**Affect Eden Walletler (en üst 1,950):** Eğer cüzdanınızın PC jetonları tutması 1,100+ idi (veya trilyonlar), bakiyeniz 1,100-2,000 PC jeton aralığına yeniden dengelenmiş olacak.",
+                  "affect-top-wallets": "**Etkilenmiş cüzdanlar (en yüksek 1,950):** Eğer cüzdanınız 1,100+ PC jetonu tutuyor veya trilyonlarca tutuyorsa, denge dengesi yapılarak 1,100-2,000 aralığına yerleştirildi.",
                   "need-help-heading": "**Yardıma İhtiyacınız Var mı?**",
                   "need-help-text": "Bu yeniden dengelemeden etkilendiğinizi düşünüyorsanız ve sorularınız veya endişeleriniz varsa, lütfen yardım için Push Chain ekibiyle Discord üzerinden iletişime geçin."
                 }
@@ -688,80 +769,6 @@
           }
         }
       },
-      "testnet": {
-        "seo": {
-          "title": "Donut Testnet 🍩 – Push Chain'ın Evrensel Testnet'i",
-          "description": "Donut, Push Chain’ın herkese açık test ağdır. Nasıl bağlanacağınızı, Evrensel Uygulamalar oluşturabileceğinizi, musluğu kullanabileceğinizi ve bir doğrulayıcı çalıştırabileceğinizi öğrenin.",
-          "og-title": "Donut Testnet 🍩 - Push Chain'in Evrensel Test Ağı",
-          "og-description": "Donut'u keşfedin, Push Chain’in ilk herkese açık test ağı. Bir kere oluştur, her yere dağıt ve Evrensel Uygulamaları canlı olarak deneyimle.",
-          "twitter-title": "Donut Testnet 🍩 - Buradan başlayın",
-          "twitter-description": "Donut Testnet hakkında hızlı cevaplar: desteklenen zincirler, Universal Uygulamalar, musluk ve doğrulayıcı kurulumu."
-        },
-        "explainer-section": {
-          "breadcrumbs": {
-            "knowledge-base": "Bilgi Tabanı"
-          },
-          "blocks": {
-            "title": "Donut Testnet 🍩",
-            "sections": {
-              "donut-overview": {
-                "items": {
-                  "intro": "**On decade yiyen şemaları inşa ettik. Şimdi onları kırıp bırakın.**\n\n<iframe src=\"https://www.youtube.com/embed/-cojsUIHcLE?rel=0\" title=\"Push Chain Kamu Test Ağı Canlı\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
-                  "welcome-donut": "## Donut Testnet 🍩\n\nDonut, Push Chain’in Universal Uygulamalar için halka açık testnetidir ve zincirler arasında çalışan uygulamalardır. Bu, evrensel uygulamaları kitlelere ulaştırmada önemli bir kilometre taşıdır.\n\n![Push Chain Roadmap](/assets/website/chain/knowledge/testnet/image-1.webp)",
-                  "what-is-push-chain": "## Push Chain Nedir?\n\nPush Chain, **interoperabilite temel bir zincir ilkesi** olan, paylaşımlı durumlu, evrensel bir blockchain'dir, harici protokoller aracılığıyla sonradan eklenen bir düşünce değildir. **Tek seferde dağıtın** ve uygulamanız bağlı zincirler genelinde yerel olarak çalışır.\n\n**Donut, bunu test ettiğimiz yerdir.**",
-                  "quick-links": "## Hızlı Bağlantılar\n\n🧠 [Bilgi Tabanı](/knowledge) — Mimari ve tasarımı öğrenin.\n\n🌳 [Ekosistem Uygulamaları](/ecosystem) — Push Chain üzerinde dağıtılan Evrensel Uygulamaları keşfedin.\n\n**🪩 Denemek İçin Popüler Uygulamalar**\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Ballsy](https://ballsy.push.org/) — Aynı uygulama mantığının zincirler arasında sorunsuz bir şekilde çalıştığını deneyimleyin.\n\n&nbsp;&nbsp;&nbsp;&nbsp;[Simulate](https://simulate.push.org/) — Zincirler arası etkileşimleri test edin ve görselleştirin.\n\n📖 [Geliştirici Belgeleri](/docs) — Push Chain'ın belgelerine dalın.\n\n💧 [Musluk](https://faucet.push.org/) — testnet token'ları alın.\n\n🔍 [Push Scan](https://donut.push.network/) — işlemleri ve ağ verilerini takip edin.",
-                  "why-push-exists": "## Neden Push Chain Var?\n\nGünümüzdeki Web3 ekosistemi oldukça parçalanmış ve aşırı karmaşık.\n\nGeliştiriciler akıllı sözleşmeleri birden fazla zincire yeniden dağıtıyor, kullanıcılar token'ları manuel olarak köprülemek veya cüzdanları değiştirmek zorunda kalıyor ve ekipler zincire özgü kod tabanlarını ve denetimleri sürdürmek için aylarca zaman harcıyor.\n\nHer yeni zincir ek yük, karmaşıklık, maliyet ve sürtünme ekler ve bu da yeniliği ve benimsemeyi büyük ölçüde yavaşlatır.\n\n**Push Chain bunu ortadan kaldırır.**",
-                  "how-reimagines-interoperability": "## Zincir-doğal Birlikte Çalışabilirlik\n\nMevcut birlikte çalışabilirlik çoğu zaman harici mesajlaşma katmanlarına veya köprülere dayanır. Her zincirde birden fazla sözleşmeyi, denetimi ve entegrasyonu yönetirsiniz.\n\n**Push Chain bu modeli tersine çeviriyor.** Push ile:\n\n* **Tek seferde dağıtın, her yere ulaşın.** Uygulamanız anında tüm zincirlere, EVM veya non-EVM'ye erişilebilir hale gelir.\n* **Gereksiz sözleşmeleri ve köprüleri bırakın.** Birlikte çalışabilirlik zincirin doğasında var, bu nedenle altyapı yerine uygulamanıza odaklanırsınız.\n* **Tamamen EVM uyumlu kalın.** Zaten kullandığınız aynı araçları, çerçeveleri ve denetimleri kullanın.\n* **Kullanıcılara herhangi bir zincirden veya cüzdandan hizmet verin.** Kullanıcılar, mevcut cüzdanlarını kullanarak ana zincirlerinden işlem yaparlar. Manuel köprüleme, gas token'ları, ağ geçişi, takas veya kurulum gerekmez.",
-                  "how-to-participate": "## Ağa Katılımı Nasıl Sağlanır?\n\n### Geliştiriciler\n\nPush Chain, geliştiricilere **bir kere oluşturup her yerde dağıtabilme** gücü verir.\n\nHer **uygulama**, ekstra entegrasyonlar veya ayrı dağıtımlar olmadan tüm zincirlere doğal olarak çalışır.\n\nZincir şu anda test ağında **Ethereum, Solana, Base, Arbitrum ve BNB Chain**'i destekliyor ve yakında daha fazla zincir eklenecek.\n\n👉 [Geliştirici Kaynaklarını Keşfet](#for-developers)\n\n### Kullanıcılar\n\nBasitçe çalışan bir Web3 deneyimleyin: Zincir değiştirmeye, token köprülemeye veya öğrenmeye gerek yok.\n\nPush Chain üzerindeki herhangi bir uygulamaya erişmek ve doğrudan yerel token'ınızla ödeme yapmak için mevcut cüzdanınızı kullanın.\n\n👉 [Kullanıcı Kaynaklarını Keşfet](#for-users)\n\n### Doğrulayıcılar\n\nPush Chain ağı, merkeziyetsiz bir doğrulayıcı kümesi tarafından desteklenmektedir.\n\n**Neden bir test ağı doğrulayıcısı çalıştırılmalı?**\n\nBir test ağı doğrulayıcısı çalıştırmak, ağın güçlenmesine ve ana ağa hazırlık sürecine yardımcı olur. Ayrıca, [Push Points Program](https://portal.push.org) 3. Sezonu ile birlikte avantajlar ve faydalar da içerebilir.\n\n[@pushchain](https://x.com/PushChain) etiketleyin ve deneyimlerinizi bizimle X'te paylaşın.\n\n👉 [Doğrulayıcı Kaynaklarını Keşfet](#for-validators)",
-                  "curated-reads": "## Özenle Seçilmiş Okumalar 👇"
-                }
-              },
-              "for-developers": {
-                "title": "Geliştiriciler İçin",
-                "items": {
-                  "ecosystem-apps": {
-                    "title": "Ecosystem Uygulamaları"
-                  },
-                  "documentation": {
-                    "title": "Belgeleme"
-                  },
-                  "push-explorer": {
-                    "title": "Push Scan"
-                  },
-                  "push-faucet": {
-                    "title": "Push Faucet"
-                  },
-                  "grassroots-program": {
-                    "title": "Grassroots Program'a Başvur"
-                  }
-                }
-              },
-              "for-users": {
-                "title": "Kullanıcılar İçin",
-                "items": {
-                  "ecosystem-apps": {
-                    "title": "Ekosistem Uygulamaları"
-                  },
-                  "knowledge-base": {
-                    "title": "Bilgi Tabanı"
-                  },
-                  "lets-push-yaps": {
-                    "title": "Hadi Yaps'leri Gönderelim"
-                  }
-                }
-              },
-              "for-validators": {
-                "title": "Doğrulayıcılar İçin",
-                "items": {
-                  "push-validator": {
-                    "title": "Push Validator"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "validators": {
         "seo": {
           "title": "Validators —",
@@ -791,7 +798,7 @@
         "twitter-description": "Hızlı başlangıçlar, SDK'lar, API referansı ve hızlı geliştirme için örnekler."
       },
       "header": {
-        "countdown-title": "{dakika} dakika sonra Testnet belgeleri başlayacak",
+        "countdown-title": "Testnet Belgeler İndirmeye Hazırlanıyor %s",
         "description": "Psst... Testnet Donut'a gizlice bir göz atmak ister misin? #pushchainsecret ile bize ulaş ve sana bir test sürümü göndereceğiz.",
         "tweet-button": "Push Chain hakkında Tweet paylaş",
         "title": "Push Chain hakkında tweet at",
@@ -878,7 +885,7 @@
     "litepaper": {
       "seo": {
         "title": "Litepaper — Teknik Genel Bakış",
-        "description": "Push Çekirdek'in üniversal uygulama için vizyonu, mimarisi ve ekonomisini kısa bir bakış.",
+        "description": "Push Chain'in vizyonu, yapısı ve ekonomileri için kısa bir bakış. Evrensel uygulamalar için.",
         "og-title": "Push Chain Litepaper - Teknik Genel Bakış",
         "og-description": "Evrensel çalıştırma katmanının vizyonu, tasarımı ve ekonomik modeli—basitleştirilmiş.",
         "twitter-title": "Litepaper - Push Chain",
@@ -992,7 +999,6 @@
         "all-apps": "Tüm Uygulamalar"
       },
       "cta": {
-        "title": "En universelle uygulama ekosistemine katılmak istiyor musunuz ve kullanıcılarınızın sayısını 10 katına çıkarmak?",
         "button": "İnşaya Başla"
       },
       "seo": {
@@ -1347,8 +1353,8 @@
           "status-url-title": "Ağ durumunu ve olayları görüntüleyin."
         },
         "qna3": {
-          "question": "Testnet tokenlerini nasıl alırım (Donut)?",
-          "answer": "<1>Test token'leri talep etmek için <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hızlanma sınırları uygulanabilir; bazı faucetler basit doğrulama gerektirebilir. Eğer faucet başarısız olursa, lütfen <4>Discord</4>'da bizimle iletişime geçin.</1>",
+          "question": "Testnet tokenlerini nasıl edinirim (Donut)?",
+          "answer": "<1>Test token'leri talep etmek için <3>Faucet'i</3> kullanın.</1><1><2>Notlar:</2> hız limitleri uygulanabilir; bazı faucet'ler basit doğrulama gerektirebilir. Eğer faucet işlemedi, lütfen <4>Discord'da</4> bize iletin.</1>",
           "faucet-url-title": "Push Chain musluğunu açın.",
           "discord-url-title": "Push Chain Discord'a katılın."
         },
@@ -1440,7 +1446,7 @@
       "categories": {
         "technical": {
           "label": "🔧 Teknik Destek",
-          "description": "Hata bildirimleri, SDK/API, akıllı sözleşimler, entegreleştirme yardım"
+          "description": "Hata raporları, SDK/API, akıllı sözleşimler, entegreleme yardım"
         },
         "network": {
           "label": "🌐 Ağ & testnet",
@@ -1734,7 +1740,8 @@
       },
       "apps": {
         "ramen-swap": {
-          "name": "Ramen Swap"
+          "name": "Ramen Swap",
+          "description": "Herhangi bir zincirden tercihinizdeki tokenleri sunuyor"
         },
         "halo": {
           "name": "HALO",
@@ -1826,7 +1833,8 @@
           "description": "Satranç oynayın, bahis yapın, evrensel"
         },
         "omnihub": {
-          "name": "Omnihub"
+          "name": "Omnihub",
+          "description": "Bloğu oluştur, al ve sat blockchain koleksiyonları"
         },
         "push-dex": {
           "name": "PushDex",
@@ -1875,7 +1883,7 @@
       "apps": {
         "pc-faucet": {
           "name": "PC Musluğu",
-          "description": "Buradan PC Testnet jetonlarını alın"
+          "description": "Burada PC Testnet token'lerini alın"
         },
         "push-bridge": {
           "name": "Push Köprüsü"
@@ -1896,7 +1904,7 @@
   },
   "notifications": {
     "chain-notification": {
-      "description": "Üst 50 yaratıcı, 20M jeton boni elde eder. Cemaatini toplayın. Push Kültüre katılın!",
+      "description": "En %53;k en yaratıcı %2415M jeton ödülü kazanır. Cemaatınizi toplar. Push Kult'a katılın!",
       "button-title": "Push Kültürüne Katıl!",
       "button-aria-label": "Push Kültü'ne katılın! Buradan inceleyebilirsiniz",
       "image-alt": "Push Kültürüne Katıl!",
@@ -1908,7 +1916,6 @@
     },
     "rewards-notification": {
       "title": "Donut Testnet Kapalı Beta Sürümü Başladı!",
-      "description": "Testnet, Donut'ün önizlemesini gör ve evrensel uygulamalar inşa et, ödüller kazan!",
       "image-alt": "Push Chain Testnet Ödülleri - Evrensel Uygulamalar Oluştur",
       "close-button-title": "Ödül bildirimini kapat",
       "close-button-aria-label": "Push Chain ödül bildirimini kapat",
