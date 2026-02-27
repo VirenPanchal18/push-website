@@ -1,3 +1,4 @@
+import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import { device } from '@site/src/config/globals';
 import { Span } from '@site/src/css/SharedStyling';
 import tagsData from '@site/static/content/blogtags.json';
@@ -7,6 +8,7 @@ import styled from 'styled-components';
 
 const BlogTags = ({ scrollingTheme = true }) => {
   const { t } = useTranslation();
+  const { withBaseUrl } = useBaseUrlUtils();
 
   if (!tagsData || tagsData.length === 0) {
     return null;
@@ -21,7 +23,7 @@ const BlogTags = ({ scrollingTheme = true }) => {
         {tagsData.map((tag, index) => (
           <TagLink
             key={index}
-            href={tag.link}
+            href={withBaseUrl(tag.link)}
             title={t('components.blog.tags.tag-link-title', {
               tagName: tag.name,
             })}
@@ -38,7 +40,7 @@ const BlogTags = ({ scrollingTheme = true }) => {
         ))}
         {scrollingTheme && (
           <ShowAllLink
-            href='/blog/tags'
+            href={withBaseUrl('/blog/tags')}
             title='View all blog topics'
             aria-label='View all blog topics'
           >

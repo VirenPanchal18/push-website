@@ -4,8 +4,9 @@ import {
   ReadingTime,
   Spacer,
 } from '@site/src/components/reusables/date.tsx';
-import GLOBALS, { device } from '@site/src/config/globals';
+import { device } from '@site/src/config/globals';
 import { H2, Image, ItemH, Span } from '@site/src/css/SharedStyling';
+import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -13,6 +14,7 @@ import styled from 'styled-components';
 const FeaturedBlogPosts = () => {
   const { recentBlogs } = useFetchRecentBlogs();
   const { t } = useTranslation();
+  const { withBaseUrl } = useBaseUrlUtils();
 
   if (!recentBlogs || recentBlogs.length === 0) {
     return null;
@@ -25,14 +27,14 @@ const FeaturedBlogPosts = () => {
       {firstPost && (
         <MainFeaturedPost
           as='a'
-          href={firstPost.link}
+          href={withBaseUrl(firstPost.link)}
           title={firstPost.title}
           aria-label={t('components.blog.featured.post-aria-label', {
             title: firstPost.title,
           })}
         >
           <MainFeaturedImage
-            src={firstPost.imageUrl}
+            src={withBaseUrl(firstPost.imageUrl)}
             alt={t('components.blog.featured.image-alt', {
               title: firstPost.title,
             })}
@@ -65,14 +67,14 @@ const FeaturedBlogPosts = () => {
           <SecondaryFeaturedPost
             key={index}
             as='a'
-            href={post.link}
+            href={withBaseUrl(post.link)}
             title={post.title}
             aria-label={t('components.blog.featured.post-aria-label', {
               title: post.title,
             })}
           >
             <SecondaryFeaturedImage
-              src={post.imageUrl}
+              src={withBaseUrl(post.imageUrl)}
               alt={t('components.blog.featured.image-alt', {
                 title: post.title,
               })}
