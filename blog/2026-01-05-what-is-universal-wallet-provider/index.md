@@ -21,7 +21,7 @@ Short Ans - **No**.
 All you need is a **Universal Wrapper**.
 
 
-![Universal Wrapper overvie](./image1.webp)
+![Universal Wrapper overview](./image1.webp)
 
 Onboarding users across chains, wallets and various login methods using current interop protocols and tools is a super tiring process.
 
@@ -38,7 +38,7 @@ The Universal Wrapper enables your app to:
 **Step 1 — Install Push Chain UI Kit**
 
 
-![npm install command ](./image2.webp)
+![npm install command](./image2.webp)
 
 **Step 2: Wrap your app with the Universal WalletProvider**
 **At the root of your app**

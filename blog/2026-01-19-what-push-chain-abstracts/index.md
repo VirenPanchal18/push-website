@@ -30,7 +30,7 @@ That's spending more time on plumbing the infra than building the app!
 Push just *wraps* it into a Universal Signer and makes it speak "universal" under the hood.
 
 
-![ Universal Signer architecture diagram](./image1.webp)
+![Universal Signer architecture diagram](./image1.webp)
 
 ## What pain does it kill?
 
