@@ -24,7 +24,7 @@ What it actually has to do:
 
 Not only are these steps time-consuming, but they also introduce multiple points of failure:
 
-{/* image 1 - Regular cross-chain agent failure diagram */}
+![Regular cross-chain agent failure diagram.](./image1.webp)
 
 ## A shared-state agent (also possible today)
 
@@ -36,7 +36,8 @@ Here the goal is the same. But the environment is different:
 - It executes as one outcome-driven plan
 - Fewer moving parts → fewer failure modes
 
-{/* image 2 - Shared-state agent simplified flow */}
+![Shared-state agent simplified flow.](./image2.webp)
+
 
 If you're building "agent-ready" apps on Push Chain, you can assume a world where the agent doesn't need to be a bridge operator or a chain router.
 
@@ -46,7 +47,7 @@ One of the mechanics that makes this possible on Push Chain is the **Universal T
 
 With universal txns, the agent can express a plan (approve → swap → deposit, etc.) and execute atomically with no partial failure.
 
-{/* image 3 - Universal Transaction multicall code example */}
+![Universal Transaction multicall code example](./image3.webp)
 
 ### What happens here:
 
