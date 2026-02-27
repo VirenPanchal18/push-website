@@ -27,6 +27,24 @@ export const LFPushTweetsList: string[] = [
   'https://x.com/thehodldotfun/status/2018703829282296218?s=20',
   'https://x.com/SurfLayer/status/2008736931761582314?s=20',
 
+  // 18th Dec - 31st Dec
+  'https://x.com/winsznx/status/2006082584606871912?s=20',
+  'https://x.com/SafeEdges/status/2006028027415625728?s=20',
+  'https://x.com/Bao_Chau99/status/2006015567094833156?s=20',
+  'https://x.com/dut469/status/2006004570955329624?s=20',
+  'https://x.com/thehodldotfun/status/2004872000511377826?s=20',
+  'https://x.com/Weirdo_idn/status/2005343276547850592?s=20',
+  'https://x.com/Isa_Crypt/status/2005368990244413607?s=20',
+  'https://x.com/Divyansh_S28/status/2005289159142027288',
+  'https://x.com/BeatBRAWLS/status/2004996583629488246?s=20',
+  'https://x.com/SurfLayer/status/2003314834830688719?s=20',
+  'https://x.com/D3nP/status/2004814870563488120?s=20',
+  'https://x.com/ZNSConnect/status/2004657094801457335?s=20',
+  'https://x.com/Internoun/status/2003482987837685979',
+  'https://x.com/Aleksdnb01/status/2001645294337798398?s=20',
+  'https://x.com/OVGNFT/status/2001611961159815621?s=20',
+  'https://x.com/duru_tobe/status/2005390826709680300?s=20',
+
   // Till 2nd Dec
   'https://x.com/1inchdevs/status/2000995958214078550?s=20',
   'https://x.com/BeatBRAWLS/status/1995801210130235586?s=20',
