@@ -112,16 +112,11 @@ const EcosystemBlocks: React.FC<Props> = ({ apps }) => {
       filtered = apps;
     }
 
-    // For non-featured tabs, sort: appoftheweek first, then rest
-    if (activeTab !== 'featured') {
-      return filtered.sort((a, b) => {
-        if (a.appoftheweek && !b.appoftheweek) return -1;
-        if (!a.appoftheweek && b.appoftheweek) return 1;
-        return 0;
-      });
-    }
-
-    return filtered;
+    return filtered.sort((a, b) => {
+      if (a.appoftheweek && !b.appoftheweek) return -1;
+      if (!a.appoftheweek && b.appoftheweek) return 1;
+      return 0;
+    });
   }, [apps, activeTab]);
 
   const primaryApps = useMemo(() => {
