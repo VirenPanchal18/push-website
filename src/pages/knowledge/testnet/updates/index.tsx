@@ -45,7 +45,7 @@ function ReportPage() {
         <meta
           property='og:image'
           content={useBaseUrl(
-            require('/static/assets/previews/kbfaqpreview.png').default,
+            require('/static/assets/previews/networkupdates.png').default,
             { absolute: true }
           )}
         />

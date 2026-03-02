@@ -39,11 +39,11 @@ export const KBTokenomicsList = {
           valueKey:
             'pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.deflationary-design',
         },
-        {
-          type: 'text',
-          valueKey:
-            'pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details',
-        },
+        // {
+        //   type: 'text',
+        //   valueKey:
+        //     'pages.knowledge.tokenomics.explainer-section.blocks.sections.tokenomics-overview.items.migration-details',
+        // },
         {
           type: 'text',
           valueKey:

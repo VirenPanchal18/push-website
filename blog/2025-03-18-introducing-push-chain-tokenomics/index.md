@@ -105,7 +105,7 @@ Push Chain has a couple of burn mechanisms owing to it being a Universal Blockch
 
 This ensures a deflationary blockchain design that burns tokens as the network and the transactions that happen on it grow. This allows the chain to achieve deflationary tokenomics design while still awarding the validators and other actors. This design enables the creation of an incentivized, sustainable long-term future for Push Chain and all its participants.
 
-### Migration Details
+<!-- ### Migration Details
 
 Push Chain is the result of years of learning from building the leading notification and communication protocol of web3, which was one of the first consumer apps for crypto.
 
@@ -120,7 +120,7 @@ The launch of Push Chain is designed to reward and incentivize prior Push Protoc
 - Token migrators will also benefit from a dedicated yield farming pool reserved for them. These rewards will be distributed to token migrators if they stake their migrated Push Chain tokens, to reward them for long-term contribution to the ecosystem.
 - For example, if you have 100 Push Protocol $PUSH tokens, you’ll receive 750 Push Chain tokens when you migrate and 750 Push Chain tokens after 3 months — for a total of 1,500 Push Chain tokens. You can choose to stake these tokens to get additional rewards from the Push Chain yield farming pool, distributed periodically.
 
-The Push Chain token migration will be open for 12 months after launch, after which any remaining tokens will go to the community and ecosystem reserve.
+The Push Chain token migration will be open for 12 months after launch, after which any remaining tokens will go to the community and ecosystem reserve. -->
 
 ### Airdrop Details
 
