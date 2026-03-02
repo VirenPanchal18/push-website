@@ -52,7 +52,7 @@
     "@mdx-js/react": "^3.0.0",
     "@openzeppelin/merkle-tree": "^1.0.8",
     "@pushchain/core": "^4.0.13",
-    "@pushchain/ui-kit": "^4.1.0",
+    "@pushchain/ui-kit": "^4.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@solana/web3.js": "^1.98.2",
     "@splidejs/react-splide": "^0.7.12",
