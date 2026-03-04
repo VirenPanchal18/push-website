@@ -76,6 +76,8 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
     descriptionColor: 'white',
     tagsColor: 'white',
+    twitterId: '2029168701916774742',
+    appoftheweek: true,
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.hodl-fun.name',
@@ -114,7 +116,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     descriptionColor: 'white',
     tagsColor: 'white',
     twitterId: '2026619668560289884',
-    appoftheweek: true,
   },
   {
     nameKey:
