@@ -68,6 +68,8 @@ Push Chain is designed so that asset movement doesn’t create multiple incompat
 
 This makes it easier for liquidity to converge on one execution environment, instead of splitting across bridge-specific representations
 
+![First Image of What is the liquidity wedge trap? How to avoid it?](./image-1.webp)
+
 ### **When assets move to Push Chain:**
 
 - The original asset is locked on the source chain
