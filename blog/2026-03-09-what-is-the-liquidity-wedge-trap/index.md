@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: 'You can hold the same asset across multiple chains and still get different prices, different slippage, and different borrowing costs.Ever thought what the reason is?'
 text: "You can hold the same asset across multiple chains and still get different prices, different slippage, and different borrowing costs.Ever thought what the reason is?"
 tags: [Maker Monday]
+twitterId: "2031008562932273432"
 ---
 
 ![Cover Image of What is the liquidity wedge trap? How to avoid it?](./cover-image.webp)
