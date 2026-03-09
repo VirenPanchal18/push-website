@@ -1,14 +1,14 @@
 {
-  "name": "Push Bet",
-  "description": "Showcase your degen superpowers to earn rewards.",
-  "icon": "/assets/ecosystem/push-bet-icon.png",
-  "bgImage": "/assets/ecosystem/push-bet-bg.png",
-  "bgGradientColor": "rgba(0, 0, 0, 0.80)",
+  "name": "Cetra",
+  "description": "Suppy assets, borrow against them, and earn optimized yields",
+  "icon": "/assets/ecosystem/cetra-icon.png",
+  "bgImage": "/assets/ecosystem/cetra-bg.png",
+  "bgGradientColor": "#000000",
   "tags": [
-    "Prediction Market"
+    "DeFi"
   ],
-  "twitterId": "2026619668560289884",
-  "href": "https://pushbet.fun/",
+  "twitterId": "2029168701916774742",
+  "href": "https://cetra.app/",
   "titleColor": "white",
   "descriptionColor": "white",
   "tagsColor": "white",
