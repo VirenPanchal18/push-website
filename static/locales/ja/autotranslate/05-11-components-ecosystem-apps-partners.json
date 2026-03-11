@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "エージェントコマースのための統合インフラレイヤーです。"
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "Push Chain上の#1 NFTローンチパッド"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "資産を供給して、それらを担保に借入を行い、最適化された利回りを得ましょう"

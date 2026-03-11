@@ -25,6 +25,10 @@
           "name": "NFTs2Me",
           "description": "किसी भी चेन पर मुफ्त में अपना NFT कलेक्शन डिप्लॉय करें"
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "Push Chain पर #1 NFT लॉन्चपैड"
+        },
         "tachyon": {
           "name": "Tachyon",
           "description": "बहुत तेज़ मल्टीचेन रिलेयर"

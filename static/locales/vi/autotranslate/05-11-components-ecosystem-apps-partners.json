@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "Lớp cơ sở hạ tầng thống nhất cho thương mại dựa trên tác nhân."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "#1 Nền tảng ra mắt NFT trên Push Chain"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "Cung cấp tài sản, vay bằng tài sản đó và kiếm lợi nhuận tối ưu"

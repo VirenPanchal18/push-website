@@ -66,6 +66,21 @@ export const EcosystemAppsList: EcosystemApp[] = [
     tagsColor: 'black',
   },
   {
+    nameKey: 'components.ecosystem-apps-partners.apps.puffles.name',
+    descriptionKey:
+      'components.ecosystem-apps-partners.apps.puffles.description',
+    icon: '/assets/ecosystem/puffles-icon.jpg',
+    bgImage: '/assets/ecosystem/puffles-bg.jpg',
+    bgGradientColor: '#000000',
+    tags: ['NFT'],
+    href: 'https://puffles.io',
+    titleColor: 'white',
+    descriptionColor: 'white',
+    tagsColor: 'white',
+    twitterId: '2031754422884487425',
+    appoftheweek: true,
+  },
+  {
     nameKey: 'components.ecosystem-apps-partners.apps.cetra.name',
     descriptionKey: 'components.ecosystem-apps-partners.apps.cetra.description',
     icon: '/assets/ecosystem/cetra-icon.png',
@@ -77,7 +92,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     descriptionColor: 'white',
     tagsColor: 'white',
     twitterId: '2029168701916774742',
-    appoftheweek: true,
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.hodl-fun.name',

@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "为代理商务提供统一的基础设施<layer>。"
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "Push Chain上的#1 NFT发射台"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "提供资产，以这些资产为抵押借贷，并赚取优化收益"

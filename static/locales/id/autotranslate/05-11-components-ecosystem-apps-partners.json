@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "Lapisan infrastruktur terpadu untuk perdagangan berbasis agen."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "#1 Launchpad NFT di Push Chain"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "Sediakan aset, pinjam terhadapnya, dan dapatkan imbal hasil yang optimal"

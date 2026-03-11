@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "Унифицированный инфраструктурный <layer> для агентской коммерции."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "#1 NFT-лаунчпад на Push Chain"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "Предоставляйте активы, берите взаймы под них и получайте оптимизированную доходность"

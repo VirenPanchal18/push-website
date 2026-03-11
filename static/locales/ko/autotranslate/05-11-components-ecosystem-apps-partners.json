@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "에이전트 기반 상거래를 위한 통합 인프라 <layer>입니다."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "Push Chain의 #1 NFT 런치패드"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "자산을 공급하고, 담보로 대출을 받고, 최적화된 수익을 올리세요."

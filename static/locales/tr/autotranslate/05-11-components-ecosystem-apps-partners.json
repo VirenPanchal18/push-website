@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "Ajan tabanlı ticaret için birleşik altyapı katmanı."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "Push Chain üzerindeki #1 NFT Launchpad"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "Varlıklarınızı temin edin, onlara karşı borç alın ve optimize edilmiş getiriler kazanın"

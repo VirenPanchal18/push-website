@@ -1,14 +1,14 @@
 {
-  "name": "Cetra",
-  "description": "Suppy assets, borrow against them, and earn optimized yields",
-  "icon": "/assets/ecosystem/cetra-icon.png",
-  "bgImage": "/assets/ecosystem/cetra-bg.png",
+  "name": "Puffles",
+  "description": "#1 NFT Launchpad on Push Chain",
+  "icon": "/assets/ecosystem/puffles-icon.jpg",
+  "bgImage": "/assets/ecosystem/puffles-bg.jpg",
   "bgGradientColor": "#000000",
   "tags": [
-    "DeFi"
+    "NFT"
   ],
-  "twitterId": "2029168701916774742",
-  "href": "https://cetra.app/",
+  "twitterId": "2031754422884487425",
+  "href": "https://puffles.io",
   "titleColor": "white",
   "descriptionColor": "white",
   "tagsColor": "white",

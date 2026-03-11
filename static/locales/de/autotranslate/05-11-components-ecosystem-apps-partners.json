@@ -22,6 +22,10 @@
           "name": "HALO",
           "description": "Die vereinheitlichte Infrastruktur-Schicht für agentisches Commerce."
         },
+        "puffles": {
+          "name": "Puffles",
+          "description": "#1 NFT-Launchpad auf Push Chain"
+        },
         "cetra": {
           "name": "Cetra",
           "description": "Assets bereitstellen, sich gegen diese verschulden und optimierte Renditen erzielen"
