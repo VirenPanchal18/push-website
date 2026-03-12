@@ -24,7 +24,7 @@ Chain fragmentation got all the attention.
 
 But this? This is the real problem 👇
 
-Today's reality: USDC Sol, USDC ETH, USDC Base, all @circle backed, all worth $1.
+Today's reality: USDC Sol, USDC ETH, USDC Base, all circle backed, all worth $1.
 
 But they're isolated. Different pool depths. Different slippage. Different borrowing rates.
 
@@ -56,9 +56,9 @@ One DEEP pool for every chain's users.
 
 ### **And for DeFi, the math changes entirely**
 
-→ DEX slippage becomes negligible
-→ Borrowing rates drop hard (3% → 0.3%)
-→ Capital efficiency goes through the roof
+→ DEX slippage becomes negligible <br />
+→ Borrowing rates drop hard (3% → 0.3%) <br />
+→ Capital efficiency goes through the roof <br />
 
 You're not reinventing any DeFi primitives. You're unifying what already exists.
 
