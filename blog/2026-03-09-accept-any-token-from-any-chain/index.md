@@ -12,12 +12,12 @@ tags: [Maker Monday]
 
 <!--truncate-->
 
-💸 Crypto payments suck in 2025 — Siloed chains = lost users.
+Crypto payments suck in 2025 — Siloed chains = lost users.
 
 Accept USDC on ETH? Solana folks bounce.
-Add SOL? Bye Polygon.
+Add SOL? Polygon users bounce.
 
-Push Chain's Universal Payments make that possible ⚙️
+Push Chain's Universal Payments make that possible
 Accept ANY token from ANY chain in 1 line.
 
 Just shipped. Devs, build once, pay everywhere.
@@ -71,7 +71,7 @@ This is the most fun to do, as it opens up payment from any token and requires u
 
 ![Level 5 code example](./image5.webp)
 
-These are pretty powerful on their own, but pair them with #x402 (Coinbase's protocol for AI agent payments) → seamless agentic economy.
+These are pretty powerful on their own, but pair them with [x402](https://github.com/coinbase/x402) (Coinbase's protocol for AI agent payments) → seamless agentic economy.
 
 Users: "Pay $1 for services from any chain" → Handled automagically.
 Agent: "Pay $3 for coffee" → Handles token/chain automagically.
