@@ -36,7 +36,7 @@ These secure the network, participate in consensus, and ensure the chain stays h
 
 These extend Push Chain beyond a single ecosystem, enabling shared state and cross-chain execution across EVM and non-EVM chains.
 
-## **Why two distinct validators?**
+## Why two distinct validators?
 
 Because securing a chain and coordinating universal execution are **very different problems** — and Push Chain treats them as such.
 
@@ -48,7 +48,7 @@ This separation keeps the system:
 
 • Easier to reason about for builders
 
-## **How They Work Together (High-Level Flow)**
+## How They Work Together (High-Level Flow)
 ```
 User locks 100 USDC on Ethereum
     ↓
