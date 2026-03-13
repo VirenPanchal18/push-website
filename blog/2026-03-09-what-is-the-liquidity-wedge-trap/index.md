@@ -71,7 +71,7 @@ This makes it easier for liquidity to converge on one execution environment, ins
 
 ![First Image of What is the liquidity wedge trap? How to avoid it?](./image1.webp)
 
-When assets move to Push Chain
+### When assets move to Push Chain
 
 - The original asset is locked on the source chain
 - Push mints a strict **1:1 representation**
@@ -81,7 +81,7 @@ Value stays conserved, and the asset doesn’t splinter into multiple bridge-spe
 
 ---
 
- When assets move from Push Chain
+### When assets move from Push Chain
 
 - The representation is burned
 - Release is triggered only for the exact burned amount
