@@ -16,12 +16,10 @@ x402 = extremely bullish paradigm for global & agentic crypto adoption.
 
 [X402](https://docs.cdp.coinbase.com/x402/welcome) is a payment protocol that lets AI (and humans) pay instantly, autonomously, on-chain (crypto payments, no banks).
 
-{/* image 1 - x402 overview */}
-
 BUT… it severely lacks one crucial element — **Flexibility 👇**
 
 "Pay in BASE USDC only."
-OR → "Pay in {this chain} {this token} only."
+OR → "Pay in \{this chain\} \{this token\} only."
 
 This alone can't be the future. 🤔
 

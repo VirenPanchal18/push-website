@@ -23,7 +23,7 @@ Accept ANY token from ANY chain in 1 line.
 Just shipped. Devs, build once, pay everywhere.
 
 
-![cover snippet](./image1)
+![cover snippet](./image1.webp)
 
 ## Push Chain handles payments like a boss.
 
@@ -38,7 +38,7 @@ Straightforward — just call [sendTransaction()](https://push.org/docs/chain/bu
 ETH, Solana, Base, BNB — all work.
 
 
-![Level 2 code example](./image2)
+![Level 2 code example](./image2.webp)
 
 ## 2️⃣ Level 2 → Accept multiple tokens from any chain
 
@@ -47,7 +47,7 @@ Just:
 - Replace funds.token with their selected token
 
 
-![Level 3 code example](./image3)
+![Level 3 code example](./image3.webp)
 
 ## 3️⃣ Level 3 → ANY token/native (Chad Mode 🤖)
 
@@ -66,10 +66,10 @@ This is the most fun to do, as it opens up payment from any token and requires u
 - Under the hood, you get the native token and can choose to convert it to the stablecoin of your choice
 
 
-![Level 4 code example](./image4)
+![Level 4 code example](./image4.webp)
 
 
-![Level 5 code example](./image5)
+![Level 5 code example](./image5.webp)
 
 These are pretty powerful on their own, but pair them with #x402 (Coinbase's protocol for AI agent payments) → seamless agentic economy.
 
