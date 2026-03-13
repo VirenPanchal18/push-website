@@ -67,8 +67,10 @@ User receives pUSDC instantly. No bridging manually
 
 ## TLDR;
 
-![Summarizing Network Validators vs Universal Validators](./image1.webp)
-
+| **Validator Type** | **Primary Function** | **What They Secure** |
+|--------------------|---------------------|----------------------|
+| **Network Validators** | Execute transactions on Push Chain | • Push Chain state<br>• Network consensus<br>• Transaction execution |
+| **Universal Validators** | Observe and relay external chain activity | • Cross-chain asset locks<br>• Gateway transactions |
 ---
 
 Want to get started with running your own Push Chain Validator in a single click? Refer this [Quick Setup Guide](https://push.org/docs/chain/node-and-system-tools/running-push-validator/) to get started in 5 mins.

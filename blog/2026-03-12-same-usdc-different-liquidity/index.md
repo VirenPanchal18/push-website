@@ -40,21 +40,21 @@ Not a new stablecoin. Just the ones you trust; unified.
 
 ![First Image of Same USDC. Different Liquidity](./image-1.webp)
 
-### **How the peg stays intact**
+## How the peg stays intact
 
 The basket balances based on cross-chain liquidity depth.
 When you withdraw, protocol honors your preferred chain. Edge case: you might get USDC from a different chain.
 
 But as the wedge deepens, that edge case basically disappears.
 
-### **Why this matters for apps**
+## Why this matters for apps
 
 User on Solana? ETH? Base? Doesn't matter.
 
 Apps like [HodlFun](https://www.thehodl.fun/en) and [beatbrawls](https://push.beatbrawls.com/) can onboard anyone, same app, same liquidity, no bridging required.
 One DEEP pool for every chain's users.
 
-### **And for DeFi, the math changes entirely**
+## And for DeFi, the math changes entirely
 
 → DEX slippage becomes negligible <br />
 → Borrowing rates drop hard (3% → 0.3%) <br />
