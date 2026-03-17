@@ -73,7 +73,7 @@ Now extend this across:
 Ecosystem isn’t suffering from a lack of capital.
 It’s short on “**capital that can be aggregated”.**
 
-## **Why this matters more than you think**
+## Why this matters more than you think
 
 This fragmentation leaks into everything.
 
@@ -93,7 +93,7 @@ Stablecoins make crypto usable for the masses.
 
 Fragmentation makes it inefficient to use.
 
-## **The** **bottleneck** **is** **settlement,** **not** **trust**
+## The bottleneck is settlement, not trust
 
 USDC issued by @circle is trusted across chains.
 
@@ -108,7 +108,7 @@ Bridges move balances from one chain to another, but nothing is actually unified
 
 This is where Push takes a unified stance.
 
-## **Universal Settlement on Push Chain**
+## Universal Settlement on Push Chain
 
 On Push, stablecoins don’t stay isolated just because they originated on different chains.
 
@@ -145,7 +145,7 @@ You can think about universal stablecoins on Push in three steps
 
 No wrapping. No duplicated pools. No competing versions of the same dollar.
 
-## **pUSD: The Universal Stablecoin**
+## pUSD: The Universal Stablecoin
 
 This settlement model shows up as **pUSD**
 
@@ -165,7 +165,7 @@ Liquidity is shared, not mirrored.
 For users, this looks like one balance which just works.
 For builders, it’s one settlement asset to reason about instead of many.
 
-## **How pUSD makes DeFi more efficient**
+## How pUSD makes DeFi more efficient
 
 Once the settlement is unified, second-order effects compound fast:
 
