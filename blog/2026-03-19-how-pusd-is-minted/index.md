@@ -37,8 +37,6 @@ The diagram here shows how a user from any EVM / non-EVM chain, like Solana here
 
 ![Seamless cross-chain asset transfer flow](./image-1.webp)
 
-![Unified liquidity via universal stablecoin](./image-2.webp)
-
 **Lock on the source → mint on Push → burn on Push → release on source.**
 
 No wrapping
@@ -47,7 +45,7 @@ No liquidity hops
 
 No extra “claim your token” step
 
-# Minting 1 pUSD
+## Minting 1 pUSD
 
 Example: A user has USDC on Ethereum and wants to use it on an app built on Push.
 
@@ -61,7 +59,7 @@ Under the hood:
 
 The asset never left Ethereum.
 
-# **Why does MPC vault matter here?**
+## Why does MPC vault matter here?
 
 It isn’t a multisig that anyone controls
 
@@ -71,7 +69,7 @@ It isn’t a multisig that anyone controls
 
 This is what makes the mint secure.
 
-# How Push Chain verifies minting
+## How Push Chain verifies minting
 
 Universal Validators watch the source chain.
 
@@ -105,7 +103,7 @@ From the user’s POV:
 > pUSD supply isn’t market-managed. It’s state-managed.
 > 
 
-# Withdrawing pUSD back to your chain's native stablecoin
+## Withdrawing pUSD back to your chain's native stablecoin
 
 **Nothing is released unless something is burned.**
 
@@ -133,7 +131,7 @@ The asset lands:
 
 ![Simple cross-chain mint and burn flow](./image-3.webp)
 
-# Why pUSD matters to builders
+## Why pUSD matters to builders
 
 This design quietly removes a lot of complexity:
 
@@ -148,63 +146,3 @@ You can build apps assuming:
 To know more about pUSD - [read our quick thesis](https://push.org/blog/how-push-rethinks-stablecoins/).
 
 We’re about to launch pUSD very soon. Join our [Discord](https://push.org/blog/how-push-rethinks-stablecoins/) or [Telegram](https://t.me/epnsproject) to be the first to know when it’s live!
-
----
-
-# Guidelines
-
-## 🧠 Maker Monday
-
-**🎯 Goal**
-
-Help developers and curious users **understand Push Chain technology**.
-
-Every Monday, turn complex infra into approachable learning — SDKs, modules, contracts, and architecture.
-
-**💡 What to Do**
-
-- Focus on **explaining how** Push Chain works, not **how much** it’s achieved.
-- Share small, modular lessons from real development (like new functions, simplified calls, or dev UX improvements).
-- Use short video clips, diagrams, or Playground screenshots to make the concept visual.
-- Keep it crisp: one insight → one visual → one takeaway.
-- Preferred to be an X Article
-
-**🧩 Some Content Ideas**
-
-- **Feature Explain:** “How Shared-State lets you skip bridges in 2 steps.”
-- **Code Example:** “New helper function moveFunds() lets you send native tokens from any chain.”
-- **Architecture Nugget:** “Universal Execution precompiles handle tx validation natively — here’s how.”
-- **Concept Simplifier:** “Fee abstraction ≠ free tx. Here’s how it really works.”
-
-**🚫 Avoid**
-
-- Pure milestone or tx count posts (move them to Push Pulse).
-- Heavy jargon dumps — teach, don’t overwhelm.
-- Overly promotional lines like “world’s first / biggest”.
-
-**🧠 Examples**
-
-| **❌ Weak (brag)** | **✅ Strong (educate)** |
-| --- | --- |
-| “25k tx on Donut this week 🚀” | “25k tx on Donut this week — here’s how validator batching keeps Shared-State stable ⚙️” |
-| “SDK v2 is live!” | “SDK v2 introduces unified multicall. Here’s what changes for devs 👇” |
-| “Donut testnet booming 💥” | “Every tx on Donut executes via Universal Validation — here’s what that means for interop.” |
-
-**🪄 Tone**
-
-- Builder-friendly, transparent, slightly geeky.
-- Imagine explaining a concept to another dev over coffee — that’s the energy.
-
-**📈 What Success Looks Like**
-
-- Saves and quote tweets with “this is neat / this makes sense now.”
-- Higher average CTR to docs or Playground.
-- Builders replying with “testing this rn.”
-
-**✅ Summary Takeaway**
-
-**Maker Monday teaches. Push Pulse celebrates. Deep Dive explains.**
-
-If you can add code, a diagram, or a “why it matters” line — it’s a Maker Monday.
-
----
