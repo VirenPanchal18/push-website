@@ -1,5 +1,5 @@
 ---
-slug: how-pusd-is-minted
+slug: how-is-pusd-minted
 title: 'How is pUSD (Universal Stablecoin) minted'
 authors: [push]
 image: './cover-image.webp'
