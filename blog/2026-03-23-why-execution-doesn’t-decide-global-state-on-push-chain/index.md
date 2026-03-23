@@ -6,6 +6,7 @@ image: './cover-image.webp'
 description: “Shared State” sounds risky, and that instinct is correct. If execution happens across chains, what stops?"
 text: “Shared State” sounds risky, and that instinct is correct. If execution happens across chains, what stops?"
 tags: [Maker Monday]
+twitterId: "2036080760793309457"
 ---
 
 ![Cover Image of Why execution doesn’t decide global state on Push Chain](./cover-image.webp)
