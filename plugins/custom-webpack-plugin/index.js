@@ -6,7 +6,6 @@ module.exports = function () {
   return {
     name: 'custom-docusaurus-plugin',
     configureWebpack(config, isServer) {
-      // Always extend fallback and ProvidePlugin
       const extendedConfig = {
         resolve: {
           fallback: {
@@ -46,7 +45,6 @@ module.exports = function () {
         },
       };
 
-      // ✅ Add HMR plugin in dev mode only (not server and not production)
       if (!isServer) {
         extendedConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
       }
