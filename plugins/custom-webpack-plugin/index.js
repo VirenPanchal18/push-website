@@ -2,12 +2,12 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-// Webpack configuration
 module.exports = function () {
   return {
     name: 'custom-docusaurus-plugin',
     configureWebpack(config, isServer) {
-      return {
+      // Always extend fallback and ProvidePlugin
+      const extendedConfig = {
         resolve: {
           fallback: {
             assert: require.resolve('assert'),
@@ -20,9 +20,9 @@ module.exports = function () {
             crypto: require.resolve('crypto-browserify'),
             vm: require.resolve('vm-browserify'),
             File: isServer ? false : require.resolve('form-data'),
-            bufferutil: false, // Fallback for WebSocket
-            'utf-8-validate': false, // Fallback for WebSocket
-            'pino-pretty': false, //
+            bufferutil: false,
+            'utf-8-validate': false,
+            'pino-pretty': false,
             process: require.resolve('process/browser.js'),
           },
         },
@@ -37,18 +37,21 @@ module.exports = function () {
             new TerserPlugin({
               parallel: false,
               terserOptions: {
-                format: {
-                  comments: false,
-                },
+                format: { comments: false },
               },
               extractComments: false,
             }),
-            new CssMinimizerPlugin({
-              parallel: false,
-            }),
+            new CssMinimizerPlugin({ parallel: false }),
           ],
         },
       };
+
+      // ✅ Add HMR plugin in dev mode only (not server and not production)
+      if (!isServer) {
+        extendedConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+      }
+
+      return extendedConfig;
     },
   };
 };
