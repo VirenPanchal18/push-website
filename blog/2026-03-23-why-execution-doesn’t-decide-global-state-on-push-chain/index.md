@@ -17,9 +17,9 @@ twitterId: "2036080760793309457"
 
 If execution happens across chains, what stops?
 
-→ partial updates
-→ reorg bleed-through
-→ inconsistent global state
+→ partial updates <br />
+→ reorg bleed-through <br />
+→ inconsistent global state <br />
 
 ## Not all chains finalize blocks the same way
 
