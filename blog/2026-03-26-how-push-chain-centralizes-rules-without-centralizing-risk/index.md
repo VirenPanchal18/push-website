@@ -60,7 +60,7 @@ There’s no need for syncing logic, no reconciliation layer, and no debates ove
 
 Not because the complexity moved somewhere else but because it was never necessary to begin with.
 
-Ballsy depends on this model.  
+Ballsy depends on this model.
 Without a single authoritative state, cross-chain determinism breaks, and outcomes eventually diverge.
 
 ![Demo of Ballsy App](./demoofballsyapp.gif)
@@ -75,5 +75,5 @@ It unifies state authority under a single consensus domain, so execution can rem
 One source of truth, with many execution environments.
 
 Don’t just read, experience it!
-Interact with different chains and observe how the outcome remains consistent.
+Interact with different chains and observe how the outcome remains consistent. <br />
 👉 https://ballsy.push.org/
