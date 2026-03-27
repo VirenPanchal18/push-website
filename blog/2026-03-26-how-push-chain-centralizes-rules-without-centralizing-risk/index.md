@@ -63,7 +63,7 @@ Not because the complexity moved somewhere else but because it was never necessa
 Ballsy depends on this model.  
 Without a single authoritative state, cross-chain determinism breaks, and outcomes eventually diverge.
 
-![Demo of Ballsy App](./image-1.gif)
+![Demo of Ballsy App](./demoofballsyapp.gif)
 
 If your app has multiple places that decide state truth, you don’t have resilience.
 You have ambiguity.
