@@ -411,72 +411,6 @@ import { PushChain } from '@pushchain/core';
 
 {/* API Section Start*/}
 
-### Get Supported Chains
-
-**_`PushChain.utils.chains.getSupportedChains(pushNetwork): { chains: [] }`_**
-
-Returns the list of chains supported for a given Push Network.
-
-```typescript
-const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
-```
-
-<PushAPIReference>
-
-| **Arguments** | **Type** | **Description**                                                                                                                                     |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chains from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details> |
-
-</PushAPIReference>
-
-<Details summary="Returns `{ chains }` <object>" className="alert alert--fn-args">
- 
-```typescript
-// { chains } object
-{
-  chains: [
-    PushChain.CONSTANTS.CHAIN.PUSH_TESTNET,
-    PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
-    PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA,
-    PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA,
-    PushChain.CONSTANTS.CHAIN.BNB_TESTNET,
-    PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-    // ...
-  ]
-}
-
-// NOTE: returns empty chains array if pushNetwork is unsupported
-```
-
-</Details>
-
-<Details summary="Live Playground: Get Supported Chains for a given Push Network" className="alert alert--live-play">
-
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
-
-{`
-// customPropHighlightRegexStart=PushChain\.utils\.chains\.getSupportedChains
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_get_supported_chains
-import { PushChain } from '@pushchain/core';
-
-    function main() {
-      const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
-      console.log(JSON.stringify(chains));
-    }
-
-    main();
-
-`}
-
-</NodeJSVirtualIDE>
-
-</Details>
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### Get Supported Chains By Name
 
 **_`PushChain.utils.chains.getSupportedChainsByName(pushNetwork): { chains: [] }`_**
@@ -528,6 +462,73 @@ import { PushChain } from '@pushchain/core';
 
     function main() {
       const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
+      console.log(JSON.stringify(chains));
+    }
+
+    main();
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+{/* API Section Ends*/}
+
+
+{/* API Section Start*/}
+
+### Get Supported Chains
+
+**_`PushChain.utils.chains.getSupportedChains(pushNetwork): { chains: [] }`_**
+
+Returns the list of chains supported for a given Push Network.
+
+```typescript
+const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description**                                                                                                                                     |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chains from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details> |
+
+</PushAPIReference>
+
+<Details summary="Returns `{ chains }` <object>" className="alert alert--fn-args">
+ 
+```typescript
+// { chains } object
+{
+  chains: [
+    PushChain.CONSTANTS.CHAIN.PUSH_TESTNET,
+    PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+    PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA,
+    PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA,
+    PushChain.CONSTANTS.CHAIN.BNB_TESTNET,
+    PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+    // ...
+  ]
+}
+
+// NOTE: returns empty chains array if pushNetwork is unsupported
+```
+
+</Details>
+
+<Details summary="Live Playground: Get Supported Chains for a given Push Network" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.chains\.getSupportedChains
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_get_supported_chains
+import { PushChain } from '@pushchain/core';
+
+    function main() {
+      const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUSH_NETWORK.TESTNET);
       console.log(JSON.stringify(chains));
     }
 
@@ -723,7 +724,9 @@ import { PushChain } from '@pushchain/core';
 
 **_`PushChain.utils.account.convertOriginToExecutor(account, {options}): Promise<ExecutorAccountInfo>`_**
 
-Gives the deterministic executor account address for a given origin account (UOA). Also helps in checking if a given origin account (UOA) has an executor account (UEA) deployed on Push Chain.
+Gives the deterministic executor account address for a given origin account (UOA). 
+
+Also helps in checking if a given origin account (UOA) has a universal executor account (UEA) deployed on Push Chain or a chain executor account (CEA) deployed on any external chain.
 
 ```typescript
 const info =
@@ -795,23 +798,29 @@ import { PushChain } from '@pushchain/core'
 </Details>
 {/* API Section Ends*/}
 
-### Convert Executor Address to Origin Account
+{/* API Section Begins*/}
 
-**_`PushChain.utils.account.convertExecutorToOriginAccount(address): Promise<OriginAccountInfo>`_**
+### Convert Executor to Origin Account
 
-Gives the origin account (UOA) for a given Push Chain address.
+**_`PushChain.utils.account.convertExecutorToOrigin(account, { options? }): Promise<OriginAccountInfo>`_**
+
+Gives the origin account (UOA) for a given universal executor account (UEA on Push Chain) or a chain executor account (CEA on any external chain). 
 
 ```typescript
-const { account, exists } = await PushChain.utils.account.convertExecutorToOriginAccount(pushChainAddress);
+
+const { account, exists } = 
+  await PushChain.utils.account.convertExecutorToOrigin(ueaOrCeaAddress);
 ```
 
 <PushAPIReference>
 
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`pushChainAddress`_ | `string` | -           | Address of the account on Push Chain.                                        |
+| _`address`_      | `string` | -           | Address of the account on any blockchain. |
+| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
 
 </PushAPIReference>
+
 <Details summary="Returns `OriginAccountInfo` <object>" className="alert alert--fn-args">
 
 ```typescript
@@ -832,24 +841,30 @@ const { account, exists } = await PushChain.utils.account.convertExecutorToOrigi
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
 
 {`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOriginAccount
+// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOrigin
 // customPropHighlightRegexEnd=\\);
 // customPropGTagEvent=utility_convert_executor_to_origin
 import { PushChain } from '@pushchain/core'
 
     async function main() {
-      const ueaAddress = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
-      const result = await PushChain.utils.account.convertExecutorToOriginAccount(
-        ueaAddress
+      // Create executor account object
+      const ueaAccount = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
+      
+      // Convert UEA to origin account
+      const result = await PushChain.utils.account.convertExecutorToOrigin(
+        ueaAccount
       );
-      console.log('Has Executor Account');
+      console.log('Origin account from UEA:');
       console.log(JSON.stringify(result, null, 2));
 
-      const notUeaAddress = '0x35B84d6848D16415177c64D64504663b998A6ab4';
-      const result2 = await PushChain.utils.account.convertExecutorToOriginAccount(
-        notUeaAddress
+      // Example with options.chain (treats as CEA)
+      const ceaAccount = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';
+      
+      const result2 = await PushChain.utils.account.convertExecutorToOrigin(
+        ceaAccount,
+        { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
       );
-      console.log('Does not have Executor Account');
+      console.log('Origin account from CEA:');
       console.log(JSON.stringify(result2, null, 2));
     }
 
@@ -860,6 +875,7 @@ import { PushChain } from '@pushchain/core'
 </NodeJSVirtualIDE>
 
 </Details>
+{/* API Section Ends*/}
 
 ## Signer Utilities
 
@@ -1371,13 +1387,20 @@ const quote = pushChainClient.funds.getConversionQuote('100000000', {
 
 ### Get Transaction URL
 
-**_`pushChainClient.explorer.getTransactionUrl(txHash): string`_**
+**_`pushChainClient.explorer.getTransactionUrl(txHash, { options? }): string`_**
 
 > **Note**: This function is available only after initializing the Push Chain client.
 
+Returns the explorer URL for a given transaction hash. By default, uses the chain from the initialized `pushChainClient`. When `options.chain` is provided, generates the explorer URL for that specific chain instead.
+
 ```typescript
-// ... Initialize Push Chain Client
+// Default: Uses client's chain (Push Chain)
 const url = pushChainClient.explorer.getTransactionUrl(txHash);
+
+// Override: Generate URL for external chain explorer
+const sepoliaUrl = pushChainClient.explorer.getTransactionUrl(txHash, {
+  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+});
 ```
 
 <PushAPIReference>
@@ -1385,14 +1408,18 @@ const url = pushChainClient.explorer.getTransactionUrl(txHash);
 | **Arguments** | **Type** | **Description**                                  |
 | ------------- | -------- | ------------------------------------------------ |
 | _`txHash`_    | `string` | The transaction hash to convert to explorer URL. |
+| `options.chain` | `CHAIN` | Optional. Override the chain for explorer URL generation. When provided, generates the URL for that chain's explorer instead of the client's chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_MAINNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
 
 </PushAPIReference>
 
 <Details summary="Returns `url` <string>" className="alert alert--fn-args">
 
 ```typescript
-// url string
-'https://donut.push.network/tx/0x...';
+// Push Chain transaction URL (default)
+'https://donut.push.network/tx/0x828911db033c65de8faab4906cfcb7d13ce225c3cd283534d110414a5b78cf87'
+
+// External chain transaction URL (when options.chain is provided)
+'https://sepolia.etherscan.io/tx/0x828911db033c65de8faab4906cfcb7d13ce225c3cd283534d110414a5b78cf87'
 ```
 
 </Details>
@@ -1425,9 +1452,17 @@ const url = pushChainClient.explorer.getTransactionUrl(txHash);
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
 
-      const exploredTxHashUrl = pushChainClient.explorer.getTransactionUrl('0x828911db033c65de8faab4906cfcb7d13ce225c3cd283534d110414a5b78cf87');
+      const txHash = '0x828911db033c65de8faab4906cfcb7d13ce225c3cd283534d110414a5b78cf87';
 
-      console.log("url:", exploredTxHashUrl);
+      // Default: Push Chain explorer URL
+      const pushChainUrl = pushChainClient.explorer.getTransactionUrl(txHash);
+      console.log("Push Chain URL:", pushChainUrl);
+
+      // Override: Ethereum Sepolia explorer URL
+      const sepoliaUrl = pushChainClient.explorer.getTransactionUrl(txHash, {
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+      });
+      console.log("Sepolia URL:", sepoliaUrl);
     }
 
     await main().catch(console.error);
@@ -1441,29 +1476,50 @@ const url = pushChainClient.explorer.getTransactionUrl(txHash);
 
 {/* API Section Start*/}
 
-### List all Explorer URLs
+### List Explorer URLs
 
-**_`pushChainClient.explorer.listUrls(): { urls: string[] }`_**
+**_`pushChainClient.explorer.listUrls({ options? }): { explorers: [] }`_**
 
 > **Note**: This function is available only after initializing the Push Chain client.
 
+Returns explorer URLs for a specific chain. By default, uses the chain from the initialized `pushChainClient`. When `options.chain` is provided, returns explorer URLs for that specific chain instead.
+
 ```typescript
-// ... Initialize Push Chain Client
-const urls = pushChainClient.explorer.listUrls();
+// Default: Uses client's chain
+const result = pushChainClient.explorer.listUrls();
+
+// Override: Get explorer URLs for specific chain
+const sepoliaExplorers = pushChainClient.explorer.listUrls({
+  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+});
 ```
 
-<Details summary="Returns `urls` <{ urls: string[] }>" className="alert alert--fn-args">
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description**                                  |
+| ------------- | -------- | ------------------------------------------------ |
+| `options.chain` | `CHAIN` | Optional. Override the chain to get explorer URLs for. When provided, returns explorer URLs for that specific chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+
+</PushAPIReference>
+
+<Details summary="Returns `{ explorers }` <object>" className="alert alert--fn-args">
 
 ```typescript
-// urls object { urls:[] }
+// explorers object
 {
-  urls: ['https://donut.push.network', 'https://scan.push.org'];
+  explorers: [
+    {
+      chain: 'eip155:42101',
+      chainName: 'PUSH_TESTNET_DONUT',
+      urls: ['https://donut.push.network', 'https://scan.push.org']
+    }
+  ]
 }
 ```
 
 </Details>
 
-<Details summary="Live Playground: List all Explorer URLs" className="alert alert--live-play">
+<Details summary="Live Playground: List Explorer URLs for a specific chain" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
 {`
@@ -1491,8 +1547,102 @@ const urls = pushChainClient.explorer.listUrls();
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
 
-      const explorerUrls = pushChainClient.explorer.listUrls();
-      console.log(JSON.stringify(explorerUrls));
+      // Default: Get explorer URLs for client's chain (Push Chain)
+      const pushChainExplorers = pushChainClient.explorer.listUrls();
+      console.log('Push Chain explorers:', JSON.stringify(pushChainExplorers, null, 2));
+
+      // Override: Get explorer URLs for Ethereum Sepolia
+      const sepoliaExplorers = pushChainClient.explorer.listUrls({
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+      });
+      console.log('Sepolia explorers:', JSON.stringify(sepoliaExplorers, null, 2));
+    }
+
+    await main().catch(console.error);
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+{/* API Section Ends*/}
+
+{/* API Section Start*/}
+
+### List All Explorer URLs
+
+**_`pushChainClient.explorer.listAllUrls(): { explorers: [] }`_**
+
+> **Note**: This function is available only after initializing the Push Chain client.
+
+Returns explorer URLs for all supported chains in the current Push Network.
+
+```typescript
+// ... Initialize Push Chain Client
+const allExplorers = pushChainClient.explorer.listAllUrls();
+```
+
+<Details summary="Returns `{ explorers }` <object>" className="alert alert--fn-args">
+
+```typescript
+// explorers object with all supported chains
+{
+  explorers: [
+    {
+      chain: 'eip155:42101',
+      chainName: 'PUSH_TESTNET_DONUT',
+      urls: ['https://donut.push.network', 'https://scan.push.org']
+    },
+    {
+      chain: 'eip155:11155111',
+      chainName: 'ETHEREUM_SEPOLIA',
+      urls: ['https://sepolia.etherscan.io']
+    },
+    {
+      chain: 'eip155:421614',
+      chainName: 'ARBITRUM_SEPOLIA',
+      urls: ['https://sepolia.arbiscan.io']
+    },
+    // ... more chains
+  ]
+}
+```
+
+</Details>
+
+<Details summary="Live Playground: List All Explorer URLs for all supported chains" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+{`
+    // customPropHighlightRegexStart=pushChainClient\.explorer\.listAllUrls
+    // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=utility_explorer_list_all_urls
+    // Using ethers for example - You can use any library
+    // ethers, viem, solana web3js, etc
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+
+    async function main() {
+      // Create random wallet
+      const wallet = ethers.Wallet.createRandom()
+
+      // Set up provider
+      const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org')
+      const signer = wallet.connect(provider)
+
+      // Convert to Universal Signer
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+
+      // Initialize Push Chain Client
+      const pushChainClient = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+
+      // Get all explorer URLs for all supported chains
+      const allExplorers = pushChainClient.explorer.listAllUrls();
+      console.log('All explorers:', JSON.stringify(allExplorers, null, 2));
+      console.log('Total chains:', allExplorers.explorers.length);
     }
 
     await main().catch(console.error);
