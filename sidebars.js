@@ -184,10 +184,14 @@ const sidebars = {
           type: 'doc',
           id: 'chain/build/docs-chain-build-send-universal-transaction',
         },
-        // {
-        //   type: 'doc',
-        //   id: 'chain/build/docs-chain-build-track-universal-transaction',
-        // },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-track-universal-transaction',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-sign-universal-message',
+        },
         {
           type: 'doc',
           id: 'chain/build/docs-chain-build-utility-functions',
