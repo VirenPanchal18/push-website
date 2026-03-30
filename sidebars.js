@@ -205,6 +205,10 @@ const sidebars = {
           id: 'chain/build/docs-chain-build-contract-helpers',
         },
         {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-constants',
+        },
+        {
           type: 'category',
           label: 'Advanced',
           link: {
