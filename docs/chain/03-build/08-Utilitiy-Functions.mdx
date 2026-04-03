@@ -720,73 +720,85 @@ import { PushChain } from '@pushchain/core';
 
 {/* API Section Begins*/}
 
-### Convert Origin to Executor Account
+### Derive Executor Account
 
-**_`PushChain.utils.account.convertOriginToExecutor(account, {options}): Promise<ExecutorAccountInfo>`_**
+**_`PushChain.utils.account.deriveExecutorAccount(account, { options? }): Promise<{ address: string, deployed?: boolean }>`_**
 
-Gives the deterministic executor account address for a given origin account (UOA). 
+Derives the execution account for a given input account. This function supports multiple derivation flows based on the input and options provided.
 
-Also helps in checking if a given origin account (UOA) has a universal executor account (UEA) deployed on Push Chain or a chain executor account (CEA) deployed on any external chain.
+**Use Cases:**
+- **UOA → UEA**: Derive a Universal Executor Account on Push Chain from a Universal Origin Account
+- **Push account → CEA**: Derive a Chain Executor Account on an external chain from a Push Chain account or UEA
+- **Push-native account**: Returns the same account if it's already a Push Chain native account
 
 ```typescript
-const info =
-  await PushChain.utils.account.convertOriginToExecutor(universalAccount);
+// Derive UEA from UOA (origin account address)
+const result = await PushChain.utils.account.deriveExecutorAccount(
+  '0xPushAccount'
+);
+
+// Derive CEA from Push account
+const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
+  '0xPushAccount',
+  { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
+);
 ```
 
 <PushAPIReference>
 
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`account`_      | `UniversalAccount` | -           | A UniversalAccount object containing chain and address information.                                        |
-| `options.onlyCompute` | `boolean`          | `false`     | Whether to check if the computed executor account is deployed. Set to `true` to include deployment status. |
+| _`account`_      | `string` | -           | Generic account input. Can be a UOA (chain-agnostic format), UEA, Push EOA, smart contract address, or CEA. |
+| `options.chain`  | `CHAIN`            | `undefined` | Optional. When provided, derives a Chain Executor Account (CEA) on the specified external chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.skipNetworkCheck` | `boolean` | `false` | When `true`, performs deterministic derivation only without checking deployment status. When `false`, includes deployment/existence check. |
 
 </PushAPIReference>
 
-<Details 
-  summary="Returns `ExecutorAccountInfo` <object>" 
-  className="alert alert--fn-args"
->
+<Details summary="Returns `{ address, deployed? }` <object>" className="alert alert--fn-args">
 
 ```typescript
-// ExecutorAccountInfo object
+// Response object
 {
   address: '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5',
-  deployed: true
+  deployed: true  // Only included when skipNetworkCheck is false
 }
 ```
 
 </Details>
 
-<Details summary="Live Playground: Convert Origin Account to Universal Executor Account" className="alert alert--live-play">
+<Details summary="Live Playground: Derive Executor Account" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
 
 {`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertOriginToExecutor
+// customPropHighlightRegexStart=PushChain\\.utils\\.account\\.deriveExecutorAccount
 // customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_convert_origin_to_executor
+// customPropGTagEvent=utility_derive_executor_account
 import { PushChain } from '@pushchain/core'
 
     async function main() {
-      // Create a universal account for Solana Devnet
-      const account = PushChain.utils.account.toUniversal(
-        'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q', {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-      })
+      // Example 1: Derive UEA from UOA (origin account)
+      const uoaAddress = '0xD8d6aF611a17C236b13235B5318508FA61dE3Dba';
+      const ueaResult = await PushChain.utils.account.deriveExecutorAccount(uoaAddress);
+      console.log('UEA from UOA:');
+      console.log(JSON.stringify(ueaResult, null, 2));
 
-      // Convert to executor address with deployment status
-      const executorInfo = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: true,
-      })
+      // Example 2: Derive CEA from Push account
+      const pushAccount = '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5';
+      const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
+        pushAccount,
+        { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
+      );
+      console.log('CEA on BNB Testnet:');
+      console.log(JSON.stringify(ceaResult, null, 2));
 
-      console.log(JSON.stringify(executorInfo, null, 2));
-
-      // Convert without deployment status
-      const executorSimple = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: false,
-      })
-
-      console.log(JSON.stringify(executorSimple, null, 2));
+      // Example 3: Skip network check (deterministic only)
+      const deterministicResult = await PushChain.utils.account.deriveExecutorAccount(
+        uoaAddress,
+        { skipNetworkCheck: true }
+      );
+      console.log('Deterministic derivation:');
+      console.log(JSON.stringify(deterministicResult, null, 2));
     }
 
     await main().catch(console.error)
@@ -800,72 +812,123 @@ import { PushChain } from '@pushchain/core'
 
 {/* API Section Begins*/}
 
-### Convert Executor to Origin Account
+### Resolve Controller Account
 
-**_`PushChain.utils.account.convertExecutorToOrigin(account, { options? }): Promise<OriginAccountInfo>`_**
+**_`PushChain.utils.account.resolveControllerAccount(account, { options? }): Promise<{ accounts: Array<AccountInfo> }>`_**
 
-Gives the origin account (UOA) for a given universal executor account (UEA on Push Chain) or a chain executor account (CEA on any external chain). 
+Resolves the controller identity behind an execution account. This function supports recursive resolution to trace back to the original Universal Origin Account (UOA).
+
+**Use Cases:**
+- **UEA → UOA**: Resolve the Universal Origin Account from a Universal Executor Account
+- **CEA → Push account → UOA**: Resolve through Chain Executor Account to Push account, then to UOA if applicable
+- **Recursive resolution**: Automatically follows the chain of derivation back to the controller identity
 
 ```typescript
+// Resolve UOA from UEA
+const result = await PushChain.utils.account.resolveControllerAccount('0xUEA...');
 
-const { account, exists } = 
-  await PushChain.utils.account.convertExecutorToOrigin(ueaOrCeaAddress);
+// Resolve from CEA with chain context
+const ceaResult = await PushChain.utils.account.resolveControllerAccount(
+  '0xCEA...',
+  { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
+);
 ```
 
 <PushAPIReference>
 
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`address`_      | `string` | -           | Address of the account on any blockchain. |
-| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| _`account`_      | `string` | -           | Executor account to resolve. Can be a UEA, CEA, or Push Chain account address. |
+| `options.chain`  | `CHAIN`            | `undefined` | Required for CEA context. Specifies which chain the CEA is deployed on. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.skipNetworkCheck` | `boolean` | `false` | When `true`, performs deterministic resolution only without checking existence. When `false`, includes existence check. |
 
 </PushAPIReference>
 
-<Details summary="Returns `OriginAccountInfo` <object>" className="alert alert--fn-args">
+<Details summary="Returns `{ accounts }` <object>" className="alert alert--fn-args">
 
 ```typescript
-// OriginAccountInfo object
+// Example 1: Resolving CEA that has UEA with UOA controller
 {
-  account: {
-    chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
-    address: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf'
-  },
-  exists: true
+  accounts: [
+    {
+      chain: 'eip155:42101',
+      chainName: 'PUSH_TESTNET_DONUT',
+      address: '0x2Fd904d6f2C0b34d58426C8Ae9c5267E845CE98f',
+      type: 'uea',
+      exists: true
+    },
+    {
+      chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
+      chainName: 'SOLANA_DEVNET',
+      address: '72JBejJFXrRKpQ69Hmaqr7vWJr6pdZXFEL6jt3sadsXU',
+      type: 'uoa',
+      exists: true,
+      role: 'controller'
+    }
+  ]
+}
+
+// Example 2: Resolving CEA from Push Account (EOA) or smart contract
+{
+  accounts: [
+    {
+      chain: 'eip155:42101',
+      chainName: 'PUSH_TESTNET_DONUT',
+      address: '0x2Fd904d6f2C0b34d58426C8Ae9c5267E845CE98f',
+      type: 'uoa',
+      exists: true,
+      role: 'controller'
+    }
+  ]
 }
 ```
 
+| Field       | Type      | Description                                                                 |
+| ----------- | --------- | --------------------------------------------------------------------------- |
+| `accounts`  | `Array`   | Array of account objects in the resolution chain                            |
+| `chain`     | `string`  | Chain namespace identifier (e.g., `eip155:42101`, `solana:EtWTRABZaYq...`) |
+| `chainName` | `string`  | Human-readable chain constant name (e.g., `PUSH_TESTNET_DONUT`, `SOLANA_DEVNET`) |
+| `address`   | `string`  | Account address on the chain                                                |
+| `type`      | `string`  | Account type: `uea`, `uoa`, or `cea`                                        |
+| `exists`    | `boolean` | Whether the account exists on-chain                                         |
+| `role`      | `string`  | `controller` indicates the controlling account in the resolution chain      |
+
 </Details>
 
-<Details summary="Live Playground: Convert Executor Account to Origin Account" className="alert alert--live-play">
+<Details summary="Live Playground: Resolve Controller Account" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
 
 {`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOrigin
+// customPropHighlightRegexStart=PushChain\\.utils\\.account\\.resolveControllerAccount
 // customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_convert_executor_to_origin
+// customPropGTagEvent=utility_resolve_controller_account
 import { PushChain } from '@pushchain/core'
 
     async function main() {
-      // Create executor account object
-      const ueaAccount = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
-      
-      // Convert UEA to origin account
-      const result = await PushChain.utils.account.convertExecutorToOrigin(
-        ueaAccount
-      );
-      console.log('Origin account from UEA:');
-      console.log(JSON.stringify(result, null, 2));
+      // Example 1: Resolve controller from UEA
+      const ueaAddress = '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5';
+      const result1 = await PushChain.utils.account.resolveControllerAccount(ueaAddress);
+      console.log('Resolution chain from UEA:');
+      console.log(JSON.stringify(result1, null, 2));
+      console.log('Controller:', result1.accounts.find(acc => acc.role === 'controller'));
 
-      // Example with options.chain (treats as CEA)
-      const ceaAccount = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';
-      
-      const result2 = await PushChain.utils.account.convertExecutorToOrigin(
-        ceaAccount,
+      // Example 2: Resolve from CEA with chain context
+      const ceaAddress = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';
+      const result2 = await PushChain.utils.account.resolveControllerAccount(
+        ceaAddress,
         { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
       );
-      console.log('Origin account from CEA:');
+      console.log('Resolution chain from CEA:');
       console.log(JSON.stringify(result2, null, 2));
+
+      // Example 3: Skip network check (deterministic only)
+      const result3 = await PushChain.utils.account.resolveControllerAccount(
+        ueaAddress,
+        { skipNetworkCheck: true }
+      );
+      console.log('Deterministic resolution:');
+      console.log(JSON.stringify(result3, null, 2));
     }
 
     await main().catch(console.error)
@@ -1651,6 +1714,263 @@ const allExplorers = pushChainClient.explorer.listAllUrls();
 
 </NodeJSVirtualIDE>
 
+</Details>
+
+{/* API Section Ends*/}
+
+## Deprecated Methods
+
+{/* API Section Begins*/}
+
+### Convert Origin to Executor Account 
+
+> **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [deriveExecutorAccount](#derive-executor-account) instead.
+
+<Details summary="PushChain.utils.account.convertOriginToExecutor(account, {options}): Promise<ExecutorAccountInfo>" className="alert alert--live-play">
+
+Gives the deterministic executor account address for a given origin account (UOA). <br />&nbsp;<br />
+
+Also helps in checking if a given origin account (UOA) has a universal executor account (UEA) deployed on Push Chain or a chain executor account (CEA) deployed on any external chain. <br />&nbsp;<br />
+
+```typescript
+const info =
+  await PushChain.utils.account.convertOriginToExecutor(universalAccount);
+```
+
+| Deprecated Function | Replacement | Key Changes |
+|---------------------|-------------|-------------|
+| `convertOriginToExecutor` | `deriveExecutorAccount` | • Parameter renamed: `onlyCompute` → `skipNetworkCheck`<br />• Generic `account` parameter accepts string instead of UniversalAccount object<br />• Clearer naming aligned with identity ↔ execution model |
+
+<PushAPIReference>
+
+| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
+| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
+| _`account`_      | `UniversalAccount` | -           | A UniversalAccount object containing chain and address information.                                        |
+| `options.onlyCompute` | `boolean`          | `false`     | Whether to check if the computed executor account is deployed. Set to `true` to include deployment status. |
+
+</PushAPIReference>
+
+<Details 
+  summary="Returns `ExecutorAccountInfo` <object>" 
+  className="alert alert--fn-args"
+>
+
+```typescript
+// ExecutorAccountInfo object
+{
+  address: '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5',
+  deployed: true
+}
+```
+
+</Details>
+
+<Details summary="Live Playground: Convert Origin Account to Universal Executor Account" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.account\.convertOriginToExecutor
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_convert_origin_to_executor
+import { PushChain } from '@pushchain/core'
+
+    async function main() {
+      // Create a universal account for Solana Devnet
+      const account = PushChain.utils.account.toUniversal(
+        'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q', {
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+      })
+
+      // Convert to executor address with deployment status
+      const executorInfo = await PushChain.utils.account.convertOriginToExecutor(account, {
+        onlyCompute: true,
+      })
+
+      console.log(JSON.stringify(executorInfo, null, 2));
+
+      // Convert without deployment status
+      const executorSimple = await PushChain.utils.account.convertOriginToExecutor(account, {
+        onlyCompute: false,
+      })
+
+      console.log(JSON.stringify(executorSimple, null, 2));
+    }
+
+    await main().catch(console.error)
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+</Details>
+
+{/* API Section Ends*/}
+
+{/* API Section Begins*/}
+
+<!-- ### Convert Executor to Origin Account 
+
+> **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [resolveControllerAccount](#resolve-controller-account) instead.
+
+<Details summary="PushChain.utils.account.convertExecutorToOrigin(account, { options? }): Promise<OriginAccountInfo>" className="alert alert--live-play">
+
+Gives the origin account (UOA) for a given universal executor account (UEA on Push Chain) or a chain executor account (CEA on any external chain). <br />&nbsp;<br />
+
+```typescript
+const { account, exists } = 
+  await PushChain.utils.account.convertExecutorToOrigin(ueaOrCeaAddress);
+```
+
+<PushAPIReference>
+
+| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
+| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
+| _`address`_      | `string` | -           | Address of the account on any blockchain. |
+| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+
+</PushAPIReference>
+
+<Details 
+  summary="Returns `OriginAccountInfo` <object>" 
+  className="alert alert--fn-args"
+>
+
+```typescript
+// OriginAccountInfo object
+{
+  account: {
+    chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
+    address: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf'
+  },
+  exists: true
+}
+```
+
+</Details>
+
+
+<Details summary="Live Playground: Convert Executor Account to Origin Account" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOrigin
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_convert_executor_to_origin
+import { PushChain } from '@pushchain/core'
+
+    async function main() {
+      // Create executor account object
+      const ueaAccount = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
+      
+      // Convert UEA to origin account
+      const result = await PushChain.utils.account.convertExecutorToOrigin(
+        ueaAccount
+      );
+      console.log('Origin account from UEA:');
+      console.log(JSON.stringify(result, null, 2));
+
+      // Example with options.chain (treats as CEA)
+      const ceaAccount = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';
+      
+      const result2 = await PushChain.utils.account.convertExecutorToOrigin(
+        ceaAccount,
+        { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
+      );
+      console.log('Origin account from CEA:');
+      console.log(JSON.stringify(result2, null, 2));
+    }
+
+    await main().catch(console.error)
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+</Details> -->
+
+{/* API Section Ends*/}
+
+{/* API Section Begins*/}
+
+### Convert Executor Address to Origin Account
+
+> **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [resolveControllerAccount](#resolve-controller-account) instead.
+
+<Details summary="PushChain.utils.account.convertExecutorToOriginAccount(address): Promise<OriginAccountInfo>" className="alert alert--live-play">
+
+Gives the origin account (UOA) for a given Push Chain address. <br />&nbsp;<br />
+
+```typescript
+const { account, exists } = await PushChain.utils.account.convertExecutorToOriginAccount(pushChainAddress);
+```
+
+| Deprecated Function | Replacement | Key Changes |
+|---------------------|-------------|-------------|
+| `convertExecutorToOriginAccount` | `resolveControllerAccount` | • Same functionality with clearer naming<br />• Part of unified identity ↔ execution model |
+
+<PushAPIReference>
+
+| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
+| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
+| _`pushChainAddress`_      | `string` | -           | Address of the account on Push Chain. |
+
+</PushAPIReference>
+
+<Details 
+  summary="Returns `OriginAccountInfo` <object>" 
+  className="alert alert--fn-args"
+>
+
+```typescript
+// OriginAccountInfo object
+{
+  account: {
+    chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
+    address: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf'
+  },
+  exists: true
+}
+```
+
+</Details>
+
+<Details summary="Live Playground: Convert Executor Account to Origin Account" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOriginAccount
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_convert_executor_to_origin_account
+import { PushChain } from '@pushchain/core'
+
+    async function main() {
+      const ueaAddress = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
+      const result = await PushChain.utils.account.convertExecutorToOriginAccount(
+        ueaAddress
+      );
+      console.log('Has Executor Account');
+      console.log(JSON.stringify(result, null, 2));
+
+      const notUeaAddress = '0x35B84d6848D16415177c64D64504663b998A6ab4';
+      const result2 = await PushChain.utils.account.convertExecutorToOriginAccount(
+        notUeaAddress
+      );
+      console.log('Does not have Executor Account');
+      console.log(JSON.stringify(result2, null, 2));
+    }
+
+    await main().catch(console.error)
+
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
 </Details>
 
 {/* API Section Ends*/}
