@@ -62,7 +62,6 @@ Defines all supported blockchain chains across the Push Chain ecosystem. These c
 
 | Constant | Chain Namespace | Description |
 | -------- | --------------- | ----------- |
-| `PushChain.CONSTANTS.CHAIN.PUSH_MAINNET` | `eip155:9` | Push Chain mainnet |
 | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` | `eip155:42101` | Push Chain testnet, always points to latest version of testnet |
 | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` | `eip155:42101` | Push Chain testnet (Donut) |
 | `PushChain.CONSTANTS.CHAIN.PUSH_LOCALNET` | `eip155:9001` | Push Chain local development |
@@ -147,6 +146,155 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 );
 ```
 
+## Moveable Token Constants
+
+**_`PushChain.CONSTANTS.MOVEABLE.TOKEN`_**
+
+Defines tokens that can be transferred across chains using Push Chain's universal transaction system.
+
+<!-- <Tabs groupId="moveable-tokens">
+  <TabItem value="mainnet" label="Mainnet" default>
+
+| Constant | Chain | Description |
+| -------- | ----- | ----------- |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.ETH` | Ethereum Mainnet | Native ETH token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.USDT` | Ethereum Mainnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.WETH` | Ethereum Mainnet | Wrapped ETH |
+
+  </TabItem>
+
+  <TabItem value="testnet" label="Testnet"> -->
+
+| Constant | Chain | Description |
+| -------- | ----- | ----------- |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH` | Ethereum Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT` | Ethereum Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDC` | Ethereum Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.WETH` | Ethereum Sepolia | Wrapped ETH |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.stETH` | Ethereum Sepolia | Staked ETH (Lido) |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ARBITRUM_SEPOLIA.ETH` | Arbitrum Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ARBITRUM_SEPOLIA.USDT` | Arbitrum Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ARBITRUM_SEPOLIA.USDC` | Arbitrum Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ARBITRUM_SEPOLIA.WETH` | Arbitrum Sepolia | Wrapped ETH |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BASE_SEPOLIA.ETH` | Base Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BASE_SEPOLIA.USDT` | Base Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BASE_SEPOLIA.USDC` | Base Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BASE_SEPOLIA.WETH` | Base Sepolia | Wrapped ETH |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.ETH` | BNB Testnet | Native ETH token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT` | BNB Testnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.SOL` | Solana Devnet | Native SOL token |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.USDT` | Solana Devnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.USDC` | Solana Devnet | USD Coin stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEth` | Push Testnet Donut | Push-wrapped ETH from Ethereum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthArb` | Push Testnet Donut | Push-wrapped ETH from Arbitrum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthBase` | Push Testnet Donut | Push-wrapped ETH from Base |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthBnb` | Push Testnet Donut | Push-wrapped ETH from BNB Chain |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pSol` | Push Testnet Donut | Push-wrapped SOL from Solana |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.eth` | Push Testnet Donut | Push-wrapped USDT from Ethereum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.arb` | Push Testnet Donut | Push-wrapped USDT from Arbitrum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.base` | Push Testnet Donut | Push-wrapped USDT from Base |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.bnb` | Push Testnet Donut | Push-wrapped USDT from BNB Chain |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.sol` | Push Testnet Donut | Push-wrapped USDT from Solana |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.eth` | Push Testnet Donut | Push-wrapped USDC from Ethereum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.arb` | Push Testnet Donut | Push-wrapped USDC from Arbitrum |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.base` | Push Testnet Donut | Push-wrapped USDC from Base |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.bnb` | Push Testnet Donut | Push-wrapped USDC from BNB Chain |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.sol` | Push Testnet Donut | Push-wrapped USDC from Solana |
+
+  <!-- </TabItem>
+</Tabs> -->
+
+### Usage Examples
+
+```typescript
+import { PushChain } from '@pushchain/core';
+
+// Move USDT from Ethereum Sepolia to Push Chain
+const txHash = await pushChainClient.universal.sendTransaction({
+  to: '0xa54E96d3fB93BD9f6cCEf87c2170aEdB1D47E1cF',
+  funds: {
+    amount: PushChain.utils.helpers.parseUnits('100', 6), // 100 USDT
+    token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
+  },
+});
+
+// Move SOL from Solana to Push Chain
+const solTxHash = await pushChainClient.universal.sendTransaction({
+  to: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf',
+  funds: {
+    amount: PushChain.utils.helpers.parseUnits('1', 9), // 1 SOL
+    token: PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.SOL,
+  },
+});
+```
+
+
+## Payable Token Constants
+
+**_`PushChain.CONSTANTS.PAYABLE.TOKEN`_**
+
+Defines tokens that can be used to pay for gas fees on Push Chain transactions.
+
+<!-- <Tabs groupId="payable-tokens">
+  <TabItem value="mainnet" label="Mainnet" default>
+
+| Constant | Chain | Description |
+| -------- | ----- | ----------- |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.ETH` | Ethereum Mainnet | Native ETH token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.USDT` | Ethereum Mainnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.WETH` | Ethereum Mainnet | Wrapped ETH |
+
+  </TabItem>
+
+  <TabItem value="testnet" label="Testnet"> -->
+
+| Constant | Chain | Description |
+| -------- | ----- | ----------- |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.ETH` | Ethereum Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDT` | Ethereum Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDC` | Ethereum Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.WETH` | Ethereum Sepolia | Wrapped ETH |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.stETH` | Ethereum Sepolia | Staked ETH (Lido) |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ARBITRUM_SEPOLIA.ETH` | Arbitrum Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ARBITRUM_SEPOLIA.USDT` | Arbitrum Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.ARBITRUM_SEPOLIA.USDC` | Arbitrum Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BASE_SEPOLIA.ETH` | Base Sepolia | Native ETH token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BASE_SEPOLIA.USDT` | Base Sepolia | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BASE_SEPOLIA.USDC` | Base Sepolia | USD Coin stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BNB_TESTNET.BNB` | BNB Testnet | Native BNB token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BNB_TESTNET.USDT` | BNB Testnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.SOL` | Solana Devnet | Native SOL token |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.USDT` | Solana Devnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.USDC` | Solana Devnet | USD Coin stablecoin |
+
+  <!-- </TabItem>
+</Tabs> -->
+
+### Usage Examples
+
+```typescript
+import { PushChain } from '@pushchain/core';
+
+// Pay gas fees with USDT instead of native token
+const txHash = await pushChainClient.universal.sendTransaction({
+  to: '0xa54E96d3fB93BD9f6cCEf87c2170aEdB1D47E1cF',
+  value: PushChain.utils.helpers.parseUnits('0.1', 18),
+  payGasWith: {
+    token: PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
+    slippageBps: 100, // 1% slippage tolerance
+  },
+});
+
+// Pay gas with USDC on Arbitrum
+const arbTxHash = await pushChainClient.universal.sendTransaction({
+  to: '0xa54E96d3fB93BD9f6cCEf87c2170aEdB1D47E1cF',
+  value: PushChain.utils.helpers.parseUnits('0.05', 18),
+  payGasWith: {
+    token: PushChain.CONSTANTS.PAYABLE.TOKEN.ARBITRUM_SEPOLIA.USDC,
+    slippageBps: 50, // 0.5% slippage tolerance
+  },
+});
+```
 
 ## Common Patterns
 

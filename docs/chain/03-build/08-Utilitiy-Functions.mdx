@@ -722,24 +722,43 @@ import { PushChain } from '@pushchain/core';
 
 ### Derive Executor Account
 
-**_`PushChain.utils.account.deriveExecutorAccount(account, { options? }): Promise<{ address: string, deployed?: boolean }>`_**
+**_`PushChain.utils.account.deriveExecutorAccount(universalAccount, { options? }): Promise<{ address: string, deployed?: boolean }>`_**
 
 Derives the execution account for a given input account. This function supports multiple derivation flows based on the input and options provided.
 
 **Use Cases:**
 - **UOA → UEA**: Derive a Universal Executor Account on Push Chain from a Universal Origin Account
-- **Push account → CEA**: Derive a Chain Executor Account on an external chain from a Push Chain account or UEA
+- **Push account / UOA → CEA**: Derive a Chain Executor Account on an external chain from a Push Chain account or UOA
 - **Push-native account**: Returns the same account if it's already a Push Chain native account
 
 ```typescript
-// Derive UEA from UOA (origin account address)
-const result = await PushChain.utils.account.deriveExecutorAccount(
-  '0xPushAccount'
+// Derive UEA from UOA
+const universalAccount = PushChain.utils.account.toUniversal(
+  '0xD8d6aF611a17C236b13235B5318508FA61dE3Dba',
+  { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }
 );
+const result = await PushChain.utils.account.deriveExecutorAccount(universalAccount);
+
+// Derive UEA from Solana account
+const solanaAccount = PushChain.utils.account.toUniversal(
+  'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q',
+  { chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET }
+);
+const ueaResult = await PushChain.utils.account.deriveExecutorAccount(solanaAccount);
 
 // Derive CEA from Push account
+const pushAccount = PushChain.utils.account.toUniversal(
+  '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5',
+  { chain: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET }
+);
 const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
-  '0xPushAccount',
+  pushAccount,
+  { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
+);
+
+// Derive CEA from Solana account that will be there on BNB Testnet
+const ceaSolanaResult = await PushChain.utils.account.deriveExecutorAccount(
+  solanaAccount,
   { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
 );
 ```
@@ -748,7 +767,7 @@ const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
 
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`account`_      | `string` | -           | Generic account input. Can be a UOA (chain-agnostic format), UEA, Push EOA, smart contract address, or CEA. |
+| _`universalAccount`_ | `UniversalAccount` | -           | UniversalAccount object created via `toUniversal()`. Represents any blockchain account in a universal format. |
 | `options.chain`  | `CHAIN`            | `undefined` | Optional. When provided, derives a Chain Executor Account (CEA) on the specified external chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
 | `options.skipNetworkCheck` | `boolean` | `false` | When `true`, performs deterministic derivation only without checking deployment status. When `false`, includes deployment/existence check. |
 
@@ -777,14 +796,29 @@ const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
 import { PushChain } from '@pushchain/core'
 
     async function main() {
-      // Example 1: Derive UEA from UOA (origin account)
-      const uoaAddress = '0xD8d6aF611a17C236b13235B5318508FA61dE3Dba';
-      const ueaResult = await PushChain.utils.account.deriveExecutorAccount(uoaAddress);
-      console.log('UEA from UOA:');
+      // Example 1: Derive UEA from UOA (Ethereum account)
+      const uoaAccount = PushChain.utils.account.toUniversal(
+        '0xD8d6aF611a17C236b13235B5318508FA61dE3Dba',
+        { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }
+      );
+      const ueaResult = await PushChain.utils.account.deriveExecutorAccount(uoaAccount);
+      console.log('UEA from Ethereum UOA:');
       console.log(JSON.stringify(ueaResult, null, 2));
 
-      // Example 2: Derive CEA from Push account
-      const pushAccount = '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5';
+      // Example 2: Derive UEA from Solana account
+      const solanaAccount = PushChain.utils.account.toUniversal(
+        'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q',
+        { chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET }
+      );
+      const ueaFromSolana = await PushChain.utils.account.deriveExecutorAccount(solanaAccount);
+      console.log('UEA from Solana account:');
+      console.log(JSON.stringify(ueaFromSolana, null, 2));
+
+      // Example 3: Derive CEA from Push account
+      const pushAccount = PushChain.utils.account.toUniversal(
+        '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5',
+        { chain: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET }
+      );
       const ceaResult = await PushChain.utils.account.deriveExecutorAccount(
         pushAccount,
         { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
@@ -792,9 +826,9 @@ import { PushChain } from '@pushchain/core'
       console.log('CEA on BNB Testnet:');
       console.log(JSON.stringify(ceaResult, null, 2));
 
-      // Example 3: Skip network check (deterministic only)
+      // Example 4: Skip network check (deterministic only)
       const deterministicResult = await PushChain.utils.account.deriveExecutorAccount(
-        uoaAddress,
+        uoaAccount,
         { skipNetworkCheck: true }
       );
       console.log('Deterministic derivation:');
@@ -911,7 +945,6 @@ import { PushChain } from '@pushchain/core'
       const result1 = await PushChain.utils.account.resolveControllerAccount(ueaAddress);
       console.log('Resolution chain from UEA:');
       console.log(JSON.stringify(result1, null, 2));
-      console.log('Controller:', result1.accounts.find(acc => acc.role === 'controller'));
 
       // Example 2: Resolve from CEA with chain context
       const ceaAddress = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';

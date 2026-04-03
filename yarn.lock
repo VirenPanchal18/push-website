@@ -5220,7 +5220,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:^5.1.2, @pushchain/core@npm:^5.1.3":
+"@pushchain/core@npm:^5.1.2":
   version: 5.1.3
   resolution: "@pushchain/core@npm:5.1.3"
   dependencies:
@@ -5240,6 +5240,37 @@ __metadata:
     tweetnacl: "npm:^1.0.3"
     viem: "npm:2.27.2"
   checksum: 10c0/24141b72473d7576c6908bbed43e38b64b357f99c8e76142750e78d205f2206b5bb59eb24874df7b25f683e79ea171771485c720aa731b1ad9cbd54b898fb42f
+  languageName: node
+  linkType: hard
+
+"@pushchain/core@npm:^5.1.4-alpha.2":
+  version: 5.1.4-alpha.2
+  resolution: "@pushchain/core@npm:5.1.4-alpha.2"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.0.0"
+    "@cosmjs/crypto": "npm:0.33.1"
+    "@cosmjs/encoding": "npm:0.33.1"
+    "@cosmjs/proto-signing": "npm:^0.33.1"
+    "@cosmjs/stargate": "npm:^0.33.1"
+    "@cosmjs/tendermint-rpc": "npm:0.33.1"
+    "@solana/web3.js": "npm:^1.68.0"
+    bs58: "npm:^4.0.0"
+    buffer: "npm:^6.0.3"
+    cosmjs-types: "npm:0.9.0"
+    tslib: "npm:^2.3.0"
+    viem: "npm:^2.27.2"
+  peerDependencies:
+    "@coral-xyz/anchor": ^0.31.0
+    ethers: ^6.0.0
+    tweetnacl: ^1.0.3
+  peerDependenciesMeta:
+    "@coral-xyz/anchor":
+      optional: true
+    ethers:
+      optional: true
+    tweetnacl:
+      optional: true
+  checksum: 10c0/83ed7913917627a5ce051e4a8dc95b1d5929a01b65e0bcb2632bbe21c5b18175135bb74257623790bbca6bd8e983dcdc21c83faf50fc4415412c723f50665210
   languageName: node
   linkType: hard
 
@@ -19729,7 +19760,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.2"
-    "@pushchain/core": "npm:^5.1.3"
+    "@pushchain/core": "npm:^5.1.4-alpha.2"
     "@pushchain/ui-kit": "npm:^5.1.0"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@solana/web3.js": "npm:^1.98.2"
@@ -23519,7 +23550,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:>=2.37.9, viem@npm:^2.1.1, viem@npm:^2.21.26, viem@npm:^2.31.3, viem@npm:^2.31.7":
+"viem@npm:>=2.37.9, viem@npm:^2.1.1, viem@npm:^2.21.26, viem@npm:^2.27.2, viem@npm:^2.31.3, viem@npm:^2.31.7":
   version: 2.47.6
   resolution: "viem@npm:2.47.6"
   dependencies:
