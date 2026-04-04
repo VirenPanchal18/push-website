@@ -17,6 +17,7 @@ import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
 import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
+import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsDropdown';
 
 {/* Content Start */}
 
@@ -51,7 +52,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
 | Arguments                 | Type                             | Default                                          | Description                                                                                                                                                                                          |
 | --------------------- | -------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | _`signer`_   | `UniversalSigner \| UniversalAccount`                | -                                                | Pass a `UniversalSigner` to enable full write/sign capabilities, or a `UniversalAccount` to initialize the client in read-only mode (no signing or transaction sending). |
-| _`options.network`_     | `PushChain.CONSTANTS.PUSH_NETWORK`                        | - | Push Chain network to connect to. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details>                                                                                                                                |
+| _`options.network`_     | `PushChain.CONSTANTS.PUSH_NETWORK`                        | - | Push Chain network to connect to. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <ConstantsDropdown variant="PUSH_NETWORK" />                                                                                                                                |
 | `options.rpcUrls`     | `Partial<Record<CHAIN, string[]>>` | `{}`                                             | Custom RPC URLs mapped by chain IDs. If not provided, the default RPC URLs for the network will be used. Example: `rpcUrls: {[CHAIN.ETHEREUM_SEPOLIA]: ['https://sepolia.infura.io/v3/your-api-key'], [CHAIN.SOLANA_DEVNET]: ['https://api.devnet.solana.com']}` |
 
 

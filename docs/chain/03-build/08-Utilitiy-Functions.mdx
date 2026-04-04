@@ -17,6 +17,7 @@ import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
 import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
+import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsDropdown';
 
 {/* Content Start */}
 
@@ -425,7 +426,7 @@ const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTAN
 
 | **Arguments** | **Type** | **Description**                                                                                                                                     |
 | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chain names from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details> |
+| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chain names from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <ConstantsDropdown variant="PUSH_NETWORK" /> |
 
 </PushAPIReference>
 
@@ -492,7 +493,7 @@ const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUS
 
 | **Arguments** | **Type** | **Description**                                                                                                                                     |
 | ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chains from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details> |
+| _`pushNetwork`_ | `PushChain.CONSTANTS.PUSH_NETWORK	` | Push Chain network to retrieve list of supported chains from. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <ConstantsDropdown variant="PUSH_NETWORK" /> |
 
 </PushAPIReference>
 
@@ -561,7 +562,7 @@ const account = PushChain.utils.account.toUniversal(address, {
 | **Arguments**     | **Type** | **Description**                                                                                                                                                                                                                                        |
 | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | _`address`_       | `string` | An address string (e.g., `0xabc...`).                                                                                                                                                                                                                  |
-| _`options.chain`_ | `CHAIN`  | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_MAINNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.PUSH_LOCALNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET` `PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| _`options.chain`_ | `CHAIN`  | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <ConstantsDropdown variant="CHAIN_FULL" /> |
 
 </PushAPIReference>
 
@@ -622,7 +623,7 @@ const chainAgnosticAddress = PushChain.utils.account.toChainAgnostic(address, {
 | **Arguments**     | **Type** | **Description**                                                                                                                                                                                                                                        |
 | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | _`address`_       | `string` | An address string (e.g., `0xabc...`).                                                                                                                                                                                                                  |
-| _`options.chain`_ | `CHAIN`  | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_MAINNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.PUSH_LOCALNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET` `PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| _`options.chain`_ | `CHAIN`  | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <ConstantsDropdown variant="CHAIN_FULL" /> |
 
 </PushAPIReference>
 
@@ -768,7 +769,7 @@ const ceaSolanaResult = await PushChain.utils.account.deriveExecutorAccount(
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
 | _`universalAccount`_ | `UniversalAccount` | -           | UniversalAccount object created via `toUniversal()`. Represents any blockchain account in a universal format. |
-| `options.chain`  | `CHAIN`            | `undefined` | Optional. When provided, derives a Chain Executor Account (CEA) on the specified external chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.chain`  | `CHAIN`            | `undefined` | Optional. When provided, derives a Chain Executor Account (CEA) on the specified external chain. Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN" /> |
 | `options.skipNetworkCheck` | `boolean` | `false` | When `true`, performs deterministic derivation only without checking deployment status. When `false`, includes deployment/existence check. |
 
 </PushAPIReference>
@@ -873,7 +874,7 @@ const ceaResult = await PushChain.utils.account.resolveControllerAccount(
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
 | _`account`_      | `string` | -           | Executor account to resolve. Can be a UEA, CEA, or Push Chain account address. |
-| `options.chain`  | `CHAIN`            | `undefined` | Required for CEA context. Specifies which chain the CEA is deployed on. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.chain`  | `CHAIN`            | `undefined` | Required for CEA context. Specifies which chain the CEA is deployed on. Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN" /> |
 | `options.skipNetworkCheck` | `boolean` | `false` | When `true`, performs deterministic resolution only without checking existence. When `false`, includes existence check. |
 
 </PushAPIReference>
@@ -996,8 +997,8 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 | **Arguments**       | **Type**  | **Description**                                                                                                                                                                                             |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | _`keypair`_         | `Keypair` | A keypair object from one of the supported libraries (ethers v5/v6, viem, or a custom UniversalSignerSkeleton)                                                                                              |
-| _`options.chain`_   | `CHAIN`   | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_MAINNET` `PushChain.CONSTANTS.PUSH_TESTNET` `PushChain.CONSTANTS.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.PUSH_LOCALNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET` `PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details>       |
-| _`options.library`_ | `LIBRARY` | The library to use for the signer. For example: `PushChain.CONSTANTS.LIBRARY.ETHEREUM_ETHERSV6` <Details summary="PushChain.CONSTANTS.LIBRARY" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.LIBRARY.ETHEREUM_ETHERSV6` `PushChain.CONSTANTS.LIBRARY.ETHEREUM_VIEM` `PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS` </Details> |
+| _`options.chain`_   | `CHAIN`   | The target chain for the signer. For example: `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` <ConstantsDropdown variant="CHAIN_FULL" /> |
+| _`options.library`_ | `LIBRARY` | The library to use for the signer. For example: `PushChain.CONSTANTS.LIBRARY.ETHEREUM_ETHERSV6` <ConstantsDropdown variant="LIBRARY" /> |
 
 </PushAPIReference>
 
@@ -1504,7 +1505,7 @@ const sepoliaUrl = pushChainClient.explorer.getTransactionUrl(txHash, {
 | **Arguments** | **Type** | **Description**                                  |
 | ------------- | -------- | ------------------------------------------------ |
 | _`txHash`_    | `string` | The transaction hash to convert to explorer URL. |
-| `options.chain` | `CHAIN` | Optional. Override the chain for explorer URL generation. When provided, generates the URL for that chain's explorer instead of the client's chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_MAINNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.chain` | `CHAIN` | Optional. Override the chain for explorer URL generation. When provided, generates the URL for that chain's explorer instead of the client's chain. Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN_FULL" /> |
 
 </PushAPIReference>
 
@@ -1594,7 +1595,7 @@ const sepoliaExplorers = pushChainClient.explorer.listUrls({
 
 | **Arguments** | **Type** | **Description**                                  |
 | ------------- | -------- | ------------------------------------------------ |
-| `options.chain` | `CHAIN` | Optional. Override the chain to get explorer URLs for. When provided, returns explorer URLs for that specific chain. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.chain` | `CHAIN` | Optional. Override the chain to get explorer URLs for. When provided, returns explorer URLs for that specific chain. Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN" /> |
 
 </PushAPIReference>
 
@@ -1861,7 +1862,7 @@ const { account, exists } =
 | **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
 | ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
 | _`address`_      | `string` | -           | Address of the account on any blockchain. |
-| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values. <Details summary="PushChain.CONSTANTS.CHAIN" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.CHAIN.PUSH_TESTNET` `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` `PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.BNB_TESTNET` `PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA` `PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA` `PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET`</Details> |
+| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN" /> |
 
 </PushAPIReference>
 
