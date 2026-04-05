@@ -4,7 +4,7 @@ title: Send Universal Transaction
 hide_title: false
 slug: ./send-universal-transaction
 displayed_sidebar: pushChainSidebar
-sidebar_position: 5
+sidebar_position: 6
 image: "/assets/docs/previews/docs_chain_build--send_universal_transaction.png"
 ---
 
@@ -31,9 +31,9 @@ Universal transactions let you execute **native transactions** across Push Chain
 
 | **Route** | **Flow** | **Description** |
 | --------- | -------- | --------------- |
-| Route 1   | External / Push → Push | Execute directly on Push Chain from any chain including Push. Use a plain address for `tx.to`. |
-| Route 2   | Push → External (via CEA) | Execute on an external chain through your **Chain Executor Account (CEA)**. Set `tx.to` to `{ address, chain }`. |
-| Route 3   | External (via CEA) → Push | Execute on Push Chain from **CEA** on an external chain as the origin. Set `tx.from` to `{ chain }`. |
+| Route 1   | Any Origin → Push | Execute directly on Push Chain from any chain including Push. Use a plain address for `tx.to`. |
+| Route 2   | Any Origin → External via CEA | Execute on an external chain through your **Chain Executor Account (CEA)**. Set `tx.to` to `{ address, chain }`. |
+| Route 3   | External (via CEA) → Push | Execute on Push Chain where the origin execution happens through a CEA on an external chain. Set `tx.from` to `{ chain }`. |
 
 
 ## Send a Universal Transaction
@@ -41,7 +41,7 @@ Universal transactions let you execute **native transactions** across Push Chain
 **_`pushChainClient.universal.sendTransaction({tx}): Promise<TxResponse>`_**
 
 ```typescript
-const txHash = await pushChainClient.universal.sendTransaction({
+const txResponse = await pushChainClient.universal.sendTransaction({
   to: '0xa54E96d3fB93BD9f6cCEf87c2170aEdB1D47E1cF',
   value: PushChain.utils.helpers.parseUnits('0.1', 18), // 0.1 PC in uPC
   // value: BigInt('100000000000000000') is equivalent here

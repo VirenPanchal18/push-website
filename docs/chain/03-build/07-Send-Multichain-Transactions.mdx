@@ -1,0 +1,380 @@
+---
+id: docs-chain-build-send-multichain-transactions
+title: Send Multichain Transactions
+hide_title: false
+slug: ./send-multichain-transactions
+displayed_sidebar: pushChainSidebar
+sidebar_position: 7
+image: "/assets/docs/previews/docs_chain_build--send_multichain_transactions.png"
+---
+
+<head>
+  <title>Send Multichain Transactions | Build | Push Chain Docs</title>
+</head>
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Details from '@theme/Details';
+import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
+import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsDropdown';
+
+{/* Content Start */}
+
+## Overview
+
+Multichain transactions let you compose and sequence multiple `sendTransaction` calls across different routes — Push Chain, external chains via CEA, or both — into coordinated multi-step flows.
+
+This page covers:
+- The `prepareTransaction` utility for constructing transactions before sending
+- The `executeTransactions` pattern for sequencing multiple calls
+- How to chain execution across Route 1, Route 2, and Route 3
+- Multi-hop behavior and ordering guarantees
+
+> **Prerequisite:** Familiarize yourself with [Understanding Universal Transactions](./understanding-universal-transactions) and [Send Universal Transaction](./send-universal-transaction) before reading this page.
+
+---
+
+## prepareTransaction
+
+`prepareTransaction` constructs a transaction object without submitting it. Use it to build individual transaction steps that you later pass to a sequencer or execute conditionally.
+
+**_`pushChainClient.universal.prepareTransaction({tx}): Promise<PreparedTransaction>`_**
+
+```typescript
+const prepared = await pushChainClient.universal.prepareTransaction({
+  to: '0xContractAddress',
+  value: BigInt(0),
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: MyABI,
+    functionName: 'myFunction',
+    args: [arg1, arg2],
+  }),
+});
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `tx.to` | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain, or `{ address, chain }` for an external chain via CEA. <ConstantsDropdown variant="CHAIN" /> |
+| `tx.from` | `{ chain: CHAIN }` | When set to an external chain, marks this as a Route 3 transaction (CEA-origin execution on Push Chain). |
+| `tx.value` | `BigInt` | Native value to send in the smallest unit of the execution context. |
+| `tx.data` | `string` \| `Array<{ to: string; value: bigint; data: string }>` | ABI-encoded calldata, or an array of calls for multicall mode. |
+| `tx.gasLimit` | `BigInt` | Maximum gas units for execution. |
+| `tx.funds` | `{ amount: BigInt; token?: MOVEABLE_TOKEN }` | Move tokens from origin chain atomically with the call. <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
+
+</PushAPIReference>
+
+<Details summary="Returns `PreparedTransaction` <object>" className="alert alert--fn-args">
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `tx` | `object` | The fully resolved transaction parameters, including estimated gas and resolved UEA. |
+| `route` | `1 \| 2 \| 3` | The resolved routing mode for this transaction. |
+| `estimatedGas` | `BigInt` | Estimated gas cost for execution. |
+| `send` | `() => Promise<TxResponse>` | Convenience function to immediately submit this prepared transaction. |
+
+</Details>
+
+---
+
+## executeTransactions
+
+`executeTransactions` runs an ordered sequence of transactions and resolves each one before starting the next. It is the primary way to compose multi-step multichain flows.
+
+**_`pushChainClient.universal.executeTransactions(steps): Promise<TxResponse[]>`_**
+
+```typescript
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    tx: {
+      to: '0xContractOnPushChain',
+      value: BigInt(0),
+      data: encodedStep1,
+    },
+  },
+  {
+    tx: {
+      to: { address: '0xContractOnEthereum', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+      value: BigInt(0),
+      data: encodedStep2,
+    },
+  },
+]);
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| `steps` | `Array<{ tx: TxParams; waitForConfirmation?: boolean; progressHook?: Function }>` | Ordered list of transaction steps to execute sequentially. |
+| `steps[n].tx` | `TxParams` | Transaction parameters — same shape as `sendTransaction`. |
+| `steps[n].waitForConfirmation` | `boolean` | If `true`, waits for the previous step's on-chain confirmation before proceeding. Defaults to `true`. |
+| `steps[n].progressHook` | `(progress: ProgressHookType) => void` | Per-step progress callback for tracking intermediate states. |
+
+</PushAPIReference>
+
+---
+
+## Composing Multiple Transactions
+
+### Pattern: Sequential Push Chain Calls
+
+The simplest composition: multiple Push Chain calls executed one after another. Each step resolves before the next begins.
+
+```typescript
+const encodedIncrement = PushChain.utils.helpers.encodeTxData({
+  abi: CounterABI,
+  functionName: 'increment',
+});
+
+const encodedReset = PushChain.utils.helpers.encodeTxData({
+  abi: CounterABI,
+  functionName: 'reset',
+});
+
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    tx: {
+      to: '0xCounterContract',
+      value: BigInt(0),
+      data: encodedIncrement,
+    },
+    waitForConfirmation: true,
+  },
+  {
+    tx: {
+      to: '0xCounterContract',
+      value: BigInt(0),
+      data: encodedReset,
+    },
+  },
+]);
+
+console.log('Step 1 hash:', responses[0].hash);
+console.log('Step 2 hash:', responses[1].hash);
+```
+
+---
+
+### Pattern: Push Chain → External Chain (Route 1 → Route 2)
+
+Execute on Push Chain first, then trigger an action on an external chain via CEA.
+
+```typescript
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    // Route 1: Execute on Push Chain
+    tx: {
+      to: '0xPushChainContract',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: VaultABI,
+        functionName: 'lockFunds',
+        args: [PushChain.utils.helpers.parseUnits('100', 18)],
+      }),
+    },
+    waitForConfirmation: true,
+  },
+  {
+    // Route 2: Execute on Ethereum via CEA
+    tx: {
+      to: {
+        address: '0xEthereumContract',
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+      },
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: BridgeABI,
+        functionName: 'release',
+        args: ['0xRecipient'],
+      }),
+    },
+  },
+]);
+```
+
+---
+
+### Pattern: External Chain → Push Chain (Route 3 → Route 1)
+
+Initiate from an external chain context, then follow up with a direct Push Chain call.
+
+```typescript
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    // Route 3: CEA on Ethereum triggers Push Chain execution
+    tx: {
+      from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+      to: '0xPushChainContract',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: RegistryABI,
+        functionName: 'registerFromEthereum',
+        args: ['0xEthereumOriginAddress'],
+      }),
+    },
+    waitForConfirmation: true,
+  },
+  {
+    // Route 1: Follow-up call directly on Push Chain
+    tx: {
+      to: '0xAnotherPushChainContract',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: FollowUpABI,
+        functionName: 'confirm',
+        args: [],
+      }),
+    },
+  },
+]);
+```
+
+---
+
+## Multi-Hop Behavior
+
+A multi-hop flow involves more than two chains in a single logical sequence — for example, Solana → Push Chain → Ethereum. Each hop is a discrete transaction step that the SDK executes in order.
+
+### How Multi-Hop Works
+
+1. **Step 1** (origin → Push Chain): The user signs from their origin chain. The SDK verifies the UOA proof, resolves the UEA, and executes on Push Chain.
+2. **Step 2** (Push Chain → External): Once Step 1 is confirmed, the SDK constructs a Route 2 transaction using the CEA on the target external chain.
+3. **Ordering guarantee**: By default, each step waits for on-chain confirmation before the next step begins. Set `waitForConfirmation: false` to relax this for steps that are truly independent.
+
+### Example: Solana → Push Chain → Ethereum
+
+```typescript
+// Solana user triggers a multi-hop flow:
+// 1. Update state on Push Chain
+// 2. Notify an Ethereum contract via CEA
+
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    // Step 1: Solana origin → Push Chain (Route 1)
+    tx: {
+      to: '0xStateSyncContract',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: StateSyncABI,
+        functionName: 'syncFromSolana',
+        args: [solanaPublicKey, payload],
+      }),
+    },
+    waitForConfirmation: true,
+    progressHook: (event) => console.log(`[Step 1] ${event.id}: ${event.message}`),
+  },
+  {
+    // Step 2: Push Chain → Ethereum via CEA (Route 2)
+    tx: {
+      to: {
+        address: '0xNotifierContract',
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+      },
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: NotifierABI,
+        functionName: 'notify',
+        args: [stateHash],
+      }),
+    },
+    progressHook: (event) => console.log(`[Step 2] ${event.id}: ${event.message}`),
+  },
+]);
+
+console.log('Sync tx:', responses[0].hash);
+console.log('Notify tx:', responses[1].hash);
+```
+
+---
+
+## Multi-Step Flow Examples
+
+### Example: Token Bridge + Contract Call
+
+Move tokens from Ethereum to Push Chain, then call a contract that depends on those tokens being present.
+
+```typescript
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    // Step 1: Move USDT from Ethereum to Push Chain and call a contract atomically
+    tx: {
+      to: '0xDeFiProtocolOnPushChain',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: DeFiABI,
+        functionName: 'deposit',
+        args: [PushChain.utils.helpers.parseUnits('50', 6)],
+      }),
+      funds: {
+        amount: PushChain.utils.helpers.parseUnits('50', 6), // 50 USDT
+        token: pushChainClient.moveable.token.USDT,
+      },
+    },
+    waitForConfirmation: true,
+  },
+  {
+    // Step 2: Now that funds are in, interact further on Push Chain
+    tx: {
+      to: '0xDeFiProtocolOnPushChain',
+      value: BigInt(0),
+      data: PushChain.utils.helpers.encodeTxData({
+        abi: DeFiABI,
+        functionName: 'stake',
+        args: [],
+      }),
+    },
+  },
+]);
+```
+
+---
+
+### Example: Cross-Chain Governance Vote
+
+Cast a vote on Push Chain and propagate the result to an Ethereum governance contract.
+
+```typescript
+const voteData = PushChain.utils.helpers.encodeTxData({
+  abi: GovernanceABI,
+  functionName: 'castVote',
+  args: [proposalId, support],
+});
+
+const propagateData = PushChain.utils.helpers.encodeTxData({
+  abi: EthGovernanceABI,
+  functionName: 'receiveVote',
+  args: [proposalId, voterAddress, support],
+});
+
+const responses = await pushChainClient.universal.executeTransactions([
+  {
+    tx: { to: '0xGovernanceOnPushChain', value: BigInt(0), data: voteData },
+    waitForConfirmation: true,
+  },
+  {
+    tx: {
+      to: { address: '0xGovernanceOnEthereum', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+      value: BigInt(0),
+      data: propagateData,
+    },
+  },
+]);
+```
+
+---
+
+## Key Considerations
+
+- **Atomicity**: `executeTransactions` does not guarantee atomicity across steps. If Step 2 fails, Step 1 is already on-chain. Design your contracts to handle partial execution if needed.
+- **Gas per step**: Each step is an independent transaction with its own gas. The SDK estimates gas for each step separately.
+- **CEA funding**: For Route 2 and Route 3, the CEA must have sufficient native funds on the external chain to cover gas. The SDK will surface an error if the CEA is underfunded.
+- **Confirmation depth**: `waitForConfirmation: true` waits for 1 block confirmation by default. For external chains with longer finality requirements, consider using `trackTransaction` after each step.
+
+---
+
+## Next Steps
+
+- [Track Universal Transaction](./track-universal-transaction) — Monitor each step's confirmation status
+- [Utility Functions](./utility-functions) — `encodeTxData`, `parseUnits`, and other helpers used in this page

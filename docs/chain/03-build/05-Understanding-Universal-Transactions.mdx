@@ -1,0 +1,152 @@
+---
+id: docs-chain-build-understanding-universal-transactions
+title: Understanding Universal Transactions
+hide_title: false
+slug: ./understanding-universal-transactions
+displayed_sidebar: pushChainSidebar
+sidebar_position: 5
+image: "/assets/docs/previews/docs_chain_build--understanding_universal_transactions.png"
+---
+
+<head>
+  <title>Understanding Universal Transactions | Build | Push Chain Docs</title>
+</head>
+
+{/* Content Start */}
+
+## What is a Universal Transaction?
+
+A **universal transaction** is a single, unified transaction that can target any chain — Push Chain or any supported external chain — without requiring the user to manually bridge, wrap tokens, or switch networks.
+
+From the developer's perspective, you write one transaction. The Push Chain SDK handles the rest: origin detection, gas orchestration, proof replay, and final execution on the destination chain.
+
+> Think of it like a universal remote: one interface, every chain.
+
+---
+
+## Key Entities
+
+Before diving into how universal transactions work, it helps to understand the three core account types involved.
+
+### UOA — Universal Origin Account
+
+The **Universal Origin Account** is your user's actual wallet — an Ethereum address, a Solana public key, or any chain-native identity. This is where transactions originate and where the user holds their funds.
+
+The UOA never changes. It is the permanent, chain-native identity the user controls.
+
+### UEA — Universal Executor Account
+
+The **Universal Executor Account** is a smart contract account deterministically derived from the UOA. It lives on Push Chain and is the entity that actually executes transactions on-chain.
+
+Key properties:
+- **Deterministic**: the same UOA always maps to the same UEA address
+- **Non-custodial**: only the UOA (or a valid proof from it) can authorize UEA actions
+- **Lazy-deployed**: the UEA is deployed automatically on first use — no setup required
+
+When you send a transaction, the SDK resolves the UEA, checks its deployment status, and routes the transaction through it.
+
+### CEA — Chain Executor Account
+
+The **Chain Executor Account** is an externally deployed executor that lives on a supported external chain (e.g., Ethereum, BNB Chain). It enables Push Chain to trigger execution on those chains on behalf of the user.
+
+CEAs are used in routes where execution must happen *outside* Push Chain — for example, calling an Ethereum contract from a Push Chain transaction.
+
+---
+
+## High-Level Architecture
+
+```
+User Wallet (UOA)
+      │
+      ▼
+Universal SDK
+      │
+      ├─ Detects origin chain
+      ├─ Resolves UEA (on Push Chain)
+      ├─ Orchestrates signatures and gas
+      │
+      ▼
+Push Chain (Settlement Layer)
+      │
+      ├─ Route 1 → Executes directly on Push Chain via UEA
+      ├─ Route 2 → Executes on external chain via CEA
+      └─ Route 3 → External-origin execution routed through CEA back to Push Chain
+```
+
+The SDK abstracts all routing decisions. You declare *what* you want to do (the transaction target and payload), and Push Chain determines *how* to get there.
+
+---
+
+## Transaction Routes
+
+Push Chain supports three routing modes for universal transactions. The correct route is selected based on the `tx.to` and `tx.from` fields you supply.
+
+### Route 1 — Any Origin → Push Chain
+
+**When to use:** You want to execute a transaction on Push Chain, regardless of which chain you're signing from.
+
+- Set `tx.to` to a plain address (no chain specified)
+- The SDK routes the call through the UEA on Push Chain
+- Works from Push Chain itself, Ethereum, Solana, or any supported origin
+
+```
+Origin (any chain) → Push Chain (via UEA)
+```
+
+This is the most common route and covers the majority of use cases: contract calls, token transfers, and multicall batches on Push Chain.
+
+---
+
+### Route 2 — Any Origin → External Chain via CEA
+
+**When to use:** You want to execute on an external chain (e.g., Ethereum mainnet) but want to initiate the transaction from anywhere — including Push Chain.
+
+- Set `tx.to` to `{ address, chain }` where `chain` is the target external chain
+- The SDK routes the call through a CEA deployed on that external chain
+- The CEA executes on behalf of your UEA
+
+```
+Origin (any chain) → Push Chain → CEA on External Chain → External Execution
+```
+
+This route enables Push Chain apps to trigger cross-chain contract calls without the user needing to manually switch networks.
+
+---
+
+### Route 3 — External (via CEA) → Push Chain
+
+**When to use:** The *origin* of the transaction is on an external chain (e.g., the user is on Ethereum), but the *execution* must happen on Push Chain via a CEA.
+
+- Set `tx.from` to `{ chain: CHAIN.ETHEREUM_MAINNET }` (or the relevant external chain)
+- The SDK derives a CEA for that chain and uses it as the execution origin on Push Chain
+
+```
+External Chain (CEA as origin) → Push Chain Execution
+```
+
+Route 3 is primarily used for advanced scenarios where the execution context must reflect an external chain origin — for example, contracts on Push Chain that gate behavior based on the caller's origin chain.
+
+---
+
+## Transaction Lifecycle (High Level)
+
+When you call `sendTransaction`, the SDK walks through these stages automatically:
+
+1. **Origin Detection** — Identifies the user's chain and account (the UOA)
+2. **Gas Estimation** — Estimates gas cost for the full execution path
+3. **UEA Resolution** — Resolves (and if needed, deploys) the UEA on Push Chain
+4. **User Authorization** — Collects the user's signature or on-chain transaction proof
+5. **Gas Funding** — Funds the UEA with gas if required
+6. **Asset Movement** *(optional)* — Moves tokens from origin chain to Push Chain if `tx.funds` is set
+7. **Broadcast** — Submits the transaction to Push Chain
+8. **Confirmation** — Returns a `TxResponse` with the hash and receipt
+
+Each stage emits a progress event you can listen to via `tx.progressHook` — useful for showing step-by-step status in your UI.
+
+---
+
+## Next Steps
+
+- [Send Universal Transaction](./send-universal-transaction) — Learn how to call `sendTransaction` with the full API reference
+- [Send Multichain Transactions](./send-multichain-transactions) — Compose multi-step flows across routes
+- [Track Universal Transaction](./track-universal-transaction) — Poll and monitor transaction status
