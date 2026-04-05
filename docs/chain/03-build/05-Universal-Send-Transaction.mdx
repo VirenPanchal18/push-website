@@ -23,13 +23,22 @@ import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsD
 
 ## Overview
 
-Universal transactions let you send **native** transactions from any Layer 1 chain—EVM or non-EVM, even Push Chain itself. No wrapping, bridging or extra tooling required.
+Universal transactions let you execute **native transactions** across Push Chain and supported external chains, whether EVM or non-EVM, through one unified interface. No wrapping, bridging or extra tooling required.
 
 **Under the hood**, the SDK automatically **estimates gas, orchestrates signatures, and replays any EVM or non-EVM proofs**, so you can focus on your app, not the network plumbing.
 
-## Sending Universal Transaction
+## Universal Transaction Routes
 
-**_`pushChainClient.universal.sendTransaction({tx}): Promise<TransactionReceipt>`_**
+| **Route** | **Flow** | **Description** |
+| --------- | -------- | --------------- |
+| Route 1   | External / Push → Push | Execute directly on Push Chain from any chain including Push. Use a plain address for `tx.to`. |
+| Route 2   | Push → External (via CEA) | Execute on an external chain through your **Chain Executor Account (CEA)**. Set `tx.to` to `{ address, chain }`. |
+| Route 3   | External (via CEA) → Push | Execute on Push Chain from **CEA** on an external chain as the origin. Set `tx.from` to `{ chain }`. |
+
+
+## Send a Universal Transaction
+
+**_`pushChainClient.universal.sendTransaction({tx}): Promise<TxResponse>`_**
 
 ```typescript
 const txHash = await pushChainClient.universal.sendTransaction({
@@ -43,10 +52,10 @@ const txHash = await pushChainClient.universal.sendTransaction({
 
 | **Arguments**          | **Type** | **Description**                                       |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| _`tx.to`_                 | `string \| { address: string; chain: CHAIN }` | Defines the execution target. passing only address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                       |
-| `tx.from`                 | `{ chain: PushChain.CONSTANTS.CHAIN }` | Optional, when set to an external chain, the transaction is executed via a Chain Executor Account (CEA) on that chain. This is primarily used for external-origin and CEA-based execution flows. <br /><br />Use `PushChain.CONSTANTS.CHAIN` values. <ConstantsDropdown variant="CHAIN" /> |
-| `tx.value`                | `BigInt` | Amount of PC to send (in uPC, the smallest unit, like wei in ETH).                             |
-| `tx.data`                 | `string` | The data to send.                                     |
+| _`tx.to`_                 | `string` \| `{ address: string; chain: CHAIN }` | Defines the execution target. passing only address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                       |
+| `tx.from`                 | `{ chain: PushChain.CONSTANTS.CHAIN }` | Optional, when set to an external chain, the transaction is executed via a Chain Executor Account (CEA) on that chain. This is primarily used for external-origin and CEA-based execution flows. <br /><ConstantsDropdown variant="CHAIN" /> |
+| `tx.value`                | `BigInt` | Native value to send, expressed in the smallest unit of the execution context. On Push Chain this is uPC (the smallest unit, like wei in ETH). On external execution routes, this maps to the native asset amount of that route.                           |
+| `tx.data`                 | `string` \| `Array<{ to: string; value: bigint; data: string }>` | The data to send.                                     |
 | `tx.gasLimit`             | `BigInt` | The gas limit for the transaction.                    |
 | `tx.maxFeePerGas`         | `BigInt` | The maximum fee per gas for the transaction.          |
 | `tx.maxPriorityFeePerGas` | `BigInt` | The maximum priority fee per gas for the transaction. |
@@ -259,7 +268,7 @@ const txHash = await pushChainClient.universal.sendTransaction({
 });
 ```
 
-## Send Transaction with Funds
+## Send Transaction with Asset Movement
 
 You can move supported assets (e.g., USDT, USDC, or other tokens) from your origin chain to Push Chain and execute your call in a single transaction.
 
@@ -315,12 +324,12 @@ Notes:
 
 ## Send Batch Transactions (Multicall)
 
-You can batch multiple calls into a single transaction on Push Chain. This pattern is commonly referred to as **Multicall** in EVM ecosystems.
+You can batch multiple calls into a single transaction. This pattern is commonly referred to as **Multicall** in EVM ecosystems.
 
-To do so, instead of passing a single `data` field, supply an array of calls (each with `to`, `value`, and `data`) to sendTransaction.
+To do so, instead of passing a single `data` field, supply an array of calls (each with `to`, `value`, and `data`) to sendTransaction. 
 
 > **Note:** Batch transactions are only supported from external origin chains.<br />
-> Native Push Chain users cannot use batch mode.
+> Native Push Chain users cannot use batch mode on Push but can use it on other chains (ie: when doing Route 2 or Route 3 universal transactions).
 
 ```typescript
 // Execute two increment() calls atomically
@@ -769,7 +778,8 @@ import \* as readline from 'node:readline/promises';
 
 </Tabs>
 
-## More Examples
+## Route based Examples
+### Route 1 — Execute on Push Chain
 
 <Details summary="Live Playground: Interact with Smart Contract" className="alert alert--live-play">
 
@@ -1614,13 +1624,9 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-<Details summary="Live Playground: Route 2 — Execute on External Chain (Push Chain → BNB / Sepolia / Solana)" className="alert alert--live-play">
+### Route 2 — Execute on External Chain
 
-<br />
-
-<Tabs className="liveplaytab" groupId="send-universal-route2-examples">
-
-<TabItem value='route2_payload' label='Payload (Contract Call)'>
+<Details summary="Live Playground: Payload (Contract Call on External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1694,9 +1700,9 @@ import \* as readline from 'node:readline/promises';
 
 </NodeJSVirtualIDE>
 
-</TabItem>
+</Details>
 
-<TabItem value='route2_funds' label='Funds Transfer'>
+<Details summary="Live Playground: Funds Transfer (Native Value to External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1757,19 +1763,11 @@ import \* as readline from 'node:readline/promises';
 
 </NodeJSVirtualIDE>
 
-</TabItem>
-
-</Tabs>
-
 </Details>
 
-<Details summary="Live Playground: Route 3 — CEA Inbound (External Chain → Push Chain)" className="alert alert--live-play">
+### Route 3 — Execute on Push Chain from CEA
 
-<br />
-
-<Tabs className="liveplaytab" groupId="send-universal-route3-examples">
-
-<TabItem value='route3_payload' label='Payload (Contract Call)'>
+<Details summary="Live Playground: Payload (Contract Call on Push Chain from CEA)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1840,9 +1838,9 @@ import \* as readline from 'node:readline/promises';
 
 </NodeJSVirtualIDE>
 
-</TabItem>
+</Details>
 
-<TabItem value='route3_funds' label='Bridge Funds Back'>
+<Details summary="Live Playground: Bridge Funds Back (ERC-20 from CEA to Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1904,9 +1902,9 @@ import \* as readline from 'node:readline/promises';
 
 </NodeJSVirtualIDE>
 
-</TabItem>
+</Details>
 
-<TabItem value='route3_native' label='Bridge Native Back'>
+<Details summary="Live Playground: Bridge Native Back (BNB from CEA to Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1961,10 +1959,6 @@ import \* as readline from 'node:readline/promises';
 `}
 
 </NodeJSVirtualIDE>
-
-</TabItem>
-
-</Tabs>
 
 </Details>
 

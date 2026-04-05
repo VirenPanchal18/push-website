@@ -1,3 +1,4 @@
+import Details from '@theme/Details';
 import React from 'react';
 
 type ConstantsDropdownVariant =
@@ -121,13 +122,15 @@ const CONSTANTS_MAP: Record<
 export default function ConstantsDropdown({ variant }: ConstantsDropdownProps) {
   const { summary, values } = CONSTANTS_MAP[variant];
   return (
-    <details className='alert alert--minimal-api-table'>
-      <summary>{summary}</summary>
-      <div>
+    <Details
+      summary={<summary>{summary}</summary>}
+      className='alert alert--minimal-api-table'
+    >
+      <div style={{ paddingTop: '8px' }}>
         {values.map((v) => (
           <code key={v}>{v}</code>
         ))}
       </div>
-    </details>
+    </Details>
   );
 }
