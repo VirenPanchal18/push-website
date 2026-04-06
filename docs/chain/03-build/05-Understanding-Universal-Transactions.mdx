@@ -56,7 +56,7 @@ Key properties:
 
 ### Chain Executor Account (CEA)
 
-The CEA is an **executor account deployed on a supported external chain** (e.g., Ethereum, BNB Chain). It is deterministically mapped with a user or contract and allows execution on external chains while preserving identity across environments.
+The CEA is an **executor account deployed on a supported external chain** (e.g., Ethereum, BNB Chain). It is deterministically mapped to a user or contract and allows execution on external chains while preserving identity across environments.
 
 CEAs are not limited to users with a UEA. They can also exist for native Push Chain EOAs or smart contracts. Depending on the target chain, a CEA may be implemented as an EOA or a smart contract, while remaining logically bound to its originating account.
 
@@ -75,7 +75,7 @@ CEAs are only used when execution must happen on or originate from an external c
 
 ### Mental Model
 
-- UEA executes transactions on Push Chain for users originating from external chains
+- UEA executes transactions on Push Chain for users interacting from external chains
 - CEA executes on external chains  
 
 Together, they form a unified execution layer across all chains
@@ -172,9 +172,11 @@ await pushChainClient.universal.sendTransaction({
 
 ### Route 3: External CEA Origin to Push Chain
 
-The execution *originates* from a CEA on an external chain and targets Push Chain. This is used when the Push Chain contract needs to see an external chain as the transaction origin — for example, contracts that gate behavior based on the caller's origin chain.
+The execution *originates* from a CEA on an external chain and targets Push Chain. This route is used when a transaction returns from an external chain and needs to preserve the identity established there.
 
-**When to use:** Advanced scenarios where `msg.sender` on Push Chain must reflect a specific external chain identity.
+For example, a user can move from Solana to Push Chain via a UEA, interact with Ethereum using a CEA (such as depositing into Aave), and then return to Push Chain. Route 3 ensures the execution reflects their Ethereum identity.
+
+**When to use:** When execution on Push Chain must reflect an external chain identity, typically after interacting with contracts on that chain.
 
 ```mermaid
 flowchart LR
