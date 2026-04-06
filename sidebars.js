@@ -182,7 +182,15 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'chain/build/docs-chain-build-understanding-universal-transactions',
+        },
+        {
+          type: 'doc',
           id: 'chain/build/docs-chain-build-send-universal-transaction',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-send-multichain-transactions',
         },
         {
           type: 'doc',

@@ -18,28 +18,26 @@ import Details from '@theme/Details';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
 import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
 
-{/* Content Start */}
+<!-- Content Start -->
 
 ## Overview
 
-Track the status of any universal transaction on Push Chain using its transaction hash. This function provides real-time progress updates and returns the transaction receipt once confirmed.
+Track the status of any universal transaction on Push Chain using its transaction hash. The function polls until the transaction is confirmed and returns the full receipt — or streams real-time progress events to your callback.
 
-**Key features:**
-- **Poll transaction status** until confirmation or timeout
-- **Progress tracking** with detailed event callbacks
-- **Flexible configuration** for polling intervals and timeouts
-- **Identical to `wait()`** but can be called independently with any transaction hash
+You can use `trackTransaction()` **independently** from `sendTransaction()` — pass any hash you have stored, received from another session, or want to re-poll.
+
+> **Note:** `trackTransaction()` and `tx.wait()` return identical receipts. See [wait() vs trackTransaction()](#using-txwait-vs-tracktransaction) for when to use each.
 
 ## Track Universal Transaction
 
-**_`pushChainClient.universal.trackTransaction(txHash, {options}): Promise<TransactionReceipt>`_**
+**_`pushChainClient.universal.trackTransaction(txHash, {options}): Promise<UniversalTxResponse>`_**
 
 ```typescript
-const receipt = await pushChainClient.universal.trackTransaction(
-  '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35',
+const response = await pushChainClient.universal.trackTransaction(
+  '0x6dcea443f7262ec22f40180402dc12cf39437f647859d4539abfe2fdfc6eb03f',
   {
     waitForCompletion: true,
-    progress: (event) => {
+    progressHook: (event) => {
       console.log(`${event.id}: ${event.message}`);
     },
   }
@@ -48,386 +46,292 @@ const receipt = await pushChainClient.universal.trackTransaction(
 
 <PushAPIReference>
 
-| **Arguments**          | **Type** | **Default** | **Description**                                       |
-| ---------------------- | -------- | ----------- | ----------------------------------------------------- |
-| _`txHash`_             | `string` | -           | The transaction hash to track (must be valid 32-byte hex string with `0x` prefix). |
-| `options.waitForCompletion` | `boolean` | `true` | Whether to wait for transaction confirmation before returning. |
-| `options.chain`        | `CHAIN`  | `CHAIN.PUSH_TESTNET_DONUT` | The chain where the transaction was submitted. |
-| `options.progress`     | `(event: ProgressEvent) => void` | `undefined` | Callback function to receive real-time progress updates during tracking. |
+| **Arguments** | **Type** | **Default** | **Description** |
+| ------------- | -------- | ----------- | --------------- |
+| _`txHash`_ | `string` | - | Transaction hash to track. Must be a valid 32-byte hex string prefixed with `0x`. |
+| `options.waitForCompletion` | `boolean` | `true` | When `true`, waits for on-chain confirmation before resolving. When `false`, returns immediately after the first status check. |
+| `options.chain` | `CHAIN` | `CHAIN.PUSH_TESTNET_DONUT` | The chain on which the transaction was submitted. |
+| `options.progressHook` | `(event: ProgressEvent) => void` | `undefined` | Callback invoked at each tracking step with a `TRACK-TX-*` progress event. |
 
 </PushAPIReference>
 
 <Details summary="Advanced Arguments" className="alert alert--minimal code">
 
-| Arguments      | Type                                   | Default | Description                                                                                                                            |
-| -------------- | -------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `options.advanced.pollingIntervalMs` | `number` | `2000` | Interval in milliseconds between status checks (minimum: 500ms). |
-| `options.advanced.timeout` | `number` | `60000` | Maximum time in milliseconds to wait for confirmation (60 seconds default). |
-| `options.advanced.rpcUrls` | `Partial<Record<CHAIN, string[]>>` | `{}` | Custom RPC URLs for querying transaction status. |
+| Arguments | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| `options.advanced.pollingIntervalMs` | `number` | `2000` | Milliseconds between polling attempts. Minimum: `500`. |
+| `options.advanced.timeout` | `number` | `60000` | Maximum milliseconds to wait before throwing a timeout error. |
+| `options.advanced.rpcUrls` | `Partial<Record<CHAIN, string[]>>` | `{}` | Custom RPC URLs to use when querying status. |
 
 <Details summary="ProgressHook Type and Response" className="alert alert--minimal code">
 
-| Field                | Type                                 | Description                                                                     |
-| -------------------- | ------------------------------------ | ------------------------------------------------------------------------------- |
-| `progress`           | `Object`                             | The progress of the transaction tracking.                                      |
-| `progress.id`        | `string`                             | Unique identifier for the progress event.                                       |
-| `progress.title`     | `string`                             | Brief title of the progress event.                                              |
-| `progress.message`   | `string`                             | Detailed message describing the event.                                          |
-| `progress.level`     | `INFO` \| `SUCCESS` \| `WARNING` \| `ERROR` | Severity level of the event.                                                    |
-| `progress.timestamp` | `string`                             | ISO-8601 timestamp when the event occurred (e.g. `2025-06-26T15:04:05.000Z`). |
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `progress.id` | `string` | Unique identifier for the progress event. |
+| `progress.title` | `string` | Short title of the step. |
+| `progress.message` | `string` | Detailed human-readable description. |
+| `progress.level` | `INFO` \| `SUCCESS` \| `WARNING` \| `ERROR` | Severity of the event. |
+| `progress.timestamp` | `string` | ISO-8601 timestamp (e.g. `2025-06-26T15:04:05.000Z`). |
 
-| ID                | Title                               | Message                                                                                   | Level   |
-| ----------------- | ----------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| `TRACK-TX-01`     | Tracking Started                    | Starting to track transaction: `<tx hash>`                                                | INFO    |
-| `TRACK-TX-02`     | Querying Status                     | Polling transaction status (attempt `<n>`)                                                | INFO    |
-| `TRACK-TX-03`     | Status Update                       | Transaction status: `<pending/confirmed/failed>`                                          | INFO    |
-| `TRACK-TX-99-01`  | Tracking Complete                   | Transaction confirmed in block `<block number>`                                           | SUCCESS |
-| `TRACK-TX-99-02`  | Tracking Failed                     | `<error message>` (timeout or transaction failure)                                        | ERROR   |
+| ID | Title | Message | Level |
+| -- | ----- | ------- | ----- |
+The inline `progressHook` on `trackTransaction()` receives **`TRACK-TX-*`** events:
+
+| ID | Title | Message | Level |
+| -- | ----- | ------- | ----- |
+| `TRACK-TX-01` | Tracking Started | Starting to track transaction: `<tx hash>` | INFO |
+| `TRACK-TX-02` | Querying Status | Polling transaction status (attempt `<n>`) | INFO |
+| `TRACK-TX-03` | Status Update | Transaction status: `<pending/confirmed/failed>` | INFO |
+| `TRACK-TX-99-01` | Tracking Complete | Transaction confirmed in block `<block number>` | SUCCESS |
+| `TRACK-TX-99-02` | Tracking Failed | `<error message>` (timeout or on-chain failure) | ERROR |
+
+The `response.progressHook(cb)` callback (registered after the call) replays buffered **`SEND-TX-*`** events.
 
 </Details>
 
 </Details>
 
-<Details summary="Returns `TransactionReceipt` <object>" className="alert alert--fn-args">
+<Details summary="Returns `UniversalTxResponse` <object>" className="alert alert--fn-args">
 
 ```typescript
 {
-  hash: '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35',
-  blockNumber: 12345n,
-  blockHash: '0x1234567890abcdef...',
+  hash: '0xb52706db4116dd6bbea87be5142ac2c69b17fe8ccf8e2b88ac176adb30b90dd6',
+  origin: 'eip155:42101:0xFd6C2fE69bE13d8bE379CCB6c9306e74193EC1A9',
+  blockNumber: 3413247n,
+  blockHash: '0x5a7b6e2716f7d4450b6ca08aebfe74cea3d876367a8afe6f603196ba8c346a2d',
   transactionIndex: 0,
-  status: 1, // 1 = success, 0 = failed
-  gasUsed: 21000n,
-  effectiveGasPrice: 1325000000n,
   from: '0xFd6C2fE69bE13d8bE379CCB6c9306e74193EC1A9',
   to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-  logs: [],
-  logsBloom: '0x...',
+  contractAddress: null,
+  gasPrice: 1325000000n,
+  gasUsed: 21000n,
   cumulativeGasUsed: 21000n,
-  type: '2',
-  contractAddress: null
+  logs: [],
+  status: 1,
+  raw: {
+    from: '0xFd6C2fE69bE13d8bE379CCB6c9306e74193EC1A9',
+    to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
+    nonce: 342,
+    data: '0x',
+    value: 1000n
+  },
+  wait: [Function],       // call again to get a fresh receipt
+  progressHook: [Function] // register callback to replay buffered events
 }
 ```
 
 | Property | Type | Description |
-|----------|----------|------|
+|----------|------|-------------|
 | `hash` | `string` | Transaction hash that was tracked |
-| `blockNumber` | `BigInt` | Block number where transaction was confirmed |
+| `origin` | `string` | CAIP-10 address of the origin account |
+| `blockNumber` | `BigInt` | Block number where the transaction was confirmed |
 | `blockHash` | `string` | Hash of the block containing this transaction |
-| `transactionIndex` | `number` | Position of transaction within the block |
-| `status` | `number` | Transaction status: `1` for success, `0` for failure |
-| `gasUsed` | `BigInt` | Actual gas consumed by the transaction |
-| `effectiveGasPrice` | `BigInt` | Actual gas price paid per unit |
-| `from` | `string` | Address that sent the transaction |
+| `transactionIndex` | `number` | Position of the transaction within the block |
+| `from` | `string` | UEA address that executed the transaction on Push Chain |
 | `to` | `string` | Target address of the transaction |
+| `contractAddress` | `string \| null` | Address of a deployed contract, or `null` for transfers |
+| `gasPrice` | `BigInt` | Gas price used (in wei) |
+| `gasUsed` | `BigInt` | Actual gas consumed |
+| `cumulativeGasUsed` | `BigInt` | Total gas used in block up to this transaction |
 | `logs` | `Array` | Event logs emitted during execution |
-| `logsBloom` | `string` | Bloom filter for log events |
-| `cumulativeGasUsed` | `BigInt` | Total gas used in the block up to this transaction |
-| `type` | `string` | Transaction type (`0` = legacy, `2` = EIP-1559) |
-| `contractAddress` | `string \| null` | Address of deployed contract (if contract creation) |
+| `status` | `number` | `1` = success, `0` = failed |
+| `raw` | `object` | Original on-chain transaction fields |
+| `wait` | `() => Promise<UniversalTxResponse>` | Call to get a fresh receipt for this transaction |
+| `progressHook` | `(cb: (event: ProgressEvent) => void) => void` | Register a callback to replay all buffered `SEND-TX-*` events |
 
 </Details>
 
-**Track any transaction on Push Chain!** Try the code in live playground 👇.
+**Track any transaction on Push Chain!** Try the code in the live playground 👇.
 
-<Tabs className="liveplaytab" groupId="track-universal-transaction">
-  <TabItem value="basic" label="Basic Tracking" default>
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+## Route-based Examples
 
-  {`
-  // customPropHighlightRegexStart=universal\.trackTransaction
-  // customPropHighlightRegexEnd=\\);
-  // customPropGTagEvent=track_transaction_basic
-  import { PushChain } from '@pushchain/core';
-  import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-  import { createWalletClient, http } from 'viem';
-  import { sepolia } from 'viem/chains';
+### Route 1 — Track a Push Chain Transaction
 
-  async function main() {
-    console.log('🔍 Track Universal Transaction Example');
+<Details summary="Live Playground: Track Route 1 (Push Chain origin)" className="alert alert--live-play">
 
-    // 1) Create wallet and universal signer
-    const account = privateKeyToAccount(generatePrivateKey());
-    const walletClient = createWalletClient({
-      account,
-      chain: sepolia,
-      transport: http(),
-    });
+<br />
 
-    const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
-
-    // 2) Initialize Push Chain Client
-    const pushChainClient = await PushChain.initialize(universalSigner, {
-      network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-    });
-
-    console.log('✅ Push Chain Client initialized');
-
-    // 3) Send a transaction first
-    console.log('📤 Sending transaction...');
-    const tx = await pushChainClient.universal.sendTransaction({
-      to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-      value: BigInt(1000),
-    });
-
-    console.log('Transaction hash:', tx.hash);
-
-    // 4) Track the transaction independently
-    console.log('🔍 Tracking transaction...');
-    const receipt = await pushChainClient.universal.trackTransaction(
-      tx.hash,
-      {
-        waitForCompletion: true,
-      }
-    );
-
-    console.log('✅ Transaction confirmed!');
-    console.log('Block number:', receipt.blockNumber.toString());
-    console.log('Status:', receipt.status === 1 ? 'SUCCESS' : 'FAILED');
-    console.log('Gas used:', receipt.gasUsed.toString());
-  }
-
-  await main().catch(console.error);
-  `}
-
-</NodeJSVirtualIDE>
-  </TabItem>
-
-  <TabItem value="progress" label="With Progress Tracking">
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
-
-  {`
-  // customPropHighlightRegexStart=universal\.trackTransaction
-  // customPropHighlightRegexEnd=\\);
-  // customPropGTagEvent=track_transaction_progress
-  import { PushChain } from '@pushchain/core';
-  import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-  import { createWalletClient, http } from 'viem';
-  import { sepolia } from 'viem/chains';
-
-  async function main() {
-    console.log('🔍 Track Transaction with Progress Updates');
-
-    // 1) Setup wallet and client
-    const account = privateKeyToAccount(generatePrivateKey());
-    const walletClient = createWalletClient({
-      account,
-      chain: sepolia,
-      transport: http(),
-    });
-
-    const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
-    const pushChainClient = await PushChain.initialize(universalSigner, {
-      network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-    });
-
-    // 2) Send transaction
-    const tx = await pushChainClient.universal.sendTransaction({
-      to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-      value: BigInt(1000),
-    });
-
-    console.log('Transaction sent:', tx.hash);
-
-    // 3) Track with progress callback
-    const receipt = await pushChainClient.universal.trackTransaction(
-      tx.hash,
-      {
-        waitForCompletion: true,
-        progress: (event) => {
-          console.log(\`[\${event.level}] \${event.id}: \${event.message}\`);
-        },
-        advanced: {
-          timeout: 30000, // 30 seconds
-          pollingIntervalMs: 1000, // Check every second
-        },
-      }
-    );
-
-    console.log('✅ Tracking complete!');
-    console.log('Receipt:', JSON.stringify({
-      hash: receipt.hash,
-      blockNumber: receipt.blockNumber.toString(),
-      status: receipt.status,
-      gasUsed: receipt.gasUsed.toString(),
-    }, null, 2));
-  }
-
-  await main().catch(console.error);
-  `}
-
-</NodeJSVirtualIDE>
-  </TabItem>
-
-  <TabItem value="advanced" label="Advanced Configuration">
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
-
-  {`
-  // customPropHighlightRegexStart=universal\.trackTransaction
-  // customPropHighlightRegexEnd=\\);
-  // customPropGTagEvent=track_transaction_advanced
-  import { PushChain } from '@pushchain/core';
-  import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-  import { createWalletClient, http } from 'viem';
-  import { sepolia } from 'viem/chains';
-
-  async function main() {
-    console.log('🔍 Advanced Transaction Tracking');
-
-    // Setup
-    const account = privateKeyToAccount(generatePrivateKey());
-    const walletClient = createWalletClient({
-      account,
-      chain: sepolia,
-      transport: http(),
-    });
-
-    const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
-    const pushChainClient = await PushChain.initialize(universalSigner, {
-      network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-    });
-
-    // Send transaction
-    const tx = await pushChainClient.universal.sendTransaction({
-      to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-      value: BigInt(1000),
-    });
-
-    console.log('Tx hash:', tx.hash);
-
-    // Track with custom configuration
-    try {
-      const receipt = await pushChainClient.universal.trackTransaction(
-        tx.hash,
-        {
-          waitForCompletion: true,
-          chain: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT,
-          progress: (event) => {
-            const timestamp = new Date(event.timestamp).toLocaleTimeString();
-            console.log(\`[\${timestamp}] \${event.title}\`);
-          },
-          advanced: {
-            timeout: 60000, // 60 seconds max wait
-            pollingIntervalMs: 2000, // Check every 2 seconds
-            rpcUrls: {
-              [PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT]: [
-                'https://evm.donut.rpc.push.org/'
-              ],
-            },
-          },
-        }
-      );
-
-      console.log('✅ Success!');
-      console.log('Block:', receipt.blockNumber.toString());
-      console.log('Gas used:', receipt.gasUsed.toString());
-      console.log('Status:', receipt.status === 1 ? 'SUCCESS' : 'FAILED');
-    } catch (error) {
-      console.error('❌ Tracking failed:', error.message);
-    }
-  }
-
-  await main().catch(console.error);
-  `}
-
-</NodeJSVirtualIDE>
-  </TabItem>
-</Tabs>
-
-## Using `tx.wait()` vs `trackTransaction()`
-
-Both methods return identical transaction receipts, but serve different use cases:
-
-### `tx.wait()` - Immediate Tracking
-
-Use when you just sent a transaction and want to wait for confirmation:
-
-```typescript
-const tx = await pushChainClient.universal.sendTransaction({
-  to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-  value: BigInt(1000),
-});
-
-// Wait for confirmation immediately
-const receipt = await tx.wait();
-```
-
-### `trackTransaction()` - Independent Tracking
-
-Use when you need to track a transaction by hash (e.g., from storage, user input, or different session):
-
-```typescript
-// Track any transaction hash
-const receipt = await pushChainClient.universal.trackTransaction(
-  '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35',
-  { waitForCompletion: true }
-);
-```
-
-<Details summary="Live Playground: Compare wait() vs trackTransaction()" className="alert alert--live-play">
+<Tabs className="liveplaytab" groupId="track-universal-transaction-route1">
+  <TabItem value="ethers_v6" label="Ethers (v6)" default>
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
 
 {`
-// customPropHighlightRegexStart=tx\.wait
-// customPropHighlightRegexEnd=trackTransaction
-// customPropGTagEvent=compare_wait_track
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_route1_ethers
+
 import { PushChain } from '@pushchain/core';
-import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-import { createWalletClient, http } from 'viem';
-import { sepolia } from 'viem/chains';
+import { ethers } from 'ethers';
 
 async function main() {
-  console.log('🔄 Comparing wait() vs trackTransaction()');
+  console.log('🔍 Route 1: Track a Push Chain transaction');
 
-  // Setup
+  // 1) Set up wallet on Push Chain Testnet
+  const wallet = ethers.Wallet.createRandom();
+  const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+  const signer = wallet.connect(provider);
+
+  // 2) Convert to Universal Signer and initialize client
+  const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+  const pushChainClient = await PushChain.initialize(universalSigner, {
+    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+  });
+
+  // 3) You can also track any existing confirmed hash directly
+  // This hash is a real confirmed transaction on Push Chain Testnet Donut
+  const knownHash = '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35';
+  console.log('📡 Tracking known Push Chain tx:', knownHash);
+
+  const response = await pushChainClient.universal.trackTransaction(
+    knownHash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        console.log(\`[\${event.level}] \${event.id}: \${event.message}\`);
+      },
+    }
+  );
+
+  console.log('✅ Confirmed at block:', response.blockNumber.toString());
+  console.log('Gas used:', response.gasUsed.toString());
+  console.log('Status:', response.status === 1 ? 'SUCCESS' : 'FAILED');
+}
+
+await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+  </TabItem>
+
+  <TabItem value="viem" label="Viem">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_route1_viem
+
+import { PushChain } from '@pushchain/core';
+import { createWalletClient, http } from 'viem';
+import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
+
+async function main() {
+  console.log('🔍 Route 1: Track a Push Chain transaction (Viem)');
+
+  // 1) Set up wallet on Push Chain Testnet
   const account = privateKeyToAccount(generatePrivateKey());
   const walletClient = createWalletClient({
     account,
-    chain: sepolia,
-    transport: http(),
+    transport: http('https://evm.donut.rpc.push.org/'),
   });
 
+  // 2) Convert to Universal Signer and initialize client
   const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
   const pushChainClient = await PushChain.initialize(universalSigner, {
     network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
   });
 
-  // Send transaction
-  const tx = await pushChainClient.universal.sendTransaction({
-    to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-    value: BigInt(1000),
-  });
+  // 3) Track a known confirmed transaction on Push Chain Testnet Donut
+  const knownHash = '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35';
+  console.log('📡 Tracking known Push Chain tx:', knownHash);
 
-  console.log('Transaction hash:', tx.hash);
-
-  // Method 1: Using wait()
-  console.log('\\n📍 Method 1: Using tx.wait()');
-  const receipt1 = await tx.wait();
-  console.log('Receipt from wait():', {
-    hash: receipt1.hash,
-    blockNumber: receipt1.blockNumber.toString(),
-    status: receipt1.status,
-  });
-
-  // Method 2: Using trackTransaction()
-  console.log('\\n📍 Method 2: Using trackTransaction()');
-  const receipt2 = await pushChainClient.universal.trackTransaction(
-    tx.hash,
-    { waitForCompletion: true }
+  const response = await pushChainClient.universal.trackTransaction(
+    knownHash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        console.log(\`[\${event.level}] \${event.id}: \${event.message}\`);
+      },
+    }
   );
-  console.log('Receipt from trackTransaction():', {
-    hash: receipt2.hash,
-    blockNumber: receipt2.blockNumber.toString(),
-    status: receipt2.status,
+
+  console.log('✅ Confirmed at block:', response.blockNumber.toString());
+  console.log('Gas used:', response.gasUsed.toString());
+  console.log('Status:', response.status === 1 ? 'SUCCESS' : 'FAILED');
+}
+
+await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+  </TabItem>
+</Tabs>
+
+</Details>
+
+### Route 2 — Track a CEA Execution on an External Chain
+
+When you send a Route 2 transaction (execution on an external chain via CEA), `sendTransaction()` returns a hash from the origin. Track it the same way — the SDK resolves the CEA-side confirmation automatically.
+
+<Details summary="Live Playground: Track Route 2 (External chain via CEA)" className="alert alert--live-play">
+
+<br />
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_route2
+
+import { PushChain } from '@pushchain/core';
+import { ethers } from 'ethers';
+import \* as readline from 'node:readline/promises';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+async function main() {
+  console.log('🔍 Route 2: Send from Sepolia → Execute on Sepolia via CEA, then track');
+
+  // 1) Set up wallet on Ethereum Sepolia
+  const wallet = ethers.Wallet.createRandom();
+  console.log('📝 Wallet:', wallet.address);
+
+  const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
+  const signer = wallet.connect(provider);
+
+  // 2) Convert to Universal Signer and initialize Push Chain client
+  const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+  const pushChainClient = await PushChain.initialize(universalSigner, {
+    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
   });
 
-  // Compare results
-  console.log('\\n✅ Comparison:');
-  console.log('Hashes match:', receipt1.hash === receipt2.hash);
-  console.log('Block numbers match:', receipt1.blockNumber === receipt2.blockNumber);
-  console.log('Status match:', receipt1.status === receipt2.status);
-  console.log('Gas used match:', receipt1.gasUsed === receipt2.gasUsed);
+  await rl.question(':::prompt:::Send Sepolia ETH to: ' + wallet.address + ' to continue.');
+
+  // 3) Route 2: target an external chain contract via CEA
+  console.log('📤 Sending Route 2 transaction...');
+  const txResponse = await pushChainClient.universal.sendTransaction({
+    to: {
+      address: '0x0000000000000000000000000000000000042101',
+      chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+    },
+    value: PushChain.utils.helpers.parseUnits('0.001', 18),
+  });
+
+  console.log('Transaction hash:', txResponse.hash);
+
+  // 4) Track the transaction — SDK handles CEA confirmation resolution
+  console.log('🔍 Tracking Route 2 transaction...');
+  const response = await pushChainClient.universal.trackTransaction(
+    txResponse.hash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        console.log(\`[\${event.level}] \${event.id}: \${event.message}\`);
+      },
+      advanced: {
+        timeout: 120000, // 2 min — external chains need more time
+        pollingIntervalMs: 3000,
+      },
+    }
+  );
+
+  console.log('✅ Confirmed at block:', response.blockNumber.toString());
+  console.log('Status:', response.status === 1 ? 'SUCCESS' : 'FAILED');
 }
 
 await main().catch(console.error);
@@ -437,41 +341,272 @@ await main().catch(console.error);
 
 </Details>
 
-## Progress Hook Integration
+### Route 3 — Track a CEA-Origin Push Chain Transaction
 
-The `trackTransaction()` function supports progress hooks at two levels:
+Route 3 transactions originate from an external chain CEA and execute on Push Chain. The returned hash is a Push Chain hash — track it directly.
 
-### Per-Transaction Progress Hook
+<Details summary="Live Playground: Track Route 3 (CEA origin → Push Chain)" className="alert alert--live-play">
 
-Register a progress callback specific to this tracking operation:
+<br />
 
-```typescript
-const receipt = await pushChainClient.universal.trackTransaction(
-  txHash,
-  {
-    progress: (event) => {
-      console.log(`[TRACK] ${event.id}: ${event.message}`);
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_route3
+
+import { PushChain } from '@pushchain/core';
+import { ethers } from 'ethers';
+import \* as readline from 'node:readline/promises';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+// Contract ABI for UniversalCounter.sol
+// Deployed at: https://donut.push.network/address/0x5FbDB2315678afecb367f032d93F642f64180aa3
+const CounterABI = [
+  { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+];
+
+async function main() {
+  console.log('🔍 Route 3: CEA on Sepolia origin → Execute on Push Chain, then track');
+
+  // 1) Set up wallet on Ethereum Sepolia
+  const wallet = ethers.Wallet.createRandom();
+  console.log('📝 Wallet:', wallet.address);
+
+  const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
+  const signer = wallet.connect(provider);
+
+  // 2) Convert to Universal Signer (origin = Sepolia)
+  const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+  const pushChainClient = await PushChain.initialize(universalSigner, {
+    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+  });
+
+  await rl.question(':::prompt:::Send Sepolia ETH to: ' + wallet.address + ' to continue.');
+
+  // 3) Route 3: tx.from is the external chain, tx.to is Push Chain contract
+  console.log('📤 Sending Route 3 transaction (CEA origin → Push Chain)...');
+  const txResponse = await pushChainClient.universal.sendTransaction({
+    from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+    to: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+    value: BigInt(0),
+    data: PushChain.utils.helpers.encodeTxData({
+      abi: CounterABI,
+      functionName: 'increment',
+      args: [],
+    }),
+  });
+
+  console.log('Transaction hash:', txResponse.hash);
+
+  // 4) Track — Push Chain hash resolves directly
+  console.log('🔍 Tracking Route 3 transaction...');
+  const response = await pushChainClient.universal.trackTransaction(
+    txResponse.hash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        console.log(\`[\${event.level}] \${event.id}: \${event.message}\`);
+      },
+    }
+  );
+
+  console.log('✅ Confirmed at block:', response.blockNumber.toString());
+  console.log('Gas used:', response.gasUsed.toString());
+  console.log('Status:', response.status === 1 ? 'SUCCESS' : 'FAILED');
+}
+
+await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+### Live Tracking with Real-Time Progress UI
+
+This example shows how to build a live tracking experience — emitting progress events as they arrive, suitable for driving a status UI in your dApp.
+
+<Details summary="Live Playground: Real-Time Progress Tracking" className="alert alert--live-play">
+
+<br />
+
+<Tabs className="liveplaytab" groupId="track-universal-transaction-live">
+  <TabItem value="ethers_v6" label="Ethers (v6)" default>
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_live_progress_ethers
+
+import { PushChain } from '@pushchain/core';
+import { ethers } from 'ethers';
+import \* as readline from 'node:readline/promises';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+async function main() {
+  console.log('📡 Live Tracking — Real-Time Progress');
+
+  // 1) Setup wallet on Push Chain Testnet
+  const wallet = ethers.Wallet.createRandom();
+  console.log('📝 Wallet:', wallet.address);
+
+  const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+  const signer = wallet.connect(provider);
+
+  // 2) Initialize with orchestrator-level progress hook (catches everything)
+  const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+  const pushChainClient = await PushChain.initialize(universalSigner, {
+    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+    progressHook: (event) => {
+      // Simulates updating a UI status indicator
+      const icon = event.level === 'SUCCESS' ? '✅' : event.level === 'ERROR' ? '❌' : '⏳';
+      console.log(\`\${icon} [\${event.level}] \${event.title}: \${event.message}\`);
     },
-  }
-);
-```
+  });
 
-### Orchestrator-Level Progress Hook
+  await rl.question(':::prompt:::Send PC to: ' + wallet.address + ' on Push Testnet Donut to continue.');
 
-Set a global progress hook during client initialization to receive events from all operations:
+  // 3) Send transaction
+  console.log('\\n📤 Sending transaction...');
+  const txResponse = await pushChainClient.universal.sendTransaction({
+    to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
+    value: PushChain.utils.helpers.parseUnits('0.001', 18),
+  });
 
-```typescript
-const pushChainClient = await PushChain.initialize(universalSigner, {
-  network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-  progressHook: (event) => {
-    console.log(`[GLOBAL] ${event.id}: ${event.message}`);
-  },
-});
-```
+  console.log('\\nTransaction hash:', txResponse.hash);
+  console.log('View on explorer: https://donut.push.network/tx/' + txResponse.hash);
 
-### Using `tx.progressHook()` Method
+  // 4) Track with per-call progress hook (layered on top of orchestrator hook)
+  console.log('\\n🔍 Starting live tracking...');
+  const response = await pushChainClient.universal.trackTransaction(
+    txResponse.hash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        // This fires in addition to the orchestrator-level hook above
+        if (event.level === 'SUCCESS') {
+          console.log(\`\\n🎉 [TRACKER] Confirmed! Block: \${event.message}\`);
+        }
+      },
+      advanced: {
+        pollingIntervalMs: 1500,
+        timeout: 60000,
+      },
+    }
+  );
 
-For transactions returned by `sendTransaction()`, you can register a progress hook that will receive tracking events during `wait()`:
+  console.log('\\n📋 Final Receipt:');
+  console.log('  Hash:        ', response.hash);
+  console.log('  Block:       ', response.blockNumber.toString());
+  console.log('  Gas used:    ', response.gasUsed.toString());
+  console.log('  Status:      ', response.status === 1 ? 'SUCCESS ✅' : 'FAILED ❌');
+}
+
+await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+  </TabItem>
+
+  <TabItem value="viem" label="Viem">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.trackTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=track_transaction_live_progress_viem
+
+import { PushChain } from '@pushchain/core';
+import { createWalletClient, http } from 'viem';
+import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
+import \* as readline from 'node:readline/promises';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+async function main() {
+  console.log('📡 Live Tracking — Real-Time Progress (Viem)');
+
+  // 1) Setup wallet on Push Chain Testnet
+  const account = privateKeyToAccount(generatePrivateKey());
+  console.log('📝 Account:', account.address);
+
+  const walletClient = createWalletClient({
+    account,
+    transport: http('https://evm.donut.rpc.push.org/'),
+  });
+
+  // 2) Initialize with orchestrator-level progress hook
+  const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
+  const pushChainClient = await PushChain.initialize(universalSigner, {
+    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+    progressHook: (event) => {
+      const icon = event.level === 'SUCCESS' ? '✅' : event.level === 'ERROR' ? '❌' : '⏳';
+      console.log(\`\${icon} [\${event.level}] \${event.title}: \${event.message}\`);
+    },
+  });
+
+  await rl.question(':::prompt:::Send PC to: ' + account.address + ' on Push Testnet Donut to continue.');
+
+  // 3) Send transaction
+  console.log('\\n📤 Sending transaction...');
+  const txResponse = await pushChainClient.universal.sendTransaction({
+    to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
+    value: PushChain.utils.helpers.parseUnits('0.001', 18),
+  });
+
+  console.log('\\nTransaction hash:', txResponse.hash);
+  console.log('View on explorer: https://donut.push.network/tx/' + txResponse.hash);
+
+  // 4) Track with granular per-call progress hook
+  console.log('\\n🔍 Starting live tracking...');
+  const response = await pushChainClient.universal.trackTransaction(
+    txResponse.hash,
+    {
+      waitForCompletion: true,
+      progressHook: (event) => {
+        if (event.level === 'SUCCESS') {
+          console.log(\`\\n🎉 [TRACKER] Confirmed! Block: \${event.message}\`);
+        }
+      },
+      advanced: {
+        pollingIntervalMs: 1500,
+        timeout: 60000,
+      },
+    }
+  );
+
+  console.log('\\n📋 Final Receipt:');
+  console.log('  Hash:        ', response.hash);
+  console.log('  Block:       ', response.blockNumber.toString());
+  console.log('  Gas used:    ', response.gasUsed.toString());
+  console.log('  Status:      ', response.status === 1 ? 'SUCCESS ✅' : 'FAILED ❌');
+}
+
+await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+  </TabItem>
+</Tabs>
+
+</Details>
+
+## Using `tx.wait()` vs `trackTransaction()`
+
+Both methods return identical `TransactionReceipt` objects. The difference is how you call them:
+
+### `tx.wait()` — Chain off `sendTransaction()`
+
+Use when you just sent a transaction in the same session and want to wait inline:
 
 ```typescript
 const tx = await pushChainClient.universal.sendTransaction({
@@ -479,79 +614,77 @@ const tx = await pushChainClient.universal.sendTransaction({
   value: BigInt(1000),
 });
 
-// Register progress hook for this transaction
-tx.progressHook((event) => {
-  console.log(`[TX] ${event.id}: ${event.message}`);
-});
-
-// Wait will trigger tracking events
-await tx.wait();
+// Inline wait — no separate hash lookup needed
+const receipt = await tx.wait();
+console.log('Confirmed at block:', receipt.blockNumber.toString());
 ```
 
-<Details summary="Live Playground: Progress Hook Patterns" className="alert alert--live-play">
+### `trackTransaction()` — Track any hash independently
+
+Use when you have a hash from somewhere else — stored in a database, received from a user, or from a previous session:
+
+```typescript
+// Works with any valid Push Chain tx hash
+const response = await pushChainClient.universal.trackTransaction(
+  '0xe2302bd21ab0902f37cb605d491ce5f95ee35ce4083405dddf3657d782acae35',
+  {
+    waitForCompletion: true,
+    progressHook: (event) => console.log(`${event.id}: ${event.message}`),
+  }
+);
+```
+
+<Details summary="Live Playground: Compare wait() vs trackTransaction()" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
 
 {`
-// customPropHighlightRegexStart=progressHook
-// customPropHighlightRegexEnd=wait\\(\\);
-// customPropGTagEvent=progress_hook_patterns
+// customPropHighlightRegexStart=tx\.wait
+// customPropHighlightRegexEnd=receipt2\.status
+// customPropGTagEvent=compare_wait_vs_track
+
 import { PushChain } from '@pushchain/core';
-import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-import { createWalletClient, http } from 'viem';
-import { sepolia } from 'viem/chains';
+import { ethers } from 'ethers';
+import \* as readline from 'node:readline/promises';
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 async function main() {
-  console.log('🎯 Progress Hook Patterns Demo');
+  console.log('🔄 Comparing tx.wait() vs trackTransaction()');
 
-  // Setup with orchestrator-level hook
-  const account = privateKeyToAccount(generatePrivateKey());
-  const walletClient = createWalletClient({
-    account,
-    chain: sepolia,
-    transport: http(),
-  });
+  const wallet = ethers.Wallet.createRandom();
+  const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+  const signer = wallet.connect(provider);
 
-  const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
-  
-  // Pattern 1: Orchestrator-level hook (receives all events)
+  const universalSigner = await PushChain.utils.signer.toUniversal(signer);
   const pushChainClient = await PushChain.initialize(universalSigner, {
     network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-    progressHook: (event) => {
-      console.log(\`[ORCHESTRATOR] \${event.id}: \${event.title}\`);
-    },
   });
 
-  // Send transaction
+  await rl.question(':::prompt:::Send PC to: ' + wallet.address + ' on Push Testnet Donut to continue.');
+
   const tx = await pushChainClient.universal.sendTransaction({
     to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-    value: BigInt(1000),
+    value: PushChain.utils.helpers.parseUnits('0.001', 18),
   });
 
-  // Pattern 2: Per-transaction hook via tx.progressHook()
-  tx.progressHook((event) => {
-    console.log(\`[TX-HOOK] \${event.id}: \${event.message}\`);
-  });
+  console.log('Tx hash:', tx.hash);
 
-  // Wait triggers tracking events to both hooks
-  console.log('\\n⏳ Waiting for confirmation...');
-  await tx.wait();
+  // Method 1: tx.wait()
+  console.log('\\n📍 Method 1: tx.wait()');
+  const receipt1 = await tx.wait();
+  console.log('Block:', receipt1.blockNumber.toString(), '| Status:', receipt1.status);
 
-  console.log('\\n✅ Transaction confirmed!');
-  console.log('\\n🔍 Now tracking same transaction independently...');
-
-  // Pattern 3: Independent tracking with progress callback
-  await pushChainClient.universal.trackTransaction(
+  // Method 2: trackTransaction() with the same hash
+  console.log('\\n📍 Method 2: trackTransaction()');
+  const response2 = await pushChainClient.universal.trackTransaction(
     tx.hash,
-    {
-      waitForCompletion: true,
-      progress: (event) => {
-        console.log(\`[TRACK] \${event.id}: \${event.message}\`);
-      },
-    }
+    { waitForCompletion: true }
   );
+  console.log('Block:', response2.blockNumber.toString(), '| Status:', response2.status);
 
-  console.log('\\n✅ All patterns demonstrated!');
+  // Both return consistent results
+  console.log('\\n✅ Results match:', receipt1.hash === response2.hash && receipt1.blockNumber === response2.blockNumber);
 }
 
 await main().catch(console.error);
@@ -563,156 +696,39 @@ await main().catch(console.error);
 
 ## Error Handling
 
-Handle common tracking errors gracefully:
-
 ```typescript
 try {
-  const receipt = await pushChainClient.universal.trackTransaction(
-    txHash,
-    {
-      waitForCompletion: true,
-      advanced: {
-        timeout: 30000, // 30 seconds
-      },
-    }
-  );
-  
-  if (receipt.status === 0) {
-    console.error('Transaction failed on-chain');
+  const response = await pushChainClient.universal.trackTransaction(txHash, {
+    waitForCompletion: true,
+    advanced: { timeout: 30000 },
+  });
+
+  if (response.status === 0) {
+    console.error('Transaction reverted on-chain');
   } else {
-    console.log('Transaction successful!');
+    console.log('Transaction confirmed:', response.hash);
   }
 } catch (error) {
   if (error.message.includes('Timeout')) {
-    console.error('Transaction tracking timed out');
+    console.error('Timed out — try increasing advanced.timeout');
   } else if (error.message.includes('Invalid')) {
-    console.error('Invalid transaction hash format');
+    console.error('Invalid hash — must be 0x-prefixed 32-byte hex');
   } else {
     console.error('Tracking error:', error.message);
   }
 }
 ```
 
-### Common Error Scenarios
-
-| Error Type | Cause | Solution |
-|------------|-------|----------|
-| **Invalid hash format** | Transaction hash is not a valid 32-byte hex string | Ensure hash starts with `0x` and is 66 characters long |
-| **Timeout** | Transaction not confirmed within timeout period | Increase `advanced.timeout` or check network congestion |
-| **Transaction not found** | Hash doesn't exist on the specified chain | Verify the transaction hash and chain parameter |
-| **Network error** | RPC connection issues | Check RPC URLs in `advanced.rpcUrls` or network connectivity |
-
-<Details summary="Live Playground: Error Handling Examples" className="alert alert--live-play">
-
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
-
-{`
-// customPropHighlightRegexStart=try \\{
-// customPropHighlightRegexEnd=\\}
-// customPropGTagEvent=track_error_handling
-import { PushChain } from '@pushchain/core';
-import { privateKeyToAccount, generatePrivateKey } from 'viem/accounts';
-import { createWalletClient, http } from 'viem';
-import { sepolia } from 'viem/chains';
-
-async function main() {
-  console.log('🛡️ Error Handling Examples');
-
-  const account = privateKeyToAccount(generatePrivateKey());
-  const walletClient = createWalletClient({
-    account,
-    chain: sepolia,
-    transport: http(),
-  });
-
-  const universalSigner = await PushChain.utils.signer.toUniversal(walletClient);
-  const pushChainClient = await PushChain.initialize(universalSigner, {
-    network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-  });
-
-  // Example 1: Invalid hash format
-  console.log('\\n📍 Test 1: Invalid hash format');
-  try {
-    await pushChainClient.universal.trackTransaction('0x123', {
-      waitForCompletion: false,
-    });
-  } catch (error) {
-    console.log('✅ Caught error:', error.message);
-  }
-
-  // Example 2: Timeout handling
-  console.log('\\n📍 Test 2: Timeout handling');
-  const nonExistentHash = '0x0000000000000000000000000000000000000000000000000000000000000001';
-  try {
-    await pushChainClient.universal.trackTransaction(nonExistentHash, {
-      waitForCompletion: true,
-      advanced: {
-        timeout: 2000, // 2 seconds
-        pollingIntervalMs: 500,
-      },
-    });
-  } catch (error) {
-    console.log('✅ Caught timeout:', error.message);
-  }
-
-  // Example 3: Successful tracking with status check
-  console.log('\\n📍 Test 3: Successful tracking with status check');
-  const tx = await pushChainClient.universal.sendTransaction({
-    to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
-    value: BigInt(1000),
-  });
-
-  try {
-    const receipt = await pushChainClient.universal.trackTransaction(
-      tx.hash,
-      { waitForCompletion: true }
-    );
-
-    if (receipt.status === 1) {
-      console.log('✅ Transaction successful!');
-    } else {
-      console.log('❌ Transaction failed on-chain');
-    }
-  } catch (error) {
-    console.error('❌ Tracking error:', error.message);
-  }
-}
-
-await main().catch(console.error);
-`}
-
-</NodeJSVirtualIDE>
-
-</Details>
-
-## Tracking Multiple Transactions
-
-You can track the same transaction multiple times or track multiple different transactions:
-
-```typescript
-// Track same transaction multiple times (e.g., from different components)
-const receipt1 = await pushChainClient.universal.trackTransaction(txHash, {
-  waitForCompletion: true,
-});
-
-const receipt2 = await pushChainClient.universal.trackTransaction(txHash, {
-  waitForCompletion: true,
-});
-
-// Both return identical receipts
-console.log(receipt1.hash === receipt2.hash); // true
-
-// Track multiple transactions concurrently
-const receipts = await Promise.all([
-  pushChainClient.universal.trackTransaction(hash1, { waitForCompletion: true }),
-  pushChainClient.universal.trackTransaction(hash2, { waitForCompletion: true }),
-  pushChainClient.universal.trackTransaction(hash3, { waitForCompletion: true }),
-]);
-```
+| Error | Cause | Fix |
+|-------|-------|-----|
+| **Invalid hash format** | Not a valid 32-byte hex with `0x` prefix | Hash must be 66 characters starting with `0x` |
+| **Timeout** | Transaction not confirmed within `advanced.timeout` | Increase timeout or check network congestion |
+| **Transaction not found** | Hash doesn't exist on the specified chain | Verify hash and `options.chain` value |
+| **Network error** | RPC unreachable | Supply custom URLs via `advanced.rpcUrls` |
 
 ## Next Steps
 
 - Learn about signing messages with [Sign Universal Message](/docs/chain/build/sign-universal-message)
 - Explore helper functions in [Utility Functions](/docs/chain/build/utility-functions)
 - Build rich UIs with transaction tracking using the [UI Kit](/docs/chain/ui-kit)
-- Read blockchain state with [Blockchain State Reader](/docs/chain/build/reading-blockchain-state)
+- Read blockchain state with [Reading Blockchain State](/docs/chain/build/reading-blockchain-state)
