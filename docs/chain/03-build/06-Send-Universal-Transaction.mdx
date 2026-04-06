@@ -27,14 +27,6 @@ Universal transactions let you execute **native transactions** across Push Chain
 
 **Under the hood**, the SDK automatically **estimates gas, orchestrates signatures, and replays any EVM or non-EVM proofs**, so you can focus on your app, not the network plumbing.
 
-## Universal Transaction Routes
-
-| **Route** | **Flow** | **Description** |
-| --------- | -------- | --------------- |
-| Route 1   | Any Origin → Push | Execute directly on Push Chain from any chain including Push. Use a plain address for `tx.to`. |
-| Route 2   | Any Origin → External via CEA | Execute on an external chain through your **Chain Executor Account (CEA)**. Set `tx.to` to `{ address, chain }`. |
-| Route 3   | External (via CEA) → Push | Execute on Push Chain where the origin execution happens through a CEA on an external chain. Set `tx.from` to `{ chain }`. |
-
 
 ## Send a Universal Transaction
 
