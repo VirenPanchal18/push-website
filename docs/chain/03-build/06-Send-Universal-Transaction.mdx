@@ -45,7 +45,7 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | **Arguments**          | **Type** | **Description**                                       |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | _`tx.to`_                 | `string` \| `{ address: string; chain: CHAIN }` | Defines the execution target. passing only address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                       |
-| `tx.from`                 | `{ chain: PushChain.CONSTANTS.CHAIN }` | Optional, when set to an external chain, the transaction is executed via a Chain Executor Account (CEA) on that chain. This is primarily used for external-origin and CEA-based execution flows. <br /><ConstantsDropdown variant="CHAIN" /> |
+| `tx.from`                 | `{ chain: PushChain.CONSTANTS.CHAIN }` | Optional, when set to an external chain, the transaction is executed via a Chain Executor Account (CEA) on that chain. This is primarily used for external origin or CEA-based execution flows. <br /><ConstantsDropdown variant="CHAIN" /> |
 | `tx.value`                | `BigInt` | Native value to send, expressed in the smallest unit of the execution context. On Push Chain this is uPC (the smallest unit, like wei in ETH). On external execution routes, this maps to the native asset amount of that route.                           |
 | `tx.data`                 | `string` \| `Array<{ to: string; value: bigint; data: string }>` | The data to send.                                     |
 | `tx.gasLimit`             | `BigInt` | The gas limit for the transaction.                    |

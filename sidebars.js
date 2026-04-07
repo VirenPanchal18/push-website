@@ -194,6 +194,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'chain/build/docs-chain-build-contract-initiated-multichain-execution',
+        },
+        {
+          type: 'doc',
           id: 'chain/build/docs-chain-build-track-universal-transaction',
         },
         {
