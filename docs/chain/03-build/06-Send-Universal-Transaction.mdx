@@ -23,10 +23,27 @@ import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsD
 
 ## Overview
 
-Universal transactions let you execute **native transactions** across Push Chain and supported external chains, whether EVM or non-EVM, through one unified interface. No wrapping, bridging or extra tooling required.
+Universal transactions let you execute **native transactions** across Push Chain and supported external chains, whether EVM or non-EVM, through one unified interface. No wrapping, manual bridging or extra tooling required.
 
-**Under the hood**, the SDK automatically **estimates gas, orchestrates signatures, and replays any EVM or non-EVM proofs**, so you can focus on your app, not the network plumbing.
+To understand this concept in details, please see [Understanding Universal Transactions](/docs/chain/build/send-universal-transaction/).
 
+### How Routing Works
+
+`sendTransaction` automatically selects the execution route based on the `to` and `from` fields.
+
+**Route 1 → Execute on Push Chain**
+  - `to: "0x..."` (plain address)
+  - Executes directly on Push Chain from any origin chain
+
+**Route 2 → Execute on External Chain**
+  - `to: { address, chain }`
+  - Executes on the external chain
+
+**Route 3 → Execute on Push Chain from External Identity**
+  - `from: { chain }`
+  - Uses your CEA as origin and executes on Push Chain
+
+**Note**: The SDK automatically infers routes from your transaction shape. 
 
 ## Send a Universal Transaction
 
@@ -44,15 +61,15 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 
 | **Arguments**          | **Type** | **Description**                                       |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| _`tx.to`_                 | `string` \| `{ address: string; chain: CHAIN }` | Defines the execution target. passing only address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                       |
+| _`tx.to`_                 | `string` \| `{ address: string; chain: CHAIN }` | Defines the execution target. Passing a plain address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                       |
 | `tx.from`                 | `{ chain: PushChain.CONSTANTS.CHAIN }` | Optional, when set to an external chain, the transaction is executed via a Chain Executor Account (CEA) on that chain. This is primarily used for external origin or CEA-based execution flows. <br /><ConstantsDropdown variant="CHAIN" /> |
 | `tx.value`                | `BigInt` | Native value to send, expressed in the smallest unit of the execution context. On Push Chain this is uPC (the smallest unit, like wei in ETH). On external execution routes, this maps to the native asset amount of that route.                           |
-| `tx.data`                 | `string` \| `Array<{ to: string; value: bigint; data: string }>` | The data to send.                                     |
+| `tx.data`                 | `string` \| `Array<{ to: string; value: bigint; data: string }>` | Use `string` as ABI-encoded calldata for a single call. Use `Array<...>` for batched multicall payload.                                     |
 | `tx.gasLimit`             | `BigInt` | The gas limit for the transaction.                    |
 | `tx.maxFeePerGas`         | `BigInt` | The maximum fee per gas for the transaction.          |
 | `tx.maxPriorityFeePerGas` | `BigInt` | The maximum priority fee per gas for the transaction. |
 | `tx.funds`                | `{ amount: BigInt; token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }` | Moves supported assets from the origin chain to Push Chain within the same call. If `tx.data` is provided, assets are moved and then the contract call is executed atomically. <br /> <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
-| `tx.payGasWith`           | `{ token?: PushChain.CONSTANTS.PAYABLE.TOKEN; slippageBps?: number; minAmountOut?: bigint \| string }` | Pay universal transaction fees using a supported ERC-20 token (e.g., `client.payable.token.USDT`).<br />&nbsp;<br />Optional `slippageBps` (e.g., `100` = 1%) and `minAmountOut` (wei) let you control on-chain swap execution. <ConstantsDropdown variant="PAYABLE_TOKEN" /> |
+| `tx.payGasWith`           | `{ token?: PushChain.CONSTANTS.PAYABLE.TOKEN; slippageBps?: number; minAmountOut?: bigint \| string }` | Pay universal transaction fees using a supported token (e.g., `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDT`).<br />&nbsp;<br />Optional `slippageBps` (e.g., `100` = 1%) and `minAmountOut` (wei) let you control on-chain swap execution. <ConstantsDropdown variant="PAYABLE_TOKEN" /> |
 
 </PushAPIReference>
 
@@ -79,7 +96,7 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | `SEND-TX-01`      | Origin Chain Detected               | Origin chain: `<namespace>` - Origin Address: `<origin address>`                          | INFO    |
 | `SEND-TX-02-01`   | Estimating Gas                      | Estimating and fetching gas limit, gas price for TX                                       | INFO    |
 | `SEND-TX-02-02`   | Gas Estimated                       | Total execution cost (Gas cost + value): `<amount>` UPC                                   | SUCCESS |
-| `SEND-TX-03-01`   | Resolving UEA                       | Resolving Execution Account (UEA) – computing address, checking deployment status/balance | INFO    |
+| `SEND-TX-03-01`   | Resolving UEA                       | Resolving Executor Account (UEA) – computing address, checking deployment status/balance | INFO    |
 | `SEND-TX-03-02`   | UEA Resolved                        | UEA: `<address>`, Deployed: `<true/false>`                                                | SUCCESS |
 | `SEND-TX-04-01`   | Awaiting Transaction                | Awaiting user transaction on origin chain                                                 | INFO    |
 | `SEND-TX-04-02`   | Awaiting Signature                  | Awaiting user signature for universal payload                                             | INFO    |
@@ -150,7 +167,7 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | `blockHash` | `string` | Hash of the block containing this transaction |
 | `transactionIndex` | `number` | Position/index of transaction within the block |
 | `chainId` | `string` | Chain identifier (e.g. Push Chain = `42101`) |
-| `from` | `string` | UEA (Universal Execution Address) that executed the transaction |
+| `from` | `string` | UEA (Universal Executor Account) that executed the transaction |
 | `to` | `string` | Target address the UEA executed against |
 | `nonce` | `number` | Derived nonce for the UEA |
 | `data` | `string` | Perceived calldata (transaction input data) |
@@ -253,7 +270,7 @@ const data = PushChain.utils.helpers.encodeTxData({
 });
 
 // Send the transaction using Push Chain SDK
-const txHash = await pushChainClient.universal.sendTransaction({
+const txResponse = await pushChainClient.universal.sendTransaction({
   to: '0xTokenContractAddress', // The smart contract address on Push Chain
   value: BigInt('0'), // No $PC being sent, just contract interaction
   data: data, // The encoded function call
@@ -271,12 +288,12 @@ Use the funds field to specify the amount of assets to move, and *optionally* th
 
 ```typescript
 // Send 1 USDT to the recipient address
-const txHash = await pushChainClient.universal.sendTransaction({
+const txResponse = await pushChainClient.universal.sendTransaction({
   to: '0xRecipientAddress', // The recipient address on Push Chain
   data: data, // pass this if you want to execute a function on Push Chain as well
   funds: {
     amount: PushChain.utils.helpers.parseUnits('1', 6), // 1 USDT
-    token: client.moveable.token.USDT, // MoveableToken accessor from client
+    token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT, // MoveableToken accessor from client
   },
 });
 ```
@@ -303,10 +320,10 @@ const txResponse = await client.universal.sendTransaction({
   data,
   funds: {
     amount: PushChain.utils.helpers.parseUnits('1', 6), // 1 USDT
-    token: client.moveable.token.USDT, // move USDT to Push Chain
+    token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT, // move USDT from SEPOLIA ETHEREUM to Push Chain
   },
   payGasWith: {
-    token: client.payable.token.USDC, // pay gas with USDC instead of native ETH
+    token: PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDC, // pay gas with USDC instead of native ETH
   },
 });
 ```
@@ -771,7 +788,7 @@ import \* as readline from 'node:readline/promises';
 </Tabs>
 
 ## Route based Examples
-### Route 1 — Execute on Push Chain
+### Route 1 → Execute on Push Chain
 
 <Details summary="Live Playground: Interact with Smart Contract" className="alert alert--live-play">
 
@@ -1148,7 +1165,7 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + keypair.publicKey.toBase58() + ' on Sepolia to continue.');
+      await rl.question(':::prompt:::Please send funds to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet to continue.');
 
       // 6) Send universal transaction
       console.log('📤 Sending transaction to:', '0x5FbDB2315678afecb367f032d93F642f64180aa3');
@@ -1407,7 +1424,7 @@ import \* as readline from 'node:readline/promises';
       // 3) Prompt to fund the Sepolia account before sending (required to originate the universal tx)
       console.log('3. Fund the Sepolia account to cover the origin transaction');
       await rl.question(
-        ':::prompt:::Please send funds to ' + account.address + ' on Ethereum Sepolia and Press Enter to continue.'
+        ':::prompt:::Please send funds to ' + wallet.address + ' on Ethereum Sepolia and Press Enter to continue.'
       );
 
       // 4) Build and send a Multicall universal transaction
@@ -1560,7 +1577,7 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-### Route 2 — Execute on External Chain
+### Route 2 → Execute on External Chain
 
 <Details summary="Live Playground: Payload (Contract Call on External Chain)" className="alert alert--live-play">
 
@@ -1635,7 +1652,7 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-<Details summary="Live Playground: Funds Transfer (ERC-20 to External Chain)" className="alert alert--live-play">
+<Details summary="Live Playground: Funds Transfer (Assets to External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1644,7 +1661,7 @@ import \* as readline from 'node:readline/promises';
 // customPropHighlightRegexEnd=\\);
 // customPropGTagEvent=send_transaction_route2_funds_erc20
 
-    // Route 2: Move ERC-20 to an address on an external chain via CEA
+    // Route 2: Move Assets to an address on an external chain via CEA
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import * as readline from 'node:readline/promises';
@@ -1741,7 +1758,7 @@ import \* as readline from 'node:readline/promises';
         });
 
         console.log('✅ Push Chain TX Hash:', tx.hash);
-        console.log('🔗 Source chain:', tx.chain);
+        console.log('🔗 Source chain:', tx.chainId);
 
         const receipt = await tx.wait();
         console.log('📦 External TX Hash:', receipt.externalTxHash);
@@ -1768,7 +1785,7 @@ import \* as readline from 'node:readline/promises';
 // customPropHighlightRegexEnd=\\);
 // customPropGTagEvent=send_transaction_route2_funds_with_payload
 
-    // Route 2: Move ERC-20 to external chain AND atomically call a contract
+    // Route 2: Move Assets to external chain AND atomically call a contract
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import * as readline from 'node:readline/promises';
@@ -1903,7 +1920,7 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-### Route 3 — Execute on Push Chain from CEA
+### Route 3 → Execute on Push Chain from CEA
 
 <Details summary="Live Playground: Payload (Contract Call on Push Chain from CEA)" className="alert alert--live-play">
 
@@ -1977,7 +1994,7 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-<Details summary="Live Playground: Bridge Funds Back (ERC-20 from CEA to Push Chain)" className="alert alert--live-play">
+<Details summary="Live Playground: Bridge Funds Back (Assets from CEA to Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -2007,7 +2024,7 @@ import \* as readline from 'node:readline/promises';
         progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue().';
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue.';
 
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
 
@@ -2040,7 +2057,7 @@ import \* as readline from 'node:readline/promises';
 
 </Details>
 
-<Details summary="Live Playground: Funds with Payload (Bridge ERC-20 and Call Contract on Push Chain)" className="alert alert--live-play">
+<Details summary="Live Playground: Funds with Payload (Bridge Assets and Call Contract on Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -2049,7 +2066,7 @@ import \* as readline from 'node:readline/promises';
 // customPropHighlightRegexEnd=\\);
 // customPropGTagEvent=send_transaction_route3_funds_with_payload
 
-    // Route 3: CEA_TO_PUSH — Bridge ERC-20 from external chain and call a contract on Push Chain atomically
+    // Route 3: CEA_TO_PUSH — Bridge Assets from external chain and call a contract on Push Chain atomically
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import * as readline from 'node:readline/promises';
@@ -2076,7 +2093,7 @@ import \* as readline from 'node:readline/promises';
       });
 
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue().';
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue.';
 
       const data = PushChain.utils.helpers.encodeTxData({
         abi: COUNTER_ABI,

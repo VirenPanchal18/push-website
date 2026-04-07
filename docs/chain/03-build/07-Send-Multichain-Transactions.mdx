@@ -309,7 +309,7 @@ const responses = await pushChainClient.universal.executeTransactions([
       }),
       funds: {
         amount: PushChain.utils.helpers.parseUnits('50', 6), // 50 USDT
-        token: pushChainClient.moveable.token.USDT,
+        token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
       },
     },
     waitForConfirmation: true,

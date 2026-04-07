@@ -1403,8 +1403,8 @@ The function is used to get conversion quote especially when you want to pay wit
 
 ```typescript
 const quote = pushChainClient.funds.getConversionQuote('100000000', {
-  from: pushChainClient.payable.token.WETH, // PayableToken - Assuming client initialized with ETHEREUM_ 
-  to: pushChainClient.moveable.token.USDT // MoveableToken - Assuming client initialized with ETHEREUM_ 
+  from: PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.WETH,
+  to: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
 });
 
 // Returns: { "amountIn": "5000000000000000", "amountOut": "11813463066488417", "rate": 2362692613297.683, "route": [ "WETH", "USDT" ], "timestamp": 1758582899267 }
@@ -1413,8 +1413,8 @@ const quote = pushChainClient.funds.getConversionQuote('100000000', {
 | **Arguments**       | **Type**  | **Description**                                                                                                                                                                                             |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | _`amount`_         | `string` | The string representation of the amount to parse. Can include decimals (e.g., "1.5", "420", "0.1").                                                                                  |
-| _`options.from`_   | `<PayableToken>` (dynamic)  | List of supported tokens provided dynamically through get [`getPayableTokens`](#get-payable-tokens).     |
-| _`options.to`_ | `<MoveableToken>` (dynamic)  | List of supported tokens provided dynamically through get [`getMoveableTokens`](#get-moveable-tokens).     |
+| _`options.from`_   | `PushChain.CONSTANTS.PAYABLE.TOKEN` | The token you pay with. <ConstantsDropdown variant="PAYABLE_TOKEN" /> |
+| _`options.to`_ | `PushChain.CONSTANTS.MOVEABLE.TOKEN` | The token you move as. <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
 
 
 <Details summary="Supported chains" className="alert alert--minimal">
@@ -1461,8 +1461,8 @@ const quote = pushChainClient.funds.getConversionQuote('100000000', {
 
       // Get quote: pay with WETH → move as USDT
       const quote = await client.funds.getConversionQuote(amountIn, {
-        from: client.payable.token.WETH,
-        to: client.moveable.token.USDT,
+        from: PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.WETH,
+        to: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
       });
 
       console.log('Quote:', JSON.stringify(quote, null, 2));
