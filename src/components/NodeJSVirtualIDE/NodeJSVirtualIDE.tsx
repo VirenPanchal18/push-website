@@ -447,7 +447,9 @@ function App() {
           code={code.replace(/^(?:\\r?\\n)+|(?:\\r?\\n)+$/g, '').concat('\\n                                                                                                                               ')}
           onChange={(newCode) => {
             // Remove trailing newlines and spaces before setting the code
-            setCode(newCode.replace(/^(?:\\r?\\n)+|(?:\\r?\\n)+$/g, '').replace(/\\n\\s+$/g, ''));
+            const cleaned = newCode.replace(/^(?:\\r?\\n)+|(?:\\r?\\n)+$/g, '').replace(/\\n\\s+$/g, '');
+            setCode(cleaned);
+            if (typeof window !== 'undefined') window.__playgroundLiveCode = cleaned;
           }}
           style={newCodeDiv}
         />

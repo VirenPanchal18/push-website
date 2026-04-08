@@ -501,7 +501,7 @@ End-to-end playground examples for each universal transaction route. For API ref
       const wallet = ethers.Wallet.createRandom();
       const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
       const signer = wallet.connect(provider);
-      console.log('\uD83D\uDD11 Sepolia account:', wallet.address);
+      console.log('🔑 Sepolia account:', wallet.address);
 
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
@@ -537,11 +537,11 @@ End-to-end playground examples for each universal transaction route. For API ref
           },
         });
 
-        console.log('\u2705 Push Chain TX Hash:', tx.hash);
+        console.log('✅ Push Chain TX Hash:', tx.hash);
         const receipt = await tx.wait();
-        console.log('\uD83D\uDCE6 Status:', receipt.status === 1 ? 'Success' : 'Failed');
+        console.log('📦 Status:', receipt.status === 1 ? 'Success' : 'Failed');
       } catch (err) {
-        console.error('\u274C Failed:', err && err.message ? err.message : err);
+        console.error('❌ Failed:', err && err.message ? err.message : err);
         console.log('Note: Ensure your wallet holds both USDT (to bridge) and USDC (for gas) on Sepolia.');
       }
     }

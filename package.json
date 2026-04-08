@@ -51,7 +51,7 @@
     "@docusaurus/theme-mermaid": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@openzeppelin/merkle-tree": "^1.0.8",
-    "@pushchain/core": "^5.1.4-alpha.3",
+    "@pushchain/core": "^5.1.4-alpha.5",
     "@pushchain/ui-kit": "^5.1.0",
     "@radix-ui/react-dialog": "^1.1.2",
     "@solana/web3.js": "^1.98.2",
