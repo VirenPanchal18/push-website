@@ -190,6 +190,10 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'chain/build/docs-chain-build-universal-transaction-scenarios',
+        },
+        {
+          type: 'doc',
           id: 'chain/build/docs-chain-build-send-multichain-transactions',
         },
         {
