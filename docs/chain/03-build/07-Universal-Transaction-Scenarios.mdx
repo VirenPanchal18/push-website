@@ -22,28 +22,11 @@ import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsD
 
 ## Overview
 
-This page provides end-to-end playground examples for each universal transaction route. Use these to test the full lifecycle of a universal transaction across Push Chain and supported external chains.
-
-`sendTransaction` routes are determined by the shape of the `to` and `from` fields:
-
-- **Route 1** — `to: "0x..."` (plain address) → Executes on Push Chain
-- **Route 2** — `to: { address, chain }` → Executes on external chain via CEA
-- **Route 3** — `from: { chain }` → Uses CEA as origin, executes on Push Chain
-
-For API reference and argument details, see [Send Universal Transaction](/docs/chain/build/send-universal-transaction).
-
----
+End-to-end playground examples for each universal transaction route. For API reference and argument details, see [Send Universal Transaction](/docs/chain/build/send-universal-transaction).
 
 ## Route 1 → Execute on Push Chain
 
-### Live Playground: Interact with Smart Contract
-
-<Details summary="Live Playground: Interact with Smart Contract" className="alert alert--live-play">
-
-<br />
-
-<Tabs className="liveplaytab" groupId="send-universal-transaction-coding">
-  <TabItem value='ethers_v6_pushchain' label='From Push Chain'>
+<Details summary="Interact with Smart Contract" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -51,396 +34,64 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 // customPropHighlightRegexStart=universal\.sendTransaction
 // customPropHighlightRegexEnd=\\);
 // customPropGTagEvent=send_transaction_contract_call_from_push_chain
-
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import \* as readline from 'node:readline/promises';
 
-    // Enable User Input
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-    // Contract ABI for UniversalCounter.sol
-    // Source: https://github.com/pushchain/push-chain-examples/blob/counter-example/contracts/universal-counter/src/UniversalCounter.sol
-    // Deployed at: https://donut.push.network/address/0x5FbDB2315678afecb367f032d93F642f64180aa3?tab=contract
-    const testAbi = [
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "uint256",
-            "name": "countPC",
-            "type": "uint256"
-          },
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "caller",
-            "type": "address"
-          }
-        ],
-        "name": "CountIncremented",
-        "type": "event"
-      },
-      {
-        "inputs": [],
-        "name": "increment",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "reset",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "countPC",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
+    // Counter contract deployed on Push Chain Testnet (Donut)
+    // https://donut.push.network/address/0x5FbDB2315678afecb367f032d93F642f64180aa3?tab=contract
+    const COUNTER_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+      { inputs: [], name: 'countPC', outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
     ];
 
-    // ⭐️ MAIN FUNCTION ⭐️
     async function main() {
-      console.log('🚀 Initializing Universal Transaction Example');
-
-      // 1) Create a wallet (in production, you'd use your own wallet)
+      // Works from any origin chain — Push Chain, Ethereum, Solana, BNB, etc.
+      // Just swap the RPC and signer; sendTransaction stays the same.
       const wallet = ethers.Wallet.createRandom();
-      console.log('📝 Created wallet:', wallet.address);
-
-      // 2) Set up provider and connect wallet
       const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
       const signer = wallet.connect(provider);
+      console.log('� Account:', wallet.address);
 
-      // 3) Convert to Universal Signer
-      console.log('🔄 Converting to Universal Signer...');
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
-
-      // 4) Initialize Push Chain Client
-      console.log('🔗 Initializing Push Chain Client...');
-      const pushChainClient = await PushChain.initialize(universalSigner, {
+      const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+        progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
-      // 5) Prepare transaction parameters
-      // Encode the increment() function call
+      await rl.question(':::prompt:::Please send Push Chain Testnet tokens to: ' + wallet.address + ' and press Enter to continue.');
+
       const data = PushChain.utils.helpers.encodeTxData({
-        abi: testAbi,
+        abi: COUNTER_ABI,
         functionName: 'increment',
-        args: []
-      }); // 0xd09de08a
-      console.log('data', data);
-
-      // Prepare transaction parameters
-      const txParams = {
-        to: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-        data: data,
-        value: BigInt(0),
-      };
-
-      // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + wallet.address + ' on Push Testnet Donut to continue.');
-
-      // 6) Send universal transaction
-      console.log('📤 Sending transaction to:', '0x5FbDB2315678afecb367f032d93F642f64180aa3');
+      });
 
       try {
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
-        console.log('✅ Transaction sent! Tx Response:', JSON.stringify(txResponse));
-      } catch (error) {
-        console.error('❌ Transaction failed:', error.message);
+        const tx = await client.universal.sendTransaction({
+          to: COUNTER_ADDRESS,
+          data,
+        });
+        console.log('✅ TX Hash:', tx.hash);
+        await tx.wait();
+        const pushProvider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+        const counter = new ethers.Contract(COUNTER_ADDRESS, COUNTER_ABI, pushProvider);
+        console.log('📊 Counter value:', (await counter.countPC()).toString());
+      } catch (err) {
+        console.error('❌ Failed:', err && err.message ? err.message : err);
       }
     }
 
     await main().catch(console.error);
-
 `}
 
 </NodeJSVirtualIDE>
-</TabItem>
-
- <TabItem value='ethers_v6_sepolia' label='From Sepolia'>
-
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
-
-{`
-// customPropHighlightRegexStart=universal\.sendTransaction
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=send_transaction_contract_interaction_ethers
-
-    import { PushChain } from '@pushchain/core';
-    import { ethers } from 'ethers';
-    import \* as readline from 'node:readline/promises';
-
-    // Enable User Input
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    // Contract ABI for UniversalCounter.sol
-    // Source: https://github.com/pushchain/push-chain-examples/blob/counter-example/contracts/universal-counter/src/UniversalCounter.sol
-    // Deployed at: https://donut.push.network/address/0x5FbDB2315678afecb367f032d93F642f64180aa3?tab=contract
-    const testAbi = [
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "uint256",
-            "name": "countPC",
-            "type": "uint256"
-          },
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "caller",
-            "type": "address"
-          }
-        ],
-        "name": "CountIncremented",
-        "type": "event"
-      },
-      {
-        "inputs": [],
-        "name": "increment",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "reset",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "countPC",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ];
-
-    // ⭐️ MAIN FUNCTION ⭐️
-    async function main() {
-      console.log('🚀 Initializing Universal Transaction Example');
-
-      // 1) Create a wallet (in production, you'd use your own wallet)
-      const wallet = ethers.Wallet.createRandom();
-      console.log('📝 Created wallet:', wallet.address);
-
-      // 2) Set up provider and connect wallet
-      const provider = new ethers.JsonRpcProvider('https://sepolia.gateway.tenderly.co');
-      const signer = wallet.connect(provider);
-
-      // 3) Convert to Universal Signer
-      console.log('🔄 Converting to Universal Signer...');
-      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
-
-      // 4) Initialize Push Chain Client
-      console.log('🔗 Initializing Push Chain Client...');
-      const pushChainClient = await PushChain.initialize(universalSigner, {
-        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-      });
-
-      // 5) Prepare transaction parameters
-      // Encode the increment() function call
-      const data = PushChain.utils.helpers.encodeTxData({
-        abi: testAbi,
-        functionName: 'increment',
-        args: []
-      }); // 0xd09de08a
-      console.log('data', data);
-
-      // Prepare transaction parameters
-      const txParams = {
-        to: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-        data: data,
-        value: BigInt(0),
-      };
-
-      // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + wallet.address + ' on Sepolia to continue.');
-
-      // 6) Send universal transaction
-      console.log('📤 Sending transaction to:', '0x5FbDB2315678afecb367f032d93F642f64180aa3');
-
-      try {
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
-        console.log('✅ Transaction sent! Tx Response:', JSON.stringify(txResponse));
-      } catch (error) {
-        console.error('❌ Transaction failed:', error.message);
-      }
-    }
-
-    await main().catch(console.error);
-
-`}
-
-</NodeJSVirtualIDE>
-
-</TabItem>
-
- <TabItem value='solana_webJs_devnet' label='From Solana Devnet'>
-
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
-
-{`
-// customPropHighlightRegexStart=universal\.sendTransaction
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=send_transaction_with_custom_gas_ethers
-
-    import { PushChain } from '@pushchain/core';
-    import { ethers } from 'ethers';
-    import \* as readline from 'node:readline/promises';
-
-    // Enable User Input
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-
-    // Contract ABI for UniversalCounter.sol
-    // Source: https://github.com/pushchain/push-chain-examples/blob/counter-example/contracts/universal-counter/src/UniversalCounter.sol
-    // Deployed at: https://donut.push.network/address/0x5FbDB2315678afecb367f032d93F642f64180aa3?tab=contract
-    const testAbi = [
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "uint256",
-            "name": "countPC",
-            "type": "uint256"
-          },
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "caller",
-            "type": "address"
-          }
-        ],
-        "name": "CountIncremented",
-        "type": "event"
-      },
-      {
-        "inputs": [],
-        "name": "increment",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "reset",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "countPC",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ];
-
-    // ⭐️ MAIN FUNCTION ⭐️
-    async function main() {
-      console.log('🚀 Initializing Universal Transaction Example');
-
-      // 1) Create a keypair
-      const keypair = Keypair.generate();
-      console.log('🔑 Got keypair: ', keypair.publicKey.toBase58());
-
-      // 2) Convert to Universal Signer
-      console.log('🔄 Converting to Universal Signer from Keypair...');
-      const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(keypair, {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-        library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
-      });
-
-      // 3) Initialize Push Chain Client
-      console.log('🔗 Initializing Push Chain Client...');
-      const pushChainClient = await PushChain.initialize(universalSigner, {
-        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-      });
-
-      // 4) Prepare transaction parameters
-      // Encode the increment() function call
-      const data = PushChain.utils.helpers.encodeTxData({
-        abi: testAbi,
-        functionName: 'increment',
-        args: []
-      }); // 0xd09de08a
-      console.log('data', data);
-
-      // Prepare transaction parameters
-      const txParams = {
-        to: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-        data: data,
-        value: BigInt(0),
-      };
-
-      // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet to continue.');
-
-      // 6) Send universal transaction
-      console.log('📤 Sending transaction to:', '0x5FbDB2315678afecb367f032d93F642f64180aa3');
-
-      try {
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
-        console.log('✅ Transaction sent! Tx Response:', JSON.stringify(txResponse));
-      } catch (error) {
-        console.error('❌ Transaction failed:', error.message);
-      }
-    }
-
-    await main().catch(console.error);
-
-`}
-
-</NodeJSVirtualIDE>
-
-</TabItem>
-
-</Tabs>
 
 </Details>
 
-### Live Playground: Move Funds to Push Chain
-
-<Details summary="Live Playground: Move Funds to Push Chain" className="alert alert--live-play">
+<Details summary="Move Funds to Push Chain" className="alert alert--live-play">
 
 <Tabs className="liveplaytab" groupId="send-universal-funds-examples">
 
@@ -620,9 +271,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Batch Transactions (Multicall)
-
-<Details summary="Live Playground: Do Batch Transactions in a Single Universal Transaction" className="alert alert--live-play">
+<Details summary="Batch Transactions (Multicall)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/multicall-universal-transaction"}}>
 
@@ -733,9 +382,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Track Transaction Progress Lifecycle
-
-<Details summary="Live Playground: (Advanced) Track the progress lifecycle of a transaction" className="alert alert--live-play">
+<Details summary="Track Transaction Progress Lifecycle" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -828,13 +475,87 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
----
+<Details summary="Pay Gas with USDC (instead of native ETH)" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=universal\.sendTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=send_transaction_pay_gas_erc20
+
+    // Pay gas with USDC instead of native ETH while bridging USDT and calling a contract on Push Chain
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+    import * as readline from 'node:readline/promises';
+
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+    ];
+    const COUNTER_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('\uD83D\uDD11 Sepolia account:', wallet.address);
+
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+        progressHook: (p) => console.log('TX Progress:', p.title || p.id),
+      });
+
+      const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT;
+      const usdc = PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDC;
+
+      await rl.question(
+        ':::prompt:::Please send Sepolia USDT and USDC to: ' + wallet.address +
+        '. Mint USDT: https://sepolia.etherscan.io/address/' + usdt.address + '#writeContract#F6' +
+        ' | Mint USDC: https://sepolia.etherscan.io/address/' + usdc.address + '#writeContract#F6' +
+        '. Press Enter to continue.'
+      );
+
+      const data = PushChain.utils.helpers.encodeTxData({
+        abi: COUNTER_ABI,
+        functionName: 'increment',
+      });
+
+      try {
+        const tx = await client.universal.sendTransaction({
+          to: COUNTER_ADDRESS,
+          data,
+          funds: {
+            amount: PushChain.utils.helpers.parseUnits('1', { decimals: usdt.decimals }), // 1 USDT
+            token: usdt,
+          },
+          payGasWith: {
+            token: usdc, // pay gas with USDC instead of native ETH
+          },
+        });
+
+        console.log('\u2705 Push Chain TX Hash:', tx.hash);
+        const receipt = await tx.wait();
+        console.log('\uD83D\uDCE6 Status:', receipt.status === 1 ? 'Success' : 'Failed');
+      } catch (err) {
+        console.error('\u274C Failed:', err && err.message ? err.message : err);
+        console.log('Note: Ensure your wallet holds both USDT (to bridge) and USDC (for gas) on Sepolia.');
+      }
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
 
 ## Route 2 → Execute on External Chain
 
-### Live Playground: Payload (Contract Call on External Chain)
-
-<Details summary="Live Playground: Payload (Contract Call on External Chain)" className="alert alert--live-play">
+<Details summary="Contract Call on External Chain" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -907,9 +628,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Funds Transfer (Assets to External Chain)
-
-<Details summary="Live Playground: Funds Transfer (Assets to External Chain)" className="alert alert--live-play">
+<Details summary="Funds Transfer (Assets to External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -971,9 +690,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Funds Transfer (Native Value to External Chain)
-
-<Details summary="Live Playground: Funds Transfer (Native Value to External Chain)" className="alert alert--live-play">
+<Details summary="Funds Transfer (Native Value to External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1035,9 +752,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Funds with Payload (Move Assets and Call Contract on External Chain)
-
-<Details summary="Live Playground: Funds with Payload (Move Assets and Call Contract on External Chain)" className="alert alert--live-play">
+<Details summary="Funds with Payload (Move Assets and Call Contract on External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1110,9 +825,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Multicall (Batch Contract Calls on External Chain)
-
-<Details summary="Live Playground: Multicall (Batch Contract Calls on External Chain)" className="alert alert--live-play">
+<Details summary="Multicall (Batch Contract Calls on External Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1183,13 +896,9 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
----
-
 ## Route 3 → Execute on Push Chain from CEA
 
-### Live Playground: Payload (Contract Call on Push Chain from CEA)
-
-<Details summary="Live Playground: Payload (Contract Call on Push Chain from CEA)" className="alert alert--live-play">
+<Details summary="Contract Call on Push Chain from CEA" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1261,9 +970,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Bridge Funds Back (Assets from CEA to Push Chain)
-
-<Details summary="Live Playground: Bridge Funds Back (Assets from CEA to Push Chain)" className="alert alert--live-play">
+<Details summary="Bridge Funds Back (Assets from CEA to Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1326,9 +1033,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Funds with Payload (Bridge Assets and Call Contract on Push Chain)
-
-<Details summary="Live Playground: Funds with Payload (Bridge Assets and Call Contract on Push Chain)" className="alert alert--live-play">
+<Details summary="Funds with Payload (Bridge Assets and Call Contract on Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1399,9 +1104,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Multicall (Batch Contract Calls on Push Chain from CEA)
-
-<Details summary="Live Playground: Multicall (Batch Contract Calls on Push Chain from CEA)" className="alert alert--live-play">
+<Details summary="Multicall (Batch Contract Calls on Push Chain from CEA)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1470,9 +1173,7 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 
 </Details>
 
-### Live Playground: Bridge Native Back (BNB from CEA to Push Chain)
-
-<Details summary="Live Playground: Bridge Native Back (BNB from CEA to Push Chain)" className="alert alert--live-play">
+<Details summary="Bridge Native Back (Native Value from CEA to Push Chain)" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -1529,96 +1230,6 @@ For API reference and argument details, see [Send Universal Transaction](/docs/c
 </NodeJSVirtualIDE>
 
 </Details>
-
----
-
-## Pay Gas Fees with ERC-20 Tokens
-
-Instead of paying origin-chain gas in the native coin, you can use a supported ERC-20 token via `payGasWith`. The SDK handles the on-chain swap automatically.
-
-### Live Playground: Pay Gas with ERC-20 (USDC)
-
-<Details summary="Live Playground: Pay Gas with ERC-20 (USDC)" className="alert alert--live-play">
-
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
-
-{`
-// customPropHighlightRegexStart=universal\.sendTransaction
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=send_transaction_pay_gas_erc20
-
-    // Pay gas with USDC instead of native ETH while bridging USDT and calling a contract on Push Chain
-    import { PushChain } from '@pushchain/core';
-    import { ethers } from 'ethers';
-    import * as readline from 'node:readline/promises';
-
-    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
-    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
-    const COUNTER_ABI = [
-      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
-    ];
-    const COUNTER_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-
-    async function main() {
-      const wallet = ethers.Wallet.createRandom();
-      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
-      const signer = wallet.connect(provider);
-      console.log('🔑 Sepolia account:', wallet.address);
-
-      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
-      const client = await PushChain.initialize(universalSigner, {
-        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-        progressHook: (p) => console.log('TX Progress:', p.title || p.id),
-      });
-
-      const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT;
-      const usdc = PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDC;
-
-      await rl.question(
-        ':::prompt:::Please send Sepolia USDT and USDC to: ' + wallet.address +
-        '. Mint USDT: https://sepolia.etherscan.io/address/' + usdt.address + '#writeContract#F6' +
-        ' | Mint USDC: https://sepolia.etherscan.io/address/' + usdc.address + '#writeContract#F6' +
-        '. Press Enter to continue.'
-      );
-
-      const data = PushChain.utils.helpers.encodeTxData({
-        abi: COUNTER_ABI,
-        functionName: 'increment',
-      });
-
-      try {
-        const tx = await client.universal.sendTransaction({
-          to: COUNTER_ADDRESS,
-          data,
-          funds: {
-            amount: PushChain.utils.helpers.parseUnits('1', { decimals: usdt.decimals }), // 1 USDT
-            token: usdt,
-          },
-          payGasWith: {
-            token: usdc, // pay gas with USDC instead of native ETH
-          },
-        });
-
-        console.log('✅ Push Chain TX Hash:', tx.hash);
-        const receipt = await tx.wait();
-        console.log('📦 Status:', receipt.status === 1 ? 'Success' : 'Failed');
-      } catch (err) {
-        console.error('❌ Failed:', err && err.message ? err.message : err);
-        console.log('Note: Ensure your wallet holds both USDT (to bridge) and USDC (for gas) on Sepolia.');
-      }
-    }
-
-    await main().catch(console.error);
-`}
-
-</NodeJSVirtualIDE>
-
-</Details>
-
-> **Note:** Ensure the account holds sufficient balance of the selected `payGasWith.token` on the origin chain to cover gas fees.
-
----
 
 ## Next Steps
 
