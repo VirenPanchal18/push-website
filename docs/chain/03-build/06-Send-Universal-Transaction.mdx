@@ -363,6 +363,7 @@ import \* as readline from 'node:readline/promises';
       const tx = await client.universal.sendTransaction({
         to: '0x0000000000000000000000000000000000042101',
         value: PushChain.utils.helpers.parseUnits('0.001', 18), // 0.001 PC
+        progressHook: (p) => console.log('🔄 Progress:', p.title || p.id),
       });
 
       console.log('✅ TX Hash:', tx.hash);
@@ -442,7 +443,10 @@ import \* as readline from 'node:readline/promises';
       try {
         // Note: This would fail in playground without funds
         // In production, ensure wallet has funds
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
+        const txResponse = await pushChainClient.universal.sendTransaction({
+          ...txParams,
+          progressHook: (p) => console.log('🔄 Progress:', p.title || p.id),
+        });
         console.log('✅ Transaction sent! Tx:', JSON.stringify(txResponse));
       } catch (error) {
         console.error('❌ Transaction failed:', error.message);
@@ -542,7 +546,10 @@ import \* as readline from 'node:readline/promises';
       try {
         // Note: This would fail in playground without funds
         // In production, ensure wallet has funds
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
+        const txResponse = await pushChainClient.universal.sendTransaction({
+          ...txParams,
+          progressHook: (p) => console.log('🔄 Progress:', p.title || p.id),
+        });
         console.log('✅ Transaction sent! Tx Response:', JSON.stringify(txResponse));
       } catch (error) {
         console.error('❌ Transaction failed:', error.message);
@@ -633,7 +640,10 @@ import \* as readline from 'node:readline/promises';
       try {
         // Note: This would fail in playground without funds
         // In production, ensure wallet has funds
-        const txResponse = await pushChainClient.universal.sendTransaction(txParams);
+        const txResponse = await pushChainClient.universal.sendTransaction({
+          ...txParams,
+          progressHook: (p) => console.log('🔄 Progress:', p.title || p.id),
+        });
         console.log('✅ Transaction sent! Hash:', JSON.stringify(txResponse));
       } catch (error) {
         console.error('❌ Transaction failed:', error.message);
