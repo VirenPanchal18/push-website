@@ -18,9 +18,11 @@ Early Access for the [FINAL season of Push Points Program](https://portal.push.o
 
 The hunt for the golden rare pass begins.
 
-![PC Token](./image-2.webp)
+:::info Token not Live Yet
+PC is the native token of Push Chain, token is not launched yet.
+:::
 
-# What is Points Program S3 about?
+## What is Points Program S3 about?
 
 S3 is an incentivized testnet program created to reward honest users for exploring and experiencing the magic of Universal Apps on Push Chain.
 
@@ -28,7 +30,7 @@ S3 is an incentivized testnet program created to reward honest users for explori
 
 Points earned will unlock your eligibility for the **Push Chain reward drop** during mainnet launch.
 
-# What are the rewards?
+## What are the rewards?
 
 Rare Shiny Pass holders become eligible for many exciting rewards on mainnet day 1
 
@@ -38,7 +40,7 @@ Rare Shiny Pass holders become eligible for many exciting rewards on mainnet day
 
 Note: S3 [Leaderboard](https://portal.push.org/rewards/leaderboard) rankers unlock additional boosted rewards 
 
-# What are Rare Passes? What do they unlock?
+## What are Rare Passes? What do they unlock?
 
 Rare passes are unique collectables that have the potential to unlock greater rewards during TGE.
 
@@ -46,7 +48,7 @@ Rare passes are unique collectables that have the potential to unlock greater re
 
 The more rare passes you collect. The higher your odds of winning a golden shiny pass.
 
-# How can I get an entry into the early access?
+## How can I get an entry into the early access?
 
 Early Access is open to a limited number of users only.
 
@@ -59,7 +61,7 @@ The best place to find invite codes is this:
 Remember! 1 invite = 1 user entry.
 Once you’re in, you can invite up to 3 more frens
 
-# How can I make the most out of this program?
+## How can I make the most out of this program?
 
 S3 is not just about play-to-earn. Look at the bigger scope here.
 
@@ -74,7 +76,7 @@ Quick tips:
 - Refer and onboard your frens and earn special multipliers
 - The more you level up, the better your chances of winning a rare pass.
 
-# How does Push Chain work?
+## How does Push Chain work?
 
 Push Chain is an L1. But not ***“yet another L1”***. It is a shared state network designed to unite different chains together.
 
@@ -84,7 +86,7 @@ No new wallet. No need to bridge funds. Sign in with Google or any of your exist
 
 Builders can deploy apps on push and instantly support users from Solana, Base, BNB, any EVM chain!
 
-# Participation Guidelines
+## Participation Guidelines
 
 We’ve implemented sybil resistance checks to discourage botting and farming that doesn’t contribute meaningful value to users or the network.
 
