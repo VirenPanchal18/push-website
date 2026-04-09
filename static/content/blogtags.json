@@ -5,7 +5,7 @@
     "link": "/blog/tags/featured/",
     "priority": 0,
     "category": "Featured",
-    "count": 5
+    "count": 6
   },
   {
     "name": "Product",
@@ -37,7 +37,7 @@
     "link": "/blog/tags/programs/",
     "priority": 4,
     "category": "Programs",
-    "count": 4
+    "count": 5
   },
   {
     "name": "Thought Leadership",
