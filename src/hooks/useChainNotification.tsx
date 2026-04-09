@@ -169,7 +169,7 @@ const NotificationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  height: auto;
+  height: 345px;
   width: 275px;
   cursor: pointer;
   box-sizing: border-box;
@@ -193,6 +193,16 @@ const StyledToaster = styled(Toaster)`
 
   @media ${device.mobileL} {
     width: -webkit-fill-available;
+  }
+
+  &[data-sonner-toaster] {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  [data-sonner-toast][data-mounted='true'][data-expanded='true'] {
+    --y: translateY(0) !important;
+    height: var(--initial-height) !important;
   }
 `;
 
