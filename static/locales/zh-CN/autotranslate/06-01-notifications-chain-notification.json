@@ -1,10 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "50位顶尖创作者将获得2000万代币的奖励。召集您的伙伴，加入Push Cult！",
-      "button-title": "加入Push社区！",
-      "button-aria-label": "加入 Push Cult! 你可以在这里了解更多",
-      "image-alt": "加入Push社区！"
+      "description": "需要邀请码？关注我们，观看讲解视频并留下评论。邀请名额有限！",
+      "button-title": "获取邀请码",
+      "button-aria-label": "获取邀请码！点击这里查看",
+      "image-alt": "获取邀请码！"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "상위 50명의 크리에이터에게 2000만 개의 토큰 보상이 지급됩니다. 무리를 모으세요. Push Cult에 참여하세요!",
-      "button-title": "Push 커뮤니티에 참여하세요!",
-      "button-aria-label": "Push Cult에 참여하세요! 여기서 확인해 보세요",
-      "image-alt": "Push 커뮤니티에 참여하세요!"
+      "description": "초대 코드가 필요하신가요? 팔로우하고, 설명 영상을 시청하고, 댓글을 남겨주세요. 초대는 한정입니다!",
+      "button-title": "초대 코드 받기",
+      "button-aria-label": "초대 코드 받기! 여기서 확인하세요",
+      "image-alt": "초대 코드 받기!"
     }
   }
 }
