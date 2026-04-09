@@ -1,10 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "50 meilleurs créateurs reçoivent une récompense de 20M Tokens. Rassemblez votre communauté. Rejoignez le Culte Push !",
-      "button-title": "Rejoignez la communauté Push !",
-      "button-aria-label": "Rejoignez la communauté Push Cult ! Vous pouvez la découvrir ici",
-      "image-alt": "Rejoignez la communauté Push !"
+      "description": "Besoin d'un code d'invitation ? Suivez-nous, regardez notre vidéo explicative et laissez un commentaire. Invitations limitées !",
+      "button-title": "Obtenir un code d'invitation",
+      "button-aria-label": "Obtenir un code d'invitation ! Découvrez-le ici",
+      "image-alt": "Obtenir un code d'invitation !"
     }
   }
 }

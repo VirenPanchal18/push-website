@@ -3,6 +3,7 @@
 
 # Production
 /build
+/static/invite-codes.json
 
 # Yarn
 .yarn
