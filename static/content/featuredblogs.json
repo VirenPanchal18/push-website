@@ -1,5 +1,22 @@
 [
   {
+    "title": "Season 3 Early Access is Live!",
+    "link": "/blog/season-3-early-access-is-live/",
+    "slug": "season-3-early-access-is-live",
+    "pubDate": "Thu, 09 Apr 2026 00:00:00 GMT",
+    "description": "“Early Access for the FINAL season of Push Points Program before mainnet is live!\"",
+    "readingTime": 1,
+    "imageUrl": "/assets/blog/featured/blog--season-3-early-access-is-live--cover-image.webp",
+    "tags": [
+      "Featured",
+      "Programs"
+    ],
+    "authors": [
+      "push"
+    ],
+    "showcase": true
+  },
+  {
     "title": "Push Chain × human.tech: Enabling Social Login–Native, Self-Custodial Wallets",
     "link": "/blog/push-chain-human-tech/",
     "slug": "push-chain-human-tech",
@@ -15,7 +32,7 @@
     "authors": [
       "push"
     ],
-    "showcase": true
+    "showcase": false
   },
   {
     "title": "Introducing Push Cult 👁️⃤  -  Blood Pact for Creators",
