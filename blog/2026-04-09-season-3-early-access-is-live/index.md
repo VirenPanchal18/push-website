@@ -18,7 +18,7 @@ Early Access for the [FINAL season of Push Points Program](https://portal.push.o
 
 The hunt for the golden rare pass begins.
 
-![Screenshot 2026-04-09 at 6.51.07 PM.png](attachment:fbe550f1-9e4d-4049-a6bf-e45eb50761a0:Screenshot_2026-04-09_at_6.51.07_PM.png)
+![PC Token](./image-2.webp)
 
 # What is Points Program S3 about?
 
