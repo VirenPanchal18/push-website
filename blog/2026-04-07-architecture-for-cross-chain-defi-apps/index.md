@@ -17,7 +17,7 @@ If you’re building any cross-chain defi apps or want to upgrade your current a
 
 We like to explain things with examples...
 
-So let's say you’re building a lending aggregator that can read and route user deposits to the best yield across @aave  on Ethereum, @compoundfinance   on Base, and @marginfi  on Solana, or any other protocol on any chain.
+So let's say you’re building a lending aggregator that can read and route user deposits to the best yield across [Aave](https://aave.com/) on Ethereum, [Compound Finance](https://compound.finance/) on Base, and [MarginFi](https://app.marginfi.com/) on Solana, or any other protocol on any chain.
 
 Even though the idea sounds great and it would definitely attract an incredible amount of volume. But one honest fact that can't be ignored is how hectic it would be for devs to handle the cross-chain plumbing   
 
@@ -66,7 +66,7 @@ Each CEA is derived from the parent UEA plus the target chain ID.
 
 Same user, different chains - but always the same deterministic address.
 
-If you’re new to the concept of UEA would recommend checking this quick guide on UEAs first. [What are UEAs?](https://push.org/blog/what-are-universal-executor-accounts/)
+If you’re new to the concept of UEA would recommend checking this quick guide on UEAs first. **[What are UEAs?](https://push.org/blog/what-are-universal-executor-accounts/)**
 
 The flow for a deposit looks like this:
 
