@@ -5243,9 +5243,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:^5.1.4-alpha.6":
-  version: 5.1.4-alpha.6
-  resolution: "@pushchain/core@npm:5.1.4-alpha.6"
+"@pushchain/core@npm:^5.1.4-alpha.7":
+  version: 5.1.4-alpha.7
+  resolution: "@pushchain/core@npm:5.1.4-alpha.7"
   dependencies:
     "@bufbuild/protobuf": "npm:^2.0.0"
     "@cosmjs/crypto": "npm:0.33.1"
@@ -5270,7 +5270,7 @@ __metadata:
       optional: true
     tweetnacl:
       optional: true
-  checksum: 10c0/6323a416471f3f314d94c702fa92d653433ead98c8d591e2bca17b7c19ff5fc497791fe476e0497f0253d281bc2ac137be26218f5cfea1b22cdbd7d587d588d6
+  checksum: 10c0/d15a40bd1c12a068ac4029a855cecd3b5e2354cbd07b585292695a7ae013a9d941c9df7dc7242e5c71e24a949e9847936145e1e33020847b90e5dfee39582b0e
   languageName: node
   linkType: hard
 
@@ -19760,7 +19760,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.2"
-    "@pushchain/core": "npm:^5.1.4-alpha.6"
+    "@pushchain/core": "npm:^5.1.4-alpha.7"
     "@pushchain/ui-kit": "npm:^5.1.0"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@solana/web3.js": "npm:^1.98.2"

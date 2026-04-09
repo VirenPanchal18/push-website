@@ -22,9 +22,9 @@ import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtua
 
 ## Overview
 
-Multichain transactions let you compose and sequence multiple universal transactions across different routes. 
+Multichain transactions let you compose multiple universal transactions into a single ordered flow across different routes.
 
-This allows you to build a **single transaction capable of executing across Push Chain or external chains, or both**, with a single coordinated flow submitted as one user-signed transaction.
+This allows you to submit a **single user-signed transaction** to Push Chain that coordinates execution across Push Chain, external chains, or both.
 
 **Prerequisite:** Familiarize yourself with [Send Universal Transaction](./send-universal-transaction) before reading this page.
 
@@ -37,7 +37,7 @@ This allows you to build a **single transaction capable of executing across Push
 
 **_`pushChainClient.universal.prepareTransaction({tx}): Promise<PreparedUniversalTx>`_**
 
-Prepares a transaction without executing it. Returns a `PreparedUniversalTx` object that you pass to `executeTransactions`.
+Prepares a transaction without executing it. Returns a **PreparedUniversalTx** object that you pass to **executeTransactions**.
 
 ```typescript
 const preparedTx = await pushChainClient.universal.prepareTransaction({
@@ -51,21 +51,23 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
 });
 ```
 
+:::info 
+**PreparedUniversalTx** is an intermediate object that you pass to `executeTransactions`. Most apps do not need to manually inspect or modify its fields.
+:::
+
 <PushAPIReference>
 
 | **Arguments** | **Type** | **Description** |
 | ------------- | -------- | --------------- |
-| `tx.to` | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain (plain string), or `{ address, chain }` for an external chain via CEA. <ConstantsDropdown variant="CHAIN" /> |
-| `tx.from` | `{ chain: CHAIN }` | Optional. When set, originates from the CEA on that chain (Route 3). |
+| _`tx.to`_ | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain (plain string), or `{ address, chain }` for an external chain via CEA. <ConstantsDropdown variant="CHAIN" /> |
+| `tx.from` | `{ chain: CHAIN }` | Optional. When set, originates from the CEA on that chain. |
 | `tx.value` | `BigInt` | Native value to send in the smallest unit of the execution context. |
 | `tx.data` | `string` \| `Array<{ to: string; value: bigint; data: string }>` | ABI-encoded calldata, or an array of calls for multicall mode. |
 | `tx.funds` | `{ amount: bigint; token?: MoveableToken }` | Move tokens from origin chain atomically with the call. Use `PushChain.CONSTANTS.MOVEABLE.TOKEN.<CHAIN>.<TOKEN>`. |
-| `tx.gasLimit` | `bigint` | Optional gas limit override. SDK estimates if omitted. |
-| `tx.payGasWith` | `{ token?: PayableToken; slippageBps?: number; minAmountOut?: bigint }` | Pay gas with a token instead of native. Use `PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>`. |
 
 </PushAPIReference>
 
-**Note**: `PreparedUniversalTx` is primarily an intermediate object passed into `executeTransactions`. Most apps do not need to manually inspect or modify its fields.
+> `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](./send-universal-transaction). 
 
 <Details summary="Returns `PreparedUniversalTx` <object>" className="alert alert--fn-args">
 
@@ -104,7 +106,7 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
       const wallet = ethers.Wallet.createRandom();
       const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
       const signer = wallet.connect(provider);
-      console.log('🔑 Push Chain account:', wallet.address);
+      console.log('🔑 Sepolia account:', wallet.address);
 
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
@@ -156,13 +158,15 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
 
 **_`pushChainClient.universal.executeTransactions(txs: PreparedUniversalTx[]): Promise<CascadedTxResponse>`_**
 
-Executes an array of prepared transactions as a cascade. All hops are composed into a **single user-signed Push Chain transaction**. You sign once, and the SDK relays all subsequent hops automatically.
+Executes an ordered array of prepared transactions as a multichain flow. This is submitted and handled as a **single transaction**. You sign once, and the SDK coordinates execution across Push Chain and supported external chains automatically.
+
+Each prepared transaction becomes one ordered step in the multichain flow.
 
 ```typescript
-const step1 = await pushChainClient.universal.prepareTransaction({ to: '0xPushChainContract', value: BigInt(0), data: encodedStep1 });
-const step2 = await pushChainClient.universal.prepareTransaction({ to: { address: '0xEthContract', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, value: BigInt(0), data: encodedStep2 });
+const step1 = await pushChainClient.universal.prepareTransaction({...}); // Push Chain
+const step2 = await pushChainClient.universal.prepareTransaction({...}); // BNB
 
-const cascade = await pushChainClient.universal.executeTransactions([step1, step2]);
+const result = await pushChainClient.universal.executeTransactions([step1, step2]);
 ```
 
 <PushAPIReference>
@@ -172,6 +176,8 @@ const cascade = await pushChainClient.universal.executeTransactions([step1, step
 | `txs` | `PreparedUniversalTx[]` | Ordered array of prepared transactions from `prepareTransaction`. |
 
 </PushAPIReference>
+
+> In the API response, each executed step is reported as a hop.
 
 <Details summary="Returns `CascadedTxResponse` <object>" className="alert alert--fn-args">
 
@@ -215,7 +221,7 @@ const cascade = await pushChainClient.universal.executeTransactions([step1, step
 
 
 
-<Details summary="Live Playground: Execute a Cascaded Transaction" className="alert alert--live-play">
+<Details summary="Live Playground: Execute a Series of Multichain Transactions" className="alert alert--live-play">
 
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
@@ -435,7 +441,7 @@ Pull ETH from an Ethereum Sepolia CEA into Push Chain, swap pETH → pSOL on the
       // ── Execute all 3 hops as one user-signed transaction ──────────────────
       const cascade = await client.universal.executeTransactions([hop0, hop1, hop2]);
       console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
-      console.log('� hopCount:', cascade.hopCount);
+      console.log('Hop Count:', cascade.hopCount);
 
       const result = await cascade.wait({
         progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
@@ -653,7 +659,7 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
 
 ## Key Considerations
 
-- **Single signature**: `executeTransactions` composes all hops into one Push Chain transaction. You sign once and the SDK relays all subsequent hops automatically via the relay network.
+- **Single signature**: `executeTransactions` submits one transaction to Push Chain. You sign once, and the SDK coordinates the full multichain execution automatically.
 - **No atomicity guarantee**: If a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
 - **Gas per hop**: Each hop has its own estimated gas. Ensure gas is properly funded.
 - **Tracking**: Use `cascade.wait({ progressHook })` to receive live status updates per hop as they propagate across chains.
@@ -661,5 +667,7 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
 
 ## Next Steps
 
-- [Track Universal Transaction](./track-universal-transaction) — Monitor individual transaction confirmation status
-- [Utility Functions](./utility-functions) — `encodeTxData`, `parseUnits`, and other helpers used in this page
+- [Track Universal Transaction](./track-universal-transaction) to monitor individual transaction confirmation status
+- [Contract Initiated Multichain Execution](./contract-initiated-multichain-execution) to trigger multichain flows from on-chain contracts
+- [Sign Universal Message](./sign-universal-message) to sign typed messages across chains with a universal signer
+- [Utility Functions](./utility-functions) for `encodeTxData`, `parseUnits`, and other helpers used in this page
