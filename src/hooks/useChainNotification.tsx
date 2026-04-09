@@ -35,7 +35,7 @@ type NotificationProps = {
 };
 
 // Custom Hook
-export const useChainNotification = () => {
+export const useseasonThreeNotification = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const { t } = useTranslation();
 
@@ -47,12 +47,15 @@ export const useChainNotification = () => {
           description={t('notifications.chain-notification.description')}
           position='bottom-left'
           onClick={() => {
-            localStorage.setItem('chainNotification', 'true');
-            window.open('https://portal.push.org', '_blank');
+            localStorage.setItem('seasonThreeNotification', 'true');
+            window.open(
+              'https://x.com/PushChain/status/2039704813412425925?s=20',
+              '_blank'
+            );
             toast.dismiss(toastId);
           }}
           onClose={() => {
-            localStorage.setItem('chainNotification', 'true');
+            localStorage.setItem('seasonThreeNotification', 'true');
             toast.dismiss(toastId);
           }}
           t={t}
@@ -69,7 +72,7 @@ export const useChainNotification = () => {
     // Ensure this code only runs in the browser
     if (typeof window !== 'undefined') {
       const notificationAlreadyShown =
-        localStorage.getItem('chainNotification') === 'true';
+        localStorage.getItem('seasonThreeNotification') === 'true';
 
       if (!notificationAlreadyShown && !hasMounted) {
         showNotification();
