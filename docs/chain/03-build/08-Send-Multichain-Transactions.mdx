@@ -12,36 +12,35 @@ image: "/assets/docs/previews/docs_chain_build--send_multichain_transactions.png
   <title>Send Multichain Transactions | Build | Push Chain Docs</title>
 </head>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
 import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsDropdown';
+import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
 
 {/* Content Start */}
 
+
 ## Overview
 
-Multichain transactions let you compose and sequence multiple `sendTransaction` calls across different routes — Push Chain, external chains via CEA, or both — into coordinated multi-step flows.
+Multichain transactions let you compose and sequence multiple universal transactions across different routes. 
 
-This page covers:
-- The `prepareTransaction` utility for constructing transactions before sending
-- The `executeTransactions` pattern for sequencing multiple calls
-- How to chain execution across Route 1, Route 2, and Route 3
-- Multi-hop behavior and ordering guarantees
+This allows you to build a **single transaction capable of executing across Push Chain or external chains, or both**, with a single coordinated flow submitted as one user-signed transaction.
 
-> **Prerequisite:** Familiarize yourself with [Understanding Universal Transactions](./understanding-universal-transactions) and [Send Universal Transaction](./send-universal-transaction) before reading this page.
+**Prerequisite:** Familiarize yourself with [Send Universal Transaction](./send-universal-transaction) before reading this page.
 
----
+### Mental Model
 
-## prepareTransaction
+1. **Prepare** each transaction step with `prepareTransaction`
+2. **Execute** all steps together with `executeTransactions`
 
-`prepareTransaction` constructs a transaction object without submitting it. Use it to build individual transaction steps that you later pass to a sequencer or execute conditionally.
+## Prepare Transaction
 
-**_`pushChainClient.universal.prepareTransaction({tx}): Promise<PreparedTransaction>`_**
+**_`pushChainClient.universal.prepareTransaction({tx}): Promise<PreparedUniversalTx>`_**
+
+Prepares a transaction without executing it. Returns a `PreparedUniversalTx` object that you pass to `executeTransactions`.
 
 ```typescript
-const prepared = await pushChainClient.universal.prepareTransaction({
+const preparedTx = await pushChainClient.universal.prepareTransaction({
   to: '0xContractAddress',
   value: BigInt(0),
   data: PushChain.utils.helpers.encodeTxData({
@@ -56,325 +55,611 @@ const prepared = await pushChainClient.universal.prepareTransaction({
 
 | **Arguments** | **Type** | **Description** |
 | ------------- | -------- | --------------- |
-| `tx.to` | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain, or `{ address, chain }` for an external chain via CEA. <ConstantsDropdown variant="CHAIN" /> |
-| `tx.from` | `{ chain: CHAIN }` | When set to an external chain, marks this as a Route 3 transaction (CEA-origin execution on Push Chain). |
+| `tx.to` | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain (plain string), or `{ address, chain }` for an external chain via CEA. <ConstantsDropdown variant="CHAIN" /> |
+| `tx.from` | `{ chain: CHAIN }` | Optional. When set, originates from the CEA on that chain (Route 3). |
 | `tx.value` | `BigInt` | Native value to send in the smallest unit of the execution context. |
 | `tx.data` | `string` \| `Array<{ to: string; value: bigint; data: string }>` | ABI-encoded calldata, or an array of calls for multicall mode. |
-| `tx.gasLimit` | `BigInt` | Maximum gas units for execution. |
-| `tx.funds` | `{ amount: BigInt; token?: MOVEABLE_TOKEN }` | Move tokens from origin chain atomically with the call. <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
+| `tx.funds` | `{ amount: bigint; token?: MoveableToken }` | Move tokens from origin chain atomically with the call. Use `PushChain.CONSTANTS.MOVEABLE.TOKEN.<CHAIN>.<TOKEN>`. |
+| `tx.gasLimit` | `bigint` | Optional gas limit override. SDK estimates if omitted. |
+| `tx.payGasWith` | `{ token?: PayableToken; slippageBps?: number; minAmountOut?: bigint }` | Pay gas with a token instead of native. Use `PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>`. |
 
 </PushAPIReference>
 
-<Details summary="Returns `PreparedTransaction` <object>" className="alert alert--fn-args">
+**Note**: `PreparedUniversalTx` is primarily an intermediate object passed into `executeTransactions`. Most apps do not need to manually inspect or modify its fields.
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `tx` | `object` | The fully resolved transaction parameters, including estimated gas and resolved UEA. |
-| `route` | `1 \| 2 \| 3` | The resolved routing mode for this transaction. |
-| `estimatedGas` | `BigInt` | Estimated gas cost for execution. |
-| `send` | `() => Promise<TxResponse>` | Convenience function to immediately submit this prepared transaction. |
+<Details summary="Returns `PreparedUniversalTx` <object>" className="alert alert--fn-args">
+
+| **Property** | **Type** | **Description** |
+| ------------ | -------- | --------------- |
+| `route` | `'UOA_TO_PUSH'` \| `'UOA_TO_CEA'` \| `'CEA_TO_PUSH'` \| `'CEA_TO_CEA'` | Detected routing mode for this transaction. |
+| `estimatedGas` | `bigint` | Estimated gas units for execution. |
+| `nonce` | `bigint` | Nonce to use for submission. |
+| `deadline` | `bigint` | Signature expiry deadline. |
+| `payload` | `string` | Encoded payload ready for submission. |
+| `gatewayRequest` | `object` | Gateway request object (inbound or outbound). |
 
 </Details>
 
----
+<Details summary="Live Playground: Inspect PreparedUniversalTx" className="alert alert--live-play">
 
-## executeTransactions
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
-`executeTransactions` runs an ordered sequence of transactions and resolves each one before starting the next. It is the primary way to compose multi-step multichain flows.
+{`
+// customPropHighlightRegexStart=prepareTransaction
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=prepare_transaction
 
-**_`pushChainClient.universal.executeTransactions(steps): Promise<TxResponse[]>`_**
+    // Inspect PreparedUniversalTx before sending
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+    ];
+    const COUNTER_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('🔑 Push Chain account:', wallet.address);
+
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+
+      // Route 1: prepare a Push Chain transaction without sending it
+      const prepared = await client.universal.prepareTransaction({
+        to: COUNTER_ADDRESS,
+        value: BigInt(0),
+        data: PushChain.utils.helpers.encodeTxData({
+          abi: COUNTER_ABI,
+          functionName: 'increment',
+        }),
+      });
+
+      console.log('📋 route:', prepared.route);
+      console.log('⛽ estimatedGas:', prepared.estimatedGas.toString());
+      console.log('🔢 nonce:', prepared.nonce.toString());
+      console.log('⏱️  deadline:', prepared.deadline.toString());
+      console.log('📦 Returned PreparedUniversalTx:', JSON.stringify(prepared));
+
+      // Route 2: prepare a cross-chain transaction
+      const preparedCrossChain = await client.universal.prepareTransaction({
+        to: { address: COUNTER_ADDRESS, chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+        value: BigInt(0),
+        data: PushChain.utils.helpers.encodeTxData({
+          abi: COUNTER_ABI,
+          functionName: 'increment',
+        }),
+      });
+
+      console.log('📋 cross-chain route:', preparedCrossChain.route);
+      console.log('⛽ estimatedGas:', preparedCrossChain.estimatedGas.toString());
+
+      console.log('📦 Returned PreparedUniversalTx:', JSON.stringify(preparedCrossChain));
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+
+
+## Execute Transactions
+
+**_`pushChainClient.universal.executeTransactions(txs: PreparedUniversalTx[]): Promise<CascadedTxResponse>`_**
+
+Executes an array of prepared transactions as a cascade. All hops are composed into a **single user-signed Push Chain transaction**. You sign once, and the SDK relays all subsequent hops automatically.
 
 ```typescript
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    tx: {
-      to: '0xContractOnPushChain',
-      value: BigInt(0),
-      data: encodedStep1,
-    },
-  },
-  {
-    tx: {
-      to: { address: '0xContractOnEthereum', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
-      value: BigInt(0),
-      data: encodedStep2,
-    },
-  },
-]);
+const step1 = await pushChainClient.universal.prepareTransaction({ to: '0xPushChainContract', value: BigInt(0), data: encodedStep1 });
+const step2 = await pushChainClient.universal.prepareTransaction({ to: { address: '0xEthContract', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, value: BigInt(0), data: encodedStep2 });
+
+const cascade = await pushChainClient.universal.executeTransactions([step1, step2]);
 ```
 
 <PushAPIReference>
 
 | **Arguments** | **Type** | **Description** |
 | ------------- | -------- | --------------- |
-| `steps` | `Array<{ tx: TxParams; waitForConfirmation?: boolean; progressHook?: Function }>` | Ordered list of transaction steps to execute sequentially. |
-| `steps[n].tx` | `TxParams` | Transaction parameters — same shape as `sendTransaction`. |
-| `steps[n].waitForConfirmation` | `boolean` | If `true`, waits for the previous step's on-chain confirmation before proceeding. Defaults to `true`. |
-| `steps[n].progressHook` | `(progress: ProgressHookType) => void` | Per-step progress callback for tracking intermediate states. |
+| `txs` | `PreparedUniversalTx[]` | Ordered array of prepared transactions from `prepareTransaction`. |
 
 </PushAPIReference>
 
----
+<Details summary="Returns `CascadedTxResponse` <object>" className="alert alert--fn-args">
 
-## Composing Multiple Transactions
+| Property | Type | Description |
+|----------|------|-------------|
+| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction that kicked off the cascade. |
+| `initialTxResponse` | `UniversalTxResponse` | Full response object for the initial Push Chain transaction. |
+| `hops` | `CascadeHopInfo[]` | Ordered list of all hops with routing and status information. |
+| `hopCount` | `number` | Total number of hops in the cascade. |
+| `wait(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `waitForAll`. Waits for all hops to complete. |
+| `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Waits for all hops to complete across all chains. |
 
-### Pattern: Sequential Push Chain Calls
+**CascadeHopInfo** fields:
 
-The simplest composition: multiple Push Chain calls executed one after another. Each step resolves before the next begins.
+| Property | Type | Description |
+|----------|------|-------------|
+| `hopIndex` | `number` | Position in the cascade (0-indexed). |
+| `route` | `string` | Routing mode for this hop (`UOA_TO_PUSH`, `UOA_TO_CEA`, etc.). |
+| `executionChain` | `CHAIN` | Chain where this hop executes. |
+| `status` | `'pending'` \| `'submitted'` \| `'confirmed'` \| `'failed'` | Current hop status. |
+| `txHash` | `string` | Resolved transaction hash once available. |
+| `outboundDetails` | `object` | External chain tx details for outbound hops, including hash, explorer URL, recipient, and amount. |
 
-```typescript
-const encodedIncrement = PushChain.utils.helpers.encodeTxData({
-  abi: CounterABI,
-  functionName: 'increment',
-});
+**CascadeCompletionResult** fields:
 
-const encodedReset = PushChain.utils.helpers.encodeTxData({
-  abi: CounterABI,
-  functionName: 'reset',
-});
+| Property | Type | Description |
+|----------|------|-------------|
+| `success` | `boolean` | Whether all hops completed successfully. |
+| `hops` | `CascadeHopInfo[]` | Final state of all hops. |
+| `failedAt` | `number` | Index of first failed hop, if any. |
 
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    tx: {
-      to: '0xCounterContract',
-      value: BigInt(0),
-      data: encodedIncrement,
-    },
-    waitForConfirmation: true,
-  },
-  {
-    tx: {
-      to: '0xCounterContract',
-      value: BigInt(0),
-      data: encodedReset,
-    },
-  },
-]);
+**waitForAll** options:
 
-console.log('Step 1 hash:', responses[0].hash);
-console.log('Step 2 hash:', responses[1].hash);
-```
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `pollingIntervalMs` | `number` | `5000` | Polling interval in milliseconds. |
+| `timeout` | `number` | `600000` | Total timeout in milliseconds (10 min). |
+| `progressHook` | `(event: CascadeProgressEvent) => void` | - | Progress callback per hop. Reports `hopIndex`, `route`, `chain`, `status`, `txHash`, `elapsed`. |
 
----
+</Details>
 
-### Pattern: Push Chain → External Chain (Route 1 → Route 2)
 
-Execute on Push Chain first, then trigger an action on an external chain via CEA.
 
-```typescript
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    // Route 1: Execute on Push Chain
-    tx: {
-      to: '0xPushChainContract',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: VaultABI,
-        functionName: 'lockFunds',
-        args: [PushChain.utils.helpers.parseUnits('100', 18)],
-      }),
-    },
-    waitForConfirmation: true,
-  },
-  {
-    // Route 2: Execute on Ethereum via CEA
-    tx: {
-      to: {
-        address: '0xEthereumContract',
-        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+<Details summary="Live Playground: Execute a Cascaded Transaction" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=executeTransactions
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=execute_transactions_counter
+
+    // UOA on Sepolia - 3 hops in one signature:
+    //   Hop 0 (Route 1): UOA → increment counter on Push Chain
+    //   Hop 1 (Route 2): UOA → increment counter on BNB Testnet via CEA
+    //   Hop 2 (Route 2): UOA → increment counter on Solana Devnet via CEA
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+    import * as readline from 'node:readline/promises';
+
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+    ];
+    const COUNTER_PUSH = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Push Chain Testnet (Donut)
+    const COUNTER_BNB  = '0x7f0936bb90e7dcf3edb47199c2005e7184e44cf8'; // BNB Testnet
+
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('🔑 Sepolia wallet (UOA):', wallet.address);
+
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
+
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+
+      const calldata = PushChain.utils.helpers.encodeTxData({ abi: COUNTER_ABI, functionName: 'increment' });
+
+      // Hop 0 (Route 1): UOA → increment counter directly on Push Chain
+      const hop0 = await client.universal.prepareTransaction({
+        to: COUNTER_PUSH,
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop0 prepared - route:', hop0.route);
+
+      // Hop 1 (Route 2): UOA → increment counter on BNB Testnet via CEA
+      const hop1 = await client.universal.prepareTransaction({
+        to: { address: COUNTER_BNB, chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET },
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop1 prepared - route:', hop1.route);
+
+      // Hop 2 (Route 2): UOA → increment counter on Solana Devnet via CEA
+      const uoa = PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA });
+      const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(uoa, {
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        skipNetworkCheck: true,
+      });
+      console.log('📍 Solana CEA:', solanaCEA.address);
+      const hop2 = await client.universal.prepareTransaction({
+        to: { address: solanaCEA.address, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop2 prepared - route:', hop2.route);
+
+      // Execute all 3 hops as one user-signed Push Chain transaction
+      const cascade = await client.universal.executeTransactions([hop0, hop1, hop2]);
+      console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
+      console.log('📦 hopCount:', cascade.hopCount);
+
+      const result = await cascade.wait({
+        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
+      });
+      console.log('🏁 All hops complete. Success:', result.success);
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+
+## More Examples
+
+### Cross-Chain AMM Swap: ETH → pSOL via Push Chain AMM
+
+Pull ETH from an Ethereum Sepolia CEA into Push Chain, swap pETH → pSOL on the Push Chain AMM (Uniswap V3 fork), then bridge the pSOL out to the user's Solana Devnet CEA. All three hops execute under a single user signature.
+
+<Details summary="Live Playground: ETH → pSOL Swap → Solana" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=executeTransactions
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=execute_transactions
+
+    // 3-hop multichain cascade:
+    //   Hop 0 (CEA_TO_PUSH)  - Pull ETH from Ethereum Sepolia CEA into Push Chain
+    //   Hop 1 (UOA_TO_PUSH)  - Swap pETH → pSOL on Push Chain AMM
+    //   Hop 2 (UOA_TO_CEA)   - Send pSOL out to Solana Devnet
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+    import * as readline from 'node:readline/promises';
+
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+    // Push Chain AMM (Uniswap V3 fork) - swap router on testnet
+    const SWAP_ROUTER_ADDRESS = '0x81b8Bca02580C7d6b636051FDb7baAC436bFb454';
+    const SWAP_ROUTER_ABI = [
+      {
+        inputs: [
+          {
+            components: [
+              { internalType: 'address', name: 'tokenIn', type: 'address' },
+              { internalType: 'address', name: 'tokenOut', type: 'address' },
+              { internalType: 'uint24', name: 'fee', type: 'uint24' },
+              { internalType: 'address', name: 'recipient', type: 'address' },
+              { internalType: 'uint256', name: 'amountIn', type: 'uint256' },
+              { internalType: 'uint256', name: 'amountOutMinimum', type: 'uint256' },
+              { internalType: 'uint160', name: 'sqrtPriceLimitX96', type: 'uint160' },
+            ],
+            internalType: 'struct ISwapRouter.ExactInputSingleParams',
+            name: 'params',
+            type: 'tuple',
+          },
+        ],
+        name: 'exactInputSingle',
+        outputs: [{ internalType: 'uint256', name: 'amountOut', type: 'uint256' }],
+        stateMutability: 'payable',
+        type: 'function',
       },
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: BridgeABI,
-        functionName: 'release',
-        args: ['0xRecipient'],
-      }),
-    },
-  },
-]);
-```
+    ];
 
----
+    // Synthetic token addresses on Push Chain testnet
+    const pETH_ADDRESS = '0x2971824Db68229D087931155C2b8bB820B275809';
+    const pSOL_ADDRESS = '0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed';
 
-### Pattern: External Chain → Push Chain (Route 3 → Route 1)
+    // Amount to move: 0.001 ETH
+    const AMOUNT_IN = PushChain.utils.helpers.parseUnits('0.001', 18);
 
-Initiate from an external chain context, then follow up with a direct Push Chain call.
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('🔑 Wallet (UOA):', wallet.address);
+      await rl.question(':::prompt:::Send at least 0.002 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from: https://cloud.google.com/application/web3/faucet/ethereum/sepolia. 0.001 ETH is the payload; the rest covers gas on the Sepolia CEA. Press Enter when funded.');
 
-```typescript
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    // Route 3: CEA on Ethereum triggers Push Chain execution
-    tx: {
-      from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
-      to: '0xPushChainContract',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: RegistryABI,
-        functionName: 'registerFromEthereum',
-        args: ['0xEthereumOriginAddress'],
-      }),
-    },
-    waitForConfirmation: true,
-  },
-  {
-    // Route 1: Follow-up call directly on Push Chain
-    tx: {
-      to: '0xAnotherPushChainContract',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: FollowUpABI,
-        functionName: 'confirm',
-        args: [],
-      }),
-    },
-  },
-]);
-```
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
 
----
+      // ── Hop 0: CEA_TO_PUSH ─────────────────────────────────────────────────
+      // Pull 0.001 ETH from the Ethereum Sepolia CEA into Push Chain.
+      // The 'from' field signals this originates from the Sepolia CEA.
+      const hop0 = await client.universal.prepareTransaction({
+        from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
+        to: wallet.address,           // receive into this UOA on Push Chain
+        value: BigInt(0),
+        data: '0x',
+        funds: {
+          amount: AMOUNT_IN,
+          token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH,
+        },
+      });
+      console.log('✅ hop0 prepared - route:', hop0.route);
 
-## Multi-Hop Behavior
+      // ── Hop 1: UOA_TO_PUSH ─────────────────────────────────────────────────
+      // Swap pETH → pSOL on the Push Chain AMM using exactInputSingle.
+      const hop1 = await client.universal.prepareTransaction({
+        to: SWAP_ROUTER_ADDRESS,
+        value: BigInt(0),
+        data: PushChain.utils.helpers.encodeTxData({
+          abi: SWAP_ROUTER_ABI,
+          functionName: 'exactInputSingle',
+          args: [{
+            tokenIn: pETH_ADDRESS,
+            tokenOut: pSOL_ADDRESS,
+            fee: 3000,                // 0.3% pool fee
+            recipient: wallet.address,
+            amountIn: AMOUNT_IN,
+            amountOutMinimum: BigInt(0),
+            sqrtPriceLimitX96: BigInt(0),
+          }],
+        }),
+      });
+      console.log('✅ hop1 prepared - route:', hop1.route);
 
-A multi-hop flow involves more than two chains in a single logical sequence — for example, Solana → Push Chain → Ethereum. Each hop is a discrete transaction step that the SDK executes in order.
+      // ── Hop 2: UOA_TO_CEA ──────────────────────────────────────────────────
+      // Derive the CEA (Chain Executor Account) on Solana Devnet for this wallet.
+      const uoa = PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA });
+      const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(uoa, {
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        skipNetworkCheck: true,
+      });
+      console.log('📍 Solana CEA (destination):', solanaCEA.address);
+      const hop2 = await client.universal.prepareTransaction({
+        to: { address: solanaCEA.address, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        value: BigInt(0),
+        data: '0x',
+        funds: {
+          amount: AMOUNT_IN,
+          token: PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pSOL,
+        },
+      });
+      console.log('✅ hop2 prepared - route:', hop2.route);
 
-### How Multi-Hop Works
+      // ── Execute all 3 hops as one user-signed transaction ──────────────────
+      const cascade = await client.universal.executeTransactions([hop0, hop1, hop2]);
+      console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
+      console.log('� hopCount:', cascade.hopCount);
 
-1. **Step 1** (origin → Push Chain): The user signs from their origin chain. The SDK verifies the UOA proof, resolves the UEA, and executes on Push Chain.
-2. **Step 2** (Push Chain → External): Once Step 1 is confirmed, the SDK constructs a Route 2 transaction using the CEA on the target external chain.
-3. **Ordering guarantee**: By default, each step waits for on-chain confirmation before the next step begins. Set `waitForConfirmation: false` to relax this for steps that are truly independent.
+      const result = await cascade.wait({
+        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
+      });
+      console.log('🏁 All hops complete. Success:', result.success);
+    }
 
-### Example: Solana → Push Chain → Ethereum
+    await main().catch(console.error);
+`}
 
-```typescript
-// Solana user triggers a multi-hop flow:
-// 1. Update state on Push Chain
-// 2. Notify an Ethereum contract via CEA
+</NodeJSVirtualIDE>
 
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    // Step 1: Solana origin → Push Chain (Route 1)
-    tx: {
-      to: '0xStateSyncContract',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: StateSyncABI,
-        functionName: 'syncFromSolana',
-        args: [solanaPublicKey, payload],
-      }),
-    },
-    waitForConfirmation: true,
-    progressHook: (event) => console.log(`[Step 1] ${event.id}: ${event.message}`),
-  },
-  {
-    // Step 2: Push Chain → Ethereum via CEA (Route 2)
-    tx: {
-      to: {
-        address: '0xNotifierContract',
-        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
-      },
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: NotifierABI,
-        functionName: 'notify',
-        args: [stateHash],
-      }),
-    },
-    progressHook: (event) => console.log(`[Step 2] ${event.id}: ${event.message}`),
-  },
-]);
+</Details>
 
-console.log('Sync tx:', responses[0].hash);
-console.log('Notify tx:', responses[1].hash);
-```
+### Fund BNB CEA then Increment Counter on BNB Testnet
 
----
+Increment a counter on Push Chain, then use the CEA on BNB Testnet to increment a counter there as well. Both hops are composed into a single signature, and the playground reads the counter values before and after to confirm the changes.
 
-## Multi-Step Flow Examples
+<Details summary="Live Playground: Increment on Push Chain → BNB via CEA" className="alert alert--live-play">
 
-### Example: Token Bridge + Contract Call
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
 
-Move tokens from Ethereum to Push Chain, then call a contract that depends on those tokens being present.
+{`
+// customPropHighlightRegexStart=executeTransactions
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=execute_transactions_fund_and_call
 
-```typescript
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    // Step 1: Move USDT from Ethereum to Push Chain and call a contract atomically
-    tx: {
-      to: '0xDeFiProtocolOnPushChain',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: DeFiABI,
-        functionName: 'deposit',
-        args: [PushChain.utils.helpers.parseUnits('50', 6)],
-      }),
-      funds: {
-        amount: PushChain.utils.helpers.parseUnits('50', 6), // 50 USDT
-        token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT,
-      },
-    },
-    waitForConfirmation: true,
-  },
-  {
-    // Step 2: Now that funds are in, interact further on Push Chain
-    tx: {
-      to: '0xDeFiProtocolOnPushChain',
-      value: BigInt(0),
-      data: PushChain.utils.helpers.encodeTxData({
-        abi: DeFiABI,
-        functionName: 'stake',
-        args: [],
-      }),
-    },
-  },
-]);
-```
+    // 2-hop cascade from a Sepolia UOA:
+    //   Hop 0 (Route 1): increment counter on Push Chain
+    //   Hop 1 (Route 2): increment counter on BNB Testnet via CEA
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+    import * as readline from 'node:readline/promises';
 
----
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+    const RPC_PUSH    = 'https://evm.donut.rpc.push.org/';
+    const RPC_BNB     = 'https://bsc-testnet-rpc.publicnode.com';
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
-### Example: Cross-Chain Governance Vote
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+      { inputs: [], name: 'count',   outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+      { inputs: [], name: 'countPC', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+    ];
+    const COUNTER_PUSH = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Push Chain Testnet (Donut)
+    const COUNTER_BNB  = '0x7f0936bb90e7dcf3edb47199c2005e7184e44cf8'; // BNB Testnet
 
-Cast a vote on Push Chain and propagate the result to an Ethereum governance contract.
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('🔑 Sepolia wallet (UOA):', wallet.address);
 
-```typescript
-const voteData = PushChain.utils.helpers.encodeTxData({
-  abi: GovernanceABI,
-  functionName: 'castVote',
-  args: [proposalId, support],
-});
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
-const propagateData = PushChain.utils.helpers.encodeTxData({
-  abi: EthGovernanceABI,
-  functionName: 'receiveVote',
-  args: [proposalId, voterAddress, support],
-});
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
 
-const responses = await pushChainClient.universal.executeTransactions([
-  {
-    tx: { to: '0xGovernanceOnPushChain', value: BigInt(0), data: voteData },
-    waitForConfirmation: true,
-  },
-  {
-    tx: {
-      to: { address: '0xGovernanceOnEthereum', chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
-      value: BigInt(0),
-      data: propagateData,
-    },
-  },
-]);
-```
+      // Read counters BEFORE
+      const pushProvider = new ethers.JsonRpcProvider(RPC_PUSH);
+      const bnbProvider  = new ethers.JsonRpcProvider(RPC_BNB);
+      const pushCounter  = new ethers.Contract(COUNTER_PUSH, COUNTER_ABI, pushProvider);
+      const bnbCounter   = new ethers.Contract(COUNTER_BNB,  COUNTER_ABI, bnbProvider);
+      console.log('📊 Push Chain counter BEFORE:', (await pushCounter.countPC()).toString());
+      console.log('📊 BNB counter BEFORE:',        (await bnbCounter.count()).toString());
 
----
+      const calldata = PushChain.utils.helpers.encodeTxData({ abi: COUNTER_ABI, functionName: 'increment' });
+
+      // Hop 0 (Route 1): increment counter on Push Chain
+      const hop0 = await client.universal.prepareTransaction({
+        to: COUNTER_PUSH,
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop0 prepared - route:', hop0.route);
+
+      // Hop 1 (Route 2): increment counter on BNB Testnet via CEA
+      const hop1 = await client.universal.prepareTransaction({
+        to: { address: COUNTER_BNB, chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET },
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop1 prepared - route:', hop1.route);
+
+      const cascade = await client.universal.executeTransactions([hop0, hop1]);
+      console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
+      console.log('📦 hopCount:', cascade.hopCount);
+
+      const result = await cascade.wait({
+        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
+      });
+      console.log('🏁 All hops complete. Success:', result.success);
+
+      if (result.success) {
+        console.log('📊 Push Chain counter AFTER:', (await pushCounter.countPC()).toString());
+        console.log('📊 BNB counter AFTER:',        (await bnbCounter.count()).toString());
+      }
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
+### Batch Contract Calls: Push Chain + BNB + Solana in One Signature
+
+Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana Devnet. Three independent contract interactions across three chains, all composed into a single user signature.
+
+<Details summary="Live Playground: Batch Cross-Chain Contract Calls" className="alert alert--live-play">
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/send-universal-transaction"}}>
+
+{`
+// customPropHighlightRegexStart=executeTransactions
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=execute_transactions_batch
+
+    // Batch 3 contract calls across 3 chains - one user signature.
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+    import * as readline from 'node:readline/promises';
+
+    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
+    const RPC_PUSH    = 'https://evm.donut.rpc.push.org/';
+    const RPC_BNB     = 'https://bsc-testnet-rpc.publicnode.com';
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+    const COUNTER_ABI = [
+      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
+      { inputs: [], name: 'count',   outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+      { inputs: [], name: 'countPC', outputs: [{ name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+    ];
+    const COUNTER_PUSH = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Push Chain Testnet (Donut)
+    const COUNTER_BNB  = '0x7f0936bb90e7dcf3edb47199c2005e7184e44cf8'; // BNB Testnet
+
+    async function main() {
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
+      const signer = wallet.connect(provider);
+      console.log('🔑 Sepolia wallet (UOA):', wallet.address);
+
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
+
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const client = await PushChain.initialize(universalSigner, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+
+      // Read counters BEFORE
+      const pushProvider = new ethers.JsonRpcProvider(RPC_PUSH);
+      const bnbProvider  = new ethers.JsonRpcProvider(RPC_BNB);
+      const pushCounter  = new ethers.Contract(COUNTER_PUSH, COUNTER_ABI, pushProvider);
+      const bnbCounter   = new ethers.Contract(COUNTER_BNB,  COUNTER_ABI, bnbProvider);
+      console.log('📊 Push Chain counter BEFORE:', (await pushCounter.countPC()).toString());
+      console.log('📊 BNB counter BEFORE:',        (await bnbCounter.count()).toString());
+
+      const calldata = PushChain.utils.helpers.encodeTxData({ abi: COUNTER_ABI, functionName: 'increment' });
+
+      // Hop 0 (Route 1): increment counter on Push Chain
+      const hop0 = await client.universal.prepareTransaction({
+        to: COUNTER_PUSH,
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop0 prepared - route:', hop0.route);
+
+      // Hop 1 (Route 2): increment counter on BNB Testnet via CEA
+      const hop1 = await client.universal.prepareTransaction({
+        to: { address: COUNTER_BNB, chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET },
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop1 prepared - route:', hop1.route);
+
+      // Hop 2 (Route 2): call Solana Devnet via derived CEA
+      const uoa = PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA });
+      const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(uoa, {
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        skipNetworkCheck: true,
+      });
+      console.log('📍 Solana CEA:', solanaCEA.address);
+      const hop2 = await client.universal.prepareTransaction({
+        to: { address: solanaCEA.address, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        value: BigInt(0),
+        data: calldata,
+      });
+      console.log('✅ hop2 prepared - route:', hop2.route);
+
+      const cascade = await client.universal.executeTransactions([hop0, hop1, hop2]);
+      console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
+      console.log('📦 hopCount:', cascade.hopCount);
+
+      const result = await cascade.wait({
+        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
+      });
+      console.log('🏁 All hops complete. Success:', result.success);
+
+      if (result.success) {
+        console.log('📊 Push Chain counter AFTER:', (await pushCounter.countPC()).toString());
+        console.log('📊 BNB counter AFTER:',        (await bnbCounter.count()).toString());
+      }
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
+
 
 ## Key Considerations
 
-- **Atomicity**: `executeTransactions` does not guarantee atomicity across steps. If Step 2 fails, Step 1 is already on-chain. Design your contracts to handle partial execution if needed.
-- **Gas per step**: Each step is an independent transaction with its own gas. The SDK estimates gas for each step separately.
-- **CEA funding**: For Route 2 and Route 3, the CEA must have sufficient native funds on the external chain to cover gas. The SDK will surface an error if the CEA is underfunded.
-- **Confirmation depth**: `waitForConfirmation: true` waits for 1 block confirmation by default. For external chains with longer finality requirements, consider using `trackTransaction` after each step.
+- **Single signature**: `executeTransactions` composes all hops into one Push Chain transaction. You sign once and the SDK relays all subsequent hops automatically via the relay network.
+- **No atomicity guarantee**: If a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
+- **Gas per hop**: Each hop has its own estimated gas. Ensure gas is properly funded.
+- **Tracking**: Use `cascade.wait({ progressHook })` to receive live status updates per hop as they propagate across chains.
 
----
 
 ## Next Steps
 
-- [Track Universal Transaction](./track-universal-transaction) — Monitor each step's confirmation status
+- [Track Universal Transaction](./track-universal-transaction) — Monitor individual transaction confirmation status
 - [Utility Functions](./utility-functions) — `encodeTxData`, `parseUnits`, and other helpers used in this page
