@@ -1,10 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "Os 50 principais criadores recebem uma recompensa de 20M tokens. Reúna sua comunidade. Junte-se ao Push Cult!",
-      "button-title": "Junte-se à Tribo Push!",
-      "button-aria-label": "Junte-se à comunidade Push Cult!. Você pode conferir aqui",
-      "image-alt": "Junte-se à comunidade Push!"
+      "description": "Precisa de um código de convite? Siga-nos, assista ao nosso vídeo explicativo e deixe um comentário. Convites limitados!",
+      "button-title": "Obter código de convite",
+      "button-aria-label": "Obter código de convite! Confira aqui",
+      "image-alt": "Obter código de convite!"
     }
   }
 }

@@ -11,7 +11,7 @@ import {
   ThemeClassNames,
 } from '@docusaurus/theme-common';
 
-import React from 'react';
+import React, { useRef } from 'react';
 
 // External Components
 import AnnouncementBar from '@theme/AnnouncementBar';
@@ -31,6 +31,7 @@ import Footer from '@site/src/segments/Footer';
 import Header from '@site/src/segments/Header';
 
 // Internal Configs
+import { useInjectInviteCode } from '@site/src/components/InviteCodeWidget';
 import styles from './styles.module.css';
 
 export default function Layout(props) {
@@ -45,6 +46,8 @@ export default function Layout(props) {
   } = props;
 
   const { t } = useTranslation();
+  const mainRef = useRef(null);
+  useInjectInviteCode(mainRef);
 
   return (
     <LayoutProvider>
@@ -72,6 +75,7 @@ export default function Layout(props) {
       {showNavbar === 'website' && <Header />}
       <div
         id={SkipToContentFallbackId}
+        ref={mainRef}
         className={clsx(
           ThemeClassNames.wrapper.main,
           styles.mainWrapper,

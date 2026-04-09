@@ -1918,11 +1918,11 @@
   "notifications": {
     "chain-notification": {
       "title": "",
-      "description": "50 top creators get a bounty of 20M tokens. Gather your flock. Join Push Cult!",
-      "button-text": "Apply Now",
-      "button-title": "Join Push Cult!",
-      "button-aria-label": "Join Push Cult!. You can check it out here",
-      "image-alt": "Join Push Cult!",
+      "description": "Need an invite code? Follow, Watch our Explainer Video and drop a comment. Limited invites only.",
+      "button-text": "Get Invite Code",
+      "button-title": "Get Invite Code",
+      "button-aria-label": "Get Invite Code!. You can check it out here",
+      "image-alt": "Get Invite Code!",
       "close-button-title": "Close toast notification",
       "close-button-aria-label": "Dismiss Push Chain toast notification",
       "container-aria-label": "Push Chain toast notification"
@@ -1936,9 +1936,9 @@
       "container-aria-label": "Push Chain rewards notification"
     },
     "info-bar": {
-      "title": "Gather your flock for a curated incentivised creator program. Join Push Cult!",
-      "learn-more-text": "Apply Now",
-      "learn-more-title": "Apply Now",
+      "title": "Season 3 Invite Only Exclusive Access is Live!",
+      "learn-more-text": "Explore Season 3",
+      "learn-more-title": "Explore Season 3",
       "dismiss-button-title": "Dismiss announcement",
       "dismiss-button-aria-label": "Close announcement bar",
       "container-aria-label": "Site announcement",
