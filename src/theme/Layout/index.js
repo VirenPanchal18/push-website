@@ -10,7 +10,7 @@ import {
   SkipToContentFallbackId,
   ThemeClassNames,
 } from '@docusaurus/theme-common';
-import { useKeyboardNavigation } from '@docusaurus/theme-common/internal';
+
 import React from 'react';
 
 // External Components
@@ -45,7 +45,6 @@ export default function Layout(props) {
   } = props;
 
   const { t } = useTranslation();
-  useKeyboardNavigation();
 
   return (
     <LayoutProvider>
