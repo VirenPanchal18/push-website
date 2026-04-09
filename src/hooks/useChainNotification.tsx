@@ -35,7 +35,7 @@ type NotificationProps = {
 };
 
 // Custom Hook
-export const useseasonThreeNotification = () => {
+export const useChainNotification = () => {
   const [hasMounted, setHasMounted] = useState(false);
   const { t } = useTranslation();
 
