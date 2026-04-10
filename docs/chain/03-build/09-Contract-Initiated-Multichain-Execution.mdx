@@ -24,24 +24,20 @@ Contract-Initiated Multichain Execution is a distinct capability that lets a **P
 
 This enables Push contracts to autonomously interact with external protocols, call contracts on Ethereum or BNB Chain, and optionally receive inbound payloads back on Push Chain, all driven by on-chain contract code.
 
-<!-- :::info Summary
-A Push Chain smart contract calls `IUniversalGatewayPC.sendUniversalTxOutbound()` to trigger execution on an external chain. The TSS network picks up the event, deploys and executes the contract's CEA on the target chain. Inbound responses are delivered back to Push Chain by calling `executeUniversalTx()` on the originating contract.
-::: -->
-
 ## How This Differs from Universal Transactions
 
-Both universal transactions and contract-initiated execution enable **executing universal transactions across chains**, but they serve different initiators.
+Universal transactions are initiated by users. Contract-initiated multichain execution is initiated by Push Chain smart contracts. Both use the same cross-chain infrastructure, but differ in execution model and integration surface.
 
 | Dimension | Universal Transaction | Contract Initiated Execution |
 |-----------|----------------------|------------------------------|
 | **Who initiates** | A user wallet (UOA). | A Push Chain smart contract. |
-| **When it happens** | At user signature time. | During contract execution, triggered by any on-chain call.|
+| **When it happens** | At user signature time. | During contract execution, triggered by any on-chain call. |
 | **Authorization** | User signature or proof. | Contract logic, no live user required. |
 | **Return handling** | SDK receives `TxResponse`. | Inbound `executeUniversalTx()` call on the originating contract. |
 | **Identity on external chain** | User's CEA. | Contract's CEA (bound to the contract address). |
 | **SDK involvement** | Required on client side. | Fully on-chain, no SDK required. |
 
-The key distinction is that contract-initiated execution is **programmable and autonomous**. Any call that reaches your Push contract can cascade into external chain execution.
+The key distinction is that contract-initiated multichain execution is **programmable and autonomous**.  Any call into your Push contract can trigger external chain execution.
 
 Examples include liquidation triggers, scheduled jobs, governance outcomes, and user actions that fan out across chains.
 
@@ -49,14 +45,14 @@ Examples include liquidation triggers, scheduled jobs, governance outcomes, and 
 
 ### Contract CEA
 
-Every Push Chain smart contract has a deterministically derived **Chain Executor Account (CEA)** on each supported external chain. This is the same concept used for user-initiated transactions, but bound to the contract address instead of a user wallet.
+Every Push Chain smart contract has a deterministically derived **Chain Executor Account (CEA)** on each supported external chain. This is the same concept used in user-initiated transactions, but it is bound to the contract address instead of a user wallet.
 
 The contract CEA:
 - Is derived from the Push contract's address, not from any user
 - Is lazily deployed on first use by the TSS network
 - Acts as `msg.sender` on the external chain when the contract initiates execution there
 - Gas is taken in **$PC** on Push Chain and converted to the native token of the external chain
-- Is funded and managed independently from any user's CEA
+- Is scoped to the contract, not to any user
 
 ```mermaid
 flowchart LR
@@ -75,11 +71,11 @@ flowchart LR
 
 ### UniversalGatewayPC (UGPC)
 
-UGPC is the on-chain gateway contract on Push Chain through which all outbound cross-chain calls are routed. Your contract calls `UGPC.sendUniversalTxOutbound()`, which relays the payload and, when applicable, burns or locks  PRC20 tokens. It then emits the event that the TSS network listens for.
+UGPC is the on-chain gateway contract on Push Chain through which all outbound cross-chain calls are routed. Your contract calls `UGPC.sendUniversalTxOutbound()`, which relays the payload and, when applicable, burns or locks PRC20 tokens. It then emits the event that the TSS network listens for.
 
 ### Universal Executor Module
 
-The `UNIVERSAL_EXECUTOR_MODULE` is the privileged address on Push Chain authorized to deliver inbound cross-chain payloads. When a CEA executes on an external chain and a response needs to come back, the module calls `executeUniversalTx()` on your Push contract. **Only this address should be trusted to deliver inbound payloads** 
+The `UNIVERSAL_EXECUTOR_MODULE` is the privileged address on Push Chain authorized to deliver inbound cross-chain payloads. When a CEA executes on an external chain and a response needs to come back, the module calls `executeUniversalTx()` on your Push contract. **Only this address should be trusted to deliver inbound payloads**.
 
 :::warning Always validate inbound in your contract
 Always validate `msg.sender` in your inbound handler. Not doing so will result in unauthorized execution.
@@ -165,9 +161,9 @@ function sendUniversalTxOutbound(
 | Arguments | Type | Description |
 | --------- | ---- | ----------- |
 | _`req.recipient`_ | `bytes` | CEA or target address on the external chain, bytes-encoded. |
-| _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if not bridging tokens. |
+| _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if no token is being bridged. |
 | _`req.amount`_ | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
-| _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Use `0` for the network default. |
+| _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Use `0` to let the UGPC estimate it automatically. Not recommended for advanced scenarios. |
 | _`req.payload`_ | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
 | _`req.revertRecipient`_ | `address` | Address to receive bridged funds if the external transaction reverts. |
 
@@ -241,7 +237,7 @@ function executeUniversalTx(
 ```
 
 :::warning Always validate the caller
-Only **UNIVERSAL_EXECUTOR_MODULE** is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed **txId\`s** to prevent replay attacks.
+Only **UNIVERSAL_EXECUTOR_MODULE** is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed **txids** to prevent replay attacks.
 :::
 
 <PushAPIReference showRequiredNotice={false}>
@@ -600,9 +596,6 @@ Steps 5–7 only occur when the external interaction produces an inbound respons
 
 - **CEA identity is contract-bound**<br />
   The contract's CEA is derived from its Push Chain address. A different deployment, even identical bytecode at a new address, will have a different CEA. If you use a proxy pattern, the CEA is bound to the **proxy** address, not the implementation. Upgrades do not change the CEA.
-
-- **CEA funding is your responsibility**<br />
-  The contract's CEA must hold sufficient native funds on every target chain. Push infra does not fund it automatically. An underfunded CEA means the transaction is recorded on-chain but never executes on the external chain.
 
 - **CEA inbound needs $PC for execution**<br />
   The CEA inbound to Push Chain needs $PC for execution fees. Funding your Push Chain contract with $PC is your responsibility.
