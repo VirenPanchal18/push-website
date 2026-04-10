@@ -28,7 +28,7 @@ This enables Push contracts to autonomously interact with external protocols, ca
 
 Universal transactions are initiated by users. Contract-initiated multichain execution is initiated by Push Chain smart contracts. Both use the same cross-chain infrastructure, but differ in execution model and integration surface.
 
-| Dimension | Universal Transaction | Contract Initiated Execution |
+| Dimension | Universal Transaction | Contract-Initiated Multichain Execution |
 |-----------|----------------------|------------------------------|
 | **Who initiates** | A user wallet (UOA). | A Push Chain smart contract. |
 | **When it happens** | At user signature time. | During contract execution, triggered by any on-chain call. |
@@ -37,7 +37,7 @@ Universal transactions are initiated by users. Contract-initiated multichain exe
 | **Identity on external chain** | User's CEA. | Contract's CEA (bound to the contract address). |
 | **SDK involvement** | Required on client side. | Fully on-chain, no SDK required. |
 
-The key distinction is that contract-initiated multichain execution is **programmable and autonomous**.  Any call into your Push contract can trigger execution on an external chain.
+The key distinction is that contract-initiated multichain execution is **programmable and autonomous**. Any call into your Push contract can trigger execution on an external chain.
 
 Examples include liquidation triggers, scheduled jobs, governance outcomes, and user actions that fan out across chains.
 
@@ -163,7 +163,7 @@ function sendUniversalTxOutbound(
 | _`req.recipient`_ | `bytes` | CEA or target address on the external chain, bytes-encoded. |
 | _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if no token is being bridged. |
 | _`req.amount`_ | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
-| _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Use `0` to let the UGPC estimate it automatically. Not recommended for advanced scenarios. |
+| _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Use `0` to let UGPC estimate it automatically. Not recommended for advanced scenarios. |
 | _`req.payload`_ | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
 | _`req.revertRecipient`_ | `address` | Address to receive bridged funds if the external transaction reverts. |
 
@@ -597,7 +597,7 @@ Steps 5–7 only occur when the external interaction produces an inbound respons
 - **CEA identity is contract-bound**<br />
   The contract's CEA is derived from its Push Chain address. A different deployment, even identical bytecode at a new address, will have a different CEA. If you use a proxy pattern, the CEA is bound to the **proxy** address, not the implementation. Upgrades do not change the CEA.
 
-- **CEA inbound needs $PC for execution**<br />
+- **Inbound execution requires $PC**<br />
   The CEA inbound to Push Chain needs $PC for execution fees. Funding your Push Chain contract with $PC is your responsibility.
 
 - **No cross-chain atomicity**<br />
