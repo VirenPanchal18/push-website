@@ -37,7 +37,7 @@ Universal transactions are initiated by users. Contract-initiated multichain exe
 | **Identity on external chain** | User's CEA. | Contract's CEA (bound to the contract address). |
 | **SDK involvement** | Required on client side. | Fully on-chain, no SDK required. |
 
-The key distinction is that contract-initiated multichain execution is **programmable and autonomous**.  Any call into your Push contract can trigger external chain execution.
+The key distinction is that contract-initiated multichain execution is **programmable and autonomous**.  Any call into your Push contract can trigger execution on an external chain.
 
 Examples include liquidation triggers, scheduled jobs, governance outcomes, and user actions that fan out across chains.
 
@@ -237,7 +237,7 @@ function executeUniversalTx(
 ```
 
 :::warning Always validate the caller
-Only **UNIVERSAL_EXECUTOR_MODULE** is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed **txids** to prevent replay attacks.
+Only **UNIVERSAL_EXECUTOR_MODULE** is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed **TxIds** to prevent replay attacks.
 :::
 
 <PushAPIReference showRequiredNotice={false}>
