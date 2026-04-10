@@ -405,8 +405,8 @@
   --ifm-color-primary: #dd44b9;
   --ifm-color-primary-unified: #dd44b9;
   --ifm-color-primary-unified-inverse: #ffffff;
-  --ifm-color-primary-unified-text: #fff;
-  --ifm-color-primary-unified-text-inverse: #000;
+  --ifm-color-primary-unified-text: #000000;
+  --ifm-color-primary-unified-text-inverse: #ffffff;
   --ifm-color-primary-text: #fff;
   --ifm-color-title-text-color: #f5f6f8;
   --ifm-color-secondary-text: #8f99bd;
@@ -947,12 +947,20 @@ html[data-theme='light'] .alert.alert--fn-args summary::before {
   margin: 0 !important;
 }
 
+.alert.alert--minimal-api-table.detail-box {
+  border-color: var(--ifm-border-color) !important;
+}
+
+.alert.alert--minimal-api-table.detail-box > div {
+  margin-left: 10px;
+}
+
 .alert.alert--minimal-api-table {
   padding: 8px 8px 8px 8px !important;
   margin: 10px auto;
   border: 1px solid var(--ifm-color-primary) !important;
   background: var(--ifm-table-inactive-tagbg);
-  color: var(--ifm-color-black) !important;
+  color: var(--ifm-color-primary-unified-text-inverse) !important;
 }
 
 .alert.alert--minimal-api-table > summary {

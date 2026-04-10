@@ -268,11 +268,13 @@ export const CopyPageButton: React.FC<CopyPageButtonProps> = ({
   const handleOpenInChatGPT = async () => {
     try {
       const content = await getPageContent();
-      const titleElement = document.querySelector('h1') || document.querySelector('title');
-      const pageTitle = titleElement?.textContent || pageTitle || document.title;
-      
+      const titleElement =
+        document.querySelector('h1') || document.querySelector('title');
+      const pageTitle =
+        titleElement?.textContent || pageTitle || document.title;
+
       let prompt;
-      
+
       // If content is too long, use shorter format with GitHub raw URL
       if (content.length > 1500) {
         const githubUrl = await getGitHubRawUrl(window.location.href);
@@ -287,7 +289,7 @@ export const CopyPageButton: React.FC<CopyPageButtonProps> = ({
         // Use full content if it's short enough
         prompt = `Please help me understand this documentation:\n\n${content}`;
       }
-      
+
       const encodedPrompt = encodeURIComponent(prompt);
       window.open(`https://chat.openai.com/?q=${encodedPrompt}`, '_blank');
       setIsDropdownOpen(false);
@@ -300,11 +302,13 @@ export const CopyPageButton: React.FC<CopyPageButtonProps> = ({
   const handleOpenInClaude = async () => {
     try {
       const content = await getPageContent();
-      const titleElement = document.querySelector('h1') || document.querySelector('title');
-      const pageTitle = titleElement?.textContent || pageTitle || document.title;
-      
+      const titleElement =
+        document.querySelector('h1') || document.querySelector('title');
+      const pageTitle =
+        titleElement?.textContent || pageTitle || document.title;
+
       let prompt;
-      
+
       // If content is too long, use shorter format with GitHub raw URL
       if (content.length > 1500) {
         const githubUrl = await getGitHubRawUrl(window.location.href);
@@ -319,7 +323,7 @@ export const CopyPageButton: React.FC<CopyPageButtonProps> = ({
         // Use full content if it's short enough
         prompt = `Please help me understand this documentation:\n\n${content}`;
       }
-      
+
       const encodedPrompt = encodeURIComponent(prompt);
       window.open(`https://claude.ai/chat?q=${encodedPrompt}`, '_blank');
       setIsDropdownOpen(false);
@@ -338,7 +342,7 @@ export const CopyPageButton: React.FC<CopyPageButtonProps> = ({
         aria-label='Copy page options'
       >
         <FiCopy size={16} />
-        <span>{copySuccess ? 'Copied!' : 'Copy page'}</span>
+        <span>{copySuccess ? 'Copied!' : 'Copy page for AI'}</span>
         <FiChevronDown
           size={14}
           className={`chevron ${isDropdownOpen ? 'open' : ''}`}

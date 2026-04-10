@@ -14,6 +14,7 @@ image: "/assets/docs/previews/docs_chain_build--contract_initiated_multichain_ex
 
 import Details from '@theme/Details';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
+import { SolidityCode } from '@site/src/components/SolidityCode';
 
 {/* Content Start */}
 
@@ -29,7 +30,7 @@ A Push Chain smart contract calls `IUniversalGatewayPC.sendUniversalTxOutbound()
 
 ## How This Differs from Universal Transactions
 
-Universal transactions and contract-initiated execution share the same purpose which is **executing universal transactions across chains** but serve different actors.
+Both universal transactions and contract-initiated execution enable **executing universal transactions across chains**, but they serve different initiators.
 
 | Dimension | Universal Transaction | Contract Initiated Execution |
 |-----------|----------------------|------------------------------|
@@ -42,7 +43,7 @@ Universal transactions and contract-initiated execution share the same purpose w
 
 The key distinction is that contract-initiated execution is **programmable and autonomous**. Any call that reaches your Push contract can cascade into external chain execution.
 
-Few examples can include: A liquidation trigger, a scheduled job, a governance outcome, or a user action that fans out across chains.
+Examples include liquidation triggers, scheduled jobs, governance outcomes, and user actions that fan out across chains.
 
 ## Key Concepts
 
@@ -74,18 +75,18 @@ flowchart LR
 
 ### UniversalGatewayPC (UGPC)
 
-UGPC is the on-chain gateway contract on Push Chain through which all outbound cross-chain calls are routed. Your contract calls `UGPC.sendUniversalTxOutbound()`, which relays the payload and / or burns or locks the bridged PRC20 tokens. It then emits the event that the TSS network listens for.
+UGPC is the on-chain gateway contract on Push Chain through which all outbound cross-chain calls are routed. Your contract calls `UGPC.sendUniversalTxOutbound()`, which relays the payload and, when applicable, burns or locks  PRC20 tokens. It then emits the event that the TSS network listens for.
 
 ### Universal Executor Module
 
 The `UNIVERSAL_EXECUTOR_MODULE` is the privileged address on Push Chain authorized to deliver inbound cross-chain payloads. When a CEA executes on an external chain and a response needs to come back, the module calls `executeUniversalTx()` on your Push contract. **Only this address should be trusted to deliver inbound payloads** 
 
-:::warning Always Validate Inbound in your contract
+:::warning Always validate inbound in your contract
 Always validate `msg.sender` in your inbound handler. Not doing so will result in unauthorized execution.
 :::
 
 
-## Interfaces
+## Interfaces and Constants
 
 ### IUniversalGatewayPC
 
@@ -164,18 +165,18 @@ function sendUniversalTxOutbound(
 | Arguments | Type | Description |
 | --------- | ---- | ----------- |
 | _`req.recipient`_ | `bytes` | CEA or target address on the external chain, bytes-encoded. |
-| `req.token` | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if not bridging tokens. |
-| `req.amount` | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
-| `req.gasLimit` | `uint256` | Gas limit for external-chain execution. Use `0` for the network default. |
-| `req.payload` | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
-| `req.revertRecipient` | `address` | Address to receive bridged funds if the external transaction reverts. |
+| _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if not bridging tokens. |
+| _`req.amount`_ | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
+| _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Use `0` for the network default. |
+| _`req.payload`_ | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
+| _`req.revertRecipient`_ | `address` | Address to receive bridged funds if the external transaction reverts. |
 
 </PushAPIReference>
 
 <Details summary="On-chain usage" className="alert alert--live-play">
 
 ```solidity
-function triggerOutbound(
+function dispatchOutbound(
     address token,
     uint256 amount,
     bytes calldata recipient,
@@ -201,7 +202,10 @@ function triggerOutbound(
 
 </Details>
 
----
+### UNIVERSAL_EXECUTOR_MODULE
+The trusted executor module on Push Chain that delivers inbound cross-chain payloads to your contract.
+
+**Deployed Address**: **_`0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7`_**
 
 ### executeUniversalTx (Inbound Handler)
 
@@ -214,10 +218,6 @@ The function your Push Chain contract exposes to receive inbound cross-chain pay
 - Receiving staking confirmations, swap results, or any response from external chain execution
 - Updating on-chain state based on what the contract's CEA did on another chain
 - Triggering further logic on Push Chain after an external event completes
-
-:::warning Always validate the caller
-Only `UNIVERSAL_EXECUTOR_MODULE` is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed `txId`s to prevent replay attacks.
-:::
 
 ```solidity
 /**
@@ -240,6 +240,10 @@ function executeUniversalTx(
 ) external payable;
 ```
 
+:::warning Always validate the caller
+Only **UNIVERSAL_EXECUTOR_MODULE** is authorized to call this function. Always guard it with an `onlyUniversalExecutor` modifier and track executed **txId\`s** to prevent replay attacks.
+:::
+
 <PushAPIReference showRequiredNotice={false}>
 
 | Arguments | Type | Description |
@@ -257,7 +261,7 @@ function executeUniversalTx(
 
 ```solidity
 mapping(bytes32 => bool) public executedTxIds;
-address public universalExecutorModule;
+address public universalExecutorModule = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
 modifier onlyUniversalExecutor() {
     if (msg.sender != universalExecutorModule) revert NotExecutorModule();
@@ -289,11 +293,193 @@ function executeUniversalTx(
 
 </Details>
 
----
+## Minimal Integration Pattern
+
+The following contract shows the minimum integration surface for contract-initiated multichain execution. It dispatches an outbound call through UGPC, accepts an inbound callback through `executeUniversalTx()`, validates the trusted executor module, and prevents replay using txId.
+
+- **Outbound**: calls `dispatchOutbound()` → optionally approves UGPC → calls `sendUniversalTxOutbound()`
+- **Inbound**: **UNIVERSAL_EXECUTOR_MODULE** calls `executeUniversalTx()` → contract validates caller → replay protects with txId → decodes payload and applies app logic
+
+<SolidityCode
+  title="Minimal Integration Pattern"
+  fileName="MinimalIntegrationPattern.sol"
+>
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+/// @notice Minimal outbound request type for UGPC.
+struct UniversalOutboundTxRequest {
+    bytes recipient;
+    address token;
+    uint256 amount;
+    uint256 gasLimit;
+    bytes payload;
+    address revertRecipient;
+}
+
+/// @notice Minimal UGPC interface.
+interface IUniversalGatewayPC {
+    function sendUniversalTxOutbound(UniversalOutboundTxRequest calldata req) external payable;
+}
+
+/// @notice Minimal PRC20 interface for approvals.
+interface IPRC20 {
+    function approve(address spender, uint256 amount) external returns (bool);
+}
+
+contract MinimalContractInitiatedExecutor {
+    // -------------------------------------------------------------------------
+    // Constants / Config
+    // -------------------------------------------------------------------------
+
+    address public immutable ugpc;
+    address public immutable universalExecutorModule;
+
+    // -------------------------------------------------------------------------
+    // State
+    // -------------------------------------------------------------------------
+
+    mapping(bytes32 => bool) public executedTxIds;
+    mapping(address => uint256) public creditedAmount;
+
+    // -------------------------------------------------------------------------
+    // Events
+    // -------------------------------------------------------------------------
+
+    event OutboundDispatched(
+        bytes indexed recipient,
+        address indexed token,
+        uint256 amount,
+        bytes payload,
+        address revertRecipient
+    );
+
+    event InboundExecuted(
+        bytes32 indexed txId,
+        string sourceChainNamespace,
+        bytes ceaAddress,
+        address prc20,
+        uint256 amount
+    );
+
+    // -------------------------------------------------------------------------
+    // Errors
+    // -------------------------------------------------------------------------
+
+    error NotUniversalExecutor();
+    error TxAlreadyExecuted();
+    error ZeroAddress();
+    error UnsupportedAction();
+
+    // -------------------------------------------------------------------------
+    // Constructor
+    // -------------------------------------------------------------------------
+
+    constructor(address _ugpc, address _universalExecutorModule) {
+        if (_ugpc == address(0) || _universalExecutorModule == address(0)) {
+            revert ZeroAddress();
+        }
+
+        ugpc = _ugpc;
+        universalExecutorModule = _universalExecutorModule;
+    }
+
+    // -------------------------------------------------------------------------
+    // Modifiers
+    // -------------------------------------------------------------------------
+
+    modifier onlyUniversalExecutor() {
+        if (msg.sender != universalExecutorModule) revert NotUniversalExecutor();
+        _;
+    }
+
+    // -------------------------------------------------------------------------
+    // Outbound: Push Chain -> External Chain
+    // -------------------------------------------------------------------------
+
+    /// @notice Dispatch an outbound cross-chain execution from this contract.
+    /// @dev If bridging PRC20 tokens, approve UGPC before calling.
+    /// @param token PRC20 token on Push Chain. Use address(0) if not bridging tokens.
+    /// @param amount Amount of PRC20 to bridge. Use 0 if not bridging.
+    /// @param recipient Bytes-encoded CEA or target address on the external chain.
+    /// @param gasLimit Gas limit for the external-chain execution. Use 0 for default.
+    /// @param payload ABI-encoded calldata or app payload for the external-chain action.
+    /// @param revertRecipient Address to receive bridged funds if the external tx reverts.
+    function dispatchOutbound(
+        address token,
+        uint256 amount,
+        bytes calldata recipient,
+        uint256 gasLimit,
+        bytes calldata payload,
+        address revertRecipient
+    ) external payable {
+        if (revertRecipient == address(0)) revert ZeroAddress();
+
+        if (amount > 0) {
+            if (token == address(0)) revert ZeroAddress();
+            IPRC20(token).approve(ugpc, amount);
+        }
+
+        IUniversalGatewayPC(ugpc).sendUniversalTxOutbound{value: msg.value}(
+            UniversalOutboundTxRequest({
+                recipient: recipient,
+                token: token,
+                amount: amount,
+                gasLimit: gasLimit,
+                payload: payload,
+                revertRecipient: revertRecipient
+            })
+        );
+
+        emit OutboundDispatched(recipient, token, amount, payload, revertRecipient);
+    }
+
+    // -------------------------------------------------------------------------
+    // Inbound: External Chain -> Push Chain
+    // -------------------------------------------------------------------------
+
+    /// @notice Receive an inbound cross-chain payload.
+    /// @dev Only UNIVERSAL_EXECUTOR_MODULE should be allowed to call this.
+    ///      Replay protect using txId.
+    ///      This example assumes payload is encoded as:
+    ///      abi.encode(uint8 action, address beneficiary)
+    ///
+    ///      Example actions:
+    ///      0 = CREDIT beneficiary with bridged amount
+    function executeUniversalTx(
+        string calldata sourceChainNamespace,
+        bytes calldata ceaAddress,
+        bytes calldata payload,
+        uint256 amount,
+        address prc20,
+        bytes32 txId
+    ) external payable onlyUniversalExecutor {
+        if (executedTxIds[txId]) revert TxAlreadyExecuted();
+        executedTxIds[txId] = true;
+
+        (uint8 action, address beneficiary) = abi.decode(payload, (uint8, address));
+
+        if (action == 0) {
+            creditedAmount[beneficiary] += amount;
+        } else {
+            revert UnsupportedAction();
+        }
+
+        emit InboundExecuted(txId, sourceChainNamespace, ceaAddress, prc20, amount);
+    }
+
+    receive() external payable {}
+}
+```
+
+</SolidityCode>
+
 
 ## Outbound Flow: Push Chain → External Chain
 
-### 1. Approve and call UGPC
+### Approve and call UGPC
 
 If bridging tokens, approve UGPC to pull the PRC20 amount before calling:
 
@@ -316,15 +502,14 @@ IUniversalGatewayPC(ugpc).sendUniversalTxOutbound{value: msg.value}(req);
 
 `msg.value` must cover protocol fees. The UGPC burns the PRC20 tokens and emits an event the TSS network listens for.
 
-### 2. TSS network picks up the event
+### TSS network picks up the event
 
 The TSS validators observe the UGPC event, derive the contract's CEA on the target chain, and submit the transaction. If the CEA has not been deployed yet, the TSS network deploys it on first use.
 
-### 3. CEA executes on the external chain
+### CEA executes on the external chain
 
-The CEA runs the encoded `payload` on the target chain. From the external contract's perspective, `msg.sender` is the contract's CEA address — it has no awareness that the call originated from Push Chain.
+The CEA runs the encoded `payload` on the target chain. From the external contract's perspective, `msg.sender` is the contract's CEA address. It has no awareness that the call originated from Push Chain.
 
----
 
 ## Inbound Flow: External Chain → Push Chain
 
@@ -389,36 +574,8 @@ function _handleInboundPayload(
 }
 ```
 
----
 
 ## Execution Lifecycle
-
-```mermaid
-flowchart TD
-    A["<b>Push Contract</b><br/>approves UGPC + calls sendUniversalTxOutbound()"]
-    B["<b>UGPC</b><br/>burns PRC20, emits outbound event"]
-    C["<b>TSS Network</b><br/>observes event, constructs CEA tx"]
-    D["<b>Contract CEA</b><br/>External Chain — executes payload"]
-    E{"Inbound<br/>response?"}
-    F["<b>TSS Network</b><br/>relays result back to Push Chain"]
-    G["<b>UNIVERSAL_EXECUTOR_MODULE</b><br/>calls executeUniversalTx() on Push contract"]
-    H["<b>Push Contract</b><br/>decodes payload, updates state"]
-    I["Done"]
-
-    A --> B --> C --> D --> E
-    E -->|"yes"| F --> G --> H --> I
-    E -->|"no"| I
-
-    style A fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
-    style B fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
-    style C fill:#7c2d12,stroke:#fb923c,stroke-width:2px,color:#fff
-    style D fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
-    style E fill:#1e293b,stroke:#475569,color:#94a3b8
-    style F fill:#7c2d12,stroke:#fb923c,stroke-width:2px,color:#fff
-    style G fill:#7c2d12,stroke:#fb923c,stroke-width:2px,color:#fff
-    style H fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
-    style I fill:#166534,stroke:#4ade80,color:#fff
-```
 
 | Step | Actor | Description |
 |------|-------|-------------|
@@ -432,236 +589,65 @@ flowchart TD
 
 Steps 5–7 only occur when the external interaction produces an inbound response. A fire-and-forget outbound has no inbound step.
 
----
-
-## Full Example: Cross-Chain Staking Contract
-
-The following is a condensed but complete example of a Push Chain contract that:
-1. Triggers outbound execution on an external chain
-2. Receives inbound staking confirmations from its CEA
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.26;
-
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
-
-import {UniversalPayload} from "../libraries/Types.sol";
-import {IPRC20} from "../Interfaces/IPRC20.sol";
-
-struct UniversalOutboundTxRequest {
-    bytes   recipient;
-    address token;
-    uint256 amount;
-    uint256 gasLimit;
-    bytes   payload;
-    address revertRecipient;
-}
-
-interface IUniversalGatewayPC {
-    function sendUniversalTxOutbound(UniversalOutboundTxRequest calldata req) external payable;
-}
-
-contract StakingExample is Initializable, ReentrancyGuardUpgradeable {
-    using SafeERC20 for IERC20;
-
-    address public universalExecutorModule;
-    address public ugpc;
-    address public owner;
-
-    mapping(bytes32 => bool) public executedTxIds;
-    mapping(address => mapping(address => uint256)) public stakedBalance;
-
-    error NotOwner();
-    error NotExecutorModule();
-    error TxAlreadyExecuted();
-    error ZeroAddress();
-    error ZeroAmount();
-    error InsufficientStake();
-    error UnsupportedAction();
-
-    modifier onlyOwner() {
-        if (msg.sender != owner) revert NotOwner();
-        _;
-    }
-
-    modifier onlyUniversalExecutor() {
-        if (msg.sender != universalExecutorModule) revert NotExecutorModule();
-        _;
-    }
-
-    constructor() { _disableInitializers(); }
-
-    function initialize(
-        address _ugpc,
-        address _universalExecutorModule,
-        address _owner
-    ) external initializer {
-        if (_ugpc == address(0) || _universalExecutorModule == address(0) || _owner == address(0))
-            revert ZeroAddress();
-        __ReentrancyGuard_init();
-        ugpc = _ugpc;
-        universalExecutorModule = _universalExecutorModule;
-        owner = _owner;
-    }
-
-    // ── OUTBOUND: Push Chain → External Chain ──────────────────────────────
-
-    function triggerOutbound(
-        address token,
-        uint256 amount,
-        bytes calldata recipient,
-        uint256 gasLimit,
-        bytes calldata payload,
-        address revertRecipient
-    ) external payable nonReentrant {
-        if (token == address(0)) revert ZeroAddress();
-        if (revertRecipient == address(0)) revert ZeroAddress();
-
-        if (amount > 0) {
-            IPRC20(token).approve(ugpc, amount);
-        }
-
-        IUniversalGatewayPC(ugpc).sendUniversalTxOutbound{value: msg.value}(
-            UniversalOutboundTxRequest({
-                recipient:       recipient,
-                token:           token,
-                amount:          amount,
-                gasLimit:        gasLimit,
-                payload:         payload,
-                revertRecipient: revertRecipient
-            })
-        );
-
-        emit OutboundTriggered(token, recipient, amount, payload);
-    }
-
-    // ── INBOUND: External Chain → Push Chain ───────────────────────────────
-
-    /// @notice Called by UNIVERSAL_EXECUTOR_MODULE to deliver an inbound payload.
-    function executeUniversalTx(
-        string calldata sourceChainNamespace,
-        bytes calldata ceaAddress,
-        bytes calldata payload,
-        uint256 amount,
-        address prc20,
-        bytes32 txId
-    ) external payable onlyUniversalExecutor nonReentrant {
-        if (executedTxIds[txId]) revert TxAlreadyExecuted();
-        executedTxIds[txId] = true;
-
-        _handleInboundPayload(payload, prc20, amount, txId);
-        emit InboundReceived(txId, sourceChainNamespace, ceaAddress, prc20, amount);
-    }
-
-    // ── INTERNAL ───────────────────────────────────────────────────────────
-
-    /// payload.data encoding: abi.encode(uint8 action, address user, bytes executionPayload)
-    /// action 0 = STAKE, action 1 = UNSTAKE
-    function _handleInboundPayload(
-        bytes calldata data,
-        address prc20,
-        uint256 amount,
-        bytes32 txId
-    ) internal {
-        (uint8 action, address user,) = abi.decode(data, (uint8, address, bytes));
-
-        if (user == address(0) || prc20 == address(0)) revert ZeroAddress();
-        if (amount == 0) revert ZeroAmount();
-
-        if (action == 0) {
-            stakedBalance[user][prc20] += amount;
-            emit Staked(user, prc20, amount, txId);
-        } else if (action == 1) {
-            if (stakedBalance[user][prc20] < amount) revert InsufficientStake();
-            stakedBalance[user][prc20] -= amount;
-            emit Unstaked(user, prc20, amount);
-        } else {
-            revert UnsupportedAction();
-        }
-    }
-
-    event OutboundTriggered(address indexed token, bytes recipient, uint256 amount, bytes payload);
-    event InboundReceived(bytes32 indexed txId, string sourceChainNamespace, bytes ceaAddress, address prc20, uint256 amount);
-    event Staked(address indexed user, address indexed token, uint256 amount, bytes32 indexed txId);
-    event Unstaked(address indexed user, address indexed token, uint256 amount);
-
-    receive() external payable {}
-}
-```
-
----
 
 ## Security Considerations
 
-### Validate inbound caller
+- **Validate inbound caller**<br />
+  Only **UNIVERSAL_EXECUTOR_MODULE** can legitimately deliver inbound payloads. Always guard **executeUniversalTx()** with the **onlyUniversalExecutor** modifier. Anyone else calling it with fabricated data must be rejected.
 
-Only `UNIVERSAL_EXECUTOR_MODULE` can legitimately deliver inbound payloads. Always guard `executeUniversalTx()` with the `onlyUniversalExecutor` modifier. Anyone else calling it with fabricated data must be rejected.
+- **Replay protection**<br />
+  Each inbound call carries a unique **txId**. Maintain a **mapping(bytes32 => bool) executedTxIds** and revert on duplicates. Without this, the same result could be applied more than once.
 
-### Replay protection
+- **CEA identity is contract-bound**<br />
+  The contract's CEA is derived from its Push Chain address. A different deployment, even identical bytecode at a new address, will have a different CEA. If you use a proxy pattern, the CEA is bound to the **proxy** address, not the implementation. Upgrades do not change the CEA.
 
-Each inbound call carries a unique `txId`. Maintain a `mapping(bytes32 => bool) executedTxIds` and revert on duplicates. Without this, the same result could be applied more than once.
+- **CEA funding is your responsibility**<br />
+  The contract's CEA must hold sufficient native funds on every target chain. Push infra does not fund it automatically. An underfunded CEA means the transaction is recorded on-chain but never executes on the external chain.
 
-### CEA identity is contract-bound
+- **CEA inbound needs $PC for execution**<br />
+  The CEA inbound to Push Chain needs $PC for execution fees. Funding your Push Chain contract with $PC is your responsibility.
 
-The contract's CEA is derived from its Push Chain address. A different deployment — even identical bytecode at a new address — has a different CEA. If you use a proxy pattern, the CEA is bound to the **proxy** address, not the implementation. Upgrades do not change the CEA.
+- **No cross-chain atomicity**<br />
+  The outbound dispatch and the external execution are not atomic. Push-side state changes commit independently of whether the external call succeeds. Design accordingly. Defer critical state commits to the inbound handler, or use an explicit pending/failed state machine.
 
-### CEA funding is your responsibility
+- **Inbound timing is not predictable**<br />
+  Inbound delivery depends on external chain finality and TSS observation. On slower chains this can take some time. Do not design contracts that require an inbound within a specific block window.
 
-The contract's CEA must hold sufficient native funds on every target chain. Push infra does not fund it automatically. An underfunded CEA means the transaction is recorded on-chain but never executes on the external chain.
-
-### No cross-chain atomicity
-
-The outbound dispatch and the external execution are not atomic. Push-side state changes in `triggerOutbound()` commit independently of whether the external call succeeds. Design accordingly — defer critical state commits to the inbound handler, or use an explicit pending/failed state machine.
-
-### Inbound timing is not predictable
-
-Inbound delivery depends on external chain finality and TSS observation. On slower chains this can take minutes. Do not design contracts that require an inbound within a specific block window.
-
----
 
 ## Best Practices
 
 - **Emit an event at dispatch time.** Include a request ID, target address, and operation type so inbound payloads can be correlated with the original outbound call.
 - **Use per-dispatch request IDs.** If multiple outbound calls can be in flight simultaneously, track them by ID to route inbound results unambiguously.
 - **Keep inbound handlers lean.** The inbound handler runs as a Push Chain transaction submitted by the module. Decode payload, update state, emit events. Avoid cascading outbound calls inside it.
-- **Protect inbound handlers with `nonReentrant`.** The handler is called by an external module account — apply re-entrancy guards if it calls other contracts.
-- **Fund the CEA before dispatching.** Verify the CEA holds sufficient native funds on the target chain before calling `triggerOutbound()`.
+- **Protect inbound handlers with nonReentrant.** The handler is called by an external module account, so apply re-entrancy guards if it calls other contracts.
+- **Fund the Push-side contract before dispatching.** Verify the push-side contract has sufficient $PC to cover inbound execution fees.
 
----
 
 ## Limitations
 
 | Area | Constraint |
 |------|------------|
-| **CEA funding** | The contract's CEA must be pre-funded on each target chain. Push infra does not fund it. |
 | **No synchronous result** | Outbound and inbound are always separate transactions. There is no in-call return value. |
 | **No cross-chain atomicity** | A failed external call does not revert Push-side state. Handle partial failure explicitly. |
 | **CEA as msg.sender** | External contracts that restrict callers (whitelists, EOA-only guards) must explicitly whitelist the contract's CEA address. |
 | **Proxy upgrade safety** | CEA is bound to the proxy address. New deployments at different addresses have different CEAs. |
 | **Supported chains** | Target chains must be supported by the TSS network. Supported chains are enumerated in `PushChain.CONSTANTS.CHAIN`. |
 
----
 
 ## When to Use This
 
 Use this pattern when:
 
-- A Push Chain contract needs to call an external protocol (Aave, Uniswap, a custom contract on Ethereum) without requiring the user to be online at execution time
-- A governance or automation contract needs to execute an external action after an on-chain condition is met
-- Your app logic lives on Push Chain but state or liquidity lives on an external chain
-- You are building a cross-chain keeper, liquidator, or staking coordinator
+- A Push Chain contract needs to call an external protocol (Aave, Uniswap, a custom contract on Ethereum) without requiring the user to be online at execution time.
+- A governance or automation contract needs to execute an external action after an on-chain condition is met.
+- Your app logic lives on Push Chain but state or liquidity lives on an external chain.
+- You are building a cross-chain keeper, liquidator, or staking coordinator.
 
 Do not use it when:
 
-- The user is online and can sign directly — user-initiated universal transactions are simpler
-- You need a synchronous response in the same transaction — that is not possible across chains
-- Your logic requires atomic rollback across both chains — partial failure must be handled explicitly
+- The user is online and can sign directly. User-initiated universal transactions are simpler.
+- Your logic requires atomic rollback across both chains. Partial failure must be handled explicitly.
 
----
 
 ## Next Steps
 
