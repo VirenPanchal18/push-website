@@ -159,7 +159,7 @@ A `UniversalSigner` extends `UniversalAccount` with signing capabilities.
       const solKeypair = Keypair.generate();
 
       const universalSignerFromSol = await PushChain.utils.signer.toUniversalFromKeypair(solKeypair, {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET,
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
         library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
       });
 
