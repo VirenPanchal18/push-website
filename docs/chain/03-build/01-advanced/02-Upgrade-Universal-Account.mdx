@@ -20,7 +20,7 @@ import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtua
 
 ## Overview
 
-Upgrades the UEA (Universal Executor Account) to the latest required implementation version. This is a gasless, signature-based operation — no gas fees are charged on the origin chain.
+Upgrades the UEA (Universal Executor Account) to the latest required implementation version. This is a gasless, signature-based operation and is done **automatically** via the SDK without requiring gas.
 
 You only need to call this when `getAccountStatus()` reports `uea.requiresUpgrade === true`. Sending universal transactions on an outdated UEA will fail.
 
@@ -46,29 +46,27 @@ await pushChainClient.upgradeAccount({
 
 </PushAPIReference>
 
-<Details summary="Progress Hook: Type and Response" className="alert alert--fn-args">
+<h2 className="anchor" id="progress-hook-type-and-response" style={{ height: '0px', overflow: 'hidden', margin: 0, padding: 0 }}>Progress Hook Type and Response</h2>
 
-Each `ProgressEvent` emitted during the upgrade has the following shape:
+<Details summary="ProgressHook Type and Response" className="alert alert--minimal code">
 
-```typescript
-{
-  id: string;        // Step identifier, e.g. "UEA-MIG-01"
-  title: string;     // Short human-readable step title
-  message: string;   // Description of what is happening
-  timestamp: number; // Unix timestamp (ms)
-}
-```
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `progress` | `Object` | The progress of the upgrade operation. |
+| `progress.id` | `string` | Unique identifier for the progress event. |
+| `progress.title` | `string` | Brief title of the progress event. |
+| `progress.message` | `string` | Detailed message describing the event. |
+| `progress.level` | `INFO` \| `SUCCESS` \| `ERROR` | Severity level of the event. |
+| `progress.timestamp` | `string` | ISO-8601 timestamp when the event occurred. |
 
-Progress events fired in sequence:
-
-| **ID** | **Title** | **When** |
-| ------ | --------- | -------- |
-| `UEA-MIG-01` | Checking status | Fetching current UEA version and upgrade requirement |
-| `UEA-MIG-02` | Awaiting signature | Prompting the user to sign the migration payload (EIP-712) |
-| `UEA-MIG-03` | Broadcasting | Submitting the migration transaction to Push Chain |
-| `UEA-MIG-9901` | Upgrade complete | UEA successfully upgraded — includes new version string |
-| `UEA-MIG-9902` | Upgrade failed | An error occurred during the upgrade flow |
-| `UEA-MIG-9903` | No upgrade needed | UEA is already at the required version; operation skipped |
+| ID | Title | Message | Level |
+| -- | ----- | ------- | ----- |
+| `UEA-MIG-01` | Checking Status | Fetching current UEA version and upgrade requirement | INFO |
+| `UEA-MIG-02` | Awaiting Signature | Awaiting user signature for migration payload (EIP-712) | INFO |
+| `UEA-MIG-03` | Broadcasting | Submitting migration transaction to Push Chain | INFO |
+| `UEA-MIG-9901` | Upgrade Complete | UEA successfully upgraded to version `<new version>` | SUCCESS |
+| `UEA-MIG-9902` | Upgrade Failed | `<error message>` | ERROR |
+| `UEA-MIG-9903` | No Upgrade Needed | UEA is already at the required version; operation skipped | INFO |
 
 </Details>
 
@@ -90,7 +88,7 @@ if (status.uea.requiresUpgrade) {
 
 ## Live Playground
 
-<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/upgrade-account"}}>
+<NodeJSVirtualIDE>
 
 {`
     // customPropHighlightRegexStart=pushChainClient\.upgradeAccount
@@ -104,37 +102,49 @@ if (status.uea.requiresUpgrade) {
       console.log('Initializing Push Chain Client');
 
       const wallet = ethers.Wallet.createRandom();
-      const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+      const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
       const signer = wallet.connect(provider);
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const pushChainClient = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
+
       console.log('🔑 Push Chain client initialized');
+      console.log('Origin account:', JSON.stringify(pushChainClient.universal.origin));
+      console.log('Execution account:', JSON.stringify(pushChainClient.universal.account));
 
       // Check account status before attempting upgrade
-      const status = await pushChainClient.getAccountStatus();
+      const status = await pushChainClient.getAccountStatus({ forceRefresh: true });
       console.log('Account status:', JSON.stringify(status));
 
-      if (!status?.uea?.deployed) {
-        console.log('ℹ️ UEA not yet deployed — no upgrade needed');
+      if (!status.uea.loaded) {
+        console.log('⚠️ Account status could not be resolved yet.');
+        return;
+      }
+
+      if (!status.uea.deployed) {
+        console.log('ℹ️ Universal Account is not deployed yet, so no upgrade is needed.');
         return;
       }
 
       if (!status.uea.requiresUpgrade) {
-        console.log(\`✅ UEA already up to date (version \${status.uea.version})\`);
+        console.log('✅ Universal Account is already up to date (version: ' + status.uea.version + ')');
         return;
       }
 
-      console.log(\`⬆️ Upgrading UEA from \${status.uea.version} to \${status.uea.minRequiredVersion}...\`);
+      console.log(
+        '⬆️ Upgrading Universal Account from ' + status.uea.version + ' to ' + status.uea.minRequiredVersion + '...'
+      );
+
       await pushChainClient.upgradeAccount({
         progressHook: (progress) => {
-          console.log(\`[\${progress.id}] \${progress.title}: \${progress.message}\`);
+          console.log('[' + progress.id + '] ' + progress.title + ': ' + progress.message);
         },
       });
 
       const updated = await pushChainClient.getAccountStatus({ forceRefresh: true });
-      console.log(\`✅ Upgrade complete. New version: \${updated?.uea?.version}\`);
+      console.log('Updated account status:', JSON.stringify(updated));
+      console.log('✅ Upgrade complete. New version: ' + updated.uea.version);
     }
 
     await main().catch(console.error);
@@ -144,5 +154,5 @@ if (status.uea.requiresUpgrade) {
 
 ## Next Steps
 
-- Check UEA state before upgrading with [Get Account Status](/docs/chain/build/initialize-push-chain-client#get-account-status-1)
+- Check UEA state before upgrading with [Get Account Status](/docs/chain/build/initialize-push-chain-client#get-account-status)
 - Send your first universal transaction after upgrading with [Send Universal Transaction](/docs/chain/build/send-universal-transaction)
