@@ -656,29 +656,30 @@ End-to-end playground examples for each universal transaction route. For API ref
         progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ' and press Enter to continue.');
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has pETH and at least 5 PC. Press Enter to continue.');
 
       const TARGET = '0x1234567890123456789012345678901234567890';
 
       try {
-        // Route 2: transfer 0.0001 BNB worth of value to TARGET on BNB Testnet
+        // Route 2: transfer ETH to TARGET on Sepolia
+        // Burns pETH on Push Chain, releases native ETH to TARGET on Sepolia
         const tx = await client.universal.sendTransaction({
           to: {
             address: TARGET,
-            chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET,
+            chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
           },
-          value: PushChain.utils.helpers.parseUnits('0.0001', 18),
+          value: PushChain.utils.helpers.parseUnits('0.0005', 18),
         });
 
-        console.log('✅ Push Chain TX Hash:', tx.hash);
-        console.log('🔗 Source chain:', tx.chainId);
+        console.log('Push Chain TX Hash:', tx.hash);
 
         const receipt = await tx.wait();
-        console.log('📦 External TX Hash:', receipt.externalTxHash);
-        console.log('🌐 External Chain:', receipt.externalChain);
-        console.log('🔍 Explorer:', receipt.externalExplorerUrl);
+        console.log('External TX Hash:', receipt.externalTxHash);
+        console.log('External Chain:', receipt.externalChain);
+        console.log('Explorer:', receipt.externalExplorerUrl);
       } catch (err) {
-        console.error('❌ Failed:', err && err.message ? err.message : err);
+        console.error('Failed:', err && err.message ? err.message : err);
       }
     }
 
@@ -719,11 +720,14 @@ End-to-end playground examples for each universal transaction route. For API ref
       });
 
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
-      await rl.question(':::prompt:::Please send Sepolia ETH (for gas) and BNB Testnet USDT to your CEA. Press Enter to continue.');
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has pUSDT (BNB) and at least 5 PC. Press Enter to continue.');
 
       const TARGET = '0x1234567890123456789012345678901234567890';
 
       try {
+        // Route 2: transfer USDT to TARGET on BNB Testnet
+        // Burns pUSDT on Push Chain, releases USDT to TARGET on BNB Testnet
         const tx = await client.universal.sendTransaction({
           to: {
             address: TARGET,
@@ -787,7 +791,8 @@ End-to-end playground examples for each universal transaction route. For API ref
       });
 
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
-      await rl.question(':::prompt:::Please send Sepolia ETH (for gas) and BNB Testnet USDT to your CEA. Press Enter to continue.');
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has pUSDT (BNB) and at least 5 PC. Press Enter to continue.');
 
       const data = PushChain.utils.helpers.encodeTxData({
         abi: COUNTER_ABI,
@@ -795,7 +800,8 @@ End-to-end playground examples for each universal transaction route. For API ref
       });
 
       try {
-        // Route 2: move USDT to external chain and call increment() atomically
+        // Route 2: move USDT to BNB Testnet and call increment() atomically
+        // Burns pUSDT on Push Chain, releases USDT and executes contract call on BNB Testnet
         const tx = await client.universal.sendTransaction({
           to: {
             address: COUNTER_ADDRESS,
@@ -980,8 +986,9 @@ End-to-end playground examples for each universal transaction route. For API ref
 
     // Route 3: CEA_TO_PUSH — Bridge native value from CEA on external chain back to Push Chain.
     import { PushChain } from '@pushchain/core';
-    import { createWalletClient, http } from 'viem';
+    import { createWalletClient, createPublicClient, http } from 'viem';
     import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
+    import { bscTestnet } from 'viem/chains';
     import * as readline from 'node:readline/promises';
 
     const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
@@ -999,7 +1006,17 @@ End-to-end playground examples for each universal transaction route. For API ref
         progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + account.address + ', and ensure your CEA on BNB Testnet holds some BNB. Press Enter to continue.');
+      // Derive CEA address on BNB Testnet from the CEAFactory contract
+      const bnbClient = createPublicClient({ chain: bscTestnet, transport: http() });
+      const [ceaAddress] = await bnbClient.readContract({
+        address: '0xe2182dae2dc11cBF6AA6c8B1a7f9c8315A6B0719',
+        abi: [{ type: 'function', name: 'getCEAForPushAccount', inputs: [{ name: 'pushAccount', type: 'address' }], outputs: [{ name: '', type: 'address' }, { name: '', type: 'bool' }], stateMutability: 'view' }],
+        functionName: 'getCEAForPushAccount',
+        args: [client.universal.account],
+      });
+      console.log('CEA on BNB Testnet:', ceaAddress);
+
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + account.address + ', and ensure your CEA (' + ceaAddress + ') on BNB Testnet holds some BNB. Press Enter to continue.');
 
       try {
         // Route 3: bridge native BNB from CEA on BNB_TESTNET back to Push Chain
@@ -1057,7 +1074,13 @@ End-to-end playground examples for each universal transaction route. For API ref
         progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue.');
+      // Derive CEA address on BNB Testnet from the CEAFactory contract
+      const bnbProvider = new ethers.JsonRpcProvider('https://bsc-testnet-rpc.publicnode.com');
+      const ceaFactory = new ethers.Contract('0xe2182dae2dc11cBF6AA6c8B1a7f9c8315A6B0719', ['function getCEAForPushAccount(address) view returns (address, bool)'], bnbProvider);
+      const [ceaAddress] = await ceaFactory.getCEAForPushAccount(client.universal.account);
+      console.log('CEA on BNB Testnet:', ceaAddress);
+
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA (' + ceaAddress + ') on BNB Testnet holds some USDT. Press Enter to continue.');
 
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
 
@@ -1125,8 +1148,14 @@ End-to-end playground examples for each universal transaction route. For API ref
         progressHook: (p) => console.log('TX Progress:', p.title || p.id),
       });
 
+      // Derive CEA address on BNB Testnet from the CEAFactory contract
+      const bnbProvider = new ethers.JsonRpcProvider('https://bsc-testnet-rpc.publicnode.com');
+      const ceaFactory = new ethers.Contract('0xe2182dae2dc11cBF6AA6c8B1a7f9c8315A6B0719', ['function getCEAForPushAccount(address) view returns (address, bool)'], bnbProvider);
+      const [ceaAddress] = await ceaFactory.getCEAForPushAccount(client.universal.account);
+      console.log('CEA on BNB Testnet:', ceaAddress);
+
       const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT;
-      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA on BNB Testnet holds some USDT. Press Enter to continue.');
+      await rl.question(':::prompt:::Please send Sepolia ETH to: ' + wallet.address + ', and ensure your CEA (' + ceaAddress + ') on BNB Testnet holds some USDT. Press Enter to continue.');
 
       const data = PushChain.utils.helpers.encodeTxData({
         abi: COUNTER_ABI,

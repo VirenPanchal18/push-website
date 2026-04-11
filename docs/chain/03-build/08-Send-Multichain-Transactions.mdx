@@ -253,12 +253,13 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
       const signer = wallet.connect(provider);
       console.log('🔑 Sepolia wallet (UOA):', wallet.address);
 
-      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
-
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
+
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has at least 5 PC. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
       const calldata = PushChain.utils.helpers.encodeTxData({ abi: COUNTER_ABI, functionName: 'increment' });
 
@@ -278,17 +279,39 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
       });
       console.log('✅ hop1 prepared - route:', hop1.route);
 
-      // Hop 2 (Route 2): UOA → increment counter on Solana Devnet via CEA
+      // Hop 2 (Route 2): UOA → call test_counter on Solana Devnet via CEA
+      // Solana requires svmExecute (not EVM data) with program accounts and Borsh-encoded instruction data
+      const SOL_TEST_PROGRAM = '0x7673075a980bfd5d6b1dffe99c31f63e8938519cc1c2af009dda5e568a94460d';
+      const SOL_COUNTER_PDA  = '0x4f12fe6816ae7e33ebf7db0b154ec3b09e3bf1a7690481e8e9477d5a278ad3af';
+      const SOL_TARGET       = '0x6a44bb5ea802a001386a5b39708523e1a3e1bafc8164ffcb94d1f5afa4849c69';
+      const SOL_ZERO         = '0x0000000000000000000000000000000000000000000000000000000000000000';
+
+      // Derive Solana CEA PDA for this wallet
       const uoa = PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA });
       const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(uoa, {
         chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
         skipNetworkCheck: true,
       });
       console.log('📍 Solana CEA:', solanaCEA.address);
+
+      // receive_sol instruction: discriminator (8 bytes) + amount as u64 LE (8 bytes)
+      const discriminator = new Uint8Array([121, 244, 250, 3, 8, 229, 225, 1]);
+      const amountBuf = new Uint8Array(8);
+      new DataView(amountBuf.buffer).setBigUint64(0, BigInt(0), true);
+      const ixData = new Uint8Array([...discriminator, ...amountBuf]);
+
       const hop2 = await client.universal.prepareTransaction({
-        to: { address: solanaCEA.address, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
-        value: BigInt(0),
-        data: calldata,
+        to: { address: SOL_TEST_PROGRAM, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        svmExecute: {
+          targetProgram: SOL_TEST_PROGRAM,
+          accounts: [
+            { pubkey: SOL_COUNTER_PDA, isWritable: true },
+            { pubkey: SOL_TARGET, isWritable: true },
+            { pubkey: solanaCEA.address, isWritable: true },
+            { pubkey: SOL_ZERO, isWritable: false },
+          ],
+          ixData,
+        },
       });
       console.log('✅ hop2 prepared - route:', hop2.route);
 
@@ -376,12 +399,14 @@ Pull ETH from an Ethereum Sepolia CEA into Push Chain, swap pETH → pSOL on the
       const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
       const signer = wallet.connect(provider);
       console.log('🔑 Wallet (UOA):', wallet.address);
-      await rl.question(':::prompt:::Send at least 0.002 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from: https://cloud.google.com/application/web3/faucet/ethereum/sepolia. 0.001 ETH is the payload; the rest covers gas on the Sepolia CEA. Press Enter when funded.');
 
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
+
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Send at least 0.002 ETH (Sepolia) to: ' + wallet.address + ', ensure your UEA (' + client.universal.account + ') on Push Chain has pETH and at least 5 PC, and ensure your CEA on Sepolia has at least 0.001 ETH. Get testnet ETH from: https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
       // ── Hop 0: CEA_TO_PUSH ─────────────────────────────────────────────────
       // Pull 0.001 ETH from the Ethereum Sepolia CEA into Push Chain.
@@ -495,12 +520,13 @@ Increment a counter on Push Chain, then use the CEA on BNB Testnet to increment 
       const signer = wallet.connect(provider);
       console.log('🔑 Sepolia wallet (UOA):', wallet.address);
 
-      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
-
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
+
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has at least 5 PC. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
       // Read counters BEFORE
       const pushProvider = new ethers.JsonRpcProvider(RPC_PUSH);
@@ -587,12 +613,13 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
       const signer = wallet.connect(provider);
       console.log('🔑 Sepolia wallet (UOA):', wallet.address);
 
-      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + '. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
-
       const universalSigner = await PushChain.utils.signer.toUniversal(signer);
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
+
+      console.log('UEA on Push Chain:', client.universal.account);
+      await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has at least 5 PC. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
       // Read counters BEFORE
       const pushProvider = new ethers.JsonRpcProvider(RPC_PUSH);
@@ -620,17 +647,38 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
       });
       console.log('✅ hop1 prepared - route:', hop1.route);
 
-      // Hop 2 (Route 2): call Solana Devnet via derived CEA
+      // Hop 2 (Route 2): call test_counter on Solana Devnet via CEA
+      // Solana requires svmExecute (not EVM data) with program accounts and Borsh-encoded instruction data
+      const SOL_TEST_PROGRAM = '0x7673075a980bfd5d6b1dffe99c31f63e8938519cc1c2af009dda5e568a94460d';
+      const SOL_COUNTER_PDA  = '0x4f12fe6816ae7e33ebf7db0b154ec3b09e3bf1a7690481e8e9477d5a278ad3af';
+      const SOL_TARGET       = '0x6a44bb5ea802a001386a5b39708523e1a3e1bafc8164ffcb94d1f5afa4849c69';
+      const SOL_ZERO         = '0x0000000000000000000000000000000000000000000000000000000000000000';
+
       const uoa = PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA });
       const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(uoa, {
         chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
         skipNetworkCheck: true,
       });
       console.log('📍 Solana CEA:', solanaCEA.address);
+
+      // receive_sol instruction: discriminator (8 bytes) + amount as u64 LE (8 bytes)
+      const solDiscriminator = new Uint8Array([121, 244, 250, 3, 8, 229, 225, 1]);
+      const solAmountBuf = new Uint8Array(8);
+      new DataView(solAmountBuf.buffer).setBigUint64(0, BigInt(0), true);
+      const solIxData = new Uint8Array([...solDiscriminator, ...solAmountBuf]);
+
       const hop2 = await client.universal.prepareTransaction({
-        to: { address: solanaCEA.address, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
-        value: BigInt(0),
-        data: calldata,
+        to: { address: SOL_TEST_PROGRAM, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        svmExecute: {
+          targetProgram: SOL_TEST_PROGRAM,
+          accounts: [
+            { pubkey: SOL_COUNTER_PDA, isWritable: true },
+            { pubkey: SOL_TARGET, isWritable: true },
+            { pubkey: solanaCEA.address, isWritable: true },
+            { pubkey: SOL_ZERO, isWritable: false },
+          ],
+          ixData: solIxData,
+        },
       });
       console.log('✅ hop2 prepared - route:', hop2.route);
 

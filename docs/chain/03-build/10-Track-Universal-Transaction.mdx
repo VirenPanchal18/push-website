@@ -116,6 +116,7 @@ For the full response shape, see [Send Universal Transaction - TxResponse object
         progressHook: (progress) => {
           console.log('TX 1 Progress: ', progress.title, ' | Time:', progress.timestamp);
         },
+        advanced: { timeout: 30000 },
       });
       console.log(JSON.stringify(tx1Response));
 
@@ -125,6 +126,7 @@ For the full response shape, see [Send Universal Transaction - TxResponse object
         progressHook: (progress) => {
           console.log('TX 2 Progress: ', progress.title, ' | Time:', progress.timestamp);
         },
+        advanced: { timeout: 30000 },
       });
       console.log(JSON.stringify(tx2Response));
 
@@ -134,6 +136,7 @@ For the full response shape, see [Send Universal Transaction - TxResponse object
         progressHook: (progress) => {
           console.log('TX 3 Progress: ', progress.title, ' | Time:', progress.timestamp);
         },
+        advanced: { timeout: 30000 },
       });
       console.log(JSON.stringify(tx3Response));
     }
@@ -143,6 +146,73 @@ For the full response shape, see [Send Universal Transaction - TxResponse object
 
 </NodeJSVirtualIDE>
 
+## Using `tx.wait()` vs `trackTransaction()`
+
+Both methods return identical `TransactionReceipt` objects. The difference is how you call them:
+
+### `tx.wait()` — Chain off `sendTransaction()`
+
+Use when you just sent a transaction in the same session and want to wait inline:
+
+```typescript
+const tx = await pushChainClient.universal.sendTransaction({
+  to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
+  value: BigInt(1000),
+});
+
+// Inline wait — no separate hash lookup needed
+const receipt = await tx.wait();
+console.log('Confirmed at block:', receipt.blockNumber.toString());
+```
+
+### `trackTransaction()` — Track any hash independently
+
+Use when you have a hash from somewhere else — stored in a database, received from a user, or from a previous session:
+
+```typescript
+// Works with any valid Push Chain tx hash
+const response = await pushChainClient.universal.trackTransaction(
+  '0xbd765a6b60da077eaa89a382cd59c0469a4eaabcaca2707d3e6dcdeafc497a39',
+  {
+    waitForCompletion: true,
+    progressHook: (event) => console.log(`${event.id}: ${event.message}`),
+  }
+);
+```
+
+## Error Handling
+
+```typescript
+try {
+  const response = await pushChainClient.universal.trackTransaction(txHash, {
+    waitForCompletion: true,
+    advanced: { timeout: 30000 },
+  });
+
+  // Get the receipt to check status
+  const receipt = await response.wait();
+  if (receipt.status === 0) {
+    console.error('Transaction reverted on-chain');
+  } else {
+    console.log('Transaction confirmed:', response.hash);
+  }
+} catch (error) {
+  if (error.message.includes('Timeout')) {
+    console.error('Timed out — try increasing advanced.timeout');
+  } else if (error.message.includes('Invalid')) {
+    console.error('Invalid hash — must be 0x-prefixed 32-byte hex');
+  } else {
+    console.error('Tracking error:', error.message);
+  }
+}
+```
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| **Invalid hash format** | Not a valid 32-byte hex with `0x` prefix | Hash must be 66 characters starting with `0x` |
+| **Timeout** | Transaction not confirmed within `advanced.timeout` | Increase timeout or check network congestion |
+| **Transaction not found** | Hash doesn't exist on the specified chain | Verify hash and `options.chain` value |
+| **Network error** | RPC unreachable | Supply custom URLs via `advanced.rpcUrls` |
 
 ## Next Steps
 
