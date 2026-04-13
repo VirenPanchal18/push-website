@@ -74,7 +74,6 @@ const config = {
 
   plugins: [
     '@docusaurus/theme-live-codeblock',
-    require.resolve('./plugins/sitemap-llms-plugin'),
     [
       './plugins/blog-plugin',
       {
@@ -155,6 +154,18 @@ const config = {
           editUrl: 'https://github.com/pushchain/push-chain-website/blob/main',
         },
         blog: false,
+        sitemap: {
+          createSitemapItems: async (params) => {
+            const { defaultCreateSitemapItems, ...rest } = params;
+            const items = await defaultCreateSitemapItems(rest);
+            const base = (rest.siteConfig.url || '').replace(/\/$/, '');
+            return [
+              ...items,
+              { url: `${base}/llms.txt` },
+              { url: `${base}/llms-full.txt` },
+            ];
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
