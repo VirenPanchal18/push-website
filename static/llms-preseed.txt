@@ -94,8 +94,9 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Running Localnet](https://push.org/docs/chain/node-and-system-tools/localnet/)
 - [JSON-RPC Functions](https://push.org/docs/chain/node-and-system-tools/json-rpc-functions/)
 
-## Latest Blogs - Showing 57 latest blogs
+## Latest Blogs - Showing 58 latest blogs
 
+- [Enable social login for your app in 4 steps](https://push.org/blog/enable-social-logins-for-your-app/): “Most apps lose on users before they’ve ever interacted with the product."
 - [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/): “Early Access for the FINAL season of Push Points Program before mainnet is live!"
 - [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/): “If you’re building any cross-chain defi apps or want to upgrade your current app to cross-chain. This article’s for you."
 - [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/): “Most people think wallet security is about private keys. Yet, most exploits happen when assets move between chains."

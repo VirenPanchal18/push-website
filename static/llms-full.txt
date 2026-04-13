@@ -8368,9 +8368,9 @@ The resources below form a layered integration stack: discovery → capabilities
 
 | Resource | Purpose |
 |---|---|
-| [/llms.txt](/llms.txt) | Compact structured discovery file for LLMs. Start here to understand Push Chain and locate the right resources. |
-| [/agents/](/agents/index.json) | Machine-readable interface layer: capabilities, workflows, schemas, and code examples for execution. |
-| [/llms-full.txt](/llms-full.txt) | Full documentation corpus in plain text. Ideal for deep context, retrieval systems, and long-context reasoning. |
+| [/llms.txt](pathname:///llms.txt) | Compact structured discovery file for LLMs. Start here to understand Push Chain and locate the right resources. |
+| [/agents/](pathname:///agents/index.json) | Machine-readable interface layer: capabilities, workflows, schemas, and code examples for execution. |
+| [/llms-full.txt](pathname:///llms-full.txt) | Full documentation corpus in plain text. Ideal for deep context, retrieval systems, and long-context reasoning. |
 
 ## What This Enables
 
@@ -8387,14 +8387,14 @@ The `/agents/` layer is organized into machine-readable files that build on each
 
 | File | What it contains |
 |---|---|
-| [/agents/index.json](/agents/index.json) | Discovery map — lists every file, its purpose, and where to start |
-| [/agents/capabilities.json](/agents/capabilities.json) | Every SDK capability with inputs, outputs, and signatures |
-| [/agents/workflows/index.json](/agents/workflows/index.json) | Step-by-step execution guides for common tasks |
-| [/agents/schemas/index.json](/agents/schemas/index.json) | JSON schemas for all request/response types |
-| [/agents/examples/index.json](/agents/examples/index.json) | 60+ minimal, executable TypeScript code snippets |
-| [/agents/decision-tree.json](/agents/decision-tree.json) | Branching logic to select the right capability from intent |
-| [/agents/retrieval-map.json](/agents/retrieval-map.json) | Maps tasks to authoritative documentation sources (for RAG) |
-| [/agents/errors.json](/agents/errors.json) | Error catalog with recovery actions |
+| [/agents/index.json](pathname:///agents/index.json) | Discovery map — lists every file, its purpose, and where to start |
+| [/agents/capabilities.json](pathname:///agents/capabilities.json) | Every SDK capability with inputs, outputs, and signatures |
+| [/agents/workflows/index.json](pathname:///agents/workflows/index.json) | Step-by-step execution guides for common tasks |
+| [/agents/schemas/index.json](pathname:///agents/schemas/index.json) | JSON schemas for all request/response types |
+| [/agents/examples/index.json](pathname:///agents/examples/index.json) | 60+ minimal, executable TypeScript code snippets |
+| [/agents/decision-tree.json](pathname:///agents/decision-tree.json) | Branching logic to select the right capability from intent |
+| [/agents/retrieval-map.json](pathname:///agents/retrieval-map.json) | Maps tasks to authoritative documentation sources (for RAG) |
+| [/agents/errors.json](pathname:///agents/errors.json) | Error catalog with recovery actions |
 
 ## Integration Paths
 
@@ -8404,12 +8404,12 @@ The `/agents/` layer is organized into machine-readable files that build on each
 3. Use the [SDK](/docs/chain/build/) and [UI Kit](/docs/chain/ui-kit/integrate-push-universal-wallet/) for production integration
 
 ### AI agent path
-1. Fetch [/llms.txt](/llms.txt) as the entry layer
-2. Load [/agents/index.json](/agents/index.json) to discover all capabilities and workflows
-3. Use [/agents/decision-tree.json](/agents/decision-tree.json) to map user intent to the right capability
-4. Execute using the matching workflow from [/agents/workflows/index.json](/agents/workflows/index.json)
-5. Validate with schemas from [/agents/schemas/index.json](/agents/schemas/index.json)
-6. Fetch [/llms-full.txt](/llms-full.txt) when full context is needed
+1. Fetch [/llms.txt](pathname:///llms.txt) as the entry layer
+2. Load [/agents/index.json](pathname:///agents/index.json) to discover all capabilities and workflows
+3. Use [/agents/decision-tree.json](pathname:///agents/decision-tree.json) to map user intent to the right capability
+4. Execute using the matching workflow from [/agents/workflows/index.json](pathname:///agents/workflows/index.json)
+5. Validate with schemas from [/agents/schemas/index.json](pathname:///agents/schemas/index.json)
+6. Fetch [/llms-full.txt](pathname:///llms-full.txt) when full context is needed
 
 ## Notes
 
