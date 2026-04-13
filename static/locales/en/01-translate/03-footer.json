@@ -37,6 +37,8 @@
       "docs-title": "Push Chain documentation",
       "github": "GitHub",
       "github-title": "Push Chain repositories on GitHub",
+      "llms": "LLMs.txt for AI Agents",
+      "llms-title": "Machine-readable Push Chain docs for AI coding assistants",
       "knowledge-base": "Knowledge Base",
       "knowledge-base-title": "Push Chain Knowledge Base",
       "blog": "Blog",
