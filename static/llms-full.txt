@@ -242,7 +242,7 @@ const universalSigner = await PushChain.utils.signer.toUniversal(skeleton);
 ---
 
 # Upgrade Universal Account
-URL: https://push.org/docs/chain/build/advanced/upgrade-account/
+URL: https://push.org/docs/chain/build/advanced/upgrade-universal-account/
 
 Upgrade Universal Account | Advanced | Build | Push Chain Docs
 
@@ -1429,9 +1429,9 @@ This enables a new class of applications that are truly chain-agnostic and unive
 
 ## Next Steps
 
-- Send your first universal transaction with [Send Universal Transaction](./send-universal-transaction)  
-- Track and monitor execution with [Track Universal Transaction](./track-universal-transaction)  
-- Build advanced cross-chain flows with [Send Multichain Transactions](./send-multichain-transactions)
+- Send your first universal transaction with [Send Universal Transaction](/docs/chain/build/send-universal-transaction)  
+- Track and monitor execution with [Track Universal Transaction](/docs/chain/build/track-universal-transaction)  
+- Build advanced cross-chain flows with [Send Multichain Transactions](/docs/chain/build/send-multichain-transactions)
 
 ---
 
@@ -3277,7 +3277,7 @@ Multichain transactions let you compose multiple universal transactions into a s
 
 This allows you to submit a **single user-signed transaction** to Push Chain that coordinates execution across Push Chain, external chains, or both.
 
-**Prerequisite:** Familiarize yourself with [Send Universal Transaction](./send-universal-transaction) before reading this page.
+**Prerequisite:** Familiarize yourself with [Send Universal Transaction](/docs/chain/build/send-universal-transaction) before reading this page.
 
 ### Mental Model
 
@@ -3314,7 +3314,7 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
 | `tx.data` | `string` \| `Array` | ABI-encoded calldata, or an array of calls for multicall mode. |
 | `tx.funds` | `{ amount: bigint; token?: MoveableToken }` | Move tokens from origin chain atomically with the call. Use `PushChain.CONSTANTS.MOVEABLE.TOKEN..`. |
 
-> `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](./send-universal-transaction). 
+> `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](/docs/chain/build/send-universal-transaction). 
 
 " className="alert alert--fn-args">
 
@@ -3907,10 +3907,10 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
 
 ## Next Steps
 
-- [Track Universal Transaction](./track-universal-transaction) to monitor individual transaction confirmation status
-- [Contract Initiated Multichain Execution](./contract-initiated-multichain-execution) to trigger multichain flows from on-chain contracts
-- [Sign Universal Message](./sign-universal-message) to sign typed messages across chains with a universal signer
-- [Utility Functions](./utility-functions) for `encodeTxData`, `parseUnits`, and other helpers used in this page
+- [Track Universal Transaction](/docs/chain/build/track-universal-transaction) to monitor individual transaction confirmation status
+- [Contract Initiated Multichain Execution](/docs/chain/build/contract-initiated-multichain-execution) to trigger multichain flows from on-chain contracts
+- [Sign Universal Message](/docs/chain/build/sign-universal-message) to sign typed messages across chains with a universal signer
+- [Utility Functions](/docs/chain/build/utility-functions) for `encodeTxData`, `parseUnits`, and other helpers used in this page
 
 ---
 
@@ -4482,11 +4482,11 @@ Do not use it when:
 
 ## Next Steps
 
-- [Understanding Universal Transactions](./understanding-universal-transactions) — The routing model and CEA concepts this capability builds on
-- [Send Universal Transaction](./send-universal-transaction) — User-initiated cross-chain execution, for comparison
-- [Send Multichain Transactions](./send-multichain-transactions) — SDK-level sequencing of multi-step cross-chain flows
-- [Track Universal Transaction](./track-universal-transaction) — Monitoring execution status for dispatched transactions
-- [Contract Helpers](./contract-helpers) — Push Chain Solidity utilities and system interfaces
+- Understand the routing model and CEA concepts this builds on with [Understanding Universal Transactions](/docs/chain/build/understanding-universal-transactions)
+- Compare with user-initiated flows in [Send Universal Transaction](/docs/chain/build/send-universal-transaction)
+- Sequence multi-step cross-chain flows with [Send Multichain Transactions](/docs/chain/build/send-multichain-transactions)
+- Monitor dispatched transaction status with [Track Universal Transaction](/docs/chain/build/track-universal-transaction)
+- Explore Push Chain Solidity utilities and system interfaces in [Contract Helpers](/docs/chain/build/contract-helpers)
 
 ---
 
@@ -8355,6 +8355,72 @@ Every external chain is represented as a particular constant on Push Chain. Ment
 
 ---
 
+# For AI Agents
+URL: https://push.org/docs/chain/for-ai-agents/
+
+For AI Agents & Integrations | Push Chain Docs
+
+Push Chain is designed for AI agents, copilots, and automation systems to both understand and execute actions across chains, with minimal ambiguity and maximum reliability.
+
+The resources below form a layered integration stack: discovery → capabilities → execution.
+
+## Entry Points
+
+| Resource | Purpose |
+|---|---|
+| [/llms.txt](/llms.txt) | Compact structured discovery file for LLMs. Start here to understand Push Chain and locate the right resources. |
+| [/agents/](/agents/index.json) | Machine-readable interface layer: capabilities, workflows, schemas, and code examples for execution. |
+| [/llms-full.txt](/llms-full.txt) | Full documentation corpus in plain text. Ideal for deep context, retrieval systems, and long-context reasoning. |
+
+## What This Enables
+
+- **Deterministic execution**: structured workflows eliminate guesswork when planning transactions
+- **Reduced ambiguity**: typed schemas and capability definitions map directly to SDK calls
+- **Intent → capability → execution**: a clear path from natural language to on-chain action
+- **Reliable AI integration**: works with any agent framework, RAG pipeline, or developer copilot
+
+> Use these endpoints to let AI agents understand and execute Push Chain transactions natively — no unstructured scraping required.
+
+## Agent Interface Structure
+
+The `/agents/` layer is organized into machine-readable files that build on each other:
+
+| File | What it contains |
+|---|---|
+| [/agents/index.json](/agents/index.json) | Discovery map — lists every file, its purpose, and where to start |
+| [/agents/capabilities.json](/agents/capabilities.json) | Every SDK capability with inputs, outputs, and signatures |
+| [/agents/workflows/index.json](/agents/workflows/index.json) | Step-by-step execution guides for common tasks |
+| [/agents/schemas/index.json](/agents/schemas/index.json) | JSON schemas for all request/response types |
+| [/agents/examples/index.json](/agents/examples/index.json) | 60+ minimal, executable TypeScript code snippets |
+| [/agents/decision-tree.json](/agents/decision-tree.json) | Branching logic to select the right capability from intent |
+| [/agents/retrieval-map.json](/agents/retrieval-map.json) | Maps tasks to authoritative documentation sources (for RAG) |
+| [/agents/errors.json](/agents/errors.json) | Error catalog with recovery actions |
+
+## Integration Paths
+
+### Human developer path
+1. Follow the [Quickstart](/docs/chain/quickstart) to run your first transaction
+2. Work through [Tutorials](/docs/chain/tutorials/) for end-to-end flows
+3. Use the [SDK](/docs/chain/build/) and [UI Kit](/docs/chain/ui-kit/integrate-push-universal-wallet/) for production integration
+
+### AI agent path
+1. Fetch [/llms.txt](/llms.txt) as the entry layer
+2. Load [/agents/index.json](/agents/index.json) to discover all capabilities and workflows
+3. Use [/agents/decision-tree.json](/agents/decision-tree.json) to map user intent to the right capability
+4. Execute using the matching workflow from [/agents/workflows/index.json](/agents/workflows/index.json)
+5. Validate with schemas from [/agents/schemas/index.json](/agents/schemas/index.json)
+6. Fetch [/llms-full.txt](/llms-full.txt) when full context is needed
+
+## Notes
+
+- Prefer canonical workflows in `/agents/workflows/` over navigating raw documentation
+- Use `/agents/schemas/` for precise input validation before execution
+- Treat `/llms.txt` as the **entry layer** and `/agents/` as the **execution layer**
+- `/agents/retrieval-map.json` maps every capability to its normative documentation source — use it to ground responses
+- All code examples in `/agents/examples/` are minimal, self-contained, and ready to execute
+
+---
+
 # Setup
 URL: https://push.org/docs/chain/setup/
 
@@ -8439,6 +8505,12 @@ Changelog | Push Chain Docs
 Keep track of the latest changes and updates to the Push Chain Core and UI Kit SDKs.
 
 ## [@pushchain/core](https://www.npmjs.com/package/@pushchain/core)
+
+### 5.1.0 (2026-03-28)
+
+#### Other Changes
+
+- release: bump to 5.0.0
 
 ### 3.0.4 (2025-11-11)
 
@@ -8616,6 +8688,30 @@ Keep track of the latest changes and updates to the Push Chain Core and UI Kit S
 - release fix
 
 ## [@pushchain/ui-kit](https://www.npmjs.com/package/@pushchain/ui-kit)
+
+### 5.1.0 (2026-03-28)
+
+#### Other Changes
+
+- release: bump to 5.0.0
+
+### 5.0.3 (2026-03-28)
+
+#### Other Changes
+
+- release: bump to 5.0.0
+
+### 5.0.2 (2026-03-28)
+
+#### Other Changes
+
+- release: bump to 5.0.0
+
+### 5.0.1 (2026-03-28)
+
+#### Other Changes
+
+- release: bump to 5.0.0
 
 ### 4.0.6 (2026-01-13)
 

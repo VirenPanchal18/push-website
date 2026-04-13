@@ -26,7 +26,7 @@ Multichain transactions let you compose multiple universal transactions into a s
 
 This allows you to submit a **single user-signed transaction** to Push Chain that coordinates execution across Push Chain, external chains, or both.
 
-**Prerequisite:** Familiarize yourself with [Send Universal Transaction](./send-universal-transaction) before reading this page.
+**Prerequisite:** Familiarize yourself with [Send Universal Transaction](/docs/chain/build/send-universal-transaction) before reading this page.
 
 ### Mental Model
 
@@ -67,7 +67,7 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
 
 </PushAPIReference>
 
-> `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](./send-universal-transaction). 
+> `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](/docs/chain/build/send-universal-transaction). 
 
 <Details summary="Returns `PreparedUniversalTx` <object>" className="alert alert--fn-args">
 
@@ -715,7 +715,7 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
 
 ## Next Steps
 
-- [Track Universal Transaction](./track-universal-transaction) to monitor individual transaction confirmation status
-- [Contract Initiated Multichain Execution](./contract-initiated-multichain-execution) to trigger multichain flows from on-chain contracts
-- [Sign Universal Message](./sign-universal-message) to sign typed messages across chains with a universal signer
-- [Utility Functions](./utility-functions) for `encodeTxData`, `parseUnits`, and other helpers used in this page
+- [Track Universal Transaction](/docs/chain/build/track-universal-transaction) to monitor individual transaction confirmation status
+- [Contract Initiated Multichain Execution](/docs/chain/build/contract-initiated-multichain-execution) to trigger multichain flows from on-chain contracts
+- [Sign Universal Message](/docs/chain/build/sign-universal-message) to sign typed messages across chains with a universal signer
+- [Utility Functions](/docs/chain/build/utility-functions) for `encodeTxData`, `parseUnits`, and other helpers used in this page

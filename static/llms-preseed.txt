@@ -9,6 +9,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Intro to Push Chain](https://push.org/docs/chain/)
 - [Quickstart](https://push.org/docs/chain/quickstart/)
 - [Important Concepts](https://push.org/docs/chain/important-concepts/)
+- [For AI Agents](https://push.org/docs/chain/for-ai-agents/)
 - [Setup](https://push.org/docs/chain/setup/)
 - [Build](https://push.org/docs/chain/build/)
 - [UI Kit](https://push.org/docs/chain/ui-kit/)
@@ -22,7 +23,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 
 - [Recommended Practices](https://push.org/docs/chain/build/recommended-practices/)
 - [Custom Universal Signer](https://push.org/docs/chain/build/advanced/custom-universal-signer/)
-- [Upgrade Universal Account](https://push.org/docs/chain/build/advanced/upgrade-account/)
+- [Upgrade Universal Account](https://push.org/docs/chain/build/advanced/upgrade-universal-account/)
 - [Create Universal Signer](https://push.org/docs/chain/build/create-universal-signer/)
 - [Initialize Push Chain Client](https://push.org/docs/chain/build/initialize-push-chain-client/)
 - [Initialize EVM Client](https://push.org/docs/chain/build/initialize-evm-client/)
