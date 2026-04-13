@@ -47,12 +47,15 @@ export const useChainNotification = () => {
           description={t('notifications.chain-notification.description')}
           position='bottom-left'
           onClick={() => {
-            localStorage.setItem('cultNotification', 'true');
-            window.open('https://push.org/cult', '_blank');
+            localStorage.setItem('seasonThreeNotification', 'true');
+            window.open(
+              'https://x.com/PushChain/status/2039704813412425925?s=20',
+              '_blank'
+            );
             toast.dismiss(toastId);
           }}
           onClose={() => {
-            localStorage.setItem('cultNotification', 'true');
+            localStorage.setItem('seasonThreeNotification', 'true');
             toast.dismiss(toastId);
           }}
           t={t}
@@ -69,7 +72,7 @@ export const useChainNotification = () => {
     // Ensure this code only runs in the browser
     if (typeof window !== 'undefined') {
       const notificationAlreadyShown =
-        localStorage.getItem('cultNotification') === 'true';
+        localStorage.getItem('seasonThreeNotification') === 'true';
 
       if (!notificationAlreadyShown && !hasMounted) {
         showNotification();
@@ -125,12 +128,12 @@ const NotificationItem: FC<NotificationProps> = ({
           <Image
             src={
               require(
-                `@site/static/assets/website/notifications/cult-notifs.webp`
+                `@site/static/assets/website/notifications/seasonThreeNotifs.webp`
               ).default
             }
-            // srcSet={`${require(`@site/static/assets/website/notifications/cult-notifs@2x.webp`).default} 2x, ${require(`@site/static/assets/website/notifications/cult-notifs@3x.webp`).default} 3x`}
             alt={t?.('notifications.chain-notification.image-alt')}
             loading='lazy'
+            width={220}
           />
         </PushLogoBlackContainer>
         {title && <NotificationTitle>{title}</NotificationTitle>}
@@ -143,7 +146,7 @@ const NotificationItem: FC<NotificationProps> = ({
           border='1.5px solid var(--ifm-color-white)'
           hoverBorder='1.5px solid var(--ifm-color-white)'
           fontFamily='DM Sans'
-          width='80%'
+          width='100%'
           title={t?.('notifications.chain-notification.button-title')}
           aria-label={t?.('notifications.chain-notification.button-aria-label')}
         >
@@ -158,12 +161,15 @@ const NotificationItem: FC<NotificationProps> = ({
 const NotificationContainer = styled.div`
   position: relative;
   background-color: var(--ifm-color-black);
-  border: 1px solid rgba(232, 123, 247, 0.3);
+  background-image: url('/assets/website/notifications/bottomsectionbg.webp');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(85, 48, 218, 0.3);
   border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  height: auto;
+  height: 345px;
   width: 275px;
   cursor: pointer;
   box-sizing: border-box;
@@ -176,8 +182,8 @@ const NotificationContainer = styled.div`
   }
 
   img {
-    width: 209px;
-    height: 132px;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
   }
 `;
@@ -187,6 +193,16 @@ const StyledToaster = styled(Toaster)`
 
   @media ${device.mobileL} {
     width: -webkit-fill-available;
+  }
+
+  &[data-sonner-toaster] {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  [data-sonner-toast][data-mounted='true'][data-expanded='true'] {
+    --y: translateY(0) !important;
+    height: var(--initial-height) !important;
   }
 `;
 

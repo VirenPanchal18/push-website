@@ -118,20 +118,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    nameKey: 'components.ecosystem-apps-partners.apps.push-bet.name',
-    descriptionKey:
-      'components.ecosystem-apps-partners.apps.push-bet.description',
-    icon: '/assets/ecosystem/push-bet-icon.png',
-    bgImage: '/assets/ecosystem/push-bet-bg.png',
-    bgGradientColor: 'rgba(0, 0, 0, 0.80)',
-    tags: ['Prediction Market'],
-    href: 'https://pushbet.fun/',
-    titleColor: 'white',
-    descriptionColor: 'white',
-    tagsColor: 'white',
-    twitterId: '2026619668560289884',
-  },
-  {
     nameKey:
       'components.ecosystem-apps-partners.apps.onchain-vampire-survivors.name',
     descriptionKey:

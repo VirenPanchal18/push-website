@@ -1,10 +1,10 @@
 {
   "notifications": {
     "chain-notification": {
-      "description": "En iyi 50 içerik üreticisi 20M टोकन ödülü kazanıyor. Sürünü topla. Push Kültüne katıl!",
-      "button-title": "Push Kültürüne Katıl!",
-      "button-aria-label": "Push Kültü'ne katılın! Buradan inceleyebilirsiniz",
-      "image-alt": "Push Kültürüne Katıl!"
+      "description": "Davet koduna mı ihtiyacınız var? Bizi takip edin, açıklama videomuzu izleyin ve yorum bırakın. Sınırlı davetiyeler!",
+      "button-title": "Davet Kodu Al",
+      "button-aria-label": "Davet Kodu Al! Buradan kontrol edebilirsiniz",
+      "image-alt": "Davet Kodu Al!"
     }
   }
 }

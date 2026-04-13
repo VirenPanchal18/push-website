@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import MDXContent from '@theme/MDXContent';
 import LikeAndRetweetItem from '../../BlogPostPage/LikeAndRetweetItem';
+import { useInjectInviteCode } from '@site/src/components/InviteCodeWidget';
 
 export default function BlogPostItemContent({ children, className }) {
   const { isBlogPostPage, metadata } = useBlogPost();
@@ -19,31 +20,23 @@ export default function BlogPostItemContent({ children, className }) {
     useState(false);
   const contentRef = useRef(null);
 
+  useInjectInviteCode(isBlogPostPage ? contentRef : { current: null });
+
   const injectSocialButtons = () => {
     const firstImage = contentRef.current?.querySelector('p > img');
     if (!firstImage) return false;
 
-    const socialContainer = createSocialContainer();
+    const socialContainer = document.createElement('div');
     const insertionPoint = firstImage.parentNode.nextSibling;
 
     firstImage.parentNode.parentNode.insertBefore(
       socialContainer,
       insertionPoint
     );
-    renderSocialButtons(socialContainer);
 
-    return true;
-  };
-
-  const createSocialContainer = () => {
-    const container = document.createElement('div');
-    return container;
-  };
-
-  const renderSocialButtons = (container) => {
     const { createRoot } = require('react-dom/client');
     const queryClient = new QueryClient();
-    const root = createRoot(container);
+    const root = createRoot(socialContainer);
 
     root.render(
       <QueryClientProvider client={queryClient}>
@@ -52,6 +45,8 @@ export default function BlogPostItemContent({ children, className }) {
         </div>
       </QueryClientProvider>
     );
+
+    return true;
   };
 
   useEffect(() => {
@@ -75,7 +70,6 @@ export default function BlogPostItemContent({ children, className }) {
 
   return (
     <div
-      // This ID is used for the feed generation to locate the main content
       id={isBlogPostPage ? blogPostContainerID : undefined}
       className={clsx('markdown', className)}
       itemProp='articleBody'
