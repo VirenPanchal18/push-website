@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // build.agents.mjs — Generates static/agents/ via 10 phased Claude API calls.
-// Prerequisites: run build.llms.preseed.mjs first so static/llms-preseed.txt exists.
+// Prerequisites: run build.agents.preseed.mjs first so static/llms-preseed.txt exists.
 // Run standalone: node build.agents.mjs
 // Env: WINDSURF_API_KEY (tried first) | AGENTS_GENERATION_AI_CLAUDE (fallback)
 //      AI_AGENTS_MODEL (model override, default: claude-opus-4-5)
@@ -173,7 +173,7 @@ async function loadContext() {
     preseed = await fs.readFile(LLMS_PRESEED_PATH, 'utf-8');
   } catch {
     throw new Error(
-      'static/llms-preseed.txt not found. Run: node build.llms.preseed.mjs first'
+      'static/llms-preseed.txt not found. Run: node build.agents.preseed.mjs first'
     );
   }
 
@@ -268,7 +268,11 @@ A machine-readable index of the /agents/ package. Must include:
   Workflows:    agents/workflows/index.json, agents/workflows/initialize-client.md,
                 agents/workflows/send-universal-transaction.md, agents/workflows/send-multichain-transaction.md,
                 agents/workflows/track-transaction.md, agents/workflows/connect-wallet-ui-kit.md,
-                agents/workflows/sign-universal-message.md
+                agents/workflows/sign-universal-message.md, agents/workflows/create-universal-signer.md,
+                agents/workflows/configure-dev-environment.md, agents/workflows/initialize-evm-client.md,
+                agents/workflows/read-blockchain-state.md, agents/workflows/use-universal-wallet-provider.md,
+                agents/workflows/use-utility-functions.md, agents/workflows/constants-reference.md,
+                agents/workflows/use-contract-helpers.md, agents/workflows/contract-initiated-multichain-execution.md
   Schemas:      agents/schemas/index.json, agents/schemas/universal-account.json,
                 agents/schemas/universal-signer.json, agents/schemas/universal-transaction-request.json,
                 agents/schemas/universal-transaction-response.json, agents/schemas/transaction-receipt.json,
@@ -309,10 +313,10 @@ An agent-oriented README (not human marketing docs). Must include:
 
 FILE 1: agents/constants.json
 All PushChain.CONSTANTS.* values as a structured reference. Must include:
-- "PUSH_NETWORK": { "TESTNET": "...", "MAINNET": "..." }
-- "CHAIN": flat object of all chain constant keys → CAIP-2 values (e.g. PUSH_TESTNET_DONUT → eip155:42101, ETHEREUM_SEPOLIA → eip155:11155111, SOLANA_DEVNET → solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, etc.)
-- "LIBRARY": all supported library constants (ETHERS_V5, ETHERS_V6, VIEM, SOLANA_WEB3JS, etc.)
-- "MOVEABLE": { "TOKEN": { ... } } — all moveable token constants
+- "PUSH_NETWORK": { "TESTNET": "TESTNET", "TESTNET_DONUT": "TESTNET_DONUT", "MAINNET": "MAINNET", "LOCALNET": "LOCALNET" }
+- "CHAIN": flat object of all chain constant keys → CAIP-2 values (e.g. PUSH_TESTNET_DONUT → eip155:42101, ETHEREUM_SEPOLIA → eip155:11155111, ARBITRUM_SEPOLIA → eip155:421614, BASE_SEPOLIA → eip155:84532, BNB_TESTNET → eip155:97, SOLANA_DEVNET → solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, etc.)
+- "LIBRARY": exact key names are ETHEREUM_ETHERSV6, ETHEREUM_VIEM, SOLANA_WEB3JS — do NOT use ETHERS_V5 or ETHERS_V6 (wrong names)
+- "MOVEABLE": { "TOKEN": { ... } } — all moveable token constants per chain
 Only include constants present in the documentation. Mark any inferred with "status": "inferred".
 
 FILE 2: agents/capabilities.json
@@ -413,14 +417,23 @@ For each workflow file include these sections exactly:
 ## MCP Mapping Candidates
 (list of steps that could become MCP tools later)
 
-Generate these 6 files (using exact method signatures from the Push Chain docs):
+Generate all 15 workflow files (using exact method signatures from the Push Chain docs):
 
-1. agents/workflows/initialize-client.md — PushChain.initialize(universalSigner, {network}) covering all signer types (ethers, viem, solana)
-2. agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, value, data, from}) covering all 3 routes
-3. agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target
-4. agents/workflows/track-transaction.md — trackTransaction(hash, opts) and tx.wait() comparison  
-5. agents/workflows/connect-wallet-ui-kit.md — PushUniversalWalletProvider, PushUniversalAccountButton, usePushChainClient, usePushWalletContext
-6. agents/workflows/sign-universal-message.md — pushChainClient.universal.signMessage(message)`,
+1.  agents/workflows/initialize-client.md — PushChain.initialize(universalSigner, {network}) covering all signer types (ethers, viem, solana)
+2.  agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, value, data, from}) covering all 3 routes
+3.  agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target
+4.  agents/workflows/track-transaction.md — trackTransaction(hash, opts) and tx.wait() comparison
+5.  agents/workflows/connect-wallet-ui-kit.md — PushUniversalWalletProvider, PushUniversalAccountButton, usePushChainClient, usePushWalletContext
+6.  agents/workflows/sign-universal-message.md — pushChainClient.universal.signMessage(message)
+7.  agents/workflows/create-universal-signer.md — PushChain.utils.signer.toUniversal(signer) for EVM, toUniversalFromKeypair for Solana, signer.construct for custom
+8.  agents/workflows/configure-dev-environment.md — npm/yarn install @pushchain/core and @pushchain/ui-kit, environment setup, RPC config
+9.  agents/workflows/initialize-evm-client.md — new ethers.JsonRpcProvider(rpcUrl) and createPublicClient({transport: http(rpcUrl)}) for read-only access
+10. agents/workflows/read-blockchain-state.md — fetching transactions, blocks, balances via ethers/viem EVM client
+11. agents/workflows/use-universal-wallet-provider.md — PushUniversalWalletProvider config: loginMethods, theme, rpcUrls override
+12. agents/workflows/use-utility-functions.md — PushChain.utils.helpers.parseUnits/formatUnits/encodeTxData, PushChain.utils.chains.getSupportedChains, PushChain.utils.tokens.getMoveableTokens/getPayableTokens
+13. agents/workflows/constants-reference.md — PushChain.CONSTANTS.PUSH_NETWORK, CHAIN, LIBRARY reference guide
+14. agents/workflows/use-contract-helpers.md — IUEAFactory at 0x...eA: getOriginForUEA(addr), getUEAForOrigin(UniversalAccountId)
+15. agents/workflows/contract-initiated-multichain-execution.md — IUniversalGatewayPC.sendUniversalTxOutbound(req) for outbound, executeUniversalTx() for inbound callback`,
         ctx
       ),
     expectedFiles: [
@@ -430,6 +443,15 @@ Generate these 6 files (using exact method signatures from the Push Chain docs):
       'agents/workflows/track-transaction.md',
       'agents/workflows/connect-wallet-ui-kit.md',
       'agents/workflows/sign-universal-message.md',
+      'agents/workflows/create-universal-signer.md',
+      'agents/workflows/configure-dev-environment.md',
+      'agents/workflows/initialize-evm-client.md',
+      'agents/workflows/read-blockchain-state.md',
+      'agents/workflows/use-universal-wallet-provider.md',
+      'agents/workflows/use-utility-functions.md',
+      'agents/workflows/constants-reference.md',
+      'agents/workflows/use-contract-helpers.md',
+      'agents/workflows/contract-initiated-multichain-execution.md',
     ],
   },
 

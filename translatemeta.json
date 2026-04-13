@@ -535,8 +535,8 @@
       }
     },
     "03-footer.json": {
-      "checksum": "841d19e9dc5c942784f44588986760c8",
-      "lastUpdated": "2026-02-26T00:32:53.640Z",
+      "checksum": "f81fb3499c0a296d60710019ecbd9912",
+      "lastUpdated": "2026-04-13T19:25:55.737Z",
       "keys": {
         "footer.email-section.title": {
           "checksum": "8ed988fe5e29bb5d37ff55ffe9adf418",
@@ -647,6 +647,16 @@
           "checksum": "fc2e249328e4dcc5f4930366f7a0a2b3",
           "value": "Push Chain repositories on GitHub",
           "lastUpdated": "2025-11-08T13:06:32.996Z"
+        },
+        "footer.links.llms": {
+          "checksum": "19c697ce6772d67b824cb85440a67e2d",
+          "value": "LLMs.txt for AI Agents",
+          "lastUpdated": "2026-04-13T19:25:55.737Z"
+        },
+        "footer.links.llms-title": {
+          "checksum": "1a671cc90b614805a8a570fdbcaa9874",
+          "value": "Machine-readable Push Chain docs for AI coding assistants",
+          "lastUpdated": "2026-04-13T19:25:55.737Z"
         },
         "footer.links.knowledge-base": {
           "checksum": "083065d6760791eb1195154619e5813c",
@@ -5988,9 +5998,9 @@
         "lastUpdated": "2026-01-23T00:13:22.907Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.951Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -6336,6 +6346,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.951Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -9245,9 +9265,9 @@
         "lastUpdated": "2026-01-23T00:13:34.763Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.955Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -9593,6 +9613,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.955Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -12502,9 +12532,9 @@
         "lastUpdated": "2026-01-23T00:13:46.134Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.957Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -12850,6 +12880,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.957Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -15759,9 +15799,9 @@
         "lastUpdated": "2026-01-23T00:13:58.006Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.958Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -16107,6 +16147,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.958Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -19016,9 +19066,9 @@
         "lastUpdated": "2026-01-23T00:14:10.014Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.959Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -19364,6 +19414,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.959Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -22273,9 +22333,9 @@
         "lastUpdated": "2026-01-23T00:14:21.989Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.960Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -22621,6 +22681,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.960Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -25530,9 +25600,9 @@
         "lastUpdated": "2026-01-23T00:14:34.571Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.961Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -25878,6 +25948,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.961Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -28787,9 +28867,9 @@
         "lastUpdated": "2026-01-23T00:14:46.769Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.962Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -29135,6 +29215,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.962Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -32044,9 +32134,9 @@
         "lastUpdated": "2026-01-23T00:14:59.230Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.965Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -32392,6 +32482,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.965Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -35301,9 +35401,9 @@
         "lastUpdated": "2026-01-23T00:15:11.801Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.968Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -35649,6 +35749,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.968Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -38558,9 +38668,9 @@
         "lastUpdated": "2026-01-23T00:15:23.641Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.971Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -38906,6 +39016,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.971Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -41815,9 +41935,9 @@
         "lastUpdated": "2026-01-23T00:15:35.990Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.973Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -42163,6 +42283,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.973Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },
@@ -45072,9 +45202,9 @@
         "lastUpdated": "2026-01-23T00:15:48.032Z"
       },
       "03-footer.json": {
-        "translated": true,
-        "checksum": "841d19e9dc5c942784f44588986760c8",
-        "lastUpdated": "2025-11-08T13:09:03.975Z",
+        "translated": false,
+        "checksum": null,
+        "lastUpdated": null,
         "keys": {
           "footer.email-section.title": {
             "translated": true,
@@ -45420,6 +45550,16 @@
             "translated": true,
             "checksum": "cd2bae06968c281ad38607997b5a08e7",
             "lastUpdated": "2025-11-08T13:09:03.975Z"
+          },
+          "footer.links.llms": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
+          },
+          "footer.links.llms-title": {
+            "translated": false,
+            "checksum": null,
+            "lastUpdated": null
           }
         }
       },

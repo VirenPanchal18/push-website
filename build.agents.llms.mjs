@@ -77,7 +77,7 @@ const loadWorkflows = async () => {
   return FALLBACK_WORKFLOWS;
 };
 
-// Gather recent blog posts (mirrors logic in build.llms.preseed.mjs)
+// Gather recent blog posts (mirrors logic in build.agents.preseed.mjs)
 const gatherBlogPosts = async () => {
   let entries;
   try {
