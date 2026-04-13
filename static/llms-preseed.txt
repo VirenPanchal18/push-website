@@ -94,8 +94,11 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Running Localnet](https://push.org/docs/chain/node-and-system-tools/localnet/)
 - [JSON-RPC Functions](https://push.org/docs/chain/node-and-system-tools/json-rpc-functions/)
 
-## Latest Blogs - Showing 54 latest blogs
+## Latest Blogs - Showing 57 latest blogs
 
+- [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/): “Early Access for the FINAL season of Push Points Program before mainnet is live!"
+- [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/): “If you’re building any cross-chain defi apps or want to upgrade your current app to cross-chain. This article’s for you."
+- [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/): “Most people think wallet security is about private keys. Yet, most exploits happen when assets move between chains."
 - [How Push Chain Centralizes Rules Without Centralizing Risk](https://push.org/blog/how-push-chain-centralizes-rules-without-centralizing-risk/): “Push Chain unifies what counts as a valid action, how state progresses, and what the final outcome is without unifying where actions originate."
 - [Why execution doesn’t decide global state on Push Chain](https://push.org/blog/why-execution-doesn't-decide-global-state/): “Shared State” sounds risky, and that instinct is correct. If execution happens across chains, what stops?"
 - [How is pUSD (Universal Stablecoin) minted](https://push.org/blog/how-is-pusd-minted/): A universal stablecoin is a dollar you can use on one chain while the actual asset stays on another. Here's how it's minted

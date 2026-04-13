@@ -74,6 +74,7 @@ const config = {
 
   plugins: [
     '@docusaurus/theme-live-codeblock',
+    require.resolve('./plugins/sitemap-llms-plugin'),
     [
       './plugins/blog-plugin',
       {

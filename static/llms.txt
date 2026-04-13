@@ -52,6 +52,9 @@ Prefer these structured resources before browsing the full docs tree:
 
 ## Blog — Latest 20 Posts
 
+- [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/): “Early Access for the FINAL season of Push Points Program before mainnet is live!"
+- [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/): “If you’re building any cross-chain defi apps or want to upgrade your current app to cross-chain. This article’s for you."
+- [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/): “Most people think wallet security is about private keys. Yet, most exploits happen when assets move between chains."
 - [How Push Chain Centralizes Rules Without Centralizing Risk](https://push.org/blog/how-push-chain-centralizes-rules-without-centralizing-risk/): “Push Chain unifies what counts as a valid action, how state progresses, and what the final outcome is without unifying where actions originate."
 - [Why execution doesn’t decide global state on Push Chain](https://push.org/blog/why-execution-doesn't-decide-global-state/): “Shared State” sounds risky, and that instinct is correct. If execution happens across chains, what stops?"
 - [How is pUSD (Universal Stablecoin) minted](https://push.org/blog/how-is-pusd-minted/): A universal stablecoin is a dollar you can use on one chain while the actual asset stays on another. Here's how it's minted
@@ -69,9 +72,6 @@ Prefer these structured resources before browsing the full docs tree:
 - [5 Ways to Make Your App Popular with Shared-State](https://push.org/blog/5-ways-to-make-your-app-popular/): Users do not quit because your app is bad — they quit because the chain experience gets in the way. Here are 5 ways Shared-State removes that friction and makes your app grow.
 - [How Universal Fee Abstraction Works](https://push.org/blog/how-universal-abstraction-works/): How Universal Fee Abstraction Works
 - [Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet](https://push.org/blog/push-chain-zerion/): Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet
-- [Local UI vs Shared UI: How Push Chain's UI Kit Simplifies Wallet Integration](https://push.org/blog/local-ui-vs-shared-ui/): Push Chain's UI Kit replaces per-app wallet boilerplate with a shared wallet UX layer — one provider, one hook, one modal, consistent across every React app.
-- [Push Chain × Silence Labs: Building the Distributed Signing Mechanism](https://push.org/blog/push-chain-silence-labs/): Push Chain × Silence Labs: Building the Distributed Signing Mechanism
-- [Introducing Push Cult 👁️⃤  -  Blood Pact for Creators](https://push.org/blog/introducing-the-push-cult/): An exclusive order of 50 creators selected to split a 20M PC token bounty by delivering pure signal.
 
 ## Full Context
 
