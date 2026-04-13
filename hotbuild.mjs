@@ -47,7 +47,7 @@ try {
 console.log(
   chalk.blue(`🚀 Starting Docusaurus in ${mode.toUpperCase()} mode...`)
 );
-const docusaurus = spawn('npx', ['docusaurus', 'start'], {
+const docusaurus = spawn('yarn', ['docusaurus', 'start'], {
   stdio: 'inherit',
   cwd: process.cwd(),
   env: {

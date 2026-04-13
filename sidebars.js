@@ -27,6 +27,10 @@ const sidebars = {
       id: 'chain/docs-chain-important-concepts',
     },
     {
+      type: 'doc',
+      id: 'chain/docs-chain-for-ai-agents',
+    },
+    {
       type: 'category',
       label: 'Tutorials',
       link: {
@@ -182,12 +186,32 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'chain/build/docs-chain-build-understanding-universal-transactions',
+        },
+        {
+          type: 'doc',
           id: 'chain/build/docs-chain-build-send-universal-transaction',
         },
-        // {
-        //   type: 'doc',
-        //   id: 'chain/build/docs-chain-build-track-universal-transaction',
-        // },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-universal-transaction-scenarios',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-send-multichain-transactions',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-contract-initiated-multichain-execution',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-track-universal-transaction',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-sign-universal-message',
+        },
         {
           type: 'doc',
           id: 'chain/build/docs-chain-build-utility-functions',
@@ -199,6 +223,10 @@ const sidebars = {
         {
           type: 'doc',
           id: 'chain/build/docs-chain-build-contract-helpers',
+        },
+        {
+          type: 'doc',
+          id: 'chain/build/docs-chain-build-constants',
         },
         {
           type: 'category',

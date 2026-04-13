@@ -106,8 +106,10 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
 
   const handleCopy = async () => {
     try {
+      const liveEdited =
+        typeof window !== 'undefined' ? window.__playgroundLiveCode : null;
       const match = code.match(/const\s+defaultCode\s*=\s*`([\s\S]*?)`;/);
-      const extractedCode = match ? match[1] : '';
+      const extractedCode = liveEdited ?? (match ? match[1] : '');
       await navigator.clipboard.writeText(extractedCode);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // reset after 2s
@@ -131,8 +133,10 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
 
   const handleShare = async (e) => {
     try {
+      const liveEdited =
+        typeof window !== 'undefined' ? window.__playgroundLiveCode : null;
       const match = code.match(/const\s+defaultCode\s*=\s*`([\s\S]*?)`;/);
-      const extractedCode = match ? match[1] : '';
+      const extractedCode = liveEdited ?? (match ? match[1] : code);
       const compressedCode = compressCode(extractedCode);
       const ideType = codeEnv === CodingEnvironment.NODEJS ? 'node' : 'react';
       const shareUrl = `${window.location.origin}/docs/chain/code-snippet#code=${compressedCode}&ide=${ideType}`;
@@ -164,20 +168,33 @@ function ResultWithHeader({ title, codeEnv, hidden, code }) {
           </ItemV>
           {hidden && (
             <>
-              <CopyButton onClick={handleShare} style={{ marginRight: '8px' }}>
-                {shared ? (
-                  <FiCheck color='var(--ifm-positive-action-color)' />
-                ) : (
-                  <FiLink />
-                )}
-              </CopyButton>
-              <CopyButton onClick={handleCopy}>
-                {copied ? (
-                  <FiCheck color='var(--ifm-positive-action-color)' />
-                ) : (
-                  <FiCopy />
-                )}
-              </CopyButton>
+              <div className={styles.tooltipWrapper}>
+                <CopyButton
+                  onClick={handleShare}
+                  style={{ marginRight: '8px' }}
+                >
+                  {shared ? (
+                    <FiCheck color='var(--ifm-positive-action-color)' />
+                  ) : (
+                    <FiLink />
+                  )}
+                </CopyButton>
+                <span className={styles.tooltip}>
+                  {shared ? 'Copied!' : 'Copy playground link'}
+                </span>
+              </div>
+              <div className={styles.tooltipWrapper}>
+                <CopyButton onClick={handleCopy}>
+                  {copied ? (
+                    <FiCheck color='var(--ifm-positive-action-color)' />
+                  ) : (
+                    <FiCopy />
+                  )}
+                </CopyButton>
+                <span className={styles.tooltip}>
+                  {copied ? 'Copied!' : 'Copy code'}
+                </span>
+              </div>
             </>
           )}
         </ItemH>
@@ -218,14 +235,18 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
   const handleCopy = async (e) => {
     e.stopPropagation();
     try {
-      await navigator.clipboard.writeText(code);
+      const currentCode =
+        typeof window !== 'undefined' && window.__playgroundLiveCode
+          ? window.__playgroundLiveCode
+          : code;
+      await navigator.clipboard.writeText(currentCode);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // reset after 2s
 
       // Track copy event
       if (typeof window !== 'undefined' && window.gtag) {
         const pageUrl = window.location.pathname;
-        const codeHash = code.substring(0, 50).replace(/\s+/g, '_');
+        const codeHash = currentCode.substring(0, 50).replace(/\s+/g, '_');
         window.gtag('event', 'code_snippet_copy', {
           event_category: 'code_playground',
           event_label: `${pageUrl}::${codeHash}`,
@@ -255,7 +276,11 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
   const handleShare = async (e) => {
     e.stopPropagation();
     try {
-      const compressedCode = compressCode(code);
+      const currentCode =
+        typeof window !== 'undefined' && window.__playgroundLiveCode
+          ? window.__playgroundLiveCode
+          : code;
+      const compressedCode = compressCode(currentCode);
       const ideType = codeEnv === CodingEnvironment.NODEJS ? 'node' : 'react';
       const shareUrl = `${window.location.origin}/docs/chain/code-snippet#code=${compressedCode}&ide=${ideType}`;
       await navigator.clipboard.writeText(shareUrl);
@@ -300,20 +325,30 @@ function EditorWithHeader({ minimized, code, title, codeEnv }) {
             {displayTitle}
           </ItemV>
           <CopyContainer>
-            <CopyButton onClick={handleShare} style={{ marginRight: '8px' }}>
-              {shared ? (
-                <FiCheck color='var(--ifm-positive-action-color)' />
-              ) : (
-                <FiLink />
-              )}
-            </CopyButton>
-            <CopyButton onClick={handleCopy}>
-              {copied ? (
-                <FiCheck color='var(--ifm-positive-action-color)' />
-              ) : (
-                <FiCopy />
-              )}
-            </CopyButton>
+            <div className={styles.tooltipWrapper}>
+              <CopyButton onClick={handleShare} style={{ marginRight: '8px' }}>
+                {shared ? (
+                  <FiCheck color='var(--ifm-positive-action-color)' />
+                ) : (
+                  <FiLink />
+                )}
+              </CopyButton>
+              <span className={styles.tooltip}>
+                {shared ? 'Copied!' : 'Copy playground link'}
+              </span>
+            </div>
+            <div className={styles.tooltipWrapper}>
+              <CopyButton onClick={handleCopy}>
+                {copied ? (
+                  <FiCheck color='var(--ifm-positive-action-color)' />
+                ) : (
+                  <FiCopy />
+                )}
+              </CopyButton>
+              <span className={styles.tooltip}>
+                {copied ? 'Copied!' : 'Copy code'}
+              </span>
+            </div>
             {minimizedState ? <FiChevronDown /> : <FiChevronUp />}
           </CopyContainer>
         </ItemH>
@@ -481,6 +516,8 @@ export default function Playground({
         code={execCode}
         noInline={noInline}
         transformCode={(code) => {
+          if (!isNodeJSEnv && typeof window !== 'undefined')
+            window.__playgroundLiveCode = code;
           // Track React Live code execution
           if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', 'react_live_run', {

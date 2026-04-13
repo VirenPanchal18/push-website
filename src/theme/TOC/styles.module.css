@@ -12,7 +12,7 @@
   top: calc(var(--ifm-navbar-height) + 1rem);
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  padding-bottom: 2rem;
 }
 
 .copyPageButtonWrapper {

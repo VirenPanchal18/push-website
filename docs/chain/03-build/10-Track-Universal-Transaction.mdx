@@ -1,0 +1,222 @@
+---
+id: docs-chain-build-track-universal-transaction
+title: Track Universal Transaction
+hide_title: false
+slug: ./track-universal-transaction
+displayed_sidebar: pushChainSidebar
+sidebar_position: 10
+image: "/assets/docs/previews/docs_chain_build--track_universal_transaction.png"
+---
+
+<head>
+  <title>Track Universal Transaction | Build | Push Chain Docs</title>
+</head>
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Details from '@theme/Details';
+import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
+import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
+
+{/* Content Start */}
+
+## Overview
+
+Track the status of a universal transaction using the hash of the chain where it was originally submitted, whether that transaction started on Push Chain or an external chain.
+
+This is useful for re-checking transaction progress, restoring status after a page refresh, polling from a backend, or tracking a transaction created in a different session.
+
+> **Note**: `trackTransaction()` can be used independently of `sendTransaction()`. You can pass any previously stored transaction hash and origin chain to resume tracking.
+
+## Track Universal Transaction
+
+**_`pushChainClient.universal.trackTransaction(txHash, {options}): Promise<UniversalTxResponse>`_**
+
+```typescript
+const response = await pushChainClient.universal.trackTransaction(
+  '0xbd765a6b60da077eaa89a382cd59c0469a4eaabcaca2707d3e6dcdeafc497a39',
+  {
+    progressHook: (progress) => {
+      console.log(`${progress.id}: ${progress.message}`);
+    },
+  }
+);
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Default** | **Description** |
+| ------------- | -------- | ----------- | --------------- |
+| _`txHash`_ | `string` | - | Transaction hash or signature to track on the origin chain. Format depends on the chain where the transaction was originally submitted. |
+| `options.chain` | `CHAIN` | `CHAIN.PUSH_TESTNET_DONUT` | The chain on which the transaction was submitted. |
+| `options.progressHook` | `(event: ProgressEvent) => void` | `undefined` | Callback invoked at each tracking step showing progress.<br /><br />Progress hook follows the same structure as [Send Universal Transaction - Progress Hook](/docs/chain/build/send-universal-transaction#progress-hook-type-and-response). |
+| `options.waitForCompletion` | `boolean` | `true` | When `true`, waits for on-chain confirmation before resolving. When `false`, returns immediately after the first status check. |
+
+</PushAPIReference>
+
+<Details summary="Advanced Arguments" className="alert alert--minimal code">
+
+| Arguments | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| `options.advanced.pollingIntervalMs` | `number` | `2000` | Milliseconds between polling attempts. Minimum: `500`. |
+| `options.advanced.timeout` | `number` | `60000` | Maximum milliseconds to wait before throwing a timeout error. |
+| `options.advanced.rpcUrls` | `Partial<Record<CHAIN, string[]>>` | `{}` | Custom RPC URLs to use when querying status. |
+
+</Details>
+
+<Details summary="Returns `UniversalTxResponse` <object>" className="alert alert--fn-args">
+
+The returned `UniversalTxResponse` contains the latest resolved transaction state, including Push Chain execution details and external-chain details when applicable.<br /><br />
+
+For the full response shape, see [Send Universal Transaction - TxResponse object](/docs/chain/build/send-universal-transaction#returns-tx-response).
+
+</Details>
+
+## Live Playground
+
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/track-universal-transaction"}}>
+
+{`
+    // customPropHighlightRegexStart=universal\.trackTransaction
+    // customPropHighlightRegexEnd=\\}\\);
+    // customPropGTagEvent=track_transaction_uea_to_cea
+
+    import { PushChain } from '@pushchain/core';
+    import { ethers } from 'ethers';
+
+    async function main() {
+      console.log('Creating Universal Signer - Ethers V6');
+
+      // Transaction Hashes
+      // Originating from Push Chain
+      // https://explorer.push.org/tx/0x169929f61574baf62b84ce68b944e09faf566129d0175b2ee1e020c76ae7bd2f
+      const UNIVERSAL_TX_FROM_PUSH_TX_HASH = '0x169929f61574baf62b84ce68b944e09faf566129d0175b2ee1e020c76ae7bd2f';
+
+      // Originating from Sepolia
+      // https://sepolia.etherscan.io/tx/0x9b4743376689eb6f90f3aeb9eea58381b3bcc033e1de4709281fd58a77b85098
+      const UNIVERSAL_TX_FROM_ETH_SEPOLIA_TX_HASH = '0x9b4743376689eb6f90f3aeb9eea58381b3bcc033e1de4709281fd58a77b85098';
+      
+      // Originating from Solana
+      // https://explorer.solana.com/tx/22SirqSwhcSjgyb3wdrW9Zis19dxcLHD5yy3BtRbRoLmykrv8eCzKnPaRGxrrZ7a4A7yKGRMGMehqKpTcdF2ByFR?cluster=devnet
+      const UNIVERSAL_TX_FROM_SOLANA_TX_HASH = '22SirqSwhcSjgyb3wdrW9Zis19dxcLHD5yy3BtRbRoLmykrv8eCzKnPaRGxrrZ7a4A7yKGRMGMehqKpTcdF2ByFR';
+
+      // Initialize client
+      const wallet = ethers.Wallet.createRandom();
+      const provider = new ethers.JsonRpcProvider("https://evm.donut.rpc.push.org/");
+      const signer = wallet.connect(provider);
+      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
+      const pushChainClient = await PushChain.initialize(universalSigner, {
+          network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+      console.log('🔑 Push Chain client initialized');
+        
+      // Track transactions from different chains
+      console.log('📡 Tracking universal tx from push chain:', UNIVERSAL_TX_FROM_PUSH_TX_HASH);
+      const tx1Response = await pushChainClient.universal.trackTransaction(UNIVERSAL_TX_FROM_PUSH_TX_HASH, {
+        progressHook: (progress) => {
+          console.log('TX 1 Progress: ', progress.title, ' | Time:', progress.timestamp);
+        },
+        advanced: { timeout: 30000 },
+      });
+      console.log(JSON.stringify(tx1Response));
+
+      console.log('📡 Tracking universal tx from eth sepolia:', UNIVERSAL_TX_FROM_ETH_SEPOLIA_TX_HASH);
+      const tx2Response = await pushChainClient.universal.trackTransaction(UNIVERSAL_TX_FROM_ETH_SEPOLIA_TX_HASH, {
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+        progressHook: (progress) => {
+          console.log('TX 2 Progress: ', progress.title, ' | Time:', progress.timestamp);
+        },
+        advanced: { timeout: 30000 },
+      });
+      console.log(JSON.stringify(tx2Response));
+
+      console.log('📡 Tracking universal tx from solana:', UNIVERSAL_TX_FROM_SOLANA_TX_HASH);
+      const tx3Response = await pushChainClient.universal.trackTransaction(UNIVERSAL_TX_FROM_SOLANA_TX_HASH, {
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        progressHook: (progress) => {
+          console.log('TX 3 Progress: ', progress.title, ' | Time:', progress.timestamp);
+        },
+        advanced: { timeout: 30000 },
+      });
+      console.log(JSON.stringify(tx3Response));
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+## Using `tx.wait()` vs `trackTransaction()`
+
+Both methods return identical `TransactionReceipt` objects. The difference is how you call them:
+
+### `tx.wait()` — Chain off `sendTransaction()`
+
+Use when you just sent a transaction in the same session and want to wait inline:
+
+```typescript
+const tx = await pushChainClient.universal.sendTransaction({
+  to: '0x35B84d6848D16415177c64D64504663b998A6ab4',
+  value: BigInt(1000),
+});
+
+// Inline wait — no separate hash lookup needed
+const receipt = await tx.wait();
+console.log('Confirmed at block:', receipt.blockNumber.toString());
+```
+
+### `trackTransaction()` — Track any hash independently
+
+Use when you have a hash from somewhere else — stored in a database, received from a user, or from a previous session:
+
+```typescript
+// Works with any valid Push Chain tx hash
+const response = await pushChainClient.universal.trackTransaction(
+  '0xbd765a6b60da077eaa89a382cd59c0469a4eaabcaca2707d3e6dcdeafc497a39',
+  {
+    waitForCompletion: true,
+    progressHook: (event) => console.log(`${event.id}: ${event.message}`),
+  }
+);
+```
+
+## Error Handling
+
+```typescript
+try {
+  const response = await pushChainClient.universal.trackTransaction(txHash, {
+    waitForCompletion: true,
+    advanced: { timeout: 30000 },
+  });
+
+  // Get the receipt to check status
+  const receipt = await response.wait();
+  if (receipt.status === 0) {
+    console.error('Transaction reverted on-chain');
+  } else {
+    console.log('Transaction confirmed:', response.hash);
+  }
+} catch (error) {
+  if (error.message.includes('Timeout')) {
+    console.error('Timed out — try increasing advanced.timeout');
+  } else if (error.message.includes('Invalid')) {
+    console.error('Invalid hash — must be 0x-prefixed 32-byte hex');
+  } else {
+    console.error('Tracking error:', error.message);
+  }
+}
+```
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| **Invalid hash format** | Not a valid 32-byte hex with `0x` prefix | Hash must be 66 characters starting with `0x` |
+| **Timeout** | Transaction not confirmed within `advanced.timeout` | Increase timeout or check network congestion |
+| **Transaction not found** | Hash doesn't exist on the specified chain | Verify hash and `options.chain` value |
+| **Network error** | RPC unreachable | Supply custom URLs via `advanced.rpcUrls` |
+
+## Next Steps
+
+- Learn about signing messages with [Sign Universal Message](/docs/chain/build/sign-universal-message)
+- Explore helper functions in [Utility Functions](/docs/chain/build/utility-functions)
+- Build rich UIs with transaction tracking using the [UI Kit](/docs/chain/ui-kit)
+- Read blockchain state with [Reading Blockchain State](/docs/chain/build/reading-blockchain-state)

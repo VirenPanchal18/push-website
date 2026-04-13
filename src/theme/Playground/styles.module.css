@@ -110,3 +110,33 @@
 .playgroundHeader_src-theme-Playground-styles-module:first-of-type{
   background-color: var(--ifm-node-header-color) !important;
 } */
+
+.tooltipWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltipWrapper .tooltip {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 6px);
+  transform: translateY(-50%);
+  background: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-primary-unified-text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.tooltipWrapper:hover .tooltip {
+  opacity: 1;
+}

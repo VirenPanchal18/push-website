@@ -77,12 +77,16 @@ export const FooterUrls = {
     href: '/contact/#open-contact-form',
     target: '_self' as const,
   },
+  llms: {
+    href: '/llms.txt',
+    target: '_blank' as const,
+  },
 };
 
 // Footer structure matching footer.json columns
 export const FooterList = {
   resources: ['knowledge-base', 'blog', 'litepaper', 'push-scan', 'faucet'],
-  developers: ['get-started', 'docs', 'github'],
+  developers: ['get-started', 'docs', 'github', 'llms'],
   community: ['push-portal', 'twitter', 'discord', 'telegram'],
   help: ['support', 'security', 'contact-us', 'careers', 'brand-kit'],
 };

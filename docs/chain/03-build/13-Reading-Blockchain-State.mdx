@@ -4,7 +4,7 @@ title: Reading Blockchain State
 hide_title: false
 slug: ./reading-blockchain-state
 displayed_sidebar: pushChainSidebar
-sidebar_position: 9
+sidebar_position: 13
 image: "/assets/docs/previews/docs_chain_build--reading_blockchain_state.png"
 ---
 
@@ -240,7 +240,7 @@ import { createPublicClient, http } from 'viem';
     // customPropGTagEvent=setup_viem_websocket_client
     import { createPublicClient, webSocket } from 'viem';
 
-    const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });
+    const client = createPublicClient({ transport: webSocket('wss://evm.donut.rpc.push.org') });
 
     console.log('Connection Opened!');
 
@@ -296,7 +296,7 @@ import { createPublicClient, http } from 'viem';
     // customPropGTagEvent=watch_new_blocks_viem
     import { createPublicClient, webSocket } from 'viem';
 
-    const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });
+    const client = createPublicClient({ transport: webSocket('wss://evm.donut.rpc.push.org') });
 
     const stop = client.watchBlocks({
       onBlock: (b) => console.log("Block produced: ", b.number),
@@ -333,7 +333,7 @@ import { ethers } from 'ethers';
     console.log('Listening for tx on:', watchedAddress, "Try sending some $PC here");
 
     ws.on('block', async (blockNumber) => {
-      const provider  = new ethers.JsonRpcProvider('https://evm.rpc-testnet-donut-node1.push.org');
+      const provider  = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org');
       const block = await provider.getBlock(blockNumber, true);
 
       if (block && block.transactions) {
@@ -366,7 +366,7 @@ import { ethers } from 'ethers';
     // customPropGTagEvent=watch_pending_transactions_viem
     import { createPublicClient, webSocket } from 'viem';
 
-    const client = createPublicClient({ transport: webSocket('wss://evm.rpc-testnet-donut-node1.push.org/') });
+    const client = createPublicClient({ transport: webSocket('wss://evm.donut.rpc.push.org') });
 
     const watchedAddress = '0x0000000000000000000000000000000000042101';
 

@@ -63,12 +63,34 @@ As an EVM-compatible Universal Layer 1 blockchain, Push Chain naturally supports
 > Additionally, Push Chain innovates by introducing:
 
 - **Universal Executor Accounts (UEAs)**<br />
-  Proxy accounts that represent external chain wallets ( users ) on Push Chain.
-  UEAs let Ethereum, Solana, and other wallets execute Push Chain logic without the need for a native Push Chain wallet. This significantly enhances accessibility and overal UX.
+  Proxy accounts that represent external chain wallets (users) on Push Chain and act as their execution layer for all on-chain activity.
+
+  UEAs enable Push Chain to:
+    - Execute transactions on behalf of users without requiring native Push wallets.
+    - Abstract away chain-specific differences in signing and execution.
+    - Provide a consistent execution identity for users across all interactions on Push Chain.
+
+  In simple terms, a UEA is the user’s execution account on Push Chain. They are always deterministic and are derived from UOAs.
 
 - **Universal Origin Accounts (UOAs)**<br />
   The original source-chain wallet in chain agnostic address format that is behind each UEA.
-  UOAs let you attribute activity back to the user’s home chain.
+  UOAs let you attribute activity back to the user’s home chain and act as the **controller identity** of their corresponding UEA.
+
+- **Chain Executor Accounts (CEAs)**<br />
+  Chain-specific executor accounts deployed on external chains (e.g. Ethereum, BNB, Solana) that act on behalf of a user’s Universal Executor Account (UEA). They can also represent Push native accounts (including smart contracts) when interacting with external chains.
+
+  CEAs enable Push Chain to:
+  - Execute outbound transactions on external chains.
+  - Route responses and callbacks back to Push Chain (inbound flows).
+  - Maintain a consistent execution identity across chains.
+
+  In simple terms, if a UEA represents a user on Push Chain, a CEA represents that same user on an external chain.
+
+  
+> **Mental model**  
+> UOA = user identity,
+> UEA = execution on Push Chain,  
+> CEA = execution on external chains.
 
 ## Understanding Universal Account
 
@@ -137,7 +159,7 @@ A `UniversalSigner` extends `UniversalAccount` with signing capabilities.
       const solKeypair = Keypair.generate();
 
       const universalSignerFromSol = await PushChain.utils.signer.toUniversalFromKeypair(solKeypair, {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET,
+        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
         library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
       });
 

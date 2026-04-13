@@ -17,6 +17,7 @@ import TabItem from '@theme/TabItem';
 import Details from '@theme/Details';
 import NodeJSVirtualIDE from '@site/src/components/NodeJSVirtualIDE/NodeJSVirtualIDE';
 import PushAPIReference from '@site/src/components/PushAPIReference/PushAPIReference';
+import ConstantsDropdown from '@site/src/components/ConstantsDropdown/ConstantsDropdown';
 
 {/* Content Start */}
 
@@ -51,7 +52,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
 | Arguments                 | Type                             | Default                                          | Description                                                                                                                                                                                          |
 | --------------------- | -------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | _`signer`_   | `UniversalSigner \| UniversalAccount`                | -                                                | Pass a `UniversalSigner` to enable full write/sign capabilities, or a `UniversalAccount` to initialize the client in read-only mode (no signing or transaction sending). |
-| _`options.network`_     | `PushChain.CONSTANTS.PUSH_NETWORK`                        | - | Push Chain network to connect to. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <Details summary="PushChain.CONSTANTS.PUSH_NETWORK" className="alert alert--minimal-api-table">`PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` `PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET`</Details>                                                                                                                                |
+| _`options.network`_     | `PushChain.CONSTANTS.PUSH_NETWORK`                        | - | Push Chain network to connect to. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <ConstantsDropdown variant="PUSH_NETWORK" />                                                                                                                                |
 | `options.rpcUrls`     | `Partial<Record<CHAIN, string[]>>` | `{}`                                             | Custom RPC URLs mapped by chain IDs. If not provided, the default RPC URLs for the network will be used. Example: `rpcUrls: {[CHAIN.ETHEREUM_SEPOLIA]: ['https://sepolia.infura.io/v3/your-api-key'], [CHAIN.SOLANA_DEVNET]: ['https://api.devnet.solana.com']}` |
 
 
@@ -420,13 +421,14 @@ const pushChainClient2 = await pushChainClient1.reinitialize(newSignerOrAccount,
 
 </Details>
 
-## Access Account Information
+## Manage Account
+### Access Account Information
 
 Once initialized, your `PushChainClient` exposes:
 
 | Property                      | Description                                                                                                 |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `pushChainClient.universal.account` | Push Chain **execution account**: for native Push Chain wallets this is your EOA or smart account; for cross-chain wallets this is your UEA (Universal Executor Account) that holds gas and executes txns.    |
+| `pushChainClient.universal.account` | Push Chain **execution account**: for native Push Chain wallets this is your EOA or smart account; for cross-chain wallets this is your UEA (Universal Executor Account) that holds gas and executes transactions.    |
 | `pushChainClient.universal.origin`  | **Origin account** on the source chain (e.g. `eip155:1`), representing your wallet’s native address.                 |
 
 ```typescript
@@ -434,6 +436,90 @@ Once initialized, your `PushChainClient` exposes:
 const execAccount = pushChainClient.universal.account; // Account that writes on Push Chain
 const originAccount = pushChainClient.universal.origin; // Source chain account that is mapped to the execution account
 ```
+
+### Get Account Status
+
+**_`pushChainClient.getAccountStatus({options?}): Promise<AccountStatus>`_**
+
+Returns the current UEA deployment and version information for the initialized account.
+
+**Note**: In most cases, UEA deployment and upgrades are handled automatically by the SDK. Most apps do not need to call this directly unless they are debugging account state or checking upgrade requirements.
+
+For advanced account management flows, read [Upgrade Universal Account](/docs/chain/build/advanced/upgrade-universal-account).
+
+```typescript
+const status = await pushChainClient.getAccountStatus();
+```
+
+<PushAPIReference>
+
+| **Arguments** | **Type** | **Default** | **Description** |
+| ------------- | -------- | ----------- | --------------- |
+| `options.forceRefresh` | `boolean` | `false` | When `true`, re-fetches status from chain. |
+
+</PushAPIReference>
+
+<Details summary="Returns `AccountStatus` <object>" className="alert alert--fn-args">
+
+```typescript
+{
+  mode: 'read-only' | 'signer';
+  uea: {
+    loaded: boolean;            // Whether status has been fetched from chain
+    deployed: boolean;          // Whether the UEA proxy is deployed on Push Chain
+    version: string;            // Current UEA implementation version, e.g. "1.0.0"
+    minRequiredVersion: string; // Latest required version from UEAFactory, e.g. "1.0.2"
+    requiresUpgrade: boolean;   // true when deployed && version < minRequiredVersion
+  };
+}
+```
+
+If the UEA has not been deployed yet, `deployed` is `false`, `version` and `minRequiredVersion` are empty strings, and `requiresUpgrade` is `false`.
+
+</Details>
+
+<Details summary="Live Playground: Get Account Status" className="alert alert--live-play">
+
+<NodeJSVirtualIDE>
+
+{`
+    // customPropHighlightRegexStart=pushChainClient\.getAccountStatus
+    // customPropHighlightRegexEnd=\\);
+    // customPropGTagEvent=get_account_status
+
+    import { PushChain } from '@pushchain/core';
+
+    async function main() {
+      // Create a UniversalAccount (read-only)
+      const universalAccount = {
+          address: '0x6d66cc8cbea02496735a9eb89ac6c2e0fc3b6689',
+          chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+      };
+
+      const pushChainClient = await PushChain.initialize(universalAccount, {
+        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
+      });
+      console.log('🔑 Push Chain client initialized');
+
+      // Fetch account status
+      const status = await pushChainClient.getAccountStatus();
+      console.log('Account status:', JSON.stringify(status));
+
+      if (!status.uea.deployed) {
+        console.log('ℹ️ UEA not deployed yet for this account');
+      } else {
+        console.log('UEA version:', status.uea.version);
+        console.log('Min required version:', status.uea.minRequiredVersion);
+        console.log('Requires upgrade:', status.uea.requiresUpgrade);
+      }
+    }
+
+    await main().catch(console.error);
+`}
+
+</NodeJSVirtualIDE>
+
+</Details>
 
 ## Next Steps
 
