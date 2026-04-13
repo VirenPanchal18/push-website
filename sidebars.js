@@ -27,6 +27,10 @@ const sidebars = {
       id: 'chain/docs-chain-important-concepts',
     },
     {
+      type: 'doc',
+      id: 'chain/docs-chain-for-ai-agents',
+    },
+    {
       type: 'category',
       label: 'Tutorials',
       link: {

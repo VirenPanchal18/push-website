@@ -1,0 +1,84 @@
+---
+id: docs-chain-for-ai-agents
+title: For AI Agents
+hide_title: false
+slug: ./for-ai-agents
+displayed_sidebar: pushChainSidebar
+sidebar_position: 4
+image: "/assets/docs/previews/docs_chain--important_concepts.png"
+---
+
+<head>
+  <title>For AI Agents & Integrations | Push Chain Docs</title>
+</head>
+
+<!-- Content Start -->
+
+Push Chain is designed for AI agents, copilots, and automation systems to both understand and execute actions across chains, with minimal ambiguity and maximum reliability.
+
+The resources below form a layered integration stack: discovery → capabilities → execution.
+
+
+
+## Entry Points
+
+| Resource | Purpose |
+|---|---|
+| [/llms.txt](/llms.txt) | Compact structured discovery file for LLMs. Start here to understand Push Chain and locate the right resources. |
+| [/agents/](/agents/index.json) | Machine-readable interface layer: capabilities, workflows, schemas, and code examples for execution. |
+| [/llms-full.txt](/llms-full.txt) | Full documentation corpus in plain text. Ideal for deep context, retrieval systems, and long-context reasoning. |
+
+
+
+## What This Enables
+
+- **Deterministic execution**: structured workflows eliminate guesswork when planning transactions
+- **Reduced ambiguity**: typed schemas and capability definitions map directly to SDK calls
+- **Intent → capability → execution**: a clear path from natural language to on-chain action
+- **Reliable AI integration**: works with any agent framework, RAG pipeline, or developer copilot
+
+> Use these endpoints to let AI agents understand and execute Push Chain transactions natively — no unstructured scraping required.
+
+
+
+## Agent Interface Structure
+
+The `/agents/` layer is organized into machine-readable files that build on each other:
+
+| File | What it contains |
+|---|---|
+| [/agents/index.json](/agents/index.json) | Discovery map — lists every file, its purpose, and where to start |
+| [/agents/capabilities.json](/agents/capabilities.json) | Every SDK capability with inputs, outputs, and signatures |
+| [/agents/workflows/index.json](/agents/workflows/index.json) | Step-by-step execution guides for common tasks |
+| [/agents/schemas/index.json](/agents/schemas/index.json) | JSON schemas for all request/response types |
+| [/agents/examples/index.json](/agents/examples/index.json) | 60+ minimal, executable TypeScript code snippets |
+| [/agents/decision-tree.json](/agents/decision-tree.json) | Branching logic to select the right capability from intent |
+| [/agents/retrieval-map.json](/agents/retrieval-map.json) | Maps tasks to authoritative documentation sources (for RAG) |
+| [/agents/errors.json](/agents/errors.json) | Error catalog with recovery actions |
+
+
+
+## Integration Paths
+
+### Human developer path
+1. Follow the [Quickstart](/docs/chain/quickstart) to run your first transaction
+2. Work through [Tutorials](/docs/chain/tutorials/) for end-to-end flows
+3. Use the [SDK](/docs/chain/build/) and [UI Kit](/docs/chain/ui-kit/integrate-push-universal-wallet/) for production integration
+
+### AI agent path
+1. Fetch [/llms.txt](/llms.txt) as the entry layer
+2. Load [/agents/index.json](/agents/index.json) to discover all capabilities and workflows
+3. Use [/agents/decision-tree.json](/agents/decision-tree.json) to map user intent to the right capability
+4. Execute using the matching workflow from [/agents/workflows/index.json](/agents/workflows/index.json)
+5. Validate with schemas from [/agents/schemas/index.json](/agents/schemas/index.json)
+6. Fetch [/llms-full.txt](/llms-full.txt) when full context is needed
+
+
+
+## Notes
+
+- Prefer canonical workflows in `/agents/workflows/` over navigating raw documentation
+- Use `/agents/schemas/` for precise input validation before execution
+- Treat `/llms.txt` as the **entry layer** and `/agents/` as the **execution layer**
+- `/agents/retrieval-map.json` maps every capability to its normative documentation source — use it to ground responses
+- All code examples in `/agents/examples/` are minimal, self-contained, and ready to execute
