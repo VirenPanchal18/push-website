@@ -52,6 +52,7 @@ Prefer these structured resources before browsing the full docs tree:
 
 ## Blog — Latest 20 Posts
 
+- [Enable social login for your app in 4 steps](https://push.org/blog/enable-social-logins-for-your-app/): “Most apps lose on users before they’ve ever interacted with the product."
 - [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/): “Early Access for the FINAL season of Push Points Program before mainnet is live!"
 - [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/): “If you’re building any cross-chain defi apps or want to upgrade your current app to cross-chain. This article’s for you."
 - [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/): “Most people think wallet security is about private keys. Yet, most exploits happen when assets move between chains."
@@ -71,7 +72,6 @@ Prefer these structured resources before browsing the full docs tree:
 - [What is a Universal AMM? How do Universal Txns Power It?](https://push.org/blog/what-is-a-universal-amm/): Universal AMMs on Push Chain collapse multi-step cross-chain DeFi flows — swap, bridge, LP, and stake — into a single wallet signature via Universal Transactions and multicall.
 - [5 Ways to Make Your App Popular with Shared-State](https://push.org/blog/5-ways-to-make-your-app-popular/): Users do not quit because your app is bad — they quit because the chain experience gets in the way. Here are 5 ways Shared-State removes that friction and makes your app grow.
 - [How Universal Fee Abstraction Works](https://push.org/blog/how-universal-abstraction-works/): How Universal Fee Abstraction Works
-- [Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet](https://push.org/blog/push-chain-zerion/): Push Chain × Zerion: Universal App Login Now Supports Zerion Wallet
 
 ## Full Context
 

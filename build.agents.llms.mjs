@@ -77,7 +77,7 @@ const loadWorkflows = async () => {
   return FALLBACK_WORKFLOWS;
 };
 
-// Gather recent blog posts (mirrors logic in build.llms.preseed.mjs)
+// Gather recent blog posts (mirrors logic in build.agents.preseed.mjs)
 const gatherBlogPosts = async () => {
   let entries;
   try {
@@ -219,10 +219,7 @@ export const buildAgentsLlms = async () => {
 
   const workflows = await loadWorkflows();
 
-  const usingFallback =
-    workflows === FALLBACK_WORKFLOWS ||
-    (workflows.length > 0 &&
-      FALLBACK_WORKFLOWS.some((f) => f.id === workflows[0]?.id));
+  const usingFallback = workflows === FALLBACK_WORKFLOWS;
 
   if (usingFallback) {
     console.log(

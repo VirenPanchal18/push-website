@@ -1,3 +1,8 @@
+#!/usr/bin/env node
+// build.agents.preseed.mjs — Generates static/llms-preseed.txt + static/llms-full.txt
+// from all docs and blog posts. Run this before build.agents.mjs.
+// Run standalone: node build.agents.preseed.mjs
+
 import chalk from 'chalk';
 import fs from 'fs/promises';
 import matter from 'gray-matter';
@@ -295,7 +300,7 @@ const buildLlmsFullTxt = (docs) => {
 };
 
 // Main
-export const buildLlmsPreseed = async () => {
+export const buildAgentsPreseed = async () => {
   console.log(chalk.cyan('\n🤖 Gathering docs for llms-preseed.txt...'));
 
   const docs = await gatherDocs();
@@ -325,7 +330,7 @@ export const buildLlmsPreseed = async () => {
 
 // Run if executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  buildLlmsPreseed().catch((err) => {
+  buildAgentsPreseed().catch((err) => {
     console.error(chalk.red('❌ Failed to generate llms-preseed.txt:'), err);
     process.exit(1);
   });

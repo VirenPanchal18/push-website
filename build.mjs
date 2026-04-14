@@ -3,11 +3,11 @@ import fs from 'fs/promises';
 import readline from 'readline';
 
 import { buildAgentsLlms } from './build.agents.llms.mjs';
+import { buildAgentsPreseed } from './build.agents.preseed.mjs';
 import { buildFeaturedBlogs } from './build.blogs.featured.mjs';
 import { buildBlogTags } from './build.blogs.tags.mjs';
 import { prepForDocsChangelog } from './build.docs.changelog.mjs';
 import { prepAndMoveFilesFromTempLocationToActual } from './build.lite.forprod.mjs';
-import { buildLlmsPreseed } from './build.llms.preseed.mjs';
 import { prepForPreviewDeployment } from './build.preview.mjs';
 import { automateTranslations } from './build.translation.automation.mjs';
 
@@ -130,7 +130,7 @@ const prepForDeployment = async (appEnv, skipTranslation) => {
     chalk.cyan('\n🤖 Step 2.7a: Generating llms-preseed.txt + llms-full.txt...')
   );
   try {
-    await buildLlmsPreseed();
+    await buildAgentsPreseed();
     console.log(chalk.green('✅ llms-preseed.txt + llms-full.txt generated'));
   } catch (error) {
     console.warn(chalk.yellow('⚠️  llms-preseed.txt generation failed'));

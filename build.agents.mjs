@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // build.agents.mjs — Generates static/agents/ via 10 phased Claude API calls.
-// Prerequisites: run build.llms.preseed.mjs first so static/llms-preseed.txt exists.
+// Prerequisites: run build.agents.preseed.mjs first so static/llms-preseed.txt exists.
 // Run standalone: node build.agents.mjs
 // Env: WINDSURF_API_KEY (tried first) | AGENTS_GENERATION_AI_CLAUDE (fallback)
 //      AI_AGENTS_MODEL (model override, default: claude-opus-4-5)
@@ -173,7 +173,7 @@ async function loadContext() {
     preseed = await fs.readFile(LLMS_PRESEED_PATH, 'utf-8');
   } catch {
     throw new Error(
-      'static/llms-preseed.txt not found. Run: node build.llms.preseed.mjs first'
+      'static/llms-preseed.txt not found. Run: node build.agents.preseed.mjs first'
     );
   }
 
@@ -268,7 +268,11 @@ A machine-readable index of the /agents/ package. Must include:
   Workflows:    agents/workflows/index.json, agents/workflows/initialize-client.md,
                 agents/workflows/send-universal-transaction.md, agents/workflows/send-multichain-transaction.md,
                 agents/workflows/track-transaction.md, agents/workflows/connect-wallet-ui-kit.md,
-                agents/workflows/sign-universal-message.md
+                agents/workflows/sign-universal-message.md, agents/workflows/create-universal-signer.md,
+                agents/workflows/configure-dev-environment.md, agents/workflows/initialize-evm-client.md,
+                agents/workflows/read-blockchain-state.md, agents/workflows/use-universal-wallet-provider.md,
+                agents/workflows/use-utility-functions.md, agents/workflows/constants-reference.md,
+                agents/workflows/use-contract-helpers.md, agents/workflows/contract-initiated-multichain-execution.md
   Schemas:      agents/schemas/index.json, agents/schemas/universal-account.json,
                 agents/schemas/universal-signer.json, agents/schemas/universal-transaction-request.json,
                 agents/schemas/universal-transaction-response.json, agents/schemas/transaction-receipt.json,
@@ -309,10 +313,10 @@ An agent-oriented README (not human marketing docs). Must include:
 
 FILE 1: agents/constants.json
 All PushChain.CONSTANTS.* values as a structured reference. Must include:
-- "PUSH_NETWORK": { "TESTNET": "...", "MAINNET": "..." }
-- "CHAIN": flat object of all chain constant keys → CAIP-2 values (e.g. PUSH_TESTNET_DONUT → eip155:42101, ETHEREUM_SEPOLIA → eip155:11155111, SOLANA_DEVNET → solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, etc.)
-- "LIBRARY": all supported library constants (ETHERS_V5, ETHERS_V6, VIEM, SOLANA_WEB3JS, etc.)
-- "MOVEABLE": { "TOKEN": { ... } } — all moveable token constants
+- "PUSH_NETWORK": { "TESTNET": "TESTNET", "TESTNET_DONUT": "TESTNET_DONUT", "MAINNET": "MAINNET", "LOCALNET": "LOCALNET" }
+- "CHAIN": flat object of all chain constant keys → CAIP-2 values (e.g. PUSH_TESTNET_DONUT → eip155:42101, ETHEREUM_SEPOLIA → eip155:11155111, ARBITRUM_SEPOLIA → eip155:421614, BASE_SEPOLIA → eip155:84532, BNB_TESTNET → eip155:97, SOLANA_DEVNET → solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, etc.)
+- "LIBRARY": exact key names are ETHEREUM_ETHERSV6, ETHEREUM_VIEM, SOLANA_WEB3JS — do NOT use ETHERS_V5 or ETHERS_V6 (wrong names)
+- "MOVEABLE": { "TOKEN": { ... } } — all moveable token constants per chain
 Only include constants present in the documentation. Mark any inferred with "status": "inferred".
 
 FILE 2: agents/capabilities.json
@@ -335,16 +339,44 @@ Array of capability objects. Each must have:
 Include at minimum: initialize_client, create_universal_signer, send_universal_transaction, send_multichain_transaction, contract_initiated_multichain, track_transaction, sign_universal_message, read_blockchain_state, connect_wallet_ui, use_wallet_provider, initialize_evm_client, get_constants, use_utility_functions, use_contract_helpers
 
 FILE 3: agents/supported-chains.json
-Object with:
-- "testnet": array of chain objects
-- "mainnet": array of chain objects (mark as "status": "announced" if not yet live)
-Each chain object: { "name", "namespace", "constant", "type": "push_native"|"evm"|"non_evm", "fee_token", "notes" }
-Use data from the Important Concepts chain namespace table.
+CRITICAL ACCURACY RULES — do not deviate:
+- "mainnet" key MUST be { "status": "not_launched", "notes": "Push Chain mainnet has not launched. Do not reference mainnet chain IDs or claim mainnet support." } — NOT an array.
+- "testnet" key is an array. MUST include ALL of these exact chains:
+  1. Push Testnet Donut — caip2: eip155:42101, constant: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT, type: push_native
+  2. Push Localnet — caip2: eip155:9001, constant: PushChain.CONSTANTS.CHAIN.PUSH_LOCALNET, type: push_native
+  3. Ethereum Sepolia — caip2: eip155:11155111, constant: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA, type: evm
+  4. Arbitrum Sepolia — caip2: eip155:421614, constant: PushChain.CONSTANTS.CHAIN.ARBITRUM_SEPOLIA, type: evm
+  5. Base Sepolia — caip2: eip155:84532, constant: PushChain.CONSTANTS.CHAIN.BASE_SEPOLIA, type: evm
+  6. BNB Testnet — caip2: eip155:97, constant: PushChain.CONSTANTS.CHAIN.BNB_TESTNET, type: evm
+  7. Solana Devnet — caip2: solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, constant: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET, type: svm
+  8. Solana Testnet — caip2: solana:4uhcVJyU9pJkvQyS88uRDiswHXSCkY3z, constant: PushChain.CONSTANTS.CHAIN.SOLANA_TESTNET, type: svm
+  9. Solana Mainnet-Beta — caip2: solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp, constant: PushChain.CONSTANTS.CHAIN.SOLANA_MAINNET, type: svm
+  10. Ethereum Mainnet — caip2: eip155:1, constant: PushChain.CONSTANTS.CHAIN.ETHEREUM_MAINNET, type: evm, note: CHAIN constant exists in SDK; Push Chain mainnet not live
+Each chain object fields: { "name", "caip2", "constant", "type": "push_native"|"evm"|"svm", "fee_token", "moveable_tokens"?: [], "payable_tokens"?: [], "notes"? }
+Moveable/payable tokens per chain (Eth Sep: ETH/USDT/USDC/WETH/stETH, Arb Sep: ETH/USDT/USDC/WETH, Base Sep: ETH/USDT/USDC/WETH, BNB: ETH/USDT payable BNB/USDT, Solana Devnet: SOL/USDT/USDC).
+For Push Testnet Donut ONLY, also include: "chain_id": 42101, "rpc_url": "https://evm.donut.rpc.push.org/", "block_explorer": "https://donut.push.network".
+Also include a top-level "native_contracts" object with:
+- push_chain.uea_factory: address 0x00000000000000000000000000000000000000eA (Universal Executor Account Factory)
+- push_chain.universal_verification_precompile: address 0x00000000000000000000000000000000000000ca
+- universal_gateway.contracts: ALL 5 entries — Ethereum Sepolia 0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A, Arbitrum Sepolia 0x2cd870e0166Ba458dEC615168Fd659AacD795f34, Base Sepolia 0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16, BNB Testnet 0x44aFFC61983F4348DdddB886349eb992C061EaC0, Solana Devnet CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS
 
 FILE 4: agents/sdk-capabilities.json
-Structured map of SDK namespaces. For each namespace (PushChain.utils.signer, PushChain.utils.account, PushChain.utils.helpers, pushChainClient.universal, pushChainClient.explorer):
+Structured map of SDK namespaces. Cover ALL of these namespaces:
+- PushChain (root: initialize)
+- PushChain.CONSTANTS (PUSH_NETWORK, CHAIN, LIBRARY, MOVEABLE, PAYABLE)
+- PushChain.utils.signer (toUniversal, toUniversalFromKeypair, construct)
+- PushChain.utils.account (toUniversal, deriveExecutorAccount, convertExecutorToOrigin, convertOriginToExecutor)
+- PushChain.utils.helpers (parseUnits, formatUnits, encodeTxData)
+- PushChain.utils.chains (getSupportedChains, getChainName, getChainNamespace)
+- PushChain.utils.tokens (getMoveableTokens, getPayableTokens, getPRC20Address)
+- pushChainClient (getAccountStatus, upgradeAccount, reinitialize)
+- pushChainClient.universal (origin, account, sendTransaction, prepareTransaction, executeTransactions, signMessage, signTypedData)
+- pushChainClient.explorer (getTransactionUrl, listUrls)
+- pushChainClient.orchestrator (internal use)
+For each namespace:
 - "namespace": dotted path
 - "methods": array of {name, signature, description, returns, safe_for_autonomous_execution}
+For sendTransaction and prepareTransaction include ALL args: to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?
 
 FILE 5: agents/feature-matrix.json
 Matrix of features by actor type. Structure:
@@ -413,14 +445,23 @@ For each workflow file include these sections exactly:
 ## MCP Mapping Candidates
 (list of steps that could become MCP tools later)
 
-Generate these 6 files (using exact method signatures from the Push Chain docs):
+Generate all 15 workflow files (using exact method signatures from the Push Chain docs):
 
-1. agents/workflows/initialize-client.md — PushChain.initialize(universalSigner, {network}) covering all signer types (ethers, viem, solana)
-2. agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, value, data, from}) covering all 3 routes
-3. agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target
-4. agents/workflows/track-transaction.md — trackTransaction(hash, opts) and tx.wait() comparison  
-5. agents/workflows/connect-wallet-ui-kit.md — PushUniversalWalletProvider, PushUniversalAccountButton, usePushChainClient, usePushWalletContext
-6. agents/workflows/sign-universal-message.md — pushChainClient.universal.signMessage(message)`,
+1.  agents/workflows/initialize-client.md — PushChain.initialize(universalSigner, {network}) covering all signer types (ethers, viem, solana)
+2.  agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?}) covering all 3 routes. ALSO document: (a) prepareTransaction + executeTransactions multi-hop cascade pattern, (b) payGasWith for fee token payment with slippageBps, (c) encodeTxData utility, (d) multicall zero-address requirement, (e) full TxResponse shape with all fields, (f) all 22 progress hook events
+3.  agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target (Route 2), CEA origin (Route 3), AND the prepareTransaction + executeTransactions multi-hop cascade API. Include: svmExecute for Solana program calls, deriveExecutorAccount usage, CascadedTxResponse shape with hops[] and wait(opts?) / waitForAll(opts?), advanced args (gasLimit/maxFeePerGas/maxPriorityFeePerGas/payGasWith/deadline)
+4.  agents/workflows/track-transaction.md — trackTransaction(hash, opts) and tx.wait() comparison
+5.  agents/workflows/connect-wallet-ui-kit.md — PushUniversalWalletProvider, PushUniversalAccountButton, usePushChainClient, usePushWalletContext
+6.  agents/workflows/sign-universal-message.md — pushChainClient.universal.signMessage(message)
+7.  agents/workflows/create-universal-signer.md — PushChain.utils.signer.toUniversal(signer) for EVM, toUniversalFromKeypair for Solana, signer.construct for custom
+8.  agents/workflows/configure-dev-environment.md — npm/yarn install @pushchain/core and @pushchain/ui-kit, environment setup, RPC config
+9.  agents/workflows/initialize-evm-client.md — new ethers.JsonRpcProvider(rpcUrl) and createPublicClient({transport: http(rpcUrl)}) for read-only access
+10. agents/workflows/read-blockchain-state.md — fetching transactions, blocks, balances via ethers/viem EVM client
+11. agents/workflows/use-universal-wallet-provider.md — PushUniversalWalletProvider config: loginMethods, theme, rpcUrls override
+12. agents/workflows/use-utility-functions.md — PushChain.utils.helpers.parseUnits/formatUnits/encodeTxData, PushChain.utils.chains.getSupportedChains, PushChain.utils.tokens.getMoveableTokens/getPayableTokens
+13. agents/workflows/constants-reference.md — PushChain.CONSTANTS.PUSH_NETWORK, CHAIN, LIBRARY reference guide
+14. agents/workflows/use-contract-helpers.md — IUEAFactory at 0x...eA: getOriginForUEA(addr), getUEAForOrigin(UniversalAccountId)
+15. agents/workflows/contract-initiated-multichain-execution.md — IUniversalGatewayPC.sendUniversalTxOutbound(req) for outbound, executeUniversalTx() for inbound callback`,
         ctx
       ),
     expectedFiles: [
@@ -430,6 +471,15 @@ Generate these 6 files (using exact method signatures from the Push Chain docs):
       'agents/workflows/track-transaction.md',
       'agents/workflows/connect-wallet-ui-kit.md',
       'agents/workflows/sign-universal-message.md',
+      'agents/workflows/create-universal-signer.md',
+      'agents/workflows/configure-dev-environment.md',
+      'agents/workflows/initialize-evm-client.md',
+      'agents/workflows/read-blockchain-state.md',
+      'agents/workflows/use-universal-wallet-provider.md',
+      'agents/workflows/use-utility-functions.md',
+      'agents/workflows/constants-reference.md',
+      'agents/workflows/use-contract-helpers.md',
+      'agents/workflows/contract-initiated-multichain-execution.md',
     ],
   },
 
@@ -447,13 +497,19 @@ List of all schema files: [ { "name", "file", "description", "authority": "docum
 Then generate these individual schema files as JSON Schema (draft-07):
 
 FILE 2: agents/schemas/universal-transaction-request.json
-Schema for the object passed to sendTransaction(). Include: to (string or object), value (BigInt as string), data (hex string), from (object with chain).
+Schema for the object passed to sendTransaction() / prepareTransaction(). Include ALL fields: to (string or {address,chain} object), from? ({chain}), value? (BigInt as string), data? (hex string or multicall array), funds? ({amount, token}), progressHook?, svmExecute? ({targetProgram, accounts, ixData}), gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith? ({token, slippageBps?, minAmountOut?}), deadline?.
 
 FILE 3: agents/schemas/universal-transaction-response.json
-Schema for the TxResponse object returned by sendTransaction(). Include: hash, wait() method reference, and any documented fields.
+Schema for the UniversalTxResponse returned by sendTransaction(). Include ALL documented fields: hash, origin (CAIP-10), blockNumber, blockHash, transactionIndex, chainId, from, to, nonce, data, value, gasLimit, gasPrice, maxFeePerGas, maxPriorityFeePerGas, accessList, type, typeVerbose, signature ({r,s,v,yParity}), raw, wait (function reference).
+
+FILE 3b: agents/schemas/prepared-universal-tx.json
+Schema for PreparedUniversalTx returned by prepareTransaction(). Include: route (UOA_TO_PUSH|UOA_TO_CEA|CEA_TO_PUSH|CEA_TO_CEA), estimatedGas (bigint), nonce (bigint), deadline (bigint), payload (string).
+
+FILE 3c: agents/schemas/cascaded-tx-response.json
+Schema for CascadedTxResponse returned by executeTransactions(). Include: initialTxHash, initialTxResponse, hops (CascadeHopInfo[]), hopCount, wait(opts?), waitForAll(opts?). CascadeHopInfo: hopIndex, route, executionChain, status (pending|submitted|confirmed|failed), txHash, outboundDetails.
 
 FILE 4: agents/schemas/transaction-receipt.json
-Schema for receipt from tx.wait() or trackTransaction result. Include: blockNumber, status, hash, gasUsed, logs.
+Schema for UniversalTxReceipt from tx.wait(confirmations?). Include: hash, blockNumber, blockHash, transactionIndex, from, to, contractAddress, gasPrice, gasUsed, cumulativeGasUsed, logs, status (1=success/0=failure), raw.
 
 FILE 5: agents/schemas/universal-account.json
 Schema for UniversalAccount object: address, chain (CAIP-10 namespace string).
@@ -466,6 +522,15 @@ Schema for chain configuration entry: name, namespace, rpcUrls, blockExplorer, n
 
 FILE 8: agents/schemas/error-object.json
 Schema for SDK error objects: message, code (if documented), cause.
+
+Also update the "knownChains" section of agents/schemas/chain-config.json with the full verified data:
+- PUSH_TESTNET_DONUT: chainId eip155:42101, chainIdDecimal 42101, rpcUrl https://evm.donut.rpc.push.org/, blockExplorer https://donut.push.network, nativeCurrency {name:"Push Chain",symbol:"PC",decimals:18}
+- ETHEREUM_SEPOLIA: eip155:11155111, rpcUrl https://ethereum-sepolia-rpc.publicnode.com, blockExplorer https://sepolia.etherscan.io, universalGateway 0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A
+- ARBITRUM_SEPOLIA: eip155:421614, blockExplorer https://sepolia.arbiscan.io, universalGateway 0x2cd870e0166Ba458dEC615168Fd659AacD795f34
+- BASE_SEPOLIA: eip155:84532, blockExplorer https://sepolia.basescan.org, universalGateway 0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16
+- BNB_TESTNET: eip155:97, blockExplorer https://testnet.bscscan.com, universalGateway 0x44aFFC61983F4348DdddB886349eb992C061EaC0
+- SOLANA_DEVNET: solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1, universalGateway CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS
+Add pushChainNativeContracts: {ueaFactory:"0x00000000000000000000000000000000000000eA",universalVerificationPrecompile:"0x00000000000000000000000000000000000000ca"}
 
 For undocumented fields use: "description": "inferred — not explicitly documented"`,
         ctx
@@ -554,6 +619,8 @@ Include trees for:
 4. handle_transaction_failure — what to do when sendTransaction or trackTransaction fails
 5. choose_tracking_method — tx.wait() vs trackTransaction()
 6. fee_payment_decision — user has native token vs needs fee abstraction path
+7. single_vs_cascade — when to use sendTransaction directly vs prepareTransaction + executeTransactions (cascade if >1 ordered cross-chain steps needed in one user signature)
+8. evm_vs_solana_target — when to use tx.data vs tx.svmExecute (svmExecute for any CHAIN.SOLANA_* target)
 
 FILE 2: agents/task-router.md
 Markdown decision guide. For each common agent task, give the exact recommended action with reasoning:
@@ -688,7 +755,7 @@ Array of MCP tool candidates. Each must have:
 - "corresponding_workflow": workflow ID or null
 - "notes": any caveats
 
-Include candidates for: get_supported_chains, initialize_push_client, estimate_fee (mark as candidate/undocumented if not in docs), build_universal_transaction, send_universal_transaction, track_universal_transaction, sign_universal_message, get_chain_config, get_contract_addresses, read_contract_state, derive_uea_address (mark if inferred), get_explorer_url
+Include candidates for: get_supported_chains, initialize_push_client, estimate_fee (mark as candidate/undocumented if not in docs), build_universal_transaction, send_universal_transaction, prepare_transaction, execute_cascade, track_universal_transaction, sign_universal_message, get_chain_config, get_contract_addresses, read_contract_state, derive_uea_address (mark if inferred), derive_cea_address (PushChain.utils.account.deriveExecutorAccount), get_explorer_url
 
 FILE 2: agents/changelog.json
 Changelog tracking file mutations. Structure:
