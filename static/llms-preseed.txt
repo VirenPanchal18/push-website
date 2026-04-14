@@ -9,7 +9,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Intro to Push Chain](https://push.org/docs/chain/)
 - [Quickstart](https://push.org/docs/chain/quickstart/)
 - [Important Concepts](https://push.org/docs/chain/important-concepts/)
-- [For AI Agents](https://push.org/docs/chain/for-ai-agents/)
+- [For AI Agents & LLMs](https://push.org/docs/chain/for-ai-agents/)
 - [Setup](https://push.org/docs/chain/setup/)
 - [Build](https://push.org/docs/chain/build/)
 - [UI Kit](https://push.org/docs/chain/ui-kit/)

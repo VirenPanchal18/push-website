@@ -1,84 +1,139 @@
 ---
 id: docs-chain-for-ai-agents
-title: For AI Agents
+title: For AI Agents & LLMs
 hide_title: false
 slug: ./for-ai-agents
 displayed_sidebar: pushChainSidebar
 sidebar_position: 4
-image: "/assets/docs/previews/docs_chain--for_ai_agents.png"
+image: "/assets/docs/previews/docs_chain_for_ai_agents--for_ai_agents_&_llms.png"
 ---
 
 <head>
-  <title>For AI Agents & Integrations | Push Chain Docs</title>
+  <title>For AI Agents & LLMs | Push Chain Docs</title>
 </head>
 
 <!-- Content Start -->
 
-Push Chain is designed for AI agents, copilots, and automation systems to both understand and execute actions across chains, with minimal ambiguity and maximum reliability.
+Push Chain provides structured, machine-readable resources so AI coding assistants, agents, and automation pipelines can understand and execute cross-chain actions with maximum reliability.
 
-The resources below form a layered integration stack: discovery → capabilities → execution.
+## Context Files
 
+AI models have a context window — the amount of text they can process at once. Providing structured documentation upfront helps models give precise answers without hallucinating.
 
+Push Chain offers two context files:
 
-## Entry Points
-
-| Resource | Purpose |
+| File | Best for |
 |---|---|
-| [/llms.txt](pathname:///llms.txt) | Compact structured discovery file for LLMs. Start here to understand Push Chain and locate the right resources. |
-| [/agents/](pathname:///agents/index.json) | Machine-readable interface layer: capabilities, workflows, schemas, and code examples for execution. |
-| [/llms-full.txt](pathname:///llms-full.txt) | Full documentation corpus in plain text. Ideal for deep context, retrieval systems, and long-context reasoning. |
+| [`/llms.txt`](pathname:///llms.txt) | Compact summary with links to every resource. Works with most models (100K+ token context). |
+| [`/llms-full.txt`](pathname:///llms-full.txt) | Full documentation corpus inline. Use when your model has a large context window or you want deep reference without following links. |
 
+## Add to Your AI Code Editor
 
+### Cursor
 
-## What This Enables
+1. Open **Cursor Settings → Features → Docs**
+2. Click **Add new doc** and paste one of the following:
 
-- **Deterministic execution**: structured workflows eliminate guesswork when planning transactions
-- **Reduced ambiguity**: typed schemas and capability definitions map directly to SDK calls
-- **Intent → capability → execution**: a clear path from natural language to on-chain action
-- **Reliable AI integration**: works with any agent framework, RAG pipeline, or developer copilot
+```
+https://push.org/llms.txt
+```
+```
+https://push.org/llms-full.txt
+```
 
-> Use these endpoints to let AI agents understand and execute Push Chain transactions natively — no unstructured scraping required.
+3. Use `@Docs → Push Chain` in the chat to reference Push Chain documentation.
 
+### Windsurf
 
+Add to the Cascade window (`CMD+L`) at the start of your conversation:
 
-## Agent Interface Structure
+```
+@docs:https://push.org/llms.txt
+```
+```
+@docs:https://push.org/llms-full.txt
+```
 
-The `/agents/` layer is organized into machine-readable files that build on each other:
+### Claude Code
+
+Reference directly in your prompt or CLAUDE.md system context:
+
+```
+https://push.org/llms.txt
+```
+
+For richer integration, use the structured `/agents/` layer below — it provides typed capabilities, execution workflows, and decision trees that go beyond static documentation.
+
+### Zed / Other Editors
+
+Paste the URL into your AI assistant's context or system prompt. The `/llms.txt` format is understood by any LLM.
+
+## Agent Layer (`/agents/`)
+
+Push Chain goes beyond static documentation with a full machine-readable execution layer at `/agents/`. This is organized as a layered stack: **discovery → capabilities → execution → validation**.
 
 | File | What it contains |
 |---|---|
-| [/agents/index.json](pathname:///agents/index.json) | Discovery map — lists every file, its purpose, and where to start |
-| [/agents/capabilities.json](pathname:///agents/capabilities.json) | Every SDK capability with inputs, outputs, and signatures |
-| [/agents/workflows/index.json](pathname:///agents/workflows/index.json) | Step-by-step execution guides for common tasks |
-| [/agents/schemas/index.json](pathname:///agents/schemas/index.json) | JSON schemas for all request/response types |
-| [/agents/examples/index.json](pathname:///agents/examples/index.json) | 60+ minimal, executable TypeScript code snippets |
-| [/agents/decision-tree.json](pathname:///agents/decision-tree.json) | Branching logic to select the right capability from intent |
-| [/agents/retrieval-map.json](pathname:///agents/retrieval-map.json) | Maps tasks to authoritative documentation sources (for RAG) |
-| [/agents/errors.json](pathname:///agents/errors.json) | Error catalog with recovery actions |
+| [/agents/index.json](pathname:///agents/index.json) | Discovery map — every file, its purpose, and the recommended traversal order |
+| [/agents/capabilities.json](pathname:///agents/capabilities.json) | Every SDK capability with inputs, outputs, and method signatures |
+| [/agents/sdk-capabilities.json](pathname:///agents/sdk-capabilities.json) | Full SDK namespace map including all methods and advanced arguments |
+| [/agents/supported-chains.json](pathname:///agents/supported-chains.json) | Verified chain list with CAIP-2 IDs, RPC URLs, explorers, and contract addresses |
+| [/agents/workflows/index.json](pathname:///agents/workflows/index.json) | Step-by-step execution guides for all common tasks |
+| [/agents/schemas/index.json](pathname:///agents/schemas/index.json) | JSON schemas for all SDK request/response types |
+| [/agents/decision-tree.json](pathname:///agents/decision-tree.json) | Branching logic to select the right capability from user intent |
+| [/agents/task-router.md](pathname:///agents/task-router.md) | Plain-language routing guide mapping goals to capabilities |
+| [/agents/errors.json](pathname:///agents/errors.json) | Error catalog with recovery actions for every known failure mode |
+| [/agents/retrieval-map.json](pathname:///agents/retrieval-map.json) | Maps every capability to its authoritative documentation source (for RAG) |
+| [/agents/mcp-candidates.json](pathname:///agents/mcp-candidates.json) | Candidate MCP tool definitions for agent tool-use integrations |
 
+## Canonical Workflows
 
+Ready-to-execute step-by-step guides for the most common Push Chain tasks:
+
+| Workflow | What it does |
+|---|---|
+| [/agents/workflows/initialize-client.md](pathname:///agents/workflows/initialize-client.md) | Create a `PushChainClient` from any signer |
+| [/agents/workflows/create-universal-signer.md](pathname:///agents/workflows/create-universal-signer.md) | Wrap an EVM or Solana signer into a `UniversalSigner` |
+| [/agents/workflows/send-universal-transaction.md](pathname:///agents/workflows/send-universal-transaction.md) | Execute a transaction on Push Chain from any origin chain |
+| [/agents/workflows/send-multichain-transaction.md](pathname:///agents/workflows/send-multichain-transaction.md) | Send to an external chain via CEA or cascade pattern |
+| [/agents/workflows/track-transaction.md](pathname:///agents/workflows/track-transaction.md) | Monitor universal transaction lifecycle |
+| [/agents/workflows/sign-universal-message.md](pathname:///agents/workflows/sign-universal-message.md) | Sign a message for off-chain verification |
+| [/agents/workflows/read-blockchain-state.md](pathname:///agents/workflows/read-blockchain-state.md) | Query on-chain state via EVM clients |
+| [/agents/workflows/use-contract-helpers.md](pathname:///agents/workflows/use-contract-helpers.md) | Interact with UEA Factory and other native contracts |
+| [/agents/workflows/constants-reference.md](pathname:///agents/workflows/constants-reference.md) | All chain IDs, token constants, and SDK enums |
+| [/agents/workflows/configure-dev-environment.md](pathname:///agents/workflows/configure-dev-environment.md) | Install SDK and configure Hardhat / Foundry / Remix |
+
+## MCP Server
+
+MCP server is in development. Use [/agents/mcp-candidates.json](pathname:///agents/mcp-candidates.json) for the planned tool definitions for now.
 
 ## Integration Paths
 
-### Human developer path
+### Human developer
+
 1. Follow the [Quickstart](/docs/chain/quickstart) to run your first transaction
 2. Work through [Tutorials](/docs/chain/tutorials/) for end-to-end flows
 3. Use the [SDK](/docs/chain/build/) and [UI Kit](/docs/chain/ui-kit/integrate-push-universal-wallet/) for production integration
 
-### AI agent path
+### AI agent / copilot
+
 1. Fetch [/llms.txt](pathname:///llms.txt) as the entry layer
 2. Load [/agents/index.json](pathname:///agents/index.json) to discover all capabilities and workflows
 3. Use [/agents/decision-tree.json](pathname:///agents/decision-tree.json) to map user intent to the right capability
-4. Execute using the matching workflow from [/agents/workflows/index.json](pathname:///agents/workflows/index.json)
-5. Validate with schemas from [/agents/schemas/index.json](pathname:///agents/schemas/index.json)
-6. Fetch [/llms-full.txt](pathname:///llms-full.txt) when full context is needed
+4. Execute using the matching workflow from [/agents/workflows/](pathname:///agents/workflows/index.json)
+5. Validate with schemas from [/agents/schemas/](pathname:///agents/schemas/index.json)
+6. Fetch [/llms-full.txt](pathname:///llms-full.txt) when full inline context is needed
 
+### RAG / retrieval pipeline
 
+1. Index [/llms-full.txt](pathname:///llms-full.txt) as your document corpus
+2. Use [/agents/retrieval-map.json](pathname:///agents/retrieval-map.json) to map queries to authoritative sources
+3. Ground responses with canonical workflows from [/agents/workflows/](pathname:///agents/workflows/)
 
 ## Notes
 
-- Prefer canonical workflows in `/agents/workflows/` over navigating raw documentation
-- Use `/agents/schemas/` for precise input validation before execution
-- Treat `/llms.txt` as the **entry layer** and `/agents/` as the **execution layer**
-- `/agents/retrieval-map.json` maps every capability to its normative documentation source — use it to ground responses
-- All code examples in `/agents/examples/` are minimal, self-contained, and ready to execute
+- Treat [/llms.txt](pathname:///llms.txt) as the **entry layer** and [/agents/](pathname:///agents/) as the **execution layer**
+- Prefer [/agents/workflows/](pathname:///agents/workflows/) over raw docs for execution-oriented tasks — workflows are structured for direct SDK use
+- Use [/agents/schemas/](pathname:///agents/schemas/) for precise input validation before any transaction
+- [/agents/supported-chains.json](pathname:///agents/supported-chains.json) contains verified RPC URLs, chain IDs, block explorers, and contract addresses — use it instead of guessing
+- All code examples in [/agents/examples/](pathname:///agents/examples/) are minimal, self-contained, and ready to execute

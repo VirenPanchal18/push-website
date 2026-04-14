@@ -19,7 +19,7 @@ const OUTPUT_PATH = path.join(STATIC_DIR, 'llms.txt');
 const WORKFLOWS_INDEX_PATH = path.join(AGENTS_DIR, 'workflows', 'index.json');
 
 const BASE_URL = 'https://push.org';
-const MAX_BLOG_POSTS = 20;
+const MAX_BLOG_POSTS = 5;
 
 // Hardcoded fallback workflow stubs when agents/ hasn't been generated yet
 const FALLBACK_WORKFLOWS = [
@@ -122,56 +122,155 @@ const gatherBlogPosts = async () => {
   return posts;
 };
 
-// Build the new-format llms.txt
+// Build llms.txt — static sections hardcoded, workflows and blog posts dynamic
 const buildLlmsTxt = async (workflows, blogPosts) => {
   const lines = [];
 
+  // ── Header ──────────────────────────────────────────────────────────────
   lines.push('# Push Chain');
   lines.push('');
-  lines.push('Push Chain is a universal, shared-state Layer 1 for apps.');
-  lines.push('');
   lines.push(
-    'Developers deploy once on Push Chain and reach users from EVM and non-EVM chains using their existing wallets. Users can interact from their home chain and pay fees using supported tokens without manual bridging or network switching.'
+    '> Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.'
   );
   lines.push('');
 
-  lines.push('## Who this is for');
+  // ── Who This Is For ──────────────────────────────────────────────────────
+  lines.push('## Who This Is For');
   lines.push('');
-  lines.push('- Developers building universal apps');
-  lines.push('- AI agents that need accurate product and integration context');
+  lines.push('- Developers building universal dApps with the Push Chain SDK');
   lines.push(
-    '- Users looking to understand Push Chain concepts, wallets, fees, and supported flows'
+    '- AI coding assistants and agents executing SDK tasks via Cursor, Windsurf, or Claude Code'
+  );
+  lines.push(
+    '- RAG pipelines and retrieval systems indexing Push Chain documentation'
   );
   lines.push('');
 
+  // ── Key Concepts ─────────────────────────────────────────────────────────
+  lines.push('## Key Concepts');
+  lines.push('');
+  lines.push(
+    "- **Universal Origin Account (UOA)**: The user's native wallet on their home chain (e.g. MetaMask on Ethereum, Phantom on Solana)."
+  );
+  lines.push(
+    '- **Universal Executor Account (UEA)**: A deterministic smart account on Push Chain derived from the UOA. Executes transactions on behalf of the user.'
+  );
+  lines.push(
+    '- **Chain Executor Account (CEA)**: A deterministic smart account on an external chain (e.g. Ethereum Sepolia) derived from the UEA. Enables Push Chain to execute transactions on external chains.'
+  );
+  lines.push(
+    '- **Universal Transaction**: A single SDK call that routes funds and execution from any origin chain to Push Chain or an external target.'
+  );
+  lines.push(
+    '- **Route 1** — Push Chain native: UOA → UEA → Push Chain contract.'
+  );
+  lines.push(
+    '- **Route 2** — External chain target: UOA → UEA → CEA → external chain contract.'
+  );
+  lines.push(
+    '- **Route 3** — CEA origin: UOA on external chain → CEA → Push Chain.'
+  );
+  lines.push('');
+
+  // ── Packages ─────────────────────────────────────────────────────────────
+  lines.push('## Packages');
+  lines.push('');
+  lines.push(
+    '- `@pushchain/core` — SDK for backend, scripts, bots, and automation. https://npmjs.com/package/@pushchain/core'
+  );
+  lines.push(
+    '- `@pushchain/ui-kit` — React components for wallet connection and universal transactions. https://npmjs.com/package/@pushchain/ui-kit'
+  );
+  lines.push('');
+
+  // ── Network ───────────────────────────────────────────────────────────────
+  lines.push('## Network (Testnet)');
+  lines.push('');
+  lines.push('- Chain: Push Chain Donut Testnet');
+  lines.push('- Chain ID: 42101');
+  lines.push('- RPC URL: https://evm.donut.rpc.push.org/');
+  lines.push('- Block Explorer: https://donut.push.network');
+  lines.push(`- Faucet: ${BASE_URL}/docs/chain/donut-testnet/`);
+  lines.push('');
+
+  // ── Start Here ────────────────────────────────────────────────────────────
   lines.push('## Start Here');
   lines.push('');
-  lines.push(`- Docs: ${BASE_URL}/docs/chain/`);
-  lines.push(`- Quickstart: ${BASE_URL}/docs/chain/quickstart/`);
   lines.push(
-    `- Important Concepts: ${BASE_URL}/docs/chain/important-concepts/`
+    `- [Docs](${BASE_URL}/docs/chain/): Full Push Chain documentation index.`
   );
-  lines.push(`- Knowledge Base: ${BASE_URL}/knowledge/`);
-  lines.push(`- FAQ: ${BASE_URL}/knowledge/faq/`);
-  lines.push(`- Donut Testnet: ${BASE_URL}/knowledge/testnet/`);
-  lines.push(`- Blog: ${BASE_URL}/blog/`);
+  lines.push(
+    `- [Quickstart](${BASE_URL}/docs/chain/quickstart/): Run your first universal transaction in under 5 minutes.`
+  );
+  lines.push(
+    `- [Important Concepts](${BASE_URL}/docs/chain/important-concepts/): UOA, UEA, CEA, universal transactions, and routing explained.`
+  );
+  lines.push(
+    `- [Chain Configuration](${BASE_URL}/docs/chain/setup/chain-config/): RPC URLs, chain IDs, block explorers, and contract addresses.`
+  );
+  lines.push(
+    `- [For AI Agents & LLMs](${BASE_URL}/docs/chain/for-ai-agents/): Code editor setup, context files, and the full agent layer explained.`
+  );
   lines.push('');
 
-  lines.push('## For AI Agents');
+  // ── Add to Your AI Editor ─────────────────────────────────────────────────
+  lines.push('## Add to Your AI Editor');
   lines.push('');
   lines.push(
-    'Prefer these structured resources before browsing the full docs tree:'
+    `- Cursor: Settings → Features → Docs → Add new doc → ${BASE_URL}/llms.txt`
+  );
+  lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
+  lines.push(
+    `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
+  );
+  lines.push(
+    `- Full context (large context window): ${BASE_URL}/llms-full.txt`
   );
   lines.push('');
-  lines.push(`- Agent Index: ${BASE_URL}/agents/index.json`);
-  lines.push(`- Capabilities: ${BASE_URL}/agents/capabilities.json`);
-  lines.push(`- Supported Chains: ${BASE_URL}/agents/supported-chains.json`);
-  lines.push(`- SDK Capabilities: ${BASE_URL}/agents/sdk-capabilities.json`);
-  lines.push(`- Decision Router: ${BASE_URL}/agents/task-router.md`);
-  lines.push(`- MCP Candidates: ${BASE_URL}/agents/mcp-candidates.json`);
-  lines.push(`- Canonical Workflows: ${BASE_URL}/agents/workflows/`);
+
+  // ── Agent Layer ───────────────────────────────────────────────────────────
+  lines.push('## Agent Layer');
+  lines.push('');
+  lines.push(
+    'Prefer these structured resources over the full docs tree for execution tasks:'
+  );
+  lines.push('');
+  lines.push(
+    `- [Agent Index](${BASE_URL}/agents/index.json): Discovery map listing every agent file, its purpose, and the recommended traversal order.`
+  );
+  lines.push(
+    `- [Capabilities](${BASE_URL}/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.`
+  );
+  lines.push(
+    `- [SDK Capabilities](${BASE_URL}/agents/sdk-capabilities.json): Full SDK namespace map — all namespaces, methods, and advanced arguments including prepareTransaction and executeTransactions.`
+  );
+  lines.push(
+    `- [Supported Chains](${BASE_URL}/agents/supported-chains.json): Verified chain list with CAIP-2 IDs, chain IDs, RPC URLs, block explorers, and Universal Gateway contract addresses.`
+  );
+  lines.push(
+    `- [Decision Tree](${BASE_URL}/agents/decision-tree.json): Branching logic to select the right capability from user intent.`
+  );
+  lines.push(
+    `- [Task Router](${BASE_URL}/agents/task-router.md): Plain-language routing guide mapping common goals to capabilities and workflows.`
+  );
+  lines.push(
+    `- [Error Catalog](${BASE_URL}/agents/errors.json): All known SDK errors with recovery actions.`
+  );
+  lines.push(
+    `- [MCP Candidates](${BASE_URL}/agents/mcp-candidates.json): Candidate MCP tool definitions for agent tool-use frameworks (Claude, Cursor Agent, etc.).`
+  );
+  lines.push(
+    `- [Schemas](${BASE_URL}/agents/schemas/index.json): JSON schemas for all SDK request and response types including universal transaction, signer, and chain config.`
+  );
+  lines.push(
+    `- [Examples](${BASE_URL}/agents/examples/index.json): 60+ minimal, self-contained TypeScript code snippets ready to execute.`
+  );
+  lines.push(
+    `- [Retrieval Map](${BASE_URL}/agents/retrieval-map.json): Maps every capability to its authoritative documentation source — use for RAG grounding.`
+  );
   lines.push('');
 
+  // ── Canonical Workflows (dynamic) ─────────────────────────────────────────
   lines.push('## Canonical Workflows');
   lines.push('');
   for (const wf of workflows) {
@@ -181,32 +280,25 @@ const buildLlmsTxt = async (workflows, blogPosts) => {
   }
   lines.push('');
 
-  if (blogPosts.length > 0) {
-    lines.push(`## Blog — Latest ${blogPosts.length} Posts`);
-    lines.push('');
-    for (const post of blogPosts) {
-      const desc = post.description ? `: ${post.description}` : '';
-      lines.push(`- [${post.title}](${post.url})${desc}`);
-    }
-    lines.push('');
-  }
-
+  // ── Full Context ──────────────────────────────────────────────────────────
   lines.push('## Full Context');
   lines.push('');
-  lines.push('The full text of documentation pages is available at:');
+  lines.push('For long-context retrieval, deep reference, and RAG indexing:');
   lines.push('');
   lines.push(`- ${BASE_URL}/llms-full.txt`);
   lines.push('');
-  lines.push(
-    'Use this for long-context retrieval and deep reference. Prefer canonical workflows and structured agent resources for execution-oriented tasks.'
-  );
-  lines.push('');
 
-  lines.push('## Notes');
+  // ── Optional: Blog ────────────────────────────────────────────────────────
+  lines.push('## Optional');
   lines.push('');
-  lines.push(
-    'Push Chain is EVM-compatible for deployment and designed for universal access across supported chains and wallets. For live execution capabilities, use Push APIs or an MCP server if available.'
-  );
+  lines.push('### Blog — Recent Posts');
+  lines.push('');
+  if (blogPosts.length > 0) {
+    for (const post of blogPosts) {
+      lines.push(`- [${post.title}](${post.url})`);
+    }
+  }
+  lines.push(`- [Blog index](${BASE_URL}/blog/)`);
   lines.push('');
 
   return lines.join('\n');
