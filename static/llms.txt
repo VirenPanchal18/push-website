@@ -3,7 +3,7 @@
 > Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.
 
 ## Who This Is For
- 
+
 - Developers building universal dApps with the Push Chain SDK
 - AI coding assistants and agents executing SDK tasks via Cursor, Windsurf, or Claude Code
 - RAG pipelines and retrieval systems indexing Push Chain documentation
@@ -64,21 +64,21 @@ Prefer these structured resources over the full docs tree for execution tasks:
 
 ## Canonical Workflows
 
-- [Initialize Push Chain Client](https://push.org/agents/workflows/initialize-client.md): Create a PushChainClient from a UniversalSigner.
-- [Create Universal Signer](https://push.org/agents/workflows/create-universal-signer.md): Wrap an EVM or Solana signer into a UniversalSigner.
-- [Send Universal Transaction](https://push.org/agents/workflows/send-universal-transaction.md): Execute on Push Chain from any origin (all 3 routes, advanced args, cascade pattern).
-- [Send Multichain Transaction](https://push.org/agents/workflows/send-multichain-transaction.md): Execute on an external chain via CEA; includes prepareTransaction + executeTransactions cascade.
-- [Contract-Initiated Multichain Execution](https://push.org/agents/workflows/contract-initiated-multichain-execution.md): Trigger cross-chain execution from a Push Chain smart contract.
-- [Track Universal Transaction](https://push.org/agents/workflows/track-transaction.md): Monitor universal transaction lifecycle and confirmation status.
-- [Sign Universal Message](https://push.org/agents/workflows/sign-universal-message.md): Sign a message using UniversalSigner for off-chain verification.
-- [Read Blockchain State](https://push.org/agents/workflows/read-blockchain-state.md): Query on-chain state from Push Chain or external chains.
-- [Connect Wallet via UI Kit](https://push.org/agents/workflows/connect-wallet-ui-kit.md): Enable wallet connection in React apps via PushUniversalWalletProvider.
+- [Initialize Push Chain Client](https://push.org/agents/workflows/initialize-client.md): Create a PushChainClient instance from a UniversalSigner to enable on-chain interactions.
+- [Create Universal Signer](https://push.org/agents/workflows/create-universal-signer.md): Wrap an EVM or non-EVM signer into a UniversalSigner for chain-agnostic transaction signing.
+- [Send Universal Transaction](https://push.org/agents/workflows/send-universal-transaction.md): Execute a transaction on Push Chain from any origin chain via a single SDK call.
+- [Send Multichain Transaction](https://push.org/agents/workflows/send-multichain-transaction.md): Execute a transaction on an external chain via CEA using Push Chain as the coordination layer.
+- [Contract-Initiated Multichain Execution](https://push.org/agents/workflows/contract-initiated-multichain-execution.md): Trigger cross-chain execution from a smart contract on Push Chain to external chains.
+- [Track Universal Transaction](https://push.org/agents/workflows/track-transaction.md): Monitor the lifecycle and confirmation status of a submitted universal transaction.
+- [Sign Universal Message](https://push.org/agents/workflows/sign-universal-message.md): Sign an arbitrary message using the UniversalSigner for off-chain verification.
+- [Read Blockchain State](https://push.org/agents/workflows/read-blockchain-state.md): Query on-chain state from Push Chain or external chains using EVM clients.
+- [Connect Wallet via UI Kit](https://push.org/agents/workflows/connect-wallet-ui-kit.md): Use PushUniversalWalletProvider to enable wallet connection in React apps.
 - [Use Universal Wallet Provider](https://push.org/agents/workflows/use-universal-wallet-provider.md): Configure PushUniversalWalletProvider with custom options and theme overrides.
-- [Initialize EVM Client](https://push.org/agents/workflows/initialize-evm-client.md): Set up an Ethers.js or Viem client for direct RPC interactions.
-- [Use Contract Helpers](https://push.org/agents/workflows/use-contract-helpers.md): Interact with UEA Factory and other Push Chain native contracts.
-- [Use Utility Functions](https://push.org/agents/workflows/use-utility-functions.md): SDK utilities for account conversion, unit parsing, and address formatting.
-- [Constants Reference](https://push.org/agents/workflows/constants-reference.md): All chain IDs, token enums, and network constants from PushChain.CONSTANTS.
-- [Configure Development Environment](https://push.org/agents/workflows/configure-dev-environment.md): Install SDK and configure Hardhat / Foundry / Remix.
+- [Initialize EVM Client](https://push.org/agents/workflows/initialize-evm-client.md): Set up an Ethers.js or Viem client for direct RPC interactions with Push Chain.
+- [Use Contract Helpers](https://push.org/agents/workflows/use-contract-helpers.md): Interact with deployed helper contracts to detect user origin chain and other metadata.
+- [Use Utility Functions](https://push.org/agents/workflows/use-utility-functions.md): Leverage SDK utilities for account conversion, unit parsing, and address formatting.
+- [Constants Reference](https://push.org/agents/workflows/constants-reference.md): Reference all SDK constants including chain identifiers, networks, and token enums.
+- [Configure Development Environment](https://push.org/agents/workflows/configure-dev-environment.md): Install SDK packages and configure tooling for Push Chain development.
 
 ## Full Context
 
@@ -90,9 +90,9 @@ For long-context retrieval, deep reference, and RAG indexing:
 
 ### Blog — Recent Posts
 
-- [Crypto AI Agents Won't Scale. Here's Why.](https://push.org/blog/crypto-ai-agents-wont-scale/)
-- [How to Pay Gas Fees With Any Token From Any Chain?](https://push.org/blog/pay-gas-fees-with-any-token-from-any-chain/)
-- [How to Make Your App Accept ANY Token from ANY Chain?](https://push.org/blog/accept-any-token-from-any-chain/)
+- [Enable social login for your app in 4 steps](https://push.org/blog/enable-social-logins-for-your-app/)
+- [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/)
 - [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/)
-- [Understanding Push Chain's Validator Stack](https://push.org/blog/understanding-push-chain-validator-stack/)
+- [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/)
+- [How Push Chain Centralizes Rules Without Centralizing Risk](https://push.org/blog/how-push-chain-centralizes-rules-without-centralizing-risk/)
 - [Blog index](https://push.org/blog/)
