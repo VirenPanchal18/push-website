@@ -299,7 +299,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     );
   } else {
     lines.push(
-      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — [push-frontend](${BASE_URL}/agents/resources/push-frontend/index.json) (React components, package.json), [push-backend](${BASE_URL}/agents/resources/push-backend/index.json) (ethers.js, viem, Solana scripts), [push-contracts](${BASE_URL}/agents/resources/push-contracts/index.json) (Solidity interfaces, MyMultichainApp.sol, foundry.toml).`
+      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — [push-frontend](${BASE_URL}/agents/resources/push-frontend/index.json), [push-backend](${BASE_URL}/agents/resources/push-backend/index.json), [push-contracts](${BASE_URL}/agents/resources/push-contracts/index.json). push-frontend (package.json, app-wrapper.tsx, send-universal-tx.tsx); push-backend (package.json, client-ethers.ts, client-viem.ts, client-solana.ts); push-contracts (IUEAFactory.sol, IUniversalGatewayPC.sol, IUniversalCore.sol, MyMultichainApp.sol, foundry.toml).`
     );
   }
 
