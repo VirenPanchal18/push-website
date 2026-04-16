@@ -77,7 +77,7 @@ const receipt = await pushChainClient.universal.trackTransaction('0xTxHash...');
 | **SDK Package** | `@pushchain/ui-kit` |
 | **Components** | `PushUniversalWalletProvider`, `PushUniversalAccountButton` |
 | **Hooks** | `usePushWalletContext`, `usePushChainClient`, `usePushChain` |
-| **Caveats** | - Wrap app root with `PushUniversalWalletProvider`<br>- `usePushChainClient()` returns initialized client after connection<br>- Handles signer creation automatically |
+| **Caveats** | - Wrap app root with `PushUniversalWalletProvider`<br>- `usePushChainClient()` returns `{ pushChainClient, isInitialized, error }` — guard with `isInitialized` before use<br>- Handles signer creation automatically |
 
 **Example:**
 ```jsx

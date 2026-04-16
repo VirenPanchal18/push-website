@@ -98,20 +98,76 @@ function App() {
 }
 ```
 
-### Dark Theme
+### Theme Customization
+
+Override CSS variables via `themeOverrides`. Top-level properties apply to both themes; `light` and `dark` sub-objects take effect only when that theme is active.
+
+**Global override (both themes):**
 
 ```tsx
-function App() {
-  return (
-    <PushUniversalWalletProvider
-      config={{ network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET }}
-      themeMode={PushUI.CONSTANTS.THEME.DARK}
-    >
-      <PushUniversalAccountButton />
-    </PushUniversalWalletProvider>
-  );
-}
+<PushUniversalWalletProvider
+  config={{ network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET }}
+  themeOverrides={{
+    '--pw-core-bg-primary-color': '#FAF3E0',
+    '--pw-core-bg-secondary-color': '#FFFDF9',
+    '--pw-core-brand-primary-color': '#3459F0',
+  }}
+>
+  <PushUniversalAccountButton />
+</PushUniversalWalletProvider>
 ```
+
+**Theme-specific overrides + dark mode:**
+
+```tsx
+<PushUniversalWalletProvider
+  config={{ network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET }}
+  themeMode={PushUI.CONSTANTS.THEME.DARK}  // LIGHT | DARK
+  themeOverrides={{
+    light: {
+      '--pw-core-bg-primary-color': '#F1ECF9',
+      '--pw-core-bg-secondary-color': '#F9F7FC',
+    },
+    dark: {
+      '--pw-core-bg-primary-color': '#1F1B24',
+      '--pw-core-bg-secondary-color': '#2B2235',
+    },
+  }}
+>
+  <PushUniversalAccountButton />
+</PushUniversalWalletProvider>
+```
+
+**Button-level overrides** (`--pwauth-*` variables only):
+
+```tsx
+<PushUniversalAccountButton
+  themeOverrides={{
+    '--pwauth-btn-connect-border-radius': '32px',
+    light: { '--pwauth-btn-connect-bg-color': '#3459F0' },
+    dark: { '--pwauth-btn-connect-bg-color': '#6684FC' },
+  }}
+/>
+```
+
+**Key CSS variables:**
+
+| Category | Variable | Description |
+|---|---|---|
+| Layout | `--pw-core-modal-border-radius` | Modal corner radius (default `24px`) |
+| Layout | `--pw-core-modal-width` | Modal width (default `376px`) |
+| Layout | `--pw-core-btn-border-radius` | Shared button radius (default `12px`) |
+| Layout | `--pwauth-btn-connect-border-radius` | Connect button radius (default `12px`) |
+| Color | `--pw-core-brand-primary-color` | Brand accent / highlight color |
+| Color | `--pw-core-bg-primary-color` | Modal / page background |
+| Color | `--pw-core-bg-secondary-color` | Surface / card background |
+| Color | `--pw-core-text-primary-color` | Primary text |
+| Color | `--pwauth-btn-connect-bg-color` | Connect button background |
+| Color | `--pwauth-btn-connect-text-color` | Connect button text |
+| Color | `--pwauth-btn-connected-bg-color` | Connected button background (default `#000000`) |
+| Color | `--pwauth-btn-connected-text-color` | Connected button text |
+
+Full variable list: https://push.org/docs/chain/ui-kit/customizations/theme-variables/
 
 ### Custom RPC and App Metadata
 
@@ -170,14 +226,16 @@ After wrapping with provider, child components can access context:
 ```typescript
 // usePushWalletContext() returns:
 {
-  connectionStatus: 'disconnected' | 'connecting' | 'connected',
-  universalSigner: UniversalSigner | null,
-  disconnect: () => void,
+  connectionStatus: PushUI.CONSTANTS.CONNECTION.STATUS,
+  handleConnectToPushWallet: () => void,
+  handleUserLogOutEvent: () => void,
 }
 
-// usePushChainClient() returns:
+// usePushChainClient(uid?) returns:
 {
-  pushChainClient: PushChainClient | null,
+  pushChainClient: PushChainClient | null, // null until wallet connects
+  isInitialized: boolean,                  // false while booting
+  error: Error | null,                     // set if initialization fails
 }
 ```
 

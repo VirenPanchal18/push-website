@@ -7,9 +7,25 @@ Use this when building a React frontend that needs wallet connection, account di
 ## Code
 
 ```tsx
-import React from 'react';
+// main.tsx — provider belongs at root, not inside App
+import { createRoot } from 'react-dom/client';
+import { PushUniversalWalletProvider, PushUI } from '@pushchain/ui-kit';
+import App from './App';
+
+const walletConfig = {
+  network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET,
+};
+
+createRoot(document.getElementById('root')!).render(
+  <PushUniversalWalletProvider config={walletConfig}>
+    <App />
+  </PushUniversalWalletProvider>
+);
+```
+
+```tsx
+// App.tsx
 import {
-  PushUniversalWalletProvider,
   PushUniversalAccountButton,
   usePushWalletContext,
   usePushChainClient,
@@ -32,22 +48,14 @@ function WalletStatus() {
   );
 }
 
-function App() {
-  const walletConfig = {
-    network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET,
-  };
-
+export default function App() {
   return (
-    <PushUniversalWalletProvider config={walletConfig}>
-      <div>
-        <PushUniversalAccountButton />
-        <WalletStatus />
-      </div>
-    </PushUniversalWalletProvider>
+    <div>
+      <PushUniversalAccountButton />
+      <WalletStatus />
+    </div>
   );
 }
-
-export default App;
 ```
 
 ## Key Points
@@ -55,5 +63,5 @@ export default App;
 - `PushUniversalWalletProvider` wraps your app and manages wallet state
 - `PushUniversalAccountButton` renders a connect/disconnect button with built-in modal
 - `usePushWalletContext()` gives access to `connectionStatus` and wallet state
-- `usePushChainClient()` returns the initialized `pushChainClient` when connected
+- `usePushChainClient()` returns `{ pushChainClient, isInitialized, error }` — guard with `isInitialized` before use
 - Supports multi-chain connections — users can connect from Ethereum, Solana, or email login

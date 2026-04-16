@@ -56,22 +56,40 @@ pnpm add @pushchain/ui-kit
 
 2. **Define wallet configuration**
    ```tsx
-   const walletConfig = {
-     network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET,
-     // Optional: custom RPC URLs
-     // rpcUrls: { [PushUI.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA]: ['https://...'] }
+   export const walletConfig = {
+     network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET, // required
+     app: {
+       title: 'My App',            // app name shown in the wallet modal
+       description: 'App tagline', // subtitle shown in the wallet modal
+     },
+     login: {
+       email: true,   // Push Wallet email login
+       google: true,  // Google OAuth login
+       wallet: true,  // external wallets (MetaMask, WalletConnect, etc.)
+     },
    };
    ```
 
-3. **Wrap your app with the provider**
+   | Field | Type | Required | Description |
+   |---|---|---|---|
+   | `network` | `PUSH_NETWORK` | Yes | Target network — use `PushUI.CONSTANTS.PUSH_NETWORK.TESTNET` |
+   | `app.title` | `string` | No | App name displayed in the wallet connection modal |
+   | `app.description` | `string` | No | App tagline displayed below the title in the modal |
+   | `login.email` | `boolean` | No | Enable Push Wallet email login (default: false) |
+   | `login.google` | `boolean` | No | Enable Google OAuth login (default: false) |
+   | `login.wallet` | `boolean` | No | Enable external wallet login — MetaMask, WalletConnect, etc. (default: true) |
+
+3. **Wrap your app at the root level** (`main.tsx` / `index.tsx`)
    ```tsx
-   function App() {
-     return (
-       <PushUniversalWalletProvider config={walletConfig}>
-         <YourAppContent />
-       </PushUniversalWalletProvider>
-     );
-   }
+   // main.tsx
+   import { createRoot } from 'react-dom/client';
+   import App from './App';
+
+   createRoot(document.getElementById('root')!).render(
+     <PushUniversalWalletProvider config={walletConfig}>
+       <App />
+     </PushUniversalWalletProvider>
+   );
    ```
 
 ### Step 3: Add Connect Button
@@ -94,26 +112,36 @@ The button automatically:
 
 ### Step 4: Access Connection State with usePushWalletContext
 
+`usePushWalletContext()` returns wallet state and control actions:
+
+| Return value | Type | Description |
+|---|---|---|
+| `connectionStatus` | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state — compare against `PushUI.CONSTANTS.CONNECTION.STATUS.*` values |
+| `handleConnectToPushWallet` | `() => void` | Open the wallet connection modal (use when building a custom connect button instead of `PushUniversalAccountButton`) |
+| `handleUserLogOutEvent` | `() => void` | Disconnect the wallet and clear the session |
+
 ```tsx
 function WalletStatus() {
-  const { connectionStatus, universalSigner } = usePushWalletContext();
-  
-  if (connectionStatus === PushUI.CONSTANTS.CONNECTION.STATUS.DISCONNECTED) {
-    return <p>Please connect your wallet</p>;
+  const {
+    connectionStatus,
+    handleConnectToPushWallet,
+    handleUserLogOutEvent,
+  } = usePushWalletContext();
+
+  if (connectionStatus === PushUI.CONSTANTS.CONNECTION.STATUS.NOT_CONNECTED) {
+    return <button onClick={handleConnectToPushWallet}>Connect Wallet</button>;
   }
-  
+
   if (connectionStatus === PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTING) {
     return <p>Connecting...</p>;
   }
-  
-  if (connectionStatus === PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED) {
-    return (
-      <div>
-        <p>Connected: {universalSigner?.account?.address}</p>
-        <p>Chain: {universalSigner?.account?.chain}</p>
-      </div>
-    );
-  }
+
+  return (
+    <div>
+      <p>Wallet connected</p>
+      <button onClick={handleUserLogOutEvent}>Disconnect</button>
+    </div>
+  );
 }
 ```
 
@@ -121,11 +149,11 @@ function WalletStatus() {
 
 ```tsx
 function TransactionComponent() {
-  const { pushChainClient } = usePushChainClient();
+  const { pushChainClient, isInitialized, error } = usePushChainClient();
   const { connectionStatus } = usePushWalletContext();
-  
+
   const sendTransaction = async () => {
-    if (!pushChainClient) {
+    if (!isInitialized || !pushChainClient) {
       console.error('Client not initialized');
       return;
     }
@@ -150,48 +178,72 @@ function TransactionComponent() {
 }
 ```
 
-### Step 6: Use usePushChain Hook (Alternative)
+### Step 6: Use usePushChain Hook
 
-For simpler access patterns:
+`usePushChain()` provides direct access to the `PushChain` core SDK. Use it alongside `usePushChainClient()` when you need SDK utilities (constants, account helpers, etc.) inside a component.
 
 ```tsx
-function SimpleComponent() {
-  const { client, isConnected, account } = usePushChain();
-  
-  if (!isConnected) {
-    return <PushUniversalAccountButton />;
-  }
-  
-  return (
-    <div>
-      <p>Account: {account?.address}</p>
-      {/* Use client for transactions */}
-    </div>
+function ChainUtilsComponent() {
+  const { PushChain } = usePushChain();
+  const { pushChainClient, isInitialized } = usePushChainClient();
+
+  if (!isInitialized || !pushChainClient) return null;
+
+  const chainAgnostic = PushChain.utils.account.toChainAgnostic(
+    pushChainClient.universal.origin.address,
+    { chain: pushChainClient.universal.origin.chain }
   );
+
+  return <p>Chain Agnostic Address: {chainAgnostic}</p>;
 }
 ```
 
 ### Complete Example
 
 ```tsx
+// main.tsx
+import { createRoot } from 'react-dom/client';
 import {
   PushUniversalWalletProvider,
+  PushUI,
+} from '@pushchain/ui-kit';
+import App from './App';
+
+export const walletConfig = {
+  network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET,
+  app: {
+    title: 'My Universal App',
+    description: 'Built on Push Chain',
+  },
+  login: {
+    email: true,
+    google: true,
+    wallet: true,
+  },
+};
+
+createRoot(document.getElementById('root')!).render(
+  <PushUniversalWalletProvider config={walletConfig}>
+    <App />
+  </PushUniversalWalletProvider>
+);
+```
+
+```tsx
+// App.tsx
+import {
   PushUniversalAccountButton,
   usePushWalletContext,
   usePushChainClient,
   PushUI,
 } from '@pushchain/ui-kit';
 
-function App() {
-  const walletConfig = {
-    network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET,
-  };
-
+export default function App() {
   return (
-    <PushUniversalWalletProvider config={walletConfig}>
+    <>
       <Header />
       <MainContent />
-    </PushUniversalWalletProvider>
+    </>
   );
 }
 
@@ -207,11 +259,11 @@ function Header() {
 function MainContent() {
   const { connectionStatus } = usePushWalletContext();
   const { pushChainClient } = usePushChainClient();
-  
+
   if (connectionStatus !== PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED) {
     return <p>Connect your wallet to get started</p>;
   }
-  
+
   return (
     <div>
       <p>Origin: {JSON.stringify(pushChainClient?.universal.origin)}</p>
@@ -219,8 +271,6 @@ function MainContent() {
     </div>
   );
 }
-
-export default App;
 ```
 
 ## Expected Output
@@ -230,23 +280,23 @@ export default App;
 ```typescript
 // usePushWalletContext() returns:
 {
-  connectionStatus: 'disconnected' | 'connecting' | 'connected',
-  universalSigner: UniversalSigner | null,
-  disconnect: () => void,
-  // Additional context values
+  connectionStatus: PushUI.CONSTANTS.CONNECTION.STATUS, // NOT_CONNECTED | CONNECTING | CONNECTED
+  handleConnectToPushWallet: () => void,
+  handleUserLogOutEvent: () => void,
 }
 
-// usePushChainClient() returns:
+// usePushChainClient(uid?) returns:
 {
-  pushChainClient: PushChainClient | null,
-  // Client is null until connected
+  pushChainClient: PushChainClient | null, // null until wallet connects
+  isInitialized: boolean,                  // false while booting
+  error: Error | null,                     // set if initialization fails
 }
 ```
 
 ### When Connected
 
 - `PushUniversalAccountButton` displays truncated address
-- `usePushWalletContext().universalSigner` is populated
+- `usePushWalletContext().connectionStatus` is `PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED`
 - `usePushChainClient().pushChainClient` is ready for transactions
 
 ## Common Failures
@@ -264,7 +314,7 @@ export default App;
 - **Provider must wrap entire app**: Place `PushUniversalWalletProvider` at root level.
 - **Client is null until connected**: Always check `connectionStatus` before using `pushChainClient`.
 - **Universal Signer is auto-created**: UI Kit handles `toUniversal()` conversion internally.
-- **Multiple hooks available**: `usePushWalletContext` for state, `usePushChainClient` for client, `usePushChain` for combined.
+- **Multiple hooks available**: `usePushWalletContext` for connection state/actions, `usePushChainClient` for the initialized client, `usePushChain` for the `PushChain` core SDK (utilities, constants).
 - **Theme customization available**: See UI Kit docs for `ThemeVariables` and button theming.
 - **Email login supported**: Push Wallet enables non-crypto users via email authentication.
 

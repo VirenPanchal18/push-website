@@ -24,26 +24,200 @@ npx create-universal-dapp
 
 ## Setup — Wrap Your App
 
-```tsx
-import {
-  PushUniversalWalletProvider,
-  PushUniversalAccountButton,
-  PushUI,
-} from '@pushchain/ui-kit';
+`PushUniversalWalletProvider` must be at the root of your component tree (in `main.tsx` / `index.tsx`), not inside `App`.
 
-const walletConfig = { network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET };
+```tsx
+// main.tsx
+import { createRoot } from 'react-dom/client';
+import { PushUniversalWalletProvider, PushUI } from '@pushchain/ui-kit';
+import App from './App';
+
+export const walletConfig = {
+  network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET, // required
+  app: {
+    title: 'My App', // shown in the wallet connection modal
+    description: 'App tagline', // shown below the title in the modal
+  },
+  login: {
+    email: true, // enable email login (Push Wallet)
+    google: true, // enable Google OAuth login
+    wallet: true, // enable external wallet login (MetaMask, WalletConnect, etc.)
+  },
+};
+
+createRoot(document.getElementById('root')!).render(
+  <PushUniversalWalletProvider config={walletConfig}>
+    <App />
+  </PushUniversalWalletProvider>
+);
+```
+
+```tsx
+// App.tsx — PushUniversalAccountButton can go anywhere inside the provider
+import { PushUniversalAccountButton } from '@pushchain/ui-kit';
 
 export default function App() {
   return (
-    <PushUniversalWalletProvider config={walletConfig}>
+    <>
       <PushUniversalAccountButton /> {/* pre-built connect/disconnect button */}
-      <YourApp />
-    </PushUniversalWalletProvider>
+      <YourAppContent />
+    </>
   );
 }
 ```
 
 Provider customization (theme, network, wallet options): https://push.org/agents/workflows/use-universal-wallet-provider.md
+
+## PushUniversalAccountButton
+
+A state-aware button that handles the full connection flow — not connected → authentication → connected account display. Must be rendered inside `PushUniversalWalletProvider`.
+
+```tsx
+<PushUniversalAccountButton
+  connectButtonText='Connect Wallet'
+  modalAppOverride={{ title: 'My App', description: 'App tagline' }}
+  loginAppOverride={{ title: 'My App' }}
+  themeOverrides={{ '--pwauth-btn-connect-bg-color': '#3459F0' }}
+/>
+```
+
+### Props
+
+| Prop                       | Type                                 | Default                       | Description                                                                                                  |
+| -------------------------- | ------------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `connectButtonText`        | `string`                             | `'Connect Account'`           | Label on the connect button                                                                                  |
+| `loadingComponent`         | `React.ReactNode`                    | default loader                | Custom loading indicator while connecting                                                                    |
+| `uid`                      | `string`                             | —                             | Match a specific `PushUniversalWalletProvider` by `config.uid` — needed when using multiple wallet instances |
+| `themeOverrides`           | `ThemeOverrides`                     | `{}`                          | CSS variable overrides scoped to this button instance                                                        |
+| `loginAppOverride`         | `{ logoUrl?, title?, description? }` | from `app` in provider config | Override app branding shown on the login screen                                                              |
+| `modalAppOverride`         | `{ logoUrl?, title?, description? }` | from `app` in provider config | Override app branding shown in the wallet modal                                                              |
+| `customConnectComponent`   | `React.ReactNode`                    | —                             | Replace the entire default connect button with a custom component                                            |
+| `customConnectedComponent` | `React.ReactNode`                    | —                             | Replace the entire connected button with a custom component                                                  |
+| `connectButtonClassName`   | `string`                             | —                             | CSS class applied to the default connect button                                                              |
+| `connectedButtonClassName` | `string`                             | —                             | CSS class applied to the default connected button                                                            |
+
+## Theme Customization
+
+Override CSS variables to match your brand. Pass `themeOverrides` to `PushUniversalWalletProvider` for app-wide styles, or to `PushUniversalAccountButton` for button-specific overrides (`--pwauth-*` variables only).
+
+### Global override (both themes)
+
+```tsx
+<PushUniversalWalletProvider
+  config={{ network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET }}
+  themeOverrides={{
+    '--pw-core-bg-primary-color': '#FAF3E0',
+    '--pw-core-bg-secondary-color': '#FFFDF9',
+    '--pw-core-brand-primary-color': '#3459F0',
+  }}
+>
+```
+
+### Light / dark specific overrides + themeMode
+
+```tsx
+<PushUniversalWalletProvider
+  config={{ network: PushUI.CONSTANTS.PUSH_NETWORK.TESTNET }}
+  themeMode={PushUI.CONSTANTS.THEME.DARK}  // LIGHT | DARK
+  themeOverrides={{
+    light: {
+      '--pw-core-bg-primary-color': '#F1ECF9',
+    },
+    dark: {
+      '--pw-core-bg-primary-color': '#1F1B24',
+    },
+  }}
+>
+```
+
+> Top-level properties apply to both themes; `light` and `dark` sub-objects override those values when the corresponding theme is active.
+
+### Button-level override
+
+Variables starting with `--pwauth-` can be overridden per button instance:
+
+```tsx
+<PushUniversalAccountButton
+  themeOverrides={{
+    '--pwauth-btn-connect-border-radius': '32px',
+    light: { '--pwauth-btn-connect-bg-color': '#3459F0' },
+    dark: { '--pwauth-btn-connect-bg-color': '#6684FC' },
+  }}
+/>
+```
+
+### Key CSS variables
+
+| Category | Variable                             | Description                                     |
+| -------- | ------------------------------------ | ----------------------------------------------- |
+| Layout   | `--pw-core-modal-border-radius`      | Modal corner radius (default `24px`)            |
+| Layout   | `--pw-core-modal-width`              | Modal width (default `376px`)                   |
+| Layout   | `--pw-core-btn-border-radius`        | Shared button radius (default `12px`)           |
+| Layout   | `--pwauth-btn-connect-border-radius` | Connect button radius (default `12px`)          |
+| Color    | `--pw-core-brand-primary-color`      | Brand accent color                              |
+| Color    | `--pw-core-bg-primary-color`         | Modal / page background                         |
+| Color    | `--pw-core-bg-secondary-color`       | Surface / card background                       |
+| Color    | `--pw-core-text-primary-color`       | Primary text                                    |
+| Color    | `--pwauth-btn-connect-bg-color`      | Connect button background                       |
+| Color    | `--pwauth-btn-connect-text-color`    | Connect button text color                       |
+| Color    | `--pwauth-btn-connected-bg-color`    | Connected button background (default `#000000`) |
+| Color    | `--pwauth-btn-connected-text-color`  | Connected button text color                     |
+
+Full variable list: https://push.org/docs/chain/ui-kit/customizations/theme-variables/
+
+## Hooks
+
+### `usePushChainClient(uid?)`
+
+Returns the Push Chain client and its initialization state. `pushChainClient` is `null` until the wallet connects — **always guard before use**. Pass an optional `uid` to target a specific `PushUniversalWalletProvider` instance.
+
+```tsx
+const {
+  pushChainClient, // PushChainClient | null — null until connected
+  isInitialized, // boolean — false while the client is booting
+  error, // Error | null — set if initialization fails
+} = usePushChainClient();
+
+if (!isInitialized || !pushChainClient) return;
+```
+
+### `usePushWalletContext()`
+
+Returns wallet connection state and control actions.
+
+```tsx
+const {
+  connectionStatus, // PushUI.CONSTANTS.CONNECTION.STATUS
+  handleConnectToPushWallet, // () => void — open wallet connection modal
+  handleUserLogOutEvent, // () => void — disconnect and clear session
+} = usePushWalletContext();
+```
+
+Use `connectionStatus` to gate UI. Use `handleConnectToPushWallet` / `handleUserLogOutEvent` when you want to trigger connect/disconnect from your own buttons instead of `PushUniversalAccountButton`.
+
+### `usePushChain()`
+
+Provides direct access to the `PushChain` core SDK — utilities, constants, and the `PushChain.initialize()` method. Use alongside `usePushChainClient()` when you need SDK utilities in a component.
+
+```tsx
+import { usePushChain, usePushChainClient } from '@pushchain/ui-kit';
+
+function MyComponent() {
+  const { PushChain } = usePushChain();
+  const { pushChainClient, isInitialized } = usePushChainClient();
+
+  if (!isInitialized || !pushChainClient) return null;
+
+  const chainAgnostic = PushChain.utils.account.toChainAgnostic(
+    pushChainClient.universal.origin.address,
+    { chain: pushChainClient.universal.origin.chain }
+  );
+
+  return <p>Chain Agnostic Address: {chainAgnostic}</p>;
+}
+```
+
+---
 
 ## Send a Universal Transaction
 
@@ -52,7 +226,7 @@ import { usePushChainClient } from '@pushchain/ui-kit';
 import { PushChain } from '@pushchain/core';
 
 function MyComponent() {
-  const { pushChainClient } = usePushChainClient(); // null before wallet connects
+  const { pushChainClient } = usePushChainClient();
 
   const send = async () => {
     if (!pushChainClient) return; // guard: null before wallet connects
@@ -109,16 +283,32 @@ const signature =
 
 ## Hooks Reference
 
-| Hook                     | Returns                                        | Purpose                                     |
-| ------------------------ | ---------------------------------------------- | ------------------------------------------- |
-| `usePushChainClient()`   | `{ pushChainClient: PushChainClient \| null }` | Full client for tx execution — primary hook |
-| `usePushWalletContext()` | wallet state + actions                         | Connection status, address, disconnect      |
-| `usePushChain()`         | combined state + actions                       | Push Chain state and actions                |
+### `usePushChainClient(uid?)`
+
+| Parameter / Return | Type                      | Description                                                                            |
+| ------------------ | ------------------------- | -------------------------------------------------------------------------------------- |
+| `uid` _(param)_    | `string`                  | Optional — match a specific `PushUniversalWalletProvider` by `config.uid`              |
+| `pushChainClient`  | `PushChainClient \| null` | Initialized client — `null` until connected. Use for all tx, signing, and cascade ops. |
+| `isInitialized`    | `boolean`                 | `false` while the client is booting up                                                 |
+| `error`            | `Error \| null`           | Set if client initialization fails                                                     |
+
+### `usePushWalletContext()`
+
+| Return value                | Type                                 | Description                                                                       |
+| --------------------------- | ------------------------------------ | --------------------------------------------------------------------------------- |
+| `connectionStatus`          | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state — compare against `PushUI.CONSTANTS.CONNECTION.STATUS.*` |
+| `handleConnectToPushWallet` | `() => void`                         | Open the wallet connection modal                                                  |
+| `handleUserLogOutEvent`     | `() => void`                         | Disconnect the wallet and clear the session                                       |
+
+### `usePushChain()`
+
+| Return value | Type        | Description                                                                           |
+| ------------ | ----------- | ------------------------------------------------------------------------------------- |
+| `PushChain`  | `PushChain` | The `@pushchain/core` SDK — access utilities, constants, and `PushChain.initialize()` |
 
 ## Notes
 
-- `usePushChainClient()` returns `{ pushChainClient }` — destructure and guard for `null` before calling tx methods.
-- Reading blockchain state (no transactions) can use ethers.js or viem with the RPC URL directly — the Push SDK is only required for execution and signing.
+- Reading blockchain state (no transactions) can use ethers.js or viem with the Push Chain RPC URL directly — the SDK is only required for execution and signing.
 - RPC URL: `https://evm.donut.rpc.push.org/`
 
 ## Downloadable Resources
