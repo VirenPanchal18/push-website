@@ -10,6 +10,8 @@
     "generate:llms": "node build.agents.llms.mjs",
     "generate:agents:full": "node build.agents.preseed.mjs && node build.agents.mjs && node build.agents.examples.mjs && node build.agents.llms.mjs",
     "generate:agents:updatemeta": "node build.agents.updatemeta.mjs",
+    "check:agent-links": "node scripts/check-agent-links.mjs --no-http",
+    "check:agent-links:http": "node scripts/check-agent-links.mjs",
     "translations:nuke": "node build.translation.nuke.mjs",
     "translations:generate": "node build.translation.automation.mjs",
     "translations:generate:force": "node build.translation.nuke.mjs && node build.translation.automation.mjs",

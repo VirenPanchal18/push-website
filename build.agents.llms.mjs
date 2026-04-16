@@ -396,7 +396,8 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   return lines.join('\n');
 };
 
-export const buildAgentsLlms = async () => {
+// ── Internal: generate llms.txt (called when run standalone) ─────────────────
+const generateLlmsTxt = async () => {
   console.log(
     chalk.cyan('\n📄 Generating static/llms.txt from agents layer...')
   );
@@ -449,9 +450,23 @@ export const buildAgentsLlms = async () => {
   console.log(chalk.green('✅ Generated static/llms.txt'));
 };
 
-// Run if executed directly
+// ── Exported: disk-only link checker (called during build) ───────────────────
+export const buildAgentsLlms = async () => {
+  const { checkAgentLinks } = await import('./scripts/check-agent-links.mjs');
+  // http: false — disk-only during build; HTTP checks are for the standalone script
+  const { broken } = await checkAgentLinks({ http: false });
+  if (broken.length > 0) {
+    console.warn(
+      chalk.yellow(
+        `⚠️  Agent links: ${broken.length} broken reference(s) found`
+      )
+    );
+  }
+};
+
+// Run if executed directly → generate llms.txt
 if (import.meta.url === `file://${process.argv[1]}`) {
-  buildAgentsLlms().catch((err) => {
+  generateLlmsTxt().catch((err) => {
     console.error(chalk.red('❌ Failed to generate llms.txt:'), err);
     process.exit(1);
   });

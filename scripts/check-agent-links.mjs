@@ -26,8 +26,6 @@ const AGENTS_DIR = path.resolve(__dirname, '../static/agents');
 const STATIC_DIR = path.resolve(__dirname, '../static');
 const BASE_URL = 'https://push.org';
 
-const CHECK_HTTP = !process.argv.includes('--no-http');
-const JSON_OUTPUT = process.argv.includes('--json');
 const CONCURRENCY = 12;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -134,7 +132,10 @@ async function pool(tasks, concurrency) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
-async function main() {
+export async function checkAgentLinks({ http = true, json = false } = {}) {
+  const CHECK_HTTP = http;
+  const JSON_OUTPUT = json;
+
   // Scan agents/ tree + llms.txt + llms-full.txt
   const agentFiles = await walkDir(AGENTS_DIR);
   const targetFiles = [
@@ -303,10 +304,18 @@ async function main() {
     );
   }
 
-  process.exit(results.broken.length > 0 ? 1 : 0);
+  return results;
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Run standalone
+if (import.meta.url === `file://${process.argv[1]}`) {
+  checkAgentLinks({
+    http: !process.argv.includes('--no-http'),
+    json: process.argv.includes('--json'),
+  })
+    .then(({ broken }) => process.exit(broken.length > 0 ? 1 : 0))
+    .catch((err) => {
+      console.error(err);
+      process.exit(1);
+    });
+}
