@@ -5095,7 +5095,7 @@ Call once per program at app startup. Subsequent `prepareTransaction` calls that
 | _`programAddress`_  | `0x${string}`    | The Solana program ID as 0x-prefixed 32-byte hex (66 characters total).                                                        |
 | _`idl`_             | `Idl` (Anchor)   | The program's Anchor IDL (Anchor ≥ 0.30 spec). Must declare `instructions[].discriminator` and per-account `pda.seeds` / `address` where applicable. |
 
-**Non-PDA accounts.** If an instruction declares a writable account whose pubkey is neither a PDA (derivable from seeds) nor the sender's CEA, add an `address: ""` field on that account in the IDL to pin it. Accounts named `cea_authority` (or `cea`, `cea_signer`) are auto-populated with the caller's CEA PDA and do not need pinning.
+**Non-PDA accounts.** If an instruction declares an account whose pubkey is neither a PDA (derivable from seeds) nor the sender's CEA, add an `address: ""` field on that account in the IDL to pin it. Standard IDLs usually pre-set this for read-only program accounts (e.g. `systemProgram`, `tokenProgram`), so in practice this is mainly something you add for writable custom accounts. Accounts named `cea_authority` (or `cea`, `cea_signer`; camelCase `ceaAuthority` / `ceaSigner` also accepted) are auto-populated with the caller's CEA PDA and do not need pinning.
 
 {/* API Section Ends*/}
 
