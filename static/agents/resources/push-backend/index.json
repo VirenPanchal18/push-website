@@ -1,6 +1,6 @@
 {
   "description": "Node.js resources for universal transactions via @pushchain/core. Copy the files you need, set env vars, and run with tsx.",
-  "skill": "https://push.org/agents/skills/push-backend.md",
+  "skill": "https://push.org/agents/skills/push-backend/SKILL.md",
   "setup": "npm install && PRIVATE_KEY=0x... npx tsx client-ethers.ts",
   "envVars": {
     "PRIVATE_KEY": "EVM wallet private key (0x-prefixed hex) — for ethers.js and viem scripts",

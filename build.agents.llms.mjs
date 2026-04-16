@@ -223,7 +223,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('- Chain ID: 42101');
   lines.push('- RPC URL: https://evm.donut.rpc.push.org/');
   lines.push('- Block Explorer: https://donut.push.network');
-  lines.push(`- Faucet: ${BASE_URL}/docs/chain/donut-testnet/`);
+  lines.push('- Faucet: https://faucet.push.org');
   lines.push('');
 
   // ── Start Here ────────────────────────────────────────────────────────────

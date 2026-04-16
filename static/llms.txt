@@ -32,7 +32,7 @@
 - Chain ID: 42101
 - RPC URL: https://evm.donut.rpc.push.org/
 - Block Explorer: https://donut.push.network
-- Faucet: https://push.org/docs/chain/donut-testnet/
+- Faucet: https://faucet.push.org
 
 ## Start Here
 

@@ -1,6 +1,6 @@
 {
   "description": "React app resources for universal transactions via @pushchain/ui-kit. Copy all files into your React project root (or a new directory) and run npm install.",
-  "skill": "https://push.org/agents/skills/push-frontend.md",
+  "skill": "https://push.org/agents/skills/push-frontend/SKILL.md",
   "quickstart": "npx create-universal-dapp",
   "setup": "npm install && npm run dev",
   "files": [
