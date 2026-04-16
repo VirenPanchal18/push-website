@@ -361,6 +361,7 @@ Also include a top-level "native_contracts" object with:
 - universal_gateway.contracts: ALL 5 entries — Ethereum Sepolia 0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A, Arbitrum Sepolia 0x2cd870e0166Ba458dEC615168Fd659AacD795f34, Base Sepolia 0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16, BNB Testnet 0x44aFFC61983F4348DdddB886349eb992C061EaC0, Solana Devnet CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS
 
 FILE 4: agents/sdk-capabilities.json
+Top-level structure must include: { "version": "1.0.0", "generated": "__GENERATED__", ... }
 Structured map of SDK namespaces. Cover ALL of these namespaces:
 - PushChain (root: initialize)
 - PushChain.CONSTANTS (PUSH_NETWORK, CHAIN, LIBRARY, MOVEABLE, PAYABLE)
@@ -379,6 +380,7 @@ For each namespace:
 For sendTransaction and prepareTransaction include ALL args: to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?
 
 FILE 5: agents/feature-matrix.json
+Top-level structure must include: { "version": "1.0.0", "generated": "__GENERATED__", ... }
 Matrix of features by actor type. Structure:
 {
   "features": [ { "feature", "developer", "end_user", "agent", "backend" } ]
@@ -402,6 +404,8 @@ Use true/false/partial for each cell. Include: universal_transactions, fee_abstr
     build: (ctx) =>
       phasePrompt(
         `Generate agents/workflows/index.json — the manifest of all canonical workflows.
+
+Top-level structure must include: { "schema_version": "1.0.0", "generated_at": "__GENERATED__", ... }
 
 Each workflow entry must have:
 - "id": kebab-case

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2025-01-09T00:00:00Z",
+  "generated_at": "2026-04-16T00:00:00.000Z",
   "description": "Canonical workflow manifest for Push Chain agent layer",
   "workflows": [
     {
@@ -10,9 +10,7 @@
       "purpose": "Create a PushChainClient instance from a UniversalSigner to enable on-chain interactions.",
       "actor": "developer",
       "operation": "write",
-      "prerequisites": [
-        "create-universal-signer"
-      ],
+      "prerequisites": ["create-universal-signer"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -29,9 +27,7 @@
       "purpose": "Wrap an EVM or non-EVM signer into a UniversalSigner for chain-agnostic transaction signing.",
       "actor": "developer",
       "operation": "write",
-      "prerequisites": [
-        "configure-dev-environment"
-      ],
+      "prerequisites": ["configure-dev-environment"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -49,9 +45,7 @@
       "purpose": "Execute a transaction on Push Chain from any origin chain via a single SDK call.",
       "actor": "developer",
       "operation": "write",
-      "prerequisites": [
-        "initialize-client"
-      ],
+      "prerequisites": ["initialize-client"],
       "deterministic": false,
       "safe_for_autonomous_execution": false,
       "mcp_mapping_candidates": [
@@ -71,9 +65,7 @@
       "purpose": "Execute a transaction on an external chain via CEA using Push Chain as the coordination layer.",
       "actor": "developer",
       "operation": "write",
-      "prerequisites": [
-        "initialize-client"
-      ],
+      "prerequisites": ["initialize-client"],
       "deterministic": false,
       "safe_for_autonomous_execution": false,
       "mcp_mapping_candidates": [
@@ -91,9 +83,7 @@
       "purpose": "Trigger cross-chain execution from a smart contract on Push Chain to external chains.",
       "actor": "smart_contract",
       "operation": "write",
-      "prerequisites": [
-        "initialize-client"
-      ],
+      "prerequisites": ["initialize-client"],
       "deterministic": false,
       "safe_for_autonomous_execution": false,
       "mcp_mapping_candidates": [
@@ -110,9 +100,7 @@
       "purpose": "Monitor the lifecycle and confirmation status of a submitted universal transaction.",
       "actor": "developer",
       "operation": "tracking",
-      "prerequisites": [
-        "send-universal-transaction"
-      ],
+      "prerequisites": ["send-universal-transaction"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -129,9 +117,7 @@
       "purpose": "Sign an arbitrary message using the UniversalSigner for off-chain verification.",
       "actor": "developer",
       "operation": "write",
-      "prerequisites": [
-        "initialize-client"
-      ],
+      "prerequisites": ["initialize-client"],
       "deterministic": true,
       "safe_for_autonomous_execution": false,
       "mcp_mapping_candidates": [
@@ -148,9 +134,7 @@
       "purpose": "Query on-chain state from Push Chain or external chains using EVM clients.",
       "actor": "developer",
       "operation": "read",
-      "prerequisites": [
-        "initialize-evm-client"
-      ],
+      "prerequisites": ["initialize-evm-client"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -168,9 +152,7 @@
       "purpose": "Use PushUniversalWalletProvider to enable wallet connection in React apps.",
       "actor": "frontend_developer",
       "operation": "write",
-      "prerequisites": [
-        "configure-dev-environment"
-      ],
+      "prerequisites": ["configure-dev-environment"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -187,9 +169,7 @@
       "purpose": "Configure PushUniversalWalletProvider with custom options and theme overrides.",
       "actor": "frontend_developer",
       "operation": "write",
-      "prerequisites": [
-        "connect-wallet-ui-kit"
-      ],
+      "prerequisites": ["connect-wallet-ui-kit"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -206,9 +186,7 @@
       "purpose": "Set up an Ethers.js or Viem client for direct RPC interactions with Push Chain.",
       "actor": "developer",
       "operation": "read",
-      "prerequisites": [
-        "configure-dev-environment"
-      ],
+      "prerequisites": ["configure-dev-environment"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [
@@ -225,9 +203,7 @@
       "purpose": "Interact with deployed helper contracts to detect user origin chain and other metadata.",
       "actor": "developer",
       "operation": "read",
-      "prerequisites": [
-        "initialize-evm-client"
-      ],
+      "prerequisites": ["initialize-evm-client"],
       "deterministic": true,
       "safe_for_autonomous_execution": true,
       "mcp_mapping_candidates": [

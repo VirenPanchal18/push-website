@@ -630,7 +630,7 @@
     "auth_required": true,
     "safe_for_autonomous_execution": false,
     "mcp_candidate": true,
-    "docs_url": "https://push.org/docs/chain/build/advanced/upgrade-account/",
+    "docs_url": "https://push.org/docs/chain/build/advanced/upgrade-universal-account/",
     "stability": "stable"
   },
   {

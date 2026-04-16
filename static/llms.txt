@@ -20,8 +20,8 @@
 
 ## Packages
 
-- `@pushchain/ui-kit` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles `@pushchain/core` — no separate install needed. Provides wallet connection UI and the `usePushChainClient()` hook, which returns a fully initialized `PushChainClient` for calling `sendTransaction`, `signMessage`, `prepareTransaction`, and `executeTransactions` directly in React components. Integration guide: https://push.org/agents/workflows/connect-wallet-ui-kit.md. Customization (theme, options, provider config): https://push.org/agents/workflows/use-universal-wallet-provider.md. https://npmjs.com/package/@pushchain/ui-kit
-- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. https://npmjs.com/package/@pushchain/core
+- `@pushchain/ui-kit` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles `@pushchain/core` — no separate install needed. Provides wallet connection UI and the `usePushChainClient()` hook, which returns a fully initialized `PushChainClient` for calling `sendTransaction`, `signMessage`, `prepareTransaction`, and `executeTransactions` directly in React components. [Integration guide](https://push.org/agents/workflows/connect-wallet-ui-kit.md) - [Customization](https://push.org/agents/workflows/use-universal-wallet-provider.md) - [npm](https://npmjs.com/package/@pushchain/ui-kit)
+- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. [npm](https://npmjs.com/package/@pushchain/core)
 - `npx create-universal-dapp` — Scaffolding CLI that bootstraps a universal dApp with `@pushchain/ui-kit` pre-integrated and ready to use.
 
 > Reading blockchain state from Push Chain can be done with any EVM-compatible library (ethers.js, viem, etc.) via the Push Chain RPC URL. Only transaction execution and signing require the Push Chain SDK.
@@ -32,7 +32,7 @@
 - Chain ID: 42101
 - RPC URL: https://evm.donut.rpc.push.org/
 - Block Explorer: https://donut.push.network
-- Faucet: https://push.org/docs/chain/donut-testnet/
+- Faucet: https://faucet.push.org
 
 ## Start Here
 
@@ -69,7 +69,7 @@ Prefer these structured resources over the full docs tree for execution tasks:
 ## AI System Directives
 
 1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (`push-frontend`, `push-backend`, or `push-contracts`). Never generate SDK usage from memory alone.
-2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the `push-contracts` skill or the machine-readable address registry at https://push.org/agents/contract-addresses.json.
+2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the `push-contracts` skill or the [machine-readable address registry](https://push.org/agents/contract-addresses.json).
 3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.
 4. **Execution vs. reading:** Use `@pushchain/core` or `@pushchain/ui-kit` strictly for transaction execution and signing. Use standard EVM libraries (ethers.js, viem, etc.) for reading on-chain state.
 5. **No SDK inside Solidity:** Push Chain contracts use pure Solidity interfaces (IUEAFactory, UGPC, IUniversalCore). The Push SDK is never imported inside `.sol` files.

@@ -1,6 +1,6 @@
 # Tutorial: Mint ERC-20 Tokens from Any Chain
 
-Source: https://push.org/docs/chain/tutorials/basics/tutorial-mint-erc20/
+Source: https://push.org/docs/chain/tutorials/basics/tutorial-mint-erc-20-tokens/
 
 ## Overview
 
