@@ -20,8 +20,11 @@
 
 ## Packages
 
-- `@pushchain/core` — SDK for backend, scripts, bots, and automation. https://npmjs.com/package/@pushchain/core
-- `@pushchain/ui-kit` — React components for wallet connection and universal transactions. https://npmjs.com/package/@pushchain/ui-kit
+- `@pushchain/ui-kit` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles `@pushchain/core` — no separate install needed. Provides wallet connection UI and the `usePushChainClient()` hook, which returns a fully initialized `PushChainClient` for calling `sendTransaction`, `signMessage`, `prepareTransaction`, and `executeTransactions` directly in React components. Integration guide: https://push.org/agents/workflows/connect-wallet-ui-kit.md. Customization (theme, options, provider config): https://push.org/agents/workflows/use-universal-wallet-provider.md. https://npmjs.com/package/@pushchain/ui-kit
+- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. https://npmjs.com/package/@pushchain/core
+- `npx create-universal-dapp` — Scaffolding CLI that bootstraps a universal dApp with `@pushchain/ui-kit` pre-integrated and ready to use.
+
+> Reading blockchain state from Push Chain can be done with any EVM-compatible library (ethers.js, viem, etc.) via the Push Chain RPC URL. Only transaction execution and signing require the Push Chain SDK.
 
 ## Network (Testnet)
 
@@ -51,6 +54,8 @@
 Prefer these structured resources over the full docs tree for execution tasks:
 
 - [Agent Index](https://push.org/agents/index.json): Discovery map listing every agent file, its purpose, and the recommended traversal order.
+- [Skills](https://push.org/agents/skills/index.json): Copyable, self-contained skill files — [push-frontend](https://push.org/agents/skills/push-frontend/SKILL.md), [push-backend](https://push.org/agents/skills/push-backend/SKILL.md), [push-contracts](https://push.org/agents/skills/push-contracts/SKILL.md). Load the one matching your context before exploring workflows.
+- [Resources](https://push.org/agents/resources/index.json): Downloadable, runnable code files organized by skill — [push-frontend](https://push.org/agents/resources/push-frontend/index.json) (React components, package.json), [push-backend](https://push.org/agents/resources/push-backend/index.json) (ethers.js, viem, Solana scripts), [push-contracts](https://push.org/agents/resources/push-contracts/index.json) (Solidity interfaces, MyMultichainApp.sol, foundry.toml).
 - [Capabilities](https://push.org/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.
 - [SDK Capabilities](https://push.org/agents/sdk-capabilities.json): Full SDK namespace map — all namespaces, methods, and advanced arguments including prepareTransaction and executeTransactions.
 - [Supported Chains](https://push.org/agents/supported-chains.json): Verified chain list with CAIP-2 IDs, chain IDs, RPC URLs, block explorers, and Universal Gateway contract addresses.

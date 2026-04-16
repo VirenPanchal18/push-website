@@ -164,6 +164,46 @@
       "type": "workflow"
     },
     {
+      "path": "agents/skills/index.json",
+      "purpose": "Index of domain-scoped skill files — maps developer intents to packages, entry points, workflows, and examples",
+      "type": "skill"
+    },
+    {
+      "path": "agents/skills/push-frontend/SKILL.md",
+      "purpose": "Copyable skill: enable universal transactions in React apps via @pushchain/ui-kit and usePushChainClient()",
+      "type": "skill"
+    },
+    {
+      "path": "agents/skills/push-backend/SKILL.md",
+      "purpose": "Copyable skill: execute universal transactions from Node.js, scripts, bots, and automation via @pushchain/core",
+      "type": "skill"
+    },
+    {
+      "path": "agents/skills/push-contracts/SKILL.md",
+      "purpose": "Copyable skill: Solidity contracts on Push Chain — IUEAFactory, UGPC dispatch, inbound callback, UniversalCore fee reads",
+      "type": "skill"
+    },
+    {
+      "path": "agents/resources/index.json",
+      "purpose": "Discovery map for all downloadable resource files — organized by skill context (push-frontend, push-backend, push-contracts)",
+      "type": "resource"
+    },
+    {
+      "path": "agents/resources/push-frontend/index.json",
+      "purpose": "Resource index for React/frontend skill — package.json, app-wrapper.tsx, send-universal-tx.tsx",
+      "type": "resource"
+    },
+    {
+      "path": "agents/resources/push-backend/index.json",
+      "purpose": "Resource index for Node.js/backend skill — package.json, client-ethers.ts, client-viem.ts, client-solana.ts",
+      "type": "resource"
+    },
+    {
+      "path": "agents/resources/push-contracts/index.json",
+      "purpose": "Resource index for Solidity/contracts skill — IUEAFactory.sol, IUniversalGatewayPC.sol, IUniversalCore.sol, MyMultichainApp.sol, foundry.toml",
+      "type": "resource"
+    },
+    {
       "path": "agents/schemas/index.json",
       "purpose": "Index of all JSON schema files with brief descriptions",
       "type": "schema"

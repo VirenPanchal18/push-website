@@ -17,6 +17,8 @@ const AGENTS_DIR = path.join(STATIC_DIR, 'agents');
 const BLOG_DIR = path.join(__dirname, 'blog');
 const OUTPUT_PATH = path.join(STATIC_DIR, 'llms.txt');
 const WORKFLOWS_INDEX_PATH = path.join(AGENTS_DIR, 'workflows', 'index.json');
+const SKILLS_INDEX_PATH = path.join(AGENTS_DIR, 'skills', 'index.json');
+const RESOURCES_INDEX_PATH = path.join(AGENTS_DIR, 'resources', 'index.json');
 
 const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
@@ -61,6 +63,30 @@ const FALLBACK_WORKFLOWS = [
     purpose: 'Sign a message using the universal signer',
   },
 ];
+
+// Load skills from agents/skills/index.json if available
+const loadSkills = async () => {
+  try {
+    const raw = await fs.readFile(SKILLS_INDEX_PATH, 'utf-8');
+    const parsed = JSON.parse(raw);
+    const skills = parsed.skills ?? [];
+    if (skills.length > 0) return skills;
+  } catch {
+    // skills not yet generated
+  }
+  return [];
+};
+
+// Load resources from agents/resources/index.json if available
+const loadResources = async () => {
+  try {
+    const raw = await fs.readFile(RESOURCES_INDEX_PATH, 'utf-8');
+    const parsed = JSON.parse(raw);
+    return parsed.resources ?? [];
+  } catch {
+    return [];
+  }
+};
 
 // Load canonical workflows from agents/workflows/index.json if available
 const loadWorkflows = async () => {
@@ -122,8 +148,8 @@ const gatherBlogPosts = async () => {
   return posts;
 };
 
-// Build llms.txt — static sections hardcoded, workflows and blog posts dynamic
-const buildLlmsTxt = async (workflows, blogPosts) => {
+// Build llms.txt — static sections hardcoded, workflows, skills, resources and blog posts dynamic
+const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   const lines = [];
 
   // ── Header ──────────────────────────────────────────────────────────────
@@ -176,10 +202,17 @@ const buildLlmsTxt = async (workflows, blogPosts) => {
   lines.push('## Packages');
   lines.push('');
   lines.push(
-    '- `@pushchain/core` — SDK for backend, scripts, bots, and automation. https://npmjs.com/package/@pushchain/core'
+    '- `@pushchain/ui-kit` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles `@pushchain/core` — no separate install needed. Provides wallet connection UI and the `usePushChainClient()` hook, which returns a fully initialized `PushChainClient` for calling `sendTransaction`, `signMessage`, `prepareTransaction`, and `executeTransactions` directly in React components. Integration guide: https://push.org/agents/workflows/connect-wallet-ui-kit.md. Customization (theme, options, provider config): https://push.org/agents/workflows/use-universal-wallet-provider.md. https://npmjs.com/package/@pushchain/ui-kit'
   );
   lines.push(
-    '- `@pushchain/ui-kit` — React components for wallet connection and universal transactions. https://npmjs.com/package/@pushchain/ui-kit'
+    '- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. https://npmjs.com/package/@pushchain/core'
+  );
+  lines.push(
+    '- `npx create-universal-dapp` — Scaffolding CLI that bootstraps a universal dApp with `@pushchain/ui-kit` pre-integrated and ready to use.'
+  );
+  lines.push('');
+  lines.push(
+    '> Reading blockchain state from Push Chain can be done with any EVM-compatible library (ethers.js, viem, etc.) via the Push Chain RPC URL. Only transaction execution and signing require the Push Chain SDK.'
   );
   lines.push('');
 
@@ -238,6 +271,38 @@ const buildLlmsTxt = async (workflows, blogPosts) => {
   lines.push(
     `- [Agent Index](${BASE_URL}/agents/index.json): Discovery map listing every agent file, its purpose, and the recommended traversal order.`
   );
+
+  // Skills — dynamic from skills/index.json
+  if (skills.length > 0) {
+    const skillLinks = skills
+      .map((s) => `[${s.id}](${BASE_URL}/${s.file})`)
+      .join(', ');
+    lines.push(
+      `- [Skills](${BASE_URL}/agents/skills/index.json): Copyable, self-contained skill files — ${skillLinks}. Load the one matching your context before exploring workflows.`
+    );
+  } else {
+    lines.push(
+      `- [Skills](${BASE_URL}/agents/skills/index.json): Copyable, self-contained skill files — [push-frontend](${BASE_URL}/agents/skills/push-frontend/SKILL.md), [push-backend](${BASE_URL}/agents/skills/push-backend/SKILL.md), [push-contracts](${BASE_URL}/agents/skills/push-contracts/SKILL.md). Load the one matching your context before exploring workflows.`
+    );
+  }
+
+  // Resources — dynamic from resources/index.json
+  if (resources.length > 0) {
+    const resourceLinks = resources
+      .map((r) => `[${r.id}](${BASE_URL}/${r.index})`)
+      .join(', ');
+    const resourceDetails = resources
+      .map((r) => `${r.id} (${(r.files ?? []).join(', ')})`)
+      .join('; ');
+    lines.push(
+      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — ${resourceLinks}. ${resourceDetails}.`
+    );
+  } else {
+    lines.push(
+      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — [push-frontend](${BASE_URL}/agents/resources/push-frontend/index.json) (React components, package.json), [push-backend](${BASE_URL}/agents/resources/push-backend/index.json) (ethers.js, viem, Solana scripts), [push-contracts](${BASE_URL}/agents/resources/push-contracts/index.json) (Solidity interfaces, MyMultichainApp.sol, foundry.toml).`
+    );
+  }
+
   lines.push(
     `- [Capabilities](${BASE_URL}/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.`
   );
@@ -332,12 +397,26 @@ export const buildAgentsLlms = async () => {
     );
   }
 
+  const skills = await loadSkills();
+  console.log(
+    chalk.gray(
+      `   Loaded ${skills.length} skills from agents/skills/index.json`
+    )
+  );
+
+  const resources = await loadResources();
+  console.log(
+    chalk.gray(
+      `   Loaded ${resources.length} resources from agents/resources/index.json`
+    )
+  );
+
   const blogPosts = await gatherBlogPosts();
   console.log(chalk.gray(`   Found ${blogPosts.length} recent blog posts`));
 
   await fs.mkdir(STATIC_DIR, { recursive: true });
 
-  const content = await buildLlmsTxt(workflows, blogPosts);
+  const content = await buildLlmsTxt(workflows, skills, resources, blogPosts);
   await fs.writeFile(OUTPUT_PATH, content, 'utf-8');
 
   console.log(chalk.green('✅ Generated static/llms.txt'));
