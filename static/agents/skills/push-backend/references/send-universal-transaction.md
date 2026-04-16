@@ -136,6 +136,6 @@ PushChain.utils.helpers.parseUnits(value, decimals) // → bigint
 
 ## Docs
 
-- sendTransaction: https://push.org/docs/chain/build/send-transaction/
-- Cascade pattern: https://push.org/docs/chain/build/prepare-execute-transactions/
-- Token constants: https://push.org/docs/chain/build/moveable-tokens/
+- sendTransaction: https://push.org/docs/chain/build/send-universal-transaction/
+- Cascade pattern (multiple transactions as one between chains): https://push.org/docs/chain/build/send-multichain-transactions/
+- Token constants: https://push.org/docs/chain/build/constants/

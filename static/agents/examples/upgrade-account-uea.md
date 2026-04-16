@@ -1,10 +1,10 @@
 ## Live Playground
 
-Source: https://push.org/docs/chain/build/advanced/upgrade-account/
+Source: https://push.org/docs/chain/build/advanced/upgrade-universal-account/
 
 ## When to Use
 
-See the [source documentation](https://push.org/docs/chain/build/advanced/upgrade-account/) for full context on when to apply this pattern.
+See the [source documentation](https://push.org/docs/chain/build/advanced/upgrade-universal-account/) for full context on when to apply this pattern.
 
 ## Code
 

@@ -180,7 +180,7 @@
       "capability_id": "connect_wallet_ui",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/connect-wallet-ui-kit/",
+          "url": "https://push.org/docs/chain/ui-kit/integrate-push-universal-wallet/",
           "type": "docs",
           "confidence": "high",
           "normative": true
@@ -198,7 +198,7 @@
       "capability_id": "use_wallet_provider",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/connect-wallet-ui-kit/",
+          "url": "https://push.org/docs/chain/ui-kit/integrate-push-universal-wallet/",
           "type": "docs",
           "confidence": "high",
           "normative": true
@@ -355,7 +355,7 @@
       "capability_id": "use_push_wallet_context",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/connect-wallet-ui-kit/",
+          "url": "https://push.org/docs/chain/ui-kit/integrate-push-universal-wallet/",
           "type": "docs",
           "confidence": "medium",
           "normative": true
@@ -373,7 +373,7 @@
       "capability_id": "use_push_chain_client_hook",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/connect-wallet-ui-kit/",
+          "url": "https://push.org/docs/chain/ui-kit/integrate-push-universal-wallet/",
           "type": "docs",
           "confidence": "medium",
           "normative": true

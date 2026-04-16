@@ -1,6 +1,6 @@
 # Tutorial: Derive Universal Executor Account (UEA)
 
-Source: https://push.org/docs/chain/tutorials/power-features/tutorial-derive-uea/
+Source: https://push.org/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/
 
 ## Overview
 

@@ -202,10 +202,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('## Packages');
   lines.push('');
   lines.push(
-    '- `@pushchain/ui-kit` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles `@pushchain/core` — no separate install needed. Provides wallet connection UI and the `usePushChainClient()` hook, which returns a fully initialized `PushChainClient` for calling `sendTransaction`, `signMessage`, `prepareTransaction`, and `executeTransactions` directly in React components. Integration guide: https://push.org/agents/workflows/connect-wallet-ui-kit.md. Customization (theme, options, provider config): https://push.org/agents/workflows/use-universal-wallet-provider.md. https://npmjs.com/package/@pushchain/ui-kit'
+    `- \`@pushchain/ui-kit\` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles \`@pushchain/core\` — no separate install needed. Provides wallet connection UI and the \`usePushChainClient()\` hook, which returns a fully initialized \`PushChainClient\` for calling \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, and \`executeTransactions\` directly in React components. [Integration guide](${BASE_URL}/agents/workflows/connect-wallet-ui-kit.md) - [Customization](${BASE_URL}/agents/workflows/use-universal-wallet-provider.md) - [npm](https://npmjs.com/package/@pushchain/ui-kit)`
   );
   lines.push(
-    '- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. https://npmjs.com/package/@pushchain/core'
+    '- \`@pushchain/core\` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, or \`executeTransactions\`. [npm](https://npmjs.com/package/@pushchain/core)'
   );
   lines.push(
     '- `npx create-universal-dapp` — Scaffolding CLI that bootstraps a universal dApp with `@pushchain/ui-kit` pre-integrated and ready to use.'
@@ -337,7 +337,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (\`push-frontend\`, \`push-backend\`, or \`push-contracts\`). Never generate SDK usage from memory alone.`
   );
   lines.push(
-    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the machine-readable address registry at ${BASE_URL}/agents/contract-addresses.json.`
+    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the [machine-readable address registry](${BASE_URL}/agents/contract-addresses.json).`
   );
   lines.push(
     `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
