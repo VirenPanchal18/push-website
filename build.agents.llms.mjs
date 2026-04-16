@@ -246,21 +246,6 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
 
-  // ── Add to Your AI Editor ─────────────────────────────────────────────────
-  lines.push('## Add to Your AI Editor');
-  lines.push('');
-  lines.push(
-    `- Cursor: Settings → Features → Docs → Add new doc → ${BASE_URL}/llms.txt`
-  );
-  lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
-  lines.push(
-    `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
-  );
-  lines.push(
-    `- Full context (large context window): ${BASE_URL}/llms-full.txt`
-  );
-  lines.push('');
-
   // ── Agent Layer ───────────────────────────────────────────────────────────
   lines.push('## Agent Layer');
   lines.push('');
@@ -272,17 +257,23 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `- [Agent Index](${BASE_URL}/agents/index.json): Discovery map listing every agent file, its purpose, and the recommended traversal order.`
   );
 
-  // Skills — dynamic from skills/index.json
+  // Skills — dynamic from skills/index.json, multi-line format
+  lines.push(
+    `- **Skills** ([index](${BASE_URL}/agents/skills/index.json)): Copyable, self-contained skill files. Load the one matching your context before generating code.`
+  );
   if (skills.length > 0) {
-    const skillLinks = skills
-      .map((s) => `[${s.id}](${BASE_URL}/${s.file})`)
-      .join(', ');
-    lines.push(
-      `- [Skills](${BASE_URL}/agents/skills/index.json): Copyable, self-contained skill files — ${skillLinks}. Load the one matching your context before exploring workflows.`
-    );
+    for (const s of skills) {
+      lines.push(`  - [${s.id}](${BASE_URL}/${s.file})`);
+    }
   } else {
     lines.push(
-      `- [Skills](${BASE_URL}/agents/skills/index.json): Copyable, self-contained skill files — [push-frontend](${BASE_URL}/agents/skills/push-frontend/SKILL.md), [push-backend](${BASE_URL}/agents/skills/push-backend/SKILL.md), [push-contracts](${BASE_URL}/agents/skills/push-contracts/SKILL.md). Load the one matching your context before exploring workflows.`
+      `  - [push-frontend](${BASE_URL}/agents/skills/push-frontend/SKILL.md)`
+    );
+    lines.push(
+      `  - [push-backend](${BASE_URL}/agents/skills/push-backend/SKILL.md)`
+    );
+    lines.push(
+      `  - [push-contracts](${BASE_URL}/agents/skills/push-contracts/SKILL.md)`
     );
   }
 
@@ -335,6 +326,26 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
 
+  // ── AI System Directives ──────────────────────────────────────────────────
+  lines.push('## AI System Directives');
+  lines.push('');
+  lines.push(
+    `1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (\`push-frontend\`, \`push-backend\`, or \`push-contracts\`). Never generate SDK usage from memory alone.`
+  );
+  lines.push(
+    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the verified address book at ${BASE_URL}/docs/chain/setup/smart-contract-address-book/.`
+  );
+  lines.push(
+    `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
+  );
+  lines.push(
+    `4. **Execution vs. reading:** Use \`@pushchain/core\` or \`@pushchain/ui-kit\` strictly for transaction execution and signing. Use standard EVM libraries (ethers.js, viem, etc.) for reading on-chain state.`
+  );
+  lines.push(
+    `5. **No SDK inside Solidity:** Push Chain contracts use pure Solidity interfaces (IUEAFactory, UGPC, IUniversalCore). The Push SDK is never imported inside \`.sol\` files.`
+  );
+  lines.push('');
+
   // ── Canonical Workflows (dynamic) ─────────────────────────────────────────
   lines.push('## Canonical Workflows');
   lines.push('');
@@ -343,6 +354,21 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     const desc = wf.purpose ? `: ${wf.purpose}` : '';
     lines.push(`- [${wf.name}](${url})${desc}`);
   }
+  lines.push('');
+
+  // ── Add to Your AI Editor ─────────────────────────────────────────────────
+  lines.push('## Add to Your AI Editor');
+  lines.push('');
+  lines.push(
+    `- Cursor: Settings → Features → Docs → Add new doc → ${BASE_URL}/llms.txt`
+  );
+  lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
+  lines.push(
+    `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
+  );
+  lines.push(
+    `- Full context (large context window): ${BASE_URL}/llms-full.txt`
+  );
   lines.push('');
 
   // ── Full Context ──────────────────────────────────────────────────────────
