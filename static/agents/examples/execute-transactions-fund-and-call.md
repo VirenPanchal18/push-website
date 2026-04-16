@@ -41,7 +41,7 @@ async function main() {
   });
 
   console.log('UEA on Push Chain:', client.universal.account);
-  await rl.question(':::prompt:::Send at least 0.01 ETH (Sepolia) to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has at least 5 PC. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
+  await rl.question(':::prompt:::Send at least 0.005 ETH (Sepolia) to: ' + wallet.address + ', and ensure your UEA (' + client.universal.account + ') on Push Chain has at least 1 PC. Get testnet ETH from https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
   // Read counters BEFORE
   const pushProvider = new ethers.JsonRpcProvider(RPC_PUSH);

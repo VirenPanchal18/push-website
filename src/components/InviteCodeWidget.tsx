@@ -23,12 +23,18 @@ let codesCache: string[] | null = null;
 
 async function loadCodes(): Promise<string[]> {
   if (codesCache) return codesCache;
-  const res = await fetch('/invite-codes.json', { cache: 'no-store' });
-  if (!res.ok) return [];
-  const json = await res.json();
-  codesCache = Array.isArray(json)
-    ? json.filter((c: unknown) => typeof c === 'string')
-    : [];
+  try {
+    const res = await fetch('/invite-codes.json', { cache: 'no-store' });
+    if (!res.ok) return (codesCache = []);
+    const ct = res.headers.get('content-type') || '';
+    if (!ct.includes('application/json')) return (codesCache = []);
+    const json = await res.json();
+    codesCache = Array.isArray(json)
+      ? json.filter((c: unknown) => typeof c === 'string')
+      : [];
+  } catch {
+    codesCache = [];
+  }
   return codesCache;
 }
 

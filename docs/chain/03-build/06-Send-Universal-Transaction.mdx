@@ -361,7 +361,7 @@ import \* as readline from 'node:readline/promises';
       });
 
       // Fund the wallet before sending
-      await rl.question(':::prompt:::Please send Push Chain Testnet tokens to: ' + wallet.address + ' and press Enter to continue.');
+      await rl.question(':::prompt:::Send at least 1 PC to: ' + wallet.address + ' on Push Chain Testnet (Donut), then press Enter.');
 
       // Send a simple value transfer on Push Chain
       const tx = await client.universal.sendTransaction({
@@ -439,7 +439,9 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + wallet.address + ' on ' + chainMeta.name + ' to continue.');
+      const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
+      const faucetHint = chainMeta.id === '1' ? '' : '\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + wallet.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);
@@ -542,7 +544,9 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + account.address + ' on ' + chainMeta.name + ' to continue.');
+      const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
+      const faucetHint = chainMeta.id === '1' ? '' : '\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + account.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);
@@ -636,7 +640,7 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + keypair.publicKey.toBase58() + ' on SOLANA_DEVNET to continue.');
+      await rl.question(':::prompt:::Send at least 0.02 SOL to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet, then press Enter.\\nSolana devnet faucet: https://faucet.solana.com');
 
       // 5) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);

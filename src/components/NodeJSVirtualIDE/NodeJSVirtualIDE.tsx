@@ -27,6 +27,7 @@ export default function NodeJSVirtualIDE({ repo = null, children }: Props) {
       scope={{
         ...ReactLiveScope,
         Buffer: require('buffer').Buffer,
+        createPortal: require('react-dom').createPortal,
       }}
       // no-op: we already hand it the fully-wrapped code below
       transformCode={(code: string) => code}
@@ -113,6 +114,60 @@ function App() {
   const [logs, setLogs] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState(false);
 
+  // Prompt modal (replaces window.alert for :::prompt::: messages)
+  const [promptModal, setPromptModal] = useState(null);
+  const [copiedAddr, setCopiedAddr] = useState(null);
+  const promptButtonRef = useRef(null);
+
+  useEffect(() => {
+    window.__pushShowPrompt = (text) => new Promise((resolve, reject) => {
+      setPromptModal({ text: text, resolve: resolve, reject: reject });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!promptModal) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handler = (e) => {
+      if (e.key === 'Escape') {
+        if (promptModal.reject) promptModal.reject(new Error('Cancelled by user'));
+        setPromptModal(null);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    if (promptButtonRef.current) promptButtonRef.current.focus();
+    return () => {
+      window.removeEventListener('keydown', handler);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [promptModal]);
+
+  const cancelPromptModal = () => {
+    if (promptModal && promptModal.reject) promptModal.reject(new Error('Cancelled by user'));
+    setPromptModal(null);
+  };
+
+  const confirmPromptModal = () => {
+    if (promptModal && promptModal.resolve) promptModal.resolve();
+    setPromptModal(null);
+  };
+
+  const parsePromptTokens = (text) => {
+    const re = new RegExp('(0x[a-fA-F0-9]{40})|(https?://[^\\\\s|]+)', 'g');
+    const parts = [];
+    let lastIndex = 0;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      if (m.index > lastIndex) parts.push({ t: 'text', v: text.slice(lastIndex, m.index) });
+      if (m[1]) parts.push({ t: 'addr', v: m[1] });
+      else if (m[2]) parts.push({ t: 'url', v: m[2] });
+      lastIndex = m.index + m[0].length;
+    }
+    if (lastIndex < text.length) parts.push({ t: 'text', v: text.slice(lastIndex) });
+    return parts;
+  };
+
   // tiny ASCII spinner
   function AsciiLoader() {
     const frames = ['|','/','—', '\\\\'];
@@ -190,23 +245,24 @@ function App() {
 
               // If no callback provided, return a Promise
               if (typeof callback !== 'function') {
-                return Promise.resolve().then(() => {
-                  if (isPrompt) {
-                    window.alert(text);
-                    return '';
-                  } else {
-                    return window.prompt(text);
-                  }
-                });
+                if (isPrompt && typeof window.__pushShowPrompt === 'function') {
+                  return window.__pushShowPrompt(text).then(() => '');
+                }
+                if (isPrompt) {
+                  window.alert(text); // fallback if bridge not ready
+                  return Promise.resolve('');
+                }
+                return Promise.resolve(window.prompt(text));
               }
 
               // callback-style
-              if (isPrompt) {
-                window.alert(text);
+              if (isPrompt && typeof window.__pushShowPrompt === 'function') {
+                window.__pushShowPrompt(text).then(() => callback(''));
+              } else if (isPrompt) {
+                window.alert(text); // fallback if bridge not ready
                 callback('');
               } else {
-                const answer = window.prompt(text);
-                callback(answer);
+                callback(window.prompt(text));
               }
             },
             close() {},
@@ -551,6 +607,162 @@ function App() {
           )}
         </div>
       </div>
+
+      {/* Styled prompt modal (replaces window.alert for :::prompt::: messages) */}
+      {promptModal && typeof document !== 'undefined' && createPortal(
+        <div
+          style={{
+            position: 'fixed',
+            top: 0, left: 0, right: 0, bottom: 0,
+            zIndex: 9999,
+            background: 'rgba(0,0,0,0.65)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20,
+            fontFamily: 'DM Sans, system-ui, sans-serif',
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) cancelPromptModal(); }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="push-prompt-title"
+            style={{
+              maxWidth: 580,
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              background: '#131313',
+              color: '#e8e8e8',
+              borderRadius: 16,
+              border: '1px solid #2a2a2a',
+              padding: 28,
+              boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+            }}
+          >
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              marginBottom: 18,
+              paddingBottom: 16,
+              borderBottom: '1px solid #2a2a2a',
+            }}>
+              <span style={{
+                display: 'inline-block',
+                width: 10, height: 10,
+                borderRadius: '50%',
+                background: '#D548EC',
+                boxShadow: '0 0 12px rgba(213,72,236,0.6)',
+              }} />
+              <h3 id="push-prompt-title" style={{
+                margin: 0, fontSize: 17, fontWeight: 600, color: '#fff', letterSpacing: '-0.01em',
+              }}>
+                Action required — fund the accounts below
+              </h3>
+            </div>
+            <div style={{
+              fontSize: 13.5,
+              lineHeight: 1.7,
+              color: '#d4d4d4',
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              fontFamily: 'Fira Code, ui-monospace, monospace',
+            }}>
+              {parsePromptTokens(promptModal.text).map((part, i) => {
+                if (part.t === 'addr') return (
+                  <span key={i} style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    background: '#1f1f1f',
+                    border: '1px solid #333',
+                    borderRadius: 6,
+                    padding: '2px 8px',
+                    margin: '0 2px',
+                    fontFamily: 'Fira Code, ui-monospace, monospace',
+                    fontSize: 12.5,
+                    color: '#fff',
+                    verticalAlign: 'middle',
+                  }}>
+                    <span title={part.v}>{part.v.slice(0, 6) + '…' + part.v.slice(-4)}</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        try {
+                          navigator.clipboard.writeText(part.v);
+                          setCopiedAddr(part.v);
+                          setTimeout(() => setCopiedAddr((c) => c === part.v ? null : c), 1500);
+                        } catch(e){}
+                      }}
+                      title={'Copy ' + part.v}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: copiedAddr === part.v ? '#4ade80' : '#D548EC',
+                        cursor: 'pointer',
+                        fontSize: 11,
+                        padding: 0,
+                        fontFamily: 'DM Sans',
+                        fontWeight: 600,
+                        transition: 'color 120ms ease',
+                      }}
+                    >
+                      {copiedAddr === part.v ? 'copied' : 'copy'}
+                    </button>
+                  </span>
+                );
+                if (part.t === 'url') return (
+                  <a key={i} href={part.v} target="_blank" rel="noopener noreferrer" style={{
+                    color: '#D548EC',
+                    wordBreak: 'break-all',
+                    textUnderlineOffset: 2,
+                  }}>
+                    {part.v}
+                  </a>
+                );
+                return <span key={i}>{part.v}</span>;
+              })}
+            </div>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+              marginTop: 24,
+              paddingTop: 20,
+              borderTop: '1px solid #2a2a2a',
+              gap: 12,
+            }}>
+              <span style={{ fontSize: 12, color: '#888', marginRight: 'auto' }}>
+                Press Esc to cancel
+              </span>
+              <button
+                ref={promptButtonRef}
+                type="button"
+                className="btn"
+                onClick={confirmPromptModal}
+                style={{
+                  background: '#D548EC',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 12,
+                  padding: '12px 22px',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  fontFamily: 'DM Sans',
+                }}
+              >
+                I've funded these — continue
+              </button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
       </div>
     );
   }
