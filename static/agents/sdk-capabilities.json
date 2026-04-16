@@ -311,7 +311,7 @@
   "ui_kit_exports": [
     {
       "namespace": "@pushchain/ui-kit",
-      "description": "React components and hooks for wallet integration",
+      "description": "React components and hooks for wallet integration. Bundles @pushchain/core — no separate install needed. Use usePushChainClient() to access PushChainClient and call sendTransaction, signMessage, prepareTransaction, executeTransactions directly from React.",
       "exports": [
         {
           "name": "PushUniversalWalletProvider",
@@ -334,7 +334,7 @@
         {
           "name": "usePushChainClient",
           "type": "hook",
-          "description": "Access initialized pushChainClient after connection",
+          "description": "Returns the initialized PushChainClient (from @pushchain/core) after wallet connection. Exposes all core transaction methods: sendTransaction, signMessage, prepareTransaction, executeTransactions. This is the primary way to execute universal transactions in a React app.",
           "safe_for_autonomous_execution": true
         },
         {

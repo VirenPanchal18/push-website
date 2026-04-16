@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 module.exports = {
+  ignorePatterns: ['static/agents/resources/**'],
   env: {
     browser: true,
     es2021: true,
