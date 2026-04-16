@@ -205,7 +205,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `- \`@pushchain/ui-kit\` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles \`@pushchain/core\` — no separate install needed. Provides wallet connection UI and the \`usePushChainClient()\` hook, which returns a fully initialized \`PushChainClient\` for calling \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, and \`executeTransactions\` directly in React components. [Integration guide](${BASE_URL}/agents/workflows/connect-wallet-ui-kit.md) - [Customization](${BASE_URL}/agents/workflows/use-universal-wallet-provider.md) - [npm](https://npmjs.com/package/@pushchain/ui-kit)`
   );
   lines.push(
-    '- \`@pushchain/core\` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, or \`executeTransactions\`. [npm](https://npmjs.com/package/@pushchain/core)'
+    '- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. [npm](https://npmjs.com/package/@pushchain/core)'
   );
   lines.push(
     '- `npx create-universal-dapp` — Scaffolding CLI that bootstraps a universal dApp with `@pushchain/ui-kit` pre-integrated and ready to use.'

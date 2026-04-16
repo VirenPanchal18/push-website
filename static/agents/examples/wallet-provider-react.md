@@ -34,9 +34,9 @@ import {
 
 function WalletStatus() {
   const { connectionStatus } = usePushWalletContext();
-  const { pushChainClient } = usePushChainClient();
+  const { pushChainClient, isInitialized } = usePushChainClient();
 
-  if (connectionStatus !== PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED) {
+  if (connectionStatus !== PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED || !isInitialized || !pushChainClient) {
     return <p>Connect your wallet to continue</p>;
   }
 
