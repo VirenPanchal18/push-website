@@ -277,20 +277,24 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     );
   }
 
-  // Resources — dynamic from resources/index.json
+  // Resources — dynamic from resources/index.json, multi-line format
+  lines.push(
+    `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill.`
+  );
   if (resources.length > 0) {
-    const resourceLinks = resources
-      .map((r) => `[${r.id}](${BASE_URL}/${r.index})`)
-      .join(', ');
-    const resourceDetails = resources
-      .map((r) => `${r.id} (${(r.files ?? []).join(', ')})`)
-      .join('; ');
-    lines.push(
-      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — ${resourceLinks}. ${resourceDetails}.`
-    );
+    for (const r of resources) {
+      const fileList = (r.files ?? []).map((f) => `\`${f}\``).join(', ');
+      lines.push(`  - [${r.id}](${BASE_URL}/${r.index}): ${fileList}`);
+    }
   } else {
     lines.push(
-      `- [Resources](${BASE_URL}/agents/resources/index.json): Downloadable, runnable code files organized by skill — [push-frontend](${BASE_URL}/agents/resources/push-frontend/index.json), [push-backend](${BASE_URL}/agents/resources/push-backend/index.json), [push-contracts](${BASE_URL}/agents/resources/push-contracts/index.json). push-frontend (package.json, app-wrapper.tsx, send-universal-tx.tsx); push-backend (package.json, client-ethers.ts, client-viem.ts, client-solana.ts); push-contracts (IUEAFactory.sol, IUniversalGatewayPC.sol, IUniversalCore.sol, MyMultichainApp.sol, foundry.toml).`
+      `  - [push-frontend](${BASE_URL}/agents/resources/push-frontend/index.json): \`package.json\`, \`app-wrapper.tsx\`, \`send-universal-tx.tsx\``
+    );
+    lines.push(
+      `  - [push-backend](${BASE_URL}/agents/resources/push-backend/index.json): \`package.json\`, \`client-ethers.ts\`, \`client-viem.ts\`, \`client-solana.ts\``
+    );
+    lines.push(
+      `  - [push-contracts](${BASE_URL}/agents/resources/push-contracts/index.json): \`IUEAFactory.sol\`, \`IUniversalGatewayPC.sol\`, \`IUniversalCore.sol\`, \`MyMultichainApp.sol\`, \`foundry.toml\``
     );
   }
 
@@ -333,7 +337,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (\`push-frontend\`, \`push-backend\`, or \`push-contracts\`). Never generate SDK usage from memory alone.`
   );
   lines.push(
-    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the verified address book at ${BASE_URL}/docs/chain/setup/smart-contract-address-book/.`
+    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the machine-readable address registry at ${BASE_URL}/agents/contract-addresses.json.`
   );
   lines.push(
     `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
@@ -369,14 +373,6 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(
     `- Full context (large context window): ${BASE_URL}/llms-full.txt`
   );
-  lines.push('');
-
-  // ── Full Context ──────────────────────────────────────────────────────────
-  lines.push('## Full Context');
-  lines.push('');
-  lines.push('For long-context retrieval, deep reference, and RAG indexing:');
-  lines.push('');
-  lines.push(`- ${BASE_URL}/llms-full.txt`);
   lines.push('');
 
   // ── Optional: Blog ────────────────────────────────────────────────────────
