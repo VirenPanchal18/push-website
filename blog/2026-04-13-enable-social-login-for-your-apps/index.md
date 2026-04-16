@@ -27,8 +27,8 @@ Here’s how to enable it in your app in just 4 steps:
 
 Usually onboarding requires two independent systems:
 
-1️⃣ Authentication based (Google, email, socials)
-2️⃣ Wallet creation and connection
+1️⃣ Authentication based (Google, email, socials) <br />
+2️⃣ Wallet creation and connection <br />
 
 It creates friction because users must create/import wallets before interacting with your app.
 
@@ -62,11 +62,11 @@ Wrap your app with the Universal Wallet Provider:
 
 This activates the Universal Wallet layer. It handles:
 
-• Authentication
-• Wallet provisioning
-• Secure key management
-• Session persistence
-• Wallet availability across your app
+• Authentication <br />
+• Wallet provisioning <br />
+• Secure key management <br />
+• Session persistence <br />
+• Wallet availability across your app <br />
 
 Your app now has an identity and wallet layer ready to onboard users.
 
@@ -86,10 +86,10 @@ This means users can log in using familiar platforms, while your app still inter
 
 Once authenticated, the user immediately has a usable wallet. This wallet:
 
-• Persists across sessions
-• Can sign transactions
-• Can interact with smart contracts
-• Is accessible programmatically inside your app
+• Persists across sessions <br />
+• Can sign transactions <br />
+• Can interact with smart contracts <br />
+• Is accessible programmatically inside your app <br />
 
 No extensions/manual wallet setup required.
 
