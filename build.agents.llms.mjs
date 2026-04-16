@@ -360,6 +360,14 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   }
   lines.push('');
 
+  // ── Full Context ──────────────────────────────────────────────────────────
+  lines.push('## Full Context');
+  lines.push('');
+  lines.push('For long-context retrieval, deep reference, and RAG indexing:');
+  lines.push('');
+  lines.push(`- ${BASE_URL}/llms-full.txt`);
+  lines.push('');
+
   // ── Add to Your AI Editor ─────────────────────────────────────────────────
   lines.push('## Add to Your AI Editor');
   lines.push('');
@@ -369,9 +377,6 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
   lines.push(
     `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
-  );
-  lines.push(
-    `- Full context (large context window): ${BASE_URL}/llms-full.txt`
   );
   lines.push('');
 
