@@ -2,7 +2,7 @@
 
 > Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.
 
-> **Agent layer:** v1.0.0 | Last updated: 2026-04-17 | SDK: `@pushchain/core@5.1.4` · `@pushchain/ui-kit@5.2.2` | Network: Donut Testnet (Mainnet not yet launched)
+> **Agent layer:** v1.0.1 | Last updated: 2026-04-17 | SDK: `@pushchain/core@5.1.4` · `@pushchain/ui-kit@5.2.2` | Network: Donut Testnet (Mainnet not yet launched)
 
 ## Who This Is For
 
@@ -114,7 +114,9 @@ import { ethers } from 'ethers';
 // 1. Wrap any EVM signer into a UniversalSigner
 const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
 // Push Chain native provider: 'https://evm.donut.rpc.push.org/'
-// Solana provider: use Connection from @solana/web3.js
+// For Solana origin: construct a Solana signer and wrap via
+//   PushChain.utils.signer.toUniversal(solanaSigner)
+// (See push-backend skill for the full Solana flow.)
 const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider); // Load from env; never hardcode, never log
 const signer   = await PushChain.utils.signer.toUniversal(wallet);
 
@@ -137,6 +139,7 @@ console.log('tx hash:', receipt.hash);
 | Tx executes on Push Chain instead of the intended external chain | `to` is a plain address string — treated as Route 1 | Use `to: { address: '0x...', chain: CHAIN.ETHEREUM_SEPOLIA }` for Route 2 |
 | `msg.sender` in your contract is an unexpected address | `msg.sender` is the user’s UEA, not their origin wallet | Call `IUEAFactory(UEA_FACTORY_ADDR).getOriginForUEA(msg.sender)` to recover `(chainNamespace, chainId, walletAddress)` |
 | `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` — only the Push SDK can produce a valid universal tx |
+| `PushChain.initialize()` throws or rejects the signer | Raw ethers/viem signer passed without wrapping | Wrap first: `await PushChain.utils.signer.toUniversal(wallet)` |
 
 ## Canonical Workflows
 
@@ -186,6 +189,7 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 ## Changelog
 
+- **2026-04-17 v1.0.1** — Added `## Common Mistakes` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.
 - **2026-04-17 v1.0.0** — Pinned SDK versions (`@pushchain/core@5.1.4`, `@pushchain/ui-kit@5.2.2`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added `## Minimal Example`. Grouped canonical workflows by category. `contract-addresses.json` designated as authoritative address source.
 
 ## Background Reading

@@ -27,7 +27,7 @@ const SDK_VERSIONS = {
   core: '5.1.4',
   uiKit: '5.2.2',
 };
-const AGENT_LAYER_VERSION = '1.0.0';
+const AGENT_LAYER_VERSION = '1.0.1';
 const AGENT_LAYER_DATE = '2026-04-17';
 
 const WORKFLOW_CATEGORIES = [
@@ -443,7 +443,9 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(
     `// Push Chain native provider: 'https://evm.donut.rpc.push.org/'`
   );
-  lines.push(`// Solana provider: use Connection from @solana/web3.js`);
+  lines.push(`// For Solana origin: construct a Solana signer and wrap via`);
+  lines.push(`//   PushChain.utils.signer.toUniversal(solanaSigner)`);
+  lines.push(`// (See push-backend skill for the full Solana flow.)`);
   lines.push(
     `const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider); // Load from env; never hardcode, never log`
   );
@@ -484,7 +486,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     '| `msg.sender` in your contract is an unexpected address | `msg.sender` is the user’s UEA, not their origin wallet | Call `IUEAFactory(UEA_FACTORY_ADDR).getOriginForUEA(msg.sender)` to recover `(chainNamespace, chainId, walletAddress)` |'
   );
   lines.push(
-    '| `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` — only the Push SDK can produce a valid universal tx |'
+    '| `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` \u2014 only the Push SDK can produce a valid universal tx |'
+  );
+  lines.push(
+    '| `PushChain.initialize()` throws or rejects the signer | Raw ethers/viem signer passed without wrapping | Wrap first: `await PushChain.utils.signer.toUniversal(wallet)` |'
   );
   lines.push('');
 
@@ -552,7 +557,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('## Changelog');
   lines.push('');
   lines.push(
-    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Pinned SDK versions (\`@pushchain/core@${SDK_VERSIONS.core}\`, \`@pushchain/ui-kit@${SDK_VERSIONS.uiKit}\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Added \`## Common Mistakes\` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.`
+  );
+  lines.push(
+    `- **${AGENT_LAYER_DATE} v1.0.0** \u2014 Pinned SDK versions (\`@pushchain/core@${SDK_VERSIONS.core}\`, \`@pushchain/ui-kit@${SDK_VERSIONS.uiKit}\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
   );
   lines.push('');
 
