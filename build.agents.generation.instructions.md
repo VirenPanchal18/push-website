@@ -267,7 +267,7 @@ Each tool entry requires:
 3. **No event/webhook schemas** unless the platform data exists to back them.
 4. **Blog posts and conceptual articles** go under `## Background Reading` only, with the non-canonical disclaimer. Never cite them as API reference.
 5. **Mainnet values.** Until mainnet launches, all network values are Donut Testnet only. Never add a mainnet RPC, chain ID, or contract address without confirmation.
-6. **Faucet info.** If adding faucet rate limits, confirm the actual claim amount and cooldown from the ops team before publishing — incorrect limits cause agent retry loops.
+6. **Faucet limits (confirmed):** 1 PC token per address per 6 hours. CAPTCHA-gated — not scriptable. Never write agent logic that calls the faucet in a loop. If limits change, update the network table in `llms.txt`, the matching row in `build.agents.llms.mjs`, and this rule.
 
 ---
 

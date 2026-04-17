@@ -255,11 +255,17 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('| **RPC URL** | https://evm.donut.rpc.push.org/ |');
   lines.push('| **WebSocket** | wss://evm.donut.rpc.push.org |');
   lines.push('| **Block Explorer** | https://donut.push.network |');
-  lines.push('| **Faucet** | https://faucet.push.org |');
+  lines.push(
+    '| **Faucet** | https://faucet.push.org (1 PC / 6 h per address, CAPTCHA required) |'
+  );
   lines.push('| **Mainnet** | Not yet launched |');
   lines.push('');
   lines.push(
     '> **Public RPC:** No API key required. Fair-use rate limits apply — use a dedicated RPC endpoint for production workloads.'
+  );
+  lines.push('');
+  lines.push(
+    '> **Faucet:** 1 PC token per address per 6 hours. CAPTCHA-gated \u2014 not scriptable. Do not write agent loops that call the faucet automatically.'
   );
   lines.push('');
 
