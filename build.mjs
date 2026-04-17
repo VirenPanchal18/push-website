@@ -29,7 +29,8 @@ const askToContinue = async (message) => {
   });
 };
 
-// Check agents layer freshness and warn/block based on age
+// Check agents layer freshness and warn/block based on age.
+// Returns a warning string if >10 days old (to re-show after build), null otherwise.
 const checkAgentsFreshness = async (skipCheck) => {
   const metaPath = new URL('./llmsmeta.json', import.meta.url).pathname;
   let meta;
@@ -42,8 +43,8 @@ const checkAgentsFreshness = async (skipCheck) => {
         '\n⚠️  llmsmeta.json not found — /agents/ layer has not been generated yet.'
       )
     );
-    console.warn(chalk.gray('   Run: node build.agents.mjs to generate it'));
-    return;
+    console.warn(chalk.gray('   Run: yarn generate:agents:full'));
+    return null;
   }
 
   if (!meta.lastRun) {
@@ -52,47 +53,44 @@ const checkAgentsFreshness = async (skipCheck) => {
         '\n⚠️  /agents/ layer has never been generated (llmsmeta.json.lastRun is null).'
       )
     );
-    console.warn(chalk.gray('   Run: node build.agents.mjs to generate it'));
-    return;
+    console.warn(chalk.gray('   Run: yarn generate:agents:full'));
+    return null;
   }
 
   const lastRun = new Date(meta.lastRun);
   const ageMs = Date.now() - lastRun.getTime();
   const ageDays = Math.floor(ageMs / (1000 * 60 * 60 * 24));
 
-  if (ageDays < 14) {
+  if (ageDays < 10) {
     console.log(
       chalk.green(
         `✅ Agents layer is ${ageDays} day(s) old (model: ${meta.model})`
       )
     );
-  } else if (ageDays < 60) {
-    console.warn(
-      chalk.yellow(
-        `⚠️  Agents layer is ${ageDays} days old — consider re-running: node build.agents.mjs`
+    return null;
+  }
+
+  if (ageDays >= 60) {
+    if (skipCheck) {
+      const msg = `⚠️  Agents layer is ${ageDays} days old (staleness check skipped via skip_agents_check)`;
+      console.warn(chalk.yellow(msg));
+      return msg;
+    }
+    console.error(
+      chalk.red(`🛑 Agents layer is ${ageDays} days old — too stale to deploy.`)
+    );
+    console.error(
+      chalk.gray(
+        '   Re-run: yarn generate:agents:full   OR pass skip_agents_check to override'
       )
     );
-  } else {
-    if (skipCheck) {
-      console.warn(
-        chalk.yellow(
-          `⚠️  Agents layer is ${ageDays} days old (staleness check skipped via skip_agents_check)`
-        )
-      );
-    } else {
-      console.error(
-        chalk.red(
-          `🛑 Agents layer is ${ageDays} days old — too stale to deploy.`
-        )
-      );
-      console.error(
-        chalk.gray(
-          '   Re-run: node build.agents.mjs   OR pass skip_agents_check to override'
-        )
-      );
-      process.exit(1);
-    }
+    process.exit(1);
   }
+
+  // 10–59 days: warn at start, return message to re-warn at end
+  const msg = `⚠️  Agents layer is ${ageDays} day(s) old — run yarn generate:agents:full to refresh`;
+  console.warn(chalk.yellow(`\n${msg}`));
+  return msg;
 };
 
 // Prep for deployment starts everything
@@ -137,15 +135,14 @@ const prepForDeployment = async (appEnv, skipTranslation) => {
     console.warn(chalk.gray(`   Error: ${error.message}`));
   }
 
-  // Step 2.7b: Generate llms.txt from agents layer + blog + KB links
+  // Step 2.7b: Check agent file references + llms.txt / llms-full.txt exist on disk
   console.log(
-    chalk.cyan('\n📄 Step 2.7b: Generating llms.txt from agents layer...')
+    chalk.cyan('\n� Step 2.7b: Checking agent links and llms files...')
   );
   try {
     await buildAgentsLlms();
-    console.log(chalk.green('✅ llms.txt generated'));
   } catch (error) {
-    console.warn(chalk.yellow('⚠️  llms.txt generation failed'));
+    console.warn(chalk.yellow('⚠️  Agent link check failed'));
     console.warn(chalk.gray(`   Error: ${error.message}`));
   }
 
@@ -211,6 +208,11 @@ var args = process.argv.slice(2);
 const skipAgentsCheck = args.includes('skip_agents_check');
 
 // Check agents freshness before build (warns/blocks based on age)
-await checkAgentsFreshness(skipAgentsCheck);
+const stalenessWarning = await checkAgentsFreshness(skipAgentsCheck);
 
 await prepForDeployment(args[0], args[1]);
+
+// Re-emit staleness warning at end so it isn’t buried in build output
+if (stalenessWarning) {
+  console.warn(chalk.yellow(`\n${stalenessWarning}`));
+}

@@ -169,6 +169,11 @@
       "type": "workflow"
     },
     {
+      "path": "agents/workflows/theme-variables.md",
+      "purpose": "Complete list of all CSS theme variables for @pushchain/ui-kit — global overrides (typography, spacing, border), color tokens with light and dark defaults, and usage patterns for app-level and button-level customization",
+      "type": "workflow"
+    },
+    {
       "path": "agents/skills/index.json",
       "purpose": "Index of domain-scoped skill files — maps developer intents to packages, entry points, workflows, and examples",
       "type": "skill"

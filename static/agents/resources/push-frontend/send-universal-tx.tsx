@@ -13,7 +13,7 @@ type Status = 'idle' | 'pending' | 'confirmed' | 'error';
  * Must be rendered inside <PushUniversalWalletProvider>.
  */
 export function SendUniversalTx() {
-  const { pushChainClient } = usePushChainClient(); // null until wallet connects
+  const { pushChainClient, isInitialized } = usePushChainClient();
   const [txHash, setTxHash] = useState<string | null>(null); // eslint-disable-line
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -90,7 +90,7 @@ export function SendUniversalTx() {
     }
   };
 
-  const disabled = !pushChainClient || status === 'pending';
+  const disabled = !isInitialized || !pushChainClient || status === 'pending';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

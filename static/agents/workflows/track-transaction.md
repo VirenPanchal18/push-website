@@ -2,38 +2,85 @@
 
 ## Purpose
 
-Monitor the status and await confirmation of a universal transaction on Push Chain, including retrieving transaction details and execution receipts.
+Track or resume monitoring the status of a universal transaction — whether it originated on Push Chain or an external chain.
 
 ## When to Use
 
-- After calling `sendTransaction()` to await confirmation
-- To poll transaction status before showing success UI
-- To retrieve transaction details by hash
-- To get block explorer URLs for user verification
-- Debugging transaction failures or delays
+- Re-checking progress after a page refresh or session restore
+- Polling from a backend or bot
+- Tracking a transaction created in a different session using only its hash
+- Awaiting confirmation inline after `sendTransaction()`
+- Retrieving details (block number, gas, external chain hash) for any past tx
 
 ## Prerequisites
 
 | Requirement | Details |
 |-------------|---------|
-| Transaction hash | Hex-encoded hash from `sendTransaction().hash` |
-| Initialized client | `pushChainClient` for explorer URL generation |
-| Network access | RPC connectivity to Push Chain |
+| Initialized client | `pushChainClient` from `PushChain.initialize()` |
+| Transaction hash | Hash/signature from the origin chain (Push Chain or external) |
 
-## Inputs
+## Primary Method — `trackTransaction`
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `txResponse` | `TransactionResponse` | Yes (for `.wait()`) | Object returned by `sendTransaction()` |
-| `txHash` | `string` | Yes (for lookup) | Transaction hash in hex format |
-| `options.timeout` | `number` | No | Milliseconds to wait before timeout |
-| `options.confirmations` | `number` | No | Number of block confirmations to await |
+**`pushChainClient.universal.trackTransaction(txHash, options)` → `Promise<UniversalTxResponse>`**
+
+Works independently of `sendTransaction()`. Pass any previously stored hash and origin chain to resume tracking.
+
+### Standard Arguments
+
+| Argument | Type | Default | Description |
+|---|---|---|---|
+| `txHash` | `string` | — | Transaction hash/signature on the origin chain |
+| `options.chain` | `CHAIN` | `CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted |
+| `options.progressHook` | `(event: ProgressEvent) => void` | `undefined` | Callback at each tracking step (same shape as `sendTransaction`) |
+| `options.waitForCompletion` | `boolean` | `true` | `true` = wait for confirmation; `false` = return after first status check |
+
+### Advanced Arguments
+
+| Argument | Type | Default | Description |
+|---|---|---|---|
+| `options.advanced.pollingIntervalMs` | `number` | `2000` | Poll interval in ms (min `500`) |
+| `options.advanced.timeout` | `number` | `60000` | Max wait ms before timeout error |
+| `options.advanced.rpcUrls` | `Partial<Record<CHAIN, string[]>>` | `{}` | Custom RPC URLs for status queries |
+
+Returns the same `UniversalTxResponse` shape as `sendTransaction`.
+
+### Examples
+
+```typescript
+// Track a Push Chain-origin tx (default chain)
+const response = await pushChainClient.universal.trackTransaction(
+  '0xbd765a6b60da077eaa89a382cd59c0469a4eaabcaca2707d3e6dcdeafc497a39',
+  {
+    progressHook: (p) => console.log(`${p.id}: ${p.message}`),
+    advanced: { timeout: 30_000 },
+  }
+);
+
+// Track an Ethereum Sepolia-origin tx
+const response2 = await pushChainClient.universal.trackTransaction(
+  '0x9b4743376689eb6f90f3aeb9eea58381b3bcc033e1de4709281fd58a77b85098',
+  { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }
+);
+
+// Immediate status check (no waiting)
+const snap = await pushChainClient.universal.trackTransaction(txHash, {
+  waitForCompletion: false,
+});
+```
+
+---
 
 ## Steps
 
-### Method 1: Using `tx.wait()`
+### Method 1: Using `trackTransaction()` (preferred for resume/polling)
 
-The simplest approach—call `.wait()` on the transaction response.
+Use when you have a stored hash and need to check or resume tracking — works across sessions and chains.
+
+See [Primary Method — `trackTransaction`](#primary-method--tracktransaction) above for full argument table and examples.
+
+### Method 2: Using `tx.wait()` (preferred inline after sendTransaction)
+
+Call `.wait()` directly on the response returned by `sendTransaction()`.
 
 1. **Send transaction and capture response**
    ```typescript
@@ -60,7 +107,7 @@ The simplest approach—call `.wait()` on the transaction response.
    }
    ```
 
-### Method 2: Using Block Explorer URL
+### Method 4: Using Block Explorer URL
 
 1. **Get transaction URL for user verification**
    ```typescript
@@ -77,7 +124,7 @@ The simplest approach—call `.wait()` on the transaction response.
    // Output: { 'eip155:42101': ['https://donut.push.network'] }
    ```
 
-### Method 3: Using EVM Provider Directly
+### Method 5: Using EVM Provider Directly
 
 For advanced use cases or external hash lookup.
 
@@ -204,8 +251,19 @@ https://donut.push.network/tx/0x04ee80f072ab06ec88092701e7ba223451d0a1376e267550
 
 ## MCP Mapping Candidates
 
+- `track_transaction` — Resume tracking any tx by hash and origin chain via `trackTransaction()`
 - `wait_for_transaction` — Await confirmation with configurable timeout
 - `get_transaction_receipt` — Fetch receipt by hash
 - `get_transaction_details` — Fetch full transaction object
 - `get_explorer_url` — Generate block explorer link
 - `poll_transaction_status` — Custom polling with progress callback
+
+## See Also
+
+- Send universal transaction (TxResponse shape): https://push.org/agents/workflows/send-universal-transaction.md
+- Send multichain transaction: https://push.org/agents/workflows/send-multichain-transaction.md
+- Constants (CHAIN): https://push.org/agents/workflows/constants-reference.md
+
+## Docs
+
+- Track universal transaction: https://push.org/docs/chain/build/track-universal-transaction/

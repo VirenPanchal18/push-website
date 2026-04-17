@@ -258,16 +258,16 @@ function Header() {
 
 function MainContent() {
   const { connectionStatus } = usePushWalletContext();
-  const { pushChainClient } = usePushChainClient();
+  const { pushChainClient, isInitialized } = usePushChainClient();
 
-  if (connectionStatus !== PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED) {
+  if (connectionStatus !== PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED || !isInitialized || !pushChainClient) {
     return <p>Connect your wallet to get started</p>;
   }
 
   return (
     <div>
-      <p>Origin: {JSON.stringify(pushChainClient?.universal.origin)}</p>
-      <p>Execution Account: {JSON.stringify(pushChainClient?.universal.account)}</p>
+      <p>Origin: {JSON.stringify(pushChainClient.universal.origin)}</p>
+      <p>Execution Account: {JSON.stringify(pushChainClient.universal.account)}</p>
     </div>
   );
 }

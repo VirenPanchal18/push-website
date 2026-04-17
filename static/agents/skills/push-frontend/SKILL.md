@@ -163,7 +163,35 @@ Variables starting with `--pwauth-` can be overridden per button instance:
 | Color    | `--pwauth-btn-connected-bg-color`    | Connected button background (default `#000000`) |
 | Color    | `--pwauth-btn-connected-text-color`  | Connected button text color                     |
 
-Full variable list: https://push.org/docs/chain/ui-kit/customizations/theme-variables/
+Full variable list: see https://push.org/agents/skills/push-frontend/references/ui-components.md
+
+### Advanced CSS — className overrides
+
+When CSS variables aren't granular enough, use `connectButtonClassName` and `connectedButtonClassName` to attach your own classes and write arbitrary CSS:
+
+```tsx
+<PushUniversalAccountButton
+  connectButtonClassName='my-connect-btn'
+  connectedButtonClassName='my-connected-btn'
+/>
+```
+
+```css
+/* Target the connect button */
+.my-connect-btn {
+  background: linear-gradient(90deg, #3459f0, #8b5cf6);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Target the connected/account button */
+.my-connected-btn {
+  border: 2px solid #3459f0;
+  background: transparent;
+}
+```
+
+> Use `className` overrides for gradients, animations, box-shadow, pseudo-elements, or any style that CSS variables don't expose. `themeOverrides` (`--pwauth-*`) still applies; `className` styles layer on top via standard CSS specificity.
 
 ## Hooks
 

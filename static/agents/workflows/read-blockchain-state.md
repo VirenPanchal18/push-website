@@ -68,6 +68,23 @@ const block = await client.getBlock({ blockTag: 'latest' });
 console.log('Block number:', block.number);
 ```
 
+### Fetch a Block by Hash
+
+#### Ethers.js
+```typescript
+const blockHash = '0xa1a69fa217d219f71d44f4707f8aa4ded2aec52a0c737e0dca0dbf9096252b89';
+const block = await provider.getBlock(blockHash);
+console.log(JSON.stringify(block, null, 2));
+```
+
+#### Viem
+```typescript
+const block = await client.getBlock({
+  blockHash: '0xa1a69fa217d219f71d44f4707f8aa4ded2aec52a0c737e0dca0dbf9096252b89',
+});
+console.log(JSON.stringify(block, null, 2));
+```
+
 ### Get Native Balance
 
 #### Ethers.js
@@ -112,6 +129,53 @@ const unwatch = wsClient.watchBlocks({
 });
 
 // Cleanup: unwatch();
+```
+
+### Filter New Blocks for Specific Transactions (WebSocket)
+
+Watch every new block and check if it contains a transaction to/from a watched address:
+
+#### Ethers.js
+```typescript
+import { ethers } from 'ethers';
+
+const ws = new ethers.WebSocketProvider('wss://evm.donut.rpc.push.org');
+const watchedAddress = '0x0000000000000000000000000000000000042101';
+
+ws.on('block', async (blockNumber) => {
+  const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+  const block = await provider.getBlock(blockNumber, true);
+
+  if (block?.transactions) {
+    const txs = await Promise.all(block.transactions.map(hash => block.getTransaction(hash)));
+    txs
+      .filter(tx => tx.to === watchedAddress)
+      .forEach(tx => console.log('Tx detected →', tx.hash));
+  }
+});
+
+// Cleanup: ws.removeAllListeners(); ws.destroy();
+```
+
+#### Viem
+```typescript
+import { createPublicClient, webSocket } from 'viem';
+
+const client = createPublicClient({ transport: webSocket('wss://evm.donut.rpc.push.org') });
+const watchedAddress = '0x0000000000000000000000000000000000042101';
+
+const stop = client.watchBlocks({
+  onBlock: async (block) => {
+    for (const txHash of block.transactions) {
+      const tx = await client.getTransaction({ hash: txHash });
+      if (tx.to?.toLowerCase() === watchedAddress.toLowerCase()) {
+        console.log('Tx detected →', tx.hash);
+      }
+    }
+  },
+});
+
+// Cleanup: stop();
 ```
 
 ### Call a Contract View Function
@@ -180,3 +244,13 @@ console.log('Block:', receipt.blockNumber);
 - `call_contract_view` — Execute view function on contract
 - `fetch_transaction_receipt` — Get receipt and status for tx hash
 - `get_block_number` — Return current block height
+
+## See Also
+
+- Track transaction (SDK trackTransaction method): https://push.org/agents/workflows/track-transaction.md
+- Constants (CHAIN, RPC URLs): https://push.org/agents/workflows/constants-reference.md
+- Initialize client: https://push.org/agents/skills/push-backend/references/initialize-client.md
+
+## Docs
+
+- Reading blockchain state: https://push.org/docs/chain/build/reading-blockchain-state/

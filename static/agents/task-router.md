@@ -98,8 +98,9 @@ function App() {
 }
 
 function MyComponent() {
-  const { pushChainClient } = usePushChainClient();
-  // pushChainClient is ready after wallet connects
+  const { pushChainClient, isInitialized } = usePushChainClient();
+  if (!isInitialized || !pushChainClient) return null; // null until wallet connects
+  // pushChainClient is ready to use
 }
 ```
 

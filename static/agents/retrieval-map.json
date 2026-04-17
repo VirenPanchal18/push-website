@@ -108,18 +108,20 @@
       "capability_id": "contract_initiated_multichain",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/send-universal-transaction/",
+          "url": "https://push.org/docs/chain/build/contract-initiated-multichain-execution/",
           "type": "docs",
-          "confidence": "medium",
+          "confidence": "high",
           "normative": true
         }
       ],
       "agent_files": [
-        "agents/capabilities.json",
-        "agents/workflows/send-multichain-transaction.md"
+        "agents/skills/push-contracts/SKILL.md",
+        "agents/skills/push-contracts/references/contract-interfaces.md",
+        "agents/workflows/contract-initiated-multichain-execution.md",
+        "agents/capabilities.json"
       ],
       "prefer_over": [],
-      "notes": "Push Chain smart contracts can trigger CEA execution on external chains. Route 3 pattern."
+      "notes": "Pure Solidity — no SDK required. Call IUniversalGatewayPC(0x00000000000000000000000000000000000000C1).sendUniversalTxOutbound() to dispatch. Contract's CEA (derived from contract address) is msg.sender on external chain. Implement executeUniversalTx() for optional inbound callback. Always validate msg.sender == UNIVERSAL_EXECUTOR_MODULE (0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7) and replay-protect with txId."
     },
     {
       "task": "Track transaction status and confirmations",
@@ -162,18 +164,19 @@
       "capability_id": "read_blockchain_state",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/initialize-push-chain-client/",
+          "url": "https://push.org/docs/chain/build/reading-blockchain-state/",
           "type": "docs",
-          "confidence": "medium",
+          "confidence": "high",
           "normative": true
         }
       ],
       "agent_files": [
+        "agents/workflows/read-blockchain-state.md",
         "agents/sdk-capabilities.json",
         "agents/capabilities.json"
       ],
       "prefer_over": [],
-      "notes": "Initialize with UniversalAccount (not signer) for read-only mode. Uses pushChainClient.explorer namespace."
+      "notes": "No SDK needed for reads. Use ethers.JsonRpcProvider or viem.createPublicClient pointed at https://evm.donut.rpc.push.org/ (Chain ID 42101). Push Chain is 100% EVM-compatible — same API as Ethereum."
     },
     {
       "task": "Connect wallet in a React application",
@@ -275,13 +278,18 @@
         {
           "url": "https://push.org/docs/chain/build/contract-helpers/",
           "type": "docs",
-          "confidence": "medium",
+          "confidence": "high",
           "normative": true
         }
       ],
-      "agent_files": ["agents/sdk-capabilities.json"],
+      "agent_files": [
+        "agents/skills/push-contracts/SKILL.md",
+        "agents/skills/push-contracts/references/contract-interfaces.md",
+        "agents/workflows/use-contract-helpers.md",
+        "agents/sdk-capabilities.json"
+      ],
       "prefer_over": [],
-      "notes": "Deployed helper contracts for origin chain detection and user categorization. status: inferred from docs."
+      "notes": "IUEAFactory at 0x00000000000000000000000000000000000000eA. getOriginForUEA(addr) → (UniversalAccountId, bool isUEA): identify if msg.sender is a UEA and get origin chain/wallet. getUEAForOrigin(UniversalAccountId) → (address uea, bool isDeployed): derive UEA address for any external wallet."
     },
     {
       "task": "Check UEA deployment status and upgrade requirements",
@@ -337,18 +345,19 @@
       "capability_id": "construct_custom_signer",
       "authoritative_sources": [
         {
-          "url": "https://push.org/docs/chain/build/initialize-push-chain-client/",
+          "url": "https://push.org/docs/chain/build/advanced/custom-universal-signer/",
           "type": "docs",
-          "confidence": "medium",
+          "confidence": "high",
           "normative": true
         }
       ],
       "agent_files": [
+        "agents/skills/push-backend/references/signer-options.md",
         "agents/schemas/universal-signer.json",
-        "agents/workflows/initialize-client.md"
+        "agents/workflows/create-universal-signer.md"
       ],
       "prefer_over": [],
-      "notes": "PushChain.utils.signer.construct(account, { signMessage, signTransaction, signTypedData }) then toUniversal()."
+      "notes": "PushChain.utils.signer.construct(account, { signAndSendTransaction, signMessage, signTypedData }) returns UniversalSignerSkeleton. Pass skeleton to toUniversal() to get final UniversalSigner. All signing functions return Uint8Array."
     },
     {
       "task": "Access wallet context in React hooks",
@@ -404,9 +413,13 @@
           "normative": true
         }
       ],
-      "agent_files": ["agents/README.md", "agents/capabilities.json"],
+      "agent_files": [
+        "agents/README.md",
+        "agents/capabilities.json",
+        "agents/skills/push-contracts/SKILL.md"
+      ],
       "prefer_over": ["blog posts"],
-      "notes": "Smart contract account on Push Chain derived deterministically from UOA. Lazy-deployed on first transaction."
+      "notes": "Smart contract account on Push Chain derived deterministically from (chainNamespace, chainId, walletAddress). Lazy-deployed on first use. When external user calls a Push Chain contract, msg.sender = UEA address. Use IUEAFactory.getOriginForUEA(msg.sender) to recover origin. push-contracts/SKILL.md has the full flow diagram and two-direction comparison table."
     },
     {
       "task": "Understand UOA (Universal Origin Account)",
@@ -499,6 +512,61 @@
       "agent_files": ["agents/supported-chains.json", "agents/constants.json"],
       "prefer_over": [],
       "notes": "CAIP-2 format: eip155:<chainId> for EVM, solana:<network> for Solana. Use PushChain.CONSTANTS.CHAIN.* for SDK values."
+    },
+    {
+      "task": "Deploy a smart contract to Push Chain",
+      "capability_id": "deploy_push_chain_contract",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/contract-initiated-multichain-execution/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/skills/push-contracts/SKILL.md",
+        "agents/skills/push-contracts/scripts/deploy.sh",
+        "agents/resources/push-contracts/foundry.toml"
+      ],
+      "prefer_over": [],
+      "notes": "Push Chain is 100% EVM-compatible. Foundry: forge create --rpc-url https://evm.donut.rpc.push.org/ --private-key $PRIVATE_KEY src/Contract.sol:Contract. Hardhat: npx hardhat run scripts/deploy.ts --network pushDonut (chainId: 42101). Explorer: https://donut.push.network."
+    },
+    {
+      "task": "External chain smart contract calling Push Chain via Universal Gateway",
+      "capability_id": "external_contract_call_push_chain",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/contract-initiated-multichain-execution/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/skills/push-contracts/SKILL.md",
+        "agents/skills/push-contracts/references/contract-interfaces.md"
+      ],
+      "prefer_over": [],
+      "notes": "Solidity on external chain calls IUniversalGateway.sendUniversalTx(bytes recipient, bytes payload, address token, uint256 amount) payable. UG addresses: Ethereum Sepolia 0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A, Arbitrum Sepolia 0x2cd870e0166Ba458dEC615168Fd659AacD795f34, Base Sepolia 0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16, BNB Testnet 0x44aFFC61983F4348DdddB886349eb992C061EaC0. On Push Chain, msg.sender = caller contract's UEA."
+    },
+    {
+      "task": "Identify cross-chain caller origin in a Push Chain Solidity contract",
+      "capability_id": "identify_cross_chain_caller",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/contract-helpers/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/skills/push-contracts/SKILL.md",
+        "agents/skills/push-contracts/references/contract-interfaces.md"
+      ],
+      "prefer_over": [],
+      "notes": "IUEAFactory(0x00000000000000000000000000000000000000eA).getOriginForUEA(msg.sender) returns (UniversalAccountId { chainNamespace, chainId, owner }, bool isUEA). isUEA=false means native Push Chain EOA. owner is always hex bytes — bs58-decode for Solana addresses."
     },
     {
       "task": "Handle SDK errors and recover from failures",
