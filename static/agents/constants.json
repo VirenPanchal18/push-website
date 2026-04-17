@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "generated": "2026-04-17T04:23:42.400Z",
+  "generated": "2026-04-17T06:21:28.989Z",
   "description": "All PushChain.CONSTANTS.* values as a structured reference. Source: https://push.org/docs/chain/build/constants/",
   "PUSH_NETWORK": {
     "TESTNET": "TESTNET",

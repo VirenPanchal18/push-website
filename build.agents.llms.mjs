@@ -491,6 +491,12 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(
     '| `PushChain.initialize()` throws or rejects the signer | Raw ethers/viem signer passed without wrapping | Wrap first: `await PushChain.utils.signer.toUniversal(wallet)` |'
   );
+  lines.push(
+    '| RPC returns chain ID mismatch / nonce errors | Wallet configured for a different network; Donut Testnet is chain ID 42101 | Set both wallet and provider to chain ID `42101` with RPC `https://evm.donut.rpc.push.org/` |'
+  );
+  lines.push(
+    '| Tx fails with "insufficient funds" even though origin wallet has balance | UEA on Push Chain has no PC token balance \u2014 gas abstraction requires a funded UEA | Fund the UEA address on Push Chain via https://faucet.push.org or transfer PC tokens to it |'
+  );
   lines.push('');
 
   // ── Canonical Workflows (grouped by category) ─────────────────────────────
@@ -555,6 +561,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
 
   // ── Changelog ──────────────────────────────────────────────────
   lines.push('## Changelog');
+  lines.push('');
+  lines.push(
+    `> Machine-readable version: [changelog.json](${BASE_URL}/agents/changelog.json)`
+  );
   lines.push('');
   lines.push(
     `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Added \`## Common Mistakes\` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.`

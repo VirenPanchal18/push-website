@@ -140,6 +140,8 @@ console.log('tx hash:', receipt.hash);
 | `msg.sender` in your contract is an unexpected address | `msg.sender` is the user’s UEA, not their origin wallet | Call `IUEAFactory(UEA_FACTORY_ADDR).getOriginForUEA(msg.sender)` to recover `(chainNamespace, chainId, walletAddress)` |
 | `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` — only the Push SDK can produce a valid universal tx |
 | `PushChain.initialize()` throws or rejects the signer | Raw ethers/viem signer passed without wrapping | Wrap first: `await PushChain.utils.signer.toUniversal(wallet)` |
+| RPC returns chain ID mismatch / nonce errors | Wallet configured for a different network; Donut Testnet is chain ID 42101 | Set both wallet and provider to chain ID `42101` with RPC `https://evm.donut.rpc.push.org/` |
+| Tx fails with "insufficient funds" even though origin wallet has balance | UEA on Push Chain has no PC token balance — gas abstraction requires a funded UEA | Fund the UEA address on Push Chain via https://faucet.push.org or transfer PC tokens to it |
 
 ## Canonical Workflows
 
@@ -188,6 +190,8 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 - Claude.ai Projects: Project Knowledge → Add content → paste https://push.org/llms.txt
 
 ## Changelog
+
+> Machine-readable version: [changelog.json](https://push.org/agents/changelog.json)
 
 - **2026-04-17 v1.0.1** — Added `## Common Mistakes` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.
 - **2026-04-17 v1.0.0** — Pinned SDK versions (`@pushchain/core@5.1.4`, `@pushchain/ui-kit@5.2.2`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added `## Minimal Example`. Grouped canonical workflows by category. `contract-addresses.json` designated as authoritative address source.

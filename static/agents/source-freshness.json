@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "last_generated": "2026-04-17T04:23:42.400Z",
+  "last_generated": "2026-04-17T06:21:28.989Z",
   "note": "All agent_file paths must correspond to files that actually exist under static/agents/.",
   "dependencies": [
     {

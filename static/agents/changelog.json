@@ -2,20 +2,50 @@
   "schema_version": "1.0.0",
   "entries": [
     {
+      "date": "2026-04-17T06:21:28.989Z",
+      "version": "1.0.1",
+      "changes": [
+        "Added Common Mistakes table (7 rows) to llms.txt",
+        "Expanded Minimal Example with origin-chain provider variants",
+        "Corrected Solana signer hint (Connection → toUniversalFromKeypair pattern)",
+        "Added Claude.ai Projects to AI Editor integrations",
+        "Faucet rate limits confirmed and documented (1 PC / 6 h, CAPTCHA-gated)",
+        "Added Route 1 taxonomy comment to Minimal Example",
+        "Added machine-readable changelog.json link to llms.txt Changelog section"
+      ],
+      "files_affected": [
+        "static/llms.txt",
+        "build.agents.llms.mjs",
+        "static/agents/changelog.json"
+      ],
+      "trigger": "manual audit pass — llms.txt polish"
+    },
+    {
       "date": "2026-04-17T04:23:42.400Z",
       "version": "1.0.0",
       "changes": [
         "Initial /agents/ layer generated",
+        "Pinned SDK versions: @pushchain/core@5.1.4, @pushchain/ui-kit@5.2.2",
+        "Corrected Route 1/2 descriptions for native Push Chain accounts",
+        "Added Route 3 CEA-identity semantics",
+        "Added Core / Extended agent layer tiers",
+        "Directives expanded to 7 (split ethers/viem rule; added agent key model)",
+        "Added Minimal Example section",
+        "Grouped canonical workflows by category",
+        "Designated contract-addresses.json as authoritative address source",
         "Created mcp-candidates.json with 12 MCP tool candidates",
-        "Created changelog.json for tracking file mutations",
         "Created source-freshness.json for dependency tracking"
       ],
       "files_affected": [
-        "agents/mcp-candidates.json",
-        "agents/changelog.json",
-        "agents/source-freshness.json"
+        "static/llms.txt",
+        "build.agents.llms.mjs",
+        "static/agents/index.json",
+        "static/agents/mcp-candidates.json",
+        "static/agents/workflows/index.json",
+        "static/agents/changelog.json",
+        "static/agents/source-freshness.json"
       ],
-      "trigger": "build.agents.mjs initial run"
+      "trigger": "build.agents.mjs initial run + manual audit pass"
     }
   ]
 }
