@@ -79,7 +79,8 @@ const {
 import { usePushChain } from '@pushchain/ui-kit';
 
 const { PushChain } = usePushChain();
-// PushChain is the @pushchain/core SDK — use for utilities, constants, PushChain.initialize()
+// PushChain is the @pushchain/core SDK — use for utilities and constants inside components.
+// For transactions and signing, use usePushChainClient() instead.
 // e.g. PushChain.utils.account.toChainAgnostic(address, { chain })
 ```
 

@@ -267,7 +267,7 @@
         },
         {
           "name": "signMessage",
-          "signature": "pushChainClient.universal.signMessage(message: Uint8Array): Promise<Uint8Array>",
+          "signature": "pushChainClient.universal.signMessage(message: string | Uint8Array): Promise<Uint8Array>",
           "description": "Signs arbitrary message bytes",
           "returns": "Uint8Array",
           "safe_for_autonomous_execution": false

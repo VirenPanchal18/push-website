@@ -2,6 +2,34 @@
   "schema_version": "1.0.0",
   "entries": [
     {
+      "date": "2026-04-17T07:20:00.000Z",
+      "version": "1.0.2",
+      "changes": [
+        "Rewrote push-frontend SKILL.md: merged duplicate Hooks sections into single table+note format",
+        "Added canonical guard pattern (error → isInitialized → pushChainClient)",
+        "Fixed usePushChain() description: removed misleading PushChain.initialize() reference",
+        "Enumerated connectionStatus values (NOT_CONNECTED, CONNECTING, CONNECTED)",
+        "Added Route 3 section with code example (from: { chain } CEA-origin pattern)",
+        "Replaced single-hop cascade with real 2-hop example + progressHook + result.success check",
+        "Fixed signMessage example to use Uint8Array (recommended); clarified return type",
+        "Added @pushchain/core import clarity note (bundled in ui-kit, no separate install)",
+        "Added SSR / Next.js 'use client' warning in Setup section",
+        "Surfaced themeMode in top-level walletConfig example",
+        "Clarified loginAppOverride vs modalAppOverride (pre/post-auth distinction)",
+        "Updated create-universal-dapp description (Next.js or CRA choice)",
+        "Replaced thin Notes section with Common Mistakes table (5 rows)",
+        "Fixed signMessage signature in sdk-capabilities.json (string | Uint8Array)",
+        "Fixed usePushChain description in ui-components.md"
+      ],
+      "files_affected": [
+        "static/agents/skills/push-frontend/SKILL.md",
+        "static/agents/skills/push-frontend/references/ui-components.md",
+        "static/agents/sdk-capabilities.json",
+        "static/agents/changelog.json"
+      ],
+      "trigger": "Claude audit pass — push-frontend SKILL.md 13-issue review"
+    },
+    {
       "date": "2026-04-17T06:21:28.989Z",
       "version": "1.0.1",
       "changes": [
