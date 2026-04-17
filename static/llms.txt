@@ -41,7 +41,7 @@
 | **RPC URL** | https://evm.donut.rpc.push.org/ |
 | **WebSocket** | wss://evm.donut.rpc.push.org |
 | **Block Explorer** | https://donut.push.network |
-| **Faucet** | https://faucet.push.org (1 PC / 6 h per address, CAPTCHA required) |
+| **Faucet** | https://faucet.push.org — 1 PC / 6 h per address |
 | **Mainnet** | Not yet launched |
 
 > **Public RPC:** No API key required. Fair-use rate limits apply — use a dedicated RPC endpoint for production workloads.
@@ -107,11 +107,14 @@ Load these for deeper context, RAG grounding, or tool-use integration:
 For agents loading only this file — a complete send-transaction flow from an Ethereum wallet:
 
 ```typescript
+// Route 1: any origin chain → UEA (if external chain) → Push Chain contract
 import { PushChain } from '@pushchain/core';
 import { ethers } from 'ethers';
 
 // 1. Wrap any EVM signer into a UniversalSigner
 const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');
+// Push Chain native provider: 'https://evm.donut.rpc.push.org/'
+// Solana provider: use Connection from @solana/web3.js
 const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider); // Load from env; never hardcode, never log
 const signer   = await PushChain.utils.signer.toUniversal(wallet);
 
@@ -125,6 +128,15 @@ console.log('tx hash:', receipt.hash);
 ```
 
 > Load `push-backend` or `push-frontend` skill for a production-ready version with error handling and progress hooks.
+
+## Common Mistakes
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| `receipt.hash` is undefined / `tx` has no `.hash` | `sendTransaction` returns a `TxResponse`, not a receipt | Call `await tx.wait()` to get the receipt |
+| Tx executes on Push Chain instead of the intended external chain | `to` is a plain address string — treated as Route 1 | Use `to: { address: '0x...', chain: CHAIN.ETHEREUM_SEPOLIA }` for Route 2 |
+| `msg.sender` in your contract is an unexpected address | `msg.sender` is the user’s UEA, not their origin wallet | Call `IUEAFactory(UEA_FACTORY_ADDR).getOriginForUEA(msg.sender)` to recover `(chainNamespace, chainId, walletAddress)` |
+| `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` — only the Push SDK can produce a valid universal tx |
 
 ## Canonical Workflows
 
@@ -170,6 +182,7 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 - Cursor: Settings → Features → Docs → Add new doc → https://push.org/llms.txt
 - Windsurf: Add to Cascade window → @docs:https://push.org/llms.txt
 - Claude Code: Add to CLAUDE.md or prompt → https://push.org/llms.txt
+- Claude.ai Projects: Project Knowledge → Add content → paste https://push.org/llms.txt
 
 ## Changelog
 

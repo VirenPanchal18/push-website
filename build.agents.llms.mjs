@@ -256,7 +256,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('| **WebSocket** | wss://evm.donut.rpc.push.org |');
   lines.push('| **Block Explorer** | https://donut.push.network |');
   lines.push(
-    '| **Faucet** | https://faucet.push.org (1 PC / 6 h per address, CAPTCHA required) |'
+    '| **Faucet** | https://faucet.push.org — 1 PC / 6 h per address |'
   );
   lines.push('| **Mainnet** | Not yet launched |');
   lines.push('');
@@ -265,7 +265,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
   lines.push(
-    '> **Faucet:** 1 PC token per address per 6 hours. CAPTCHA-gated \u2014 not scriptable. Do not write agent loops that call the faucet automatically.'
+    '> **Faucet:** 1 PC token per address per 6 hours. CAPTCHA-gated — not scriptable. Do not write agent loops that call the faucet automatically.'
   );
   lines.push('');
 
@@ -403,7 +403,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (\`push-frontend\`, \`push-backend\`, or \`push-contracts\`). Never generate SDK usage from memory alone.`
   );
   lines.push(
-    `2. **Never hallucinate addresses:** Always source Push smart contract addresses from [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) \u2014 this is the authoritative source. The \`push-contracts\` skill is generated from it and may be slightly older; use the skill for ABIs and code context.`
+    `2. **Never hallucinate addresses:** Always source Push smart contract addresses from [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) — this is the authoritative source. The \`push-contracts\` skill is generated from it and may be slightly older; use the skill for ABIs and code context.`
   );
   lines.push(
     `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
@@ -430,6 +430,9 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
   lines.push('```typescript');
+  lines.push(
+    '// Route 1: any origin chain → UEA (if external chain) → Push Chain contract'
+  );
   lines.push(`import { PushChain } from '@pushchain/core';`);
   lines.push(`import { ethers } from 'ethers';`);
   lines.push('');
@@ -437,6 +440,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(
     `const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');`
   );
+  lines.push(
+    `// Push Chain native provider: 'https://evm.donut.rpc.push.org/'`
+  );
+  lines.push(`// Solana provider: use Connection from @solana/web3.js`);
   lines.push(
     `const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider); // Load from env; never hardcode, never log`
   );
@@ -459,6 +466,25 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('');
   lines.push(
     '> Load `push-backend` or `push-frontend` skill for a production-ready version with error handling and progress hooks.'
+  );
+  lines.push('');
+
+  // ── Common Mistakes ────────────────────────────────────────────────────────
+  lines.push('## Common Mistakes');
+  lines.push('');
+  lines.push('| Symptom | Likely cause | Fix |');
+  lines.push('|---|---|---|');
+  lines.push(
+    '| `receipt.hash` is undefined / `tx` has no `.hash` | `sendTransaction` returns a `TxResponse`, not a receipt | Call `await tx.wait()` to get the receipt |'
+  );
+  lines.push(
+    "| Tx executes on Push Chain instead of the intended external chain | `to` is a plain address string — treated as Route 1 | Use `to: { address: '0x...', chain: CHAIN.ETHEREUM_SEPOLIA }` for Route 2 |"
+  );
+  lines.push(
+    '| `msg.sender` in your contract is an unexpected address | `msg.sender` is the user’s UEA, not their origin wallet | Call `IUEAFactory(UEA_FACTORY_ADDR).getOriginForUEA(msg.sender)` to recover `(chainNamespace, chainId, walletAddress)` |'
+  );
+  lines.push(
+    '| `sendTransaction` throws / produces a malformed tx | ethers or viem `wallet.sendTransaction()` used instead of the SDK | Replace with `client.universal.sendTransaction()` — only the Push SDK can produce a valid universal tx |'
   );
   lines.push('');
 
@@ -516,6 +542,9 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
   lines.push(
     `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
+  );
+  lines.push(
+    `- Claude.ai Projects: Project Knowledge → Add content → paste ${BASE_URL}/llms.txt`
   );
   lines.push('');
 
