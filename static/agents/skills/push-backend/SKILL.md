@@ -203,6 +203,7 @@ const tx = await client.universal.sendTransaction({
   }),
 });
 const receipt = await tx.wait();
+if (receipt.status !== 1) throw new Error(`tx failed: ${receipt.hash}`);
 console.log('status:', receipt.status === 1 ? 'success' : 'failed');
 ```
 
@@ -240,15 +241,45 @@ console.log('explorer:', receipt.externalExplorerUrl);
 
 ### Route 3 — CEA Origin → Push Chain
 
-`tx.from = { chain }` forces the CEA on that external chain to be the execution origin on Push Chain. Used when execution on Push Chain must reflect an external chain identity (e.g. after depositing into Aave on Ethereum, return to Push Chain as your Ethereum identity).
+Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
+
+**Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
+
+1. **Preserves identity** — your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
+2. **Isolates risk** — the CEA is a dedicated smart account, separate from your home wallet. External-chain actions can't affect funds outside the CEA.
+3. **Enables payload execution** — the CEA is what actually holds assets and executes calldata on the external chain.
+
+**When to use Route 3.** Use it when you need to bring state or assets _back_ to Push Chain from a CEA you've already deployed — because only the CEA can speak for what happened on that external chain.
+
+Example flow — a universal vault:
+
+1. Route 2: vault calls Aave on Ethereum via your **Ethereum CEA** to withdraw USDC.
+2. **Route 3**: the vault moves the withdrawn USDC from your Ethereum CEA back to Push Chain (`from: { chain: ETHEREUM_SEPOLIA }`) — `msg.sender` on Push Chain is your Ethereum CEA, which holds the tokens.
+3. Route 2 again: Push Chain forwards to a Solana lending protocol via your **Solana CEA**.
 
 ```ts
+// Bring assets/state back from the Ethereum CEA to Push Chain
 const tx = await client.universal.sendTransaction({
-  from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
-  to: '0xContractOnPushChain',
-  data: PushChain.utils.helpers.encodeTxData({ abi, functionName: 'claim' }),
+  from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, // your Ethereum CEA as origin
+  to: '0xVaultOnPushChain',
+  data: PushChain.utils.helpers.encodeTxData({
+    abi,
+    functionName: 'depositFromEthereum',
+  }),
 });
+await tx.wait();
+// Inside 0xVaultOnPushChain: msg.sender === CEA(Ethereum Sepolia, userAddress)
+// The CEA is the only address that can prove "these assets came from your Ethereum side".
 ```
+
+```
+User → Push vault
+  Route 2 → Ethereum CEA → Aave (withdraw USDC)
+  Route 3 ← Ethereum CEA → Push vault (receive USDC, msg.sender = Ethereum CEA)
+  Route 2 → Solana CEA → Solana lending (deposit)
+```
+
+> Route 3 isn't for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you've already deployed via prior Route 2 activity.
 
 ---
 
@@ -454,7 +485,9 @@ console.log(receipt.status === 1 ? 'success' : 'failed');
 ## Sign a Message
 
 ```ts
-const signature = await client.universal.signMessage('Hello Push Chain');
+const message = new TextEncoder().encode('Hello Push Chain'); // string also accepted; Uint8Array recommended
+const signature = await client.universal.signMessage(message); // returns Uint8Array
+// To get a hex string: Buffer.from(signature).toString('hex')
 ```
 
 ## Utility Functions
@@ -626,11 +659,19 @@ Full reference: https://push.org/agents/workflows/use-contract-helpers.md
 
 ---
 
-## Notes
+## Common Mistakes
 
-- Reading blockchain state does NOT require `@pushchain/core` — use ethers.js or viem with the RPC URL `https://evm.donut.rpc.push.org/`.
-- For Solana origin transactions, set `tx.svmExecute: { targetProgram, accounts, ixData }` instead of `tx.data`.
-- Use `prepareTransaction` + `executeTransactions` for ordered multi-hop execution; use `sendTransaction` for single-hop.
+| Symptom / Mistake                                            | Fix                                                                                                            |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `receipt.hash` is undefined / `tx` has no `.hash`            | `sendTransaction` returns a `TxResponse`, not a receipt — call `await tx.wait()` to get the receipt            |
+| `wallet.sendTransaction()` used — tx reverts or is malformed | ethers/viem cannot produce a valid universal tx — replace with `client.universal.sendTransaction()`            |
+| `PushChain.initialize()` rejects the signer                  | Raw ethers/viem wallet passed without wrapping — call `await PushChain.utils.signer.toUniversal(wallet)` first |
+| `signMessage` return treated as a string                     | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string                      |
+| Silent tx failure (no throw, no logs)                        | `tx.wait()` resolves even on reverts — always check `receipt.status === 1`                                     |
+| Private key in source code                                   | Use `process.env.PRIVATE_KEY` — never hardcode keys in scripts or commit them to version control               |
+
+> For Solana origin transactions, set `tx.svmExecute: { targetProgram, accounts, ixData }` instead of `tx.data`.
+> For read-only queries, use ethers.js or viem directly with RPC `https://evm.donut.rpc.push.org/` — `@pushchain/core` is not required.
 
 ## Downloadable Resources
 

@@ -50,6 +50,8 @@ const {
   handleConnectToPushWallet, // () => void — open wallet connection modal
   handleUserLogOutEvent,     // () => void — disconnect and clear session
 } = usePushWalletContext();
+// Advanced multi-instance: pass uid matching config.uid on the target provider
+// usePushWalletContext('uid1') — must match usePushChainClient('uid1') and <PushUniversalAccountButton uid='uid1' />
 
 // Compare against the enum:
 const isConnected =

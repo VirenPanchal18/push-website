@@ -602,15 +602,19 @@ main().catch(console.error);
 
 ---
 
-## Notes
+## Common Mistakes
 
-- **UGPC** (`0x00000000000000000000000000000000000000C1`) is on **Push Chain** — for contracts dispatching _outbound_ txs to external chains.
-- **UG** contracts are on **external chains** — entry points for users/scripts/contracts sending txs _into_ Push Chain. The SDK uses UG addresses automatically.
-- **UniversalCore** is only used to read chain state (gasPrice, chainHeight, observedAt). Do not use it for fee estimation in Solidity.
-- **No Push SDK needed** in Solidity — all cross-chain dispatch is pure on-chain calls.
-- **Always guard** `executeUniversalTx()` with `require(msg.sender == EXECUTOR_MOD)` and replay protection.
-- **`gasLimit: 0`** is recommended — UGPC estimates automatically.
-- `account.owner` in `UniversalAccountId` is always hex bytes. Decode to base58 for Solana addresses.
+| Symptom / Mistake                                                                  | Fix                                                                                                                                               |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `executeUniversalTx()` called with fabricated data — replayed or spoofed callbacks | Add `require(msg.sender == EXECUTOR_MOD, "Unauthorized")` — without it, anyone can call this function                                             |
+| Same inbound callback applied twice — state corrupted                              | Add `mapping(bytes32 => bool) executedTxIds` and `require(!executedTxIds[txId], "Replay")`                                                        |
+| `msg.sender` in your Push Chain contract is not the external user's wallet address | It never is — `msg.sender` is the user's **UEA**. Use `IUEAFactory(UEA_FACTORY).getOriginForUEA(msg.sender)` to recover the origin wallet         |
+| Confused UGPC (outbound) with UG (inbound) — wrong address used                    | **UGPC** (`...00C1`) is on Push Chain for dispatching _outbound_ txs. **UG** contracts are on _external chains_ for sending txs _into_ Push Chain |
+| `sendUniversalTxOutbound` call reverts immediately                                 | `msg.value` must cover UGPC protocol fee + external-chain gas estimate — do not send `0`                                                          |
+| Push Chain contract runs out of gas for inbound execution                          | Fund the contract with `$PC` before dispatching outbound — inbound execution fees are paid in `$PC`                                               |
+| CEA whitelist on external contract blocks calls                                    | The external contract sees the **contract's CEA** as `msg.sender`, not your Push Chain address — whitelist the CEA address on the external side   |
+
+> `account.owner` in `UniversalAccountId` is always hex bytes. For Solana addresses, decode with `bs58.encode(ethers.getBytes(account.owner))`.
 
 ## Source
 

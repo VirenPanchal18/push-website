@@ -12,7 +12,7 @@ references:
 
 **Intent**: Enable users to connect their wallet and execute universal transactions from a React app.
 **Package**: `@pushchain/ui-kit` — bundles `@pushchain/core`, no separate install needed.
-**Quickstart**: `npx create-universal-dapp` — interactive CLI, choose Next.js or CRA; scaffolds the chosen framework with `PushUniversalWalletProvider` pre-wired and a demo transaction component ready to run.
+**Quickstart**: `npx create-universal-dapp` — interactive CLI, choose Next.js or Vite (React SPA); scaffolds the chosen framework with `PushUniversalWalletProvider` pre-wired and a demo transaction component ready to run.
 
 ## Install
 
@@ -20,9 +20,9 @@ references:
 npm install @pushchain/ui-kit
 # or
 npx create-universal-dapp my-app
-# Interactive CLI — choose between Next.js or Create React App (CRA).
-# Scaffolds PushUniversalWalletProvider pre-wired with a demo transaction component.
 ```
+
+> Interactive CLI — choose between Next.js or Vite (React SPA). Scaffolds `PushUniversalWalletProvider` pre-wired with a demo transaction component.
 
 ## Setup — Wrap Your App
 
@@ -207,8 +207,8 @@ Always check `error` before checking `pushChainClient` — silent failures are t
 ```tsx
 const { pushChainClient, isInitialized, error } = usePushChainClient();
 
-if (error) return <ErrorBanner error={error} />; // surface initialization failures
-if (!isInitialized) return <Spinner />; // still booting
+if (error) return <div role='alert'>{error.message}</div>; // surface initialization failures
+if (!isInitialized) return <div>Loading…</div>; // still booting
 if (!pushChainClient) return null; // connected, client not yet ready
 ```
 
@@ -223,17 +223,18 @@ if (!pushChainClient) return null; // connected, client not yet ready
 | `isInitialized`    | `boolean`                 | `false` while the client is booting up                                                 |
 | `error`            | `Error \| null`           | Set if client initialization fails — always check before rendering                     |
 
-> Primary hook for all on-chain operations. If you only import one hook, this is it.
+> Primary hook for all on-chain operations. If you only import one hook, this is it. Pass `uid` only when using multiple `PushUniversalWalletProvider` instances — must match the same `uid` passed to `usePushWalletContext()` and `PushUniversalAccountButton`.
 
 ---
 
-### `usePushWalletContext()`
+### `usePushWalletContext(uid?)`
 
-| Return value                | Type                                 | Description                                                      |
-| --------------------------- | ------------------------------------ | ---------------------------------------------------------------- |
-| `connectionStatus`          | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state — compare against the enum values below |
-| `handleConnectToPushWallet` | `() => void`                         | Open the wallet connection modal                                 |
-| `handleUserLogOutEvent`     | `() => void`                         | Disconnect the wallet and clear the session                      |
+| Parameter / Return          | Type                                 | Description                                                                                                    |
+| --------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `uid` _(param)_             | `string`                             | Optional — must match `config.uid` on the target `PushUniversalWalletProvider` (advanced, multi-instance only) |
+| `connectionStatus`          | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state — compare against the enum values below                                               |
+| `handleConnectToPushWallet` | `() => void`                         | Open the wallet connection modal                                                                               |
+| `handleUserLogOutEvent`     | `() => void`                         | Disconnect the wallet and clear the session                                                                    |
 
 `connectionStatus` values:
 
@@ -242,6 +243,8 @@ if (!pushChainClient) return null; // connected, client not yet ready
 - `PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED`
 
 > Use `connectionStatus` to gate UI states. Use `handleConnectToPushWallet` / `handleUserLogOutEvent` when building custom connect/disconnect buttons instead of `PushUniversalAccountButton`.
+
+> **`uid` is an advanced pattern** — only needed when running two `PushUniversalWalletProvider` instances simultaneously (e.g. two independent wallet contexts in the same app). In that case, set `config.uid` on each provider and pass the **same uid** to every hook and button targeting that provider: `usePushChainClient('uid1')`, `usePushWalletContext('uid1')`, `<PushUniversalAccountButton uid='uid1' />`. Mismatching or omitting `uid` causes hooks to bind to the wrong provider instance.
 
 ---
 
@@ -319,21 +322,45 @@ const tx = await pushChainClient.universal.sendTransaction({
 
 ## Route 3 — CEA Identity on Push Chain
 
-Add `from: { chain }` to force your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
+Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
 
-Use case: after interacting with a protocol on Ethereum, call a Push Chain contract where your Ethereum-chain identity matters (e.g. claim rewards tied to your Ethereum CEA).
+**Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
+
+1. **Preserves identity** — your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
+2. **Isolates risk** — the CEA is a dedicated smart account, separate from your home wallet. External-chain actions can’t affect funds outside the CEA.
+3. **Enables payload execution** — the CEA is what actually holds assets and executes calldata on the external chain.
+
+**When to use Route 3.** Use it when you need to bring state or assets _back_ to Push Chain from a CEA you’ve already deployed — because only the CEA can speak for what happened on that external chain.
+
+Example flow — a universal vault:
+
+1. Route 2: vault calls Aave on Ethereum via your **Ethereum CEA** to withdraw USDC.
+2. **Route 3**: the vault moves the withdrawn USDC from your Ethereum CEA back to Push Chain (`from: { chain: ETHEREUM_SEPOLIA }`) — `msg.sender` on Push Chain is your Ethereum CEA, which holds the tokens.
+3. Route 2 again: Push Chain forwards to a Solana lending protocol via your **Solana CEA**.
 
 ```tsx
+// Bring assets/state back from the Ethereum CEA to Push Chain
 const tx = await pushChainClient.universal.sendTransaction({
-  from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, // CEA on Ethereum as origin
-  to: '0xContractOnPushChain',
-  data: PushChain.utils.helpers.encodeTxData({ abi, functionName: 'claim' }),
+  from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, // your Ethereum CEA as origin
+  to: '0xVaultOnPushChain',
+  data: PushChain.utils.helpers.encodeTxData({
+    abi,
+    functionName: 'depositFromEthereum',
+  }),
 });
 await tx.wait();
-// Inside 0xContractOnPushChain: msg.sender === CEA(Ethereum Sepolia, userAddress)
+// Inside 0xVaultOnPushChain: msg.sender === CEA(Ethereum Sepolia, userAddress)
+// The CEA is the only address that can prove “these assets came from your Ethereum side”.
 ```
 
-> Route 3 is less common than Route 1/2 in browser contexts but fully supported. See the `push-contracts` skill for the contract-side identity resolution pattern.
+```
+User → Push vault
+  Route 2 → Ethereum CEA → Aave (withdraw USDC)
+  Route 3 ← Ethereum CEA → Push vault (receive USDC, msg.sender = Ethereum CEA)
+  Route 2 → Solana CEA → Solana lending (deposit)
+```
+
+> Route 3 isn’t for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you’ve already deployed via prior Route 2 activity.
 
 ## Prepare + Execute (Cascade Pattern)
 
@@ -370,13 +397,14 @@ const signature = await pushChainClient.universal.signMessage(message); // retur
 
 ## Common Mistakes
 
-| Mistake                                                                        | Fix                                                                                       |
-| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| `PushUniversalWalletProvider` wrapped inside `App` instead of at the tree root | Move to `main.tsx` / `index.tsx` — hooks won't resolve without it above every consumer    |
-| Calling `sendTransaction` before `isInitialized === true`                      | Gate with `isInitialized && pushChainClient` check before any tx trigger                  |
-| Treating `signMessage` return value as a string                                | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string |
-| Forgetting `'use client'` in Next.js App Router                                | Add `'use client'` to the file that renders `PushUniversalWalletProvider`                 |
-| Expecting `pushChainClient` to be non-null on first render                     | It's `null` until wallet connects — always use the canonical guard pattern above          |
+| Mistake                                                                                       | Fix                                                                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PushUniversalWalletProvider` wrapped inside `App` instead of at the tree root                | Move to `main.tsx` / `index.tsx` — hooks won't resolve without it above every consumer                                                                                                                                     |
+| Calling `sendTransaction` before `isInitialized === true`                                     | Gate with `isInitialized && pushChainClient` check before any tx trigger                                                                                                                                                   |
+| Treating `signMessage` return value as a string                                               | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string                                                                                                                                  |
+| Forgetting `'use client'` in Next.js App Router                                               | Add `'use client'` to the file that renders `PushUniversalWalletProvider`                                                                                                                                                  |
+| Expecting `pushChainClient` to be non-null on first render                                    | It's `null` until wallet connects — always use the canonical guard pattern above                                                                                                                                           |
+| Hooks bind to wrong provider or return stale state (`uid` mismatch across multiple providers) | Pass the **same** `uid` to `usePushChainClient('uid1')`, `usePushWalletContext('uid1')`, and `<PushUniversalAccountButton uid='uid1' />` — omit `uid` entirely unless you are intentionally running two provider instances |
 
 > For read-only state queries (no transactions): use ethers.js or viem directly with the Push Chain RPC `https://evm.donut.rpc.push.org/`
 
