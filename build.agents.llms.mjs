@@ -30,6 +30,14 @@ const SDK_VERSIONS = {
 const AGENT_LAYER_VERSION = '1.0.0';
 const AGENT_LAYER_DATE = '2026-04-17';
 
+const WORKFLOW_CATEGORIES = [
+  { key: 'core-execution', label: '### Core execution' },
+  { key: 'reading-utilities', label: '### Reading & utilities' },
+  { key: 'frontend', label: '### Frontend (UI Kit)' },
+  { key: 'contracts', label: '### Contracts' },
+  { key: 'setup', label: '### Setup' },
+];
+
 // Hardcoded fallback workflow stubs when agents/ hasn't been generated yet
 const FALLBACK_WORKFLOWS = [
   {
@@ -240,7 +248,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     '> **Donut** is the codename for the first public Push Chain testnet. Mainnet is not yet launched — do not apply these values to a production environment.'
   );
   lines.push('');
-  lines.push('| | |');
+  lines.push('| Field | Value |');
   lines.push('|---|---|');
   lines.push('| **Name** | Push Chain Donut Testnet |');
   lines.push('| **Chain ID** | 42101 |');
@@ -389,7 +397,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `1. **Load a skill file first:** Before generating any code, fetch the skill file that matches the context (\`push-frontend\`, \`push-backend\`, or \`push-contracts\`). Never generate SDK usage from memory alone.`
   );
   lines.push(
-    `2. **Never hallucinate ABIs:** Always source Push smart contract ABIs and addresses from the \`push-contracts\` skill or the [machine-readable address registry](${BASE_URL}/agents/contract-addresses.json).`
+    `2. **Never hallucinate addresses:** Always source Push smart contract addresses from [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) \u2014 this is the authoritative source. The \`push-contracts\` skill is generated from it and may be slightly older; use the skill for ABIs and code context.`
   );
   lines.push(
     `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
@@ -424,7 +432,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');`
   );
   lines.push(
-    `const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);`
+    `const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider); // Load from env; never hardcode, never log`
   );
   lines.push(
     `const signer   = await PushChain.utils.signer.toUniversal(wallet);`
@@ -448,20 +456,47 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
 
-  // ── Canonical Workflows (dynamic) ─────────────────────────────────────────
+  // ── Canonical Workflows (grouped by category) ─────────────────────────────
   lines.push('## Canonical Workflows');
   lines.push('');
+  const grouped = new Map(WORKFLOW_CATEGORIES.map((c) => [c.key, []]));
+  const uncategorized = [];
   for (const wf of workflows) {
-    const url = `${BASE_URL}/${wf.file}`;
-    const desc = wf.purpose ? `: ${wf.purpose}` : '';
-    lines.push(`- [${wf.name}](${url})${desc}`);
+    if (wf.category && grouped.has(wf.category)) {
+      grouped.get(wf.category).push(wf);
+    } else {
+      uncategorized.push(wf);
+    }
   }
-  lines.push('');
+  for (const { key, label } of WORKFLOW_CATEGORIES) {
+    const entries = grouped.get(key);
+    if (!entries || entries.length === 0) continue;
+    lines.push(label);
+    lines.push('');
+    for (const wf of entries) {
+      const url = `${BASE_URL}/${wf.file}`;
+      const desc = wf.purpose ? `: ${wf.purpose}` : '';
+      lines.push(`- [${wf.name}](${url})${desc}`);
+    }
+    lines.push('');
+  }
+  if (uncategorized.length > 0) {
+    lines.push('### Other');
+    lines.push('');
+    for (const wf of uncategorized) {
+      const url = `${BASE_URL}/${wf.file}`;
+      const desc = wf.purpose ? `: ${wf.purpose}` : '';
+      lines.push(`- [${wf.name}](${url})${desc}`);
+    }
+    lines.push('');
+  }
 
   // ── Full Context ──────────────────────────────────────────────────────────
   lines.push('## Full Context');
   lines.push('');
-  lines.push('For long-context retrieval, deep reference, and RAG indexing:');
+  lines.push(
+    'Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suitable for single-fetch RAG ingestion or deep reference.'
+  );
   lines.push('');
   lines.push(`- ${BASE_URL}/llms-full.txt`);
   lines.push('');
@@ -475,6 +510,14 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push(`- Windsurf: Add to Cascade window → @docs:${BASE_URL}/llms.txt`);
   lines.push(
     `- Claude Code: Add to CLAUDE.md or prompt → ${BASE_URL}/llms.txt`
+  );
+  lines.push('');
+
+  // ── Changelog ──────────────────────────────────────────────────
+  lines.push('## Changelog');
+  lines.push('');
+  lines.push(
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Pinned SDK versions (\`@pushchain/core@${SDK_VERSIONS.core}\`, \`@pushchain/ui-kit@${SDK_VERSIONS.uiKit}\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
   );
   lines.push('');
 

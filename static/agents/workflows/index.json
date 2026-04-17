@@ -5,6 +5,7 @@
   "workflows": [
     {
       "id": "initialize-client",
+      "category": "core-execution",
       "name": "Initialize Push Chain Client",
       "file": "agents/workflows/initialize-client.md",
       "purpose": "Create a PushChainClient instance from a UniversalSigner to enable on-chain interactions.",
@@ -22,6 +23,7 @@
     },
     {
       "id": "create-universal-signer",
+      "category": "core-execution",
       "name": "Create Universal Signer",
       "file": "agents/workflows/create-universal-signer.md",
       "purpose": "Wrap an EVM or non-EVM signer into a UniversalSigner for chain-agnostic transaction signing.",
@@ -40,6 +42,7 @@
     },
     {
       "id": "send-universal-transaction",
+      "category": "core-execution",
       "name": "Send Universal Transaction",
       "file": "agents/workflows/send-universal-transaction.md",
       "purpose": "Execute a transaction on Push Chain from any origin chain via a single SDK call.",
@@ -60,6 +63,7 @@
     },
     {
       "id": "send-multichain-transaction",
+      "category": "core-execution",
       "name": "Send Multichain Transaction",
       "file": "agents/workflows/send-multichain-transaction.md",
       "purpose": "Execute a transaction on an external chain via CEA using Push Chain as the coordination layer.",
@@ -78,6 +82,7 @@
     },
     {
       "id": "contract-initiated-multichain-execution",
+      "category": "contracts",
       "name": "Contract-Initiated Multichain Execution",
       "file": "agents/workflows/contract-initiated-multichain-execution.md",
       "purpose": "Write and deploy a Solidity contract on Push Chain that dispatches outbound cross-chain calls via UGPC and optionally receives inbound callbacks via executeUniversalTx(). No SDK required — pure on-chain.",
@@ -100,6 +105,7 @@
     },
     {
       "id": "track-transaction",
+      "category": "core-execution",
       "name": "Track Universal Transaction",
       "file": "agents/workflows/track-transaction.md",
       "purpose": "Track or resume monitoring a universal transaction by hash — works independently of sendTransaction, across chains and sessions.",
@@ -120,6 +126,7 @@
     },
     {
       "id": "sign-universal-message",
+      "category": "contracts",
       "name": "Sign Universal Message",
       "file": "agents/workflows/sign-universal-message.md",
       "purpose": "Sign an arbitrary message using the UniversalSigner for off-chain verification.",
@@ -137,6 +144,7 @@
     },
     {
       "id": "read-blockchain-state",
+      "category": "reading-utilities",
       "name": "Read Blockchain State",
       "file": "agents/workflows/read-blockchain-state.md",
       "purpose": "Query Push Chain on-chain data using standard ethers/viem — no SDK needed. Push Chain is 100% EVM-compatible (Chain ID 42101, RPC https://evm.donut.rpc.push.org/).",
@@ -158,6 +166,7 @@
     },
     {
       "id": "connect-wallet-ui-kit",
+      "category": "frontend",
       "name": "Connect Wallet via UI Kit",
       "file": "agents/workflows/connect-wallet-ui-kit.md",
       "purpose": "Use PushUniversalWalletProvider to enable wallet connection in React apps.",
@@ -175,6 +184,7 @@
     },
     {
       "id": "use-universal-wallet-provider",
+      "category": "frontend",
       "name": "Use Universal Wallet Provider",
       "file": "agents/workflows/use-universal-wallet-provider.md",
       "purpose": "Configure PushUniversalWalletProvider with custom options and theme overrides.",
@@ -192,6 +202,7 @@
     },
     {
       "id": "initialize-evm-client",
+      "category": "reading-utilities",
       "name": "Initialize EVM Client",
       "file": "agents/workflows/initialize-evm-client.md",
       "purpose": "Set up an Ethers.js or Viem client for direct RPC interactions with Push Chain.",
@@ -209,6 +220,7 @@
     },
     {
       "id": "use-contract-helpers",
+      "category": "reading-utilities",
       "name": "Use Contract Helpers (IUEAFactory)",
       "file": "agents/workflows/use-contract-helpers.md",
       "purpose": "Query IUEAFactory (0x00000000000000000000000000000000000000eA) to identify cross-chain callers (getOriginForUEA) or derive a deterministic UEA address for any external wallet (getUEAForOrigin). Works on-chain (Solidity) and off-chain (ethers.js).",
@@ -227,6 +239,7 @@
     },
     {
       "id": "use-utility-functions",
+      "category": "reading-utilities",
       "name": "Use Utility Functions",
       "file": "agents/workflows/use-utility-functions.md",
       "purpose": "Leverage SDK utilities for account conversion, unit parsing, and address formatting.",
@@ -245,6 +258,7 @@
     },
     {
       "id": "constants-reference",
+      "category": "reading-utilities",
       "name": "Constants Reference",
       "file": "agents/workflows/constants-reference.md",
       "purpose": "Reference all SDK constants including chain identifiers, networks, and token enums.",
@@ -262,6 +276,7 @@
     },
     {
       "id": "deploy-push-chain-contract",
+      "category": "contracts",
       "name": "Deploy Smart Contract to Push Chain",
       "file": "agents/workflows/deploy-push-chain-contract.md",
       "purpose": "Compile and deploy a Solidity contract to Push Chain Donut Testnet using Foundry or Hardhat. Push Chain is 100% EVM-compatible (Chain ID 42101, RPC https://evm.donut.rpc.push.org/).",
@@ -280,6 +295,7 @@
     },
     {
       "id": "configure-dev-environment",
+      "category": "setup",
       "name": "Configure Development Environment",
       "file": "agents/workflows/configure-dev-environment.md",
       "purpose": "Install SDK packages and configure tooling for Push Chain development.",
