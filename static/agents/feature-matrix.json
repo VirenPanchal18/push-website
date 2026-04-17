@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated": "2026-04-16T00:00:00.000Z",
+  "generated": "2026-04-17T04:23:42.400Z",
   "description": "Feature availability matrix by actor type",
   "legend": {
     "true": "Fully supported for this actor type",
