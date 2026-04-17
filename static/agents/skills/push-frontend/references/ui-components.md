@@ -123,22 +123,69 @@ Place it anywhere inside `<PushUniversalWalletProvider>`. No required props.
 >
 ```
 
-Key variables:
+**Global overrides** — apply regardless of theme:
 
-| Variable | Description |
-|---|---|
-| `--pw-core-brand-primary-color` | Brand accent |
-| `--pw-core-bg-primary-color` | Modal / page background |
-| `--pw-core-bg-secondary-color` | Surface / card background |
-| `--pw-core-text-primary-color` | Primary text |
-| `--pw-core-modal-border-radius` | Modal corner radius (default `24px`) |
-| `--pw-core-modal-width` | Modal width (default `376px`) |
-| `--pwauth-btn-connect-bg-color` | Connect button background |
-| `--pwauth-btn-connect-text-color` | Connect button text |
-| `--pwauth-btn-connected-bg-color` | Connected button background (default `#000`) |
-| `--pwauth-btn-connect-border-radius` | Connect button radius (default `12px`) |
+| Category | Variable | Default |
+|---|---|---|
+| Typography | `--pw-core-font-family` | `FK Grotesk Neu` |
+| Typography | `--pw-core-text-size` | `26px` |
+| Spacing | `--pw-core-list-spacing` | `12px` |
+| Border | `--pw-core-modal-border` | `2px` |
+| Border | `--pw-core-modal-border-radius` | `24px` |
+| Layout | `--pw-core-modal-width` | `376px` |
+| Layout | `--pw-core-modal-padding` | `24px` |
+| Border | `--pw-core-btn-border-radius` | `12px` |
+| Border | `--pwauth-btn-connect-border-radius` | `12px` |
+
+**Color variables** — different defaults per theme:
+
+| Variable | Light | Dark |
+|---|---|---|
+| `--pw-core-brand-primary-color` | `#D548EC` | `#CF59E2` |
+| `--pw-core-text-primary-color` | `#17181B` | `#F5F6F8` |
+| `--pw-core-text-secondary-color` | `#313338` | `#C4CBD5` |
+| `--pw-core-text-tertiary-color` | `#8C93A0` | `#757D8D` |
+| `--pw-core-text-link-color` | `#C742DD` | `#CF59E2` |
+| `--pw-core-text-disabled-color` | `#B0B3B9` | `#757D8D` |
+| `--pw-core-bg-primary-color` | `#F5F6F8` | `#17181B` |
+| `--pw-core-bg-secondary-color` | `#FFFFFF` | `#202124` |
+| `--pw-core-bg-tertiary-color` | `#EAEBF2` | `#313338` |
+| `--pw-core-bg-disabled-color` | `#EAEBF2` | `#313338` |
+| `--pw-core-success-primary-color` | `#00A47F` | `#51DCBD` |
+| `--pw-core-error-primary-color` | `#D43B3B` | `#FFB1B1` |
+| `--pw-core-modal-border-color` | `#CF59E2` | `#D548EC` |
+| `--pw-core-btn-primary-bg-color` | `#D548EC` | `#D548EC` |
+| `--pw-core-btn-primary-text-color` | `#FFFFFF` | `#FFFFFF` |
+| `--pwauth-btn-connect-text-color` | `#FFFFFF` | `#FFFFFF` |
+| `--pwauth-btn-connect-bg-color` | `#D548EC` | `#D548EC` |
+| `--pwauth-btn-connected-text-color` | `#FFFFFF` | `#FFFFFF` |
+| `--pwauth-btn-connected-bg-color` | `#000000` | `#000000` |
 
 > `--pwauth-*` variables can also be overridden per button via `PushUniversalAccountButton.themeOverrides`.
+
+### Advanced CSS — className overrides
+
+When CSS variables aren't granular enough (gradients, animations, box-shadow, pseudo-elements), use `connectButtonClassName` and `connectedButtonClassName` to attach your own classes:
+
+```tsx
+<PushUniversalAccountButton
+  connectButtonClassName="my-connect-btn"
+  connectedButtonClassName="my-connected-btn"
+/>
+```
+
+```css
+.my-connect-btn {
+  background: linear-gradient(90deg, #3459F0, #8B5CF6);
+  border-radius: 999px;
+}
+.my-connected-btn {
+  border: 2px solid #3459F0;
+  background: transparent;
+}
+```
+
+> `themeOverrides` (`--pwauth-*`) still applies alongside `className`. Your class styles layer on top via standard CSS specificity.
 
 ## PushUI.CONSTANTS Reference
 
@@ -152,6 +199,13 @@ PushUI.CONSTANTS.THEME.DARK                        // dark theme mode
 PushUI.CONSTANTS.LOGIN.LAYOUT.SPLIT                // modal login layout
 PushUI.CONSTANTS.CONNECTED.LAYOUT.HOVER            // modal connected layout
 ```
+
+## See Also
+
+- Theme variables (full variable list with defaults): https://push.org/agents/workflows/theme-variables.md
+- Connect wallet (full setup workflow): https://push.org/agents/workflows/connect-wallet-ui-kit.md
+- Universal wallet provider hooks: https://push.org/agents/workflows/use-universal-wallet-provider.md
+- Constants (CONNECTION.STATUS, PUSH_NETWORK): https://push.org/agents/workflows/constants-reference.md
 
 ## Docs
 

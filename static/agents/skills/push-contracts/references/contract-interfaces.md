@@ -134,9 +134,9 @@ const ugpc = new ethers.Contract(
   wallet
 );
 
-// UniversalCore — read-only (use address from address book)
+// UniversalCore — read-only
 const universalCore = new ethers.Contract(
-  '<address-from-address-book>',
+  '0x00000000000000000000000000000000000000C0',
   [
     'function gasPriceByChainNamespace(string) view returns (uint256)',
     'function chainHeightByChainNamespace(string) view returns (uint256)',
@@ -178,7 +178,7 @@ function executeUniversalTx(
 
 ## Source
 
-- IUEAFactory: https://github.com/pushchain/push-chain-core-contracts/blob/audit-main/src/Interfaces/IUEAFactory.sol
-- UGPC: https://github.com/pushchain/push-chain-gateway-contracts/blob/audit-main-fixes/contracts/evm-gateway/src/UniversalGatewayPC.sol
-- UniversalCore: https://github.com/pushchain/push-chain-core-contracts/blob/audit-main/src/UniversalCore.sol
-- Address book: https://push.org/docs/chain/setup/smart-contract-address-book/
+- IUEAFactory: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/Interfaces/IUEAFactory.sol
+- UGPC: https://github.com/pushchain/push-chain-gateway-contracts/blob/main/contracts/evm-gateway/src/UniversalGatewayPC.sol
+- UniversalCore: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/UniversalCore.sol
+- Address book: https://push.org/agents/contract-addresses.json

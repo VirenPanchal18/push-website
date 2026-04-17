@@ -274,7 +274,7 @@
         "description": "Emits cross-chain event; response arrives via executeUniversalTx() inbound callback"
       }
     ],
-    "sdk_method": "Solidity: IUniversalGatewayPC(0x...C1).sendUniversalTxOutbound(req) / executeUniversalTx(sourceChain, cea, payload, amount, prc20, txId)",
+    "sdk_method": "Solidity: IUniversalGatewayPC(0x00000000000000000000000000000000000000C1).sendUniversalTxOutbound(req) / executeUniversalTx(sourceChain, cea, payload, amount, prc20, txId)",
     "auth_required": true,
     "safe_for_autonomous_execution": false,
     "mcp_candidate": false,
@@ -284,31 +284,62 @@
   {
     "id": "track_transaction",
     "name": "Track Universal Transaction",
-    "description": "Monitors transaction status across chains using progress events and explorer URLs.",
+    "description": "Resumes tracking any universal transaction by hash and origin chain. Works independently of sendTransaction — use for session restore, backend polling, or monitoring any stored tx hash.",
     "actor": ["developer", "end_user", "agent", "backend", "browser_agent"],
     "operation": "tracking",
-    "prerequisites": ["transaction_submitted"],
+    "prerequisites": ["push_chain_client_initialized"],
     "inputs": [
       {
         "name": "txHash",
         "type": "string",
         "required": true,
-        "description": "Transaction hash to track"
+        "description": "Transaction hash or signature on the origin chain"
+      },
+      {
+        "name": "options.chain",
+        "type": "CHAIN",
+        "required": false,
+        "description": "Chain where tx was originally submitted. Defaults to CHAIN.PUSH_TESTNET_DONUT"
+      },
+      {
+        "name": "options.progressHook",
+        "type": "(event: ProgressEvent) => void",
+        "required": false,
+        "description": "Callback invoked at each tracking step"
+      },
+      {
+        "name": "options.waitForCompletion",
+        "type": "boolean",
+        "required": false,
+        "description": "true = wait for confirmation (default); false = return after first status check"
+      },
+      {
+        "name": "options.advanced.pollingIntervalMs",
+        "type": "number",
+        "required": false,
+        "description": "Poll interval in ms (default 2000, min 500)"
+      },
+      {
+        "name": "options.advanced.timeout",
+        "type": "number",
+        "required": false,
+        "description": "Max wait ms before timeout error (default 60000)"
+      },
+      {
+        "name": "options.advanced.rpcUrls",
+        "type": "Partial<Record<CHAIN, string[]>>",
+        "required": false,
+        "description": "Custom RPC URLs for status queries"
       }
     ],
     "outputs": [
       {
-        "name": "explorerUrl",
-        "type": "string",
-        "description": "Block explorer URL for the transaction"
-      },
-      {
-        "name": "status",
-        "type": "TransactionStatus",
-        "description": "Current transaction status"
+        "name": "response",
+        "type": "UniversalTxResponse",
+        "description": "Same shape as sendTransaction response — latest resolved state including Push Chain and external-chain details"
       }
     ],
-    "sdk_method": "pushChainClient.explorer.getTransactionUrl(txHash)",
+    "sdk_method": "pushChainClient.universal.trackTransaction(txHash, options)",
     "auth_required": false,
     "safe_for_autonomous_execution": true,
     "mcp_candidate": true,

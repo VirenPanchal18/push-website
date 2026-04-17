@@ -259,6 +259,13 @@
           "safe_for_autonomous_execution": false
         },
         {
+          "name": "trackTransaction",
+          "signature": "pushChainClient.universal.trackTransaction(txHash: string, options?: { chain?: CHAIN, progressHook?: (event: ProgressEvent) => void, waitForCompletion?: boolean, advanced?: { pollingIntervalMs?: number, timeout?: number, rpcUrls?: Partial<Record<CHAIN, string[]>> } }): Promise<UniversalTxResponse>",
+          "description": "Resumes tracking any universal transaction by hash and origin chain. Works independently of sendTransaction — pass any stored hash. Defaults chain to PUSH_TESTNET_DONUT. Set waitForCompletion:false for a snapshot status check without waiting.",
+          "returns": "UniversalTxResponse",
+          "safe_for_autonomous_execution": true
+        },
+        {
           "name": "signMessage",
           "signature": "pushChainClient.universal.signMessage(message: Uint8Array): Promise<Uint8Array>",
           "description": "Signs arbitrary message bytes",
