@@ -191,10 +191,11 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 ## Changelog
 
-> Machine-readable version: [changelog.json](https://push.org/agents/changelog.json)
+> Full history: [changelog.json](https://push.org/agents/changelog.json)
 
+- **2026-04-17 v1.0.3** — push-backend SKILL.md 16-issue audit pass: moved Read Blockchain State section earlier; fixed `formatUnits` arg name and `trackTransaction` default chain constant; expanded Route 3 with CEA explanation + vault flow diagram; added read-only ⚠️ warning, try/catch + `errors.json` link, security comments on key loading, `encodeTxData` bigint example, `initialTxResponse` disambiguation, `orchestrator` internal note, multicall constraint note, and Contract Helpers off-chain cross-ref. Propagated all fixes to matching workflows (`send-universal-transaction`, `send-multichain-transaction`, `track-transaction`, `initialize-client`, `create-universal-signer`, `use-utility-functions`, `use-contract-helpers`).
+- **2026-04-17 v1.0.2** — push-frontend SKILL.md full rewrite: merged duplicate Hooks sections; added canonical guard pattern; fixed `usePushChain()` description; enumerated `connectionStatus` values; rewrote Route 3 / cascade examples; fixed `signMessage` Uint8Array; added SSR warning; replaced imaginary components with concrete HTML; added Common Mistakes table.
 - **2026-04-17 v1.0.1** — Added `## Common Mistakes` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.
-- **2026-04-17 v1.0.0** — Pinned SDK versions (`@pushchain/core@5.1.4`, `@pushchain/ui-kit@5.2.2`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added `## Minimal Example`. Grouped canonical workflows by category. `contract-addresses.json` designated as authoritative address source.
 
 ## Background Reading
 

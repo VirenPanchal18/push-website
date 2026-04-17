@@ -30,7 +30,7 @@ Works independently of `sendTransaction()`. Pass any previously stored hash and 
 | Argument | Type | Default | Description |
 |---|---|---|---|
 | `txHash` | `string` | — | Transaction hash/signature on the origin chain |
-| `options.chain` | `CHAIN` | `CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted |
+| `options.chain` | `CHAIN` | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted |
 | `options.progressHook` | `(event: ProgressEvent) => void` | `undefined` | Callback at each tracking step (same shape as `sendTransaction`) |
 | `options.waitForCompletion` | `boolean` | `true` | `true` = wait for confirmation; `false` = return after first status check |
 

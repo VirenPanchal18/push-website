@@ -11,6 +11,8 @@ Interact with Push Chain's deployed helper contracts — primarily the `UEAFacto
 - Off-chain scripts: resolving which Push Chain address belongs to a given external wallet
 - Computing the deterministic UEA address for a given external account before deployment
 
+> For **off-chain** UEA/CEA derivation from TypeScript (backend scripts, frontend), use `PushChain.utils.account.deriveExecutorAccount(universalAccount, options?)` — no contract interaction needed. See [Use Utility Functions](https://push.org/agents/workflows/use-utility-functions.md). The UEAFactory below is for **on-chain Solidity** identity resolution.
+
 ## Prerequisites
 
 | Requirement | Details |

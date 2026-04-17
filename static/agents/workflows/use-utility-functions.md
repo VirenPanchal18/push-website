@@ -37,13 +37,12 @@ Leverage the `PushChain.utils` namespace for common operations: unit parsing, ac
 
 **Returns**: `bigint` — e.g. `1500000000000000000n`
 
-### `formatUnits(value, options)` → `string`
+### `formatUnits(value, decimals)` → `string`
 
 | Argument | Type | Description |
 |---|---|---|
 | `value` | `bigint \| string` | Raw amount in smallest units |
-| `options.decimals` | `number` | Decimal places to scale by |
-| `options.precision` | `number` _(optional)_ | Round output to this many decimal places |
+| `decimals` | `number \| { decimals: number; precision?: number }` | Decimal places; pass an object to also round to `precision` places |
 
 **Returns**: `string` — e.g. `'1.5'`, `'100.50'`
 
@@ -58,6 +57,11 @@ Encodes smart contract calldata — no viem or ethers needed.
 | `args` | `any[]` _(optional)_ | Arguments, default `[]` |
 
 **Returns**: `string` — hex-encoded calldata, e.g. `'0xd09de08a'`
+
+```typescript
+PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0xabc...', 1000n] })
+// args follow ABI types — use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
+```
 
 ---
 

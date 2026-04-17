@@ -39,6 +39,54 @@ Push Chain is **100% EVM-compatible**. Any ethers.js or viem code that targets E
 
 ---
 
+## Read Blockchain State
+
+For read-only queries — transactions, blocks, balances, contract view calls, WebSocket subscriptions — no Push Chain SDK needed. Use standard ethers or viem pointed at the Push Chain RPC above.
+
+### Initialize (ethers)
+
+```ts
+import { ethers } from 'ethers';
+
+const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
+const tx = await provider.getTransaction('0x...');
+const block = await provider.getBlock('latest');
+const bal = await provider.getBalance('0xAddress');
+```
+
+### Initialize (viem)
+
+```ts
+import { createPublicClient, http } from 'viem';
+
+const client = createPublicClient({
+  transport: http('https://evm.donut.rpc.push.org/'),
+});
+const block = await client.getBlock();
+const bal = await client.getBalance({ address: '0xAddress' });
+```
+
+### WebSocket (real-time block subscription)
+
+```ts
+// ethers
+const ws = new ethers.WebSocketProvider('wss://evm.donut.rpc.push.org');
+ws.on('block', (n) => console.log('New block:', n));
+
+// viem
+import { createPublicClient, webSocket } from 'viem';
+const wsClient = createPublicClient({
+  transport: webSocket('wss://evm.donut.rpc.push.org'),
+});
+const stop = wsClient.watchBlocks({
+  onBlock: (b) => console.log('New block:', b.number),
+});
+```
+
+Full reference: https://push.org/agents/workflows/read-blockchain-state.md
+
+---
+
 ## Universal Origin — Send from Any Chain
 
 Universal transactions can originate from **any supported chain** — Push Chain, Ethereum, Solana, BNB, Arbitrum, Base, or any supported chain. The user's wallet stays on their home chain; Push Chain routes execution transparently.
@@ -58,6 +106,7 @@ const provider = new ethers.JsonRpcProvider(
 // Origin chain = BNB Testnet (BNB RPC)
 // const provider = new ethers.JsonRpcProvider('https://data-seed-prebsc-1-s1.binance.org:8545/');
 
+// Never hardcode — load from env; never log the key
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
 const universalSigner = await PushChain.utils.signer.toUniversal(wallet);
 ```
@@ -67,6 +116,7 @@ For Solana, explicitly pass the chain and library:
 ```ts
 import { Keypair } from '@solana/web3.js';
 
+// Never hardcode — load from env; never log the key or the raw buffer
 const solKeypair = Keypair.fromSecretKey(
   Uint8Array.from(JSON.parse(process.env.SOLANA_KEY!))
 );
@@ -74,7 +124,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
   solKeypair,
   {
     chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
+    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // SOLANA_WEB3JS is the only LIBRARY constant for toUniversalFromKeypair — see https://push.org/agents/workflows/constants-reference.md for all LIBRARY values
   }
 );
 ```
@@ -121,7 +171,9 @@ const client = await PushChain.initialize(universalSigner, {
 });
 ```
 
-**Read-only** — pass a `UniversalAccount` (no private key). `sendTransaction` / `signMessage` will throw; `universal.account`, `universal.origin`, and `explorer.*` still work:
+> ⚠️ Passing a `UniversalAccount` creates a **read-only client**. Calling `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions` will throw. Use `UniversalSigner` for any write operation.
+
+**Read-only** — pass a `UniversalAccount` (no private key). `universal.account`, `universal.origin`, and `explorer.*` still work:
 
 ```ts
 const account = PushChain.utils.account.toUniversal('0xAddress', {
@@ -156,6 +208,8 @@ const status = await client.getAccountStatus();
 ```
 
 > **UI Kit (frontend):** `PushChain.initialize` is called automatically by `PushUniversalWalletProvider`. Use `usePushChainClient()` to access the ready client — no manual initialization needed.
+
+> `client.orchestrator` is reserved for internal SDK use (RPC resolution, UEA management, gas orchestration) — do not call methods on it directly.
 
 > **Reading blockchain state** does NOT require `@pushchain/core`. Use ethers.js or viem directly with the Push Chain RPC `https://evm.donut.rpc.push.org/`. The `PushChainClient` is for **sending and signing universal transactions** — not general-purpose EVM reads.
 
@@ -285,7 +339,9 @@ User → Push vault
 
 ### Multicall — Batch Multiple Calls
 
-Pass an array to `tx.data` and set `tx.to` to the zero address. External origin only.
+Pass an array to `tx.data` and set `tx.to` to the zero address. The zero-address target signals multicall mode to the SDK; individual call targets are in the `data` array.
+
+> **External-chain origin only.** Push-native senders cannot use multicall and the SDK will throw. Ensure the signer's origin is an external chain when using this pattern.
 
 ```ts
 await client.universal.sendTransaction({
@@ -317,6 +373,8 @@ await client.universal.sendTransaction({
 | `maxFeePerGas`         | `bigint`                                 | EIP-1559 max fee                           |
 | `maxPriorityFeePerGas` | `bigint`                                 | EIP-1559 priority fee                      |
 | `wait()`               | `(confirmations?) => Promise<TxReceipt>` | Wait for on-chain confirmation             |
+
+> External chain fields (`externalTxHash`, `externalChain`, `externalExplorerUrl`) are only available on `TxReceipt` after `tx.wait()` — not on the initial `TxResponse`.
 
 ### TxReceipt (from `await tx.wait()`)
 
@@ -404,14 +462,14 @@ console.log('All complete:', result.success);
 
 **`CascadedTxResponse` shape:**
 
-| Property            | Type                               | Description                                     |
-| ------------------- | ---------------------------------- | ----------------------------------------------- |
-| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction  |
-| `initialTxResponse` | `TxResponse`                       | Full `TxResponse` for the initial Push Chain tx |
-| `hops`              | `CascadeHopInfo[]`                 | All hops with routing and status                |
-| `hopCount`          | `number`                           | Total hop count                                 |
-| `wait(opts?)`       | `Promise<CascadeCompletionResult>` | Wait for all hops to confirm                    |
-| `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `wait`                                |
+| Property            | Type                               | Description                                                                                                 |
+| ------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction — use this to reference it downstream                        |
+| `initialTxResponse` | `TxResponse`                       | Full `TxResponse` for the coordinating Push Chain tx — use this when you need nonce, gas, or block metadata |
+| `hops`              | `CascadeHopInfo[]`                 | All hops with routing and status                                                                            |
+| `hopCount`          | `number`                           | Total hop count                                                                                             |
+| `wait(opts?)`       | `Promise<CascadeCompletionResult>` | Wait for all hops to confirm                                                                                |
+| `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `wait`                                                                                            |
 
 **`CascadeHopInfo` per hop:**
 
@@ -438,15 +496,15 @@ console.log('All complete:', result.success);
 
 Use this to re-check progress of a previously submitted transaction — after a page refresh, from a backend poller, or for any tx hash retrieved from storage. Works for transactions that originated on Push Chain **or** any external chain.
 
-| Argument                             | Type                               | Default                    | Description                                                               |
-| ------------------------------------ | ---------------------------------- | -------------------------- | ------------------------------------------------------------------------- |
-| `txHash`                             | `string`                           | —                          | Hash/signature of the transaction on its origin chain                     |
-| `options.chain`                      | `CHAIN`                            | `CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted                               |
-| `options.progressHook`               | `(event) => void`                  | `undefined`                | Progress callback (same shape as `sendTransaction`)                       |
-| `options.waitForCompletion`          | `boolean`                          | `true`                     | `true` = wait for confirmation; `false` = return after first status check |
-| `options.advanced.pollingIntervalMs` | `number`                           | `2000`                     | Poll interval in ms (min `500`)                                           |
-| `options.advanced.timeout`           | `number`                           | `60000`                    | Max wait ms before timeout error                                          |
-| `options.advanced.rpcUrls`           | `Partial<Record<CHAIN, string[]>>` | `{}`                       | Custom RPC URLs for status queries                                        |
+| Argument                             | Type                               | Default                                        | Description                                                               |
+| ------------------------------------ | ---------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
+| `txHash`                             | `string`                           | —                                              | Hash/signature of the transaction on its origin chain                     |
+| `options.chain`                      | `CHAIN`                            | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted                               |
+| `options.progressHook`               | `(event) => void`                  | `undefined`                                    | Progress callback (same shape as `sendTransaction`)                       |
+| `options.waitForCompletion`          | `boolean`                          | `true`                                         | `true` = wait for confirmation; `false` = return after first status check |
+| `options.advanced.pollingIntervalMs` | `number`                           | `2000`                                         | Poll interval in ms (min `500`)                                           |
+| `options.advanced.timeout`           | `number`                           | `60000`                                        | Max wait ms before timeout error                                          |
+| `options.advanced.rpcUrls`           | `Partial<Record<CHAIN, string[]>>` | `{}`                                           | Custom RPC URLs for status queries                                        |
 
 Returns the same `UniversalTxResponse` shape as `sendTransaction`.
 
@@ -472,12 +530,18 @@ const response2 = await client.universal.trackTransaction(
 After `sendTransaction`, call `.wait()` on the response:
 
 ```ts
-const tx = await client.universal.sendTransaction({
-  to: '0xRecipient',
-  value: 1n,
-});
-const receipt = await tx.wait();
-console.log(receipt.status === 1 ? 'success' : 'failed');
+try {
+  const tx = await client.universal.sendTransaction({
+    to: '0xRecipient',
+    value: 1n,
+  });
+  const receipt = await tx.wait();
+  if (receipt.status !== 1) throw new Error(`tx failed: ${receipt.hash}`);
+  console.log('success');
+} catch (e) {
+  // Error codes and recovery actions: https://push.org/agents/errors.json
+  console.error(e);
+}
 ```
 
 ---
@@ -505,15 +569,14 @@ Converts a human-readable token amount to its smallest unit.
 
 **Returns**: `bigint` — e.g. `1500000000000000000n`
 
-### `formatUnits(value, options)` → `string`
+### `formatUnits(value, decimals)` → `string`
 
 Converts a raw smallest-unit amount back to a human-readable string.
 
-| Argument            | Type                  | Description                              |
-| ------------------- | --------------------- | ---------------------------------------- |
-| `value`             | `bigint \| string`    | Raw amount in smallest units             |
-| `options.decimals`  | `number`              | Decimal places to scale by               |
-| `options.precision` | `number` _(optional)_ | Round output to this many decimal places |
+| Argument   | Type                                                 | Description                                                        |
+| ---------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
+| `value`    | `bigint \| string`                                   | Raw amount in smallest units                                       |
+| `decimals` | `number \| { decimals: number; precision?: number }` | Decimal places; pass an object to also round to `precision` places |
 
 **Returns**: `string` — e.g. `'1.5'`, `'100.50'`
 
@@ -528,6 +591,15 @@ Encodes smart contract calldata without needing viem or ethers.js.
 | `args`         | `any[]` _(optional)_ | Function arguments, default `[]` |
 
 **Returns**: `string` — hex-encoded calldata, e.g. `'0xd09de08a'`
+
+```ts
+PushChain.utils.helpers.encodeTxData({
+  abi,
+  functionName: 'transfer',
+  args: ['0xabc...', 1000n],
+});
+// args follow ABI types — use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
+```
 
 ---
 
@@ -615,6 +687,8 @@ Full reference: https://push.org/agents/workflows/use-utility-functions.md
 
 ## Contract Helpers
 
+> For **off-chain** UEA/CEA derivation from TypeScript, use `PushChain.utils.account.deriveExecutorAccount()` — see Utility Functions above. The UEAFactory below is for **on-chain Solidity** identity resolution. For the full Solidity contract pattern, see the `push-contracts` skill.
+
 ### UEAFactory — Identity Resolution On-Chain
 
 The Universal Executor Account Factory is deployed at a fixed address on Push Chain and lets your smart contract identify callers from external chains.
@@ -685,63 +759,6 @@ Copy these files into your project — self-contained and ready to run:
 | [`client-solana.ts`](https://push.org/agents/resources/push-backend/client-solana.ts) | Solana Keypair signer — Route 1 + svmExecute                      |
 
 > [Resource index](https://push.org/agents/resources/push-backend/index.json) — machine-readable file list
-
-## Read Blockchain State
-
-For read-only queries — transactions, blocks, balances, contract view calls, WebSocket subscriptions — no Push Chain SDK needed. Use standard ethers or viem pointed at the Push Chain RPC.
-
-### Push Chain Network Config
-
-|                    | Value                             |
-| ------------------ | --------------------------------- |
-| **HTTP RPC**       | `https://evm.donut.rpc.push.org/` |
-| **WebSocket RPC**  | `wss://evm.donut.rpc.push.org`    |
-| **Chain ID**       | `42101`                           |
-| **Block Explorer** | `https://donut.push.network`      |
-
-### Initialize (ethers)
-
-```ts
-import { ethers } from 'ethers';
-
-const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
-const tx = await provider.getTransaction('0x...');
-const block = await provider.getBlock('latest');
-const bal = await provider.getBalance('0xAddress');
-```
-
-### Initialize (viem)
-
-```ts
-import { createPublicClient, http } from 'viem';
-
-const client = createPublicClient({
-  transport: http('https://evm.donut.rpc.push.org/'),
-});
-const block = await client.getBlock();
-const bal = await client.getBalance({ address: '0xAddress' });
-```
-
-### WebSocket (real-time block subscription)
-
-```ts
-// ethers
-const ws = new ethers.WebSocketProvider('wss://evm.donut.rpc.push.org');
-ws.on('block', (n) => console.log('New block:', n));
-
-// viem
-import { createPublicClient, webSocket } from 'viem';
-const wsClient = createPublicClient({
-  transport: webSocket('wss://evm.donut.rpc.push.org'),
-});
-const stop = wsClient.watchBlocks({
-  onBlock: (b) => console.log('New block:', b.number),
-});
-```
-
-Full reference: https://push.org/agents/workflows/read-blockchain-state.md
-
----
 
 ## Extended Reference
 

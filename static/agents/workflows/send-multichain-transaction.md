@@ -88,18 +88,40 @@ Two patterns for cross-chain execution via Push Chain:
 
 ### Route 3: CEA-Origin to Push Chain
 
-Use this when you need Push Chain execution to reflect an external chain identity (e.g., returning from Ethereum interaction).
+Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
 
-1. **Specify from chain to set CEA as origin**
-   ```typescript
-   const txResponse = await pushChainClient.universal.sendTransaction({
-     from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
-     to: '0xContractOnPushChain',
-     data: calldata,
-   });
-   ```
+**Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
 
-2. **Result executes on Push Chain with Ethereum CEA as msg.sender**
+1. **Preserves identity** — your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
+2. **Isolates risk** — the CEA is a dedicated smart account, separate from your home wallet.
+3. **Enables payload execution** — the CEA is what actually holds assets and executes calldata on the external chain.
+
+**When to use Route 3.** Use it when you need to bring state or assets *back* to Push Chain from a CEA you’ve already deployed — because only the CEA can speak for what happened on that external chain.
+
+Example flow — a universal vault:
+
+1. Route 2: vault calls Aave on Ethereum via your **Ethereum CEA** to withdraw USDC.
+2. **Route 3**: vault moves withdrawn USDC from Ethereum CEA back to Push Chain — `msg.sender` on Push Chain is your Ethereum CEA.
+3. Route 2 again: Push Chain forwards to a Solana lending protocol via your **Solana CEA**.
+
+```typescript
+// Bring assets/state back from Ethereum CEA to Push Chain
+const txResponse = await pushChainClient.universal.sendTransaction({
+  from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }, // Ethereum CEA as origin
+  to: '0xVaultOnPushChain',
+  data: calldata,
+});
+// Inside 0xVaultOnPushChain: msg.sender === CEA(Ethereum Sepolia, userAddress)
+```
+
+```
+User → Push vault
+  Route 2 → Ethereum CEA → Aave (withdraw USDC)
+  Route 3 ← Ethereum CEA → Push vault (receive USDC, msg.sender = Ethereum CEA)
+  Route 2 → Solana CEA → Solana lending (deposit)
+```
+
+> Route 3 isn’t for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you’ve already deployed via prior Route 2 activity.
 
 ### With Progress Tracking
 
@@ -213,8 +235,8 @@ console.log('All complete:', result.success);
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction |
-| `initialTxResponse` | `UniversalTxResponse` | Full response for initial Push Chain tx |
+| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction — use this to reference it downstream |
+| `initialTxResponse` | `UniversalTxResponse` | Full response for the coordinating Push Chain tx — use this when you need nonce, gas, or block metadata |
 | `hops` | `CascadeHopInfo[]` | All hops with routing and status |
 | `hopCount` | `number` | Total hop count |
 | `wait(opts?)` | `Promise<CascadeCompletionResult>` | Waits for all hops to complete |

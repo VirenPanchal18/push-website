@@ -49,7 +49,8 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
 2. **Create provider and wallet**
    ```typescript
    const provider = new ethers.JsonRpcProvider('https://gateway.tenderly.co/public/sepolia');
-   const wallet = new ethers.Wallet('<PRIVATE_KEY>', provider);
+   // Never hardcode — load from env; never log the key
+   const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
    ```
 
 3. **Convert to UniversalSigner**
@@ -71,7 +72,8 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
 
 2. **Create wallet client**
    ```typescript
-   const account = privateKeyToAccount('<PRIVATE_KEY>');
+   // Never hardcode — load from env; never log the key
+   const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
    const walletClient = createWalletClient({
      account,
      chain: sepolia,
@@ -102,9 +104,11 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
    ```typescript
    const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(keypair, {
      chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-     library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
+     library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // SOLANA_WEB3JS is the relevant LIBRARY constant for toUniversalFromKeypair
    });
    ```
+
+> **Note:** All `LIBRARY` constants: see https://push.org/agents/workflows/constants-reference.md#library-constants
 
 ### Custom Signer (any wallet SDK)
 

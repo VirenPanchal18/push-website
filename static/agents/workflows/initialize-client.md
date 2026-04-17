@@ -43,7 +43,8 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 2. **Create or obtain the ethers signer**
    ```typescript
    const provider = new ethers.JsonRpcProvider('https://gateway.tenderly.co/public/sepolia');
-   const wallet = new ethers.Wallet('<PRIVATE_KEY>', provider);
+   // Never hardcode — load from env; never log the key
+   const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
    // Or: const signer = provider.getSigner(); // for browser wallets
    ```
 
@@ -77,7 +78,8 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 2. **Create wallet client**
    ```typescript
-   const account = privateKeyToAccount('<PRIVATE_KEY>');
+   // Never hardcode — load from env; never log the key
+   const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
    const walletClient = createWalletClient({
      account,
      chain: sepolia,
@@ -128,6 +130,8 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 ### Read-Only Mode (No Signing)
 
+> ⚠️ Passing a `UniversalAccount` creates a **read-only client**. Calling `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions` will throw. Use `UniversalSigner` for any write operation.
+
 1. **Create UniversalAccount object**
    ```typescript
    const universalAccount = {
@@ -147,6 +151,7 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 ```typescript
 // PushChainClient object structure
+// Note: client.orchestrator is reserved for internal SDK use — do not call methods on it directly
 {
   orchestrator: Orchestrator { ... },
   universalSigner: {

@@ -2,6 +2,50 @@
   "schema_version": "1.0.0",
   "entries": [
     {
+      "date": "2026-04-17T17:00:00.000Z",
+      "version": "1.0.3",
+      "changes": [
+        "push-backend SKILL.md: moved Read Blockchain State section to immediately after EVM Compatible (fixes agent context-window retrieval ordering)",
+        "push-backend SKILL.md: added ⚠️ read-only client callout near PushChain.initialize read-only block",
+        "push-backend SKILL.md: fixed trackTransaction default chain from bare CHAIN.PUSH_TESTNET_DONUT to fully-qualified PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT",
+        "push-backend SKILL.md: fixed formatUnits argument name from options.decimals/options.precision to decimals: number | { decimals, precision? }",
+        "push-backend SKILL.md: expanded Route 3 section with CEA explanation, universal vault flow, and ASCII diagram",
+        "push-backend SKILL.md: added TxResponse note — external chain fields only available on TxReceipt after tx.wait()",
+        "push-backend SKILL.md: expanded CascadedTxResponse table — initialTxHash vs initialTxResponse disambiguation",
+        "push-backend SKILL.md: added try/catch + errors.json link to tx.wait() example",
+        "push-backend SKILL.md: added security comments on PRIVATE_KEY and SOLANA_KEY env var loading",
+        "push-backend SKILL.md: added encodeTxData bigint args example with TypeScript strictness note",
+        "push-backend SKILL.md: added Contract Helpers cross-ref to deriveExecutorAccount for off-chain usage",
+        "push-backend SKILL.md: added client.orchestrator is internal SDK note",
+        "push-backend SKILL.md: added multicall zero-address explanation and External-chain-origin-only constraint",
+        "push-backend SKILL.md: fixed LIBRARY comment — SOLANA_WEB3JS is for toUniversalFromKeypair; link to constants-reference.md",
+        "push-frontend SKILL.md: expanded Route 3 section with full CEA explanation, vault flow, and diagram",
+        "push-frontend SKILL.md: fixed install block — moved CLI comments out of code fence into blockquote",
+        "push-frontend SKILL.md: replaced imaginary <ErrorBanner>/<Spinner> in guard pattern with concrete HTML elements",
+        "push-frontend SKILL.md: added usePushChain hook-vs-direct-import note",
+        "workflows/use-utility-functions.md: fixed formatUnits arg name; added encodeTxData bigint example",
+        "workflows/track-transaction.md: fixed CHAIN.PUSH_TESTNET_DONUT to fully-qualified path",
+        "workflows/send-multichain-transaction.md: expanded Route 3 section with CEA explanation, vault flow, diagram; fixed initialTxResponse note",
+        "workflows/send-universal-transaction.md: added try/catch + receipt.status check + errors.json link to basic send example",
+        "workflows/initialize-client.md: added ⚠️ read-only warning; updated PRIVATE_KEY placeholders to process.env; added orchestrator internal note",
+        "workflows/create-universal-signer.md: updated PRIVATE_KEY placeholders to process.env; added LIBRARY constants link",
+        "workflows/use-contract-helpers.md: added cross-ref to deriveExecutorAccount for off-chain use"
+      ],
+      "files_affected": [
+        "static/agents/skills/push-backend/SKILL.md",
+        "static/agents/skills/push-frontend/SKILL.md",
+        "static/agents/workflows/use-utility-functions.md",
+        "static/agents/workflows/track-transaction.md",
+        "static/agents/workflows/send-multichain-transaction.md",
+        "static/agents/workflows/send-universal-transaction.md",
+        "static/agents/workflows/initialize-client.md",
+        "static/agents/workflows/create-universal-signer.md",
+        "static/agents/workflows/use-contract-helpers.md",
+        "static/agents/changelog.json"
+      ],
+      "trigger": "16-issue audit pass — push-backend SKILL.md + propagation to workflows"
+    },
+    {
       "date": "2026-04-17T07:20:00.000Z",
       "version": "1.0.2",
       "changes": [

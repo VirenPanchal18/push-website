@@ -59,17 +59,20 @@ Execute a transaction on Push Chain from any origin wallet (EVM or non-EVM), wit
    // Or directly: BigInt('100000000000000000')
    ```
 
-3. **Send the transaction**
+3. **Send the transaction with error handling**
    ```typescript
-   const txResponse = await pushChainClient.universal.sendTransaction({
-     to: recipientAddress,
-     value: valueInUPC,
-   });
-   ```
-
-4. **Extract transaction hash**
-   ```typescript
-   console.log('Transaction hash:', txResponse.hash);
+   try {
+     const txResponse = await pushChainClient.universal.sendTransaction({
+       to: recipientAddress,
+       value: valueInUPC,
+     });
+     const receipt = await txResponse.wait();
+     if (receipt.status !== 1) throw new Error(`tx failed: ${receipt.hash}`);
+     console.log('Transaction hash:', receipt.hash);
+   } catch (e) {
+     // Error codes and recovery actions: https://push.org/agents/errors.json
+     console.error(e);
+   }
    ```
 
 ### Contract Call
