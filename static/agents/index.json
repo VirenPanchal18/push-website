@@ -1,7 +1,7 @@
 {
   "description": "Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains. Users sign from any wallet; the SDK handles cross-chain routing, UEA resolution, and fee abstraction automatically.",
   "version": "1.0.0",
-  "generated": "2026-04-12T23:24:07.649Z",
+  "generated": "2026-04-17T04:23:42.400Z",
   "start_here": {
     "developer": "agents/workflows/send-universal-transaction.md",
     "agent": "agents/capabilities.json",

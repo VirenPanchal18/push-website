@@ -183,9 +183,9 @@ Explorer:  https://donut.push.network/address/0xDeployedContractAddress
 
 ## See Also
 
-- [Configure Development Environment](configure-dev-environment.md)
-- [Contract-Initiated Multichain Execution](contract-initiated-multichain-execution.md)
-- [Use Contract Helpers (IUEAFactory)](use-contract-helpers.md)
-- [Skill reference](../skills/push-contracts/SKILL.md)
-- [Downloadable Foundry config](../../resources/push-contracts/foundry.toml)
-- [Deploy script](../skills/push-contracts/scripts/deploy.sh)
+- [Configure Development Environment](https://push.org/agents/workflows/configure-dev-environment.md)
+- [Contract-Initiated Multichain Execution](https://push.org/agents/workflows/contract-initiated-multichain-execution.md)
+- [Use Contract Helpers (IUEAFactory)](https://push.org/agents/workflows/use-contract-helpers.md)
+- [Skill reference](https://push.org/agents/skills/push-contracts/SKILL.md)
+- [Downloadable Foundry config](https://push.org/agents/resources/push-contracts/foundry.toml)
+- [Deploy script](https://push.org/agents/skills/push-contracts/scripts/deploy.sh)
