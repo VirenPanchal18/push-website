@@ -1,6 +1,7 @@
 {
   "description": "Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains. Users sign from any wallet; the SDK handles cross-chain routing, UEA resolution, and fee abstraction automatically.",
   "version": "1.0.0",
+  "sdk_version": { "@pushchain/core": "5.1.4", "@pushchain/ui-kit": "5.2.2" },
   "generated": "2026-04-17T04:23:42.400Z",
   "start_here": {
     "developer": "agents/workflows/send-universal-transaction.md",
@@ -166,6 +167,11 @@
     {
       "path": "agents/workflows/contract-initiated-multichain-execution.md",
       "purpose": "Workflow for triggering cross-chain execution from a Push Chain smart contract",
+      "type": "workflow"
+    },
+    {
+      "path": "agents/workflows/deploy-push-chain-contract.md",
+      "purpose": "Workflow for compiling and deploying Solidity contracts to Push Chain Donut Testnet using Foundry or Hardhat",
       "type": "workflow"
     },
     {

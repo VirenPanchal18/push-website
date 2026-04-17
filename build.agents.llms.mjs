@@ -23,6 +23,13 @@ const RESOURCES_INDEX_PATH = path.join(AGENTS_DIR, 'resources', 'index.json');
 const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
 
+const SDK_VERSIONS = {
+  core: '5.1.4',
+  uiKit: '5.2.2',
+};
+const AGENT_LAYER_VERSION = '1.0.0';
+const AGENT_LAYER_DATE = '2026-04-17';
+
 // Hardcoded fallback workflow stubs when agents/ hasn't been generated yet
 const FALLBACK_WORKFLOWS = [
   {
@@ -159,6 +166,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     '> Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.'
   );
   lines.push('');
+  lines.push(
+    `> **Agent layer:** v${AGENT_LAYER_VERSION} | Last updated: ${AGENT_LAYER_DATE} | SDK: \`@pushchain/core@${SDK_VERSIONS.core}\` · \`@pushchain/ui-kit@${SDK_VERSIONS.uiKit}\` | Network: Donut Testnet (Mainnet not yet launched)`
+  );
+  lines.push('');
 
   // ── Who This Is For ──────────────────────────────────────────────────────
   lines.push('## Who This Is For');
@@ -188,13 +199,13 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     '- **Universal Transaction**: A single SDK call that routes funds and execution from any origin chain to Push Chain or an external target.'
   );
   lines.push(
-    '- **Route 1** — Push Chain native: UOA → UEA → Push Chain contract.'
+    '- **Route 1** — Target is Push Chain (`tx.to` = plain address). External-chain user: UOA → UEA → Push Chain contract. Native Push Chain account: wallet → Push Chain contract directly (no UEA hop). *(e.g. Ethereum user calls a Push Chain NFT contract signing once on Ethereum; or a Push Chain wallet calls the same contract directly.)*'
   );
   lines.push(
-    '- **Route 2** — External chain target: UOA → UEA → CEA → external chain contract.'
+    '- **Route 2** — Target is an external chain (`tx.to = { address, chain }`). External-chain user: UOA → UEA → CEA → external chain. Native Push Chain account: wallet → CEA → external chain. *(e.g. Solana user pays in SOL to mint an NFT on Base; or a Push Chain wallet triggers the same Base contract via CEA.)*'
   );
   lines.push(
-    '- **Route 3** — CEA origin: UOA on external chain → CEA → Push Chain.'
+    "- **Route 3** — CEA-originated inbound to Push Chain (`tx.from.chain` set). Every account that acts on external chains gets a deterministic CEA deployed there — one per account, per chain — to preserve identity and prevent funds from mixing across accounts. Route 3 invokes that CEA on the specified external chain; the CEA then makes the inbound call to Push Chain, so `msg.sender` on Push Chain = the CEA address (not the UEA). *(e.g. a Push Chain contract that tracks per-chain identity uses Route 3 so each user's Ethereum CEA and Solana CEA are distinct `msg.sender` values.)*"
   );
   lines.push('');
 
@@ -202,7 +213,13 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('## Packages');
   lines.push('');
   lines.push(
-    `- \`@pushchain/ui-kit\` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles \`@pushchain/core\` — no separate install needed. Provides wallet connection UI and the \`usePushChainClient()\` hook, which returns a fully initialized \`PushChainClient\` for calling \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, and \`executeTransactions\` directly in React components. [Integration guide](${BASE_URL}/agents/workflows/connect-wallet-ui-kit.md) - [Customization](${BASE_URL}/agents/workflows/use-universal-wallet-provider.md) - [npm](https://npmjs.com/package/@pushchain/ui-kit)`
+    `- \`@pushchain/ui-kit\` — **Frontend (React apps)**: Required to enable universal transactions in the browser. Bundles \`@pushchain/core\` — no separate install needed. Provides the \`usePushChainClient()\` hook for \`sendTransaction\`, \`signMessage\`, \`prepareTransaction\`, and \`executeTransactions\` in React. [npm](https://npmjs.com/package/@pushchain/ui-kit)`
+  );
+  lines.push(
+    `  - [Integration guide](${BASE_URL}/agents/workflows/connect-wallet-ui-kit.md): Set up PushUniversalWalletProvider in a React app.`
+  );
+  lines.push(
+    `  - [Customization](${BASE_URL}/agents/workflows/use-universal-wallet-provider.md): Theme overrides and advanced provider options.`
   );
   lines.push(
     '- `@pushchain/core` — **Backend / Node.js**: Required to enable universal transactions in scripts, bots, automation, and server-side code. No other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`. [npm](https://npmjs.com/package/@pushchain/core)'
@@ -217,17 +234,33 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('');
 
   // ── Network ───────────────────────────────────────────────────────────────
-  lines.push('## Network (Testnet)');
+  lines.push('## Network');
   lines.push('');
-  lines.push('- Chain: Push Chain Donut Testnet');
-  lines.push('- Chain ID: 42101');
-  lines.push('- RPC URL: https://evm.donut.rpc.push.org/');
-  lines.push('- Block Explorer: https://donut.push.network');
-  lines.push('- Faucet: https://faucet.push.org');
+  lines.push(
+    '> **Donut** is the codename for the first public Push Chain testnet. Mainnet is not yet launched — do not apply these values to a production environment.'
+  );
+  lines.push('');
+  lines.push('| | |');
+  lines.push('|---|---|');
+  lines.push('| **Name** | Push Chain Donut Testnet |');
+  lines.push('| **Chain ID** | 42101 |');
+  lines.push('| **RPC URL** | https://evm.donut.rpc.push.org/ |');
+  lines.push('| **WebSocket** | wss://evm.donut.rpc.push.org |');
+  lines.push('| **Block Explorer** | https://donut.push.network |');
+  lines.push('| **Faucet** | https://faucet.push.org |');
+  lines.push('| **Mainnet** | Not yet launched |');
+  lines.push('');
+  lines.push(
+    '> **Public RPC:** No API key required. Fair-use rate limits apply — use a dedicated RPC endpoint for production workloads.'
+  );
   lines.push('');
 
   // ── Start Here ────────────────────────────────────────────────────────────
   lines.push('## Start Here');
+  lines.push('');
+  lines.push(
+    '> **Agents:** this section links human-oriented documentation. For execution tasks, prefer the **Agent Layer** section below.'
+  );
   lines.push('');
   lines.push(
     `- [Docs](${BASE_URL}/docs/chain/): Full Push Chain documentation index.`
@@ -250,8 +283,14 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   lines.push('## Agent Layer');
   lines.push('');
   lines.push(
-    'Prefer these structured resources over the full docs tree for execution tasks:'
+    'Prefer these structured resources over the full docs tree for execution tasks.'
   );
+  lines.push('');
+
+  // ── Core sub-section
+  lines.push('### Core (always load)');
+  lines.push('');
+  lines.push('Load these on every agent session regardless of context budget:');
   lines.push('');
   lines.push(
     `- [Agent Index](${BASE_URL}/agents/index.json): Discovery map listing every agent file, its purpose, and the recommended traversal order.`
@@ -259,7 +298,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
 
   // Skills — dynamic from skills/index.json, multi-line format
   lines.push(
-    `- **Skills** ([index](${BASE_URL}/agents/skills/index.json)): Copyable, self-contained skill files. Load the one matching your context before generating code.`
+    `- **Skills** ([index](${BASE_URL}/agents/skills/index.json)): Copyable, self-contained skill files. **Load the one matching your context before generating any code.**`
   );
   if (skills.length > 0) {
     for (const s of skills) {
@@ -276,6 +315,28 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
       `  - [push-contracts](${BASE_URL}/agents/skills/push-contracts/SKILL.md)`
     );
   }
+
+  lines.push(
+    `- [Capabilities](${BASE_URL}/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.`
+  );
+  lines.push(
+    `- [Error Catalog](${BASE_URL}/agents/errors.json): All known SDK errors with recovery actions.`
+  );
+  lines.push(
+    `- [Contract Addresses](${BASE_URL}/agents/contract-addresses.json): Authoritative registry of all Push Chain and external-chain contract addresses. Never hallucinate addresses — always source from here.`
+  );
+  lines.push('');
+
+  // ── Extended sub-section
+  lines.push('### Extended (load if budget allows)');
+  lines.push('');
+  lines.push(
+    'Load these for deeper context, RAG grounding, or tool-use integration:'
+  );
+  lines.push('');
+  lines.push(
+    `- [SDK Capabilities](${BASE_URL}/agents/sdk-capabilities.json): Full SDK namespace map — all namespaces, methods, and advanced arguments including prepareTransaction and executeTransactions.`
+  );
 
   // Resources — dynamic from resources/index.json, multi-line format
   lines.push(
@@ -299,12 +360,6 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   }
 
   lines.push(
-    `- [Capabilities](${BASE_URL}/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.`
-  );
-  lines.push(
-    `- [SDK Capabilities](${BASE_URL}/agents/sdk-capabilities.json): Full SDK namespace map — all namespaces, methods, and advanced arguments including prepareTransaction and executeTransactions.`
-  );
-  lines.push(
     `- [Supported Chains](${BASE_URL}/agents/supported-chains.json): Verified chain list with CAIP-2 IDs, chain IDs, RPC URLs, block explorers, and Universal Gateway contract addresses.`
   );
   lines.push(
@@ -314,10 +369,7 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `- [Task Router](${BASE_URL}/agents/task-router.md): Plain-language routing guide mapping common goals to capabilities and workflows.`
   );
   lines.push(
-    `- [Error Catalog](${BASE_URL}/agents/errors.json): All known SDK errors with recovery actions.`
-  );
-  lines.push(
-    `- [MCP Candidates](${BASE_URL}/agents/mcp-candidates.json): Candidate MCP tool definitions for agent tool-use frameworks (Claude, Cursor Agent, etc.).`
+    `- [MCP Tool Definitions](${BASE_URL}/agents/mcp-candidates.json): MCP tool definitions (reference implementations — adapt for your tool framework; not a supported tool server).`
   );
   lines.push(
     `- [Schemas](${BASE_URL}/agents/schemas/index.json): JSON schemas for all SDK request and response types including universal transaction, signer, and chain config.`
@@ -343,10 +395,56 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
     `3. **Do not use standard bridges:** Push Chain handles bridging natively via the SDK. Never write manual bridge logic or prompt the user to bridge tokens themselves.`
   );
   lines.push(
-    `4. **Execution vs. reading:** Use \`@pushchain/core\` or \`@pushchain/ui-kit\` strictly for transaction execution and signing. Use standard EVM libraries (ethers.js, viem, etc.) for reading on-chain state.`
+    `4. **Do not use ethers.js or viem to sign or send transactions.** Only \`@pushchain/core\` (backend/scripts) or \`@pushchain/ui-kit\` (React) can execute and sign universal transactions. Using ethers/viem for signing will silently produce incompatible transaction formats.`
   );
   lines.push(
-    `5. **No SDK inside Solidity:** Push Chain contracts use pure Solidity interfaces (IUEAFactory, UGPC, IUniversalCore). The Push SDK is never imported inside \`.sol\` files.`
+    `5. **Use standard EVM libraries only for reading state.** ethers.js, viem, and wagmi are correct for \`eth_call\`, \`eth_getBalance\`, event filtering, and other read-only operations against Push Chain's EVM RPC.`
+  );
+  lines.push(
+    `6. **No SDK inside Solidity:** Push Chain contracts use pure Solidity interfaces (IUEAFactory, UGPC, IUniversalCore). The Push SDK is never imported inside \`.sol\` files.`
+  );
+  lines.push(
+    `7. **Agent key model:** Push Chain has no session-key or delegated-signer system. Agents sign with a full private key. Never log or expose it; treat it as a hot wallet.`
+  );
+  lines.push('');
+
+  // ── Minimal Example ───────────────────────────────────────────────────────
+  lines.push('## Minimal Example');
+  lines.push('');
+  lines.push(
+    'For agents loading only this file — a complete send-transaction flow from an Ethereum wallet:'
+  );
+  lines.push('');
+  lines.push('```typescript');
+  lines.push(`import { PushChain } from '@pushchain/core';`);
+  lines.push(`import { ethers } from 'ethers';`);
+  lines.push('');
+  lines.push(`// 1. Wrap any EVM signer into a UniversalSigner`);
+  lines.push(
+    `const provider = new ethers.JsonRpcProvider('https://ethereum-sepolia-rpc.publicnode.com');`
+  );
+  lines.push(
+    `const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);`
+  );
+  lines.push(
+    `const signer   = await PushChain.utils.signer.toUniversal(wallet);`
+  );
+  lines.push('');
+  lines.push(
+    `// 2. Initialize the client (routes through UG → Push Chain automatically)`
+  );
+  lines.push(`const client = await PushChain.initialize(signer);`);
+  lines.push('');
+  lines.push(`// 3. Send a transaction to a Push Chain contract`);
+  lines.push(
+    `const tx      = await client.universal.sendTransaction({ to: '0xYourContract', data: '0x' });`
+  );
+  lines.push(`const receipt = await tx.wait();`);
+  lines.push(`console.log('tx hash:', receipt.hash);`);
+  lines.push('```');
+  lines.push('');
+  lines.push(
+    '> Load `push-backend` or `push-frontend` skill for a production-ready version with error handling and progress hooks.'
   );
   lines.push('');
 
@@ -380,8 +478,12 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
 
-  // ── Optional: Blog ────────────────────────────────────────────────────────
-  lines.push('## Optional');
+  // ── Background Reading: Blog ─────────────────────────────────────────────
+  lines.push('## Background Reading');
+  lines.push('');
+  lines.push(
+    '> Non-canonical — do not cite as API reference. For conceptual background only.'
+  );
   lines.push('');
   lines.push('### Blog — Recent Posts');
   lines.push('');
