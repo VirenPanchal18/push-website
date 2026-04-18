@@ -299,59 +299,36 @@ import { PushChain } from '@pushchain/core';
 
 {/* API Section Ends*/}
 
-## Solana (SVM) Utilities
+## Solana (SVM) Program Calls
 
-Solana programs require the client to declare all accounts an instruction will touch. Push Chain SDK handles this for you: register your program's Anchor IDL once, and from then on Solana transactions use the same `{ to, value, data }` shape as EVM calls. The SDK reads the IDL to resolve program accounts, PDAs, and the sender's CEA.
-
-{/* API Section Start*/}
-
-### Register Solana Program IDL
-
-**_`PushChain.utils.svm.registerIdl(programAddress, idl): void`_**
+Solana programs require the client to declare every account an instruction touches. Push Chain handles this for you: pass the Anchor IDL to `encodeTxData` (same way you pass an ABI for EVM), and the SDK resolves program accounts, PDAs, and the sender's CEA automatically when you call `prepareTransaction`. Your Solana calls use the exact same `{ to, value, data }` shape as EVM — no extra IDL parameter on `to`, no separate registration step.
 
 ```typescript
-import testCounterIdl from './test_counter.idl.json';
+// The full JSON emitted by Anchor at target/idl/<program_name>.json.
+import testCounterIdl from './target/idl/test_counter.json';
 
-PushChain.utils.svm.registerIdl(
-  '0x7673075a980bfd5d6b1dffe99c31f63e8938519cc1c2af009dda5e568a94460d',
-  testCounterIdl
-);
+// encodeTxData stashes the IDL internally (keyed by idl.address) so the
+// subsequent prepareTransaction / sendTransaction knows how to build the
+// Solana payload. You never touch the registry directly.
+const data = PushChain.utils.helpers.encodeTxData({
+  abi: testCounterIdl,
+  functionName: 'receive_sol',
+  args: [BigInt(0)],
+});
+
+await client.universal.prepareTransaction({
+  to: {
+    address: '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx', // base58 or 0x-hex
+    chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+  },
+  value: BigInt(0),
+  data,
+});
 ```
-
-Call once per program at app startup. Subsequent `prepareTransaction` calls that target the program resolve accounts from this IDL automatically.
-
-<PushAPIReference>
-
-| **Arguments**       | **Type**         | **Description**                                                                                                                |
-| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| _`programAddress`_  | `0x${string}`    | The Solana program ID as 0x-prefixed 32-byte hex (66 characters total).                                                        |
-| _`idl`_             | `Idl` (Anchor)   | The program's Anchor IDL (Anchor ≥ 0.30 spec). Must declare `instructions[].discriminator` and per-account `pda.seeds` / `address` where applicable. |
-
-</PushAPIReference>
 
 **Non-PDA accounts.** If an instruction declares an account whose pubkey is neither a PDA (derivable from seeds) nor the sender's CEA, add an `address: "<base58>"` field on that account in the IDL to pin it. Standard IDLs usually pre-set this for read-only program accounts (e.g. `systemProgram`, `tokenProgram`), so in practice this is mainly something you add for writable custom accounts. Accounts named `cea_authority` (or `cea`, `cea_signer`; camelCase `ceaAuthority` / `ceaSigner` also accepted) are auto-populated with the caller's CEA PDA and do not need pinning.
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
-### Get Registered IDL
-
-**_`PushChain.utils.svm.getIdl(programAddress): Idl | undefined`_**
-
-Returns the IDL registered for a program, or `undefined` if none has been registered.
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
-### List All Registered IDLs
-
-**_`PushChain.utils.svm.getRegisteredIdls(): Array<{ address, idl }>`_**
-
-Returns every `(programAddress, idl)` pair currently in the registry. Useful for debugging which programs your app has registered.
-
-{/* API Section Ends*/}
+See [Send Multichain Transactions](/docs/chain/build/send-multichain-transactions) for a full end-to-end example.
 
 ## Chain Utilities
 

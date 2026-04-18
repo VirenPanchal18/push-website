@@ -237,7 +237,6 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import * as readline from 'node:readline/promises';
-    import testCounterIdl from './test_counter.idl.json';
 
     const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
     const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -247,7 +246,28 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
     ];
     const COUNTER_PUSH = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Push Chain Testnet (Donut)
     const COUNTER_BNB  = '0x7f0936bb90e7dcf3edb47199c2005e7184e44cf8'; // BNB Testnet
-    const SOL_TEST_PROGRAM = '0x7673075a980bfd5d6b1dffe99c31f63e8938519cc1c2af009dda5e568a94460d'; // Solana Devnet
+    const SOL_TEST_PROGRAM = '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx'; // Solana Devnet, base58
+
+    // Anchor IDL for the Solana target — trimmed to just the receive_sol
+    // instruction we call below. In a real app this comes from your Anchor
+    // program's target/idl/*.json.
+    const testCounterIdl = {
+      address: SOL_TEST_PROGRAM,
+      metadata: { name: 'test_counter', version: '0.1.0', spec: '0.1.0' },
+      instructions: [
+        {
+          name: 'receive_sol',
+          discriminator: [121, 244, 250, 3, 8, 229, 225, 1],
+          accounts: [
+            { name: 'counter', writable: true, pda: { seeds: [{ kind: 'const', value: [99, 111, 117, 110, 116, 101, 114] }] } }, // 'counter'
+            { name: 'recipient', writable: true, address: '89q1AUFb7YREHtjc1aYaPywovPq6tb3GYNPyDUJ3rshi' },
+            { name: 'cea_authority', writable: true }, // auto-populated with sender's CEA
+            { name: 'system_program', address: '11111111111111111111111111111111' },
+          ],
+          args: [{ name: 'amount', type: 'u64' }],
+        },
+      ],
+    };
 
     async function main() {
       const wallet = ethers.Wallet.createRandom();
@@ -259,9 +279,6 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
-
-      // One-time setup for Solana targets — SDK resolves accounts/PDAs/CEA from this IDL
-      PushChain.utils.svm.registerIdl(SOL_TEST_PROGRAM, testCounterIdl);
 
       console.log('UEA on Push Chain:', client.universal.account);
       await rl.question(':::prompt:::Fund these accounts, then press Enter:\\n  • UOA ' + wallet.address + ' on Sepolia — at least 0.005 ETH (gas to sign)\\n  • UEA ' + client.universal.account + ' on Push Chain — at least 5 PC (covers gas + per-hop gas-token swap for each Route 2 outbound)\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
@@ -293,7 +310,10 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
       });
 
       const hop2 = await client.universal.prepareTransaction({
-        to: { address: SOL_TEST_PROGRAM, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        to: {
+          address: SOL_TEST_PROGRAM,
+          chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        },
         value: BigInt(0),
         data: solCalldata,
       });
@@ -587,7 +607,6 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
     import * as readline from 'node:readline/promises';
-    import testCounterIdl from './test_counter.idl.json';
 
     const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
     const RPC_PUSH    = 'https://evm.donut.rpc.push.org/';
@@ -601,7 +620,28 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
     ];
     const COUNTER_PUSH = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // Push Chain Testnet (Donut)
     const COUNTER_BNB  = '0x7f0936bb90e7dcf3edb47199c2005e7184e44cf8'; // BNB Testnet
-    const SOL_TEST_PROGRAM = '0x7673075a980bfd5d6b1dffe99c31f63e8938519cc1c2af009dda5e568a94460d'; // Solana Devnet
+    const SOL_TEST_PROGRAM = '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx'; // Solana Devnet, base58
+
+    // Anchor IDL for the Solana target — trimmed to just the receive_sol
+    // instruction we call below. In a real app this comes from your Anchor
+    // program's target/idl/*.json.
+    const testCounterIdl = {
+      address: SOL_TEST_PROGRAM,
+      metadata: { name: 'test_counter', version: '0.1.0', spec: '0.1.0' },
+      instructions: [
+        {
+          name: 'receive_sol',
+          discriminator: [121, 244, 250, 3, 8, 229, 225, 1],
+          accounts: [
+            { name: 'counter', writable: true, pda: { seeds: [{ kind: 'const', value: [99, 111, 117, 110, 116, 101, 114] }] } }, // 'counter'
+            { name: 'recipient', writable: true, address: '89q1AUFb7YREHtjc1aYaPywovPq6tb3GYNPyDUJ3rshi' },
+            { name: 'cea_authority', writable: true }, // auto-populated with sender's CEA
+            { name: 'system_program', address: '11111111111111111111111111111111' },
+          ],
+          args: [{ name: 'amount', type: 'u64' }],
+        },
+      ],
+    };
 
     async function main() {
       const wallet = ethers.Wallet.createRandom();
@@ -613,9 +653,6 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
       const client = await PushChain.initialize(universalSigner, {
         network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
       });
-
-      // One-time setup for Solana targets — SDK resolves accounts/PDAs/CEA from this IDL
-      PushChain.utils.svm.registerIdl(SOL_TEST_PROGRAM, testCounterIdl);
 
       console.log('UEA on Push Chain:', client.universal.account);
       await rl.question(':::prompt:::Fund these accounts, then press Enter:\\n  • UOA ' + wallet.address + ' on Sepolia — at least 0.005 ETH (gas to sign)\\n  • UEA ' + client.universal.account + ' on Push Chain — at least 5 PC (covers gas + per-hop gas-token swap for each Route 2 outbound)\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
@@ -655,7 +692,10 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
       });
 
       const hop2 = await client.universal.prepareTransaction({
-        to: { address: SOL_TEST_PROGRAM, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
+        to: {
+          address: SOL_TEST_PROGRAM,
+          chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+        },
         value: BigInt(0),
         data: solCalldata,
       });
