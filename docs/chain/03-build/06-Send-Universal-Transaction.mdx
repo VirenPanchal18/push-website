@@ -58,8 +58,8 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | _`tx.to`_         | `string` \| `{ address: string; chain: CHAIN }`                  | Defines the execution target. Passing a plain address triggers Push Chain execution. <br /><br />Passing `{ address, chain }` targets an external chain.                                                                                                                                                  |
 | `tx.from`         | `{ chain: PushChain.CONSTANTS.CHAIN }`                           | Optional. When set to an external chain, execution uses the Chain Executor Account (CEA) for that chain as the transaction origin.<br /><br />This is primarily used for external origin or CEA-based execution flows. <br /><ConstantsDropdown variant="CHAIN" />                                        |
 | `tx.value`        | `BigInt`                                                         | Native value to send, expressed in the smallest unit of the execution context.<br /><br />On Push Chain this is uPC (the smallest unit, like wei in ETH). <br /><br />On external execution routes, this maps to the native asset amount of that route.                                                   |
-| `tx.data`         | `string` \| `Array<{ to: string; value: bigint; data: string }>` | Use `string` as ABI-encoded calldata for a single call.<br /><br />Use `Array<...>` for batched multicall payload.                                                                                                                                                                                        |
-| `tx.funds`        | `{ amount: BigInt; token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }` | Moves supported assets as part of the transaction flow. Depending on the route, assets may be moved into Push Chain or between Push Chain and a supported external chain. If `tx.data` is provided, asset movement and execution happen atomically. <br /> <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
+| `tx.data`         | `string` \| `Array<{ to: string; value: bigint; data: string }>` | Encoded calldata for a single call `string` or batched multicall `Array<{ to, value, data }>`. <br /><br />Use `encodeTxData` to produce the correct bytes for EVM (ABI) or Solana (Anchor IDL) targets. |
+| `tx.funds`        | `{ amount: BigInt; token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }` | Moves supported assets as part of the transaction flow.<br /><br />Depending on the route, assets may be moved into Push Chain or between Push Chain and a supported external chain.<br /><br />If `tx.data` is provided, asset movement and execution happen atomically. <br /> <ConstantsDropdown variant="MOVEABLE_TOKEN" /> |
 | `tx.progressHook` | `(progress: ProgressHookType) => void`                           | A callback function to receive progress updates during transaction lifecycle, especially useful for tracking cross-chain transactions.                                                                                                                                                                    |
 
 </PushAPIReference>
@@ -361,7 +361,7 @@ import \* as readline from 'node:readline/promises';
       });
 
       // Fund the wallet before sending
-      await rl.question(':::prompt:::Please send Push Chain Testnet tokens to: ' + wallet.address + ' and press Enter to continue.');
+      await rl.question(':::prompt:::Send at least 1 PC to: ' + wallet.address + ' on Push Chain Testnet (Donut), then press Enter.');
 
       // Send a simple value transfer on Push Chain
       const tx = await client.universal.sendTransaction({
@@ -439,7 +439,9 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + wallet.address + ' on ' + chainMeta.name + ' to continue.');
+      const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
+      const faucetHint = chainMeta.id === '1' ? '' : 'Sepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + wallet.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);
@@ -542,7 +544,9 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + account.address + ' on ' + chainMeta.name + ' to continue.');
+      const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
+      const faucetHint = chainMeta.id === '1' ? '' : 'Sepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + account.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);
@@ -636,7 +640,7 @@ import \* as readline from 'node:readline/promises';
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Please send funds to: ' + keypair.publicKey.toBase58() + ' on SOLANA_DEVNET to continue.');
+      await rl.question(':::prompt:::Send at least 0.02 SOL to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet, then press Enter. Solana devnet faucet: https://faucet.solana.com');
 
       // 5) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);

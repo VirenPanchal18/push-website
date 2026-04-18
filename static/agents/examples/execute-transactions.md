@@ -66,7 +66,7 @@ async function main() {
   });
 
   console.log('UEA on Push Chain:', client.universal.account);
-  await rl.question(':::prompt:::Send at least 0.002 ETH (Sepolia) to: ' + wallet.address + ', ensure your UEA (' + client.universal.account + ') on Push Chain has pETH and at least 5 PC, and ensure your CEA on Sepolia has at least 0.001 ETH. Get testnet ETH from: https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
+  await rl.question(':::prompt:::Send at least 0.002 ETH (Sepolia) to: ' + wallet.address + ', ensure your UEA (' + client.universal.account + ') on Push Chain has pETH and at least 1 PC, and ensure your CEA on Sepolia has at least 0.001 ETH. Get testnet ETH from: https://cloud.google.com/application/web3/faucet/ethereum/sepolia. Press Enter when funded.');
 
   // ── Hop 0: CEA_TO_PUSH ─────────────────────────────────────────────────
   // Pull 0.001 ETH from the Ethereum Sepolia CEA into Push Chain.

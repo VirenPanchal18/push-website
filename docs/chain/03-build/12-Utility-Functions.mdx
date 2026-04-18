@@ -206,23 +206,43 @@ import { PushChain } from '@pushchain/core';
 
 ### Encode Transaction Data
 
-**_`PushChain.utils.helpers.encodeTxData({abi, functionName, args}): string`_**
+**_`PushChain.utils.helpers.encodeTxData({abi_or_idl, functionName, args}): string`_**
+
+<Tabs groupId="encode-tx-data-example">
+  <TabItem value="evm" label="EVM (ABI)" default>
 
 ```typescript
 const encodedData = PushChain.utils.helpers.encodeTxData({
-  abi,
+  abi: 'smart_contract_abi',
   functionName: 'functionName',
   args: []
 });
 ```
 
+  </TabItem>
+  <TabItem value="solana" label="Solana (IDL)">
+
+```typescript
+const encodedData = PushChain.utils.helpers.encodeTxData({
+  idl: 'smart_contract_idl',
+  functionName: 'receive_sol',
+  args: [BigInt(0)],
+});
+```
+
+  </TabItem>
+</Tabs>
+
+`encodeTxData` produces chain-appropriate calldata based on the shape of `abi` or `idl`.
+
+
 <PushAPIReference>
 
-| **Arguments**     | **Type** | **Default** | **Description**                                                                                                                                     |
-| ----------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`abi`_           | `any[]`  | -           | The ABI array of the smart contract containing function definitions.                                                                                |
-| _`functionName`_  | `string` | -           | The name of the function to encode transaction data for.                                                                                            |
-| `args`          | `any[]`  | `[]`        | The arguments to pass to the function. Defaults to empty array for functions with no parameters.                                                   |
+| **Arguments**     | **Type**          | **Default** | **Description**                                                                                                                                                              |
+| ----------------- | ----------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _`abi`_ \| _`idl`_           | `any[]`    | -           | Either an EVM ABI array or an Anchor IDL object. The input shape determines which encoding is produced.                                                                      |
+| _`functionName`_  | `string`          | -           | The function (EVM) or instruction (Solana) name to encode. Both `snake_case` and `camelCase` are accepted and matched against the IDL.                                       |
+| `args`            | `any[]`           | `[]`        | Positional arguments. Use `BigInt` for `u64`/`u128`; 0x-hex 32-byte strings are auto-converted to Solana `PublicKey` when the IDL declares a `pubkey` arg.                   |
 
 </PushAPIReference>
 
@@ -237,6 +257,8 @@ const encodedData = PushChain.utils.helpers.encodeTxData({
 
 <Details summary="Live Playground: Encode Transaction Data for Smart Contract Function" className="alert alert--live-play">
 
+<Tabs className="liveplaytab" groupId="encode-tx-data-playground">
+  <TabItem value="evm" label="EVM (ABI)" default>
 <NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
 
 {`
@@ -289,6 +311,54 @@ import { PushChain } from '@pushchain/core';
 `}
 
 </NodeJSVirtualIDE>
+  </TabItem>
+  <TabItem value="solana" label="Solana (IDL)">
+<NodeJSVirtualIDE repo={{title: "Open in Github", url: "https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/utility-functions"}}>
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.helpers\.encodeTxData
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_encode_tx_data_solana
+import { PushChain } from '@pushchain/core';
+
+    function main() {
+      // Anchor IDL for the Solana target — trimmed to just the receive_sol
+      // instruction we call below. In a real app this comes from your Anchor
+      // program's target/idl/*.json.
+      const testCounterIdl = {
+        address: '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx', // SOL_TEST_PROGRAM
+        metadata: { name: 'test_counter', version: '0.1.0', spec: '0.1.0' },
+        instructions: [
+          {
+            name: 'receive_sol',
+            discriminator: [121, 244, 250, 3, 8, 229, 225, 1],
+            accounts: [
+              { name: 'counter', writable: true, pda: { seeds: [{ kind: 'const', value: [99, 111, 117, 110, 116, 101, 114] }] } }, // 'counter'
+              { name: 'recipient', writable: true, address: '89q1AUFb7YREHtjc1aYaPywovPq6tb3GYNPyDUJ3rshi' },
+              { name: 'cea_authority', writable: true }, // auto-populated with sender's CEA
+              { name: 'system_program', address: '11111111111111111111111111111111' },
+            ],
+            args: [{ name: 'amount', type: 'u64' }],
+          },
+        ],
+      };
+
+      const result = PushChain.utils.helpers.encodeTxData({
+        idl: testCounterIdl,
+        functionName: 'receive_sol',
+        args: [BigInt(0)]
+      });
+      
+      console.log('Encoded transaction data:', result);
+    }
+
+    main();
+
+`}
+
+</NodeJSVirtualIDE>
+  </TabItem>
+</Tabs>
 
 </Details>
 

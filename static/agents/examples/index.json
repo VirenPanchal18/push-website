@@ -331,21 +331,6 @@
     "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
   },
   {
-    "id": "execute-transactions-counter",
-    "name": "Execute Transactions",
-    "file": "execute-transactions-counter.md",
-    "description": "Code example: Execute Transactions — https://push.org/docs/chain/build/send-multichain-transactions/",
-    "sdk_methods_used": [
-      "PushChain.utils.signer.toUniversal",
-      "PushChain.initialize",
-      "PushChain.utils.account.toUniversal",
-      "PushChain.utils.account.deriveExecutorAccount"
-    ],
-    "chains_involved": [],
-    "prerequisite_examples": [],
-    "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
-  },
-  {
     "id": "execute-transactions",
     "name": "Cross-Chain AMM Swap: ETH → pSOL via Push Chain AMM",
     "file": "execute-transactions.md",
@@ -369,21 +354,6 @@
     "sdk_methods_used": [
       "PushChain.utils.signer.toUniversal",
       "PushChain.initialize"
-    ],
-    "chains_involved": [],
-    "prerequisite_examples": [],
-    "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
-  },
-  {
-    "id": "execute-transactions-batch",
-    "name": "Batch Contract Calls: Push Chain + BNB + Solana in One Signature",
-    "file": "execute-transactions-batch.md",
-    "description": "Code example: Batch Contract Calls: Push Chain + BNB + Solana in One Signature — https://push.org/docs/chain/build/send-multichain-transactions/",
-    "sdk_methods_used": [
-      "PushChain.utils.signer.toUniversal",
-      "PushChain.initialize",
-      "PushChain.utils.account.toUniversal",
-      "PushChain.utils.account.deriveExecutorAccount"
     ],
     "chains_involved": [],
     "prerequisite_examples": [],

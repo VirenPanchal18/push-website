@@ -5445,6 +5445,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pushchain/core@npm:^5.1.5-alpha.1":
+  version: 5.1.5-alpha.1
+  resolution: "@pushchain/core@npm:5.1.5-alpha.1"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.0.0"
+    "@cosmjs/crypto": "npm:0.33.1"
+    "@cosmjs/encoding": "npm:0.33.1"
+    "@cosmjs/proto-signing": "npm:^0.33.1"
+    "@cosmjs/stargate": "npm:^0.33.1"
+    "@cosmjs/tendermint-rpc": "npm:0.33.1"
+    "@solana/web3.js": "npm:^1.68.0"
+    bs58: "npm:^4.0.0"
+    buffer: "npm:^6.0.3"
+    cosmjs-types: "npm:0.9.0"
+    tslib: "npm:^2.3.0"
+    viem: "npm:^2.27.2"
+  peerDependencies:
+    "@coral-xyz/anchor": ^0.31.0
+    ethers: ^6.0.0
+    tweetnacl: ^1.0.3
+  peerDependenciesMeta:
+    "@coral-xyz/anchor":
+      optional: true
+    ethers:
+      optional: true
+    tweetnacl:
+      optional: true
+  checksum: 10c0/ff76ff1b9a0b0c3e2dd72dca54b3765a6ace9fee4364532f3a0e505124076e1708c39e0d86ee6abf57c541d24edfc3ee3b2f7026b98f205e85b3d4fb0ca0b49f
+  languageName: node
+  linkType: hard
+
 "@pushchain/ui-kit@npm:^5.2.1":
   version: 5.2.1
   resolution: "@pushchain/ui-kit@npm:5.2.1"
@@ -20299,7 +20330,7 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.2"
-    "@pushchain/core": "npm:^5.1.4"
+    "@pushchain/core": "npm:^5.1.5-alpha.1"
     "@pushchain/ui-kit": "npm:^5.2.1"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@solana/web3.js": "npm:^1.98.2"
