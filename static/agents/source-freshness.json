@@ -1,11 +1,14 @@
 {
   "schema_version": "1.0.0",
   "version": "1.1.0",
-  "last_generated": "2026-04-17T06:21:28.989Z",
+  "current_sdk_version": "5.1.7",
+  "generated": "2026-04-20T00:00:00.000Z",
+  "description": "Dependency-freshness tracking for all agent-layer files. Maps each agent file to its source documentation sections, change frequency, and refresh triggers. Use this to determine which files need regeneration after an SDK release or docs update.",
   "note": "All agent_file paths must correspond to files that actually exist under static/agents/.",
   "dependencies": [
     {
       "agent_file": "agents/supported-chains.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/important-concepts",
         "docs/chain/03-build/03-Important-Concepts.mdx"
@@ -16,6 +19,7 @@
     },
     {
       "agent_file": "agents/sdk-capabilities.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/01-Create-Universal-Signer.mdx",
         "docs/chain/03-build/02-Initialize-Client.mdx",
@@ -33,6 +37,7 @@
     },
     {
       "agent_file": "agents/capabilities.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build",
         "docs/chain/important-concepts"
@@ -43,6 +48,7 @@
     },
     {
       "agent_file": "agents/constants.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/03-Important-Concepts.mdx",
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx"
@@ -53,6 +59,7 @@
     },
     {
       "agent_file": "agents/feature-matrix.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/important-concepts",
         "docs/chain/03-build"
@@ -63,6 +70,7 @@
     },
     {
       "agent_file": "agents/errors.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx",
         "docs/chain/03-build/07-Track-Universal-Transaction.mdx"
@@ -73,6 +81,7 @@
     },
     {
       "agent_file": "agents/recovery-playbook.md",
+      "last_verified_date": "2026-04-17T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx",
         "docs/chain/03-build/07-Track-Universal-Transaction.mdx"
@@ -83,6 +92,7 @@
     },
     {
       "agent_file": "agents/decision-tree.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx",
         "docs/chain/03-build/08-Send-Multichain-Transactions.mdx",
@@ -94,6 +104,7 @@
     },
     {
       "agent_file": "agents/task-router.md",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build",
         "docs/chain/important-concepts"
@@ -104,6 +115,7 @@
     },
     {
       "agent_file": "agents/mcp-candidates.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build",
         "docs/chain/important-concepts"
@@ -114,6 +126,7 @@
     },
     {
       "agent_file": "agents/workflows/send-universal-transaction.md",
+      "last_verified_date": "2026-04-17T17:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx"
       ],
@@ -123,6 +136,7 @@
     },
     {
       "agent_file": "agents/workflows/send-multichain-transaction.md",
+      "last_verified_date": "2026-04-17T17:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx",
         "docs/chain/03-build/08-Send-Multichain-Transactions.mdx"
@@ -133,6 +147,7 @@
     },
     {
       "agent_file": "agents/workflows/constants-reference.md",
+      "last_verified_date": "2026-04-17T06:21:28.989Z",
       "source_sections": ["docs/chain/03-build/03-Important-Concepts.mdx"],
       "change_frequency": "low",
       "cache_safe": true,
@@ -140,6 +155,7 @@
     },
     {
       "agent_file": "agents/index.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": ["docs/chain/04-For-AI-Agents.mdx"],
       "change_frequency": "low",
       "cache_safe": true,
@@ -147,6 +163,7 @@
     },
     {
       "agent_file": "agents/retrieval-map.json",
+      "last_verified_date": "2026-04-20T00:00:00.000Z",
       "source_sections": [
         "docs/chain/03-build",
         "docs/chain/important-concepts"
@@ -157,6 +174,7 @@
     },
     {
       "agent_file": "agents/schemas/universal-transaction-request.json",
+      "last_verified_date": "2026-04-17T06:21:28.989Z",
       "source_sections": [
         "docs/chain/03-build/06-Send-Universal-Transaction.mdx",
         "docs/chain/03-build/08-Send-Multichain-Transactions.mdx"
@@ -167,6 +185,7 @@
     },
     {
       "agent_file": "agents/schemas/chain-config.json",
+      "last_verified_date": "2026-04-17T06:21:28.989Z",
       "source_sections": [
         "docs/chain/02-setup/01-Chain-Configuration.mdx",
         "src/components/Static/PushChainSpecs.tsx"
@@ -177,6 +196,7 @@
     },
     {
       "agent_file": "agents/workflows/configure-dev-environment.md",
+      "last_verified_date": "2026-04-17T17:00:00.000Z",
       "source_sections": [
         "docs/chain/02-setup/01-Chain-Configuration.mdx",
         "docs/chain/03-build/02-Initialize-Client.mdx"
@@ -187,6 +207,7 @@
     },
     {
       "agent_file": "agents/workflows/use-contract-helpers.md",
+      "last_verified_date": "2026-04-17T17:00:00.000Z",
       "source_sections": [
         "docs/chain/02-setup/01-Chain-Configuration.mdx",
         "docs/chain/03-build/12-Contract-Helpers.mdx"

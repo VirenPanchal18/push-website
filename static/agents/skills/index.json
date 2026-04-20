@@ -1,4 +1,8 @@
 {
+  "schema_version": "1.0.0",
+  "version": "1.0.0",
+  "current_sdk_version": "5.1.7",
+  "generated": "2026-04-20T00:00:00.000Z",
   "description": "Domain-scoped skill files mapping high-level developer intents to required packages, entry points, workflows, and examples. Load the skill file for your context before exploring workflows or examples.",
   "skills": [
     {

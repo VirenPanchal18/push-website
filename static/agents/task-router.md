@@ -118,10 +118,9 @@ function MyComponent() {
 
 **Example:**
 ```typescript
-const universalAccount = {
-  address: '0xUserAddress',
-  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
-};
+const universalAccount = PushChain.utils.account.toUniversal('0xUserAddress', {
+  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+});
 
 const readOnlyClient = await PushChain.initialize(universalAccount, {
   network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET
@@ -172,7 +171,7 @@ await pushChainClient.universal.sendTransaction({
 | **Problem** | Execute on Push Chain when user only has native tokens on their origin chain |
 | **Recommended Approach** | No action needed—fee abstraction is built into the SDK |
 | **How It Works** | User pays gas in native token (ETH, SOL, etc.) on origin chain; SDK handles conversion and UEA funding |
-| **Caveats** | - User never needs to acquire or hold PC tokens<br>- Origin chain transaction covers all costs<br>- Progress events (SEND-TX-05-xx) show gas funding status |
+| **Caveats** | - User never needs to acquire or hold PC tokens<br>- Origin chain transaction covers all costs<br>- Progress events (`SEND-TX-105-01`/`02` on Route 1) show gas funding status |
 
 **Example:**
 ```typescript

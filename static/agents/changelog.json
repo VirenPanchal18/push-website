@@ -1,7 +1,46 @@
 {
   "schema_version": "1.0.0",
-  "current_version": "1.0.3",
+  "version": "1.0.5",
+  "current_sdk_version": "5.1.7",
+  "current_version": "1.0.4",
+  "generated": "2026-04-20T00:00:00.000Z",
+  "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-04-20T00:00:00.000Z",
+      "version": "1.0.4",
+      "changes": [
+        "Metadata normalization sweep across all 16 agent-layer JSON files",
+        "Added current_sdk_version: 5.1.7 to all files that lacked it (constants.json, contract-addresses.json, feature-matrix.json, index.json, source-freshness.json, supported-chains.json, schemas/index.json, skills/index.json, workflows/index.json, resources/index.json)",
+        "Wrapped 3 bare-array roots in canonical object envelopes: errors.json → {errors:[]}, mcp-candidates.json → {candidates:[]}, examples/index.json → {examples:[]}",
+        "Renamed last_generated → generated in source-freshness.json; added description field",
+        "Added version + generated + description to changelog.json; added current_sdk_version",
+        "Added schema_version + version + current_sdk_version + generated to skills/index.json (had only description)",
+        "Added version + current_sdk_version to workflows/index.json",
+        "Updated stale generated timestamps to 2026-04-20 in constants.json, feature-matrix.json, supported-chains.json, schemas/index.json"
+      ],
+      "files_affected": [
+        "static/agents/changelog.json",
+        "static/agents/constants.json",
+        "static/agents/contract-addresses.json",
+        "static/agents/errors.json",
+        "static/agents/feature-matrix.json",
+        "static/agents/index.json",
+        "static/agents/mcp-candidates.json",
+        "static/agents/source-freshness.json",
+        "static/agents/supported-chains.json",
+        "static/agents/schemas/index.json",
+        "static/agents/examples/index.json",
+        "static/agents/skills/index.json",
+        "static/agents/workflows/index.json",
+        "static/agents/resources/index.json"
+      ],
+      "sdk_version": "5.1.7",
+      "category": "metadata-normalization",
+      "trigger": "Metadata normalization audit pass — align all JSON files to capabilities.json canonical shape",
+      "breaking": true,
+      "migration": "errors.json: was array root, now object — use .errors[N] instead of [N]. mcp-candidates.json: was array root, now object — use .candidates[N] instead of [N]. examples/index.json: was array root, now object — use .examples[N] instead of [N]. Each wrapped file includes a migration_note field with the exact access path change."
+    },
     {
       "date": "2026-04-17T17:00:00.000Z",
       "version": "1.0.3",
@@ -44,6 +83,8 @@
         "static/agents/workflows/use-contract-helpers.md",
         "static/agents/changelog.json"
       ],
+      "sdk_version": "5.1.7",
+      "category": "skill-revision",
       "trigger": "16-issue audit pass — push-backend SKILL.md + propagation to workflows",
       "breaking": false,
       "migration": null
@@ -74,6 +115,8 @@
         "static/agents/sdk-capabilities.json",
         "static/agents/changelog.json"
       ],
+      "sdk_version": "5.1.7",
+      "category": "skill-revision",
       "trigger": "Claude audit pass — push-frontend SKILL.md 13-issue review",
       "breaking": false,
       "migration": null
@@ -95,6 +138,8 @@
         "build.agents.llms.mjs",
         "static/agents/changelog.json"
       ],
+      "sdk_version": "5.1.7",
+      "category": "content-polish",
       "trigger": "manual audit pass — llms.txt polish",
       "breaking": false,
       "migration": null
@@ -124,6 +169,8 @@
         "static/agents/changelog.json",
         "static/agents/source-freshness.json"
       ],
+      "sdk_version": "5.1.4",
+      "category": "initial-generation",
       "trigger": "build.agents.mjs initial run + manual audit pass",
       "breaking": false,
       "migration": null

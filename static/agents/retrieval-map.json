@@ -1,7 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.0",
-  "generated": "2026-04-13T00:00:00.000Z",
+  "version": "1.1.0",
+  "current_sdk_version": "5.1.7",
+  "generated": "2026-04-20T00:00:00.000Z",
   "base_url": "https://push.org",
   "description": "Maps every major task and capability to its authoritative documentation source. Use this as the entry point for RAG and retrieval systems.",
   "entries": [
@@ -477,7 +478,7 @@
       ],
       "agent_files": ["agents/README.md", "agents/feature-matrix.json"],
       "prefer_over": ["blog posts"],
-      "notes": "Users pay gas in native tokens (ETH, SOL). No PC token acquisition required. SEND-TX-05-* progress events handle funding."
+      "notes": "Users pay gas in native tokens (ETH, SOL). No PC token acquisition required. Route-prefixed progress events handle funding (SEND-TX-105-01/02 on Route 1, SEND-TX-205-* on Route 2)."
     },
     {
       "task": "Understand wallet abstraction",
@@ -518,6 +519,12 @@
       "task": "Deploy a smart contract to Push Chain",
       "capability_id": "deploy_push_chain_contract",
       "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/setup/",
+          "type": "docs",
+          "confidence": "medium",
+          "normative": true
+        },
         {
           "url": "https://push.org/docs/chain/build/contract-initiated-multichain-execution/",
           "type": "docs",
@@ -587,7 +594,7 @@
         "agents/decision-tree.json"
       ],
       "prefer_over": [],
-      "notes": "Error codes follow SEND-TX-{stage}-{code} pattern. See agents/errors.json for full catalog."
+      "notes": "Error codes are route-prefixed: SEND-TX-1xx (Route 1), SEND-TX-2xx (Route 2), SEND-TX-3xx (Route 3), SEND-TX-0xx/9xx (cascade). See agents/errors.json for full catalog."
     },
     {
       "task": "Prepare and execute a multi-hop transaction cascade with a single signature",
@@ -621,6 +628,8 @@
       ],
       "agent_files": [
         "agents/workflows/sign-universal-message.md",
+        "agents/skills/push-frontend/SKILL.md",
+        "agents/skills/push-backend/SKILL.md",
         "agents/sdk-capabilities.json"
       ],
       "prefer_over": [],
@@ -683,7 +692,7 @@
       ],
       "agent_files": ["agents/index.json"],
       "prefer_over": [],
-      "notes": "llms-full.txt contains complete documentation dump. llms.txt contains high-level summary with file references."
+      "notes": "llms-full.txt contains complete documentation dump. llms.txt contains high-level summary with file references. Both carry current SDK version at the top of the file."
     }
   ]
 }
