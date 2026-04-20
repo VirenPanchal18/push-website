@@ -17,7 +17,7 @@ references:
 ## Install
 
 ```bash
-npm install @pushchain/ui-kit
+npm install @pushchain/ui-kit@latest
 # or
 npx create-universal-dapp my-app
 ```

@@ -104,7 +104,7 @@
       "version": "1.0.0",
       "changes": [
         "Initial /agents/ layer generated",
-        "Pinned SDK versions: @pushchain/core@5.1.4, @pushchain/ui-kit@5.2.2",
+        "Pinned SDK versions: @pushchain/core@5.1.4, @pushchain/ui-kit@5.2.3",
         "Corrected Route 1/2 descriptions for native Push Chain accounts",
         "Added Route 3 CEA-identity semantics",
         "Added Core / Extended agent layer tiers",
