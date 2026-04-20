@@ -312,22 +312,40 @@
         "configure_remix"
       ],
       "status": "documented"
+    },
+    {
+      "id": "progress-hook-events",
+      "category": "reading-utilities",
+      "name": "ProgressHook Events Reference",
+      "file": "agents/workflows/progress-hook-events.md",
+      "purpose": "Complete reference of all progressHook event IDs emitted by sendTransaction and executeTransactions, including event shape, per-route tables (Route 1/2/3, multichain), and response payloads.",
+      "actor": "developer",
+      "operation": "read",
+      "prerequisites": [],
+      "deterministic": true,
+      "safe_for_autonomous_execution": true,
+      "mcp_mapping_candidates": [
+        "lookup_progress_event_id",
+        "handle_progress_hook_callback",
+        "detect_transaction_failure_event"
+      ],
+      "status": "documented"
     }
   ],
   "metadata": {
-    "total_workflows": 16,
+    "total_workflows": 17,
     "operation_breakdown": {
-      "read": 5,
+      "read": 6,
       "write": 9,
       "tracking": 1,
       "simulation": 0
     },
     "actor_breakdown": {
-      "developer": 13,
+      "developer": 14,
       "frontend_developer": 2,
       "smart_contract": 1
     },
-    "autonomous_safe_count": 11,
-    "deterministic_count": 13
+    "autonomous_safe_count": 12,
+    "deterministic_count": 14
   }
 }

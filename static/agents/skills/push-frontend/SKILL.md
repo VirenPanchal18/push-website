@@ -406,7 +406,7 @@ const signature = await pushChainClient.universal.signMessage(message); // retur
 | Expecting `pushChainClient` to be non-null on first render                                    | It's `null` until wallet connects — always use the canonical guard pattern above                                                                                                                                           |
 | Hooks bind to wrong provider or return stale state (`uid` mismatch across multiple providers) | Pass the **same** `uid` to `usePushChainClient('uid1')`, `usePushWalletContext('uid1')`, and `<PushUniversalAccountButton uid='uid1' />` — omit `uid` entirely unless you are intentionally running two provider instances |
 
-> For read-only state queries (no transactions): use ethers.js or viem directly with the Push Chain RPC `https://evm.donut.rpc.push.org/`
+> For read-only state queries (no transactions): use ethers.js or viem directly with `https://evm.donut.rpc.push.org/` (HTTP) or `wss://evm.donut.rpc.push.org` (WebSocket — for `watchBlocks`, event subscriptions). See [read-blockchain-state.md](https://push.org/agents/workflows/read-blockchain-state.md).
 
 ## Downloadable Resources
 

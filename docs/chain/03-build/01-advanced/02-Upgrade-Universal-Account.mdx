@@ -57,16 +57,17 @@ await pushChainClient.upgradeAccount({
 | `progress.title` | `string` | Brief title of the progress event. |
 | `progress.message` | `string` | Detailed message describing the event. |
 | `progress.level` | `INFO` \| `SUCCESS` \| `ERROR` | Severity level of the event. |
+| `progress.response` | `object` \| `null` | Additional data object for the event, or `null` if not applicable. |
 | `progress.timestamp` | `string` | ISO-8601 timestamp when the event occurred. |
 
-| ID | Title | Message | Level |
-| -- | ----- | ------- | ----- |
-| `UEA-MIG-01` | Checking Status | Fetching current UEA version and upgrade requirement | INFO |
-| `UEA-MIG-02` | Awaiting Signature | Awaiting user signature for migration payload (EIP-712) | INFO |
-| `UEA-MIG-03` | Broadcasting | Submitting migration transaction to Push Chain | INFO |
-| `UEA-MIG-9901` | Upgrade Complete | UEA successfully upgraded to version `<new version>` | SUCCESS |
-| `UEA-MIG-9902` | Upgrade Failed | `<error message>` | ERROR |
-| `UEA-MIG-9903` | No Upgrade Needed | UEA is already at the required version; operation skipped | INFO |
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `UEA-MIG-01` | Checking UEA | Checking status for migration. | INFO | null |
+| `UEA-MIG-02` | Awaiting Migration Signature | Awaiting wallet signature for upgrading account. | INFO | null |
+| `UEA-MIG-03` | Broadcasting Migration TX | Broadcasting upgrade transaction to Push Chain... | INFO | null |
+| `UEA-MIG-9901` | UEA Migration Successful | UEA migration is successful. UEA is now version `<newVersion>`. | SUCCESS | `{ version }` |
+| `UEA-MIG-9902` | UEA Migration Failed | UEA migration failed. Check transaction on explorer. | ERROR | `{ error }` |
+| `UEA-MIG-9903` | UEA Migration Skipped | UEA migration skipped. | INFO | null |
 
 </Details>
 

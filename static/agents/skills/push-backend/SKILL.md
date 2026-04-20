@@ -124,7 +124,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
   solKeypair,
   {
     chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // SOLANA_WEB3JS is the only LIBRARY constant for toUniversalFromKeypair — see https://push.org/agents/workflows/constants-reference.md for all LIBRARY values
+    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // Available LIBRARY values: SOLANA_WEB3JS (more may be added — see https://push.org/agents/workflows/constants-reference.md)
   }
 );
 ```
@@ -200,6 +200,13 @@ client.universal.origin; // source chain address: { address, chain } — e.g. Et
 client.universal.account; // Push Chain execution account: UEA for cross-chain users, EOA for Push-native
 ```
 
+**Verify initialization succeeded:**
+
+```ts
+console.log('origin:', client.universal.origin); // { address, chain } — matches your signer
+console.log('account:', client.universal.account); // UEA (cross-chain) or EOA (Push-native)
+```
+
 **Account status** — UEA deployment and version (SDK handles upgrades automatically in most cases):
 
 ```ts
@@ -227,19 +234,47 @@ const status = await client.getAccountStatus();
 
 ### Arguments
 
-| Argument                  | Type                                                                                            | Description                                                                                                                    |
-| ------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| _`tx.to`_                 | `string \| { address: string; chain: CHAIN }`                                                   | Execution target. Plain address → Route 1. `{ address, chain }` → Route 2.                                                     |
-| `tx.from`                 | `{ chain: CHAIN }` _(optional)_                                                                 | Forces CEA on the specified external chain as execution origin → Route 3.                                                      |
-| `tx.value`                | `bigint` _(optional)_                                                                           | Native value in smallest unit — uPC on Push Chain; native asset on external routes.                                            |
-| `tx.data`                 | `string \| Array<{ to: string; value: bigint; data: string }>` _(optional)_                     | ABI-encoded calldata (single call) or multicall array. Multicall requires `to: '0x000...0'`.                                   |
-| `tx.funds`                | `{ amount: bigint; token?: MOVEABLE.TOKEN }` _(optional)_                                       | Move supported assets as part of the tx. For Route 1: external origin only (Push-native users use ERC-20 `transfer` directly). |
-| `tx.progressHook`         | `(progress: ProgressHookType) => void` _(optional)_                                             | Callback for per-step lifecycle progress events (`SEND-TX-01` … `SEND-TX-99`).                                                 |
-| `tx.payGasWith`           | `{ token?: PAYABLE.TOKEN; slippageBps?: number; minAmountOut?: bigint \| string }` _(optional)_ | Pay universal gas fees with a supported ERC-20 instead of native.                                                              |
-| `tx.gasLimit`             | `bigint` _(optional, SDK estimated)_                                                            | Override gas limit.                                                                                                            |
-| `tx.maxFeePerGas`         | `bigint` _(optional, SDK estimated)_                                                            | Override max fee per gas.                                                                                                      |
-| `tx.maxPriorityFeePerGas` | `bigint` _(optional, SDK estimated)_                                                            | Override priority fee.                                                                                                         |
-| `tx.deadline`             | `bigint` _(optional)_                                                                           | Execution deadline.                                                                                                            |
+| Argument                  | Type                                                                                            | Description                                                                                                                                                                                            |
+| ------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _`tx.to`_                 | `string \| { address: string; chain: CHAIN }`                                                   | Execution target. Plain address → Route 1. `{ address, chain }` → Route 2.                                                                                                                             |
+| `tx.from`                 | `{ chain: CHAIN }` _(optional)_                                                                 | Forces CEA on the specified external chain as execution origin → Route 3.                                                                                                                              |
+| `tx.value`                | `bigint` _(optional)_                                                                           | Native value in smallest unit — uPC on Push Chain; native asset on external routes.                                                                                                                    |
+| `tx.data`                 | `string \| Array<{ to: string; value: bigint; data: string }>` _(optional)_                     | Encoded calldata for a single call or multicall array. EVM: `encodeTxData({ abi, functionName, args })`. Solana: `encodeTxData({ idl, functionName, args })`. Multicall requires `tx.to: '0x000...0'`. |
+| `tx.funds`                | `{ amount: bigint; token?: MOVEABLE.TOKEN }` _(optional)_                                       | Move supported assets as part of the tx. For Route 1: external origin only (Push-native users use ERC-20 `transfer` directly).                                                                         |
+| `tx.progressHook`         | `(progress: ProgressHookType) => void` _(optional)_                                             | Callback for per-step lifecycle events. Event IDs are route-prefixed (`SEND-TX-1xx` Route 1, `SEND-TX-2xx` Route 2, `SEND-TX-3xx` Route 3). See [ProgressHook Events](#progresshook-events) below.     |
+| `tx.payGasWith`           | `{ token?: PAYABLE.TOKEN; slippageBps?: number; minAmountOut?: bigint \| string }` _(optional)_ | Pay universal gas fees with a supported ERC-20 instead of native.                                                                                                                                      |
+| `tx.gasLimit`             | `bigint` _(optional, SDK estimated)_                                                            | Override gas limit.                                                                                                                                                                                    |
+| `tx.maxFeePerGas`         | `bigint` _(optional, SDK estimated)_                                                            | Override max fee per gas.                                                                                                                                                                              |
+| `tx.maxPriorityFeePerGas` | `bigint` _(optional, SDK estimated)_                                                            | Override priority fee.                                                                                                                                                                                 |
+| `tx.deadline`             | `bigint` _(optional)_                                                                           | Execution deadline.                                                                                                                                                                                    |
+
+---
+
+### ProgressHook Events
+
+Each `progress` object passed to `tx.progressHook` has this shape:
+
+```ts
+{
+  id: string; // e.g. 'SEND-TX-101'
+  title: string;
+  message: string;
+  level: 'INFO' | 'SUCCESS' | 'ERROR';
+  response: object | null; // extra data: chain, address, txHash, etc.
+  timestamp: string; // ISO-8601
+}
+```
+
+Event IDs are prefixed by route. Key milestones per route:
+
+| Route                    | Prefix            | First event   | Success          | Failure          |
+| ------------------------ | ----------------- | ------------- | ---------------- | ---------------- |
+| Route 1 → Push Chain     | `SEND-TX-1xx`     | `SEND-TX-101` | `SEND-TX-199-01` | `SEND-TX-199-02` |
+| Route 2 → External chain | `SEND-TX-2xx`     | `SEND-TX-201` | `SEND-TX-299-01` | `SEND-TX-299-02` |
+| Route 3 CEA → Push Chain | `SEND-TX-3xx`     | `SEND-TX-301` | `SEND-TX-399-01` | `SEND-TX-399-02` |
+| Multichain cascade       | `SEND-TX-0xx/9xx` | `SEND-TX-001` | `SEND-TX-999-01` | `SEND-TX-999-02` |
+
+Full event list (all routes, all IDs, response shapes): https://push.org/agents/workflows/progress-hook-events.md
 
 ---
 
@@ -291,6 +326,29 @@ console.log('explorer:', receipt.externalExplorerUrl);
 
 > Route 2 receipt includes additional fields: `externalTxHash`, `externalChain`, `externalExplorerUrl`.
 
+**Solana target variant** — same Route 2 shape; pass the Anchor IDL via `encodeTxData` and the SDK resolves all accounts, PDAs, and the CEA automatically:
+
+```ts
+import testCounterIdl from './target/idl/test_counter.json';
+
+const data = PushChain.utils.helpers.encodeTxData({
+  idl: testCounterIdl, // Anchor IDL from target/idl/*.json
+  functionName: 'receive_sol', // snake_case or camelCase both accepted
+  args: [BigInt(0)], // use BigInt for u64/u128 args
+});
+const tx = await client.universal.sendTransaction({
+  to: {
+    address: '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx',
+    chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+  },
+  value: BigInt(0),
+  data,
+});
+const receipt = await tx.wait();
+console.log('Solana tx hash:', receipt.externalTxHash);
+console.log('Solana explorer:', receipt.externalExplorerUrl);
+```
+
 ---
 
 ### Route 3 — CEA Origin → Push Chain
@@ -335,6 +393,22 @@ User → Push vault
 
 > Route 3 isn't for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you've already deployed via prior Route 2 activity.
 
+**Solana CEA as origin** — set `from: { chain: SOLANA_DEVNET }` to use the user's Solana CEA as the origin. `msg.sender` on Push Chain will be the Solana CEA address. Use `deriveExecutorAccount` beforehand if you need to fund it.
+
+```ts
+// Route 3 — Solana CEA origin → Push Chain contract
+const tx = await client.universal.sendTransaction({
+  from: { chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET }, // Solana CEA as origin
+  to: '0xContractOnPushChain',
+  data: PushChain.utils.helpers.encodeTxData({
+    abi,
+    functionName: 'increment',
+  }),
+});
+await tx.wait();
+// Inside 0xContractOnPushChain: msg.sender === CEA(Solana Devnet, userAddress)
+```
+
 ---
 
 ### Multicall — Batch Multiple Calls
@@ -362,7 +436,7 @@ await client.universal.sendTransaction({
 | `hash`                 | `string`                                 | Push Chain transaction hash                |
 | `origin`               | `string`                                 | CAIP-10 origin: `'eip155:chainId:address'` |
 | `from`                 | `string`                                 | UEA address that executed on Push Chain    |
-| `to`                   | `string`                                 | Target address                             |
+| `to`                   | `string \| null`                         | Target address                             |
 | `value`                | `bigint`                                 | Value transferred (in smallest unit)       |
 | `data`                 | `string`                                 | Calldata                                   |
 | `chainId`              | `string`                                 | Push Chain ID (`'42101'` on testnet)       |
@@ -580,25 +654,35 @@ Converts a raw smallest-unit amount back to a human-readable string.
 
 **Returns**: `string` — e.g. `'1.5'`, `'100.50'`
 
-### `encodeTxData({ abi, functionName, args })` → `string`
+### `encodeTxData({ abi | idl, functionName, args })` → `string`
 
-Encodes smart contract calldata without needing viem or ethers.js.
+Encodes smart contract calldata without needing viem or ethers.js. Works for both EVM (ABI) and Solana (Anchor IDL) targets.
 
-| Argument       | Type                 | Description                      |
-| -------------- | -------------------- | -------------------------------- |
-| `abi`          | `any[]`              | Contract ABI array               |
-| `functionName` | `string`             | Function name to encode          |
-| `args`         | `any[]` _(optional)_ | Function arguments, default `[]` |
+| Argument       | Type                 | Description                                                                                                                                                                |
+| -------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `abi` \| `idl` | `any[]`              | EVM ABI array (`abi`) or Anchor IDL object (`idl`). Determines encoding: ABI → 4-byte selector + ABI-encoded args; IDL → 8-byte Anchor discriminator + Borsh-encoded args. |
+| `functionName` | `string`             | Function (EVM) or instruction (Solana) name. Both `snake_case` and `camelCase` accepted for Solana.                                                                        |
+| `args`         | `any[]` _(optional)_ | Function arguments, default `[]`. Use `bigint` for `uint256`/`u64`/`u128`.                                                                                                 |
 
 **Returns**: `string` — hex-encoded calldata, e.g. `'0xd09de08a'`
 
 ```ts
+// EVM target — use `abi` key
 PushChain.utils.helpers.encodeTxData({
   abi,
   functionName: 'transfer',
   args: ['0xabc...', 1000n],
 });
 // args follow ABI types — use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
+```
+
+```ts
+// Solana target — use `idl` key (not `abi`)
+PushChain.utils.helpers.encodeTxData({
+  idl: testCounterIdl, // Anchor IDL from target/idl/*.json
+  functionName: 'receive_sol', // snake_case or camelCase both accepted
+  args: [BigInt(0)], // use BigInt for u64/u128
+});
 ```
 
 ---
@@ -744,7 +828,7 @@ Full reference: https://push.org/agents/workflows/use-contract-helpers.md
 | Silent tx failure (no throw, no logs)                        | `tx.wait()` resolves even on reverts — always check `receipt.status === 1`                                     |
 | Private key in source code                                   | Use `process.env.PRIVATE_KEY` — never hardcode keys in scripts or commit them to version control               |
 
-> For Solana origin transactions, set `tx.svmExecute: { targetProgram, accounts, ixData }` instead of `tx.data`.
+> For Solana targets, use `encodeTxData({ idl, functionName, args })` and pass the result as `tx.data` — same `{ to, value, data }` shape as EVM. The SDK resolves program accounts, PDAs, and the sender's CEA automatically from the IDL.
 > For read-only queries, use ethers.js or viem directly with RPC `https://evm.donut.rpc.push.org/` — `@pushchain/core` is not required.
 
 ## Downloadable Resources
