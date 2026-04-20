@@ -21,9 +21,12 @@ if (!SOLANA_KEY) {
 async function main() {
   // ── Initialize ────────────────────────────────────────────────────────────
   const keypair = Keypair.fromSecretKey(
-    Uint8Array.from(JSON.parse(SOLANA_KEY))
+    Uint8Array.from(JSON.parse(SOLANA_KEY!))
   );
-  const signer = await PushChain.utils.signer.toUniversalFromKeypair(keypair);
+  const signer = await PushChain.utils.signer.toUniversalFromKeypair(keypair, {
+    chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
+    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS,
+  });
   const client = await PushChain.initialize(signer);
 
   console.log('✅ Client initialized | pubkey:', keypair.publicKey.toBase58());
@@ -38,28 +41,29 @@ async function main() {
   await tx.wait();
   console.log('  Confirmed');
 
-  // ── Solana program target (svmExecute) ────────────────────────────────────
-  // Use svmExecute when the target is a Solana program.
-  // Replace targetProgram, accounts, and ixData with your actual values.
-  console.log('\n→ Solana program target (svmExecute)…');
+  // ── Route 2: Solana program target (encodeTxData with IDL) ─────────────────
+  // Use encodeTxData({ idl }) for Solana program calls — the SDK resolves
+  // accounts, PDAs, and the sender's CEA automatically from the Anchor IDL.
+  // Replace testCounterIdl and args with your actual IDL and instruction args.
+  console.log('\n→ Route 2: Solana program target…');
+  // import testCounterIdl from './target/idl/test_counter.json';
+  const data = PushChain.utils.helpers.encodeTxData({
+    idl: {} as any, // replace with: import idl from './target/idl/your_program.json'
+    functionName: 'receive_sol', // snake_case or camelCase both accepted
+    args: [BigInt(0)], // use BigInt for u64/u128 args
+  });
   const svmTx = await client.universal.sendTransaction({
     to: {
-      address: 'YourProgramIdBase58Here', // replace with Solana program ID
+      address: 'YourProgramIdBase58Here', // replace with Solana program ID (base58)
       chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
     },
-    svmExecute: {
-      targetProgram: 'YourProgramIdBase58Here', // base58 program ID
-      accounts: [], // AccountMeta[] — program accounts
-      ixData: Buffer.from([]), // instruction data bytes
-    },
-    funds: {
-      amount: PushChain.utils.helpers.parseUnits('0.1', 9), // 0.1 SOL
-      token: PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.SOL,
-    },
+    value: BigInt(0),
+    data,
   });
   console.log('  Tx hash:', svmTx.hash);
-  await svmTx.wait();
-  console.log('  Confirmed');
+  const receipt = await svmTx.wait();
+  console.log('  Solana tx hash:', receipt.externalTxHash);
+  console.log('  Explorer:', receipt.externalExplorerUrl);
 }
 
 main().catch((err) => {

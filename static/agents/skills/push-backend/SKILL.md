@@ -829,18 +829,19 @@ Full reference: https://push.org/agents/workflows/use-contract-helpers.md
 | Private key in source code                                   | Use `process.env.PRIVATE_KEY` — never hardcode keys in scripts or commit them to version control               |
 
 > For Solana targets, use `encodeTxData({ idl, functionName, args })` and pass the result as `tx.data` — same `{ to, value, data }` shape as EVM. The SDK resolves program accounts, PDAs, and the sender's CEA automatically from the IDL.
+>
 > For read-only queries, use ethers.js or viem directly with RPC `https://evm.donut.rpc.push.org/` — `@pushchain/core` is not required.
 
 ## Downloadable Resources
 
 Copy these files into your project — self-contained and ready to run:
 
-| File                                                                                  | Purpose                                                           |
-| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [`package.json`](https://push.org/agents/resources/push-backend/package.json)         | Dependencies: @pushchain/core, ethers, viem, @solana/web3.js, tsx |
-| [`client-ethers.ts`](https://push.org/agents/resources/push-backend/client-ethers.ts) | ethers.js signer — Route 1 + Route 2                              |
-| [`client-viem.ts`](https://push.org/agents/resources/push-backend/client-viem.ts)     | viem signer — Route 1, Route 2, cascade                           |
-| [`client-solana.ts`](https://push.org/agents/resources/push-backend/client-solana.ts) | Solana Keypair signer — Route 1 + svmExecute                      |
+| File                                                                                  | Purpose                                                                                |
+| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`package.json`](https://push.org/agents/resources/push-backend/package.json)         | Dependencies: @pushchain/core, ethers, viem, @solana/web3.js, tsx                      |
+| [`client-ethers.ts`](https://push.org/agents/resources/push-backend/client-ethers.ts) | ethers.js signer — Route 1 + Route 2                                                   |
+| [`client-viem.ts`](https://push.org/agents/resources/push-backend/client-viem.ts)     | viem signer — Route 1, Route 2, cascade                                                |
+| [`client-solana.ts`](https://push.org/agents/resources/push-backend/client-solana.ts) | Solana Keypair signer — Route 1 + Route 2 (Solana program via `encodeTxData({ idl })`) |
 
 > [Resource index](https://push.org/agents/resources/push-backend/index.json) — machine-readable file list
 
