@@ -244,7 +244,7 @@ if (!pushChainClient) return null; // connected, client not yet ready
 
 > Use `connectionStatus` to gate UI states. Use `handleConnectToPushWallet` / `handleUserLogOutEvent` when building custom connect/disconnect buttons instead of `PushUniversalAccountButton`.
 
-> **`uid` is an advanced pattern** — only needed when running two `PushUniversalWalletProvider` instances simultaneously (e.g. two independent wallet contexts in the same app). In that case, set `config.uid` on each provider and pass the **same uid** to every hook and button targeting that provider: `usePushChainClient('uid1')`, `usePushWalletContext('uid1')`, `<PushUniversalAccountButton uid='uid1' />`. Mismatching or omitting `uid` causes hooks to bind to the wrong provider instance.
+> **`uid` is an advanced pattern** — only needed when running two `PushUniversalWalletProvider` instances simultaneously (e.g. two independent wallet contexts in the same app). In that case, set `config.uid` on each provider and pass the **same uid** to every hook and button targeting that provider: `usePushChainClient('wallet-a')`, `usePushWalletContext('wallet-a')`, `<PushUniversalAccountButton uid='wallet-a' />`. Mismatching or omitting `uid` causes hooks to bind to the wrong provider instance.
 
 ---
 
@@ -384,10 +384,11 @@ const hopB = await pushChainClient.universal.prepareTransaction({
 const result = await pushChainClient.universal.executeTransactions(
   [hopA, hopB],
   {
-    progressHook: (step, total) => setStatus(`Step ${step} of ${total}…`),
+    progressHook: (progress) => setStatus(progress.message), // progress: { id, title, message, level, response, timestamp }
   }
 );
 if (!result.success) throw new Error('Cascade failed');
+// progressHook event IDs (SEND-TX-001, SEND-TX-999-01, etc.): https://push.org/agents/workflows/progress-hook-events.md
 ```
 
 ## Sign a Message
@@ -400,14 +401,14 @@ const signature = await pushChainClient.universal.signMessage(message); // retur
 
 ## Common Mistakes
 
-| Mistake                                                                                       | Fix                                                                                                                                                                                                                        |
-| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PushUniversalWalletProvider` wrapped inside `App` instead of at the tree root                | Move to `main.tsx` / `index.tsx` — hooks won't resolve without it above every consumer                                                                                                                                     |
-| Calling `sendTransaction` before `isInitialized === true`                                     | Gate with `isInitialized && pushChainClient` check before any tx trigger                                                                                                                                                   |
-| Treating `signMessage` return value as a string                                               | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string                                                                                                                                  |
-| Forgetting `'use client'` in Next.js App Router                                               | Add `'use client'` to the file that renders `PushUniversalWalletProvider`                                                                                                                                                  |
-| Expecting `pushChainClient` to be non-null on first render                                    | It's `null` until wallet connects — always use the canonical guard pattern above                                                                                                                                           |
-| Hooks bind to wrong provider or return stale state (`uid` mismatch across multiple providers) | Pass the **same** `uid` to `usePushChainClient('uid1')`, `usePushWalletContext('uid1')`, and `<PushUniversalAccountButton uid='uid1' />` — omit `uid` entirely unless you are intentionally running two provider instances |
+| Mistake                                                                                       | Fix                                                                                                                                                                                                                                    |
+| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PushUniversalWalletProvider` wrapped inside `App` instead of at the tree root                | Move to `main.tsx` / `index.tsx` — hooks won't resolve without it above every consumer                                                                                                                                                 |
+| Calling `sendTransaction` before `isInitialized === true`                                     | Gate with `isInitialized && pushChainClient` check before any tx trigger                                                                                                                                                               |
+| Treating `signMessage` return value as a string                                               | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string                                                                                                                                              |
+| Forgetting `'use client'` in Next.js App Router                                               | Add `'use client'` to the file that renders `PushUniversalWalletProvider`                                                                                                                                                              |
+| Expecting `pushChainClient` to be non-null on first render                                    | It's `null` until wallet connects — always use the canonical guard pattern above                                                                                                                                                       |
+| Hooks bind to wrong provider or return stale state (`uid` mismatch across multiple providers) | Pass the **same** `uid` to `usePushChainClient('wallet-a')`, `usePushWalletContext('wallet-a')`, and `<PushUniversalAccountButton uid='wallet-a' />` — omit `uid` entirely unless you are intentionally running two provider instances |
 
 > For read-only state queries (no transactions): use ethers.js or viem directly with `https://evm.donut.rpc.push.org/` (HTTP) or `wss://evm.donut.rpc.push.org` (WebSocket — for `watchBlocks`, event subscriptions). See [read-blockchain-state.md](https://push.org/agents/workflows/read-blockchain-state.md).
 
