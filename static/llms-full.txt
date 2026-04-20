@@ -281,16 +281,17 @@ Progress Hook Type and Response
 | `progress.title` | `string` | Brief title of the progress event. |
 | `progress.message` | `string` | Detailed message describing the event. |
 | `progress.level` | `INFO` \| `SUCCESS` \| `ERROR` | Severity level of the event. |
+| `progress.response` | `object` \| `null` | Additional data object for the event, or `null` if not applicable. |
 | `progress.timestamp` | `string` | ISO-8601 timestamp when the event occurred. |
 
-| ID | Title | Message | Level |
-| -- | ----- | ------- | ----- |
-| `UEA-MIG-01` | Checking Status | Fetching current UEA version and upgrade requirement | INFO |
-| `UEA-MIG-02` | Awaiting Signature | Awaiting user signature for migration payload (EIP-712) | INFO |
-| `UEA-MIG-03` | Broadcasting | Submitting migration transaction to Push Chain | INFO |
-| `UEA-MIG-9901` | Upgrade Complete | UEA successfully upgraded to version `` | SUCCESS |
-| `UEA-MIG-9902` | Upgrade Failed | `` | ERROR |
-| `UEA-MIG-9903` | No Upgrade Needed | UEA is already at the required version; operation skipped | INFO |
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `UEA-MIG-01` | Checking UEA | Checking status for migration. | INFO | null |
+| `UEA-MIG-02` | Awaiting Migration Signature | Awaiting wallet signature for upgrading account. | INFO | null |
+| `UEA-MIG-03` | Broadcasting Migration TX | Broadcasting upgrade transaction to Push Chain... | INFO | null |
+| `UEA-MIG-9901` | UEA Migration Successful | UEA migration is successful. UEA is now version ``. | SUCCESS | `{ version }` |
+| `UEA-MIG-9902` | UEA Migration Failed | UEA migration failed. Check transaction on explorer. | ERROR | `{ error }` |
+| `UEA-MIG-9903` | UEA Migration Skipped | UEA migration skipped. | INFO | null |
 
 ## Recommended Usage Pattern
 
@@ -1477,45 +1478,114 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | _`tx.to`_         | `string` \| `{ address: string; chain: CHAIN }`                  | Defines the execution target. Passing a plain address triggers Push Chain execution. Passing `{ address, chain }` targets an external chain.                                                                                                                                                  |
 | `tx.from`         | `{ chain: PushChain.CONSTANTS.CHAIN }`                           | Optional. When set to an external chain, execution uses the Chain Executor Account (CEA) for that chain as the transaction origin.This is primarily used for external origin or CEA-based execution flows.                                         |
 | `tx.value`        | `BigInt`                                                         | Native value to send, expressed in the smallest unit of the execution context.On Push Chain this is uPC (the smallest unit, like wei in ETH). On external execution routes, this maps to the native asset amount of that route.                                                   |
-| `tx.data`         | `string` \| `Array` | Use `string` as ABI-encoded calldata for a single call.Use `Array` for batched multicall payload.                                                                                                                                                                                        |
-| `tx.funds`        | `{ amount: BigInt; token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }` | Moves supported assets as part of the transaction flow. Depending on the route, assets may be moved into Push Chain or between Push Chain and a supported external chain. If `tx.data` is provided, asset movement and execution happen atomically.   |
+| `tx.data`         | `string` \| `Array` | Encoded calldata for a single call `string` or batched multicall `Array`. Use `encodeTxData` to produce the correct bytes for EVM (ABI) or Solana (Anchor IDL) targets. |
+| `tx.funds`        | `{ amount: BigInt; token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }` | Moves supported assets as part of the transaction flow.Depending on the route, assets may be moved into Push Chain or between Push Chain and a supported external chain.If `tx.data` is provided, asset movement and execution happen atomically.   |
 | `tx.progressHook` | `(progress: ProgressHookType) => void`                           | A callback function to receive progress updates during transaction lifecycle, especially useful for tracking cross-chain transactions.                                                                                                                                                                    |
 
 Progress Hook Type and Response
 
-| Field                | Type                           | Description                                                                   |
-| -------------------- | ------------------------------ | ----------------------------------------------------------------------------- |
-| `progress`           | `Object`                       | The progress of the transaction.                                              |
-| `progress.id`        | `string`                       | Unique identifier for the progress event.                                     |
-| `progress.title`     | `string`                       | Brief title of the progress event.                                            |
-| `progress.message`   | `string`                       | Detailed message describing the event.                                        |
-| `progress.level`     | `INFO` \| `SUCCESS` \| `ERROR` | Severity level of the event.                                                  |
+| Field                | Type                           | Description                                                                    |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------ |
+| `progress`           | `Object`                       | The progress of the transaction.                                               |
+| `progress.id`        | `string`                       | Unique identifier for the progress event.                                      |
+| `progress.title`     | `string`                       | Brief title of the progress event.                                             |
+| `progress.message`   | `string`                       | Detailed message describing the event.                                         |
+| `progress.level`     | `INFO` \| `SUCCESS` \| `ERROR` | Severity level of the event.                                                   |
+| `progress.response`  | `object` \| `null`             | Additional data object for the event, or `null` if not applicable.             |
 | `progress.timestamp` | `string`                       | ISO-8601 timestamp when the event occurred (e.g. `2025-06-26T15:04:05.000Z`). |
 
-| ID                 | Title                              | Message                                                                                            | Level   |
-| ------------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ------- |
-| `SEND-TX-01`       | Origin Chain Detected              | Origin chain: `` - Origin Address: ``                                   | INFO    |
-| `SEND-TX-02-01`    | Estimating Gas                     | Estimating and fetching gas limit, gas price for TX                                                | INFO    |
-| `SEND-TX-02-02`    | Gas Estimated                      | Total execution cost (Gas cost + value): `` UPC                                            | SUCCESS |
-| `SEND-TX-03-01`    | Resolving UEA                      | Resolving Universal Executor Account (UEA) – computing address, checking deployment status/balance | INFO    |
-| `SEND-TX-03-02`    | UEA Resolved                       | UEA: ``, Deployed: ``                                                         | SUCCESS |
-| `SEND-TX-04-01`    | Awaiting Transaction               | Awaiting user transaction on origin chain                                                          | INFO    |
-| `SEND-TX-04-02`    | Awaiting Signature                 | Awaiting user signature for universal payload                                                      | INFO    |
-| `SEND-TX-04-03`    | Verification Success               | Verification completed via Transaction or Signature                                                | SUCCESS |
-| `SEND-TX-04-04`    | Verification Declined              | Verification declined by user                                                                      | ERROR   |
-| `SEND-TX-05-01`    | Gas Funding In Progress            | Gas funding tx sent: ``                                                      | INFO    |
-| `SEND-TX-05-02`    | Gas Funding Confirmed              | Gas funding confirmed on origin chain                                                              | SUCCESS |
-| `SEND-TX-06-01`    | Preparing Funds Transfer           | Preparing to move ` ` from origin chain                                            | INFO    |
-| `SEND-TX-06-02`    | Funds Lock Submitted               | Locking ` ` for transfer (Tx hash: ``)                             | INFO    |
-| `SEND-TX-06-03`    | Awaiting Confirmations             | Waiting for `` confirmations                                                             | INFO    |
-| `SEND-TX-06-03-01` | Confirmation #`` Received | `/` confirmations received                                                      | INFO    |
-| `SEND-TX-06-03-02` | Confirmation #`` Received | `/` confirmations received                                                      | SUCCESS |
-| `SEND-TX-06-04`    | Funds Confirmed                    | Origin chain lock confirmed                                                                        | SUCCESS |
-| `SEND-TX-06-05`    | Syncing State with Push Chain      | Waiting for transaction to appear on Push Chain                                                    | SUCCESS |
-| `SEND-TX-06-06`    | Funds Credited on Push Chain       | Funds credited: ` ` (minus fees)                                                   | SUCCESS |
-| `SEND-TX-07`       | Broadcasting to Push Chain         | Sending Tx to Push Chain...                                                                        | INFO    |
-| `SEND-TX-99-01`    | Push Chain Tx Success              | Tx executed successfully on Push Chain                                                             | SUCCESS |
-| `SEND-TX-99-02`    | Push Chain Tx Failed               | ``                                                                                  | ERROR   |
+**Route 1 → Execute on Push Chain**
+
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `SEND-TX-101` | Origin Chain Detected | Origin chain: `` — Address: `` | INFO | `{ chain, address }` |
+| `SEND-TX-102-01` | Estimating Gas | Estimating and fetching gas limit, gas price for TX | INFO | `{ stage: 'estimating-gas' }` |
+| `SEND-TX-102-02` | Gas Estimated | Total execution cost: `` UPC | SUCCESS | `{ totalCost, currency }` |
+| `SEND-TX-103-01` | Resolving Universal Execution Account | Resolving UEA – computing address, checking deployment and balance | INFO | `{ stage: 'resolving-uea' }` |
+| `SEND-TX-103-02` | Universal Execution Account Resolved | UEA: ``, Deployed: `` | SUCCESS | `{ uea, deployed }` |
+| `SEND-TX-103-03` | Calculating Prepaid Deposit | Calculating required prepaid deposit (one-time >$1; refilled only when gas nears exhaustion) | INFO | null |
+| `SEND-TX-103-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-103-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-103-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-103-04` | Prepaid Deposit Estimated | Prepaid deposit estimated | SUCCESS | `{ totalPCDeposit, totalDepositUSD }` |
+| `SEND-TX-104-01` | Awaiting Transaction | Awaiting user transaction on origin chain | INFO | `{ stage: 'awaiting-transaction' }` |
+| `SEND-TX-104-02` | Awaiting Signature | Awaiting user signature for universal payload | INFO | `{ stage: 'awaiting-signature' }` |
+| `SEND-TX-104-03` | Verification Success | Verification completed via Transaction or Signature | SUCCESS | `{ stage: 'verified' }` |
+| `SEND-TX-104-04` | Verification Declined / Signature Failed | Verification declined by user \| `` | ERROR | `{ error, isUserDecline }` |
+| `SEND-TX-105-01` | Gas Funding In Progress | Gas funding tx sent: `` | INFO | `{ txHash, originChainTx }` |
+| `SEND-TX-105-02` | Gas Funding Confirmed | Gas funding confirmed on origin chain | SUCCESS | `{ stage: 'gas-funded', txHash }` |
+| `SEND-TX-106-01` | Preparing Funds Transfer | Preparing to move ` ` from origin chain | INFO | `{ amount, symbol }` |
+| `SEND-TX-106-02` | Funds Lock Submitted | Locking ` ` — Tx: `` | INFO | `{ txHash, amount, symbol, originChainTx }` |
+| `SEND-TX-106-03` | Awaiting Confirmations | Waiting for `` confirmations | INFO | `{ current: 0, required }` |
+| `SEND-TX-106-03-01` | Confirmation `/` Received | `/` confirmations received | INFO | `{ current, required }` |
+| `SEND-TX-106-03-02` | Confirmation `/` Received | `/` confirmations received | SUCCESS | `{ current, required }` |
+| `SEND-TX-106-04` | Funds Confirmed | Origin chain lock confirmed | SUCCESS | `{ stage: 'funds-confirmed', txHash }` |
+| `SEND-TX-106-05` | Syncing with Push Chain | Waiting for transaction to appear on Push Chain | INFO | `{ stage: 'syncing-push-chain' }` |
+| `SEND-TX-106-06` | Funds Credited on Push Chain | Funds credited: ` ` | SUCCESS | `{ amount, symbol }` |
+| `SEND-TX-107` | Broadcasting to Push Chain | Sending tx to Push Chain... | INFO | `{ stage: 'broadcasting', destination: 'push-chain' }` |
+| `SEND-TX-199-01` | Push Chain Tx Success | Tx confirmed: `` | SUCCESS | `{ txHash, response, receipt }` |
+| `SEND-TX-199-02` | Push Chain Tx Failed | `` | ERROR | `{ error }` |
+
+**Route 2 → Execute on External Chain**
+
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `SEND-TX-201` | `` Detected | External chain: `` — Target address: `` | INFO | `{ chain, address }` |
+| `SEND-TX-202-01` | Estimating `` Chain Gas | Querying Push Chain gas and UGPC relay fee | INFO | `{ stage: 'estimating-gas', chain }` |
+| `SEND-TX-202-02` | `` Chain Gas Estimated | Push gas: `` UPC + UGPC relay: `` UPC = `` UPC | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
+| `SEND-TX-203-01` | Resolving `` Execution Account | Resolving UEA on Push Chain and CEA on `` | INFO | `{ stage: 'resolving-cea', chain }` |
+| `SEND-TX-203-02` | `` Execution Account Ready | UEA: ``. CEA: `` on ``. Deployed: `` | SUCCESS | `{ uea, cea, chain, deployed }` |
+| `SEND-TX-204-01` | Awaiting Signature | Awaiting user signature for universal payload | INFO | `{ stage: 'awaiting-signature' }` |
+| `SEND-TX-204-02` | Signature Received | Universal payload signed — preparing broadcast | SUCCESS | `{ stage: 'signed' }` |
+| `SEND-TX-204-03` | Verification Success | Verification completed | SUCCESS | `{ stage: 'verified' }` |
+| `SEND-TX-204-04` | Verification Declined / Signature Failed | Verification declined by user \| `` | ERROR | `{ error, isUserDecline }` |
+| `SEND-TX-207` | Broadcasting from Push Chain → `` | Sending tx to Push Chain... | INFO | `{ chain }` |
+| `SEND-TX-209-01` | Awaiting Push Chain Relay | Waiting for UGPC to relay execution to `` | INFO | `{ chain }` |
+| `SEND-TX-209-02` | Syncing State with `` | Polling `` for CEA execution | INFO | `{ chain, elapsedMs }` |
+| `SEND-TX-299-01` | `` Tx Success | CEA executed on `` - tx: `` | SUCCESS | `{ txHash, ...details }` |
+| `SEND-TX-299-02` | `` Tx Failed | `` | ERROR | `{ error, chain }` |
+| `SEND-TX-299-03` | Syncing State with `` Timeout | Timed out waiting for UGPC relay to `` | ERROR | `{ error: 'relay timeout', chain, elapsedMs }` |
+| `SEND-TX-299-99` | `` Tx Completed | Intermediate `` tx confirmed: ``, progressing to next phase | INFO | `{ chain, txHash }` |
+
+**Route 3 → Execute on Push Chain from CEA**
+
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `SEND-TX-199-99-99` | Push Chain TX Completed | Intermediate Push Chain tx confirmed: ``, progressing to next phase | INFO | `{ txHash }` |
+| `SEND-TX-301` | ``'s Executor Account Detected | Source chain: `` — CEA: `` | INFO | `{ chain, address }` |
+| `SEND-TX-302-01` | Estimating `` Gas | Querying Push Chain gas and UGPC relay fee | INFO | `{ stage: 'estimating-gas', chain }` |
+| `SEND-TX-302-02` | `` Gas Estimated | Push gas: `` UPC + UGPC relay: `` UPC = `` UPC | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
+| `SEND-TX-302-03` | Calculating Prepaid Deposit | Calculating required prepaid deposit (one-time >$1; refilled only when gas nears exhaustion) | INFO | null |
+| `SEND-TX-302-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-302-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-302-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
+| `SEND-TX-302-04` | Prepaid Deposit Estimated | Prepaid deposit estimated | SUCCESS | `{ totalPCDeposit, totalDepositUSD }` |
+| `SEND-TX-303-01` | Resolving Execution Accounts on Chains | Resolving UEA on Push Chain and CEA on `` | INFO | `{ stage: 'resolving-cea-uea', chain }` |
+| `SEND-TX-303-02` | Execution Accounts Resolved | UEA: ``. CEA: `` on ``. Deployed: true | SUCCESS | `{ uea, cea, chain, deployed }` |
+| `SEND-TX-304-01` | Awaiting Signature | Awaiting user signature for universal payload | INFO | `{ stage: 'awaiting-signature' }` |
+| `SEND-TX-304-02` | Signature Received | Universal payload signed — preparing broadcast | SUCCESS | `{ stage: 'signed' }` |
+| `SEND-TX-304-03` | Verification Success | Verification completed | SUCCESS | `{ stage: 'verified' }` |
+| `SEND-TX-304-04` | Verification Declined / Signature Failed | Verification declined by user \| `` | ERROR | `{ error, isUserDecline }` |
+| `SEND-TX-307` | Broadcasting from Push Chain → `` | Sending tx from Push Chain... | INFO | `{ chain }` |
+| `SEND-TX-309-01` | Awaiting `` Relay | Waiting for UGPC to relay to CEA on `` | INFO | `{ chain }` |
+| `SEND-TX-309-02` | Syncing State with `` | Polling `` for CEA execution | INFO | `{ chain, elapsedMs }` |
+| `SEND-TX-309-03` | `` Tx Confirmed | CEA executed on ``: `` — return inbound initiated | INFO | `{ chain, txHash }` |
+| `SEND-TX-310-01` | `` → Push Chain Inbound Tx Submitted | CEA initiated return — waiting for Push Chain inbound from `` | INFO | `{ chain }` |
+| `SEND-TX-310-02` | Syncing State with Push Chain for Inbound Tx | Polling Push Chain for inbound from `` | INFO | `{ chain, elapsedMs }` |
+| `SEND-TX-399-01` | Push Chain Inbound Tx Success | Inbound from `` confirmed · Push tx: `` | SUCCESS | `{ chain, txHash, receipt }` |
+| `SEND-TX-399-02` | `` Tx Failed / Push Chain Tx Failed / Push Chain Inbound Tx Failed | `` | ERROR | `{ error, phase, chain }` |
+| `SEND-TX-399-03` | `` Timeout / Push Chain Timeout / Push Chain Inbound Timeout | Timed out waiting for... | ERROR | `{ error, phase, chain, elapsedMs }` |
+
+**Executing multiple transactions (Send Multichain Transations)**
+
+| ID | Title | Message | Level | Response |
+| -- | ----- | ------- | ----- | -------- |
+| `SEND-TX-001` | Multichain Transactions Initiated | ``-hop transaction — `` | INFO | `{ hopCount, chains }` |
+| `SEND-TX-002-01` | Starting Intermediate Transaction #``/`` | Starting tx `` of ``: `` → `` | INFO | `{ n, total, fromChain, toChain }` |
+| `SEND-TX-002-99-99` | Intermediate Transaction #``/`` Complete | Tx `` of `` confirmed — proceeding to tx `` | INFO | `{ n, total }` |
+| `SEND-TX-999-01` | All Multichain Transactions Successful | ``-hop transaction confirmed across all chains | SUCCESS | `{ hopCount }` |
+| `SEND-TX-999-02` | Multichain Transactions Failed | Cascade failed at hop `` of ``: `` | ERROR | `{ failedAt, total, error }` |
+| `SEND-TX-999-03` | Multichain Transactions Timeout | Cascade timed out at hop `` of `` | ERROR | `{ failedAt, total, error: 'cascade timeout' }` |
 
 | Arguments                 | Type                                                                                                   | Default         | Description                                                                                                                                                                                                                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1834,7 +1904,7 @@ For multicall, the `to` should always be zero address (`0x0000000000000000000000
 
       // wait for user to send funds first
       const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
-      const faucetHint = chainMeta.id === '1' ? '' : '\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      const faucetHint = chainMeta.id === '1' ? '' : 'Sepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
       await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + wallet.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
@@ -1931,7 +2001,7 @@ For multicall, the `to` should always be zero address (`0x0000000000000000000000
 
       // wait for user to send funds first
       const fundingAmount = chainMeta.id === '1' ? '5 PC' : '0.005 ETH';
-      const faucetHint = chainMeta.id === '1' ? '' : '\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
+      const faucetHint = chainMeta.id === '1' ? '' : 'Sepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia';
       await rl.question(':::prompt:::Send at least ' + fundingAmount + ' to: ' + account.address + ' on ' + chainMeta.name + ', then press Enter.' + faucetHint);
 
       // 6) Send universal transaction
@@ -2019,7 +2089,7 @@ For multicall, the `to` should always be zero address (`0x0000000000000000000000
       };
 
       // wait for user to send funds first
-      await rl.question(':::prompt:::Send at least 0.02 SOL to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet, then press Enter.\\nSolana devnet faucet: https://faucet.solana.com');
+      await rl.question(':::prompt:::Send at least 0.02 SOL to: ' + keypair.publicKey.toBase58() + ' on Solana Devnet, then press Enter. Solana devnet faucet: https://faucet.solana.com');
 
       // 5) Send universal transaction
       console.log('📤 Sending transaction to:', RECIPIENT);
@@ -2998,7 +3068,7 @@ End-to-end playground examples for each universal transaction route. For API ref
       await rl.question(':::prompt:::Fund these accounts, then press Enter:\\\\n  • UOA ' + wallet.address + ' on Sepolia — at least 0.005 ETH (gas to sign)\\\\n  • UEA ' + client.universal.account + ' on Push Chain — at least 5 PC (covers gas + gas-token swap for the Solana outbound)\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
 
       const data = PushChain.utils.helpers.encodeTxData({
-        abi: testCounterIdl,
+        idl: testCounterIdl,
         functionName: 'receive_sol',
         args: [BigInt(0)],
       });
@@ -3479,7 +3549,7 @@ const preparedTx = await pushChainClient.universal.prepareTransaction({
 | _`tx.to`_ | `string` \| `{ address: string; chain: CHAIN }` | Target address on Push Chain (plain string), or `{ address, chain }` for an external chain via CEA.  |
 | `tx.from` | `{ chain: CHAIN }` | Optional. When set, originates from the CEA on that chain. |
 | `tx.value` | `BigInt` | Native value to send in the smallest unit of the execution context. |
-| `tx.data` | `string` \| `Array` | ABI-encoded calldata (EVM targets), Anchor discriminator + Borsh-encoded instruction data (Solana targets), or an array of calls for multicall mode. Use [`encodeTxData`](/docs/chain/build/utility-functions#encode-transaction-data) to produce the correct bytes for either chain family. |
+| `tx.data` | `string` \| `Array` | Encoded calldata for a single call `string` or batched multicall `Array`. Use [`encodeTxData`](/docs/chain/build/utility-functions#encode-transaction-data) to produce the correct bytes for EVM (ABI) or Solana (Anchor IDL) targets. |
 | `tx.funds` | `{ amount: bigint; token?: MoveableToken }` | Move tokens from origin chain atomically with the call. Use `PushChain.CONSTANTS.MOVEABLE.TOKEN..`. |
 
 > `prepareTransaction` accepts the same transaction arguments as [Send Universal Transaction](/docs/chain/build/send-universal-transaction). 
@@ -5112,24 +5182,36 @@ const result = PushChain.utils.helpers.formatUnits('1500000000000000000', { deci
 
 ### Encode Transaction Data
 
-**_`PushChain.utils.helpers.encodeTxData({abi, functionName, args}): string`_**
+**_`PushChain.utils.helpers.encodeTxData({abi_or_idl, functionName, args}): string`_**
+
+  
 
 ```typescript
 const encodedData = PushChain.utils.helpers.encodeTxData({
-  abi,
+  abi: 'smart_contract_abi',
   functionName: 'functionName',
   args: []
 });
 ```
 
-`encodeTxData` produces chain-appropriate calldata based on the shape of `abi`:
+  
+  
 
-- **EVM ABI array** → 4-byte function selector + ABI-encoded args (viem behavior).
-- **Anchor IDL object** → 8-byte Anchor discriminator + Borsh-encoded args, ready to pass as `data` when targeting a Solana chain.
+```typescript
+const encodedData = PushChain.utils.helpers.encodeTxData({
+  idl: 'smart_contract_idl',
+  functionName: 'receive_sol',
+  args: [BigInt(0)],
+});
+```
+
+  
+
+`encodeTxData` produces chain-appropriate calldata based on the shape of `abi` or `idl`.
 
 | **Arguments**     | **Type**          | **Default** | **Description**                                                                                                                                                              |
 | ----------------- | ----------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _`abi`_           | `any[] \| Idl`    | -           | Either an EVM ABI array or an Anchor IDL object. The input shape determines which encoding is produced.                                                                      |
+| _`abi`_ \| _`idl`_           | `any[]`    | -           | Either an EVM ABI array or an Anchor IDL object. The input shape determines which encoding is produced.                                                                      |
 | _`functionName`_  | `string`          | -           | The function (EVM) or instruction (Solana) name to encode. Both `snake_case` and `camelCase` are accepted and matched against the IDL.                                       |
 | `args`            | `any[]`           | `[]`        | Positional arguments. Use `BigInt` for `u64`/`u128`; 0x-hex 32-byte strings are auto-converted to Solana `PublicKey` when the IDL declares a `pubkey` arg.                   |
 
@@ -5139,6 +5221,8 @@ const encodedData = PushChain.utils.helpers.encodeTxData({
 // encodedData string - the encoded function call data
 '0xd09de08a';
 ```
+
+  
 
 {`
 // customPropHighlightRegexStart=PushChain\.utils\.helpers\.encodeTxData
@@ -5188,38 +5272,52 @@ const encodedData = PushChain.utils.helpers.encodeTxData({
 
 `}
 
+  
+  
+
+{`
+// customPropHighlightRegexStart=PushChain\.utils\.helpers\.encodeTxData
+// customPropHighlightRegexEnd=\\);
+// customPropGTagEvent=utility_encode_tx_data_solana
+
+    function main() {
+      // Anchor IDL for the Solana target — trimmed to just the receive_sol
+      // instruction we call below. In a real app this comes from your Anchor
+      // program's target/idl/*.json.
+      const testCounterIdl = {
+        address: '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx', // SOL_TEST_PROGRAM
+        metadata: { name: 'test_counter', version: '0.1.0', spec: '0.1.0' },
+        instructions: [
+          {
+            name: 'receive_sol',
+            discriminator: [121, 244, 250, 3, 8, 229, 225, 1],
+            accounts: [
+              { name: 'counter', writable: true, pda: { seeds: [{ kind: 'const', value: [99, 111, 117, 110, 116, 101, 114] }] } }, // 'counter'
+              { name: 'recipient', writable: true, address: '89q1AUFb7YREHtjc1aYaPywovPq6tb3GYNPyDUJ3rshi' },
+              { name: 'cea_authority', writable: true }, // auto-populated with sender's CEA
+              { name: 'system_program', address: '11111111111111111111111111111111' },
+            ],
+            args: [{ name: 'amount', type: 'u64' }],
+          },
+        ],
+      };
+
+      const result = PushChain.utils.helpers.encodeTxData({
+        idl: testCounterIdl,
+        functionName: 'receive_sol',
+        args: [BigInt(0)]
+      });
+      
+      console.log('Encoded transaction data:', result);
+    }
+
+    main();
+
+`}
+
+  
+
 {/* API Section Ends*/}
-
-## Solana (SVM) Program Calls
-
-Solana programs require the client to declare every account an instruction touches. Push Chain handles this for you: pass the Anchor IDL to `encodeTxData` (same way you pass an ABI for EVM), and the SDK resolves program accounts, PDAs, and the sender's CEA automatically when you call `prepareTransaction`. Your Solana calls use the exact same `{ to, value, data }` shape as EVM — no extra IDL parameter on `to`, no separate registration step.
-
-```typescript
-// The full JSON emitted by Anchor at target/idl/<program_name>.json.
-import testCounterIdl from './target/idl/test_counter.json';
-
-// encodeTxData stashes the IDL internally (keyed by idl.address) so the
-// subsequent prepareTransaction / sendTransaction knows how to build the
-// Solana payload. You never touch the registry directly.
-const data = PushChain.utils.helpers.encodeTxData({
-  abi: testCounterIdl,
-  functionName: 'receive_sol',
-  args: [BigInt(0)],
-});
-
-await client.universal.prepareTransaction({
-  to: {
-    address: '8yNqjrMnFiFbVTVQcKij8tNWWTMdFkrDf9abCGgc2sgx', // base58 or 0x-hex
-    chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-  },
-  value: BigInt(0),
-  data,
-});
-```
-
-**Non-PDA accounts.** If an instruction declares an account whose pubkey is neither a PDA (derivable from seeds) nor the sender's CEA, add an `address: "<base58>"` field on that account in the IDL to pin it. Standard IDLs usually pre-set this for read-only program accounts (e.g. `systemProgram`, `tokenProgram`), so in practice this is mainly something you add for writable custom accounts. Accounts named `cea_authority` (or `cea`, `cea_signer`; camelCase `ceaAuthority` / `ceaSigner` also accepted) are auto-populated with the caller's CEA PDA and do not need pinning.
-
-See [Send Multichain Transactions](/docs/chain/build/send-multichain-transactions) for a full end-to-end example.
 
 ## Chain Utilities
 
@@ -8725,6 +8823,13 @@ Changelog | Push Chain Docs
 Keep track of the latest changes and updates to the Push Chain Core and UI Kit SDKs.
 
 ## [@pushchain/core](https://www.npmjs.com/package/@pushchain/core)
+
+### 5.2.0 (unreleased)
+
+#### Other Changes
+
+- Route 1 (UOA → Push) now applies Case A/B/C USD-bucket sizing to the
+- Gas abstraction scope narrowed to R1 (fee-lock USD caps) and R3 (outbound
 
 ### 5.1.0 (2026-03-28)
 

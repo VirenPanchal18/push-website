@@ -1,6 +1,7 @@
 {
   "schema_version": "1.0.0",
   "version": "1.0.0",
+  "current_sdk_version": "5.1.7",
   "generated": "2026-04-17T06:21:28.989Z",
   "description": "Structured map of SDK namespaces and their methods",
   "namespaces": [
@@ -241,7 +242,7 @@
         {
           "name": "sendTransaction",
           "signature": "pushChainClient.universal.sendTransaction(tx: { to, from?, value?, data?, funds?, progressHook?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline? }): Promise<UniversalTxResponse>",
-          "description": "Sends universal transaction. Advanced args: gasLimit/maxFeePerGas/maxPriorityFeePerGas override gas; payGasWith pays fees in supported token; deadline sets execution expiry",
+          "description": "Sends universal transaction. Advanced args: gasLimit/maxFeePerGas/maxPriorityFeePerGas override gas; payGasWith pays fees in supported token; deadline sets execution expiry. Solana targets use encodeTxData({ idl, functionName, args }) passed as tx.data — there is no svmExecute field.",
           "returns": "UniversalTxResponse",
           "safe_for_autonomous_execution": false
         },

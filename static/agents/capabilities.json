@@ -1,6 +1,7 @@
 {
   "schema_version": "1.1.0",
   "version": "1.0.0",
+  "current_sdk_version": "5.1.7",
   "generated": "2026-04-20T00:00:00.000Z",
   "description": "Intent-level agent capabilities — what an agent can do with Push Chain. For the complete SDK method surface with signatures see sdk-capabilities.json. Utilities (parseUnits, formatUnits, encodeTxData, chain/token discovery, constants) and raw ethers.js operations are API primitives consumed inside these capabilities rather than standalone agent intents.",
   "prerequisite_glossary": {
@@ -76,6 +77,7 @@
         }
       ],
       "sdk_method": "PushChain.initialize(signer, {options})",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -105,6 +107,7 @@
         }
       ],
       "sdk_method": "PushChain.utils.signer.toUniversal(signer)",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -146,6 +149,7 @@
         }
       ],
       "sdk_method": "PushChain.utils.signer.toUniversalFromKeypair(keypair, {chain, library})",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -439,6 +443,7 @@
         }
       ],
       "sdk_method": "pushChainClient.universal.trackTransaction(txHash, options)",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -468,6 +473,7 @@
         }
       ],
       "sdk_method": "pushChainClient.universal.signMessage(message)",
+      "invocation_type": "sdk",
       "auth_required": true,
       "safe_for_autonomous_execution": false,
       "mcp_candidate": true,
@@ -627,6 +633,7 @@
         }
       ],
       "sdk_method": "PushChain.CONSTANTS",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -649,6 +656,7 @@
         }
       ],
       "sdk_method": "PushChain.utils",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -733,6 +741,7 @@
         }
       ],
       "sdk_method": "pushChainClient.getAccountStatus({options})",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -765,6 +774,7 @@
         }
       ],
       "sdk_method": "pushChainClient.upgradeAccount({options})",
+      "invocation_type": "sdk",
       "auth_required": true,
       "safe_for_autonomous_execution": false,
       "mcp_candidate": true,
@@ -800,6 +810,7 @@
         }
       ],
       "sdk_method": "pushChainClient.reinitialize(signerOrAccount, {options})",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": true,
@@ -847,6 +858,7 @@
         }
       ],
       "sdk_method": "PushChain.utils.signer.construct(account, {options})",
+      "invocation_type": "sdk",
       "auth_required": false,
       "safe_for_autonomous_execution": true,
       "mcp_candidate": false,
@@ -930,6 +942,48 @@
           "type": "(progress: ProgressHookType) => void",
           "required": false,
           "description": "Per-hop progress callback"
+        },
+        {
+          "name": "txs[].from",
+          "type": "{ chain: CHAIN }",
+          "required": false,
+          "description": "Use CEA as origin from specified external chain for this hop"
+        },
+        {
+          "name": "txs[].value",
+          "type": "BigInt",
+          "required": false,
+          "description": "Native value in smallest unit for this hop"
+        },
+        {
+          "name": "txs[].gasLimit",
+          "type": "BigInt",
+          "required": false,
+          "description": "Override estimated gas limit for this hop"
+        },
+        {
+          "name": "txs[].maxFeePerGas",
+          "type": "BigInt",
+          "required": false,
+          "description": "EIP-1559 max fee per gas override for this hop"
+        },
+        {
+          "name": "txs[].maxPriorityFeePerGas",
+          "type": "BigInt",
+          "required": false,
+          "description": "EIP-1559 max priority fee per gas override for this hop"
+        },
+        {
+          "name": "txs[].payGasWith",
+          "type": "{ token?: PAYABLE.TOKEN; slippageBps?: number; minAmountOut?: BigInt | string }",
+          "required": false,
+          "description": "Pay gas fees with ERC-20 instead of native currency for this hop"
+        },
+        {
+          "name": "txs[].deadline",
+          "type": "BigInt",
+          "required": false,
+          "description": "Unix timestamp (seconds) after which this hop expires"
         }
       ],
       "outputs": [
@@ -975,6 +1029,48 @@
       "safe_for_autonomous_execution": false,
       "mcp_candidate": true,
       "docs_url": "https://push.org/docs/chain/build/sign-universal-message/",
+      "stability": "stable"
+    },
+    {
+      "id": "derive_executor_account",
+      "name": "Derive Executor Account (Off-Chain)",
+      "description": "Computes the deterministic UEA (Universal Executor Account on Push Chain) or CEA (Chain Executor Account on an external chain) address for any origin account without an on-chain call. Use for gas-estimation pre-flight, balance checks before transacting, whitelisting the CEA on target contracts, and any identity-resolution flow that needs the address before submitting a tx.",
+      "actor": ["developer", "agent", "backend", "browser_agent"],
+      "operation": "read",
+      "prerequisites": ["sdk_imported"],
+      "inputs": [
+        {
+          "name": "uoa",
+          "type": "UniversalAccount",
+          "required": true,
+          "description": "Origin account — create with PushChain.utils.account.toUniversal(address, { chain })"
+        },
+        {
+          "name": "options.chain",
+          "type": "CHAIN",
+          "required": true,
+          "description": "Target chain to derive executor on (CHAIN.PUSH_TESTNET_DONUT for UEA; any external chain for CEA)"
+        },
+        {
+          "name": "options.skipNetworkCheck",
+          "type": "boolean",
+          "required": false,
+          "description": "Set true for chains not yet live — skips network validation, returns deterministic address regardless"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result.address",
+          "type": "string",
+          "description": "Deterministic executor account address on the target chain"
+        }
+      ],
+      "sdk_method": "PushChain.utils.account.deriveExecutorAccount(uoa, { chain, skipNetworkCheck? })",
+      "invocation_type": "sdk",
+      "auth_required": false,
+      "safe_for_autonomous_execution": true,
+      "mcp_candidate": true,
+      "docs_url": "https://push.org/docs/chain/build/utility-functions/",
       "stability": "stable"
     }
   ]
