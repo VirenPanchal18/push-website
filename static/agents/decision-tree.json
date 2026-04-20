@@ -1,5 +1,7 @@
 {
+  "schema_version": "1.0.0",
   "version": "1.0.0",
+  "generated": "2026-04-17T06:21:28.989Z",
   "description": "Decision trees for Push Chain agent routing and action selection",
   "trees": [
     {
@@ -91,8 +93,15 @@
           "action": "Use @pushchain/ui-kit with PushUniversalWalletProvider",
           "details": {
             "package": "@pushchain/ui-kit",
-            "components": ["PushUniversalWalletProvider", "PushUniversalAccountButton"],
-            "hooks": ["usePushWalletContext", "usePushChainClient", "usePushChain"],
+            "components": [
+              "PushUniversalWalletProvider",
+              "PushUniversalAccountButton"
+            ],
+            "hooks": [
+              "usePushWalletContext",
+              "usePushChainClient",
+              "usePushChain"
+            ],
             "benefit": "Abstracts wallet connection, signer creation, and client initialization"
           },
           "next": null
@@ -134,7 +143,11 @@
           "condition": "Gas estimation failed",
           "action": "Check account balance and contract validity",
           "details": {
-            "checks": ["Verify target contract exists", "Check if user has sufficient funds", "Verify calldata is valid"]
+            "checks": [
+              "Verify target contract exists",
+              "Check if user has sufficient funds",
+              "Verify calldata is valid"
+            ]
           },
           "next": null
         },
@@ -143,7 +156,11 @@
           "action": "Inspect revert reason and fix contract call",
           "details": {
             "debug": "Check progressHook message for revert reason",
-            "common_causes": ["Insufficient funds in UEA", "Contract logic rejection", "Invalid function parameters"]
+            "common_causes": [
+              "Insufficient funds in UEA",
+              "Contract logic rejection",
+              "Invalid function parameters"
+            ]
           },
           "next": null
         },

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-17",
+  "generated": "2026-04-20T00:00:00.000Z",
   "description": "Canonical workflow manifest for Push Chain agent layer",
   "workflows": [
     {

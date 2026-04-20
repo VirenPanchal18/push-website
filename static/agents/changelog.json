@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0.0",
+  "current_version": "1.0.3",
   "entries": [
     {
       "date": "2026-04-17T17:00:00.000Z",
@@ -43,7 +44,9 @@
         "static/agents/workflows/use-contract-helpers.md",
         "static/agents/changelog.json"
       ],
-      "trigger": "16-issue audit pass — push-backend SKILL.md + propagation to workflows"
+      "trigger": "16-issue audit pass — push-backend SKILL.md + propagation to workflows",
+      "breaking": false,
+      "migration": null
     },
     {
       "date": "2026-04-17T07:20:00.000Z",
@@ -71,7 +74,9 @@
         "static/agents/sdk-capabilities.json",
         "static/agents/changelog.json"
       ],
-      "trigger": "Claude audit pass — push-frontend SKILL.md 13-issue review"
+      "trigger": "Claude audit pass — push-frontend SKILL.md 13-issue review",
+      "breaking": false,
+      "migration": null
     },
     {
       "date": "2026-04-17T06:21:28.989Z",
@@ -90,7 +95,9 @@
         "build.agents.llms.mjs",
         "static/agents/changelog.json"
       ],
-      "trigger": "manual audit pass — llms.txt polish"
+      "trigger": "manual audit pass — llms.txt polish",
+      "breaking": false,
+      "migration": null
     },
     {
       "date": "2026-04-17T04:23:42.400Z",
@@ -117,7 +124,9 @@
         "static/agents/changelog.json",
         "static/agents/source-freshness.json"
       ],
-      "trigger": "build.agents.mjs initial run + manual audit pass"
+      "trigger": "build.agents.mjs initial run + manual audit pass",
+      "breaking": false,
+      "migration": null
     }
   ]
 }

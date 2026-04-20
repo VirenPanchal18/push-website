@@ -1,8 +1,10 @@
 {
-  "description": "Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains. Users sign from any wallet; the SDK handles cross-chain routing, UEA resolution, and fee abstraction automatically.",
+  "description": "Push Chain agent-layer root index. Curated discovery entry points for agents and retrieval systems — see sub-index files (workflows/index.json, examples/index.json, resources/index.json) for complete per-category listings. Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains.",
+  "schema_version": "1.0.0",
   "version": "1.0.0",
-  "sdk_version": { "@pushchain/core": "5.1.4", "@pushchain/ui-kit": "5.2.2" },
-  "generated": "2026-04-17T06:21:28.989Z",
+  "version_policy": "All files in /agents/ carry schema_version (bumps only when the file's field layout changes — signals a consumer code update is needed) and version (bumps when content changes — backward-compatible by default). Per-file versioning is intentional: contract-addresses.json can be at 1.1.0 while index.json remains at 1.0.0 because each file evolves on its own cadence. changelog.json entries additionally carry breaking and migration fields so agents can detect whether a version change requires action.",
+  "sdk_version": { "@pushchain/core": "5.1.7", "@pushchain/ui-kit": "5.2.1" },
+  "generated": "2026-04-20T00:00:00.000Z",
   "start_here": {
     "developer": "agents/workflows/send-universal-transaction.md",
     "agent": "agents/capabilities.json",
