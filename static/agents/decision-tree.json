@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "current_sdk_version": "5.1.7",
-  "generated": "2026-04-20T00:00:00.000Z",
+  "generated": "2026-04-21T00:00:00.000Z",
   "description": "Decision trees for Push Chain agent routing and action selection",
   "trees": [
     {
@@ -12,6 +12,7 @@
         {
           "condition": "tx.to is a plain address string (e.g., '0x...')",
           "action": "Use Route 1: Execute on Push Chain via UEA",
+          "capability_ids": ["send_universal_transaction"],
           "details": {
             "execution_target": "Push Chain",
             "executor": "UEA (Universal Executor Account)",
@@ -22,6 +23,7 @@
         {
           "condition": "tx.to is an object with { address, chain } where chain is an external chain",
           "action": "Use Route 2: Execute on external chain via CEA",
+          "capability_ids": ["send_multichain_transaction"],
           "details": {
             "execution_target": "External chain (e.g., Ethereum Sepolia, BNB Chain)",
             "executor": "CEA (Chain Executor Account)",
@@ -32,6 +34,7 @@
         {
           "condition": "tx.to is a plain address AND tx.from.chain is set to an external chain",
           "action": "Use Route 3: Execute on Push Chain with CEA as origin",
+          "capability_ids": ["send_multichain_transaction"],
           "details": {
             "execution_target": "Push Chain",
             "origin": "CEA on specified external chain",
@@ -49,6 +52,7 @@
         {
           "condition": "User has an ethers.js Wallet or Signer (v5 or v6)",
           "action": "Use PushChain.utils.signer.toUniversal(ethersSigner)",
+          "capability_ids": ["create_universal_signer"],
           "details": {
             "import": "import { ethers } from 'ethers';",
             "provider_note": "RPC URL determines chain: Sepolia RPC → Ethereum Sepolia account"
@@ -58,6 +62,7 @@
         {
           "condition": "User has a viem WalletClient",
           "action": "Use PushChain.utils.signer.toUniversal(viemWalletClient)",
+          "capability_ids": ["create_universal_signer"],
           "details": {
             "import": "import { createWalletClient, http } from 'viem';",
             "provider_note": "RPC URL determines chain"
@@ -67,6 +72,7 @@
         {
           "condition": "User has a Solana Keypair (@solana/web3.js)",
           "action": "Use PushChain.utils.signer.toUniversalFromKeypair(keypair, { chain, library })",
+          "capability_ids": ["create_universal_signer_from_keypair"],
           "details": {
             "import": "import { Keypair } from '@solana/web3.js';",
             "chain_param": "PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET",
@@ -77,6 +83,10 @@
         {
           "condition": "User needs a custom signer implementation (no supported library)",
           "action": "Construct a UniversalSignerSkeleton and pass to toUniversal",
+          "capability_ids": [
+            "construct_custom_signer",
+            "create_universal_signer"
+          ],
           "details": {
             "method": "PushChain.utils.signer.construct(account, { signMessage, signAndSendTransaction, signTypedData })",
             "then": "PushChain.utils.signer.toUniversal(skeleton)"
@@ -92,6 +102,7 @@
         {
           "condition": "Building a React frontend with wallet connection UI",
           "action": "Use @pushchain/ui-kit with PushUniversalWalletProvider",
+          "capability_ids": ["connect_wallet_ui", "use_wallet_provider"],
           "details": {
             "package": "@pushchain/ui-kit",
             "components": [
@@ -110,6 +121,7 @@
         {
           "condition": "Building a backend service, bot, or script",
           "action": "Use @pushchain/core directly",
+          "capability_ids": ["initialize_client", "send_universal_transaction"],
           "details": {
             "package": "@pushchain/core",
             "flow": "Create signer → PushChain.initialize() → pushChainClient.universal.sendTransaction()"
@@ -119,6 +131,7 @@
         {
           "condition": "Building a React frontend but need full control over wallet logic",
           "action": "Use @pushchain/core with custom wallet integration",
+          "capability_ids": ["initialize_client", "create_universal_signer"],
           "details": {
             "package": "@pushchain/core",
             "note": "You manage wallet connection yourself, then create UniversalSigner and initialize client"
@@ -134,6 +147,8 @@
         {
           "condition": "User rejected signature (progress event SEND-TX-104-04 / 204-04 / 304-04 depending on route)",
           "action": "Display user-friendly message and allow retry",
+          "capability_ids": [],
+          "mapping_note": "Diagnostic only — surface to user and prompt retry. No SDK call needed; consult errors.json + recovery-playbook.md for the wallet_connection_rejected error entry.",
           "details": {
             "message": "Transaction was declined by user",
             "recovery": "Prompt user to try again"
@@ -143,6 +158,8 @@
         {
           "condition": "Gas estimation failed",
           "action": "Check account balance and contract validity",
+          "capability_ids": [],
+          "mapping_note": "Diagnostic only — escalates to errors.json + recovery-playbook.md. Pre-flight balance check uses get_account_status or a direct ethers call; no routing capability executes here.",
           "details": {
             "checks": [
               "Verify target contract exists",
@@ -155,6 +172,8 @@
         {
           "condition": "Transaction reverted on-chain (progress event SEND-TX-199-02 / 299-02 / 399-02 depending on route)",
           "action": "Inspect revert reason and fix contract call",
+          "capability_ids": [],
+          "mapping_note": "Diagnostic only — escalates to errors.json + recovery-playbook.md. Inspect receipt from track_transaction or tx.wait(); resubmit with corrected parameters.",
           "details": {
             "debug": "Check progressHook message for revert reason",
             "common_causes": [
@@ -168,6 +187,7 @@
         {
           "condition": "UEA requires upgrade (getAccountStatus shows requiresUpgrade: true)",
           "action": "Call pushChainClient.upgradeAccount() before retrying",
+          "capability_ids": ["upgrade_account", "get_account_status"],
           "details": {
             "method": "await pushChainClient.upgradeAccount({ progressHook })",
             "note": "Gasless operation, handled automatically by SDK"
@@ -177,6 +197,7 @@
         {
           "condition": "Network or RPC error",
           "action": "Retry with exponential backoff or use custom RPC",
+          "capability_ids": ["initialize_client", "reinitialize_client"],
           "details": {
             "custom_rpc": "Pass rpcUrls option to PushChain.initialize()"
           },
@@ -191,6 +212,7 @@
         {
           "condition": "Need simple confirmation wait after sendTransaction",
           "action": "Use tx.wait() on the returned transaction response",
+          "capability_ids": ["track_transaction"],
           "details": {
             "method": "const receipt = await txResponse.wait();",
             "returns": "Transaction receipt with status, logs, gas used",
@@ -201,6 +223,7 @@
         {
           "condition": "Need to track a transaction by hash (e.g., resuming tracking, monitoring)",
           "action": "Use pushChainClient.universal.trackTransaction(txHash)",
+          "capability_ids": ["track_transaction"],
           "details": {
             "method": "const receipt = await pushChainClient.universal.trackTransaction(txHash);",
             "best_for": "Tracking transactions you didn't send, resuming after page reload"
@@ -210,6 +233,7 @@
         {
           "condition": "Building UI with real-time progress updates",
           "action": "Use progressHook callback in sendTransaction",
+          "capability_ids": ["send_universal_transaction"],
           "details": {
             "method": "sendTransaction({ ..., progressHook: (progress) => updateUI(progress) })",
             "events": "Route 1: SEND-TX-1xx, Route 2: SEND-TX-2xx, Route 3: SEND-TX-3xx. Cascade: SEND-TX-001/002/999-xx prefixes wrap each hop."
@@ -225,6 +249,7 @@
         {
           "condition": "User has native tokens on their origin chain (ETH on Ethereum, SOL on Solana)",
           "action": "SDK handles fee abstraction automatically",
+          "capability_ids": ["send_universal_transaction"],
           "details": {
             "how_it_works": "User pays in native token on origin chain; SDK converts and funds UEA",
             "no_pc_required": "Users do not need to hold PC tokens for gas"
@@ -234,6 +259,10 @@
         {
           "condition": "User is on Push Chain natively",
           "action": "User pays gas directly in PC (smallest unit: uPC)",
+          "capability_ids": [
+            "send_universal_transaction",
+            "use_utility_functions"
+          ],
           "details": {
             "unit": "uPC (like wei in ETH)",
             "conversion": "PushChain.utils.helpers.parseUnits('1', 18) = 1 PC"
@@ -243,6 +272,10 @@
         {
           "condition": "User wants to move funds as part of transaction",
           "action": "Use tx.funds parameter to atomically move assets",
+          "capability_ids": [
+            "send_universal_transaction",
+            "send_multichain_transaction"
+          ],
           "details": {
             "param": "tx.funds: { amount: BigInt, token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }",
             "behavior": "Asset movement and execution happen atomically"
@@ -258,6 +291,7 @@
         {
           "condition": "Single chain target — user signs once and execution is complete",
           "action": "Use sendTransaction() directly",
+          "capability_ids": ["send_universal_transaction"],
           "details": {
             "method": "pushChainClient.universal.sendTransaction({ to, data, value, funds, ... })",
             "returns": "UniversalTxResponse with .wait() and tx hash"
@@ -267,6 +301,7 @@
         {
           "condition": "Multiple hops required — e.g. Push Chain then Ethereum then BNB, signed once",
           "action": "Use prepareTransaction() + executeTransactions() cascade pattern",
+          "capability_ids": ["execute_transaction_cascade"],
           "details": {
             "step_1": "const hop1 = await pushChainClient.universal.prepareTransaction({ to: '0x...', data })",
             "step_2": "const hop2 = await pushChainClient.universal.prepareTransaction({ to: { address: '0x...', chain: CHAIN.ETHEREUM_SEPOLIA }, data })",
@@ -285,6 +320,7 @@
         {
           "condition": "Sign arbitrary bytes for off-chain verification (authentication, attestation)",
           "action": "Use pushChainClient.universal.signMessage(message)",
+          "capability_ids": ["sign_universal_message"],
           "details": {
             "input": "message: Uint8Array — use new TextEncoder().encode('text') for strings",
             "returns": "Uint8Array signature",
@@ -295,6 +331,7 @@
         {
           "condition": "Sign EIP-712 typed data (Permit2, Uniswap v3/v4, Seaport, gasless approvals, order matching)",
           "action": "Use pushChainClient.universal.signTypedData(typedDataArgs)",
+          "capability_ids": ["sign_universal_typed_data"],
           "details": {
             "input": "typedDataArgs: { domain: TypedDataDomain, types: Record<string, TypedDataField[]>, value: Record<string, unknown> }",
             "returns": "Uint8Array — EIP-712 signature bytes",
@@ -317,6 +354,7 @@
         {
           "condition": "Need UEA address on Push Chain for a given origin wallet (pre-flight balance check, gas estimation)",
           "action": "Use PushChain.utils.account.deriveExecutorAccount(uoa, { chain: CHAIN.PUSH_TESTNET_DONUT })",
+          "capability_ids": ["derive_executor_account"],
           "details": {
             "capability": "derive_executor_account",
             "returns": "{ address: string } — deterministic, no on-chain call",
@@ -331,6 +369,7 @@
         {
           "condition": "Need CEA address on an external chain (whitelist the CEA on a target contract, check CEA balance)",
           "action": "Use PushChain.utils.account.deriveExecutorAccount(uoa, { chain: CHAIN.<EXTERNAL> })",
+          "capability_ids": ["derive_executor_account"],
           "details": {
             "capability": "derive_executor_account",
             "returns": "{ address: string } — same deterministic derivation, different chain",
@@ -341,6 +380,7 @@
         {
           "condition": "Have a UEA or CEA address and need to find the origin wallet that controls it (reverse lookup, attribution, identity verification)",
           "action": "Use PushChain.utils.account.resolveControllerAccount(address, { chain? })",
+          "capability_ids": ["resolve_controller_account"],
           "details": {
             "capability": "resolve_controller_account",
             "input": "UEA, CEA, or any Push Chain address as a plain string",

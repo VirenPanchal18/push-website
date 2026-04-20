@@ -1,11 +1,33 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "current_sdk_version": "5.1.7",
-  "current_version": "1.0.6",
+  "current_version": "1.0.7",
   "generated": "2026-04-21T00:00:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-04-21T00:00:00.000Z",
+      "version": "1.0.7",
+      "changes": [
+        "decision-tree.json: added capability_ids array to all 28 branches across 9 trees (25 distinct capability references); bumped to v1.2.0",
+        "decision-tree.json: added mapping_note to 3 diagnostic-only branches in handle_transaction_failure (capability_ids: [])",
+        "task-router.md: added version/schema/sdk/generated header comment at file top",
+        "task-router.md: added capability_ids HTML comment block under all 13 section headings (12 problem sections + Quick Reference Table)",
+        "Coverage result: 22/25 capabilities now reachable via decision-tree or task-router; 3 intentional gaps documented (contract_initiated_multichain, get_constants, use_contract_helpers)"
+      ],
+      "files_affected": [
+        "static/agents/decision-tree.json",
+        "static/agents/task-router.md",
+        "static/agents/changelog.json",
+        "static/llms.txt"
+      ],
+      "sdk_version": "5.1.7",
+      "category": "capability-linkage",
+      "trigger": "Close P3 finding \u2014 cross-file capability linkage from routing layer",
+      "breaking": false,
+      "migration": null
+    },
     {
       "date": "2026-04-21T00:00:00.000Z",
       "version": "1.0.6",

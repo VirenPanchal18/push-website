@@ -1,3 +1,5 @@
+<!-- version: 1.1.0 | schema_version: 1.0.0 | current_sdk_version: 5.1.7 | generated: 2026-04-21T00:00:00.000Z -->
+
 # Push Chain Task Router
 
 This guide maps common agent tasks to their recommended approaches, SDK methods, and implementation caveats.
@@ -5,6 +7,8 @@ This guide maps common agent tasks to their recommended approaches, SDK methods,
 ---
 
 ## Move Value Between Chains
+
+<!-- capability_ids: [send_universal_transaction, send_multichain_transaction] -->
 
 | Aspect | Details |
 |--------|---------|
@@ -29,6 +33,8 @@ await pushChainClient.universal.sendTransaction({
 
 ## Sign a Message for Off-Chain Verification
 
+<!-- capability_ids: [sign_universal_message] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Sign arbitrary data for signature verification (authentication, attestation) |
@@ -45,6 +51,8 @@ const signature = await pushChainClient.universal.signMessage(message);
 ---
 
 ## Check if a Transaction Confirmed
+
+<!-- capability_ids: [track_transaction] -->
 
 | Aspect | Details |
 |--------|---------|
@@ -69,6 +77,8 @@ const receipt = await pushChainClient.universal.trackTransaction('0xTxHash...');
 ---
 
 ## Integrate Wallet for Users in a React App
+
+<!-- capability_ids: [connect_wallet_ui, use_wallet_provider, use_push_chain_client_hook, use_push_wallet_context] -->
 
 | Aspect | Details |
 |--------|---------|
@@ -108,6 +118,8 @@ function MyComponent() {
 
 ## Read Contract State Without Signing
 
+<!-- capability_ids: [initialize_client, read_blockchain_state, initialize_evm_client] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Query on-chain data without a connected wallet or signer |
@@ -140,6 +152,8 @@ const result = await contract.someViewFunction();
 
 ## Execute Contract on External Chain
 
+<!-- capability_ids: [send_multichain_transaction] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Call a contract on Ethereum, BNB Chain, or other supported chain from any origin |
@@ -166,6 +180,8 @@ await pushChainClient.universal.sendTransaction({
 
 ## Pay Gas Without Holding PC Tokens
 
+<!-- capability_ids: [send_universal_transaction] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Execute on Push Chain when user only has native tokens on their origin chain |
@@ -187,6 +203,8 @@ const tx = await pushChainClient.universal.sendTransaction({
 ---
 
 ## Handle a Solana User Interacting with Push Chain Contract
+
+<!-- capability_ids: [create_universal_signer_from_keypair, initialize_client, send_universal_transaction] -->
 
 | Aspect | Details |
 |--------|---------|
@@ -226,6 +244,8 @@ await pushChainClient.universal.sendTransaction({
 
 ## Execute Multiple Chains in a Single User Signature (Cascade)
 
+<!-- capability_ids: [execute_transaction_cascade] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Chain A → Chain B → Chain C in one user gesture, with one signature |
@@ -253,6 +273,8 @@ await result.waitForAll();
 ---
 
 ## Sign EIP-712 Typed Data (Permit2, Uniswap, Seaport)
+
+<!-- capability_ids: [sign_universal_typed_data] -->
 
 | Aspect | Details |
 |--------|---------|
@@ -285,6 +307,8 @@ const signature = await pushChainClient.universal.signTypedData({
 
 ## Derive UEA or CEA Address Without Sending a Transaction
 
+<!-- capability_ids: [derive_executor_account] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Compute the deterministic executor address for any origin wallet before transacting — for balance checks, gas estimation, or whitelisting |
@@ -316,6 +340,8 @@ console.log('UEA:', ueaAddress, '  CEA on Ethereum:', ceaAddress);
 
 ## Resolve the Controlling Wallet Behind a UEA or CEA Address
 
+<!-- capability_ids: [resolve_controller_account] -->
+
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Given a UEA or CEA address, find which origin wallet ultimately controls it — for attribution, identity-aware UIs, or analytics |
@@ -343,6 +369,8 @@ const { accounts: bnbAccounts } = await PushChain.utils.account.resolveControlle
 ---
 
 ## Quick Reference Table
+
+<!-- capability_ids: [] | mapping_note: Aggregated summary table — see individual sections above for per-capability detail -->
 
 | Task | Primary Method | Route |
 |------|----------------|-------|
