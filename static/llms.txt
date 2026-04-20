@@ -2,7 +2,7 @@
 
 > Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.
 
-> **Agent layer:** v1.0.4 | Last updated: 2026-04-20 | SDK: `@pushchain/core@5.1.7` · `@pushchain/ui-kit@5.2.3` | Network: Donut Testnet (Mainnet not yet launched)
+> **Agent layer:** v1.0.6 | Last updated: 2026-04-21 | SDK: `@pushchain/core@5.1.7` · `@pushchain/ui-kit@5.2.3` | Network: Donut Testnet (Mainnet not yet launched)
 
 ## Who This Is For
 
@@ -193,10 +193,10 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 > Full history: [changelog.json](https://push.org/agents/changelog.json)
 
+- **2026-04-21 v1.0.6** — Scope clarification for `index.json`: added `schemas/index.json` and `skills/index.json` to the description's sub-index list (were previously omitted); added top-level `sub_indexes` array with structured `{category, path, count}` entries for all 5 sub-indexes so agents can discover category sizes without loading each sub-index (examples:60, workflows:17, resources:3, schemas:7, skills:3); bumped `index.json` to v1.1.0.
+- **2026-04-21 v1.0.5** — Recovery playbook completion: added 9 dedicated per-error recovery entries to `recovery-playbook.md` closing the P1 audit gap (unsupported_chain, signature_mismatch, invalid_tx_hash, tx_timeout, uea_not_deployed, chain_not_supported_for_cea, uea_upgrade_required, funds_transfer_failed, multicall_partial_failure). Every entry includes detection signal, numbered executable recovery steps, a compilable TypeScript example, escalation condition, and cross-references. Entries marked ⚠ inferred carry stable-SDK-version caveats. Added YAML front matter metadata to `recovery-playbook.md`; renumbered sections to accommodate new Section 6.
 - **2026-04-20 v1.0.4** — Metadata normalization sweep: wrapped `errors.json`, `mcp-candidates.json`, and `examples/index.json` from bare arrays into canonical object envelopes (`{errors:[]}`, `{candidates:[]}`, `{examples:[]}`). **Breaking**: access path changes from `[N]` to `.errors[N]` / `.candidates[N]` / `.examples[N]`. Added `current_sdk_version`, `generated`, `description` to all 16 JSON files. Routing-layer audit: fixed `signAndSendTransaction` typo in `decision-tree.json`; fixed stale `SEND-TX-05-xx` event pattern in `task-router.md`; added `resolve_controller_account` to all routing files; bumped `capabilities.json` to v1.2.0 (25 capabilities).
 - **2026-04-17 v1.0.3** — push-backend SKILL.md 16-issue audit pass: moved Read Blockchain State section earlier; fixed `formatUnits` arg name and `trackTransaction` default chain constant; expanded Route 3 with CEA explanation + vault flow diagram; added read-only ⚠️ warning, try/catch + `errors.json` link, security comments on key loading, `encodeTxData` bigint example, `initialTxResponse` disambiguation, `orchestrator` internal note, multicall constraint note, and Contract Helpers off-chain cross-ref. Propagated all fixes to matching workflows (`send-universal-transaction`, `send-multichain-transaction`, `track-transaction`, `initialize-client`, `create-universal-signer`, `use-utility-functions`, `use-contract-helpers`).
-- **2026-04-17 v1.0.2** — push-frontend SKILL.md full rewrite: merged duplicate Hooks sections; added canonical guard pattern; fixed `usePushChain()` description; enumerated `connectionStatus` values; rewrote Route 3 / cascade examples; fixed `signMessage` Uint8Array; added SSR warning; replaced imaginary components with concrete HTML; added Common Mistakes table.
-- **2026-04-17 v1.0.1** — Added `## Common Mistakes` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.
 
 ## Background Reading
 

@@ -1,11 +1,30 @@
 {
-  "description": "Push Chain agent-layer root index. Curated discovery entry points for agents and retrieval systems — see sub-index files (workflows/index.json, examples/index.json, resources/index.json) for complete per-category listings. Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains.",
+  "description": "Push Chain agent-layer root index. Curated discovery entry points for agents and retrieval systems — see sub-index files (workflows/index.json, examples/index.json, resources/index.json, schemas/index.json, skills/index.json) for complete per-category listings. Push Chain is a universal L1 blockchain enabling apps to deploy once and execute across all supported chains.",
   "schema_version": "1.0.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "version_policy": "All files in /agents/ carry schema_version (bumps only when the file's field layout changes — signals a consumer code update is needed) and version (bumps when content changes — backward-compatible by default). Per-file versioning is intentional: contract-addresses.json can be at 1.1.0 while index.json remains at 1.0.0 because each file evolves on its own cadence. changelog.json entries additionally carry breaking and migration fields so agents can detect whether a version change requires action.",
   "current_sdk_version": "5.1.7",
   "sdk_version": { "@pushchain/core": "5.1.7", "@pushchain/ui-kit": "5.2.3" },
-  "generated": "2026-04-20T00:00:00.000Z",
+  "generated": "2026-04-21T00:00:00.000Z",
+  "sub_indexes": [
+    {
+      "category": "examples",
+      "path": "agents/examples/index.json",
+      "count": 60
+    },
+    {
+      "category": "workflows",
+      "path": "agents/workflows/index.json",
+      "count": 17
+    },
+    {
+      "category": "resources",
+      "path": "agents/resources/index.json",
+      "count": 3
+    },
+    { "category": "schemas", "path": "agents/schemas/index.json", "count": 7 },
+    { "category": "skills", "path": "agents/skills/index.json", "count": 3 }
+  ],
   "start_here": {
     "developer": "agents/workflows/send-universal-transaction.md",
     "agent": "agents/capabilities.json",

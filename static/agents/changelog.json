@@ -1,11 +1,60 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "current_sdk_version": "5.1.7",
-  "current_version": "1.0.4",
-  "generated": "2026-04-20T00:00:00.000Z",
+  "current_version": "1.0.6",
+  "generated": "2026-04-21T00:00:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-04-21T00:00:00.000Z",
+      "version": "1.0.6",
+      "changes": [
+        "index.json: added schemas/index.json and skills/index.json to the description's sub-index list (were previously omitted)",
+        "index.json: added top-level sub_indexes array with category, path, and count fields for all 5 sub-indexes (examples:60, workflows:17, resources:3, schemas:7, skills:3)",
+        "index.json: bumped version from 1.0.0 to 1.1.0 (additive field added)",
+        "index.json: updated generated timestamp to 2026-04-21"
+      ],
+      "files_affected": [
+        "static/agents/index.json",
+        "static/agents/changelog.json",
+        "static/llms.txt"
+      ],
+      "sdk_version": "5.1.7",
+      "category": "metadata-normalization",
+      "trigger": "Close P3 finding \u2014 clarify index.json manifest scope and expose sub-index references as structured metadata",
+      "breaking": false,
+      "migration": null
+    },
+    {
+      "date": "2026-04-21T00:00:00.000Z",
+      "version": "1.0.5",
+      "changes": [
+        "recovery-playbook.md: added dedicated recovery entries for unsupported_chain",
+        "recovery-playbook.md: added dedicated recovery entry for signature_mismatch",
+        "recovery-playbook.md: added dedicated recovery entry for invalid_tx_hash",
+        "recovery-playbook.md: added dedicated recovery entry for tx_timeout",
+        "recovery-playbook.md: added dedicated recovery entry for uea_not_deployed",
+        "recovery-playbook.md: added dedicated recovery entry for chain_not_supported_for_cea",
+        "recovery-playbook.md: added dedicated recovery entry for uea_upgrade_required",
+        "recovery-playbook.md: added dedicated recovery entry for funds_transfer_failed",
+        "recovery-playbook.md: added dedicated recovery entry for multicall_partial_failure",
+        "recovery-playbook.md: added YAML front matter with schema_version, version, current_sdk_version, generated",
+        "recovery-playbook.md: renumbered General Recovery Patterns → Section 7, Escalation Protocol → Section 8",
+        "changelog.json: bumped current_version from 1.0.4 to 1.0.5",
+        "llms.txt: added v1.0.5 bullet to Changelog section; bumped header version to v1.0.5"
+      ],
+      "files_affected": [
+        "static/agents/recovery-playbook.md",
+        "static/agents/changelog.json",
+        "static/llms.txt"
+      ],
+      "sdk_version": "5.1.7",
+      "category": "playbook-completion",
+      "trigger": "Close P1 gap — 9 missing errors/recovery-playbook entries",
+      "breaking": false,
+      "migration": null
+    },
     {
       "date": "2026-04-20T00:00:00.000Z",
       "version": "1.0.4",
