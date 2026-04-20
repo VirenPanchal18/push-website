@@ -35,7 +35,8 @@ Interact with Push Chain's deployed helper contracts — primarily the `UEAFacto
 struct UniversalAccountId {
     string chainNamespace; // e.g., "eip155" or "solana"
     string chainId;        // e.g., "11155111" for Ethereum Sepolia
-    bytes  owner;          // Owner address in bytes (always hex-encoded)
+    bytes  owner;          // EVM: 20-byte packed address — address(bytes20(owner))
+                           // Solana: 32-byte base58 pubkey — bs58.encode(ethers.getBytes(owner))
 }
 
 interface IUEAFactory {
@@ -191,7 +192,7 @@ if (isUEA && account.chainNamespace === 'solana') {
 ## Agent Notes
 
 - **UEA Factory address is deterministic**: `0x00000000000000000000000000000000000000eA` — same on all Push Chain environments.
-- **Non-EVM addresses are always hex-encoded**: the `owner` field for Solana, etc., is always returned in hex; decode per chain's encoding standard.
+- **`account.owner` byte layout**: EVM chains return a 20-byte packed address — decode with `address(bytes20(account.owner))`. Solana returns a 32-byte base58 public key — decode off-chain with `bs58.encode(ethers.getBytes(account.owner))`.
 - **`isUEA = false` means native EOA**: not all Push Chain addresses are UEAs; some are native accounts with no cross-chain origin.
 - **`getUEAForOrigin` works before UEA is deployed**: it returns the deterministic address even if `isDeployed = false`.
 

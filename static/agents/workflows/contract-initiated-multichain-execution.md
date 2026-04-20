@@ -91,18 +91,19 @@ function dispatchOutbound(
             revertRecipient: revertRecipient
         })
     );
+    emit OutboundDispatched(recipient, payload); // Security Rule #3 — required for inbound correlation
 }
 ```
 
 ### 3. Implement Inbound Handler (optional — for responses)
 
 ```solidity
-address constant EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
 mapping(bytes32 => bool) public executedTxIds;
 
 modifier onlyUniversalExecutor() {
-    require(msg.sender == EXECUTOR_MODULE, "Not executor module");
+    require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Not executor module");
     _;
 }
 
@@ -188,7 +189,7 @@ User/App calls dispatchOutbound() on Push Chain contract
 
 | Error | Cause | Recovery |
 |-------|-------|----------|
-| `revert: Not executor module` | Inbound caller is not `UNIVERSAL_EXECUTOR_MODULE` | Verify `EXECUTOR_MODULE` address is correct |
+| `revert: Not executor module` | Inbound caller is not `UNIVERSAL_EXECUTOR_MODULE` | Verify `UNIVERSAL_EXECUTOR_MODULE` address is `0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7` |
 | `revert: Replay` | `txId` already processed | Idempotency guard is working; this tx was already handled |
 | `insufficient msg.value` | Protocol fee not included | Pass enough ETH/PC as `msg.value` to cover UGPC fee |
 | Outbound executed but no inbound | No inbound handler implemented | Implement `executeUniversalTx()` if you need the callback |

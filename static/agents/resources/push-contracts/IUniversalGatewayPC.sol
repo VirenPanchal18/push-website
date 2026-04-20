@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
-// Source: https://github.com/pushchain/push-chain-gateway-contracts/blob/audit-main-fixes/contracts/evm-gateway/src/UniversalGatewayPC.sol
+// Source: https://github.com/pushchain/push-chain-gateway-contracts/blob/main/contracts/evm-gateway/src/UniversalGatewayPC.sol
 // Network: Push Chain Donut Testnet
 // Address: 0x00000000000000000000000000000000000000C1 (precompile — always present)
 
@@ -30,10 +30,13 @@ interface IUniversalGatewayPC {
 // ─── Usage example ────────────────────────────────────────────────────────────
 
 contract UGPCDispatcher {
-    address constant UGPC                  = 0x00000000000000000000000000000000000000C1;
+    address constant UGPC                      = 0x00000000000000000000000000000000000000C1;
     address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
     mapping(bytes32 => bool) public executedTxIds;
+
+    event OutboundDispatched(address indexed target, bytes4 indexed selector, bytes payload);
+    event InboundReceived(bytes32 indexed txId, uint256 amount);
 
     // ── Dispatch: Push Chain → external chain ─────────────────────────────────
 
@@ -49,6 +52,7 @@ contract UGPCDispatcher {
                 revertRecipient: msg.sender
             })
         );
+        emit OutboundDispatched(targetOnExternalChain, bytes4(calldata_), calldata_);
     }
 
     /// @notice Dispatch tokens + payload to an EVM contract on an external chain
@@ -68,6 +72,7 @@ contract UGPCDispatcher {
                 revertRecipient: msg.sender
             })
         );
+        emit OutboundDispatched(targetOnExternalChain, bytes4(calldata_), calldata_);
     }
 
     // ── Inbound callback: external chain → Push Chain ─────────────────────────

@@ -565,7 +565,11 @@ These rules apply to every contract that implements `executeUniversalTx()`:
   const estimatedFee = gasPrice * BigInt(estimatedGasUnits);
   console.log('Estimated fee:', ethers.formatEther(estimatedFee), 'ETH');
   ```
-- **Liveness check** — compare `timestampObservedAtByChainNamespace` against the current block timestamp to detect stale TSS data before dispatching.
+- **Liveness check** — compare `timestampObservedAtByChainNamespace` against the current block timestamp to detect stale TSS data before dispatching:
+  ```solidity
+  uint256 observedAt = IUniversalCore(UNIVERSAL_CORE).timestampObservedAtByChainNamespace("eip155:11155111");
+  require(block.timestamp - observedAt < 300, "TSS data stale — retry"); // 5-minute threshold
+  ```
 
 > **Address**: `0x00000000000000000000000000000000000000C0` (Push Chain Donut Testnet)
 > Source: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/UniversalCore.sol
