@@ -265,20 +265,14 @@ function MyComponent() {
   const { pushChainClient, isInitialized } = usePushChainClient();
   const { PushChain } = usePushChain();
 
-  // to check the flow if chain is connected
   if (!isInitialized || !pushChainClient) return null;
+
   const chainAgnostic = PushChain.utils.account.toChainAgnostic(
     pushChainClient.universal.origin.address,
     { chain: pushChainClient.universal.origin.chain }
   );
-  return <p>Chain Agnostic Address: {chainAgnostic}</p>;
 
-  // pushChainClient — for transactions and signing
-  // PushChain      — for utilities and constants
-  const tx = await pushChainClient.universal.sendTransaction({
-    to: '0xRecipientAddress',
-    value: PushChain.utils.helpers.parseUnits('0.01', 18),
-  });
+  return <p>Chain Agnostic Address: {chainAgnostic}</p>;
 }
 ```
 
