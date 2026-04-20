@@ -129,7 +129,7 @@
       ],
       "change_frequency": "medium",
       "cache_safe": false,
-      "refresh_trigger": "when prepareTransaction, executeTransactions, svmExecute, or CEA routing logic changes"
+      "refresh_trigger": "when prepareTransaction, executeTransactions, or CEA routing logic changes"
     },
     {
       "agent_file": "agents/workflows/constants-reference.md",

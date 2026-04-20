@@ -92,7 +92,7 @@
         {
           "name": "deriveExecutorAccount",
           "signature": "PushChain.utils.account.deriveExecutorAccount(uoa: UniversalAccount, options: { chain: CHAIN; skipNetworkCheck?: boolean }): Promise<{ address: string }>",
-          "description": "Derives the Chain Executor Account (CEA) address for a given UOA on a specific external chain. Use skipNetworkCheck:true for chains not yet live. Required before sending svmExecute Solana transactions.",
+          "description": "Derives the Chain Executor Account (CEA) address for a given UOA on a specific external chain. Use skipNetworkCheck:true for chains not yet live.",
           "returns": "Promise<{ address: string }>",
           "safe_for_autonomous_execution": true
         },
@@ -240,14 +240,14 @@
         },
         {
           "name": "sendTransaction",
-          "signature": "pushChainClient.universal.sendTransaction(tx: { to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline? }): Promise<UniversalTxResponse>",
-          "description": "Sends universal transaction. Advanced args: gasLimit/maxFeePerGas/maxPriorityFeePerGas override gas; payGasWith pays fees in supported token; deadline sets execution expiry; svmExecute for Solana targets",
+          "signature": "pushChainClient.universal.sendTransaction(tx: { to, from?, value?, data?, funds?, progressHook?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline? }): Promise<UniversalTxResponse>",
+          "description": "Sends universal transaction. Advanced args: gasLimit/maxFeePerGas/maxPriorityFeePerGas override gas; payGasWith pays fees in supported token; deadline sets execution expiry",
           "returns": "UniversalTxResponse",
           "safe_for_autonomous_execution": false
         },
         {
           "name": "prepareTransaction",
-          "signature": "pushChainClient.universal.prepareTransaction(tx: { to, from?, value?, data?, funds?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline? }): Promise<PreparedUniversalTx>",
+          "signature": "pushChainClient.universal.prepareTransaction(tx: { to, from?, value?, data?, funds?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline? }): Promise<PreparedUniversalTx>",
           "description": "Prepares a transaction without executing it. Returns PreparedUniversalTx with route, estimatedGas, nonce, deadline, payload. Pass result to executeTransactions for multi-hop cascades.",
           "returns": "PreparedUniversalTx",
           "safe_for_autonomous_execution": true
@@ -263,6 +263,50 @@
           "name": "trackTransaction",
           "signature": "pushChainClient.universal.trackTransaction(txHash: string, options?: { chain?: CHAIN, progressHook?: (event: ProgressEvent) => void, waitForCompletion?: boolean, advanced?: { pollingIntervalMs?: number, timeout?: number, rpcUrls?: Partial<Record<CHAIN, string[]>> } }): Promise<UniversalTxResponse>",
           "description": "Resumes tracking any universal transaction by hash and origin chain. Works independently of sendTransaction — pass any stored hash. Defaults chain to PUSH_TESTNET_DONUT. Set waitForCompletion:false for a snapshot status check without waiting.",
+          "arguments": [
+            {
+              "name": "txHash",
+              "type": "string",
+              "required": true,
+              "description": "Transaction hash on the origin chain"
+            },
+            {
+              "name": "options.chain",
+              "type": "CHAIN",
+              "required": false,
+              "description": "Origin chain — defaults to PUSH_TESTNET_DONUT"
+            },
+            {
+              "name": "options.progressHook",
+              "type": "(event: ProgressEvent) => void",
+              "required": false,
+              "description": "Callback invoked at each tracking step"
+            },
+            {
+              "name": "options.waitForCompletion",
+              "type": "boolean",
+              "required": false,
+              "description": "true = poll until confirmed (default), false = return current status snapshot"
+            },
+            {
+              "name": "options.advanced.pollingIntervalMs",
+              "type": "number",
+              "required": false,
+              "description": "Poll interval in ms (default 2000, min 500)"
+            },
+            {
+              "name": "options.advanced.timeout",
+              "type": "number",
+              "required": false,
+              "description": "Max wait in ms before timeout (default 60000)"
+            },
+            {
+              "name": "options.advanced.rpcUrls",
+              "type": "Partial<Record<CHAIN, string[]>>",
+              "required": false,
+              "description": "Custom RPC URLs for status queries"
+            }
+          ],
           "returns": "UniversalTxResponse",
           "safe_for_autonomous_execution": true
         },

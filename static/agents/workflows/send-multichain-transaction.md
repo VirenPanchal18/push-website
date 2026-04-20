@@ -36,7 +36,6 @@ Two patterns for cross-chain execution via Push Chain:
 | `tx.data` | `string` \| `Array<{to, value, data}>` | No | ABI-encoded calldata or multicall array |
 | `tx.funds` | `{ amount: BigInt; token: PushChain.CONSTANTS.MOVEABLE.TOKEN.<CHAIN>.<TOKEN> }` | No | Move cross-chain asset atomically |
 | `tx.progressHook` | `(progress: ProgressHookType) => void` | No | Callback for progress updates |
-| `tx.svmExecute` | `{ targetProgram: string; accounts: { pubkey: string; isWritable: boolean }[]; ixData: Uint8Array }` | No | **Solana only.** Borsh-encoded instruction for SVM program execution via CEA |
 
 ### Advanced Arguments
 
@@ -156,29 +155,6 @@ PushChain.CONSTANTS.CHAIN.BNB_TESTNET        // eip155:97
 PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET      // solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1
 ```
 
-### Route 2: Solana Target (svmExecute)
-
-For Solana chain targets, use `svmExecute` instead of `data`. Encode instruction data using Borsh.
-
-```typescript
-const solanaCEA = await PushChain.utils.account.deriveExecutorAccount(
-  PushChain.utils.account.toUniversal(wallet.address, { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }),
-  { chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET, skipNetworkCheck: true }
-);
-
-const txResponse = await pushChainClient.universal.sendTransaction({
-  to: { address: SOL_PROGRAM_ADDRESS, chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET },
-  svmExecute: {
-    targetProgram: SOL_PROGRAM_ADDRESS,
-    accounts: [
-      { pubkey: SOL_COUNTER_PDA, isWritable: true },
-      { pubkey: solanaCEA.address, isWritable: true },
-    ],
-    ixData: new Uint8Array([/* Borsh-encoded instruction */]),
-  },
-});
-```
-
 ## Multi-Hop Cascades: prepareTransaction + executeTransactions
 
 Compose multiple ordered steps across chains into a single user signature.
@@ -292,7 +268,6 @@ For `executeTransactions`, see `CascadedTxResponse` table above.
 - **Gas on external chains**: External execution may require native tokens on the target chain.
 - **Push Chain is coordination layer**: The `txHash` returned is the Push Chain coordination tx; external execution follows asynchronously.
 - **Cross-chain latency**: External chain finality affects total confirmation time.
-- **Solana uses svmExecute**: For Solana targets use the `svmExecute` field with Borsh-encoded `ixData`; `tx.data` is EVM-only.
 - **No atomicity in cascades**: If a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
 - **Single signature for cascades**: `executeTransactions` submits one transaction to Push Chain; the SDK coordinates all downstream hops.
 

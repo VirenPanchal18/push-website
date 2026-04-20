@@ -78,7 +78,7 @@
       "fee_token": "SOL",
       "moveable_tokens": ["SOL", "USDT", "USDC"],
       "payable_tokens": ["SOL", "USDT", "USDC"],
-      "notes": "Use LIBRARY.SOLANA_WEB3JS for keypair signers. Use tx.svmExecute for program calls (not tx.data)."
+      "notes": "Use LIBRARY.SOLANA_WEB3JS for keypair signers."
     },
     {
       "name": "Solana Testnet",

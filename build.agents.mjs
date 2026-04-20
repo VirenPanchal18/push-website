@@ -377,7 +377,7 @@ Structured map of SDK namespaces. Cover ALL of these namespaces:
 For each namespace:
 - "namespace": dotted path
 - "methods": array of {name, signature, description, returns, safe_for_autonomous_execution}
-For sendTransaction and prepareTransaction include ALL args: to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?
+For sendTransaction and prepareTransaction include ALL args: to, from?, value?, data?, funds?, progressHook?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?
 
 FILE 5: agents/feature-matrix.json
 Top-level structure must include: { "version": "1.0.0", "generated": "__GENERATED__", ... }
@@ -452,8 +452,8 @@ For each workflow file include these sections exactly:
 Generate all 15 workflow files (using exact method signatures from the Push Chain docs):
 
 1.  agents/workflows/initialize-client.md — PushChain.initialize(universalSigner, {network}) covering all signer types (ethers, viem, solana)
-2.  agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, from?, value?, data?, funds?, progressHook?, svmExecute?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?}) covering all 3 routes. ALSO document: (a) prepareTransaction + executeTransactions multi-hop cascade pattern, (b) payGasWith for fee token payment with slippageBps, (c) encodeTxData utility, (d) multicall zero-address requirement, (e) full TxResponse shape with all fields, (f) all 22 progress hook events
-3.  agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target (Route 2), CEA origin (Route 3), AND the prepareTransaction + executeTransactions multi-hop cascade API. Include: svmExecute for Solana program calls, deriveExecutorAccount usage, CascadedTxResponse shape with hops[] and wait(opts?) / waitForAll(opts?), advanced args (gasLimit/maxFeePerGas/maxPriorityFeePerGas/payGasWith/deadline)
+2.  agents/workflows/send-universal-transaction.md — pushChainClient.universal.sendTransaction({to, from?, value?, data?, funds?, progressHook?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith?, deadline?}) covering all 3 routes. ALSO document: (a) prepareTransaction + executeTransactions multi-hop cascade pattern, (b) payGasWith for fee token payment with slippageBps, (c) encodeTxData utility, (d) multicall zero-address requirement, (e) full TxResponse shape with all fields, (f) all 22 progress hook events
+3.  agents/workflows/send-multichain-transaction.md — send to external chain via {address, chain} target (Route 2), CEA origin (Route 3), AND the prepareTransaction + executeTransactions multi-hop cascade API. Include: deriveExecutorAccount usage, CascadedTxResponse shape with hops[] and wait(opts?) / waitForAll(opts?), advanced args (gasLimit/maxFeePerGas/maxPriorityFeePerGas/payGasWith/deadline)
 4.  agents/workflows/track-transaction.md — trackTransaction(hash, opts) and tx.wait() comparison
 5.  agents/workflows/connect-wallet-ui-kit.md — PushUniversalWalletProvider, PushUniversalAccountButton, usePushChainClient, usePushWalletContext
 6.  agents/workflows/sign-universal-message.md — pushChainClient.universal.signMessage(message)
@@ -501,7 +501,7 @@ List of all schema files: [ { "name", "file", "description", "authority": "docum
 Then generate these individual schema files as JSON Schema (draft-07):
 
 FILE 2: agents/schemas/universal-transaction-request.json
-Schema for the object passed to sendTransaction() / prepareTransaction(). Include ALL fields: to (string or {address,chain} object), from? ({chain}), value? (BigInt as string), data? (hex string or multicall array), funds? ({amount, token}), progressHook?, svmExecute? ({targetProgram, accounts, ixData}), gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith? ({token, slippageBps?, minAmountOut?}), deadline?.
+Schema for the object passed to sendTransaction() / prepareTransaction(). Include ALL fields: to (string or {address,chain} object), from? ({chain}), value? (BigInt as string), data? (hex string or multicall array), funds? ({amount, token}), progressHook?, gasLimit?, maxFeePerGas?, maxPriorityFeePerGas?, payGasWith? ({token, slippageBps?, minAmountOut?}), deadline?.
 
 FILE 3: agents/schemas/universal-transaction-response.json
 Schema for the UniversalTxResponse returned by sendTransaction(). Include ALL documented fields: hash, origin (CAIP-10), blockNumber, blockHash, transactionIndex, chainId, from, to, nonce, data, value, gasLimit, gasPrice, maxFeePerGas, maxPriorityFeePerGas, accessList, type, typeVerbose, signature ({r,s,v,yParity}), raw, wait (function reference).
@@ -624,8 +624,6 @@ Include trees for:
 5. choose_tracking_method — tx.wait() vs trackTransaction()
 6. fee_payment_decision — user has native token vs needs fee abstraction path
 7. single_vs_cascade — when to use sendTransaction directly vs prepareTransaction + executeTransactions (cascade if >1 ordered cross-chain steps needed in one user signature)
-8. evm_vs_solana_target — when to use tx.data vs tx.svmExecute (svmExecute for any CHAIN.SOLANA_* target)
-
 FILE 2: agents/task-router.md
 Markdown decision guide. For each common agent task, give the exact recommended action with reasoning:
 - Move value between chains → which capability, which route, which method
@@ -847,7 +845,7 @@ Must include:
 - ## Prepare + Execute (Cascade Pattern) — prepareTransaction + executeTransactions + waitForAll()
 - ## Sign a Message — signMessage()
 - ## Signer Sources — table: ethers.js/viem/Solana/custom with method names
-- ## Notes — read-only RPC URL, svmExecute for Solana, single vs cascade guidance
+- ## Notes — read-only RPC URL, single vs cascade guidance
 - ## Extended Reference — links to initialize-client.md, create-universal-signer.md, send-universal-transaction.md, etc.
 
 FILE 3: agents/skills/push-contracts/SKILL.md

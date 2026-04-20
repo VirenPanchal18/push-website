@@ -24,7 +24,7 @@
     },
     {
       "file": "client-solana.ts",
-      "purpose": "Full working Node.js script — Solana Keypair signer, Push Chain target and Solana program target (svmExecute)",
+      "purpose": "Full working Node.js script — Solana Keypair signer, Push Chain target and Solana program target",
       "url": "https://push.org/agents/resources/push-backend/client-solana.ts"
     }
   ]
