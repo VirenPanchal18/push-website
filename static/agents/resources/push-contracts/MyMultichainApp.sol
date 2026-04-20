@@ -40,7 +40,7 @@ contract MyMultichainApp {
     // ── Push Chain Donut Testnet addresses ────────────────────────────────────
     address constant UEA_FACTORY  = 0x00000000000000000000000000000000000000eA;
     address constant UGPC         = 0x00000000000000000000000000000000000000C1;
-    address constant EXECUTOR_MOD = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+    address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
     // ── State ─────────────────────────────────────────────────────────────────
     mapping(bytes32 => bool) public executedTxIds;
@@ -83,8 +83,8 @@ contract MyMultichainApp {
 
     // ── 3. Receive inbound callback ───────────────────────────────────────────
 
-    /// @notice Called by EXECUTOR_MOD after the CEA executed on the external chain
-    /// @dev    Always guard with EXECUTOR_MOD check and txId replay protection
+    /// @notice Called by UNIVERSAL_EXECUTOR_MODULE after the CEA executed on the external chain
+    /// @dev    Always guard with UNIVERSAL_EXECUTOR_MODULE check and txId replay protection
     function executeUniversalTx(
         string  calldata sourceChainNamespace, // e.g. "eip155:97"
         bytes   calldata ceaAddress,           // CEA address on source chain (bytes)
@@ -93,7 +93,7 @@ contract MyMultichainApp {
         address          prc20,               // PRC20 token address on Push Chain
         bytes32          txId                 // unique ID — use for replay protection
     ) external payable {
-        require(msg.sender == EXECUTOR_MOD, "MyMultichainApp: unauthorized");
+        require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "MyMultichainApp: unauthorized");
         require(!executedTxIds[txId], "MyMultichainApp: replay detected");
         executedTxIds[txId] = true;
 

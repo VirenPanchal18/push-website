@@ -30,8 +30,8 @@ interface IUniversalGatewayPC {
 // ─── Usage example ────────────────────────────────────────────────────────────
 
 contract UGPCDispatcher {
-    address constant UGPC         = 0x00000000000000000000000000000000000000C1;
-    address constant EXECUTOR_MOD = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+    address constant UGPC                  = 0x00000000000000000000000000000000000000C1;
+    address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
     mapping(bytes32 => bool) public executedTxIds;
 
@@ -72,8 +72,8 @@ contract UGPCDispatcher {
 
     // ── Inbound callback: external chain → Push Chain ─────────────────────────
 
-    /// @notice Called by EXECUTOR_MOD after the CEA has executed on the external chain
-    /// @dev MUST guard with msg.sender == EXECUTOR_MOD and replay protection via txId
+    /// @notice Called by UNIVERSAL_EXECUTOR_MODULE after the CEA has executed on the external chain
+    /// @dev MUST guard with msg.sender == UNIVERSAL_EXECUTOR_MODULE and replay protection via txId
     function executeUniversalTx(
         string  calldata sourceChainNamespace, // e.g. "eip155:97" (BNB Testnet)
         bytes   calldata ceaAddress,           // bytes-encoded CEA address on source chain
@@ -82,7 +82,7 @@ contract UGPCDispatcher {
         address          prc20,               // PRC20 token address on Push Chain (if bridged)
         bytes32          txId                 // unique ID for this inbound call — replay protection
     ) external payable {
-        require(msg.sender == EXECUTOR_MOD, "UGPC: unauthorized caller");
+        require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "UGPC: unauthorized caller");
         require(!executedTxIds[txId], "UGPC: replay detected");
         executedTxIds[txId] = true;
 

@@ -26,8 +26,8 @@
       },
       "UniversalExecutorModule": {
         "address": "0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7",
-        "alias": "EXECUTOR_MOD",
-        "purpose": "Delivers inbound callbacks to your Push Chain contract. The ONLY valid caller of executeUniversalTx(). Always validate msg.sender == EXECUTOR_MOD in your callback."
+        "alias": "UNIVERSAL_EXECUTOR_MODULE",
+        "purpose": "Delivers inbound callbacks to your Push Chain contract. The ONLY valid caller of executeUniversalTx(). Always validate msg.sender == UNIVERSAL_EXECUTOR_MODULE in your callback."
       },
       "VaultPC": {
         "proxy": "0x00000000000000000000000000000000000000B0",

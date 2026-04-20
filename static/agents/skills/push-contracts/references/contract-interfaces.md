@@ -163,7 +163,7 @@ const universalCore = new ethers.Contract(
 
 ```solidity
 // Implement this in your Push Chain contract to receive inbound results.
-// MUST guard with EXECUTOR_MOD check and txId replay protection.
+// MUST guard with UNIVERSAL_EXECUTOR_MODULE check and txId replay protection.
 function executeUniversalTx(
     string  calldata sourceChainNamespace, // e.g. "eip155:97" (BNB Testnet)
     bytes   calldata ceaAddress,           // CEA address on source chain (bytes)

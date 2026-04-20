@@ -144,7 +144,7 @@ interface IUniversalGatewayPC {
 
 contract MyMultichainApp {
     address constant UGPC           = 0x00000000000000000000000000000000000000C1;
-    address constant EXECUTOR_MOD   = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+    address constant UNIVERSAL_EXECUTOR_MODULE   = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
     mapping(bytes32 => bool) public executedTxIds;
     mapping(address => uint256) public stakedBalance;
@@ -166,7 +166,7 @@ contract MyMultichainApp {
         string calldata sourceChainNamespace, bytes calldata ceaAddress,
         bytes calldata payload, uint256 amount, address prc20, bytes32 txId
     ) external payable {
-        require(msg.sender == EXECUTOR_MOD, "Unauthorized");
+        require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized");
         require(!executedTxIds[txId], "Replay");
         executedTxIds[txId] = true;
         emit InboundReceived(txId, sourceChainNamespace, amount);

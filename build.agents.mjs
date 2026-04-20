@@ -885,7 +885,7 @@ Must include:
   - IUniversalGatewayPC interface inline
   - TX type inference table (token=0+payload → GAS_AND_PAYLOAD, etc.)
   - Dispatch pattern (sendUniversalTxOutbound with msg.value)
-  - Inbound callback: executeUniversalTx() with EXECUTOR_MOD guard and replay protection
+  - Inbound callback: executeUniversalTx() with UNIVERSAL_EXECUTOR_MODULE guard and replay protection
   - Execution flow diagram (text)
   - Minimal complete contract combining dispatch + callback
 - ## 3 — UniversalCore: Read Chain State — ONLY these 3 getters (do NOT include fee estimation methods):

@@ -349,6 +349,9 @@ TX types inferred by UGPC:
 ```solidity
 address constant UGPC = 0x00000000000000000000000000000000000000C1;
 
+// Emit at dispatch so off-chain indexers can correlate outbound calls with inbound results.
+event OutboundDispatched(address indexed target, bytes4 indexed selector, bytes payload);
+
 function dispatchToExternalChain(
     address targetOnExternalChain,
     bytes calldata calldata_
@@ -364,15 +367,20 @@ function dispatchToExternalChain(
             revertRecipient: msg.sender
         })
     );
+    emit OutboundDispatched(
+        targetOnExternalChain,
+        bytes4(calldata_),  // first 4 bytes = selector — identifies the operation
+        calldata_
+    );
 }
 ```
 
 ### Inbound callback (optional — receive response after external execution)
 
-Implement `executeUniversalTx()` if you need the result delivered back. The `UNIVERSAL_EXECUTOR_MODULE` is the **only** valid caller.
+Implement `executeUniversalTx()` if you need the result delivered back. `UNIVERSAL_EXECUTOR_MODULE` is the **only** valid caller.
 
 ```solidity
-address constant EXECUTOR_MOD = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
 mapping(bytes32 => bool) public executedTxIds;
 
@@ -384,7 +392,7 @@ function executeUniversalTx(
     address          prc20,               // PRC20 token address on Push Chain
     bytes32          txId                 // unique ID for replay protection
 ) external payable {
-    require(msg.sender == EXECUTOR_MOD, "Unauthorized");
+    require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized");
     require(!executedTxIds[txId], "Replay");
     executedTxIds[txId] = true;
 
@@ -393,14 +401,81 @@ function executeUniversalTx(
 }
 ```
 
+### `executeUniversalTx` — parameter reference
+
+| Parameter              | Type      | Shape / Notes                                                                                                                                                                        |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `sourceChainNamespace` | `string`  | CAIP-2 `"namespace:chainId"` — e.g. `"eip155:11155111"` (Ethereum Sepolia), `"eip155:97"` (BNB Testnet), `"solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"` (Solana Devnet)     |
+| `ceaAddress`           | `bytes`   | **EVM**: 20-byte packed address — `address cea = address(bytes20(ceaAddress))`. **Solana**: 32-byte base58 public key — decode off-chain: `bs58.encode(ethers.getBytes(ceaAddress))` |
+| `payload`              | `bytes`   | ABI-encoded return data from the external execution — `abi.decode(payload, (YourReturnType))`                                                                                        |
+| `amount`               | `uint256` | Bridged PRC20 amount received; `0` if no bridge                                                                                                                                      |
+| `prc20`                | `address` | PRC20 token address on Push Chain; `address(0)` if no bridge                                                                                                                         |
+| `txId`                 | `bytes32` | Unique per-delivery ID assigned by the protocol — store in `executedTxIds` for replay protection; do not derive it yourself                                                          |
+
 ### Execution flow
 
 ```
 Your contract → UGPC.sendUniversalTxOutbound()
   → TSS picks up outbound event
     → Contract's CEA executes payload on external chain
-      [optional] → EXECUTOR_MOD calls executeUniversalTx() on your contract
+      [optional] → UNIVERSAL_EXECUTOR_MODULE calls executeUniversalTx() on your contract
 ```
+
+### Partial-execution recovery — `revertRecipient`
+
+When bridged assets are sent (`token ≠ address(0)`, `amount > 0`) but the external tx **reverts**, UGPC returns the bridged funds to `revertRecipient`. Set it to a trusted non-zero address — never `address(0)` (assets lost permanently).
+
+```solidity
+contract BridgeAndCall {
+    address constant UGPC         = 0x00000000000000000000000000000000000000C1;
+    address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+
+    address public immutable treasury;
+    mapping(bytes32 => bool) public executedTxIds;
+
+    event OutboundDispatched(address indexed target, bytes4 indexed selector, bytes payload);
+    event InboundReceived(bytes32 indexed txId, uint256 amount);
+
+    constructor(address _treasury) { treasury = _treasury; }
+
+    /// @notice Bridge a PRC20 and call target on the external chain.
+    /// @dev    If the external tx reverts, `treasury` receives the bridged amount back.
+    function bridgeAndCall(
+        address target,
+        address token,
+        uint256 amount,
+        bytes calldata payload_
+    ) external payable {
+        IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
+            UniversalOutboundTxRequest({
+                recipient:       abi.encodePacked(target),
+                token:           token,
+                amount:          amount,
+                gasLimit:        0,
+                payload:         payload_,
+                revertRecipient: treasury  // ← receives assets if external execution reverts
+            })
+        );
+        emit OutboundDispatched(target, bytes4(payload_), payload_);
+    }
+
+    function executeUniversalTx(
+        string calldata, bytes calldata, bytes calldata payload,
+        uint256 amount, address, bytes32 txId
+    ) external payable {
+        require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized");
+        require(!executedTxIds[txId], "Replay");
+        executedTxIds[txId] = true;
+        emit InboundReceived(txId, amount);
+        // amount > 0 means external execution succeeded and assets were delivered
+        // decode payload for any return data: abi.decode(payload, (YourReturnType))
+    }
+}
+```
+
+> **Lost assets**: if `revertRecipient` is `address(0)` and the external tx reverts, bridged funds are unrecoverable. Always set a non-zero fallback — typically a treasury or the originating caller.
+>
+> **No atomicity**: a reverting external tx does not revert Push-side state. Design contracts to handle partial failure explicitly — emit events at dispatch so off-chain monitors can detect unmatched outbound calls.
 
 ### Minimal complete contract
 
@@ -418,9 +493,12 @@ interface IUniversalGatewayPC {
 
 contract MyMultichainApp {
     address constant UGPC         = 0x00000000000000000000000000000000000000C1;
-    address constant EXECUTOR_MOD = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
+    address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
 
     mapping(bytes32 => bool) public executedTxIds;
+
+    event OutboundDispatched(address indexed target, bytes4 indexed selector, bytes payload);
+    event InboundReceived(bytes32 indexed txId, uint256 amount);
 
     function dispatch(address target, bytes calldata payload_) external payable {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
@@ -429,16 +507,18 @@ contract MyMultichainApp {
                 gasLimit: 0, payload: payload_, revertRecipient: msg.sender
             })
         );
+        emit OutboundDispatched(target, bytes4(payload_), payload_);
     }
 
     function executeUniversalTx(
         string calldata, bytes calldata, bytes calldata payload,
-        uint256, address, bytes32 txId
+        uint256 amount, address, bytes32 txId
     ) external payable {
-        require(msg.sender == EXECUTOR_MOD, "Unauthorized");
+        require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized");
         require(!executedTxIds[txId], "Replay");
         executedTxIds[txId] = true;
-        // handle response
+        emit InboundReceived(txId, amount);
+        // handle response: abi.decode(payload, (YourReturnType))
     }
 }
 ```
@@ -582,7 +662,8 @@ import { ethers } from 'hardhat';
 
 async function main() {
   const UGPC = '0x00000000000000000000000000000000000000C1';
-  const EXECUTOR_MOD = '0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7';
+  const UNIVERSAL_EXECUTOR_MODULE =
+    '0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7';
 
   const Factory = await ethers.getContractFactory('MyMultichainApp');
   const contract = await Factory.deploy();
@@ -606,7 +687,7 @@ main().catch(console.error);
 
 | Symptom / Mistake                                                                  | Fix                                                                                                                                               |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `executeUniversalTx()` called with fabricated data — replayed or spoofed callbacks | Add `require(msg.sender == EXECUTOR_MOD, "Unauthorized")` — without it, anyone can call this function                                             |
+| `executeUniversalTx()` called with fabricated data — replayed or spoofed callbacks | Add `require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized")` — without it, anyone can call this function                                |
 | Same inbound callback applied twice — state corrupted                              | Add `mapping(bytes32 => bool) executedTxIds` and `require(!executedTxIds[txId], "Replay")`                                                        |
 | `msg.sender` in your Push Chain contract is not the external user's wallet address | It never is — `msg.sender` is the user's **UEA**. Use `IUEAFactory(UEA_FACTORY).getOriginForUEA(msg.sender)` to recover the origin wallet         |
 | Confused UGPC (outbound) with UG (inbound) — wrong address used                    | **UGPC** (`...00C1`) is on Push Chain for dispatching _outbound_ txs. **UG** contracts are on _external chains_ for sending txs _into_ Push Chain |
@@ -618,11 +699,11 @@ main().catch(console.error);
 
 ## Source
 
-- UEAFactory interface: https://github.com/pushchain/push-chain-core-contracts/blob/audit-main/src/Interfaces/IUEAFactory.sol
-- UGPC: https://github.com/pushchain/push-chain-gateway-contracts/blob/audit-main-fixes/contracts/evm-gateway/src/UniversalGatewayPC.sol
-- UEA_EVM: https://github.com/pushchain/push-chain-core-contracts/blob/audit-main/src/uea/UEA_EVM.sol
-- UEA_SVM: https://github.com/pushchain/push-chain-core-contracts/blob/audit-main/src/uea/UEA_SVM.sol
-- CEA: https://github.com/pushchain/push-chain-gateway-contracts/blob/audit-main-fixes/
+- UEAFactory interface: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/Interfaces/IUEAFactory.sol
+- UGPC: https://github.com/pushchain/push-chain-gateway-contracts/blob/main/contracts/evm-gateway/src/UniversalGatewayPC.sol
+- UEA_EVM: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/uea/UEA_EVM.sol
+- UEA_SVM: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/uea/UEA_SVM.sol
+- CEA: https://github.com/pushchain/push-chain-gateway-contracts/blob/main/
 
 ## Downloadable Resources
 
