@@ -59,13 +59,13 @@ Contracts deployed on external chains. **Users, scripts, and smart contracts** o
 
 When UG is called (from any source), the TSS network relays the call to Push Chain and creates/calls the sender's **UEA** — so on Push Chain, `msg.sender` of your contract = the caller's UEA address, not the original wallet or contract.
 
-| Chain            | UG Address                                     |
-| ---------------- | ---------------------------------------------- |
-| Ethereum Sepolia | `0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A`   |
-| Arbitrum Sepolia | `0x2cd870e0166Ba458dEC615168Fd659AacD795f34`   |
-| Base Sepolia     | `0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16`   |
-| BNB Testnet      | `0x44aFFC61983F4348DdddB886349eb992C061EaC0`   |
-| Solana Devnet    | `CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS` |
+| Chain            | UG Address                                     | Verify on explorer                                                                                                 |
+| ---------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Ethereum Sepolia | `0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A`   | [Sepolia Etherscan](https://sepolia.etherscan.io/address/0x05bD7a3D18324c1F7e216f7fBF2b15985aE5281A#code)          |
+| Arbitrum Sepolia | `0x2cd870e0166Ba458dEC615168Fd659AacD795f34`   | [Sepolia Arbiscan](https://sepolia.arbiscan.io/address/0x2cd870e0166Ba458dEC615168Fd659AacD795f34#code)            |
+| Base Sepolia     | `0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16`   | [Sepolia Basescan](https://sepolia.basescan.org/address/0xFD4fef1F43aFEc8b5bcdEEc47f35a1431479aC16#code)           |
+| BNB Testnet      | `0x44aFFC61983F4348DdddB886349eb992C061EaC0`   | [BSCscan Testnet](https://testnet.bscscan.com/address/0x44aFFC61983F4348DdddB886349eb992C061EaC0#code)             |
+| Solana Devnet    | `CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS` | [Solana Explorer](https://explorer.solana.com/address/CFVSincHYbETh2k7w6u1ENEkjbSLtveRCEBupKidw2VS?cluster=devnet) |
 
 ### Calling UG from an external chain (via SDK)
 
@@ -224,6 +224,8 @@ import "push-chain-core-contracts/src/Interfaces/IUEAFactory.sol";
 ```
 
 ### Or inline the interface directly
+
+> Use this instead of the Foundry import above — **not both**. Declaring `UniversalAccountId` or `IUEAFactory` twice in the same compilation unit causes a duplicate-declaration error.
 
 ```solidity
 pragma solidity ^0.8.0;
@@ -550,6 +552,21 @@ These rules apply to every contract that implements `executeUniversalTx()`:
 
 `UniversalCore` is the on-chain oracle maintained by the TSS network. Use it to read the **current gas price**, **block height**, and **last observed timestamp** for any external chain Push Chain tracks.
 
+**Concrete use cases:**
+
+- **Self-throttle outbound dispatches** — read `gasPriceByChainNamespace` before calling `sendUniversalTxOutbound` and revert if external gas exceeds your budget:
+  ```solidity
+  uint256 extGas = IUniversalCore(UNIVERSAL_CORE).gasPriceByChainNamespace("eip155:11155111");
+  require(extGas < 50 gwei, "external gas too high — retry later");
+  ```
+- **User-facing gas quote** (off-chain) — show the estimated cost before asking the user to sign:
+  ```ts
+  const gasPrice = await core.gasPriceByChainNamespace('eip155:11155111');
+  const estimatedFee = gasPrice * BigInt(estimatedGasUnits);
+  console.log('Estimated fee:', ethers.formatEther(estimatedFee), 'ETH');
+  ```
+- **Liveness check** — compare `timestampObservedAtByChainNamespace` against the current block timestamp to detect stale TSS data before dispatching.
+
 > **Address**: `0x00000000000000000000000000000000000000C0` (Push Chain Donut Testnet)
 > Source: https://github.com/pushchain/push-chain-core-contracts/blob/main/src/UniversalCore.sol
 
@@ -600,6 +617,8 @@ console.log(
 ```
 
 ### On-chain usage (Solidity)
+
+> Declare `IUniversalCore` in your contract before using this snippet — copy the interface block from the section above, or `import "push-chain-core-contracts/src/Interfaces/IUniversalCore.sol"`.
 
 ```solidity
 address constant UNIVERSAL_CORE = 0x00000000000000000000000000000000000000C0;
@@ -681,6 +700,28 @@ main().catch(console.error);
 
 > Script: `agents/skills/push-contracts/scripts/deploy.sh` — Foundry deploy + explorer link, ready to run with `PRIVATE_KEY=0x... bash deploy.sh`
 
+### Verify your deployment
+
+After deploying, confirm that the Push Chain precompiles are reachable and your contract exists:
+
+```bash
+# Confirm UEAFactory precompile is live — zero address returns empty, isUEA=false
+cast call 0x00000000000000000000000000000000000000eA \
+  "getOriginForUEA(address)((string,string,bytes),bool)" \
+  0x0000000000000000000000000000000000000001 \
+  --rpc-url https://evm.donut.rpc.push.org/
+
+# Confirm UniversalCore is live — returns non-zero gas price for Ethereum Sepolia
+cast call 0x00000000000000000000000000000000000000C0 \
+  "gasPriceByChainNamespace(string)(uint256)" \
+  "eip155:11155111" \
+  --rpc-url https://evm.donut.rpc.push.org/
+
+# Confirm your deployed contract exists (replace $CONTRACT with the deployed address)
+cast code $CONTRACT --rpc-url https://evm.donut.rpc.push.org/
+# Expected: non-empty bytecode (0x...)
+```
+
 ---
 
 ## Common Mistakes
@@ -695,7 +736,12 @@ main().catch(console.error);
 | Push Chain contract runs out of gas for inbound execution                          | Fund the contract with `$PC` before dispatching outbound — inbound execution fees are paid in `$PC`                                               |
 | CEA whitelist on external contract blocks calls                                    | The external contract sees the **contract's CEA** as `msg.sender`, not your Push Chain address — whitelist the CEA address on the external side   |
 
-> `account.owner` in `UniversalAccountId` is always hex bytes. For Solana addresses, decode with `bs58.encode(ethers.getBytes(account.owner))`.
+> **`account.owner` byte layout** in `UniversalAccountId`:
+>
+> - **EVM chains**: 20-byte ABI-packed address — `address wallet = address(bytes20(account.owner))`
+> - **Solana**: 32-byte base58 public key — decode off-chain: `bs58.encode(ethers.getBytes(account.owner))`
+>
+> This matches the `ceaAddress` layout in `executeUniversalTx` — the same chain type = same byte encoding.
 
 ## Source
 
