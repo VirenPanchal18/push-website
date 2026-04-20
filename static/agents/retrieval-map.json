@@ -590,6 +590,80 @@
       "notes": "Error codes follow SEND-TX-{stage}-{code} pattern. See agents/errors.json for full catalog."
     },
     {
+      "task": "Prepare and execute a multi-hop transaction cascade with a single signature",
+      "capability_id": "execute_transaction_cascade",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/send-universal-transaction/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/workflows/send-multichain-transaction.md",
+        "agents/skills/push-backend/SKILL.md",
+        "agents/skills/push-frontend/SKILL.md"
+      ],
+      "prefer_over": [],
+      "notes": "prepareTransaction() each hop individually, then executeTransactions([...prepared]) for atomic single-signature submission. All per-hop args (to, data, value, funds, gasLimit, payGasWith, deadline, from, progressHook) are supported per hop. Use when multiple chains must be visited in one user gesture."
+    },
+    {
+      "task": "Sign EIP-712 typed structured data (Permit2, Seaport, Uniswap v3/v4, gasless approvals)",
+      "capability_id": "sign_universal_typed_data",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/sign-universal-message/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/workflows/sign-universal-message.md",
+        "agents/sdk-capabilities.json"
+      ],
+      "prefer_over": [],
+      "notes": "pushChainClient.universal.signTypedData({ domain, types, value }). Returns Uint8Array. Required for off-chain typed-data authorizations — gasless approvals, order matching, permit signatures."
+    },
+    {
+      "task": "Derive UEA or CEA address off-chain before transacting",
+      "capability_id": "derive_executor_account",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/utility-functions/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/sdk-capabilities.json",
+        "agents/skills/push-backend/SKILL.md"
+      ],
+      "prefer_over": [],
+      "notes": "PushChain.utils.account.deriveExecutorAccount(uoa, { chain, skipNetworkCheck? }) → { address }. No on-chain call required. Use for gas-estimation pre-flight, balance checks before transacting, and whitelisting the CEA on target contracts."
+    },
+    {
+      "task": "Resolve the controlling origin wallet behind a UEA or CEA address",
+      "capability_id": "resolve_controller_account",
+      "authoritative_sources": [
+        {
+          "url": "https://push.org/docs/chain/build/utility-functions/",
+          "type": "docs",
+          "confidence": "high",
+          "normative": true
+        }
+      ],
+      "agent_files": [
+        "agents/workflows/use-utility-functions.md",
+        "agents/examples/utility-resolve-controller-account.md",
+        "agents/sdk-capabilities.json"
+      ],
+      "prefer_over": [],
+      "notes": "PushChain.utils.account.resolveControllerAccount(address, { chain?, skipNetworkCheck? }). Reverse of deriveExecutorAccount — UEA → UOA or CEA → Push → UOA. Returns accounts[] with type ('uea'|'uoa'|'cea') and role ('controller' on the root UOA). Pass options.chain for CEA inputs."
+    },
+    {
       "task": "Full documentation context for RAG",
       "capability_id": null,
       "concept": "full_context",

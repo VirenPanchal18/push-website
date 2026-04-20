@@ -1072,6 +1072,48 @@
       "mcp_candidate": true,
       "docs_url": "https://push.org/docs/chain/build/utility-functions/",
       "stability": "stable"
+    },
+    {
+      "id": "resolve_controller_account",
+      "name": "Resolve Controller Account (Off-Chain)",
+      "description": "Recursively resolves the controlling origin wallet (UOA) behind any executor address — UEA → UOA, or CEA → Push account → UOA. Complement of derive_executor_account: where derive goes forward (UOA→executor), resolve goes backward (executor→UOA). Use for identity verification, attribution, and building origin-aware UIs that show which chain/wallet is ultimately in control.",
+      "actor": ["developer", "agent", "backend", "browser_agent"],
+      "operation": "read",
+      "prerequisites": ["sdk_imported"],
+      "inputs": [
+        {
+          "name": "account",
+          "type": "string",
+          "required": true,
+          "description": "UEA, CEA, or Push Chain address to resolve backwards to its controller"
+        },
+        {
+          "name": "options.chain",
+          "type": "CHAIN",
+          "required": false,
+          "description": "Required when account is a CEA — specifies which external chain the CEA is deployed on"
+        },
+        {
+          "name": "options.skipNetworkCheck",
+          "type": "boolean",
+          "required": false,
+          "description": "Deterministic resolution only — skips live network check, faster but no deployment status"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result.accounts",
+          "type": "Array<{ chain, chainName, address, type, exists, role? }>",
+          "description": "Resolution chain from executor to root controller. type: 'uea' | 'uoa' | 'cea'. role: 'controller' marks the root UOA."
+        }
+      ],
+      "sdk_method": "PushChain.utils.account.resolveControllerAccount(account, { chain?, skipNetworkCheck? })",
+      "invocation_type": "sdk",
+      "auth_required": false,
+      "safe_for_autonomous_execution": true,
+      "mcp_candidate": true,
+      "docs_url": "https://push.org/docs/chain/build/utility-functions/",
+      "stability": "stable"
     }
   ]
 }

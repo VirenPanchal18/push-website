@@ -131,7 +131,7 @@
       "question": "What type of failure occurred?",
       "branches": [
         {
-          "condition": "User rejected signature (progress event SEND-TX-04-04)",
+          "condition": "User rejected signature (progress event SEND-TX-104-04 / 204-04 / 304-04 depending on route)",
           "action": "Display user-friendly message and allow retry",
           "details": {
             "message": "Transaction was declined by user",
@@ -152,7 +152,7 @@
           "next": null
         },
         {
-          "condition": "Transaction reverted on-chain (progress event SEND-TX-99-02)",
+          "condition": "Transaction reverted on-chain (progress event SEND-TX-199-02 / 299-02 / 399-02 depending on route)",
           "action": "Inspect revert reason and fix contract call",
           "details": {
             "debug": "Check progressHook message for revert reason",
@@ -211,7 +211,7 @@
           "action": "Use progressHook callback in sendTransaction",
           "details": {
             "method": "sendTransaction({ ..., progressHook: (progress) => updateUI(progress) })",
-            "events": "SEND-TX-01 through SEND-TX-99-xx events provide granular status"
+            "events": "Route 1: SEND-TX-1xx, Route 2: SEND-TX-2xx, Route 3: SEND-TX-3xx. Cascade: SEND-TX-001/002/999-xx prefixes wrap each hop."
           },
           "next": null
         }
@@ -245,6 +245,107 @@
           "details": {
             "param": "tx.funds: { amount: BigInt, token?: PushChain.CONSTANTS.MOVEABLE.TOKEN }",
             "behavior": "Asset movement and execution happen atomically"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "choose_cascade_vs_single",
+      "question": "Does the flow require visiting multiple chains with a single user signature?",
+      "branches": [
+        {
+          "condition": "Single chain target — user signs once and execution is complete",
+          "action": "Use sendTransaction() directly",
+          "details": {
+            "method": "pushChainClient.universal.sendTransaction({ to, data, value, funds, ... })",
+            "returns": "UniversalTxResponse with .wait() and tx hash"
+          },
+          "next": "choose_transaction_route"
+        },
+        {
+          "condition": "Multiple hops required — e.g. Push Chain then Ethereum then BNB, signed once",
+          "action": "Use prepareTransaction() + executeTransactions() cascade pattern",
+          "details": {
+            "step_1": "const hop1 = await pushChainClient.universal.prepareTransaction({ to: '0x...', data })",
+            "step_2": "const hop2 = await pushChainClient.universal.prepareTransaction({ to: { address: '0x...', chain: CHAIN.ETHEREUM_SEPOLIA }, data })",
+            "step_3": "const result = await pushChainClient.universal.executeTransactions([hop1, hop2])",
+            "returns": "CascadedTxResponse with .wait() and .waitForAll() per hop",
+            "note": "Each hop supports the same args as sendTransaction (to, data, value, funds, gasLimit, payGasWith, deadline, from, progressHook)"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "choose_signing_method",
+      "question": "What kind of signing operation is needed?",
+      "branches": [
+        {
+          "condition": "Sign arbitrary bytes for off-chain verification (authentication, attestation)",
+          "action": "Use pushChainClient.universal.signMessage(message)",
+          "details": {
+            "input": "message: Uint8Array — use new TextEncoder().encode('text') for strings",
+            "returns": "Uint8Array signature",
+            "capability": "sign_universal_message"
+          },
+          "next": null
+        },
+        {
+          "condition": "Sign EIP-712 typed data (Permit2, Uniswap v3/v4, Seaport, gasless approvals, order matching)",
+          "action": "Use pushChainClient.universal.signTypedData(typedDataArgs)",
+          "details": {
+            "input": "typedDataArgs: { domain: TypedDataDomain, types: Record<string, TypedDataField[]>, value: Record<string, unknown> }",
+            "returns": "Uint8Array — EIP-712 signature bytes",
+            "capability": "sign_universal_typed_data",
+            "use_cases": [
+              "Permit2 token approvals",
+              "Uniswap v3/v4 swaps",
+              "OpenSea Seaport orders",
+              "Gasless meta-transactions"
+            ]
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "choose_address_derivation",
+      "question": "Does the agent need an executor address before submitting a transaction?",
+      "branches": [
+        {
+          "condition": "Need UEA address on Push Chain for a given origin wallet (pre-flight balance check, gas estimation)",
+          "action": "Use PushChain.utils.account.deriveExecutorAccount(uoa, { chain: CHAIN.PUSH_TESTNET_DONUT })",
+          "details": {
+            "capability": "derive_executor_account",
+            "returns": "{ address: string } — deterministic, no on-chain call",
+            "use_cases": [
+              "Check UEA balance before sending",
+              "Pre-compute address for whitelisting",
+              "Gas estimation UI"
+            ]
+          },
+          "next": null
+        },
+        {
+          "condition": "Need CEA address on an external chain (whitelist the CEA on a target contract, check CEA balance)",
+          "action": "Use PushChain.utils.account.deriveExecutorAccount(uoa, { chain: CHAIN.<EXTERNAL> })",
+          "details": {
+            "capability": "derive_executor_account",
+            "returns": "{ address: string } — same deterministic derivation, different chain",
+            "skipNetworkCheck": "Pass skipNetworkCheck: true for chains not yet live to still get the address"
+          },
+          "next": null
+        },
+        {
+          "condition": "Have a UEA or CEA address and need to find the origin wallet that controls it (reverse lookup, attribution, identity verification)",
+          "action": "Use PushChain.utils.account.resolveControllerAccount(address, { chain? })",
+          "details": {
+            "capability": "resolve_controller_account",
+            "input": "UEA, CEA, or any Push Chain address as a plain string",
+            "chain_param": "Required only for CEA inputs — pass the chain the CEA is on",
+            "returns": "{ accounts[] } — full resolution chain; entry with role:'controller' is the root UOA",
+            "direction": "Backward (executor → controller). Forward direction is deriveExecutorAccount."
           },
           "next": null
         }

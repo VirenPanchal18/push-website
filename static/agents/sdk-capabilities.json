@@ -98,6 +98,13 @@
           "safe_for_autonomous_execution": true
         },
         {
+          "name": "resolveControllerAccount",
+          "signature": "PushChain.utils.account.resolveControllerAccount(account: string, options?: { chain?: CHAIN; skipNetworkCheck?: boolean }): Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>",
+          "description": "Recursively resolves the controller identity chain behind any executor address. UEA → UOA; CEA → Push account → UOA. type: 'uea' | 'uoa' | 'cea'. role: 'controller' marks the root controlling account. Pass options.chain for CEA resolution. Complement of deriveExecutorAccount (forward: UOA→executor; this: executor→UOA).",
+          "returns": "Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>",
+          "safe_for_autonomous_execution": true
+        },
+        {
           "name": "convertExecutorToOrigin",
           "signature": "PushChain.utils.account.convertExecutorToOrigin(executorAddress: string, options?: { chain?: CHAIN }): Promise<UniversalAccount>",
           "description": "Reverse-maps a UEA (Push Chain execution account) to its origin wallet. Pass options.chain to treat as CEA from a specific chain.",
