@@ -250,27 +250,35 @@ if (!pushChainClient) return null; // connected, client not yet ready
 
 ### `usePushChain()`
 
+Returns the `@pushchain/core` SDK from the UI Kit provider context — utilities, constants, and types. Use this instead of adding `@pushchain/core` as a direct dependency; `@pushchain/ui-kit` already bundles it.
+
 | Return value | Type        | Description                                                                                                                             |
 | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `PushChain`  | `PushChain` | The `@pushchain/core` SDK — access utilities (`parseUnits`, `encodeTxData`) and constants (`CHAIN`, `MOVEABLE.TOKEN`) inside components |
 
-> Use for SDK utilities and constants inside components. For transactions and signing, use `usePushChainClient()` instead.
+> **Do not install `@pushchain/core` separately in a UI Kit app.** Use `usePushChain()` to access the SDK — adding `@pushchain/core` to `package.json` duplicates the dependency, risks version drift, and is unnecessary. For transactions and signing, use `usePushChainClient()` instead.
 
 ```tsx
-import { usePushChain, usePushChainClient } from '@pushchain/ui-kit';
+import { usePushChainClient, usePushChain } from '@pushchain/ui-kit';
 
 function MyComponent() {
-  const { PushChain } = usePushChain();
   const { pushChainClient, isInitialized } = usePushChainClient();
+  const { PushChain } = usePushChain();
 
+  // to check the flow if chain is connected
   if (!isInitialized || !pushChainClient) return null;
-
   const chainAgnostic = PushChain.utils.account.toChainAgnostic(
     pushChainClient.universal.origin.address,
     { chain: pushChainClient.universal.origin.chain }
   );
-
   return <p>Chain Agnostic Address: {chainAgnostic}</p>;
+
+  // pushChainClient — for transactions and signing
+  // PushChain      — for utilities and constants
+  const tx = await pushChainClient.universal.sendTransaction({
+    to: '0xRecipientAddress',
+    value: PushChain.utils.helpers.parseUnits('0.01', 18),
+  });
 }
 ```
 
@@ -280,11 +288,12 @@ function MyComponent() {
 
 ```tsx
 // @pushchain/core is bundled in @pushchain/ui-kit — no separate install needed.
-// Import PushChain from @pushchain/ui-kit to avoid a redundant dependency.
-import { usePushChainClient, PushChain } from '@pushchain/ui-kit';
+// Use usePushChain() to access the SDK; do not add @pushchain/core to package.json.
+import { usePushChainClient, usePushChain } from '@pushchain/ui-kit';
 
 function MyComponent() {
   const { pushChainClient } = usePushChainClient();
+  const { PushChain } = usePushChain();
 
   const send = async () => {
     if (!pushChainClient) return; // guard: null before wallet connects
