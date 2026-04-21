@@ -42,6 +42,12 @@ Defines the Push Chain network environments available for initialization.
 ```typescript
 import { PushChain } from '@pushchain/core';
 
+// Get supported chains for a network
+// Note: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET always points to the latest version of the testnet
+const chains = PushChain.utils.chains.getSupportedChains(
+  PushChain.CONSTANTS.PUSH_NETWORK.TESTNET
+);
+
 // Initialize client with testnet (Donut)
 const client = await PushChain.initialize(universalSigner, {
   network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET_DONUT,
@@ -51,6 +57,7 @@ const client = await PushChain.initialize(universalSigner, {
 const localClient = await PushChain.initialize(universalSigner, {
   network: PushChain.CONSTANTS.PUSH_NETWORK.LOCALNET,
 });
+
 ```
 
 
@@ -83,11 +90,6 @@ import { PushChain } from '@pushchain/core';
 const account = PushChain.utils.account.toUniversal(address, {
   chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
 });
-
-// Get supported chains for a network
-const chains = PushChain.utils.chains.getSupportedChains(
-  PushChain.CONSTANTS.PUSH_NETWORK.TESTNET
-);
 
 // Convert executor to origin with chain override
 const originInfo = await PushChain.utils.account.convertExecutorToOrigin(

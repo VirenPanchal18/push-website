@@ -1,4 +1,6 @@
 ---
+name: push-contracts
+description: "Use when writing Solidity contracts deployed on Push Chain — covers IUEAFactory for identifying cross-chain callers (UEA), IUniversalGatewayPC (UGPC) for dispatching outbound cross-chain transactions, executeUniversalTx inbound callbacks, UniversalCore oracle reads, and Foundry/Hardhat deployment. No SDK inside .sol files. Triggers on: 'identify cross-chain caller in Solidity', 'dispatch outbound tx from Push Chain contract', 'implement executeUniversalTx callback', 'deploy Solidity contract with Foundry on Push Chain'."
 id: push-contracts
 intent: Write Solidity contracts on Push Chain — identify cross-chain callers, dispatch outbound txs via UGPC, receive inbound callbacks
 package: 'solidity (EVM-compatible — Hardhat / Foundry / Remix)'

@@ -1,11 +1,31 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "current_sdk_version": "5.1.7",
-  "current_version": "1.0.7",
-  "generated": "2026-04-21T00:00:00.000Z",
+  "current_version": "1.0.8",
+  "generated": "2026-04-21T17:54:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-04-21T17:54:00.000Z",
+      "version": "1.0.8",
+      "changes": [
+        "push-frontend/SKILL.md: added name and description fields to YAML frontmatter (above id) for Anthropic skill-loader compatibility",
+        "push-backend/SKILL.md: added name and description fields to YAML frontmatter (above id) for Anthropic skill-loader compatibility",
+        "push-contracts/SKILL.md: added name and description fields to YAML frontmatter (above id) for Anthropic skill-loader compatibility"
+      ],
+      "files_affected": [
+        "static/agents/skills/push-frontend/SKILL.md",
+        "static/agents/skills/push-backend/SKILL.md",
+        "static/agents/skills/push-contracts/SKILL.md",
+        "static/agents/changelog.json"
+      ],
+      "sdk_version": "5.1.7",
+      "category": "skill-revision",
+      "trigger": "Add name + description frontmatter fields to all three skill files for Anthropic skill-loader compatibility",
+      "breaking": false,
+      "migration": null
+    },
     {
       "date": "2026-04-21T00:00:00.000Z",
       "version": "1.0.7",

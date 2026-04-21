@@ -1,12 +1,14 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "current_sdk_version": "5.1.7",
-  "generated": "2026-04-20T00:00:00.000Z",
+  "generated": "2026-04-21T17:54:00.000Z",
   "description": "Domain-scoped skill files mapping high-level developer intents to required packages, entry points, workflows, and examples. Load the skill file for your context before exploring workflows or examples.",
   "skills": [
     {
       "id": "push-frontend",
+      "name": "push-frontend",
+      "description": "Use when building React apps with @pushchain/ui-kit — covers PushUniversalWalletProvider setup, PushUniversalAccountButton, usePushChainClient hook, theme customization, and sending universal transactions (Route 1/2/3) from the browser. Triggers on: 'add wallet connect button in React', 'use @pushchain/ui-kit in Next.js or Vite', 'send universal transaction from browser', 'customize PushUniversalWalletProvider theme'.",
       "file": "agents/skills/push-frontend/SKILL.md",
       "url": "https://push.org/agents/skills/push-frontend/SKILL.md",
       "intent": "Enable universal transactions in a React frontend app",
@@ -18,6 +20,8 @@
     },
     {
       "id": "push-backend",
+      "name": "push-backend",
+      "description": "Use when writing Node.js scripts, bots, or server-side code with @pushchain/core — covers PushChain.initialize, wrapping ethers/viem/Solana keypairs into a UniversalSigner, all three routes, multichain cascades, transaction tracking, and utility functions. Not for browser or React code. Triggers on: 'initialize PushChain client in Node.js', 'send transaction from backend script', 'wrap ethers signer with toUniversal', 'track transaction by hash'.",
       "file": "agents/skills/push-backend/SKILL.md",
       "url": "https://push.org/agents/skills/push-backend/SKILL.md",
       "intent": "Execute universal transactions from Node.js, scripts, bots, or automation",
@@ -31,6 +35,8 @@
     },
     {
       "id": "push-contracts",
+      "name": "push-contracts",
+      "description": "Use when writing Solidity contracts deployed on Push Chain — covers IUEAFactory for identifying cross-chain callers (UEA), IUniversalGatewayPC (UGPC) for dispatching outbound cross-chain transactions, executeUniversalTx inbound callbacks, UniversalCore oracle reads, and Foundry/Hardhat deployment. No SDK inside .sol files. Triggers on: 'identify cross-chain caller in Solidity', 'dispatch outbound tx from Push Chain contract', 'implement executeUniversalTx callback', 'deploy Solidity contract with Foundry on Push Chain'.",
       "file": "agents/skills/push-contracts/SKILL.md",
       "url": "https://push.org/agents/skills/push-contracts/SKILL.md",
       "intent": "Write Solidity contracts on Push Chain: identify cross-chain callers via UEAFactory, dispatch outbound txs via UGPC, receive inbound callbacks, read gas prices via UniversalCore",

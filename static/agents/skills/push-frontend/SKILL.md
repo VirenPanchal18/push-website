@@ -1,4 +1,6 @@
 ---
+name: push-frontend
+description: "Use when building React apps with @pushchain/ui-kit — covers PushUniversalWalletProvider setup, PushUniversalAccountButton, usePushChainClient hook, theme customization, and sending universal transactions (Route 1/2/3) from the browser. Triggers on: 'add wallet connect button in React', 'use @pushchain/ui-kit in Next.js or Vite', 'send universal transaction from browser', 'customize PushUniversalWalletProvider theme'."
 id: push-frontend
 intent: Enable universal transactions in a React frontend app
 package: '@pushchain/ui-kit'

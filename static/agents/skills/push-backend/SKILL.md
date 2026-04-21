@@ -1,4 +1,6 @@
 ---
+name: push-backend
+description: "Use when writing Node.js scripts, bots, or server-side code with @pushchain/core — covers PushChain.initialize, wrapping ethers/viem/Solana keypairs into a UniversalSigner, all three routes, multichain cascades, transaction tracking, and utility functions. Not for browser or React code. Triggers on: 'initialize PushChain client in Node.js', 'send transaction from backend script', 'wrap ethers signer with toUniversal', 'track transaction by hash'."
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
