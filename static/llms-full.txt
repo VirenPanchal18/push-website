@@ -6122,7 +6122,7 @@ const prc20Alt = PushChain.utils.tokens.getPRC20Address({
 | **Arguments** | **Type** | **Description** |
 | ------------- | -------- | --------------- |
 | _`token`_ | `MoveableToken \| { chain: string; address: string }` | Origin token info. Either pass a `MoveableToken` (e.g., from `getMoveableTokens()`) or provide the origin chain plus token address. |
-| `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | Override the Push network to resolve the PRC20 on. Defaults to the network the client was initialized with. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` |
+| `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | Override the Push network to resolve the PRC20 on. Defaults to the network the client was initialized with. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET`  |
 
 " className="alert alert--fn-args">
 
@@ -8367,7 +8367,7 @@ const pushChainClient = await PushChain.initialize(universalSigner, {
 // (Inside an async function or top-level-await context)
 // Send a universal transaction (from any chain to Push Chain)
 const txHash = await pushChainClient.universal.sendTransaction({
-  to: '0xD0DE00000447492307108Bdc7Ff6BaB33Ff37Dacc479', // To address on Push Chain
+  to: '0xa54E96d3fB93BD9f6cCEf87c2170aEdB1D47E1cF', // To address on Push Chain
   value: BigInt(1), // $PC Value to send
 });
 
@@ -9021,6 +9021,14 @@ Keep track of the latest changes and updates to the Push Chain Core and UI Kit S
 - release fix
 
 ## [@pushchain/ui-kit](https://www.npmjs.com/package/@pushchain/ui-kit)
+
+### 5.2.7 (2026-04-24)
+
+#### Other Changes
+
+- release: bump to 5.2.6
+- release: bump to 5.2.5
+- release: bump to 5.2.4
 
 ### 5.2.3 (2026-04-20)
 
@@ -10168,14 +10176,14 @@ Active official liquidity pools pairing various PRC-20 tokens with WPC (Wrapped 
 | pETH/WPC Pool      | [0x012d5C099f8AE00009f40824317a18c3A342f622](https://donut.push.network/address/0x012d5C099f8AE00009f40824317a18c3A342f622?tab=contract) | [0x2971824Db68229D087931155C2b8bB820B275809](https://donut.push.network/address/0x2971824Db68229D087931155C2b8bB820B275809?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | USDT/WPC Pool      | [0x2d46b2b92266f34345934F17039768cd631aB026](https://donut.push.network/address/0x2d46b2b92266f34345934F17039768cd631aB026?tab=contract) | [0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3](https://donut.push.network/address/0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | USDC.eth/WPC Pool  | [0x524B9b3e98CEF71a20B30859D6c52e13E17C5BA2](https://donut.push.network/address/0x524B9b3e98CEF71a20B30859D6c52e13E17C5BA2?tab=contract) | [0x7A58048036206bB898008b5bBDA85697DB1e5d66](https://donut.push.network/address/0x7A58048036206bB898008b5bBDA85697DB1e5d66?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDT.base/WPC Pool | [0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15](https://donut.push.network/address/0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15?tab=contract) | [0x2C455189D2af6643B924A981a9080CcC63d5a567](https://donut.push.network/address/0x2C455189D2af6643B924A981a9080CcC63d5a567?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pETH.base/WPC Pool | [0xF926707689ad2fE9A81e666E5B888b2f3AD33980](https://donut.push.network/address/0xF926707689ad2fE9A81e666E5B888b2f3AD33980?tab=contract) | [0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21](https://donut.push.network/address/0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.base/WPC Pool | [0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15](https://donut.push.network/address/0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15?tab=contract) | [0x2C455189D2af6643B924A981a9080CcC63d5a567](https://donut.push.network/address/0x2C455189D2af6643B924A981a9080CcC63d5a567?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDC.base/WPC Pool | [0xC76D211B1c40775ec340692bA5BC0D728A0dF745](https://donut.push.network/address/0xC76D211B1c40775ec340692bA5BC0D728A0dF745?tab=contract) | [0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1](https://donut.push.network/address/0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pETH.arb/WPC Pool  | [0x1354c9A72F447f60F4811FC34b8C2e084FE338A3](https://donut.push.network/address/0x1354c9A72F447f60F4811FC34b8C2e084FE338A3?tab=contract) | [0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e](https://donut.push.network/address/0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 3000 |
 | USDT.arb/WPC Pool  | [0xF95B20Cf3f2dE495747EB3d33611D0FFEA29F448](https://donut.push.network/address/0xF95B20Cf3f2dE495747EB3d33611D0FFEA29F448?tab=contract) | [0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9](https://donut.push.network/address/0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDT.bnb/WPC Pool  | [0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168](https://donut.push.network/address/0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168?tab=contract) | [0x2f98B4235FD2BA0173a2B056D722879360B12E7b](https://donut.push.network/address/0x2f98B4235FD2BA0173a2B056D722879360B12E7b?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| pBNB/WPC Pool      | [0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6](https://donut.push.network/address/0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6?tab=contract) | [0x7a9082dA308f3fa005beA7dB0d203b3b86664E36](https://donut.push.network/address/0x7a9082dA308f3fa005beA7dB0d203b3b86664E36?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | USDC.arb/WPC Pool  | [0xB3ccbD470A19D4aB2fAa43c6eE4d43dEF8F4Ee63](https://donut.push.network/address/0xB3ccbD470A19D4aB2fAa43c6eE4d43dEF8F4Ee63?tab=contract) | [0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C](https://donut.push.network/address/0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDC.base/WPC Pool | [0xC76D211B1c40775ec340692bA5BC0D728A0dF745](https://donut.push.network/address/0xC76D211B1c40775ec340692bA5BC0D728A0dF745?tab=contract) | [0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1](https://donut.push.network/address/0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| pBNB/WPC Pool      | [0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6](https://donut.push.network/address/0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6?tab=contract) | [0x7a9082dA308f3fa005beA7dB0d203b3b86664E36](https://donut.push.network/address/0x7a9082dA308f3fa005beA7dB0d203b3b86664E36?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.bnb/WPC Pool  | [0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168](https://donut.push.network/address/0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168?tab=contract) | [0x2f98B4235FD2BA0173a2B056D722879360B12E7b](https://donut.push.network/address/0x2f98B4235FD2BA0173a2B056D722879360B12E7b?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 
 ---
 
