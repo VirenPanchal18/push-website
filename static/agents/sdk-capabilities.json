@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "version": "1.0.0",
-  "current_sdk_version": "5.1.7",
+  "current_sdk_version": "5.1.12",
   "generated": "2026-04-20T00:00:00.000Z",
   "description": "Complete SDK method surface for @pushchain/core and @pushchain/ui-kit: all namespaces, method signatures, parameter types, return types, and safe_for_autonomous_execution flags. For intent-level capability definitions (what an agent can do) see capabilities.json. For routing logic see decision-tree.json and task-router.md.",
   "namespaces": [
@@ -49,6 +49,13 @@
           "description": "Supported tokens for cross-chain asset movement",
           "returns": "string",
           "safe_for_autonomous_execution": true
+        },
+        {
+          "name": "PAYABLE.TOKEN",
+          "signature": "PushChain.CONSTANTS.PAYABLE.TOKEN.<TOKEN_NAME>",
+          "description": "Supported tokens for paying gas fees via tx.payGasWith",
+          "returns": "string",
+          "safe_for_autonomous_execution": true
         }
       ]
     },
@@ -87,6 +94,20 @@
           "name": "toUniversal",
           "signature": "PushChain.utils.account.toUniversal(address: string, options: { chain: CHAIN }): UniversalAccount",
           "description": "Converts address to UniversalAccount with chain context",
+          "returns": "UniversalAccount",
+          "safe_for_autonomous_execution": true
+        },
+        {
+          "name": "toChainAgnostic",
+          "signature": "PushChain.utils.account.toChainAgnostic(address: string, options: { chain: CHAIN }): string",
+          "description": "Produces a fully-qualified CAIP-10 chain-agnostic address string, e.g. 'eip155:11155111:0xAbc...'",
+          "returns": "string",
+          "safe_for_autonomous_execution": true
+        },
+        {
+          "name": "fromChainAgnostic",
+          "signature": "PushChain.utils.account.fromChainAgnostic(caip: string): UniversalAccount",
+          "description": "Parses a CAIP-10 chain-agnostic address string back into a UniversalAccount",
           "returns": "UniversalAccount",
           "safe_for_autonomous_execution": true
         },
@@ -153,9 +174,16 @@
       "methods": [
         {
           "name": "getSupportedChains",
-          "signature": "PushChain.utils.chains.getSupportedChains(network: PUSH_NETWORK): CHAIN[]",
+          "signature": "PushChain.utils.chains.getSupportedChains(network: PUSH_NETWORK): { chains: CHAIN[] }",
           "description": "Returns array of CAIP-2 chain identifiers supported on the given network",
-          "returns": "CHAIN[]",
+          "returns": "{ chains: CHAIN[] }",
+          "safe_for_autonomous_execution": true
+        },
+        {
+          "name": "getSupportedChainsByName",
+          "signature": "PushChain.utils.chains.getSupportedChainsByName(network: PUSH_NETWORK): { chains: string[] }",
+          "description": "Returns human-readable chain name strings supported on the given network, e.g. ['PUSH_TESTNET_DONUT', 'ETHEREUM_SEPOLIA']",
+          "returns": "{ chains: string[] }",
           "safe_for_autonomous_execution": true
         },
         {
@@ -194,8 +222,21 @@
         },
         {
           "name": "getPRC20Address",
-          "signature": "PushChain.utils.tokens.getPRC20Address(token: MoveableToken | { chain: CHAIN, address: string }): string",
-          "description": "Returns the PRC20 token address on Push Chain corresponding to a moveable token",
+          "signature": "PushChain.utils.tokens.getPRC20Address(token: MoveableToken | { chain: CHAIN, address: string }, options?: { network?: PUSH_NETWORK }): { address: `0x${string}`; chain: CHAIN; symbol: string; decimals: number; network: PUSH_NETWORK }",
+          "description": "Returns the full PRC20 token descriptor on Push Chain corresponding to a moveable token (address, chain, symbol, decimals, network)",
+          "returns": "{ address: `0x${string}`; chain: CHAIN; symbol: string; decimals: number; network: PUSH_NETWORK }",
+          "safe_for_autonomous_execution": true
+        }
+      ]
+    },
+    {
+      "namespace": "PushChain.utils.conversion",
+      "description": "Conversion utilities for slippage and amount calculations",
+      "methods": [
+        {
+          "name": "slippageToMinAmount",
+          "signature": "PushChain.utils.conversion.slippageToMinAmount(amount: string, options: { slippageBps: number }): string",
+          "description": "Calculates minimum acceptable output amount after applying slippage. slippageBps: 100 = 1%, 50 = 0.5%. Use result as tx.payGasWith.minAmountOut.",
           "returns": "string",
           "safe_for_autonomous_execution": true
         }
@@ -350,6 +391,19 @@
           "signature": "pushChainClient.explorer.listUrls(): Record<string, string[]>",
           "description": "Lists all configured block explorer URLs by chain",
           "returns": "Record<string, string[]>",
+          "safe_for_autonomous_execution": true
+        }
+      ]
+    },
+    {
+      "namespace": "pushChainClient.funds",
+      "description": "Conversion quote utilities for cross-chain token swaps",
+      "methods": [
+        {
+          "name": "getConversionQuote",
+          "signature": "pushChainClient.funds.getConversionQuote(amountIn: bigint, options: { from: PayableToken, to: MoveableToken }): Promise<ConversionQuote>",
+          "description": "Returns a conversion quote for swapping one token to another. from = payable token (what you pay with), to = moveable token (what you move). Returns amountIn, amountOut, rate, route, timestamp.",
+          "returns": "Promise<{ amountIn: string, amountOut: string, rate: number, route?: string[], timestamp: number }>",
           "safe_for_autonomous_execution": true
         }
       ]

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "version": "1.0.0",
-  "current_sdk_version": "5.1.7",
+  "current_sdk_version": "5.1.12",
   "generated": "2026-04-20T00:00:00.000Z",
   "description": "Feature availability matrix showing which Push Chain capabilities are supported per actor type (developer, end_user, agent, backend). Cross-reference with capabilities.json for full capability definitions.",
   "legend": {

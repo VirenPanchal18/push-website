@@ -723,6 +723,60 @@ PushChain.utils.helpers.encodeTxData({
 
 ---
 
+### `getMoveableTokens(chainOrClient?)` → `{ tokens: MoveableToken[] }`
+
+Returns supported assets that can be moved across chains (used in `tx.funds.token`).
+
+| Argument        | Type                                    | Description                        |
+| --------------- | --------------------------------------- | ---------------------------------- |
+| `chainOrClient` | `CHAIN \| PushChainClient` _(optional)_ | Filter tokens for a specific chain |
+
+**Returns**: `{ tokens: Array<{ chain, symbol, decimals, address }> }`
+
+### `getPayableTokens(chainOrClient?)` → `{ tokens: PayableToken[] }`
+
+Returns supported assets that can be used to pay gas or fund token movement (used in `tx.payGasWith.token`).
+
+| Argument        | Type                                    | Description                        |
+| --------------- | --------------------------------------- | ---------------------------------- |
+| `chainOrClient` | `CHAIN \| PushChainClient` _(optional)_ | Filter tokens for a specific chain |
+
+**Returns**: `{ tokens: Array<{ chain, symbol, decimals, address }> }`
+
+### `getPRC20Address(token, options?)` → `{ address, chain, symbol, decimals, network }`
+
+Resolves the Push Chain synthetic PRC20 address for a supported origin-chain token. Accepts either a `MoveableToken` (e.g., from `getMoveableTokens()`) or an object containing the origin `chain` and token `address`.
+
+| Argument          | Type                                                  | Description                                                                                                                  |
+| ----------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| _`token`_         | `MoveableToken \| { chain: string; address: string }` | Origin token — from `getMoveableTokens()` or explicit chain + address                                                        |
+| `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK`                    | Override the Push network. Defaults to client's initialized network. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` |
+
+**Returns**: `{ address: 0x${string}, chain: CHAIN, symbol: string, decimals: number, network: PUSH_NETWORK }`
+
+```ts
+// Using { chain, address }
+const prc20Alt = PushChain.utils.tokens.getPRC20Address({
+  chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+  address: '0x97F477B7f970D47a87B42869ceeace218106152a',
+});
+console.log('USDC.eth:', JSON.stringify(prc20Alt));
+
+// Using a MoveableToken directly
+const { tokens: moveable } = PushChain.utils.tokens.getMoveableTokens(
+  PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
+);
+const ethMoveable = moveable.find((t) => t.symbol === 'ETH');
+const {
+  address: prc20Addr,
+  symbol,
+  decimals,
+  network,
+} = PushChain.utils.tokens.getPRC20Address(ethMoveable);
+```
+
+---
+
 ### `toUniversal(address, { chain })` → `UniversalAccount`
 
 Wraps an address and chain into a `UniversalAccount` object.
@@ -766,6 +820,31 @@ Derives a UEA on Push Chain from any origin account, or a CEA on an external cha
 | `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic derivation only, skip deployment check. Default `false`              |
 
 **Returns**: `{ address: string, deployed?: boolean }` — `deployed` is included when `skipNetworkCheck` is `false`
+
+### `resolveControllerAccount(account, options?)` → `Promise<{ accounts }>`
+
+Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` — forward is UOA→executor, this is executor→UOA.
+
+| Argument                   | Type                   | Description                                                                    |
+| -------------------------- | ---------------------- | ------------------------------------------------------------------------------ |
+| `account`                  | `string`               | Executor address — can be a UEA, CEA, or Push Chain account address            |
+| `options.chain`            | `CHAIN` _(optional)_   | Required for CEA context — specifies the external chain the CEA is deployed on |
+| `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic resolution only, skip existence check. Default `false`           |
+
+**Returns**: `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` — `type`: `'uea' | 'uoa' | 'cea'`; `role: 'controller'` marks the root controlling account
+
+---
+
+### `slippageToMinAmount(amount, { slippageBps })` → `string`
+
+Calculates the minimum acceptable output amount given a slippage tolerance. Used when constructing `tx.payGasWith.minAmountOut` or validating swap quotes.
+
+| Argument              | Type     | Description                                                     |
+| --------------------- | -------- | --------------------------------------------------------------- |
+| _`amount`_            | `string` | Input amount in smallest units, e.g. `'100000000'` for 100 USDC |
+| `options.slippageBps` | `number` | Slippage in basis points — `100 = 1%`, `50 = 0.5%`              |
+
+**Returns**: `string` — minimum out amount in smallest units, e.g. `'99000000'`
 
 Full reference: https://push.org/agents/workflows/use-utility-functions.md
 

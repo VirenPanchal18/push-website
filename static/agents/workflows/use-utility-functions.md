@@ -220,15 +220,16 @@ Returns supported assets that can be used to pay gas or fund token movement.
 
 **Returns**: `{ tokens: Array<{ chain, symbol, decimals, address }> }`
 
-### `getPRC20Address(token)` → `string`
+### `getPRC20Address(token, options?)` → `{ address, chain, symbol, decimals, network }`
 
-Resolves the Push Chain synthetic PRC20 address for a supported origin-chain token.
+Resolves the Push Chain synthetic PRC20 token descriptor for a supported origin-chain token.
 
 | Argument | Type | Description |
 |---|---|---|
 | `token` | `MoveableToken \| { chain: string, address: string }` | Origin token — from `getMoveableTokens()` or explicit chain + address |
+| `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | Override the Push network. Defaults to client's initialized network. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` |
 
-**Returns**: `string` — PRC20 contract address on Push Chain (`0x...`)
+**Returns**: `{ address: 0x${string}, chain: CHAIN, symbol: string, decimals: number, network: PUSH_NETWORK }`
 
 ---
 

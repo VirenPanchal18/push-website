@@ -1326,17 +1326,18 @@ import { PushChain } from '@pushchain/core';
 
 ### Get PRC20 Address
 
-**_`PushChain.utils.tokens.getPRC20Address(token): 0x${string}`_**
+**_`PushChain.utils.tokens.getPRC20Address(token, options?): { address, chain, symbol, decimals, network }`_**
 
 Resolves the Push Chain synthetic PRC20 address for a supported origin-chain token. Accepts either a `MoveableToken` (for example from `getMoveableTokens`) or an object containing the origin `chain` and token `address`.
 
 ```typescript
-const prc20 = PushChain.utils.tokens.getPRC20Address(ethMoveableToken);
+const { address, chain, symbol, decimals, network } =
+  PushChain.utils.tokens.getPRC20Address(ethMoveableToken);
 
 // Or with explicit chain/address input
 const prc20Alt = PushChain.utils.tokens.getPRC20Address({
   chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
-  address: ethMoveableToken.address,
+  address: "0x97F477B7f970D47a87B42869ceeace218106152a",
 });
 ```
 
@@ -1344,15 +1345,21 @@ const prc20Alt = PushChain.utils.tokens.getPRC20Address({
 
 | **Arguments** | **Type** | **Description** |
 | ------------- | -------- | --------------- |
-| _`token`_ | `MoveableToken \| { chain: string; address: string }` | Origin token info. Either pass a `MoveableToken` (e.g., from `pushChainClient.moveable.token.*`) or provide the origin chain plus token address. |
+| _`token`_ | `MoveableToken \| { chain: string; address: string }` | Origin token info. Either pass a `MoveableToken` (e.g., from `getMoveableTokens()`) or provide the origin chain plus token address. |
+| `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | Override the Push network to resolve the PRC20 on. Defaults to the network the client was initialized with. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` <ConstantsDropdown variant="PUSH_NETWORK" /> |
 
 </PushAPIReference>
 
-<Details summary="Returns `prc20Address` <string>" className="alert alert--fn-args">
+<Details summary="Returns `PRC20Token` <object>" className="alert alert--fn-args">
 
 ```typescript
-// Synthetic PRC20 address on Push Chain
-'0x...'
+{
+  address: `0x${string}`; // PRC20 contract address on Push Chain
+  chain: CHAIN;           // Always CHAIN.PUSH_TESTNET_DONUT (or mainnet when live)
+  symbol: string;         // e.g. 'USDC.eth', 'pETH'
+  decimals: number;       // Token decimals on Push Chain
+  network: PUSH_NETWORK;  // The Push network this PRC20 belongs to
+}
 ```
 
 </Details>
@@ -1367,6 +1374,14 @@ const prc20Alt = PushChain.utils.tokens.getPRC20Address({
 import { PushChain } from '@pushchain/core';
 
     async function main() {
+      // Using { chain, address }
+      const prc20Alt = PushChain.utils.tokens.getPRC20Address({
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+        address: "0x97F477B7f970D47a87B42869ceeace218106152a",
+      });
+      console.log('USDC.eth:', JSON.stringify(prc20Alt));
+
+
       // Moveable token example (ETH on Sepolia)
       const { tokens: moveable } = PushChain.utils.tokens.getMoveableTokens(
         PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
@@ -1377,17 +1392,9 @@ import { PushChain } from '@pushchain/core';
       }
 
       // Using MoveableToken directly
-      const prc20FromMoveable = PushChain.utils.tokens.getPRC20Address(
-        ethMoveable
-      );
-      console.log('pETH address (from MoveableToken):', prc20FromMoveable);
-
-      // Using { chain, address }
-      const prc20FromAddress = PushChain.utils.tokens.getPRC20Address({
-        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
-        address: ethMoveable.address,
-      });
-      console.log('pETH address (from chain/address):', prc20FromAddress);
+      const { address: prc20Addr, symbol, decimals, network } =
+        PushChain.utils.tokens.getPRC20Address(ethMoveable);
+      console.log('pETH address:', prc20Addr, '| symbol:', symbol, '| decimals:', decimals);
     }
 
     main();

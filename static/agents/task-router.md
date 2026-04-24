@@ -1,4 +1,4 @@
-<!-- version: 1.1.0 | schema_version: 1.0.0 | current_sdk_version: 5.1.7 | generated: 2026-04-21T00:00:00.000Z -->
+<!-- version: 1.1.0 | schema_version: 1.0.0 | current_sdk_version: 5.1.12 | generated: 2026-04-21T00:00:00.000Z -->
 
 # Push Chain Task Router
 

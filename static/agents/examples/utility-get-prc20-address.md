@@ -12,6 +12,13 @@ See the [source documentation](https://push.org/docs/chain/build/utility-functio
 import { PushChain } from '@pushchain/core';
 
     async function main() {
+      // Using { chain, address }
+      const prc20Alt = PushChain.utils.tokens.getPRC20Address({
+        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
+        address: "0x97F477B7f970D47a87B42869ceeace218106152a",
+      });
+      console.log('USDC.eth:', JSON.stringify(prc20Alt));
+
       // Moveable token example (ETH on Sepolia)
       const { tokens: moveable } = PushChain.utils.tokens.getMoveableTokens(
         PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA
@@ -22,17 +29,9 @@ import { PushChain } from '@pushchain/core';
       }
 
       // Using MoveableToken directly
-      const prc20FromMoveable = PushChain.utils.tokens.getPRC20Address(
-        ethMoveable
-      );
-      console.log('pETH address (from MoveableToken):', prc20FromMoveable);
-
-      // Using { chain, address }
-      const prc20FromAddress = PushChain.utils.tokens.getPRC20Address({
-        chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
-        address: ethMoveable.address,
-      });
-      console.log('pETH address (from chain/address):', prc20FromAddress);
+      const { address: prc20Addr, symbol, decimals, network } =
+        PushChain.utils.tokens.getPRC20Address(ethMoveable);
+      console.log('pETH address:', prc20Addr, '| symbol:', symbol, '| decimals:', decimals);
     }
 
     main();

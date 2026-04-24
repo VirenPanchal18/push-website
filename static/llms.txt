@@ -2,7 +2,7 @@
 
 > Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.
 
-> **Agent layer:** v1.0.8 | Last updated: 2026-04-21 | SDK: `@pushchain/core@5.1.7` · `@pushchain/ui-kit@5.2.3` | Network: Donut Testnet (Mainnet not yet launched)
+> **Agent layer:** v1.0.9 | Last updated: 2026-04-24 | SDK: `@pushchain/core@5.1.12` · `@pushchain/ui-kit@5.2.3` | Network: Donut Testnet (Mainnet not yet launched)
 
 ## Who This Is For
 
@@ -193,11 +193,11 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 > Full history: [changelog.json](https://push.org/agents/changelog.json)
 
+- **2026-04-24 v1.0.9** — Address & constants sync: updated 3 AMM pool addresses (`USDC_eth_WPC`, `USDC_arb_WPC`, `USDC_base_WPC`), 2 gateway implementations (ETH Sepolia, Base Sepolia), Base Sepolia USDC source address; renamed BNB testnet `native_ETH`→`native_BNB` and removed stale `DAI` entry; renamed SDK constants `MOVEABLE.TOKEN.BNB_TESTNET.ETH`→`BNB` and `PUSH_TESTNET_DONUT.pEthBnb`→`pBnb`; synced all changes to `llms-full.txt`; bumped `current_sdk_version` to `5.1.12` across all 15+ agent metadata files.
 - **2026-04-21 v1.0.8** — Skill frontmatter patch: added `name` and `description` fields (above `id`) to all three skill files (`push-frontend`, `push-backend`, `push-contracts`) for Anthropic skill-loader compatibility. No changes to existing frontmatter keys or skill body content.
 - **2026-04-21 v1.0.7** — Capability linkage for routing layer: added `capability_ids` array to all 28 branches in `decision-tree.json` (v1.2.0) and `<!-- capability_ids: [...] -->` comment blocks to all 13 sections in `task-router.md` (v1.1.0). Agents can now triangulate from a `capability_id` to the correct decision branch or problem-statement section. Coverage: 22/25 capabilities reachable via routing files; 3 intentional gaps (`contract_initiated_multichain`, `get_constants`, `use_contract_helpers`) remain only reachable via `retrieval-map.json`/skills.
 - **2026-04-21 v1.0.6** — Scope clarification for `index.json`: added `schemas/index.json` and `skills/index.json` to the description's sub-index list (were previously omitted); added top-level `sub_indexes` array with structured `{category, path, count}` entries for all 5 sub-indexes so agents can discover category sizes without loading each sub-index (examples:60, workflows:17, resources:3, schemas:7, skills:3); bumped `index.json` to v1.1.0.
 - **2026-04-21 v1.0.5** — Recovery playbook completion: added 9 dedicated per-error recovery entries to `recovery-playbook.md` closing the P1 audit gap (unsupported_chain, signature_mismatch, invalid_tx_hash, tx_timeout, uea_not_deployed, chain_not_supported_for_cea, uea_upgrade_required, funds_transfer_failed, multicall_partial_failure). Every entry includes detection signal, numbered executable recovery steps, a compilable TypeScript example, escalation condition, and cross-references. Entries marked ⚠ inferred carry stable-SDK-version caveats. Added YAML front matter metadata to `recovery-playbook.md`; renumbered sections to accommodate new Section 6.
-- **2026-04-20 v1.0.4** — Metadata normalization sweep: wrapped `errors.json`, `mcp-candidates.json`, and `examples/index.json` from bare arrays into canonical object envelopes (`{errors:[]}`, `{candidates:[]}`, `{examples:[]}`). **Breaking**: access path changes from `[N]` to `.errors[N]` / `.candidates[N]` / `.examples[N]`. Added `current_sdk_version`, `generated`, `description` to all 16 JSON files. Routing-layer audit: fixed `signAndSendTransaction` typo in `decision-tree.json`; fixed stale `SEND-TX-05-xx` event pattern in `task-router.md`; added `resolve_controller_account` to all routing files; bumped `capabilities.json` to v1.2.0 (25 capabilities).
 
 ## Background Reading
 
