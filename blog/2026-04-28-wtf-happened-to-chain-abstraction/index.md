@@ -9,7 +9,7 @@ tags: [Featured, Thought Leadership]
 twitterId: "2049140764924616775"
 ---
 
-import { Tweet } from 'react-tweet';
+import BlogTweet from '@site/src/components/BlogTweet';
 
 ![Cover Image of WTF Happened to Chain Abstraction?](./cover-image.webp)
 
@@ -19,7 +19,7 @@ import { Tweet } from 'react-tweet';
 
 No matter the bear or bull market over the last decade, one sentiment in crypto has always remained true: **crypto is really hard to use.**
 
-<Tweet id="1985438645130838068" />
+<BlogTweet id="1985438645130838068" />
 
 This is the kind of feedback we still get today from the earliest degens and builders. Imagine the tyranny that hopeful newcomers and retail users had to face!
 
@@ -117,7 +117,7 @@ To understand why this is a major security vulnerability and a hindrance to adop
 
 Which, by the way, is a big honeypot for attackers to ignore.
 
-<Tweet id="2048854107633631356" />
+<BlogTweet id="2048854107633631356" />
 
 For borrowing, it gets worse. A user with no Ethereum history cannot pre-approve credit delegation for the proxy. Because ZetaChain doesn't natively solve this, developers are forced to build incredibly complex, per-user proxy architectures just to patch the bleeding.
 
@@ -133,7 +133,7 @@ If a specific DVN configuration is compromised or colludes, the "immutable endpo
 
 **The Contagion Risk:** LayerZero connects everything to everything. If a catastrophic vulnerability is found in a low-tier connected chain, or in the messaging standard itself, the blast radius is instantly transmitted across the entire ecosystem.
 
-<Tweet id="2046567321494565365" />
+<BlogTweet id="2046567321494565365" />
 
 The official docs of LayerZero say "LayerZero is an omnichain interoperability protocol."
 
