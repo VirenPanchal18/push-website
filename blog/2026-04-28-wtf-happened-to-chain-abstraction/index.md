@@ -3,11 +3,13 @@ slug: wtf-happened-to-chain-abstraction
 title: 'WTF Happened to Chain Abstraction?'
 authors: [push]
 image: './cover-image.webp'
-description: “In Web3, the narrative always ships before the product. The product ships after the community leaves."
-text: “In Web3, the narrative always ships before the product. The product ships after the community leaves."
+description: "In Web3, the narrative always ships before the product. The product ships after the community leaves."
+text: "In Web3, the narrative always ships before the product. The product ships after the community leaves."
 tags: [Featured, Thought Leadership]
 twitterId: "2049140764924616775"
 ---
+
+import { Tweet } from 'react-tweet';
 
 ![Cover Image of WTF Happened to Chain Abstraction?](./cover-image.webp)
 
@@ -17,9 +19,7 @@ twitterId: "2049140764924616775"
 
 No matter the bear or bull market over the last decade, one sentiment in crypto has always remained true: **crypto is really hard to use.**
 
-> **Austin Griffith [@austingriffith](https://x.com/austingriffith)**
->
-> Wallet UX of moving USDC to another network is truly horrid. I moved USDC to Polygon but then I didn't have gas. I bridged ETH for gas but I guess that goes in Pol but wait I didn't move it to the right Polygon. Now i have gas on the wrong Polygon and my USDC still trapped. I've...
+<Tweet id="1985438645130838068" />
 
 This is the kind of feedback we still get today from the earliest degens and builders. Imagine the tyranny that hopeful newcomers and retail users had to face!
 
@@ -43,7 +43,7 @@ Hundreds of millions in funding. Super competitive landscape. Everything was loo
 
 **But today, over 90% of these projects are dead.** (Quite literally)
 
-![Cover Image of WTF Happened to Chain Abstraction?](./image-1.webp)
+![Chain abstraction graveyard](./image-1.webp)
 
 **What the fuck exactly happened to chain abstraction?**
 
@@ -55,8 +55,7 @@ Chain abstraction was no different.
 
 The idea was real. The problem was real. The money was very, very real. What wasn't real (at least not yet) was the part where any of it actually worked for the person on the other end of the screen.
 
-![Cover Image of WTF Happened to Chain Abstraction?](./image-2.webp)
-
+![Chain abstraction meme](./image-2.webp)
 
 ---
 
@@ -118,9 +117,7 @@ To understand why this is a major security vulnerability and a hindrance to adop
 
 Which, by the way, is a big honeypot for attackers to ignore.
 
-> **ZetaChain [@ZetaChain](https://x.com/ZetaChain)**
->
-> There was an attack against the ZetaChain GatewayEVM contract today that impacted the internal ZetaChain team wallets only. We've already blocked the attack vector so no more funds can be compromised and will be releasing a detailed post mortem after we have completed our investigation...
+<Tweet id="2048854107633631356" />
 
 For borrowing, it gets worse. A user with no Ethereum history cannot pre-approve credit delegation for the proxy. Because ZetaChain doesn't natively solve this, developers are forced to build incredibly complex, per-user proxy architectures just to patch the bleeding.
 
@@ -136,13 +133,7 @@ If a specific DVN configuration is compromised or colludes, the "immutable endpo
 
 **The Contagion Risk:** LayerZero connects everything to everything. If a catastrophic vulnerability is found in a low-tier connected chain, or in the messaging standard itself, the blast radius is instantly transmitted across the entire ecosystem.
 
-> **Harsh | Push Chain [@harshrajat](https://x.com/harshrajat)**
->
-> The post mortem of LayerZero configuration and KelpDAO is an understatement on how interop gets complex for developers and ultimately leads to attack vectors that shakes up the foundation of DeFi. There are a couple of things that went wrong over here. DVN 1-1 setup: In simple terms...
-
-> **LayerZero [@LayerZero_Core](https://x.com/LayerZero_Core)**
->
-> **KelpDAO Incident Statement** — On April 18, 2026, KelpDAO was exploited for approximately $290M. Preliminary indicators suggest attribution to a highly-sophisticated state actor, likely DPRK's Lazarus Group...
+<Tweet id="2046567321494565365" />
 
 The official docs of LayerZero say "LayerZero is an omnichain interoperability protocol."
 
