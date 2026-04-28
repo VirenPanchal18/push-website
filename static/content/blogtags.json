@@ -5,7 +5,7 @@
     "link": "/blog/tags/featured/",
     "priority": 0,
     "category": "Featured",
-    "count": 6
+    "count": 7
   },
   {
     "name": "Product",
@@ -45,7 +45,7 @@
     "link": "/blog/tags/thought-leadership/",
     "priority": 5,
     "category": "Thought Leadership",
-    "count": 5
+    "count": 6
   },
   {
     "name": "Case Studies",
