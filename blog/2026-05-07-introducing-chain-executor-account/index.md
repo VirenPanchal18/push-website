@@ -6,10 +6,10 @@ image: './cover-image.webp'
 description: "This is one of our biggest security upgrades to date. Must read if you're a cross-chain user or a dev."
 text: "This is one of our biggest security upgrades to date. Must read if you're a cross-chain user or a dev."
 tags: [Featured, Thought Leadership]
-twitterId: "2049140764924616775"
+twitterId: "2052399062838923372"
 ---
 
-<!--import BlogTweet from '@site/src/components/BlogTweet';-->
+import BlogTweet from '@site/src/components/BlogTweet';
 
 ![Cover Image of Introducing Chain Executor Accounts (CEAs)](./cover-image.webp)
 
@@ -55,9 +55,19 @@ A single exploit doesn't drain one user; it would drain everyone who had pooled 
 
 A Chain Executor Account is an isolated smart account deployed on an external chain, derived deterministically from a user's UEA on Push Chain.
 
+:::tip[note]
+
 A [**Universal Executor Account (UEA)**](https://push.org/blog/what-are-universal-executor-accounts/) is a deterministic smart account on Push Chain, derived from an origin wallet (chain namespace \+ chain id \+ owner), that serves as the execution account for that origin wallet on Push Chain.
 
+:::
 
+:::info[Common Misconceptions]
+
+• A UEA is not a new wallet on the origin chain <br />
+• No private keys are created or stored on Push Chain <br />
+• UEA addresses are deterministic, but the smart account is deployed lazily on first use <br />
+
+:::
 
 In plain English: instead of everyone sharing one gateway address on Ethereum, every user gets their own contract. Bob gets Bob's CEA. Alice gets Alice's CEA. The gateway routes to them without touching the target protocol directly.
 
@@ -79,7 +89,8 @@ Identity is half the story. The other half is what happens when something goes w
 Without CEA, the gateway holds every user's funds, approvals, and positions under one address. It's a single point of failure with maximum blast radius. One vulnerability in the gateway contract and every user who ever routed through it loses everything.
 
 *for instance:*
-https://x.com/ZetaChain/status/2048854107633631356?s=20
+
+<BlogTweet id="2048854107633631356" />
 
 We've seen this movie before. Bridge exploits have drained over $2.5 billion since 2021\. The root cause is almost always the same: shared custody.
 
