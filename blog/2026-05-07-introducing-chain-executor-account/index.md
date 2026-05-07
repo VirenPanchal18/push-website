@@ -5,7 +5,7 @@ authors: [push]
 image: './cover-image.webp'
 description: "This is one of our biggest security upgrades to date. Must read if you're a cross-chain user or a dev."
 text: "This is one of our biggest security upgrades to date. Must read if you're a cross-chain user or a dev."
-tags: [Featured, Thought Leadership]
+tags: [Technical, Deep Dives]
 twitterId: "2052399062838923372"
 ---
 
@@ -55,7 +55,7 @@ A single exploit doesn't drain one user; it would drain everyone who had pooled 
 
 A Chain Executor Account is an isolated smart account deployed on an external chain, derived deterministically from a user's UEA on Push Chain.
 
-:::tip[note]
+:::success[note]
 
 A [**Universal Executor Account (UEA)**](https://push.org/blog/what-are-universal-executor-accounts/) is a deterministic smart account on Push Chain, derived from an origin wallet (chain namespace \+ chain id \+ owner), that serves as the execution account for that origin wallet on Push Chain.
 
