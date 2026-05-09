@@ -44,7 +44,7 @@ import { PushChain } from '@pushchain/core'
 
       // Example 4: Skip network check (deterministic only)
       const deterministicResult = await PushChain.utils.account.deriveExecutorAccount(
-        uoaAccount,
+        ethAccount,
         { skipNetworkCheck: true }
       );
       console.log('Deterministic derivation:');
