@@ -1445,13 +1445,13 @@ article .markdown > ol > li > code,
   font-size: 0.8rem !important;
 }
 
-article .markdown > p > code,
-h3 > code,
-article .markdown > ul > li > code,
-article .markdown > ol > li > code,
-article tr > td > code,
-article ul > li > code,
-article em > code {
+article .markdown p code,
+article .markdown h3 code,
+article .markdown ul li code,
+article .markdown ol li code,
+article tr td code,
+article ul li code,
+article em code {
   font-size: 0.8em !important;
   padding: 2px 8px;
   display: inline-block;
@@ -1462,6 +1462,10 @@ article em > code {
 h3 > code,
 h4 > code {
   padding: 2px 8px;
+}
+
+.table-of-contents__left-border code {
+  font-size: 0.65rem;
 }
 
 article tr > td > code:only-child {
