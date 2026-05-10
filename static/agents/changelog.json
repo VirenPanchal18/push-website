@@ -1,11 +1,28 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "current_sdk_version": "5.1.17",
-  "current_version": "1.0.10",
+  "current_version": "1.0.11",
   "generated": "2026-05-10T00:00:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-05-10T00:00:00.000Z",
+      "version": "1.0.11",
+      "changes": [
+        "decision-tree.json: bump 1.2.0 -> 1.3.0. Add new tree `choose_pusd_product` with 3 branches (PUSD = 1:1 stable / PUSD+ = NAV-bearing yield / preview NAV before mint or redeem). Tree marked external:true with external_skill_url pointing at the push-pusd SKILL on pusd.push.org. Each branch documents contract calls, two-mint-routes for PUSD+ (depositToPlus direct vs vault.deposit wrap), 3-tier PUSD+ redemption fulfillment, and the no-fee wrap path. Trees prior to this all routed through SDK capability_ids; this one routes through an external skill.",
+        "task-router.md: enhance the 'Mint or Redeem PUSD / PUSD+' section. Add a 'Two products, distinct intents' row that explicitly contrasts PUSD (no yield) vs PUSD+ (NAV-bearing). Add 3 new code examples: B (mint PUSD+ direct from reserves via depositToPlus), C (wrap existing PUSD into PUSD+ via vault.deposit, no wrap fee), D (preview NAV via previewMintPlus / previewBurnPlus, no signature). Cross-link to the new decision tree branch via a comment marker."
+      ],
+      "files_affected": [
+        "static/agents/decision-tree.json",
+        "static/agents/task-router.md",
+        "static/agents/changelog.json"
+      ],
+      "sdk_version": "5.1.17",
+      "category": "external-product-routing",
+      "trigger": "Decision-tree gap from prior audit: PUSD was reachable via skills/index.json, task-router.md, retrieval-map.json, source-freshness.json, and llms.txt, but not via decision-tree.json. Adding a dedicated tree closes the gap and makes PUSD vs PUSD+ a first-class branching decision rather than a single combined entry.",
+      "breaking": false
+    },
     {
       "date": "2026-05-10T00:00:00.000Z",
       "version": "1.0.10",

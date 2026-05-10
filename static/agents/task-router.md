@@ -370,18 +370,19 @@ const { accounts: bnbAccounts } = await PushChain.utils.account.resolveControlle
 
 ## Mint or Redeem PUSD / PUSD+ (Stablecoin)
 
-<!-- capability_ids: [] | external: true | host: pusd.push.org -->
+<!-- capability_ids: [] | external: true | host: pusd.push.org | decision_tree: choose_pusd_product -->
 
 | Aspect | Details |
 |--------|---------|
-| **Problem** | Mint or redeem PUSD (par-backed USD on Push Chain) or PUSD+ (NAV-bearing yield variant) from any supported wallet, including cross-chain deposits (USDC/USDT from Ethereum, BNB, etc. into PUSD). |
-| **Recommended Approach** | Load the external `push-pusd` skill. PUSD has its own agent layer hosted at `pusd.push.org`; the SDK calls go through `@pushchain/core` / `@pushchain/ui-kit`, but the contract surface (`PUSDManager`, `PUSDPlusVault`) and integration paths are documented there. |
+| **Problem** | Mint or redeem PUSD (par-backed USD on Push Chain) or PUSD+ (NAV-bearing yield variant) from any supported wallet, including cross-chain deposits (USDC/USDT from Ethereum, BNB, etc.). |
+| **Two products, distinct intents** | **PUSD** = 1:1 USD-pegged stablecoin (payments, stable savings, no yield). **PUSD+** = NAV-bearing companion that grows over time as the vault accrues yield. Pick by user intent; the contract surface differs. See the [`choose_pusd_product`](https://push.org/agents/decision-tree.json) tree for branching. |
+| **Recommended Approach** | Load the external `push-pusd` skill. PUSD has its own agent layer at `pusd.push.org`; the SDK calls go through `@pushchain/core` / `@pushchain/ui-kit`, but the contract surface (`PUSDManager`, `PUSDPlusVault`) and integration paths are documented there. |
 | **Skill** | https://pusd.push.org/agents/skill/push-pusd/SKILL.md |
 | **Full agent layer** | https://pusd.push.org/llms.txt |
 | **Repo** | https://github.com/pushchain/push-chain-pusd |
-| **Caveats** | - Two integration paths: Path A (external-chain wallet, multicall in one signature) vs Path B (native Push EOA, two signatures for mint).<br />- PUSD is 6-decimal, not 18. Use `parseUnits(amount, 6)`.<br />- PUSD+ redemption can be instant, convert idle reserves, or queued for keeper depending on liquidity. |
+| **Caveats** | - Two integration paths: Path A (external-chain wallet, multicall in one signature) vs Path B (native Push EOA, two signatures for mint).<br />- PUSD is 6-decimal, not 18. Use `parseUnits(amount, 6)`.<br />- PUSD+ redemption is **3-tier**: instant payout → convert idle reserves at NAV → queue for keeper. Do **not** assume `redeemFromPlus` returns synchronously.<br />- Wrapping existing PUSD into PUSD+ via `PUSDPlusVault.deposit` charges **no fee**; minting PUSD+ direct from reserves via `depositToPlus` charges the standard deposit haircut. |
 
-**Example (mint PUSD from a native Push EOA, Path B):**
+**Example A - mint PUSD from a native Push EOA (Path B):**
 
 ```typescript
 // 1. Approve USDC to PUSDManager. 2. Call PUSDManager.deposit.
@@ -401,7 +402,50 @@ await pushChainClient.universal.sendTransaction({
 });
 ```
 
-> See the push-pusd skill for the full ABI fragments, NAV-quoting flow, and the multicall single-signature variant.
+**Example B - mint PUSD+ direct from reserves (skip the PUSD step):**
+
+```typescript
+// Same approve as above, then call depositToPlus.
+await pushChainClient.universal.sendTransaction({
+  to: PUSD_MANAGER,
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: PUSD_MANAGER_ABI, functionName: 'depositToPlus',
+    args: [USDC_ADDRESS, amount, recipient],
+  }),
+});
+// User now holds PUSD+ (NAV-adjusted), not PUSD.
+```
+
+**Example C - wrap existing PUSD into PUSD+ (no wrap fee):**
+
+```typescript
+// 1. Approve PUSD to the vault. 2. Vault.deposit(pusdAmount).
+await pushChainClient.universal.sendTransaction({
+  to: PUSD_ADDRESS,
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: ERC20_ABI, functionName: 'approve',
+    args: [PUSD_PLUS_VAULT, pusdAmount],
+  }),
+});
+await pushChainClient.universal.sendTransaction({
+  to: PUSD_PLUS_VAULT,
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: PUSD_PLUS_VAULT_ABI, functionName: 'deposit',
+    args: [pusdAmount],
+  }),
+});
+```
+
+**Example D - preview a PUSD+ mint/redeem before transacting (no signature, read-only):**
+
+```typescript
+// Plain ethers/viem against PUSDPlusVault. No SDK or signer required.
+const expectedPlus = await vault.previewMintPlus(reserveTokenAmount);
+const expectedReserve = await vault.previewBurnPlus(plusAmount);
+// NAV moves as the vault accrues yield; re-quote at the moment the user clicks Mint.
+```
+
+> See the push-pusd skill for ABI fragments, the multicall single-signature variant (Path A), the 3-tier redemption logic, and the InsuranceFund's role.
 
 ---
 
