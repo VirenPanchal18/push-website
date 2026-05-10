@@ -53,16 +53,10 @@ const createGridRows = (items) => {
       rows.push(items.slice(index + 3, index + 5));
       index += 5;
     } else if (remainingItems === 4) {
-      // Prevent 4 in a row by adjusting previous rows
-      if (rows.length > 0 && rows[rows.length - 1].length === 2) {
-        rows[rows.length - 1].push(items[index]);
-        rows.push(items.slice(index + 1, index + 4));
-        index += 4;
-      } else {
-        rows.push(items.slice(index, index + 2));
-        rows.push(items.slice(index + 2, index + 4));
-        index += 4;
-      }
+      // 4 items: first row 3 (each 1/3 width), second row holds the 4th at 1/3 width
+      rows.push(items.slice(index, index + 3));
+      rows.push(items.slice(index + 3, index + 4));
+      index += 4;
     } else if (
       rows.length >= 2 &&
       rows[rows.length - 1].length === 2 &&
@@ -162,7 +156,7 @@ const TitleItemV = styled(ItemV)`
 const ChainKnowledgeGrid = styled.div`
   display: grid;
   grid-template-columns: ${({ itemsInRow }) =>
-    itemsInRow === 3 ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)'};
+    itemsInRow === 1 || itemsInRow === 3 ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)'};
   gap: 24px;
   width: 100%;
   justify-content: center;

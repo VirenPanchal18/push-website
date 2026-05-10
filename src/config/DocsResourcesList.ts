@@ -53,6 +53,22 @@ export const DocsResourcesList = {
           },
           customWidth: '113px',
         },
+        {
+          id: 'pusd',
+          url: 'https://pusd.push.org/docs',
+          valueKey:
+            'pages.docs.grid-section.blocks.sections.resources.items.pusd',
+          target: '_blank',
+          image: '/static/assets/website/docshub/PUSDIcon@3x',
+          bgColor: '#000000',
+          bgStylizing: {
+            type: 'lines',
+            gridSize: 30,
+            color: 'white',
+            opacity: 0.2,
+          },
+          customWidth: '90px',
+        },
       ],
     },
   ],
