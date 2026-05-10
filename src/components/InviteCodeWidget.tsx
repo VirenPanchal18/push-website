@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import { useEffect, useRef } from 'react';
 
 const TAG_STYLE = [
   'display:inline-flex',
@@ -96,6 +96,9 @@ export function useInjectInviteCode(
   const elRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Skip docs pages
+    if (pathname.startsWith('/docs')) return;
+
     const root = containerRef.current;
     if (!root) return;
 
