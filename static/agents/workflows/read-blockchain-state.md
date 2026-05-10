@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Query on-chain data from Push Chain — transactions, blocks, balances, contract state — using standard EVM RPC methods via Ethers.js or Viem HTTP/WebSocket clients.
+Query on-chain data from Push Chain - transactions, blocks, balances, contract state - using standard EVM RPC methods via Ethers.js or Viem HTTP/WebSocket clients.
 
 ## When to Use
 
@@ -233,17 +233,17 @@ console.log('Block:', receipt.blockNumber);
 
 ## Agent Notes
 
-- **No signer needed**: all reads use unauthenticated JSON-RPC — no wallet or private key required.
+- **No signer needed**: all reads use unauthenticated JSON-RPC - no wallet or private key required.
 - **Same API as Ethereum**: any ethers/viem code targeting Ethereum works on Push Chain by changing the RPC URL.
 - **WebSocket for real-time**: use `WebSocketProvider` / `webSocket` transport for subscriptions; HTTP for one-off queries.
 - **Block explorer**: for human-readable transaction lookup, use `https://donut.push.network`.
 
 ## MCP Mapping Candidates
 
-- `create_public_client` — Initialize read-only EVM client
-- `call_contract_view` — Execute view function on contract
-- `fetch_transaction_receipt` — Get receipt and status for tx hash
-- `get_block_number` — Return current block height
+- `create_public_client` - Initialize read-only EVM client
+- `call_contract_view` - Execute view function on contract
+- `fetch_transaction_receipt` - Get receipt and status for tx hash
+- `get_block_number` - Return current block height
 
 ## See Also
 

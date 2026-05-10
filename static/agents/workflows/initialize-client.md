@@ -43,7 +43,7 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 2. **Create or obtain the ethers signer**
    ```typescript
    const provider = new ethers.JsonRpcProvider('https://gateway.tenderly.co/public/sepolia');
-   // Never hardcode — load from env; never log the key
+   // Never hardcode - load from env; never log the key
    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
    // Or: const signer = provider.getSigner(); // for browser wallets
    ```
@@ -78,7 +78,7 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 2. **Create wallet client**
    ```typescript
-   // Never hardcode — load from env; never log the key
+   // Never hardcode - load from env; never log the key
    const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
    const walletClient = createWalletClient({
      account,
@@ -151,7 +151,7 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 ```typescript
 // PushChainClient object structure
-// Note: client.orchestrator is reserved for internal SDK use — do not call methods on it directly
+// Note: client.orchestrator is reserved for internal SDK use - do not call methods on it directly
 {
   orchestrator: Orchestrator { ... },
   universalSigner: {
@@ -198,8 +198,8 @@ Create a fully-configured `PushChainClient` instance that can send universal tra
 
 ## MCP Mapping Candidates
 
-- `create_universal_signer_ethers` — Wrap ethers signer into UniversalSigner
-- `create_universal_signer_viem` — Wrap viem WalletClient into UniversalSigner
-- `create_universal_signer_solana` — Wrap Solana keypair into UniversalSigner
-- `initialize_push_chain_client` — Execute full initialization sequence
-- `get_account_status` — Check UEA deployment and version state
+- `create_universal_signer_ethers` - Wrap ethers signer into UniversalSigner
+- `create_universal_signer_viem` - Wrap viem WalletClient into UniversalSigner
+- `create_universal_signer_solana` - Wrap Solana keypair into UniversalSigner
+- `initialize_push_chain_client` - Execute full initialization sequence
+- `get_account_status` - Check UEA deployment and version state

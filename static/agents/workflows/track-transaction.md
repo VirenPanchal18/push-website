@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Track or resume monitoring the status of a universal transaction — whether it originated on Push Chain or an external chain.
+Track or resume monitoring the status of a universal transaction - whether it originated on Push Chain or an external chain.
 
 ## When to Use
 
@@ -19,7 +19,7 @@ Track or resume monitoring the status of a universal transaction — whether it 
 | Initialized client | `pushChainClient` from `PushChain.initialize()` |
 | Transaction hash | Hash/signature from the origin chain (Push Chain or external) |
 
-## Primary Method — `trackTransaction`
+## Primary Method - `trackTransaction`
 
 **`pushChainClient.universal.trackTransaction(txHash, options)` → `Promise<UniversalTxResponse>`**
 
@@ -29,7 +29,7 @@ Works independently of `sendTransaction()`. Pass any previously stored hash and 
 
 | Argument | Type | Default | Description |
 |---|---|---|---|
-| `txHash` | `string` | — | Transaction hash/signature on the origin chain |
+| `txHash` | `string` | - | Transaction hash/signature on the origin chain |
 | `options.chain` | `CHAIN` | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted |
 | `options.progressHook` | `(event: ProgressEvent) => void` | `undefined` | Callback at each tracking step (same shape as `sendTransaction`) |
 | `options.waitForCompletion` | `boolean` | `true` | `true` = wait for confirmation; `false` = return after first status check |
@@ -74,9 +74,9 @@ const snap = await pushChainClient.universal.trackTransaction(txHash, {
 
 ### Method 1: Using `trackTransaction()` (preferred for resume/polling)
 
-Use when you have a stored hash and need to check or resume tracking — works across sessions and chains.
+Use when you have a stored hash and need to check or resume tracking - works across sessions and chains.
 
-See [Primary Method — `trackTransaction`](#primary-method--tracktransaction) above for full argument table and examples.
+See [Primary Method - `trackTransaction`](#primary-method--tracktransaction) above for full argument table and examples.
 
 ### Method 2: Using `tx.wait()` (preferred inline after sendTransaction)
 
@@ -251,12 +251,12 @@ https://donut.push.network/tx/0x04ee80f072ab06ec88092701e7ba223451d0a1376e267550
 
 ## MCP Mapping Candidates
 
-- `track_transaction` — Resume tracking any tx by hash and origin chain via `trackTransaction()`
-- `wait_for_transaction` — Await confirmation with configurable timeout
-- `get_transaction_receipt` — Fetch receipt by hash
-- `get_transaction_details` — Fetch full transaction object
-- `get_explorer_url` — Generate block explorer link
-- `poll_transaction_status` — Custom polling with progress callback
+- `track_transaction` - Resume tracking any tx by hash and origin chain via `trackTransaction()`
+- `wait_for_transaction` - Await confirmation with configurable timeout
+- `get_transaction_receipt` - Fetch receipt by hash
+- `get_transaction_details` - Fetch full transaction object
+- `get_explorer_url` - Generate block explorer link
+- `poll_transaction_status` - Custom polling with progress callback
 
 ## See Also
 

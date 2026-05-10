@@ -72,12 +72,12 @@ pnpm add @pushchain/ui-kit
 
    | Field | Type | Required | Description |
    |---|---|---|---|
-   | `network` | `PUSH_NETWORK` | Yes | Target network — use `PushUI.CONSTANTS.PUSH_NETWORK.TESTNET` |
+   | `network` | `PUSH_NETWORK` | Yes | Target network - use `PushUI.CONSTANTS.PUSH_NETWORK.TESTNET` |
    | `app.title` | `string` | No | App name displayed in the wallet connection modal |
    | `app.description` | `string` | No | App tagline displayed below the title in the modal |
    | `login.email` | `boolean` | No | Enable Push Wallet email login (default: false) |
    | `login.google` | `boolean` | No | Enable Google OAuth login (default: false) |
-   | `login.wallet` | `boolean` | No | Enable external wallet login — MetaMask, WalletConnect, etc. (default: true) |
+   | `login.wallet` | `boolean` | No | Enable external wallet login - MetaMask, WalletConnect, etc. (default: true) |
 
 3. **Wrap your app at the root level** (`main.tsx` / `index.tsx`)
    ```tsx
@@ -116,7 +116,7 @@ The button automatically:
 
 | Return value | Type | Description |
 |---|---|---|
-| `connectionStatus` | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state — compare against `PushUI.CONSTANTS.CONNECTION.STATUS.*` values |
+| `connectionStatus` | `PushUI.CONSTANTS.CONNECTION.STATUS` | Current connection state - compare against `PushUI.CONSTANTS.CONNECTION.STATUS.*` values |
 | `handleConnectToPushWallet` | `() => void` | Open the wallet connection modal (use when building a custom connect button instead of `PushUniversalAccountButton`) |
 | `handleUserLogOutEvent` | `() => void` | Disconnect the wallet and clear the session |
 
@@ -320,7 +320,7 @@ function MainContent() {
 
 ## MCP Mapping Candidates
 
-- `check_wallet_connection_status` — Return current connection state
-- `get_connected_account` — Return connected account details
-- `disconnect_wallet` — Programmatically disconnect
-- `get_push_chain_client_status` — Check if client is initialized
+- `check_wallet_connection_status` - Return current connection state
+- `get_connected_account` - Return connected account details
+- `disconnect_wallet` - Programmatically disconnect
+- `get_push_chain_client_status` - Check if client is initialized

@@ -1,4 +1,4 @@
-# Theme Variables — @pushchain/ui-kit
+# Theme Variables - @pushchain/ui-kit
 
 ## Purpose
 
@@ -19,8 +19,8 @@ Complete reference for all CSS custom properties (theme tokens) exposed by `@pus
 
 ## Override Scope
 
-- **`PushUniversalWalletProvider.themeOverrides`** — applies to all `--pw-core-*` and `--pwauth-*` variables app-wide
-- **`PushUniversalAccountButton.themeOverrides`** — applies only to `--pwauth-*` variables for that specific button instance
+- **`PushUniversalWalletProvider.themeOverrides`** - applies to all `--pw-core-*` and `--pwauth-*` variables app-wide
+- **`PushUniversalAccountButton.themeOverrides`** - applies only to `--pwauth-*` variables for that specific button instance
 
 Top-level properties in `themeOverrides` apply to both themes; `light` and `dark` sub-objects override only when that theme is active.
 
@@ -134,7 +134,7 @@ When a required style (gradient, animation, box-shadow, pseudo-element) can't be
 />
 ```
 
-`themeOverrides` (`--pwauth-*`) and `className` can be used together — class styles layer on top via CSS specificity.
+`themeOverrides` (`--pwauth-*`) and `className` can be used together - class styles layer on top via CSS specificity.
 
 ---
 

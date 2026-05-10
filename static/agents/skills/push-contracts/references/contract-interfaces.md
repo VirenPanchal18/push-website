@@ -1,8 +1,8 @@
-# Contract Interfaces Reference — Push Chain Donut Testnet
+# Contract Interfaces Reference - Push Chain Donut Testnet
 
 > Deep context for `push-contracts` skill. Load this file when you need complete inline interfaces, ABI JSON for ethers.js, or all struct definitions in one place.
 >
-> Drag-and-drop into your project — self-contained, no imports required.
+> Drag-and-drop into your project - self-contained, no imports required.
 
 ---
 
@@ -67,7 +67,7 @@ interface IUniversalGatewayPC {
 }
 
 // ── IUniversalCore ───────────────────────────────────────────────────────────
-// Use ONLY for reading chain state — not for fee estimation in contracts
+// Use ONLY for reading chain state - not for fee estimation in contracts
 
 interface IUniversalCore {
     function gasPriceByChainNamespace(string calldata chainNamespace) external view returns (uint256);
@@ -117,7 +117,7 @@ import { ethers } from 'ethers';
 const provider = new ethers.JsonRpcProvider('https://evm.donut.rpc.push.org/');
 const wallet   = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
 
-// UEA Factory — read-only
+// UEA Factory - read-only
 const ueaFactory = new ethers.Contract(
   '0x00000000000000000000000000000000000000eA',
   [
@@ -127,14 +127,14 @@ const ueaFactory = new ethers.Contract(
   provider
 );
 
-// UGPC — write (needs signer)
+// UGPC - write (needs signer)
 const ugpc = new ethers.Contract(
   '0x00000000000000000000000000000000000000C1',
   ['function sendUniversalTxOutbound(tuple(bytes,address,uint256,uint256,bytes,address)) payable'],
   wallet
 );
 
-// UniversalCore — read-only
+// UniversalCore - read-only
 const universalCore = new ethers.Contract(
   '0x00000000000000000000000000000000000000C0',
   [
@@ -155,7 +155,7 @@ const universalCore = new ethers.Contract(
 | `address(0)` | non-empty | `GAS_AND_PAYLOAD` | Execute calldata on external chain |
 | non-zero | empty | `FUNDS` | Bridge tokens only |
 | non-zero | non-empty | `FUNDS_AND_PAYLOAD` | Bridge tokens + execute atomically |
-| `address(0)` | empty | — | **Reverts** |
+| `address(0)` | empty | - | **Reverts** |
 
 ---
 
@@ -170,7 +170,7 @@ function executeUniversalTx(
     bytes   calldata payload,              // ABI-encoded result data from external chain
     uint256          amount,               // PRC20 amount received (0 if no bridge)
     address          prc20,               // PRC20 token on Push Chain (if bridged)
-    bytes32          txId                 // unique ID — MUST use for replay protection
+    bytes32          txId                 // unique ID - MUST use for replay protection
 ) external payable;
 ```
 
@@ -213,7 +213,7 @@ bytes memory outerMulticallData = abi.encodePacked(
     abi.encode(outerCalls)
 );
 
-// Dispatch with gasLimit ≥ 2_000_000 — the back-leg is silently dropped below this.
+// Dispatch with gasLimit ≥ 2_000_000 - the back-leg is silently dropped below this.
 UGPC.sendUniversalTxOutbound{value: protocolFeePc}(UniversalOutboundTxRequest({
     recipient:       abi.encodePacked(destinationCEAAddr),
     token:           pBNB,                   // PRC20 routing token (selects destination chain)
@@ -261,7 +261,7 @@ const wpcNeeded = isGasTokenToken0 ? (gasFee * priceNum) / Q192 : (gasFee * Q192
 const valuePc = (wpcNeeded * 2n * 110n) / 100n;  // ×2 swap buffer × 1.1 executor buffer
 ```
 
-UGPC refunds surplus; over-sizing is safe. A flat `balance/2` reverts with `STF`. Donut Testnet's PC↔pSOL pool is currently shallow — quote can be high relative to a contract's working balance.
+UGPC refunds surplus; over-sizing is safe. A flat `balance/2` reverts with `STF`. Donut Testnet's PC↔pSOL pool is currently shallow - quote can be high relative to a contract's working balance.
 
 ---
 

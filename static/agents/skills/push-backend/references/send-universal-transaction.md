@@ -1,4 +1,4 @@
-# Send Universal Transaction Reference — @pushchain/core
+# Send Universal Transaction Reference - @pushchain/core
 
 > Deep context for `push-backend` skill. Load this file when you need all `sendTransaction` arguments, receipt fields, all 3 routes, cascade pattern, or CONSTANTS.
 >
@@ -7,7 +7,7 @@
 
 ---
 
-## Routing — `tx.to` and `tx.from` determine the route
+## Routing - `tx.to` and `tx.from` determine the route
 
 | Route | `tx.to` | `tx.from` | Executes on | Via |
 |---|---|---|---|---|
@@ -92,7 +92,7 @@ receipt.gasUsed         // bigint
 receipt.gasPrice        // bigint
 receipt.logs            // emitted event logs
 receipt.contractAddress // string | null (for contract deployments)
-receipt.raw             // { from, to, nonce, data, value } — raw on-chain data
+receipt.raw             // { from, to, nonce, data, value } - raw on-chain data
 
 // Route 2 only:
 receipt.externalTxHash      // tx hash on the external chain
@@ -102,16 +102,16 @@ receipt.externalExplorerUrl // explorer URL for the external chain tx
 
 ---
 
-## Cascade Pattern — `prepareTransaction` + `executeTransactions`
+## Cascade Pattern - `prepareTransaction` + `executeTransactions`
 
 Use for ordered multi-hop execution across chains under a single user signature.
 
-**`prepareTransaction` accepts the exact same arguments as `sendTransaction`** — same `tx.to`, `tx.from`, `tx.data`, `tx.value`, `tx.funds`, `tx.payGasWith`, etc., and the same Route 1 / Route 2 / Route 3 routing rules. The only difference is it does **not** submit — it returns a `PreparedUniversalTx` object for use in `executeTransactions`.
+**`prepareTransaction` accepts the exact same arguments as `sendTransaction`** - same `tx.to`, `tx.from`, `tx.data`, `tx.value`, `tx.funds`, `tx.payGasWith`, etc., and the same Route 1 / Route 2 / Route 3 routing rules. The only difference is it does **not** submit - it returns a `PreparedUniversalTx` object for use in `executeTransactions`.
 
 ```ts
 import { PushChain, CONSTANTS } from '@pushchain/core';
 
-// Prepare each hop — does NOT submit yet
+// Prepare each hop - does NOT submit yet
 const hop1 = await client.universal.prepareTransaction({
   to: { address: '0xContractA', chain: CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
   data: encodeCallA(),
@@ -121,7 +121,7 @@ const hop2 = await client.universal.prepareTransaction({
   data: encodeCallB(),
 });
 
-// Submit in order — single signature, sequential cross-chain execution
+// Submit in order - single signature, sequential cross-chain execution
 const result = await client.universal.executeTransactions([hop1, hop2]);
 await result.waitForAll(); // resolves when all hops confirm
 ```
@@ -132,10 +132,10 @@ await result.waitForAll(); // resolves when all hops confirm
 
 | Scenario | `tx.to` | `tx.from` | Route |
 |---|---|---|---|
-| Push Chain call/transfer | `'0x...'` plain address | omitted | Route 1 — via UEA |
-| External chain call/transfer | `{ address, chain }` | omitted | Route 2 — via CEA |
-| Push Chain, external chain identity | `'0x...'` plain address | `{ chain }` | Route 3 — CEA origin |
-| Multi-hop across chains | `prepareTransaction` + `executeTransactions` | — | Cascade |
+| Push Chain call/transfer | `'0x...'` plain address | omitted | Route 1 - via UEA |
+| External chain call/transfer | `{ address, chain }` | omitted | Route 2 - via CEA |
+| Push Chain, external chain identity | `'0x...'` plain address | `{ chain }` | Route 3 - CEA origin |
+| Multi-hop across chains | `prepareTransaction` + `executeTransactions` | - | Cascade |
 
 ---
 

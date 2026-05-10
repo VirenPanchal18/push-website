@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Reference all constants in `PushChain.CONSTANTS` — network identifiers, chain IDs, library names, moveable tokens, and payable tokens — to build type-safe Push Chain integrations.
+Reference all constants in `PushChain.CONSTANTS` - network identifiers, chain IDs, library names, moveable tokens, and payable tokens - to build type-safe Push Chain integrations.
 
 ## When to Use
 
@@ -39,7 +39,7 @@ const client = await PushChain.initialize(universalSigner, {
 
 ## Chain Constants
 
-**`PushChain.CONSTANTS.CHAIN`** — CAIP-2 format identifiers
+**`PushChain.CONSTANTS.CHAIN`** - CAIP-2 format identifiers
 
 | Constant | CAIP-2 Value | Description |
 |----------|-------------|-------------|
@@ -69,7 +69,7 @@ await pushChainClient.universal.sendTransaction({
 
 ## Library Constants
 
-**`PushChain.CONSTANTS.LIBRARY`** — used with `toUniversalFromKeypair`
+**`PushChain.CONSTANTS.LIBRARY`** - used with `toUniversalFromKeypair`
 
 | Constant | Value | Description |
 |----------|-------|-------------|
@@ -88,7 +88,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(keyp
 
 ## Moveable Token Constants
 
-**`PushChain.CONSTANTS.MOVEABLE.TOKEN`** — tokens that can be transferred cross-chain via `tx.funds`
+**`PushChain.CONSTANTS.MOVEABLE.TOKEN`** - tokens that can be transferred cross-chain via `tx.funds`
 
 ### Ethereum Sepolia
 | Constant | Token |
@@ -151,7 +151,7 @@ await pushChainClient.universal.sendTransaction({
 
 ## Payable Token Constants
 
-**`PushChain.CONSTANTS.PAYABLE.TOKEN`** — tokens accepted for gas fee payment via `tx.payGasWith`
+**`PushChain.CONSTANTS.PAYABLE.TOKEN`** - tokens accepted for gas fee payment via `tx.payGasWith`
 
 | Chain | Tokens Available |
 |-------|----------------|
@@ -199,6 +199,6 @@ const chains = PushChain.utils.chains.getSupportedChains(
 
 ## MCP Mapping Candidates
 
-- `list_supported_chains` — Return all `CHAIN` constants for a network
-- `get_chain_constant` — Look up the CAIP-2 string for a named chain
-- `get_network_constant` — Look up PUSH_NETWORK value by name
+- `list_supported_chains` - Return all `CHAIN` constants for a network
+- `get_chain_constant` - Look up the CAIP-2 string for a named chain
+- `get_network_constant` - Look up PUSH_NETWORK value by name

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "version": "1.0.0",
-  "current_sdk_version": "5.1.12",
+  "current_sdk_version": "5.1.17",
   "generated": "2026-04-20T00:00:00.000Z",
   "description": "Canonical workflow manifest for Push Chain agent layer",
   "workflows": [

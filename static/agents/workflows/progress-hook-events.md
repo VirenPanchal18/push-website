@@ -26,7 +26,7 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 
 ---
 
-## Route 1 — Any Origin → Push Chain
+## Route 1 - Any Origin → Push Chain
 
 | ID | Title | Level | Response |
 | -- | ----- | ----- | -------- |
@@ -60,7 +60,7 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 
 ---
 
-## Route 2 — Any Origin → External Chain (via CEA)
+## Route 2 - Any Origin → External Chain (via CEA)
 
 | ID | Title | Level | Response |
 | -- | ----- | ----- | -------- |
@@ -83,7 +83,7 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 
 ---
 
-## Route 3 — CEA Origin → Push Chain
+## Route 3 - CEA Origin → Push Chain
 
 | ID | Title | Level | Response |
 | -- | ----- | ----- | -------- |

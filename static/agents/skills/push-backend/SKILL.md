@@ -1,6 +1,6 @@
 ---
 name: push-backend
-description: "Use when writing Node.js scripts, bots, or server-side code with @pushchain/core — covers PushChain.initialize, wrapping ethers/viem/Solana keypairs into a UniversalSigner, all three routes, multichain cascades, transaction tracking, and utility functions. Not for browser or React code. Triggers on: 'initialize PushChain client in Node.js', 'send transaction from backend script', 'wrap ethers signer with toUniversal', 'track transaction by hash'."
+description: "Use when writing Node.js scripts, bots, or server-side code with @pushchain/core - covers PushChain.initialize, wrapping ethers/viem/Solana keypairs into a UniversalSigner, all three routes, multichain cascades, transaction tracking, and utility functions. Not for browser or React code. Triggers on: 'initialize PushChain client in Node.js', 'send transaction from backend script', 'wrap ethers signer with toUniversal', 'track transaction by hash'."
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
@@ -13,10 +13,10 @@ references:
   - ../../workflows/send-multichain-transaction.md
 ---
 
-# Skill: Universal Transactions — Backend (Node.js / Scripts)
+# Skill: Universal Transactions - Backend (Node.js / Scripts)
 
 **Intent**: Execute universal transactions from server-side code, scripts, bots, and automation pipelines.
-**Package**: `@pushchain/core` — no other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`.
+**Package**: `@pushchain/core` - no other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`.
 
 ## Install
 
@@ -24,9 +24,9 @@ references:
 npm install @pushchain/core
 ```
 
-## Push Chain — EVM Compatible
+## Push Chain - EVM Compatible
 
-Push Chain is **100% EVM-compatible**. Any ethers.js or viem code that targets Ethereum works on Push Chain by pointing at the Push Chain RPC — same API, same tooling, no changes needed.
+Push Chain is **100% EVM-compatible**. Any ethers.js or viem code that targets Ethereum works on Push Chain by pointing at the Push Chain RPC - same API, same tooling, no changes needed.
 
 |                    | Value                             |
 | ------------------ | --------------------------------- |
@@ -35,15 +35,15 @@ Push Chain is **100% EVM-compatible**. Any ethers.js or viem code that targets E
 | **Chain ID**       | `42101`                           |
 | **Block Explorer** | `https://donut.push.network`      |
 
-> For **read-only** queries (transactions, blocks, balances, contract view calls) — no SDK needed. Use `ethers.JsonRpcProvider` or `viem.createPublicClient` directly. See [Read Blockchain State](#read-blockchain-state).
+> For **read-only** queries (transactions, blocks, balances, contract view calls) - no SDK needed. Use `ethers.JsonRpcProvider` or `viem.createPublicClient` directly. See [Read Blockchain State](#read-blockchain-state).
 >
-> For **sending transactions** — use `@pushchain/core` (`PushChain.initialize` + `sendTransaction`). Standard ethers/viem cannot cross chains or route through UEAs.
+> For **sending transactions** - use `@pushchain/core` (`PushChain.initialize` + `sendTransaction`). Standard ethers/viem cannot cross chains or route through UEAs.
 
 ---
 
 ## Read Blockchain State
 
-For read-only queries — transactions, blocks, balances, contract view calls, WebSocket subscriptions — no Push Chain SDK needed. Use standard ethers or viem pointed at the Push Chain RPC above.
+For read-only queries - transactions, blocks, balances, contract view calls, WebSocket subscriptions - no Push Chain SDK needed. Use standard ethers or viem pointed at the Push Chain RPC above.
 
 ### Initialize (ethers)
 
@@ -89,11 +89,11 @@ Full reference: https://push.org/agents/workflows/read-blockchain-state.md
 
 ---
 
-## Universal Origin — Send from Any Chain
+## Universal Origin - Send from Any Chain
 
-Universal transactions can originate from **any supported chain** — Push Chain, Ethereum, Solana, BNB, Arbitrum, Base, or any supported chain. The user's wallet stays on their home chain; Push Chain routes execution transparently.
+Universal transactions can originate from **any supported chain** - Push Chain, Ethereum, Solana, BNB, Arbitrum, Base, or any supported chain. The user's wallet stays on their home chain; Push Chain routes execution transparently.
 
-**The primary pattern for all EVM chains** (ethers.js or viem) is identical — the **RPC URL determines the origin chain**, not a separate parameter:
+**The primary pattern for all EVM chains** (ethers.js or viem) is identical - the **RPC URL determines the origin chain**, not a separate parameter:
 
 ```ts
 import { PushChain } from '@pushchain/core';
@@ -108,7 +108,7 @@ const provider = new ethers.JsonRpcProvider(
 // Origin chain = BNB Testnet (BNB RPC)
 // const provider = new ethers.JsonRpcProvider('https://data-seed-prebsc-1-s1.binance.org:8545/');
 
-// Never hardcode — load from env; never log the key
+// Never hardcode - load from env; never log the key
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
 const universalSigner = await PushChain.utils.signer.toUniversal(wallet);
 ```
@@ -118,7 +118,7 @@ For Solana, explicitly pass the chain and library:
 ```ts
 import { Keypair } from '@solana/web3.js';
 
-// Never hardcode — load from env; never log the key or the raw buffer
+// Never hardcode - load from env; never log the key or the raw buffer
 const solKeypair = Keypair.fromSecretKey(
   Uint8Array.from(JSON.parse(process.env.SOLANA_KEY!))
 );
@@ -126,7 +126,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
   solKeypair,
   {
     chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // Available LIBRARY values: SOLANA_WEB3JS (more may be added — see https://push.org/agents/workflows/constants-reference.md)
+    library: PushChain.CONSTANTS.LIBRARY.SOLANA_WEB3JS, // Available LIBRARY values: SOLANA_WEB3JS (more may be added - see https://push.org/agents/workflows/constants-reference.md)
   }
 );
 ```
@@ -137,16 +137,16 @@ After creating any signer, call `PushChain.initialize` to get the client:
 const client = await PushChain.initialize(universalSigner, {
   network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET, // optional, defaults to TESTNET
 });
-// Returns PushChainClient — use client.universal.* for all operations
+// Returns PushChainClient - use client.universal.* for all operations
 ```
 
-> **Frontend / React?** Use `@pushchain/ui-kit` instead — `PushUniversalWalletProvider` handles signer creation and `PushChain.initialize` automatically. Access the ready client via `usePushChainClient()`. See [push-frontend skill](https://push.org/agents/skills/push-frontend/SKILL.md).
+> **Frontend / React?** Use `@pushchain/ui-kit` instead - `PushUniversalWalletProvider` handles signer creation and `PushChain.initialize` automatically. Access the ready client via `usePushChainClient()`. See [push-frontend skill](https://push.org/agents/skills/push-frontend/SKILL.md).
 
 **Quick reference (backend / scripts):**
 
-Always two steps — create a chain-native signer, then convert it to a `UniversalSigner`:
+Always two steps - create a chain-native signer, then convert it to a `UniversalSigner`:
 
-| Origin                     | Step 1 — Create native signer                                             | Step 2 — Create Universal Signer                                             |
+| Origin                     | Step 1 - Create native signer                                             | Step 2 - Create Universal Signer                                             |
 | -------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Ethereum / EVM (ethers.js) | `new ethers.Wallet(key, provider)` ← RPC picks chain                      | `PushChain.utils.signer.toUniversal(ethersSigner)`                           |
 | Ethereum / EVM (viem)      | `createWalletClient({ account, transport: http(rpc) })` ← RPC picks chain | `PushChain.utils.signer.toUniversal(viemClient)`                             |
@@ -161,7 +161,7 @@ See all supported chains: `PushChain.utils.chains.getSupportedChainsByName(PushC
 
 | Argument          | Type                                  | Default   | Description                                                             |
 | ----------------- | ------------------------------------- | --------- | ----------------------------------------------------------------------- |
-| `signerOrAccount` | `UniversalSigner \| UniversalAccount` | —         | `UniversalSigner` for full write/sign; `UniversalAccount` for read-only |
+| `signerOrAccount` | `UniversalSigner \| UniversalAccount` | -         | `UniversalSigner` for full write/sign; `UniversalAccount` for read-only |
 | `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK`    | `TESTNET` | Push Chain network to connect to                                        |
 | `options.rpcUrls` | `Partial<Record<CHAIN, string[]>>`    | `{}`      | Custom RPC URLs per chain                                               |
 
@@ -175,7 +175,7 @@ const client = await PushChain.initialize(universalSigner, {
 
 > ⚠️ Passing a `UniversalAccount` creates a **read-only client**. Calling `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions` will throw. Use `UniversalSigner` for any write operation.
 
-**Read-only** — pass a `UniversalAccount` (no private key). `universal.account`, `universal.origin`, and `explorer.*` still work:
+**Read-only** - pass a `UniversalAccount` (no private key). `universal.account`, `universal.origin`, and `explorer.*` still work:
 
 ```ts
 const account = PushChain.utils.account.toUniversal('0xAddress', {
@@ -186,47 +186,47 @@ const client = await PushChain.initialize(account, {
 });
 ```
 
-**Reinitialize** — swap signer/account or update options without creating a fresh instance:
+**Reinitialize** - swap signer/account or update options without creating a fresh instance:
 
 ```ts
 const newClient = await client.reinitialize(newSignerOrAccount, {
   // override options as needed (rpcUrls, blockExplorers, etc.)
 });
-// reinitialize always returns a new client — update your reference
+// reinitialize always returns a new client - update your reference
 ```
 
 **Access account info** after initialization:
 
 ```ts
-client.universal.origin; // source chain address: { address, chain } — e.g. Ethereum Sepolia wallet
+client.universal.origin; // source chain address: { address, chain } - e.g. Ethereum Sepolia wallet
 client.universal.account; // Push Chain execution account: UEA for cross-chain users, EOA for Push-native
 ```
 
 **Verify initialization succeeded:**
 
 ```ts
-console.log('origin:', client.universal.origin); // { address, chain } — matches your signer
+console.log('origin:', client.universal.origin); // { address, chain } - matches your signer
 console.log('account:', client.universal.account); // UEA (cross-chain) or EOA (Push-native)
 ```
 
-**Account status** — UEA deployment and version (SDK handles upgrades automatically in most cases):
+**Account status** - UEA deployment and version (SDK handles upgrades automatically in most cases):
 
 ```ts
 const status = await client.getAccountStatus();
 // { mode: 'signer' | 'read-only', uea: { deployed, version, minRequiredVersion, requiresUpgrade } }
 ```
 
-> **UI Kit (frontend):** `PushChain.initialize` is called automatically by `PushUniversalWalletProvider`. Use `usePushChainClient()` to access the ready client — no manual initialization needed.
+> **UI Kit (frontend):** `PushChain.initialize` is called automatically by `PushUniversalWalletProvider`. Use `usePushChainClient()` to access the ready client - no manual initialization needed.
 
-> `client.orchestrator` is reserved for internal SDK use (RPC resolution, UEA management, gas orchestration) — do not call methods on it directly.
+> `client.orchestrator` is reserved for internal SDK use (RPC resolution, UEA management, gas orchestration) - do not call methods on it directly.
 
-> **Reading blockchain state** does NOT require `@pushchain/core`. Use ethers.js or viem directly with the Push Chain RPC `https://evm.donut.rpc.push.org/`. The `PushChainClient` is for **sending and signing universal transactions** — not general-purpose EVM reads.
+> **Reading blockchain state** does NOT require `@pushchain/core`. Use ethers.js or viem directly with the Push Chain RPC `https://evm.donut.rpc.push.org/`. The `PushChainClient` is for **sending and signing universal transactions** - not general-purpose EVM reads.
 
 ## Send Universal Transaction
 
 `client.universal.sendTransaction(tx)` → `Promise<TxResponse>`
 
-### Routing — determined by `tx.to` and `tx.from`
+### Routing - determined by `tx.to` and `tx.from`
 
 | Route   | `tx.to`                 | `tx.from`   | Executes on    | Via                           |
 | ------- | ----------------------- | ----------- | -------------- | ----------------------------- |
@@ -240,7 +240,7 @@ const status = await client.getAccountStatus();
 | ------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | _`tx.to`_                 | `string \| { address: string; chain: CHAIN }`                                                   | Execution target. Plain address → Route 1. `{ address, chain }` → Route 2.                                                                                                                             |
 | `tx.from`                 | `{ chain: CHAIN }` _(optional)_                                                                 | Forces CEA on the specified external chain as execution origin → Route 3.                                                                                                                              |
-| `tx.value`                | `bigint` _(optional)_                                                                           | Native value in smallest unit — uPC on Push Chain; native asset on external routes.                                                                                                                    |
+| `tx.value`                | `bigint` _(optional)_                                                                           | Native value in smallest unit - uPC on Push Chain; native asset on external routes.                                                                                                                    |
 | `tx.data`                 | `string \| Array<{ to: string; value: bigint; data: string }>` _(optional)_                     | Encoded calldata for a single call or multicall array. EVM: `encodeTxData({ abi, functionName, args })`. Solana: `encodeTxData({ idl, functionName, args })`. Multicall requires `tx.to: '0x000...0'`. |
 | `tx.funds`                | `{ amount: bigint; token?: MOVEABLE.TOKEN }` _(optional)_                                       | Move supported assets as part of the tx. For Route 1: external origin only (Push-native users use ERC-20 `transfer` directly).                                                                         |
 | `tx.progressHook`         | `(progress: ProgressHookType) => void` _(optional)_                                             | Callback for per-step lifecycle events. Event IDs are route-prefixed (`SEND-TX-1xx` Route 1, `SEND-TX-2xx` Route 2, `SEND-TX-3xx` Route 3). See [ProgressHook Events](#progresshook-events) below.     |
@@ -280,7 +280,7 @@ Full event list (all routes, all IDs, response shapes): https://push.org/agents/
 
 ---
 
-### Route 1 — Any Origin → Push Chain (via UEA)
+### Route 1 - Any Origin → Push Chain (via UEA)
 
 `tx.to` is a plain address. The user's UEA executes the call on Push Chain.
 
@@ -302,7 +302,7 @@ console.log('status:', receipt.status === 1 ? 'success' : 'failed');
 
 ---
 
-### Route 2 — Any Origin → External Chain (via CEA)
+### Route 2 - Any Origin → External Chain (via CEA)
 
 `tx.to` is `{ address, chain }`. Push Chain coordinates execution through the user's CEA on the target chain.
 
@@ -328,7 +328,7 @@ console.log('explorer:', receipt.externalExplorerUrl);
 
 > Route 2 receipt includes additional fields: `externalTxHash`, `externalChain`, `externalExplorerUrl`.
 
-**Solana target variant** — same Route 2 shape; pass the Anchor IDL via `encodeTxData` and the SDK resolves all accounts, PDAs, and the CEA automatically:
+**Solana target variant** - same Route 2 shape; pass the Anchor IDL via `encodeTxData` and the SDK resolves all accounts, PDAs, and the CEA automatically:
 
 ```ts
 import testCounterIdl from './target/idl/test_counter.json';
@@ -353,22 +353,22 @@ console.log('Solana explorer:', receipt.externalExplorerUrl);
 
 ---
 
-### Route 3 — CEA Origin → Push Chain
+### Route 3 - CEA Origin → Push Chain
 
 Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
 
 **Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
 
-1. **Preserves identity** — your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
-2. **Isolates risk** — the CEA is a dedicated smart account, separate from your home wallet. External-chain actions can't affect funds outside the CEA.
-3. **Enables payload execution** — the CEA is what actually holds assets and executes calldata on the external chain.
+1. **Preserves identity** - your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
+2. **Isolates risk** - the CEA is a dedicated smart account, separate from your home wallet. External-chain actions can't affect funds outside the CEA.
+3. **Enables payload execution** - the CEA is what actually holds assets and executes calldata on the external chain.
 
-**When to use Route 3.** Use it when you need to bring state or assets _back_ to Push Chain from a CEA you've already deployed — because only the CEA can speak for what happened on that external chain.
+**When to use Route 3.** Use it when you need to bring state or assets _back_ to Push Chain from a CEA you've already deployed - because only the CEA can speak for what happened on that external chain.
 
-Example flow — a universal vault:
+Example flow - a universal vault:
 
 1. Route 2: vault calls Aave on Ethereum via your **Ethereum CEA** to withdraw USDC.
-2. **Route 3**: the vault moves the withdrawn USDC from your Ethereum CEA back to Push Chain (`from: { chain: ETHEREUM_SEPOLIA }`) — `msg.sender` on Push Chain is your Ethereum CEA, which holds the tokens.
+2. **Route 3**: the vault moves the withdrawn USDC from your Ethereum CEA back to Push Chain (`from: { chain: ETHEREUM_SEPOLIA }`) - `msg.sender` on Push Chain is your Ethereum CEA, which holds the tokens.
 3. Route 2 again: Push Chain forwards to a Solana lending protocol via your **Solana CEA**.
 
 ```ts
@@ -393,12 +393,12 @@ User → Push vault
   Route 2 → Solana CEA → Solana lending (deposit)
 ```
 
-> Route 3 isn't for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you've already deployed via prior Route 2 activity.
+> Route 3 isn't for new outbound flows - use Route 2 for those. Route 3 is the return path from a CEA you've already deployed via prior Route 2 activity.
 
-**Solana CEA as origin** — set `from: { chain: SOLANA_DEVNET }` to use the user's Solana CEA as the origin. `msg.sender` on Push Chain will be the Solana CEA address. Use `deriveExecutorAccount` beforehand if you need to fund it.
+**Solana CEA as origin** - set `from: { chain: SOLANA_DEVNET }` to use the user's Solana CEA as the origin. `msg.sender` on Push Chain will be the Solana CEA address. Use `deriveExecutorAccount` beforehand if you need to fund it.
 
 ```ts
-// Route 3 — Solana CEA origin → Push Chain contract
+// Route 3 - Solana CEA origin → Push Chain contract
 const tx = await client.universal.sendTransaction({
   from: { chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET }, // Solana CEA as origin
   to: '0xContractOnPushChain',
@@ -413,7 +413,7 @@ await tx.wait();
 
 ---
 
-### Multicall — Batch Multiple Calls
+### Multicall - Batch Multiple Calls
 
 Pass an array to `tx.data` and set `tx.to` to the zero address. The zero-address target signals multicall mode to the SDK; individual call targets are in the `data` array.
 
@@ -450,7 +450,7 @@ await client.universal.sendTransaction({
 | `maxPriorityFeePerGas` | `bigint`                                 | EIP-1559 priority fee                      |
 | `wait()`               | `(confirmations?) => Promise<TxReceipt>` | Wait for on-chain confirmation             |
 
-> External chain fields (`externalTxHash`, `externalChain`, `externalExplorerUrl`) are only available on `TxReceipt` after `tx.wait()` — not on the initial `TxResponse`.
+> External chain fields (`externalTxHash`, `externalChain`, `externalExplorerUrl`) are only available on `TxReceipt` after `tx.wait()` - not on the initial `TxResponse`.
 
 ### TxReceipt (from `await tx.wait()`)
 
@@ -470,7 +470,7 @@ await client.universal.sendTransaction({
 | `externalChain`       | `string` _(Route 2 only)_          | External chain identifier                   |
 | `externalExplorerUrl` | `string` _(Route 2 only)_          | External explorer URL                       |
 
-## Prepare + Execute — Multichain Cascade
+## Prepare + Execute - Multichain Cascade
 
 Use `prepareTransaction` + `executeTransactions` when you need **multiple ordered hops across chains under a single user signature**. Each hop is prepared independently, then all are submitted together.
 
@@ -478,7 +478,7 @@ Use `prepareTransaction` + `executeTransactions` when you need **multiple ordere
 
 `client.universal.prepareTransaction(tx)` → `Promise<PreparedUniversalTx>`
 
-Accepts the **same arguments as `sendTransaction`** (same routing rules: Route 1 / Route 2 / Route 3 via `tx.to` and `tx.from`). Does **not** submit — returns a prepared object.
+Accepts the **same arguments as `sendTransaction`** (same routing rules: Route 1 / Route 2 / Route 3 via `tx.to` and `tx.from`). Does **not** submit - returns a prepared object.
 
 ```ts
 // Hop 0: call a contract on Push Chain (Route 1)
@@ -540,8 +540,8 @@ console.log('All complete:', result.success);
 
 | Property            | Type                               | Description                                                                                                 |
 | ------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction — use this to reference it downstream                        |
-| `initialTxResponse` | `TxResponse`                       | Full `TxResponse` for the coordinating Push Chain tx — use this when you need nonce, gas, or block metadata |
+| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction - use this to reference it downstream                        |
+| `initialTxResponse` | `TxResponse`                       | Full `TxResponse` for the coordinating Push Chain tx - use this when you need nonce, gas, or block metadata |
 | `hops`              | `CascadeHopInfo[]`                 | All hops with routing and status                                                                            |
 | `hopCount`          | `number`                           | Total hop count                                                                                             |
 | `wait(opts?)`       | `Promise<CascadeCompletionResult>` | Wait for all hops to confirm                                                                                |
@@ -558,23 +558,23 @@ console.log('All complete:', result.success);
 | `txHash`          | `string`                                              | Resolved transaction hash                                     |
 | `outboundDetails` | `object`                                              | External chain details: hash, explorer URL, recipient, amount |
 
-> **No atomicity across hops** — if a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
+> **No atomicity across hops** - if a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
 
-> **Single signature** — `executeTransactions` submits one transaction to Push Chain; the SDK coordinates all downstream hops automatically.
+> **Single signature** - `executeTransactions` submits one transaction to Push Chain; the SDK coordinates all downstream hops automatically.
 
 ---
 
 ## Track Transaction
 
-### `trackTransaction` — resume tracking any tx by hash
+### `trackTransaction` - resume tracking any tx by hash
 
 `client.universal.trackTransaction(txHash, options)` → `Promise<UniversalTxResponse>`
 
-Use this to re-check progress of a previously submitted transaction — after a page refresh, from a backend poller, or for any tx hash retrieved from storage. Works for transactions that originated on Push Chain **or** any external chain.
+Use this to re-check progress of a previously submitted transaction - after a page refresh, from a backend poller, or for any tx hash retrieved from storage. Works for transactions that originated on Push Chain **or** any external chain.
 
 | Argument                             | Type                               | Default                                        | Description                                                               |
 | ------------------------------------ | ---------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- |
-| `txHash`                             | `string`                           | —                                              | Hash/signature of the transaction on its origin chain                     |
+| `txHash`                             | `string`                           | -                                              | Hash/signature of the transaction on its origin chain                     |
 | `options.chain`                      | `CHAIN`                            | `PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT` | Chain where the tx was originally submitted                               |
 | `options.progressHook`               | `(event) => void`                  | `undefined`                                    | Progress callback (same shape as `sendTransaction`)                       |
 | `options.waitForCompletion`          | `boolean`                          | `true`                                         | `true` = wait for confirmation; `false` = return after first status check |
@@ -601,7 +601,7 @@ const response2 = await client.universal.trackTransaction(
 );
 ```
 
-### `tx.wait()` — wait for confirmation inline
+### `tx.wait()` - wait for confirmation inline
 
 After `sendTransaction`, call `.wait()` on the response:
 
@@ -632,7 +632,7 @@ const signature = await client.universal.signMessage(message); // returns Uint8A
 
 ## Utility Functions
 
-All utilities are available as `PushChain.utils.*` — no separate import needed.
+All utilities are available as `PushChain.utils.*` - no separate import needed.
 
 ### `parseUnits(value, exponent)` → `bigint`
 
@@ -641,9 +641,9 @@ Converts a human-readable token amount to its smallest unit.
 | Argument   | Type                             | Description                                                 |
 | ---------- | -------------------------------- | ----------------------------------------------------------- |
 | `value`    | `string`                         | Human-readable amount, e.g. `'1.5'`                         |
-| `exponent` | `number \| { decimals: number }` | Decimal places — `18` for PC/ETH, `6` for USDC, `8` for BTC |
+| `exponent` | `number \| { decimals: number }` | Decimal places - `18` for PC/ETH, `6` for USDC, `8` for BTC |
 
-**Returns**: `bigint` — e.g. `1500000000000000000n`
+**Returns**: `bigint` - e.g. `1500000000000000000n`
 
 ### `formatUnits(value, decimals)` → `string`
 
@@ -654,7 +654,7 @@ Converts a raw smallest-unit amount back to a human-readable string.
 | `value`    | `bigint \| string`                                   | Raw amount in smallest units                                       |
 | `decimals` | `number \| { decimals: number; precision?: number }` | Decimal places; pass an object to also round to `precision` places |
 
-**Returns**: `string` — e.g. `'1.5'`, `'100.50'`
+**Returns**: `string` - e.g. `'1.5'`, `'100.50'`
 
 ### `encodeTxData({ abi | idl, functionName, args })` → `string`
 
@@ -666,20 +666,20 @@ Encodes smart contract calldata without needing viem or ethers.js. Works for bot
 | `functionName` | `string`             | Function (EVM) or instruction (Solana) name. Both `snake_case` and `camelCase` accepted for Solana.                                                                        |
 | `args`         | `any[]` _(optional)_ | Function arguments, default `[]`. Use `bigint` for `uint256`/`u64`/`u128`.                                                                                                 |
 
-**Returns**: `string` — hex-encoded calldata, e.g. `'0xd09de08a'`
+**Returns**: `string` - hex-encoded calldata, e.g. `'0xd09de08a'`
 
 ```ts
-// EVM target — use `abi` key
+// EVM target - use `abi` key
 PushChain.utils.helpers.encodeTxData({
   abi,
   functionName: 'transfer',
   args: ['0xabc...', 1000n],
 });
-// args follow ABI types — use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
+// args follow ABI types - use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
 ```
 
 ```ts
-// Solana target — use `idl` key (not `abi`)
+// Solana target - use `idl` key (not `abi`)
 PushChain.utils.helpers.encodeTxData({
   idl: testCounterIdl, // Anchor IDL from target/idl/*.json
   functionName: 'receive_sol', // snake_case or camelCase both accepted
@@ -695,7 +695,7 @@ PushChain.utils.helpers.encodeTxData({
 | ------------- | ---------------------------------- | ---------------- |
 | `pushNetwork` | `PushChain.CONSTANTS.PUSH_NETWORK` | Network to query |
 
-**Returns**: `{ chains }` — array of `PushChain.CONSTANTS.CHAIN.*` constant values
+**Returns**: `{ chains }` - array of `PushChain.CONSTANTS.CHAIN.*` constant values
 
 ### `getSupportedChainsByName(pushNetwork)` → `{ chains: string[] }`
 
@@ -703,7 +703,7 @@ PushChain.utils.helpers.encodeTxData({
 | ------------- | ---------------------------------- | ---------------- |
 | `pushNetwork` | `PushChain.CONSTANTS.PUSH_NETWORK` | Network to query |
 
-**Returns**: `{ chains }` — human-readable names, e.g. `['PUSH_TESTNET_DONUT', 'ETHEREUM_SEPOLIA', 'SOLANA_DEVNET', ...]`
+**Returns**: `{ chains }` - human-readable names, e.g. `['PUSH_TESTNET_DONUT', 'ETHEREUM_SEPOLIA', 'SOLANA_DEVNET', ...]`
 
 ### `getChainNamespace(chainName)` → `string`
 
@@ -711,7 +711,7 @@ PushChain.utils.helpers.encodeTxData({
 | ----------- | -------- | ------------------------- |
 | `chainName` | `string` | e.g. `'ETHEREUM_SEPOLIA'` |
 
-**Returns**: CAIP-2 namespace string, e.g. `'eip155:11155111'` — `undefined` if unsupported
+**Returns**: CAIP-2 namespace string, e.g. `'eip155:11155111'` - `undefined` if unsupported
 
 ### `getChainName(chainNamespace)` → `string`
 
@@ -719,7 +719,7 @@ PushChain.utils.helpers.encodeTxData({
 | ---------------- | -------- | ------------------------------------------ |
 | `chainNamespace` | `string` | CAIP-2 namespace, e.g. `'eip155:11155111'` |
 
-**Returns**: Chain name string, e.g. `'ETHEREUM_SEPOLIA'` — `undefined` if unsupported
+**Returns**: Chain name string, e.g. `'ETHEREUM_SEPOLIA'` - `undefined` if unsupported
 
 ---
 
@@ -749,7 +749,7 @@ Resolves the Push Chain synthetic PRC20 address for a supported origin-chain tok
 
 | Argument          | Type                                                  | Description                                                                                                                  |
 | ----------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| _`token`_         | `MoveableToken \| { chain: string; address: string }` | Origin token — from `getMoveableTokens()` or explicit chain + address                                                        |
+| _`token`_         | `MoveableToken \| { chain: string; address: string }` | Origin token - from `getMoveableTokens()` or explicit chain + address                                                        |
 | `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK`                    | Override the Push network. Defaults to client's initialized network. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` |
 
 **Returns**: `{ address: 0x${string}, chain: CHAIN, symbol: string, decimals: number, network: PUSH_NETWORK }`
@@ -786,7 +786,7 @@ Wraps an address and chain into a `UniversalAccount` object.
 | `address`       | `string` | Wallet address                |
 | `options.chain` | `CHAIN`  | `PushChain.CONSTANTS.CHAIN.*` |
 
-**Returns**: `{ chain: string, address: string }` — e.g. `{ chain: 'eip155:11155111', address: '0xAbc...' }`
+**Returns**: `{ chain: string, address: string }` - e.g. `{ chain: 'eip155:11155111', address: '0xAbc...' }`
 
 ### `toChainAgnostic(address, { chain })` → `string`
 
@@ -797,7 +797,7 @@ Produces a fully-qualified chain-agnostic address string.
 | `address`       | `string` | Wallet address                |
 | `options.chain` | `CHAIN`  | `PushChain.CONSTANTS.CHAIN.*` |
 
-**Returns**: `string` — e.g. `'eip155:11155111:0xAbc...'`
+**Returns**: `string` - e.g. `'eip155:11155111:0xAbc...'`
 
 ### `fromChainAgnostic(chainAgnosticAddress)` → `UniversalAccount`
 
@@ -819,19 +819,19 @@ Derives a UEA on Push Chain from any origin account, or a CEA on an external cha
 | `options.chain`            | `CHAIN` _(optional)_   | When provided, derives a CEA on that external chain instead of a UEA on Push Chain |
 | `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic derivation only, skip deployment check. Default `false`              |
 
-**Returns**: `{ address: string, deployed?: boolean }` — `deployed` is included when `skipNetworkCheck` is `false`
+**Returns**: `{ address: string, deployed?: boolean }` - `deployed` is included when `skipNetworkCheck` is `false`
 
 ### `resolveControllerAccount(account, options?)` → `Promise<{ accounts }>`
 
-Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` — forward is UOA→executor, this is executor→UOA.
+Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` - forward is UOA→executor, this is executor→UOA.
 
 | Argument                   | Type                   | Description                                                                    |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------ |
-| `account`                  | `string`               | Executor address — can be a UEA, CEA, or Push Chain account address            |
-| `options.chain`            | `CHAIN` _(optional)_   | Required for CEA context — specifies the external chain the CEA is deployed on |
+| `account`                  | `string`               | Executor address - can be a UEA, CEA, or Push Chain account address            |
+| `options.chain`            | `CHAIN` _(optional)_   | Required for CEA context - specifies the external chain the CEA is deployed on |
 | `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic resolution only, skip existence check. Default `false`           |
 
-**Returns**: `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` — `type`: `'uea' | 'uoa' | 'cea'`; `role: 'controller'` marks the root controlling account
+**Returns**: `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` - `type`: `'uea' | 'uoa' | 'cea'`; `role: 'controller'` marks the root controlling account
 
 ---
 
@@ -842,9 +842,9 @@ Reverse-maps any executor address (UEA or CEA) back to its origin `UniversalAcco
 | Argument          | Type                 | Description                                                            |
 | ----------------- | -------------------- | ---------------------------------------------------------------------- |
 | `executorAddress` | `string`             | UEA or CEA address                                                     |
-| `options.chain`   | `CHAIN` _(optional)_ | Required when resolving a CEA — specifies which external chain it's on |
+| `options.chain`   | `CHAIN` _(optional)_ | Required when resolving a CEA - specifies which external chain it's on |
 
-**Returns**: `Promise<UniversalAccount>` — `{ chain, address }`
+**Returns**: `Promise<UniversalAccount>` - `{ chain, address }`
 
 ```ts
 const origin =
@@ -865,9 +865,9 @@ Calculates the minimum acceptable output amount given a slippage tolerance. Used
 | Argument              | Type     | Description                                                     |
 | --------------------- | -------- | --------------------------------------------------------------- |
 | _`amount`_            | `string` | Input amount in smallest units, e.g. `'100000000'` for 100 USDC |
-| `options.slippageBps` | `number` | Slippage in basis points — `100 = 1%`, `50 = 0.5%`              |
+| `options.slippageBps` | `number` | Slippage in basis points - `100 = 1%`, `50 = 0.5%`              |
 
-**Returns**: `string` — minimum out amount in smallest units, e.g. `'99000000'`
+**Returns**: `string` - minimum out amount in smallest units, e.g. `'99000000'`
 
 Full reference: https://push.org/agents/workflows/use-utility-functions.md
 
@@ -886,7 +886,7 @@ Returns a block explorer URL for any transaction hash.
 | `txHash`        | `string`             | Transaction hash                                                               |
 | `options.chain` | `CHAIN` _(optional)_ | Specific chain explorer to use. Defaults to Push Chain (`PUSH_TESTNET_DONUT`). |
 
-**Returns**: `string` — a full explorer URL, e.g. `'https://donut.push.network/tx/0x...'`
+**Returns**: `string` - a full explorer URL, e.g. `'https://donut.push.network/tx/0x...'`
 
 ```ts
 // Push Chain explorer URL (default)
@@ -925,9 +925,9 @@ for (const { chainName, urls } of explorers) {
 
 ## Contract Helpers
 
-> For **off-chain** UEA/CEA derivation from TypeScript, use `PushChain.utils.account.deriveExecutorAccount()` — see Utility Functions above. The UEAFactory below is for **on-chain Solidity** identity resolution. For the full Solidity contract pattern, see the `push-contracts` skill.
+> For **off-chain** UEA/CEA derivation from TypeScript, use `PushChain.utils.account.deriveExecutorAccount()` - see Utility Functions above. The UEAFactory below is for **on-chain Solidity** identity resolution. For the full Solidity contract pattern, see the `push-contracts` skill.
 
-### UEAFactory — Identity Resolution On-Chain
+### UEAFactory - Identity Resolution On-Chain
 
 The Universal Executor Account Factory is deployed at a fixed address on Push Chain and lets your smart contract identify callers from external chains.
 
@@ -935,13 +935,13 @@ The Universal Executor Account Factory is deployed at a fixed address on Push Ch
 
 ```solidity
 import "push-chain-core-contracts/src/Interfaces/IUEAFactory.sol";
-// or define the interface manually — see docs
+// or define the interface manually - see docs
 ```
 
-#### getOriginForUEA — Who called me?
+#### getOriginForUEA - Who called me?
 
 ```solidity
-// Inside your contract — identify if msg.sender is a UEA (external chain user) or a native Push account
+// Inside your contract - identify if msg.sender is a UEA (external chain user) or a native Push account
 (UniversalAccountId memory origin, bool isUEA) =
     IUEAFactory(0x00000000000000000000000000000000000000eA).getOriginForUEA(msg.sender);
 
@@ -951,7 +951,7 @@ import "push-chain-core-contracts/src/Interfaces/IUEAFactory.sol";
 // isUEA                  → false if msg.sender is a native Push Chain EOA
 ```
 
-#### getUEAForOrigin — What is a user's UEA address?
+#### getUEAForOrigin - What is a user's UEA address?
 
 ```solidity
 (address uea, bool isDeployed) = IUEAFactory(0x00000000000000000000000000000000000000eA).getUEAForOrigin(
@@ -961,8 +961,8 @@ import "push-chain-core-contracts/src/Interfaces/IUEAFactory.sol";
         owner: abi.encodePacked(userAddress)
     })
 );
-// uea — deterministic UEA address (CREATE2), usable even before deployment
-// isDeployed — true once the UEA has been deployed (first tx from that user)
+// uea - deterministic UEA address (CREATE2), usable even before deployment
+// isDeployed - true once the UEA has been deployed (first tx from that user)
 ```
 
 Off-chain equivalent (SDK): `PushChain.utils.account.deriveExecutorAccount(universalAccount)`
@@ -975,29 +975,29 @@ Full reference: https://push.org/agents/workflows/use-contract-helpers.md
 
 | Symptom / Mistake                                            | Fix                                                                                                            |
 | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| `receipt.hash` is undefined / `tx` has no `.hash`            | `sendTransaction` returns a `TxResponse`, not a receipt — call `await tx.wait()` to get the receipt            |
-| `wallet.sendTransaction()` used — tx reverts or is malformed | ethers/viem cannot produce a valid universal tx — replace with `client.universal.sendTransaction()`            |
-| `PushChain.initialize()` rejects the signer                  | Raw ethers/viem wallet passed without wrapping — call `await PushChain.utils.signer.toUniversal(wallet)` first |
-| `signMessage` return treated as a string                     | It returns `Uint8Array` — use `Buffer.from(sig).toString('hex')` if you need a hex string                      |
-| Silent tx failure (no throw, no logs)                        | `tx.wait()` resolves even on reverts — always check `receipt.status === 1`                                     |
-| Private key in source code                                   | Use `process.env.PRIVATE_KEY` — never hardcode keys in scripts or commit them to version control               |
+| `receipt.hash` is undefined / `tx` has no `.hash`            | `sendTransaction` returns a `TxResponse`, not a receipt - call `await tx.wait()` to get the receipt            |
+| `wallet.sendTransaction()` used - tx reverts or is malformed | ethers/viem cannot produce a valid universal tx - replace with `client.universal.sendTransaction()`            |
+| `PushChain.initialize()` rejects the signer                  | Raw ethers/viem wallet passed without wrapping - call `await PushChain.utils.signer.toUniversal(wallet)` first |
+| `signMessage` return treated as a string                     | It returns `Uint8Array` - use `Buffer.from(sig).toString('hex')` if you need a hex string                      |
+| Silent tx failure (no throw, no logs)                        | `tx.wait()` resolves even on reverts - always check `receipt.status === 1`                                     |
+| Private key in source code                                   | Use `process.env.PRIVATE_KEY` - never hardcode keys in scripts or commit them to version control               |
 
-> For Solana targets, use `encodeTxData({ idl, functionName, args })` and pass the result as `tx.data` — same `{ to, value, data }` shape as EVM. The SDK resolves program accounts, PDAs, and the sender's CEA automatically from the IDL.
+> For Solana targets, use `encodeTxData({ idl, functionName, args })` and pass the result as `tx.data` - same `{ to, value, data }` shape as EVM. The SDK resolves program accounts, PDAs, and the sender's CEA automatically from the IDL.
 >
-> For read-only queries, use ethers.js or viem directly with RPC `https://evm.donut.rpc.push.org/` — `@pushchain/core` is not required.
+> For read-only queries, use ethers.js or viem directly with RPC `https://evm.donut.rpc.push.org/` - `@pushchain/core` is not required.
 
 ## Downloadable Resources
 
-Copy these files into your project — self-contained and ready to run:
+Copy these files into your project - self-contained and ready to run:
 
 | File                                                                                  | Purpose                                                                                |
 | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | [`package.json`](https://push.org/agents/resources/push-backend/package.json)         | Dependencies: @pushchain/core, ethers, viem, @solana/web3.js, tsx                      |
-| [`client-ethers.ts`](https://push.org/agents/resources/push-backend/client-ethers.ts) | ethers.js signer — Route 1 + Route 2                                                   |
-| [`client-viem.ts`](https://push.org/agents/resources/push-backend/client-viem.ts)     | viem signer — Route 1, Route 2, cascade                                                |
-| [`client-solana.ts`](https://push.org/agents/resources/push-backend/client-solana.ts) | Solana Keypair signer — Route 1 + Route 2 (Solana program via `encodeTxData({ idl })`) |
+| [`client-ethers.ts`](https://push.org/agents/resources/push-backend/client-ethers.ts) | ethers.js signer - Route 1 + Route 2                                                   |
+| [`client-viem.ts`](https://push.org/agents/resources/push-backend/client-viem.ts)     | viem signer - Route 1, Route 2, cascade                                                |
+| [`client-solana.ts`](https://push.org/agents/resources/push-backend/client-solana.ts) | Solana Keypair signer - Route 1 + Route 2 (Solana program via `encodeTxData({ idl })`) |
 
-> [Resource index](https://push.org/agents/resources/push-backend/index.json) — machine-readable file list
+> [Resource index](https://push.org/agents/resources/push-backend/index.json) - machine-readable file list
 
 ## Extended Reference
 
@@ -1008,8 +1008,8 @@ Copy these files into your project — self-contained and ready to run:
 - [Track transaction lifecycle](https://push.org/agents/workflows/track-transaction.md)
 - [Read blockchain state](https://push.org/agents/workflows/read-blockchain-state.md)
 - [Constants reference](https://push.org/agents/workflows/constants-reference.md)
-- [Utility functions — full API](https://push.org/agents/workflows/use-utility-functions.md)
-- [Contract helpers — UEAFactory](https://push.org/agents/workflows/use-contract-helpers.md)
+- [Utility functions - full API](https://push.org/agents/workflows/use-utility-functions.md)
+- [Contract helpers - UEAFactory](https://push.org/agents/workflows/use-contract-helpers.md)
 - [Initialize with ethers.js example](https://push.org/agents/examples/initialize-client-ethers.md)
 - [Initialize with viem example](https://push.org/agents/examples/initialize-client-viem.md)
 - [Send to external chain example](https://push.org/agents/examples/send-transaction-external-chain.md)

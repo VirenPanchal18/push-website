@@ -1,25 +1,25 @@
 ---
 schema_version: 1.0.0
 version: 1.0.0
-current_sdk_version: 5.1.12
+current_sdk_version: 5.1.17
 generated: 2026-04-21
 description: Human and agent orientation doc for the /agents/ directory
 ---
 
-# Push Chain — Agent Interface
+# Push Chain - Agent Interface
 
 Push Chain is a universal L1 blockchain that enables applications to deploy smart contracts once and execute transactions across all supported chains. Users sign from their native wallet (Ethereum, Solana, etc.) and the SDK handles:
 
 - **Cross-chain routing**: Transactions execute on Push Chain or external chains based on `tx.to` shape
 - **UEA resolution**: Universal Executor Accounts are derived deterministically and deployed lazily
-- **Fee abstraction**: End users pay gas in their native token; no `$PC` acquisition required. Contracts dispatching outbound txs fund with `$PC` — see [push-contracts skill](https://push.org/agents/skills/push-contracts/SKILL.md).
+- **Fee abstraction**: End users pay gas in their native token; no `$PC` acquisition required. Contracts dispatching outbound txs fund with `$PC` - see [push-contracts skill](https://push.org/agents/skills/push-contracts/SKILL.md).
 - **Wallet abstraction**: Any supported wallet becomes a UniversalSigner with one conversion call
 
 ## How to Navigate /agents/
 
 | Your Task | Start Here |
 |-----------|------------|
-| Build a frontend, backend, or smart contract | See [Skills](#skills) below — load the matching SKILL.md |
+| Build a frontend, backend, or smart contract | See [Skills](#skills) below - load the matching SKILL.md |
 | Understand what Push Chain can do | [capabilities.json](https://push.org/agents/capabilities.json) |
 | Find the right workflow for a user request | [decision-tree.json](https://push.org/agents/decision-tree.json) or [task-router.md](https://push.org/agents/task-router.md) |
 | Get SDK method signatures | [sdk-capabilities.json](https://push.org/agents/sdk-capabilities.json) |
@@ -30,28 +30,24 @@ Push Chain is a universal L1 blockchain that enables applications to deploy smar
 
 ## Skills
 
-Skills are the authoritative guides for building with Push Chain. Load the one that matches the application layer you're working on — each skill is self-contained and cites canonical workflows, resources, and APIs.
+Skills are the authoritative guides for building with Push Chain. Load the one that matches the application layer you're working on - each skill is self-contained and cites canonical workflows, resources, and APIs.
 
 | Skill | Use When | File |
 |-------|----------|------|
-| **push-frontend** | Building a React app with `@pushchain/ui-kit` — wallet connection, hooks, `sendTransaction` from components, Route 1/2/3 from the browser | [skills/push-frontend/SKILL.md](https://push.org/agents/skills/push-frontend/SKILL.md) |
-| **push-backend** | Writing Node.js scripts, bots, or backend services with `@pushchain/core` — ethers/viem/Solana signers, transaction cascades, lifecycle tracking | [skills/push-backend/SKILL.md](https://push.org/agents/skills/push-backend/SKILL.md) |
+| **push-frontend** | Building a React app with `@pushchain/ui-kit` - wallet connection, hooks, `sendTransaction` from components, Route 1/2/3 from the browser | [skills/push-frontend/SKILL.md](https://push.org/agents/skills/push-frontend/SKILL.md) |
+| **push-backend** | Writing Node.js scripts, bots, or backend services with `@pushchain/core` - ethers/viem/Solana signers, transaction cascades, lifecycle tracking | [skills/push-backend/SKILL.md](https://push.org/agents/skills/push-backend/SKILL.md) |
 | **push-contracts** | Writing Solidity that dispatches cross-chain via UGPC, handles inbound callbacks via `executeUniversalTx`, or resolves UEA/CEA identity on-chain | [skills/push-contracts/SKILL.md](https://push.org/agents/skills/push-contracts/SKILL.md) |
-| **push-pusd** _(external)_ | Integrating PUSD / PUSD+ (par-backed USD stablecoin + NAV-bearing variant) — mint, redeem, NAV quotes, cross-chain deposits. Hosted on `pusd.push.org`. | [pusd.push.org/agents/skill/push-pusd/SKILL.md](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) |
+| **push-pusd** _(external)_ | Integrating PUSD / PUSD+ (par-backed USD stablecoin + NAV-bearing variant) - mint, redeem, NAV quotes, cross-chain deposits. Hosted on `pusd.push.org`. | [pusd.push.org/agents/skill/push-pusd/SKILL.md](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) |
 
 > See [skills/index.json](https://push.org/agents/skills/index.json) for machine-readable skill metadata.
 >
 > **External skills** live on first-party product subdomains and are not duplicated here. Treat them like any other skill: load before generating code that targets that product.
+>
+> **URL convention note:** The `push-pusd` skill is hosted at `pusd.push.org/agents/skill/push-pusd/SKILL.md` (singular `skill/`), not `/agents/skills/...` (plural). Treat the URL in `skills/index.json` as authoritative; do not construct it from a pattern. All other (internal) skills use the plural `/agents/skills/...` path.
 
 ## Quick Decision Guide
 
-| Agent Task | File to Read |
-|------------|--------------|
-| "Send tokens from Ethereum wallet to Push Chain" | [workflows/send-universal-transaction.md](https://push.org/agents/workflows/send-universal-transaction.md) |
-| "Execute a contract on Ethereum from any wallet" | [workflows/send-multichain-transaction.md](https://push.org/agents/workflows/send-multichain-transaction.md) |
-| "Connect a wallet in React" | [workflows/connect-wallet-ui-kit.md](https://push.org/agents/workflows/connect-wallet-ui-kit.md) |
-| "Create a UniversalSigner (ethers / viem / Solana keypair)" | [workflows/create-universal-signer.md](https://push.org/agents/workflows/create-universal-signer.md) |
-| "Track transaction status" | [workflows/track-transaction.md](https://push.org/agents/workflows/track-transaction.md) |
+For mapping a user's plain-language goal to the right workflow, load [task-router.md](https://push.org/agents/task-router.md). It covers 13+ task categories with method signatures, route selection, caveats, and runnable examples (including PUSD). The skills section above already points at every workflow it needs; this README intentionally does not duplicate the task router.
 
 ## Key SDK Entry Points
 
@@ -90,9 +86,9 @@ Converts Solana keypair to UniversalSigner.
 | UOA | Universal Origin Account | User's actual wallet on source chain (Ethereum EOA, Solana pubkey, etc.). The controller that authorizes execution. | [capabilities.json](https://push.org/agents/capabilities.json) |
 | UEA | Universal Executor Account | Smart contract account on Push Chain, deterministically derived from UOA. Executes transactions on Push Chain. Lazy-deployed on first use. | [push-contracts skill](https://push.org/agents/skills/push-contracts/SKILL.md) |
 | CEA | Chain Executor Account | Executor account on external chains, derived from UEA or Push Chain account. Enables execution on Ethereum, Solana, etc. | [push-contracts skill](https://push.org/agents/skills/push-contracts/SKILL.md) |
-| UniversalAccount | — | Chain-agnostic address format: `{ address: "0x...", chain: "eip155:11155111" }` | [sdk-capabilities.json](https://push.org/agents/sdk-capabilities.json) |
-| UniversalSigner | — | UniversalAccount with signing capabilities. Created via `toUniversal()` or `toUniversalFromKeypair()`. | [workflows/create-universal-signer.md](https://push.org/agents/workflows/create-universal-signer.md) |
-| PushChainClient | — | SDK client instance returned by `PushChain.initialize()`. Has `.universal`, `.orchestrator`, `.explorer` namespaces. | [push-backend skill](https://push.org/agents/skills/push-backend/SKILL.md) |
+| UniversalAccount | - | Chain-agnostic address format: `{ address: "0x...", chain: "eip155:11155111" }` | [sdk-capabilities.json](https://push.org/agents/sdk-capabilities.json) |
+| UniversalSigner | - | UniversalAccount with signing capabilities. Created via `toUniversal()` or `toUniversalFromKeypair()`. | [workflows/create-universal-signer.md](https://push.org/agents/workflows/create-universal-signer.md) |
+| PushChainClient | - | SDK client instance returned by `PushChain.initialize()`. Has `.universal`, `.orchestrator`, `.explorer` namespaces. | [push-backend skill](https://push.org/agents/skills/push-backend/SKILL.md) |
 
 ## SDK Packages
 
@@ -101,7 +97,7 @@ Converts Solana keypair to UniversalSigner.
 | `@pushchain/core` | Backend SDK, scripts, bots | `npm install @pushchain/core@latest` |
 | `@pushchain/ui-kit` | React wallet UI components (bundles `@pushchain/core`) | `npm install @pushchain/ui-kit@latest` |
 
-> UI Kit apps do **not** need `@pushchain/core` as a separate dependency — use `usePushChain()` to access the SDK.
+> UI Kit apps do **not** need `@pushchain/core` as a separate dependency - use `usePushChain()` to access the SDK.
 
 ## File Type Legend
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Create an Ethers.js or Viem read-only client connected to Push Chain's EVM RPC endpoint for direct blockchain queries — without needing a signer or `PushChainClient`.
+Create an Ethers.js or Viem read-only client connected to Push Chain's EVM RPC endpoint for direct blockchain queries - without needing a signer or `PushChainClient`.
 
 ## When to Use
 
@@ -156,12 +156,12 @@ console.log('Balance in PC:', formatEther(balance));
 
 - **Read-only**: `JsonRpcProvider` and `createPublicClient` cannot sign or send transactions. Use `PushChain.initialize()` with a signer for write operations.
 - **Chain ID 42101**: Push Chain Donut Testnet. All EVM tooling that accepts a custom RPC URL works.
-- **No `@pushchain/core` required**: direct EVM clients use standard ethers/viem — no Push Chain SDK dependency needed for reads.
+- **No `@pushchain/core` required**: direct EVM clients use standard ethers/viem - no Push Chain SDK dependency needed for reads.
 - **Prefer `PushChainClient` for writes**: when you need to send transactions, use the full client via `PushChain.initialize()`.
 
 ## MCP Mapping Candidates
 
-- `create_ethers_provider` — Instantiate Ethers.js JsonRpcProvider
-- `create_viem_public_client` — Instantiate Viem PublicClient
-- `fetch_transaction_receipt` — Get receipt by tx hash
-- `get_block_number` — Return latest block number
+- `create_ethers_provider` - Instantiate Ethers.js JsonRpcProvider
+- `create_viem_public_client` - Instantiate Viem PublicClient
+- `fetch_transaction_receipt` - Get receipt by tx hash
+- `get_block_number` - Return latest block number

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Configure `PushUniversalWalletProvider` with custom options — login methods, theme, chain restrictions, RPC overrides, and layout — to fine-tune wallet connection behavior in React applications.
+Configure `PushUniversalWalletProvider` with custom options - login methods, theme, chain restrictions, RPC overrides, and layout - to fine-tune wallet connection behavior in React applications.
 
 ## When to Use
 
@@ -42,9 +42,9 @@ Configure `PushUniversalWalletProvider` with custom options — login methods, t
 | `config.chainConfig.rpcUrls` | `Record<CHAIN, string>` | `{}` | Per-chain custom RPC URLs |
 | `config.chainConfig.blockExplorers` | `Record<CHAIN, string[]>` | Default explorers | Custom block explorer URLs |
 | `config.chainConfig.printTraces` | `boolean` | `false` | Enable debug logging |
-| `app` | `Object` | — | App metadata (name, logo) for modal display |
+| `app` | `Object` | - | App metadata (name, logo) for modal display |
 | `themeMode` | `PushUI.CONSTANTS.THEME` | `LIGHT` | `LIGHT` or `DARK` |
-| `themeOverrides` | `Object` | — | CSS variable overrides for custom branding |
+| `themeOverrides` | `Object` | - | CSS variable overrides for custom branding |
 
 ## Steps
 
@@ -257,6 +257,6 @@ After wrapping with provider, child components can access context:
 
 ## MCP Mapping Candidates
 
-- `configure_wallet_options` — Build wallet config object with login and chain settings
-- `apply_theme_overrides` — Set theme mode and custom CSS variables
-- `access_wallet_context` — Retrieve connection status and client from context
+- `configure_wallet_options` - Build wallet config object with login and chain settings
+- `apply_theme_overrides` - Set theme mode and custom CSS variables
+- `access_wallet_context` - Retrieve connection status and client from context

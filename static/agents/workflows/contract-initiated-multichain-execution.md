@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Enable a **Push Chain smart contract** to autonomously trigger execution on an external chain (Ethereum, Arbitrum, BNB Chain, etc.) via the `UniversalGatewayPC` (UGPC) — without requiring live user interaction — and optionally receive a response back on Push Chain via `executeUniversalTx()`.
+Enable a **Push Chain smart contract** to autonomously trigger execution on an external chain (Ethereum, Arbitrum, BNB Chain, etc.) via the `UniversalGatewayPC` (UGPC) - without requiring live user interaction - and optionally receive a response back on Push Chain via `executeUniversalTx()`.
 
 ## When to Use
 
@@ -25,7 +25,7 @@ Enable a **Push Chain smart contract** to autonomously trigger execution on an e
 
 | Contract | Address | Description |
 |----------|---------|-------------|
-| `UniversalGatewayPC` (UGPC) | `0x00000000000000000000000000000000000000C1` | Gateway — call to dispatch outbound cross-chain tx |
+| `UniversalGatewayPC` (UGPC) | `0x00000000000000000000000000000000000000C1` | Gateway - call to dispatch outbound cross-chain tx |
 | `UNIVERSAL_EXECUTOR_MODULE` | `0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7` | Trusted module that delivers inbound callbacks |
 
 ## Prerequisites
@@ -58,12 +58,12 @@ interface IUniversalGatewayPC {
 
 ### 1. Import Interface
 
-**Option A — from npm/forge:**
+**Option A - from npm/forge:**
 ```solidity
 import "push-chain-core-contracts/src/Interfaces/IUniversalGatewayPC.sol";
 ```
 
-**Option B — inline definition** (copy the structs/interface above into your contract).
+**Option B - inline definition** (copy the structs/interface above into your contract).
 
 ### 2. Dispatch Outbound Cross-Chain Transaction
 
@@ -86,16 +86,16 @@ function dispatchOutbound(
             recipient:       recipient,
             token:           token,
             amount:          amount,
-            gasLimit:        0,           // 0 = UGPC estimates automatically
+            gasLimit:        2_000_000,   // safe default; see "Round-Trip Pattern" for why <2M can silently drop
             payload:         payload,
             revertRecipient: revertRecipient
         })
     );
-    emit OutboundDispatched(recipient, payload); // Security Rule #3 — required for inbound correlation
+    emit OutboundDispatched(recipient, payload); // Security Rule #3 - required for inbound correlation
 }
 ```
 
-### 3. Implement Inbound Handler (optional — for responses)
+### 3. Implement Inbound Handler (optional - for responses)
 
 ```solidity
 address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
@@ -113,7 +113,7 @@ function executeUniversalTx(
     bytes   calldata payload,              // ABI-encoded response data
     uint256          amount,               // Bridged PRC20 amount
     address          prc20,               // PRC20 token address on Push Chain
-    bytes32          txId                 // Unique ID — use for replay protection
+    bytes32          txId                 // Unique ID - use for replay protection
 ) external payable onlyUniversalExecutor {
     require(!executedTxIds[txId], "Already executed");
     executedTxIds[txId] = true;
@@ -157,7 +157,7 @@ contract MyMultichainApp {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
                 recipient: recipient, token: address(0), amount: 0,
-                gasLimit: 0, payload: payload, revertRecipient: msg.sender
+                gasLimit: 2_000_000, payload: payload, revertRecipient: msg.sender
             })
         );
         emit Dispatched(recipient);
@@ -190,22 +190,22 @@ User/App calls dispatchOutbound() on Push Chain contract
 A round-trip is a single outbound whose destination-chain payload **automatically fires** an inbound back to the originating Push contract. The destination CEA's outer multicall has TWO steps:
 
 1. The external-chain action you actually care about (e.g. `target.something()`).
-2. A nested gateway call — either `externalGateway.sendUniversalTxFromCEA(req)` (Wire format A, gateway-direct) or `CEA.sendUniversalTxToUEA(token, amount, encodedUniversalPayload, revertRecipient)` (Wire format B, CEA self-call). Either form tells TSS to fire the inbound.
+2. A nested gateway call - either `externalGateway.sendUniversalTxFromCEA(req)` (Wire format A, gateway-direct) or `CEA.sendUniversalTxToUEA(token, amount, encodedUniversalPayload, revertRecipient)` (Wire format B, CEA self-call). Either form tells TSS to fire the inbound.
 
-**Required configuration** (verified on Donut Testnet — wrong values cause TSS to silently drop the back-leg):
+**Required configuration** (verified on Donut Testnet - wrong values cause TSS to silently drop the back-leg):
 
 | Knob | Value | Why |
 |---|---|---|
 | `gasLimit` on UGPC outbound | **`≥ 2_000_000`** | UGPC's auto-floor for `gasLimit = 0` is 500k. Below ~1.5M, the destination tx runs out of gas during the nested gateway call and TSS does not retry. Push tx still succeeds and UGPC emits the event, but no destination tx fires. |
 | Push contract balance | covers `protocolFee + inbound execution fee` | Inbound on Push pays gas in $PC, charged to the dispatching contract. |
-| Destination CEA balance | enough native (e.g., BNB testnet) for the back-leg's gateway call | UGPC's gas budget covers the CEA's tx gas but **does not** end up as `address(this).balance` inside the CEA — so a `gateway.call{value: V}(...)` step needs `V` worth of native already on the CEA. Faucet to `deriveExecutorAccount(contract, destChain).address` before the first kickoff. |
+| Destination CEA balance | enough native (e.g., BNB testnet) for the back-leg's gateway call | UGPC's gas budget covers the CEA's tx gas but **does not** end up as `address(this).balance` inside the CEA - so a `gateway.call{value: V}(...)` step needs `V` worth of native already on the CEA. Faucet to `deriveExecutorAccount(contract, destChain).address` before the first kickoff. |
 | Wire format | Wire format A or B (above) | Plain multicalls without a nested gateway call do NOT fire a back-leg, regardless of gasLimit. |
 
-The inbound's `msg.sender` is **not** your Push contract — it's `UEA(externalCEA, PUSH)`, the UEA derived from the destination CEA. If you want to authenticate your own callbacks beyond the `UNIVERSAL_EXECUTOR_MODULE` check, compute the expected `UEA(deriveExecutorAccount(self, destChain), PUSH)` off-chain and stamp it on the contract via a setter.
+The inbound's `msg.sender` is **not** your Push contract - it's `UEA(externalCEA, PUSH)`, the UEA derived from the destination CEA. If you want to authenticate your own callbacks beyond the `UNIVERSAL_EXECUTOR_MODULE` check, compute the expected `UEA(deriveExecutorAccount(self, destChain), PUSH)` off-chain and stamp it on the contract via a setter.
 
 ## Inbound Signature: 6-Arg Path Only (Push-native Contracts)
 
-Push Chain's codebase exposes two `executeUniversalTx` signatures: a 6-arg docs-style and a 2-arg UEA-style `(UniversalPayload, bytes)`. For a Push-native contract (the kind in this guide), TSS dispatches the **6-arg path only** — the 2-arg signature is reserved for actual UEA proxy accounts. Implement the 6-arg version.
+Push Chain's codebase exposes two `executeUniversalTx` signatures: a 6-arg docs-style and a 2-arg UEA-style `(UniversalPayload, bytes)`. For a Push-native contract (the kind in this guide), TSS dispatches the **6-arg path only** - the 2-arg signature is reserved for actual UEA proxy accounts. Implement the 6-arg version.
 
 ## Solana Outbound Value Sizing (Contract-Initiated)
 
@@ -253,13 +253,13 @@ Mirrors `@pushchain/core/src/lib/orchestrator/internals/gas-calculator.js#estima
 
 - **No SDK required**: this is fully on-chain. The SDK is only needed for off-chain scripts that call your contract.
 - **Contract CEA is derived from contract address**: not from any user wallet. Its identity on external chains is the contract's own account.
-- **`gasLimit: 0` only for trivial outbounds.** When the destination payload nests a gateway call (round-trip pattern), pass **`gasLimit: 2_000_000`**. UGPC charges only for actual gas used and refunds the surplus, so over-provisioning is mostly free.
+- **Default to `gasLimit: 2_000_000`.** `gasLimit: 0` is the UGPC auto-floor (500k) and is too tight for any payload that nests a gateway call (round-trip pattern). Below threshold, TSS silently drops the relay - your Push tx succeeds, UGPC emits the event, but no destination tx fires. UGPC charges only for actual gas used and refunds surplus into the contract via `receive()`, so over-provisioning is essentially free.
 - **Always validate inbound**: anyone could try to call `executeUniversalTx()`; the `onlyUniversalExecutor` modifier is mandatory.
 - **Replay protection is mandatory**: track `txId` in a mapping and reject duplicates.
 - **Refunds collect on the contract.** UGPC routes surplus to `address(this)`, not to the EOA that called your contract. For long-running flows, plan a `withdraw()` path or treasury sweep.
 
 ## MCP Mapping Candidates
 
-- `encode_contract_call` — ABI-encode calldata for the external chain payload
-- `emit_cross_chain_event` — Construct and submit `sendUniversalTxOutbound` call
-- `relay_to_external_chain` — Monitor TSS relay status and confirm outbound delivery
+- `encode_contract_call` - ABI-encode calldata for the external chain payload
+- `emit_cross_chain_event` - Construct and submit `sendUniversalTxOutbound` call
+- `relay_to_external_chain` - Monitor TSS relay status and confirm outbound delivery

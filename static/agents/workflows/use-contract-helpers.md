@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interact with Push Chain's deployed helper contracts — primarily the `UEAFactory` — to detect whether an address is a Universal Executor Account (UEA) or a native Push Chain EOA, map between origin wallets and their Push Chain execution accounts, and compute deterministic UEA addresses.
+Interact with Push Chain's deployed helper contracts - primarily the `UEAFactory` - to detect whether an address is a Universal Executor Account (UEA) or a native Push Chain EOA, map between origin wallets and their Push Chain execution accounts, and compute deterministic UEA addresses.
 
 ## When to Use
 
@@ -11,7 +11,7 @@ Interact with Push Chain's deployed helper contracts — primarily the `UEAFacto
 - Off-chain scripts: resolving which Push Chain address belongs to a given external wallet
 - Computing the deterministic UEA address for a given external account before deployment
 
-> For **off-chain** UEA/CEA derivation from TypeScript (backend scripts, frontend), use `PushChain.utils.account.deriveExecutorAccount(universalAccount, options?)` — no contract interaction needed. See [Use Utility Functions](https://push.org/agents/workflows/use-utility-functions.md). The UEAFactory below is for **on-chain Solidity** identity resolution.
+> For **off-chain** UEA/CEA derivation from TypeScript (backend scripts, frontend), use `PushChain.utils.account.deriveExecutorAccount(universalAccount, options?)` - no contract interaction needed. See [Use Utility Functions](https://push.org/agents/workflows/use-utility-functions.md). The UEAFactory below is for **on-chain Solidity** identity resolution.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Interact with Push Chain's deployed helper contracts — primarily the `UEAFacto
 
 ## Contract Reference
 
-### UEAFactory — Deployed Address
+### UEAFactory - Deployed Address
 
 ```
 0x00000000000000000000000000000000000000eA
@@ -35,8 +35,8 @@ Interact with Push Chain's deployed helper contracts — primarily the `UEAFacto
 struct UniversalAccountId {
     string chainNamespace; // e.g., "eip155" or "solana"
     string chainId;        // e.g., "11155111" for Ethereum Sepolia
-    bytes  owner;          // EVM: 20-byte packed address — address(bytes20(owner))
-                           // Solana: 32-byte base58 pubkey — bs58.encode(ethers.getBytes(owner))
+    bytes  owner;          // EVM: 20-byte packed address - address(bytes20(owner))
+                           // Solana: 32-byte base58 pubkey - bs58.encode(ethers.getBytes(owner))
 }
 
 interface IUEAFactory {
@@ -56,12 +56,12 @@ interface IUEAFactory {
 
 1. **Import the interface**
 
-   Option A — from Push Chain Core Repository:
+   Option A - from Push Chain Core Repository:
    ```solidity
    import "push-chain-core-contracts/src/Interfaces/IUEAFactory.sol";
    ```
 
-   Option B — define manually:
+   Option B - define manually:
    ```solidity
    pragma solidity ^0.8.0;
 
@@ -191,13 +191,13 @@ if (isUEA && account.chainNamespace === 'solana') {
 
 ## Agent Notes
 
-- **UEA Factory address is deterministic**: `0x00000000000000000000000000000000000000eA` — same on all Push Chain environments.
-- **`account.owner` byte layout**: EVM chains return a 20-byte packed address — decode with `address(bytes20(account.owner))`. Solana returns a 32-byte base58 public key — decode off-chain with `bs58.encode(ethers.getBytes(account.owner))`.
+- **UEA Factory address is deterministic**: `0x00000000000000000000000000000000000000eA` - same on all Push Chain environments.
+- **`account.owner` byte layout**: EVM chains return a 20-byte packed address - decode with `address(bytes20(account.owner))`. Solana returns a 32-byte base58 public key - decode off-chain with `bs58.encode(ethers.getBytes(account.owner))`.
 - **`isUEA = false` means native EOA**: not all Push Chain addresses are UEAs; some are native accounts with no cross-chain origin.
 - **`getUEAForOrigin` works before UEA is deployed**: it returns the deterministic address even if `isDeployed = false`.
 
 ## MCP Mapping Candidates
 
-- `resolve_helper_contract_address` — Return UEAFactory address for current network
-- `call_origin_detection_function` — Invoke `getOriginForUEA` for a given address
-- `parse_helper_response` — Decode `UniversalAccountId` struct including non-EVM addresses
+- `resolve_helper_contract_address` - Return UEAFactory address for current network
+- `call_origin_detection_function` - Invoke `getOriginForUEA` for a given address
+- `parse_helper_response` - Decode `UniversalAccountId` struct including non-EVM addresses

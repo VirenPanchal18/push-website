@@ -1,4 +1,4 @@
-<!-- version: 1.1.0 | schema_version: 1.0.0 | current_sdk_version: 5.1.12 | generated: 2026-04-21T00:00:00.000Z -->
+<!-- version: 1.2.0 | schema_version: 1.0.0 | current_sdk_version: 5.1.17 | generated: 2026-05-10T00:00:00.000Z -->
 
 # Push Chain Task Router
 
@@ -87,7 +87,7 @@ const receipt = await pushChainClient.universal.trackTransaction('0xTxHash...');
 | **SDK Package** | `@pushchain/ui-kit` |
 | **Components** | `PushUniversalWalletProvider`, `PushUniversalAccountButton` |
 | **Hooks** | `usePushWalletContext`, `usePushChainClient`, `usePushChain` |
-| **Caveats** | - Wrap app root with `PushUniversalWalletProvider`<br>- `usePushChainClient()` returns `{ pushChainClient, isInitialized, error }` — guard with `isInitialized` before use<br>- Handles signer creation automatically |
+| **Caveats** | - Wrap app root with `PushUniversalWalletProvider`<br>- `usePushChainClient()` returns `{ pushChainClient, isInitialized, error }` - guard with `isInitialized` before use<br>- Handles signer creation automatically |
 
 **Example:**
 ```jsx
@@ -185,14 +185,14 @@ await pushChainClient.universal.sendTransaction({
 | Aspect | Details |
 |--------|---------|
 | **Problem** | Execute on Push Chain when user only has native tokens on their origin chain |
-| **Recommended Approach** | No action needed—fee abstraction is built into the SDK |
+| **Recommended Approach** | No action needed-fee abstraction is built into the SDK |
 | **How It Works** | User pays gas in native token (ETH, SOL, etc.) on origin chain; SDK handles conversion and UEA funding |
 | **Caveats** | - User never needs to acquire or hold PC tokens<br>- Origin chain transaction covers all costs<br>- Progress events (`SEND-TX-105-01`/`02` on Route 1) show gas funding status |
 
 **Example:**
 ```typescript
 // User on Ethereum Sepolia with ETH, no PC tokens
-// This just works—SDK handles fee abstraction
+// This just works-SDK handles fee abstraction
 const tx = await pushChainClient.universal.sendTransaction({
   to: '0xContractOnPushChain',
   data: encodedCalldata
@@ -281,7 +281,7 @@ await result.waitForAll();
 | **Problem** | Sign off-chain typed structured data for gasless approvals, order matching, or protocol authorizations |
 | **Recommended Approach** | Use `pushChainClient.universal.signTypedData(typedDataArgs)` |
 | **SDK Method** | `pushChainClient.universal.signTypedData({ domain, types, value })` |
-| **Returns** | `Uint8Array` — EIP-712 signature bytes |
+| **Returns** | `Uint8Array` - EIP-712 signature bytes |
 | **Caveats** | - Requires initialized client (wallet must be connected)<br>- `types` format: `Record<string, TypedDataField[]>` (same as ethers v6 / viem)<br>- Not available in read-only mode |
 
 **Example:**
@@ -311,11 +311,11 @@ const signature = await pushChainClient.universal.signTypedData({
 
 | Aspect | Details |
 |--------|---------|
-| **Problem** | Compute the deterministic executor address for any origin wallet before transacting — for balance checks, gas estimation, or whitelisting |
+| **Problem** | Compute the deterministic executor address for any origin wallet before transacting - for balance checks, gas estimation, or whitelisting |
 | **Recommended Approach** | Use `PushChain.utils.account.deriveExecutorAccount(uoa, { chain })` |
 | **SDK Method** | `PushChain.utils.account.deriveExecutorAccount(uoa: UniversalAccount, { chain: CHAIN; skipNetworkCheck?: boolean })` |
-| **Returns** | `Promise<{ address: string }>` — no on-chain call required |
-| **Caveats** | - Use `CHAIN.PUSH_TESTNET_DONUT` to derive UEA; use any external chain constant for CEA<br>- Pass `skipNetworkCheck: true` for chains not yet live — returns address anyway<br>- Build `uoa` with `PushChain.utils.account.toUniversal(address, { chain })` |
+| **Returns** | `Promise<{ address: string }>` - no on-chain call required |
+| **Caveats** | - Use `CHAIN.PUSH_TESTNET_DONUT` to derive UEA; use any external chain constant for CEA<br>- Pass `skipNetworkCheck: true` for chains not yet live - returns address anyway<br>- Build `uoa` with `PushChain.utils.account.toUniversal(address, { chain })` |
 
 **Example:**
 ```typescript
@@ -344,11 +344,11 @@ console.log('UEA:', ueaAddress, '  CEA on Ethereum:', ceaAddress);
 
 | Aspect | Details |
 |--------|---------|
-| **Problem** | Given a UEA or CEA address, find which origin wallet ultimately controls it — for attribution, identity-aware UIs, or analytics |
+| **Problem** | Given a UEA or CEA address, find which origin wallet ultimately controls it - for attribution, identity-aware UIs, or analytics |
 | **Recommended Approach** | Use `PushChain.utils.account.resolveControllerAccount(address, options?)` |
 | **SDK Method** | `PushChain.utils.account.resolveControllerAccount(account: string, { chain?: CHAIN; skipNetworkCheck?: boolean })` |
-| **Returns** | `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` — the entry with `role: 'controller'` is the root UOA |
-| **Caveats** | - Pass `options.chain` when resolving a CEA — required to know which external chain it lives on<br>- `type` values: `'uea'` `'uoa'` `'cea'`<br>- Reverse of `deriveExecutorAccount`: derive goes UOA→executor, resolve goes executor→UOA |
+| **Returns** | `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` - the entry with `role: 'controller'` is the root UOA |
+| **Caveats** | - Pass `options.chain` when resolving a CEA - required to know which external chain it lives on<br>- `type` values: `'uea'` `'uoa'` `'cea'`<br>- Reverse of `deriveExecutorAccount`: derive goes UOA→executor, resolve goes executor→UOA |
 
 **Example:**
 ```typescript
@@ -368,9 +368,46 @@ const { accounts: bnbAccounts } = await PushChain.utils.account.resolveControlle
 
 ---
 
+## Mint or Redeem PUSD / PUSD+ (Stablecoin)
+
+<!-- capability_ids: [] | external: true | host: pusd.push.org -->
+
+| Aspect | Details |
+|--------|---------|
+| **Problem** | Mint or redeem PUSD (par-backed USD on Push Chain) or PUSD+ (NAV-bearing yield variant) from any supported wallet, including cross-chain deposits (USDC/USDT from Ethereum, BNB, etc. into PUSD). |
+| **Recommended Approach** | Load the external `push-pusd` skill. PUSD has its own agent layer hosted at `pusd.push.org`; the SDK calls go through `@pushchain/core` / `@pushchain/ui-kit`, but the contract surface (`PUSDManager`, `PUSDPlusVault`) and integration paths are documented there. |
+| **Skill** | https://pusd.push.org/agents/skill/push-pusd/SKILL.md |
+| **Full agent layer** | https://pusd.push.org/llms.txt |
+| **Repo** | https://github.com/pushchain/push-chain-pusd |
+| **Caveats** | - Two integration paths: Path A (external-chain wallet, multicall in one signature) vs Path B (native Push EOA, two signatures for mint).<br />- PUSD is 6-decimal, not 18. Use `parseUnits(amount, 6)`.<br />- PUSD+ redemption can be instant, convert idle reserves, or queued for keeper depending on liquidity. |
+
+**Example (mint PUSD from a native Push EOA, Path B):**
+
+```typescript
+// 1. Approve USDC to PUSDManager. 2. Call PUSDManager.deposit.
+await pushChainClient.universal.sendTransaction({
+  to: USDC_ADDRESS,
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: ERC20_ABI, functionName: 'approve',
+    args: [PUSD_MANAGER, amount],
+  }),
+});
+await pushChainClient.universal.sendTransaction({
+  to: PUSD_MANAGER,
+  data: PushChain.utils.helpers.encodeTxData({
+    abi: PUSD_MANAGER_ABI, functionName: 'deposit',
+    args: [USDC_ADDRESS, amount, recipient],
+  }),
+});
+```
+
+> See the push-pusd skill for the full ABI fragments, NAV-quoting flow, and the multicall single-signature variant.
+
+---
+
 ## Quick Reference Table
 
-<!-- capability_ids: [] | mapping_note: Aggregated summary table — see individual sections above for per-capability detail -->
+<!-- capability_ids: [] | mapping_note: Aggregated summary table - see individual sections above for per-capability detail -->
 
 | Task | Primary Method | Route |
 |------|----------------|-------|
@@ -387,3 +424,4 @@ const { accounts: bnbAccounts } = await PushChain.utils.account.resolveControlle
 | Track transaction | `tx.wait()` or `trackTransaction(hash)` | N/A |
 | Check account status | `getAccountStatus()` | N/A |
 | Upgrade UEA | `upgradeAccount()` | N/A |
+| Mint / redeem PUSD or PUSD+ | `PUSDManager.deposit` / `redeem` / `depositToPlus` / `redeemFromPlus` (external skill) | N/A |

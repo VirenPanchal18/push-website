@@ -1,11 +1,53 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.9",
-  "current_sdk_version": "5.1.12",
-  "current_version": "1.0.9",
-  "generated": "2026-04-24T00:00:00.000Z",
+  "version": "1.0.10",
+  "current_sdk_version": "5.1.17",
+  "current_version": "1.0.10",
+  "generated": "2026-05-10T00:00:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-05-10T00:00:00.000Z",
+      "version": "1.0.10",
+      "changes": [
+        "All agent metadata files: bump current_sdk_version 5.1.12 -> 5.1.17 and ui-kit 5.2.3 -> 5.2.10 (live npm versions). Affects llms.txt frontmatter as well.",
+        "Add push-pusd as the 4th skill (external, hosted on pusd.push.org). Wired into llms.txt (Skills bullet + new 'Products on Push Chain' section), agents/README.md (skills table row marked external), agents/skills/index.json (new entry with external/host/agent_layer/repo fields), agents/task-router.md (new 'Mint or Redeem PUSD / PUSD+' section + Quick Reference row), agents/retrieval-map.json (new entry with external=true), agents/source-freshness.json (new dependency entry tracking the external skill).",
+        "skills/index.json: bump schema_version 1.0.0 -> 1.1.0, document new optional fields (external, host, agent_layer, repo) in schema_notes for external skills.",
+        "agents/workflows/contract-initiated-multichain-execution.md: fix gasLimit:0 contradiction. Both Minimal Complete Contract examples now use gasLimit: 2_000_000 (matches the round-trip section's hard requirement). Updated Agent Notes wording.",
+        "agents/skills/push-contracts/SKILL.md: add 6 new rows to Common Mistakes table covering empirical findings (gasLimit floor, destination CEA prefunding, Solana STF + value sizing, Push -> Sepolia outbound TSS gap, 6-arg-only inbound dispatch, refund accumulation). Added a 'Two distinct UG entry points' callout disambiguating sendUniversalTx (4-param, inbound) vs sendUniversalTxFromCEA (round-trip back-leg)."
+      ],
+      "files_affected": [
+        "static/llms.txt",
+        "static/agents/README.md",
+        "static/agents/changelog.json",
+        "static/agents/index.json",
+        "static/agents/capabilities.json",
+        "static/agents/sdk-capabilities.json",
+        "static/agents/supported-chains.json",
+        "static/agents/feature-matrix.json",
+        "static/agents/decision-tree.json",
+        "static/agents/errors.json",
+        "static/agents/retrieval-map.json",
+        "static/agents/mcp-candidates.json",
+        "static/agents/source-freshness.json",
+        "static/agents/recovery-playbook.md",
+        "static/agents/task-router.md",
+        "static/agents/examples/index.json",
+        "static/agents/skills/index.json",
+        "static/agents/skills/push-contracts/SKILL.md",
+        "static/agents/workflows/index.json",
+        "static/agents/workflows/contract-initiated-multichain-execution.md",
+        "static/agents/resources/index.json",
+        "static/agents/resources/push-frontend/package.json",
+        "static/agents/schemas/index.json",
+        "static/agents/constants.json",
+        "static/agents/contract-addresses.json"
+      ],
+      "sdk_version": "5.1.17",
+      "category": "version-bump+integration+docs-fix",
+      "trigger": "Audit cycle 2026-05-10: SDK npm versions had drifted (5.1.12 -> 5.1.17), workflow contradicted itself on gasLimit, push-pusd was a new external product missing from the discovery layer, push-contracts SKILL Common Mistakes table missing empirical findings from Donut Testnet validation",
+      "breaking": false
+    },
     {
       "date": "2026-04-24T00:00:00.000Z",
       "version": "1.0.9",
@@ -42,7 +84,7 @@
         "static/agents/resources/index.json",
         "static/agents/schemas/index.json"
       ],
-      "sdk_version": "5.1.12",
+      "sdk_version": "5.1.17",
       "category": "address-sync",
       "trigger": "Sync contract addresses and constants from MDX docs update: AMM pool redeploys, gateway impl upgrades, Base Sepolia USDC source change, BNB native token rename, pEthBnb→pBnb constant rename",
       "breaking": false
@@ -281,7 +323,7 @@
       "version": "1.0.0",
       "changes": [
         "Initial /agents/ layer generated",
-        "Pinned SDK versions: @pushchain/core@5.1.4, @pushchain/ui-kit@5.2.3",
+        "Pinned SDK versions: @pushchain/core@5.1.4, @pushchain/ui-kit@5.2.10",
         "Corrected Route 1/2 descriptions for native Push Chain accounts",
         "Added Route 3 CEA-identity semantics",
         "Added Core / Extended agent layer tiers",

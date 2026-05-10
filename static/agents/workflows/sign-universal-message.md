@@ -183,8 +183,8 @@ For EVM signatures, the 65-byte output contains:
 
 ## MCP Mapping Candidates
 
-- `sign_message` — Sign arbitrary message bytes
-- `sign_typed_data` — Sign EIP-712 structured data
-- `verify_signature` — Verify signature matches address
-- `create_auth_challenge` — Generate authentication challenge
-- `encode_message_to_bytes` — Convert string to Uint8Array
+- `sign_message` - Sign arbitrary message bytes
+- `sign_typed_data` - Sign EIP-712 structured data
+- `verify_signature` - Verify signature matches address
+- `create_auth_challenge` - Generate authentication challenge
+- `encode_message_to_bytes` - Convert string to Uint8Array
