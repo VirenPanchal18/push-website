@@ -317,16 +317,16 @@ There is no precompile on Push Chain for deriving CEAs. `ICEAFactory` only exist
 
 CEAs make a Push Chain account a first-class citizen on every external chain. One key, one identity, real on-chain authority everywhere.
 
-### 1. True Self-Custody on Every Chain
+#### True Self-Custody on Every Chain
 Assets in a CEA belong to exactly one person: the Push-side account that owns it. No bridge operator, no relayer, no protocol admin can move them. Acting on a CEA requires the original wallet's signature, whether that signer lives on Ethereum, Solana, or any other supported chain. The custody chain runs unbroken from origin wallet to destination-chain action.
 
-### 2. Deterministic Cross-Chain Identity
+#### Deterministic Cross-Chain Identity
 Every Push-side account has a pre-computable, stable address on every external chain. You can whitelist it, fund it, or pre-authorize it on a destination protocol on day zero, before a single cross-chain transaction has happened. When the first one does, the TSS network deploys the CEA contract at exactly the address you computed months earlier.
 
-### 3. Programmable Reach Without Bots
+#### Programmable Reach Without Bots
 Push Chain *contracts*, not just users, get their own CEAs. A single contract on Push can act on Ethereum, BNB, Base, and Arbitrum through a stable on-chain identity per chain. No off-chain bots, no per-chain hot keys, no relayer infrastructure to maintain. Cross-chain orchestration becomes ordinary on-chain logic.
 
-### 4. Native `msg.sender` on Every Destination
+#### Native `msg.sender` on Every Destination
 A CEA looks like an ordinary address on its destination chain. Destination protocols need zero Push-specific awareness; they whitelist or fund the CEA, and Push Chain enforces who can speak for it. Universal execution is invisible at the destination layer.
 
 ## What You Can Build
@@ -585,9 +585,31 @@ In this tutorial, we explored Chain Executor Accounts:
 - Whitelist them before any cross-chain activity has happened
 - Reverse-lookup to credit the right Push-side user for inbound flows
 
-## What's next?
+## What's Next?
 
-- [Outbound from Push Chain](/docs/chain/build/examples/outbound-from-push-chain): a full reference contract that uses CEAs as the destination identity for outbound dispatches.
-- [Inbound to Push Chain](/docs/chain/build/examples/inbound-to-push-chain): the mirror image, an external-chain contract that triggers inbound transactions.
-- [Contract-Initiated Multichain Execution](/docs/chain/build/contract-initiated-multichain-execution): covers UGPC, the execution lifecycle, and the security guarantees CEAs underpin.
-- [How CEA Works](/docs/chain/deep-dives/how-cea-works): a deep dive on the CEA model.
+You can derive a Push contract's CEA on every destination. Now wire one Push contract to drive state on three chains at once. 
+
+The next tutorial fans out a single click on Push Chain into simultaneous `increment()` calls on Ethereum Sepolia, BNB Testnet, and Arbitrum Sepolia, all signed by the orchestrator's deterministic CEA on each.
+
+<div style={{textAlign: 'center'}}>
+
+```mermaid
+flowchart LR
+    A[Push contract] --> B[CEA on Ethereum]
+    A --> C[CEA on BNB]
+    A --> D[CEA on Arbitrum]
+    B --> E[ExternalCounter]
+    C --> F[ExternalCounter]
+    D --> G[ExternalCounter]
+
+    style A fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
+    style C fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
+    style D fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
+```
+
+</div>
+
+<hr />
+
+Check out the next tutorial to learn how to [build universal cross-chain counters](/docs/chain/tutorials/power-features/tutorial-universal-cross-chain-counters/): one Push contract, many destination chains, one transaction.
