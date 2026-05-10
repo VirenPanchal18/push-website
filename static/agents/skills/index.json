@@ -47,6 +47,19 @@
       ],
       "scripts": ["agents/skills/push-contracts/scripts/deploy.sh"],
       "resources": "agents/resources/push-contracts/index.json"
+    },
+    {
+      "id": "push-pusd",
+      "name": "push-pusd",
+      "external": true,
+      "host": "pusd.push.org",
+      "description": "Use when integrating PUSD or PUSD+ on Push Chain — covers minting (deposit USDC/USDT, both Path A external-chain multicall and Path B native Push EOA two-signature flows), redemption routing (preferred asset / basket / emergency proportional drain), PUSD+ NAV quoting via previewMintPlus / previewBurnPlus, three-tier PUSD+ redemption (instant / convert / queue), and cross-chain deposits via prepareTransaction + executeTransactions. Hosted on pusd.push.org and not duplicated in this repo. Triggers on: 'mint PUSD', 'redeem PUSD+', 'quote PUSD+ NAV', 'PUSDManager deposit', 'integrate Push Chain stablecoin'.",
+      "url": "https://pusd.push.org/agents/skill/push-pusd/SKILL.md",
+      "agent_layer": "https://pusd.push.org/llms.txt",
+      "repo": "https://github.com/pushchain/push-chain-pusd",
+      "intent": "Mint and redeem PUSD / PUSD+ across frontend, backend, and on-chain contexts on Push Chain Donut Testnet",
+      "package": "@pushchain/ui-kit (frontend) | @pushchain/core (backend) | Solidity ^0.8.20 (on-chain)",
+      "entry": "PUSDManager.deposit / PUSDManager.depositToPlus"
     }
   ]
 }

@@ -37,8 +37,11 @@ Skills are the authoritative guides for building with Push Chain. Load the one t
 | **push-frontend** | Building a React app with `@pushchain/ui-kit` — wallet connection, hooks, `sendTransaction` from components, Route 1/2/3 from the browser | [skills/push-frontend/SKILL.md](https://push.org/agents/skills/push-frontend/SKILL.md) |
 | **push-backend** | Writing Node.js scripts, bots, or backend services with `@pushchain/core` — ethers/viem/Solana signers, transaction cascades, lifecycle tracking | [skills/push-backend/SKILL.md](https://push.org/agents/skills/push-backend/SKILL.md) |
 | **push-contracts** | Writing Solidity that dispatches cross-chain via UGPC, handles inbound callbacks via `executeUniversalTx`, or resolves UEA/CEA identity on-chain | [skills/push-contracts/SKILL.md](https://push.org/agents/skills/push-contracts/SKILL.md) |
+| **push-pusd** _(external)_ | Integrating PUSD / PUSD+ (par-backed USD stablecoin + NAV-bearing variant) — mint, redeem, NAV quotes, cross-chain deposits. Hosted on `pusd.push.org`. | [pusd.push.org/agents/skill/push-pusd/SKILL.md](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) |
 
 > See [skills/index.json](https://push.org/agents/skills/index.json) for machine-readable skill metadata.
+>
+> **External skills** live on first-party product subdomains and are not duplicated here. Treat them like any other skill: load before generating code that targets that product.
 
 ## Quick Decision Guide
 

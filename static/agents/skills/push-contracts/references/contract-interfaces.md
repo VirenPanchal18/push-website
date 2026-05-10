@@ -174,6 +174,95 @@ function executeUniversalTx(
 ) external payable;
 ```
 
+> Push Chain exposes a separate 2-arg overload `executeUniversalTx(UniversalPayload, bytes)` for **UEA proxy accounts**. For Push-native contracts (the kind you write), TSS always dispatches the 6-arg signature above. Implement only the 6-arg version.
+
+---
+
+## Round-Trip: CEA Self-Call to `sendUniversalTxToUEA`
+
+When the destination CEA's payload should automatically trigger an inbound back to the originating Push contract, encode the outer multicall as a self-call to the CEA's `sendUniversalTxToUEA`. This is the SDK's Route 3 wire format.
+
+```solidity
+// Build the inner UniversalPayload (vType=1 = inbound to Push UEA).
+bytes memory innerMulticallData = abi.encodePacked(
+    bytes4(keccak256("UEA_MULTICALL")),       // = 0x2cc2842d
+    abi.encode(/* Multicall[] for Push-side actions, or empty */)
+);
+bytes memory inboundUniversalPayload = abi.encode(
+    address(0), uint256(0), innerMulticallData,
+    uint256(1e7), uint256(1e10), uint256(0),
+    ueaNonce + 1, uint256(9999999999), uint8(1)  // vType = 1 (inbound)
+);
+
+// Wrap in a CEA self-call.
+bytes memory ceaSelfCallData = abi.encodeWithSelector(
+    bytes4(keccak256("sendUniversalTxToUEA(address,uint256,bytes,address)")),
+    address(0), uint256(0), inboundUniversalPayload, address(this)
+);
+
+// Outer multicall delivered to the destination CEA.
+Multicall[] memory outerCalls = new Multicall[](2);
+outerCalls[0] = Multicall({                          // External-chain action
+    to: targetOnExternalChain, value: 0, data: actionCalldata
+});
+outerCalls[1] = Multicall({                          // Self-call → fires back-leg
+    to: destinationCEAAddr, value: 0, data: ceaSelfCallData
+});
+bytes memory outerMulticallData = abi.encodePacked(
+    bytes4(keccak256("UEA_MULTICALL")),
+    abi.encode(outerCalls)
+);
+
+// Dispatch with gasLimit ≥ 2_000_000 — the back-leg is silently dropped below this.
+UGPC.sendUniversalTxOutbound{value: protocolFeePc}(UniversalOutboundTxRequest({
+    recipient:       abi.encodePacked(destinationCEAAddr),
+    token:           pBNB,                   // PRC20 routing token (selects destination chain)
+    amount:          0,
+    gasLimit:        2_000_000,              // ≥ 2M required for nested gateway calls
+    payload:         outerMulticallData,
+    revertRecipient: address(this)
+}));
+```
+
+`sendUniversalTxToUEA` enforces `msg.sender == address(this)` (CEA self-call). The CEA wraps the inner payload and calls its gateway internally; TSS observes the gateway event and delivers `executeUniversalTx` (6-arg) on the originating Push contract.
+
+---
+
+## Solana Outbound Value Sizing (contract-initiated)
+
+When dispatching to Solana from a Push contract (`token = pSOL`), `msg.value` must cover the on-chain $PC → pSOL Uniswap V3 swap. Compute the right value off-chain and store it on the contract before kickoff:
+
+```ts
+// Mirrors @pushchain/core/src/lib/orchestrator/internals/gas-calculator.js#estimateNativeValueForSwap
+const ugpc = new ethers.Contract(UGPC, ['function UNIVERSAL_CORE() view returns (address)'], provider);
+const universalCoreAddr = await ugpc.UNIVERSAL_CORE();
+
+const universalCore = new ethers.Contract(universalCoreAddr, [
+  'function getOutboundTxGasAndFees(address, uint256) view returns (address, uint256, uint256, uint256)',
+  'function WPC() view returns (address)',
+  'function uniswapV3Factory() view returns (address)',
+  'function defaultFeeTier(address) view returns (uint24)',
+], provider);
+
+const [gasToken, gasFee] = await universalCore.getOutboundTxGasAndFees(pSOL, 2_000_000n);
+const [wpc, factoryAddr, feeTier] = await Promise.all([
+  universalCore.WPC(),
+  universalCore.uniswapV3Factory(),
+  universalCore.defaultFeeTier(gasToken),
+]);
+const factory = new ethers.Contract(factoryAddr, ['function getPool(address, address, uint24) view returns (address)'], provider);
+const pool = new ethers.Contract(await factory.getPool(wpc, gasToken, feeTier), ['function slot0() view returns (uint160, int24, uint16, uint16, uint16, uint8, bool)'], provider);
+const [sqrtPriceX96] = await pool.slot0();
+
+const Q192 = 1n << 192n;
+const priceNum = sqrtPriceX96 * sqrtPriceX96;
+const isGasTokenToken0 = gasToken.toLowerCase() < wpc.toLowerCase();
+const wpcNeeded = isGasTokenToken0 ? (gasFee * priceNum) / Q192 : (gasFee * Q192) / priceNum;
+const valuePc = (wpcNeeded * 2n * 110n) / 100n;  // ×2 swap buffer × 1.1 executor buffer
+```
+
+UGPC refunds surplus; over-sizing is safe. A flat `balance/2` reverts with `STF`. Donut Testnet's PC↔pSOL pool is currently shallow — quote can be high relative to a contract's working balance.
+
 ---
 
 ## Source

@@ -71,6 +71,7 @@ Load these on every agent session regardless of context budget:
   - [push-frontend](https://push.org/agents/skills/push-frontend/SKILL.md)
   - [push-backend](https://push.org/agents/skills/push-backend/SKILL.md)
   - [push-contracts](https://push.org/agents/skills/push-contracts/SKILL.md)
+  - [push-pusd](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) — PUSD / PUSD+ stablecoin integration (mint, redeem, NAV quotes, cross-chain deposits). Hosted at `pusd.push.org`; full agent layer at https://pusd.push.org/llms.txt
 - [Capabilities](https://push.org/agents/capabilities.json): Every SDK capability with inputs, outputs, and method signatures.
 - [Error Catalog](https://push.org/agents/errors.json): All known SDK errors with recovery actions.
 - [Contract Addresses](https://push.org/agents/contract-addresses.json): Authoritative registry of all Push Chain and external-chain contract addresses. Never hallucinate addresses — always source from here.
@@ -175,6 +176,13 @@ console.log('tx hash:', receipt.hash);
 ### Setup
 
 - [Configure Development Environment](https://push.org/agents/workflows/configure-dev-environment.md): Install SDK packages and configure tooling for Push Chain development.
+
+## Products on Push Chain
+
+First-party products that ship their own agent layer. Use these when the user is building **on top of** a product, not the SDK itself.
+
+- **PUSD / PUSD+ (stablecoin)** — Par-backed USD on Push Chain plus a NAV-bearing yield variant. Deployed on Donut Testnet at `0x488d…9D89` (PUSD), `0x7A24…Ed46` (PUSDManager), `0xb55a…49a1` (PUSDPlusVault). Full integration guide for mint/redeem flows (both external-chain wallet and native Push EOA paths), NAV quoting, cross-chain deposits, ABI fragments, and 11 common mistakes:
+  - [llms.txt](https://pusd.push.org/llms.txt) · [push-pusd skill](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) · [Repo](https://github.com/pushchain/push-chain-pusd)
 
 ## Full Context
 
