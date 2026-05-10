@@ -1071,7 +1071,7 @@
                 },
                 "pusd": {
                   "title": "PUSD",
-                  "subtitle": "PUSD is the native stablecoin of Push Chain.",
+                  "subtitle": "1:1 pegged stablecoin combining USD liquidity from all chains.",
                   "ctatitle": "Learn More"
                 }
               }
