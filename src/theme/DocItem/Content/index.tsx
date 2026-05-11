@@ -1,6 +1,5 @@
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import { ThemeClassNames } from '@docusaurus/theme-common';
-import { useInjectInviteCode } from '@site/src/components/InviteCodeWidget';
 import type { Props } from '@theme/DocItem/Content';
 import Heading from '@theme/Heading';
 import MDXContent from '@theme/MDXContent';
@@ -20,7 +19,6 @@ function useSyntheticTitle(): string | null {
 export default function DocItemContent({ children }: Props): ReactNode {
   const syntheticTitle = useSyntheticTitle();
   const contentRef = useRef<HTMLDivElement>(null);
-  useInjectInviteCode(contentRef);
 
   return (
     <div

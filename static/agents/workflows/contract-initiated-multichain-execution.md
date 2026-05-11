@@ -95,7 +95,9 @@ function dispatchOutbound(
 }
 ```
 
-### 3. Implement Inbound Handler (optional - for responses)
+### 3. Implement Inbound Handler (optional - for round-trip back-legs only)
+
+`executeUniversalTx` is the back-leg handler invoked by `UNIVERSAL_EXECUTOR_MODULE` when your own contract's CEA on an external chain triggers an inbound back to Push. **You do not need this handler for user-initiated inbounds** (external user calling Push via their UEA): the UEA's internal nonce handles replay and your target can be a plain Solidity function. The guards below apply only to the back-leg path.
 
 ```solidity
 address constant UNIVERSAL_EXECUTOR_MODULE = 0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7;
@@ -190,7 +192,7 @@ User/App calls dispatchOutbound() on Push Chain contract
 A round-trip is a single outbound whose destination-chain payload **automatically fires** an inbound back to the originating Push contract. The destination CEA's outer multicall has TWO steps:
 
 1. The external-chain action you actually care about (e.g. `target.something()`).
-2. A nested gateway call - either `externalGateway.sendUniversalTxFromCEA(req)` (Wire format A, gateway-direct) or `CEA.sendUniversalTxToUEA(token, amount, encodedUniversalPayload, revertRecipient)` (Wire format B, CEA self-call). Either form tells TSS to fire the inbound.
+2. A **self-call** to `CEA.sendUniversalTxToUEA(token, amount, encodedUniversalPayload, revertRecipient)` on the destination CEA itself. The CEA enforces `msg.sender == address(this)`, wraps the inner payload, and routes it through its gateway internally. This is what tells TSS to fire the inbound.
 
 **Required configuration** (verified on Donut Testnet - wrong values cause TSS to silently drop the back-leg):
 
@@ -198,8 +200,7 @@ A round-trip is a single outbound whose destination-chain payload **automaticall
 |---|---|---|
 | `gasLimit` on UGPC outbound | **`≥ 2_000_000`** | UGPC's auto-floor for `gasLimit = 0` is 500k. Below ~1.5M, the destination tx runs out of gas during the nested gateway call and TSS does not retry. Push tx still succeeds and UGPC emits the event, but no destination tx fires. |
 | Push contract balance | covers `protocolFee + inbound execution fee` | Inbound on Push pays gas in $PC, charged to the dispatching contract. |
-| Destination CEA balance | enough native (e.g., BNB testnet) for the back-leg's gateway call | UGPC's gas budget covers the CEA's tx gas but **does not** end up as `address(this).balance` inside the CEA - so a `gateway.call{value: V}(...)` step needs `V` worth of native already on the CEA. Faucet to `deriveExecutorAccount(contract, destChain).address` before the first kickoff. |
-| Wire format | Wire format A or B (above) | Plain multicalls without a nested gateway call do NOT fire a back-leg, regardless of gasLimit. |
+| Wire format | Outer multicall self-calls `sendUniversalTxToUEA` on the destination CEA | Plain multicalls without that self-call step do NOT fire a back-leg, regardless of gasLimit. |
 
 The inbound's `msg.sender` is **not** your Push contract - it's `UEA(externalCEA, PUSH)`, the UEA derived from the destination CEA. If you want to authenticate your own callbacks beyond the `UNIVERSAL_EXECUTOR_MODULE` check, compute the expected `UEA(deriveExecutorAccount(self, destChain), PUSH)` off-chain and stamp it on the contract via a setter.
 
@@ -244,7 +245,7 @@ Mirrors `@pushchain/core/src/lib/orchestrator/internals/gas-calculator.js#estima
 | `revert: Not executor module` | Inbound caller is not `UNIVERSAL_EXECUTOR_MODULE` | Verify `UNIVERSAL_EXECUTOR_MODULE` address is `0x14191Ea54B4c176fCf86f51b0FAc7CB1E71Df7d7` |
 | `revert: Replay` | `txId` already processed | Idempotency guard is working; this tx was already handled |
 | `insufficient msg.value` | Protocol fee not included | Pass enough ETH/PC as `msg.value` to cover UGPC fee |
-| Outbound executed but no inbound | (a) No inbound handler implemented, OR (b) on a round-trip, `gasLimit < 2_000_000`, OR (c) destination CEA underfunded for nested gateway call | (a) Implement `executeUniversalTx()` 6-arg. (b) Set `gasLimit: 2_000_000` on UGPC outbound. (c) Faucet native to the CEA address. |
+| Outbound executed but no inbound | (a) No inbound handler implemented, OR (b) on a round-trip, `gasLimit < 2_000_000`, OR (c) wire format missing the CEA self-call | (a) Implement `executeUniversalTx()` 6-arg. (b) Set `gasLimit: 2_000_000` on UGPC outbound. (c) Include a step in the destination CEA's outer multicall that self-calls `sendUniversalTxToUEA` on the CEA itself. |
 | Solana outbound reverts with `STF` | `msg.value` to UGPC under-sizes the $PC → pSOL Uniswap V3 swap | Use the off-chain sizing snippet above; never use a flat `balance/2`. |
 | Push tx succeeds but no Sepolia activity | Push → Sepolia outbound is currently NOT relayed by TSS on Donut Testnet | Use BNB Testnet as the destination for now. Push → BNB outbound and Sepolia → Push inbound work. |
 | Contract CEA has no gas | First call deploys CEA; needs funding | Ensure contract has $PC for gas; CEA auto-funds on first use |
