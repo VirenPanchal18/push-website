@@ -338,6 +338,19 @@
       "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
     },
     {
+      "id": "execute-transactions-fund-and-call",
+      "name": "Fund BNB CEA then Increment Counter on BNB Testnet",
+      "file": "execute-transactions-fund-and-call.md",
+      "description": "Code example: Fund BNB CEA then Increment Counter on BNB Testnet — https://push.org/docs/chain/build/send-multichain-transactions/",
+      "sdk_methods_used": [
+        "PushChain.utils.signer.toUniversal",
+        "PushChain.initialize"
+      ],
+      "chains_involved": [],
+      "prerequisite_examples": [],
+      "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
+    },
+    {
       "id": "execute-transactions",
       "name": "Cross-Chain AMM Swap: ETH → pSOL via Push Chain AMM",
       "file": "execute-transactions.md",
@@ -346,21 +359,9 @@
         "PushChain.utils.signer.toUniversal",
         "PushChain.initialize",
         "PushChain.utils.helpers.parseUnits",
+        "PushChain.utils.helpers.encodeTxData",
         "PushChain.utils.account.toUniversal",
         "PushChain.utils.account.deriveExecutorAccount"
-      ],
-      "chains_involved": [],
-      "prerequisite_examples": [],
-      "source_url": "https://push.org/docs/chain/build/send-multichain-transactions/"
-    },
-    {
-      "id": "execute-transactions-fund-and-call",
-      "name": "Fund BNB CEA then Increment Counter on BNB Testnet",
-      "file": "execute-transactions-fund-and-call.md",
-      "description": "Code example: Fund BNB CEA then Increment Counter on BNB Testnet — https://push.org/docs/chain/build/send-multichain-transactions/",
-      "sdk_methods_used": [
-        "PushChain.utils.signer.toUniversal",
-        "PushChain.initialize"
       ],
       "chains_involved": [],
       "prerequisite_examples": [],
