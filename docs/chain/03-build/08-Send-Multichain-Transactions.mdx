@@ -500,7 +500,11 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
 
 ### Cross-Chain AMM Swap: ETH → pSOL via Push Chain AMM
 
-Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. Hop 0 bridges 0.001 ETH from the Sepolia EOA into pETH on the UEA on Push Chain, with `value: 5 PC` seeding the UEA's gas via SDK fee-locking. Hops 1 and 2 approve the SwapRouter for pETH and WPC. Hops 3 and 4 swap pETH → WPC → pSOL via two `exactInputSingle` calls on the Push Chain AMM (the AMM has no direct pETH/pSOL pool, so WPC is the intermediate). Hop 5 bridges the pSOL out to the user's Solana Devnet CEA.
+Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. 
+- Hop 0 bridges 0.065 ETH from the Sepolia EOA into 0.005 gas and 0.001 pETH on the UEA on Push Chain, with `value: 25 PC` seeding the UEA's gas via SDK fee-locking. 
+- Hops 1 and 2 approve the SwapRouter for pETH and WPC. 
+- Hops 3 and 4 swap pETH → WPC → pSOL via two `exactInputSingle` calls on the Push Chain AMM (the AMM has no direct pETH/pSOL pool, so WPC is the intermediate). 
+- Hop 5 bridges the pSOL out to the user's Solana Devnet CEA.
 
 <Details summary="Live Playground: ETH → pETH → WPC → pSOL → Solana" className="alert alert--live-play">
 
@@ -513,7 +517,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. Hop 0 
 
     // 6-hop cross-chain cascade from a fresh Sepolia UOA:
     //   Hop 0 (UEA_TO_PUSH)  - Bridge 0.001 ETH from Sepolia EOA → pETH on UEA;
-    //                          value=10 PC seeds the UEA with PC for the next four hops.
+    //                          value=25 PC seeds the UEA with PC for the next five hops.
     //   Hop 1 (UOA_TO_PUSH)  - Approve SwapRouter to spend pETH
     //   Hop 2 (UOA_TO_PUSH)  - Approve SwapRouter to spend WPC
     //   Hop 3 (UOA_TO_PUSH)  - Swap pETH → WPC on Push Chain AMM (Uniswap V3 fork)
@@ -599,7 +603,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. Hop 0 
       });
       console.log('📍 Solana CEA (Hop 5 destination):', solanaCEA.address);
 
-      await rl.question(':::prompt:::Fund this account, then press Enter:\\\\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.0065 ETH).\\\\n     0.001 ETH bridges as pETH (Hop 0).\\\\n     About 0.0055 ETH fee-locks to seat 10 PC on the UEA (Hop 0).\\\\n     The remainder covers Sepolia signing gas.\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
+      await rl.question(':::prompt:::Fund this account, then press Enter:\\\\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.065 ETH).\\\\n     0.001 ETH bridges as pETH (Hop 0).\\\\n     ~0.06 ETH fee-locks to seat 25 PC on the UEA (Hop 0, covering gas for hops 1-5).\\\\n     The remainder covers Sepolia signing gas.\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
 
       // Quote both swap legs so we can size Hop 4 amountIn and Hop 5 bridge amount.
       // QuoterV2 is non-view, so call via staticCall to read return values.
@@ -620,18 +624,19 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. Hop 0 
 
       // ── Hop 0 (CEA_TO_PUSH) ─ Bridge ETH from Sepolia EOA → pETH on UEA ───
       // funds.amount → 0.001 ETH bridges as pETH for the swap.
-      // value        → 10 PC at the destination; SDK fee-locks ETH on Sepolia
-      //                to mint this PC into the UEA, covering gas for hops 1-4.
+      // value        → 25 PC at the destination; SDK fee-locks ETH on Sepolia
+      //                to mint this PC into the UEA, covering gas for hops 1-5
+      //                (2 approves + 2 swaps + 1 outbound bridge to Solana).
       const hop0 = await client.universal.prepareTransaction({
         from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
         to: client.universal.account,
-        value: PushChain.utils.helpers.parseUnits('10', 18),
+        value: PushChain.utils.helpers.parseUnits('25', 18),
         funds: {
           amount: AMOUNT_IN,
           token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH,
         },
       });
-      console.log('✅ hop0 prepared (bridge ETH→pETH + 5 PC) - route:', hop0.route);
+      console.log('✅ hop0 prepared (bridge ETH→pETH + 25 PC) - route:', hop0.route);
 
       // ── Hop 1 (UOA_TO_PUSH) ─ Approve SwapRouter for pETH ────────────────
       const hop1 = await client.universal.prepareTransaction({
@@ -733,9 +738,8 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. Hop 0 
 - **Single signature**: `executeTransactions` submits one transaction to Push Chain. You sign once, and the SDK coordinates the full multichain execution automatically.
 - **No atomicity guarantee**: If a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
 - **Gas per hop**: Each hop has its own estimated gas. Ensure gas is properly funded.
-- **Tracking**: Two progress channels work side-by-side and can both be wired at once:
+- **Tracking**: Progress channel work side-by-side and can be wired too keep track of the execution flow:
   - `executeTransactions(txs, { progressHook })` streams every `ProgressEvent` (rich marker ids like `SEND-TX-101`, severity, structured payload) across pre-flight, broadcast, and cascade phases. Best for UI step indicators and granular telemetry.
-  - `cascade.wait({ progressHook })` streams `CascadeProgressEvent` per hop (`hopIndex`, `route`, `chain`, `status`, `txHash`, `elapsed`). Best for "X of Y hops confirmed" UIs.
 
 
 ## Next Steps
