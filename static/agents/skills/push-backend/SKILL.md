@@ -835,9 +835,9 @@ Reverse-maps any executor account (UEA or CEA) back to its origin controlling wa
 
 ---
 
-### `convertExecutorToOriginAccount(executorAddress, options?)` → `Promise<UniversalAccount>`
+### `resolveControllerAccount(executorAddress, options?)` → `Promise<UniversalAccount>`
 
-Reverse-maps any executor address (UEA or CEA) back to its origin `UniversalAccount`. Complement of `convertOriginToExecutor`.
+Reverse-maps any executor address (UEA or CEA) back to its origin `UniversalAccount`. Complement of `deriveExecutorAccount`. Replaces the v5 `convertExecutorToOriginAccount`, which was removed in SDK v6.
 
 | Argument          | Type                 | Description                                                            |
 | ----------------- | -------------------- | ---------------------------------------------------------------------- |
