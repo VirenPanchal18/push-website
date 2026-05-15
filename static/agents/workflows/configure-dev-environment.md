@@ -130,7 +130,7 @@ console.log(PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA);
 2. In the **Deploy & Run Transactions** panel, select **Injected Provider** or **Custom RPC**
 3. Set Custom RPC URL to `https://evm.donut.rpc.push.org/`
 4. Set Chain ID to `42101`
-5. Deploy contracts normally — Push Chain is EVM-compatible
+5. Deploy contracts normally - Push Chain is EVM-compatible
 
 ### TypeScript Configuration (tsconfig.json)
 
@@ -181,8 +181,8 @@ console.log('Supported chains count:', chains.length);
 
 ## MCP Mapping Candidates
 
-- `install_core_package` — Install `@pushchain/core` via package manager
-- `install_ui_kit_package` — Install `@pushchain/ui-kit` via package manager
-- `configure_hardhat` — Add Push Chain network to hardhat config
-- `configure_foundry` — Add RPC endpoints and remappings to foundry.toml
-- `configure_remix` — Set up Remix with Push Chain custom RPC
+- `install_core_package` - Install `@pushchain/core` via package manager
+- `install_ui_kit_package` - Install `@pushchain/ui-kit` via package manager
+- `configure_hardhat` - Add Push Chain network to hardhat config
+- `configure_foundry` - Add RPC endpoints and remappings to foundry.toml
+- `configure_remix` - Set up Remix with Push Chain custom RPC

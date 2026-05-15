@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "version": "1.2.0",
-  "current_sdk_version": "5.1.12",
-  "generated": "2026-04-24T00:00:00.000Z",
+  "current_sdk_version": "6.0.0",
+  "generated": "2026-05-15T00:00:00.000Z",
   "description": "All PushChain.CONSTANTS.* values as a structured reference. Source: https://push.org/docs/chain/build/constants/",
   "PUSH_NETWORK": {
     "TESTNET": "TESTNET",
@@ -52,7 +52,8 @@
       },
       "BNB_TESTNET": {
         "BNB": "Native BNB",
-        "USDT": "Tether USD"
+        "USDT": "Tether USD",
+        "USDC": "USD Coin"
       },
       "SOLANA_DEVNET": {
         "SOL": "Native SOL",
@@ -63,7 +64,7 @@
         "pEth": "Push-wrapped ETH from Ethereum",
         "pEthArb": "Push-wrapped ETH from Arbitrum",
         "pEthBase": "Push-wrapped ETH from Base",
-        "pBnb": "Push-wrapped ETH from BNB Chain",
+        "pBnb": "Push-wrapped BNB from BNB Chain",
         "pSol": "Push-wrapped SOL from Solana",
         "USDT.eth": "Push-wrapped USDT from Ethereum",
         "USDT.arb": "Push-wrapped USDT from Arbitrum",
@@ -84,7 +85,7 @@
       "ETHEREUM_SEPOLIA": ["ETH", "USDT", "USDC", "WETH", "stETH"],
       "ARBITRUM_SEPOLIA": ["ETH", "USDT", "USDC"],
       "BASE_SEPOLIA": ["ETH", "USDT", "USDC"],
-      "BNB_TESTNET": ["BNB", "USDT"],
+      "BNB_TESTNET": ["BNB", "USDT", "USDC"],
       "SOLANA_DEVNET": ["SOL", "USDT", "USDC"]
     }
   },

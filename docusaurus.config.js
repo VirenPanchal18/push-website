@@ -144,9 +144,12 @@ const config = {
     [
       'classic',
       {
-        gtag: {
-          trackingID: 'G-N9ZHXNRLYL',
-        },
+        gtag:
+          process.env.NODE_ENV === 'production'
+            ? {
+                trackingID: 'G-N9ZHXNRLYL',
+              }
+            : false,
         docs: {
           path: 'docs',
           routeBasePath: 'docs',

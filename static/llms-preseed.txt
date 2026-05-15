@@ -23,9 +23,13 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 
 - [Recommended Practices](https://push.org/docs/chain/build/recommended-practices/)
 - [Custom Universal Signer](https://push.org/docs/chain/build/advanced/custom-universal-signer/)
+- [Inbound to Push Chain](https://push.org/docs/chain/build/contract-initiated-examples/inbound-to-push-chain/)
 - [Upgrade Universal Account](https://push.org/docs/chain/build/advanced/upgrade-universal-account/)
 - [Create Universal Signer](https://push.org/docs/chain/build/create-universal-signer/)
+- [Outbound from Push Chain](https://push.org/docs/chain/build/contract-initiated-examples/outbound-from-push-chain/)
+- [Round-Trip with Auto Back-Leg](https://push.org/docs/chain/build/contract-initiated-examples/round-trip-auto-back-leg/)
 - [Initialize Push Chain Client](https://push.org/docs/chain/build/initialize-push-chain-client/)
+- [Advanced Patterns](https://push.org/docs/chain/build/contract-initiated-examples/advanced-patterns/)
 - [Initialize EVM Client](https://push.org/docs/chain/build/initialize-evm-client/)
 - [Understanding Universal Transactions](https://push.org/docs/chain/build/understanding-universal-transactions/)
 - [Send Universal Transaction](https://push.org/docs/chain/build/send-universal-transaction/)
@@ -39,6 +43,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Contract Helpers](https://push.org/docs/chain/build/contract-helpers/)
 - [Constants Reference](https://push.org/docs/chain/build/constants/)
 - [Advanced](https://push.org/docs/chain/build/advanced/)
+- [Contract-Initiated Examples](https://push.org/docs/chain/build/contract-initiated-examples/)
 
 ## Setup
 
@@ -61,6 +66,8 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Build a Universal Counter App](https://push.org/docs/chain/tutorials/basics/tutorial-universal-counter/)
 - [Derive Universal Executor Accounts (UEAs)](https://push.org/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/)
 - [Mint Universal ERC-20 Tokens](https://push.org/docs/chain/tutorials/basics/tutorial-mint-erc-20-tokens/)
+- [Derive Chain Executor Accounts (CEAs)](https://push.org/docs/chain/tutorials/power-features/tutorial-derive-chain-executor-account/)
+- [Build Universal Cross-Chain Counters](https://push.org/docs/chain/tutorials/power-features/tutorial-universal-cross-chain-counters/)
 - [Setup Scaffold-ETH for Push](https://push.org/docs/chain/tutorials/integration-and-tooling/tutorial-scaffoldeth2/)
 - [Basics](https://push.org/docs/chain/tutorials/basics/)
 - [Power Features](https://push.org/docs/chain/tutorials/power-features/)
@@ -87,6 +94,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 ## Deep Dives
 
 - [How Universal Executor Account (UEA) Works](https://push.org/docs/chain/deep-dives/how-uea-works/)
+- [How Chain Executor Account (CEA) Works](https://push.org/docs/chain/deep-dives/how-cea-works/)
 
 ## Node & System Tools
 
@@ -94,8 +102,9 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Running Localnet](https://push.org/docs/chain/node-and-system-tools/localnet/)
 - [JSON-RPC Functions](https://push.org/docs/chain/node-and-system-tools/json-rpc-functions/)
 
-## Latest Blogs - Showing 59 latest blogs
+## Latest Blogs - Showing 60 latest blogs
 
+- [Introducing Chain Executor Accounts (CEAs)](https://push.org/blog/introducing-chain-executor-account/): This is one of our biggest security upgrades to date. Must read if you're a cross-chain user or a dev.
 - [WTF Happened to Chain Abstraction?](https://push.org/blog/wtf-happened-to-chain-abstraction/): In Web3, the narrative always ships before the product. The product ships after the community leaves.
 - [Enable social login for your app in 4 steps](https://push.org/blog/enable-social-logins-for-your-app/): “Most apps lose on users before they’ve ever interacted with the product."
 - [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/): “Early Access for the FINAL season of Push Points Program before mainnet is live!"

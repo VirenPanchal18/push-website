@@ -191,6 +191,20 @@ export const ToolingItems = [
     content:
       'Explore Push Chain transactions, blocks, and accounts in real time.',
   },
+  {
+    title: 'Bridge',
+    href: 'https://bridge.push.org/',
+    target: '_blank',
+    content:
+      'Move tokens between Push Chain and supported external chains in one click.',
+  },
+  {
+    title: 'PUSD',
+    href: 'https://pusd.push.org/docs',
+    target: '_blank',
+    content:
+      "Push Chain's cross-chain par-backed stablecoin. Mint, redeem, and integrate from any chain.",
+  },
 ];
 
 export const TutorialDocumentationItems = [
@@ -204,7 +218,43 @@ export const TutorialDocumentationItems = [
     title: 'Universal Counter App',
     href: '/docs/chain/tutorials/basics/tutorial-universal-counter/',
     content:
-      'GM vs GM is a simple example to show how to create a Universal App on Push...',
+      'GM vs GM is a simple example to show how to create a Universal App on Push.',
+  },
+  {
+    title: 'Mint Universal ERC-20',
+    href: '/docs/chain/tutorials/basics/tutorial-mint-erc-20-tokens/',
+    content:
+      'Deploy an ERC-20 that any user on any chain can mint with their existing wallet.',
+  },
+  {
+    title: 'Batch Transactions',
+    href: '/docs/chain/tutorials/power-features/tutorial-batch-transactions/',
+    content:
+      'Bundle multiple contract calls into a single atomic universal transaction.',
+  },
+  {
+    title: 'Derive Universal Executor Account',
+    href: '/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account/',
+    content:
+      "Compute any wallet's deterministic UEA on Push Chain, off-chain via the SDK or on-chain via UEAFactory.",
+  },
+  {
+    title: 'Derive Chain Executor Account',
+    href: '/docs/chain/tutorials/power-features/tutorial-derive-chain-executor-account/',
+    content:
+      "Compute a Push account's deterministic CEA on every external chain, ready to authorise on day zero.",
+  },
+  {
+    title: 'Universal Cross-Chain Counters',
+    href: '/docs/chain/tutorials/power-features/tutorial-universal-cross-chain-counters/',
+    content:
+      'One Push contract orchestrates increments on Ethereum, BNB, and Arbitrum in a single transaction.',
+  },
+  {
+    title: 'Universal Airdrop',
+    href: '/docs/chain/tutorials/token-systems/tutorial-universal-airdrop/',
+    content:
+      'Distribute tokens to recipients on every supported chain from a single Push Chain contract.',
   },
 ];
 

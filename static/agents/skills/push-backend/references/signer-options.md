@@ -1,15 +1,15 @@
-# Signer Options Reference — @pushchain/core
+# Signer Options Reference - @pushchain/core
 
 > Deep context for `push-backend` skill. Load this file when you need all signer creation methods or a custom signing function.
 >
 > See also: `references/initialize-client.md` for `PushChain.initialize`, read-only mode, reinitialize, and account management.
 > See also: `references/send-universal-transaction.md` for all `sendTransaction` args, receipt fields, and routing.
 
-**Key rule: the RPC URL determines the origin chain.** The same `toUniversal()` call works for Ethereum Sepolia, BNB Testnet, Push Chain, or any EVM chain — just point the provider at the right RPC. No chain parameter needed for EVM signers.
+**Key rule: the RPC URL determines the origin chain.** The same `toUniversal()` call works for Ethereum Sepolia, BNB Testnet, Push Chain, or any EVM chain - just point the provider at the right RPC. No chain parameter needed for EVM signers.
 
 ---
 
-## Primary Method — `toUniversal`
+## Primary Method - `toUniversal`
 
 **`PushChain.utils.signer.toUniversal(signer)` → `Promise<UniversalSigner>`**
 
@@ -97,10 +97,10 @@ Use when you have a custom signing function (hardware wallet, KMS, MPC, etc.). C
 
 | Argument | Type | Required | Description |
 |---|---|---|---|
-| `account` | `UniversalAccount` | ✓ | `{ address, chain }` — chain must be `PushChain.CONSTANTS.CHAIN.*` |
+| `account` | `UniversalAccount` | ✓ | `{ address, chain }` - chain must be `PushChain.CONSTANTS.CHAIN.*` |
 | `options.signAndSendTransaction` | `(unsignedTx: Uint8Array) => Promise<Uint8Array>` | ✓ | Signs and broadcasts the transaction; returns the tx hash as `Uint8Array` |
 | `options.signMessage` | `(data: Uint8Array) => Promise<Uint8Array>` | ✓ | Signs raw message data; returns signature as `Uint8Array` |
-| `options.signTypedData` | `(params) => Promise<Uint8Array>` | — | Signs EIP-712 typed data; returns signature as `Uint8Array` |
+| `options.signTypedData` | `(params) => Promise<Uint8Array>` | - | Signs EIP-712 typed data; returns signature as `Uint8Array` |
 
 **Returns `UniversalSignerSkeleton`:**
 
@@ -150,8 +150,8 @@ Every signer follows the same two-step flow:
 
 | Step | EVM (ethers/viem) | Solana | Custom |
 |---|---|---|---|
-| 1 — Create native signer | `new ethers.Wallet(key, provider)` | `Keypair.fromSecretKey(...)` | implement signing fns |
-| 2 — Create Universal Signer | `toUniversal(wallet/walletClient)` | `toUniversalFromKeypair(keypair, { chain, library })` | `construct(account, signingMethods)` then `toUniversal(skeleton)` |
+| 1 - Create native signer | `new ethers.Wallet(key, provider)` | `Keypair.fromSecretKey(...)` | implement signing fns |
+| 2 - Create Universal Signer | `toUniversal(wallet/walletClient)` | `toUniversalFromKeypair(keypair, { chain, library })` | `construct(account, signingMethods)` then `toUniversal(skeleton)` |
 
 **Chain is determined by:**
 - EVM: provider/transport RPC URL

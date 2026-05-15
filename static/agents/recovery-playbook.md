@@ -1,8 +1,8 @@
 ---
 schema_version: "1.0.0"
 version: "1.1.0"
-current_sdk_version: "5.1.12"
-generated: "2026-04-20T00:00:00.000Z"
+current_sdk_version: "6.0.0"
+generated: "2026-05-15T00:00:00.000Z"
 ---
 
 # Push Chain Error Recovery Playbook
@@ -357,7 +357,7 @@ CEA operation failed?
 
 ## 6. Error-Specific Recovery Reference
 
-> The entries below are dedicated recovery procedures for errors not fully covered in Sections 1–5. Each entry maps to an `id` in [errors.json](https://push.org/agents/errors.json). Entries marked **⚠ inferred** have detection signals derived from observed SDK behavior rather than official documentation — the exact error string may vary across SDK versions; match defensively with `includes()` rather than strict equality.
+> The entries below are dedicated recovery procedures for errors not fully covered in Sections 1–5. Each entry maps to an `id` in [errors.json](https://push.org/agents/errors.json). Entries marked **⚠ inferred** have detection signals derived from observed SDK behavior rather than official documentation - the exact error string may vary across SDK versions; match defensively with `includes()` rather than strict equality.
 
 ---
 
@@ -398,7 +398,7 @@ async function validateOriginChain(signerAccount: { chain: string }) {
 }
 ```
 
-**Escalation**: If the user's required chain is not in the supported list, escalate as a feature request with the chain ID and use case. Do not retry autonomously — no amount of retrying enables an unsupported chain.
+**Escalation**: If the user's required chain is not in the supported list, escalate as a feature request with the chain ID and use case. Do not retry autonomously - no amount of retrying enables an unsupported chain.
 
 *References: [supported-chains.json](https://push.org/agents/supported-chains.json) · capability `send_universal_transaction`*
 
@@ -406,7 +406,7 @@ async function validateOriginChain(signerAccount: { chain: string }) {
 
 ### signature_mismatch ⚠ inferred
 
-The custom signer's output format does not match what the SDK expects. EVM signers must return a 65-byte `Uint8Array` (r + s + v); Solana signers must return a 64-byte `Uint8Array`. Detection signal is inferred — the error string is not stable across SDK versions; match with `includes()`.
+The custom signer's output format does not match what the SDK expects. EVM signers must return a 65-byte `Uint8Array` (r + s + v); Solana signers must return a 64-byte `Uint8Array`. Detection signal is inferred - the error string is not stable across SDK versions; match with `includes()`.
 
 **Detection**
 ```typescript
@@ -420,7 +420,7 @@ const isSignatureMismatch = (e: Error) =>
 
 1. Verify the custom signer's `signMessage` and `signTypedData` functions return `Uint8Array`, not a hex string.
 2. For EVM: assert `sig.length === 65`. For Solana: assert `sig.length === 64`.
-3. Prefer `PushChain.utils.signer.toUniversal(evmSigner)` over a manual custom signer — the wrapper handles encoding automatically.
+3. Prefer `PushChain.utils.signer.toUniversal(evmSigner)` over a manual custom signer - the wrapper handles encoding automatically.
 4. Read back the origin account via `pushChainClient.universal.origin` and confirm the chain matches the signer's reported chain.
 
 ```typescript
@@ -445,7 +445,7 @@ function assertSignatureShape(sig: Uint8Array, chainNamespace: 'eip155' | 'solan
 
 ### invalid_tx_hash ⚠ inferred
 
-A malformed hash was passed to `trackTransaction()`. This is a pre-flight validation failure — it throws immediately before any network call. The correct fix is input sanitization, not a retry.
+A malformed hash was passed to `trackTransaction()`. This is a pre-flight validation failure - it throws immediately before any network call. The correct fix is input sanitization, not a retry.
 
 **Detection**
 ```typescript
@@ -456,10 +456,10 @@ const isValidEvmHash = (h: string) => /^0x[a-fA-F0-9]{64}$/.test(h); // 66 chars
 **Recovery**
 
 1. Assert the hash is exactly 66 characters for EVM (`0x` + 64 hex digits).
-2. Assert the `0x` prefix is present — do not auto-add it; a hash without the prefix was likely truncated or mangled.
+2. Assert the `0x` prefix is present - do not auto-add it; a hash without the prefix was likely truncated or mangled.
 3. Use the hash exactly as returned from the `sendTransaction()` response's `.hash` field.
 4. Do not modify, trim, or slice the hash string after receipt.
-5. If the hash came from an external source (user input, database), surface a validation error to the user — this is not machine-recoverable.
+5. If the hash came from an external source (user input, database), surface a validation error to the user - this is not machine-recoverable.
 
 ```typescript
 import { PushChain } from '@pushchain/core';
@@ -501,7 +501,7 @@ const isTimeout = (e: Error) =>
 
 1. Retry tracking with `advanced.timeout` doubled (e.g., 60 000 ms → 120 000 ms) and a fresh `advanced.rpcUrls` set to the default Push Chain RPC.
 2. On the first retry, set `waitForCompletion: false` to get a non-blocking status snapshot instead of waiting for finality.
-3. If the snapshot shows the tx exists on-chain, return the explorer URL via `pushChainClient.explorer.getTransactionUrl(txHash)` — the tx succeeded; only the tracking timed out.
+3. If the snapshot shows the tx exists on-chain, return the explorer URL via `pushChainClient.explorer.getTransactionUrl(txHash)` - the tx succeeded; only the tracking timed out.
 4. If the tx is not found after 3 retry attempts, treat it as dropped and offer a safe retry of the original transaction.
 
 ```typescript
@@ -537,7 +537,7 @@ async function trackWithExtendedTimeout(
 
 ### uea_not_deployed
 
-First-time user: the Universal Executor Account has not been deployed on Push Chain yet. **This is not a failure** — UEA deployment is lazy and happens automatically on the first write transaction. The SDK handles it transparently via progress events.
+First-time user: the Universal Executor Account has not been deployed on Push Chain yet. **This is not a failure** - UEA deployment is lazy and happens automatically on the first write transaction. The SDK handles it transparently via progress events.
 
 **Detection**
 ```typescript
@@ -549,7 +549,7 @@ const needsDeploy = !status.uea.deployed; // false on first use
 
 1. Call `pushChainClient.getAccountStatus()` as a pre-flight check.
 2. If `status.uea.deployed === false`, inform the user that their first transaction will take slightly longer (UEA is being deployed).
-3. Proceed with `sendTransaction()` as normal — the SDK deploys the UEA automatically within the same transaction flow.
+3. Proceed with `sendTransaction()` as normal - the SDK deploys the UEA automatically within the same transaction flow.
 4. Ensure the user has sufficient origin chain native token balance to cover both UEA deployment gas and the transaction gas.
 
 ```typescript
@@ -564,7 +564,7 @@ async function sendWithFirstUseWarning(
   if (!status.uea.deployed) {
     onFirstUse?.(); // e.g., show "Setting up your account…" UI
   }
-  // No other action needed — SDK deploys UEA automatically
+  // No other action needed - SDK deploys UEA automatically
   return client.universal.sendTransaction(tx);
 }
 ```
@@ -577,7 +577,7 @@ async function sendWithFirstUseWarning(
 
 ### chain_not_supported_for_cea ⚠ inferred
 
-A Route 2 or Route 3 transaction was dispatched to a chain that does not have a deployed CEA system. This is a pre-flight validation failure — catch it before `sendTransaction()` is called.
+A Route 2 or Route 3 transaction was dispatched to a chain that does not have a deployed CEA system. This is a pre-flight validation failure - catch it before `sendTransaction()` is called.
 
 **Detection**
 ```typescript
@@ -590,9 +590,9 @@ const isCeaError = (e: Error) =>
 **Recovery**
 
 1. Before constructing a Route 2/3 transaction (`tx.to.chain` or `tx.from.chain` set), fetch `supported-chains.json` and verify the target chain has `cea_supported: true`.
-2. Use `PushChain.utils.chains.getSupportedChains(PUSH_NETWORK.TESTNET)` as a runtime check — only chains in that list have a functioning CEA relay.
+2. Use `PushChain.utils.chains.getSupportedChains(PUSH_NETWORK.TESTNET)` as a runtime check - only chains in that list have a functioning CEA relay.
 3. If the target chain is not CEA-supported, offer the user a Route 1 alternative (execute on Push Chain only) or explain that cross-chain dispatch to that target is not yet available.
-4. Do not retry with the same `tx.to.chain` value — this is a configuration error, not a transient failure.
+4. Do not retry with the same `tx.to.chain` value - this is a configuration error, not a transient failure.
 
 ```typescript
 import { PushChain } from '@pushchain/core';
@@ -610,7 +610,7 @@ async function validateCeaTarget(targetChain: string) {
 }
 ```
 
-**Escalation**: If the target chain appears in `supported-chains.json` as CEA-supported but the error still fires, escalate with the chain ID, SDK version, and full error message — this may indicate a contract redeployment or stale chain registry.
+**Escalation**: If the target chain appears in `supported-chains.json` as CEA-supported but the error still fires, escalate with the chain ID, SDK version, and full error message - this may indicate a contract redeployment or stale chain registry.
 
 *References: [supported-chains.json](https://push.org/agents/supported-chains.json) · [send-multichain-transaction workflow](https://push.org/agents/workflows/send-multichain-transaction.md) · capability `send_multichain_transaction`*
 
@@ -630,7 +630,7 @@ const needsUpgrade = status.uea.requiresUpgrade === true;
 **Recovery**
 
 1. Call `pushChainClient.getAccountStatus()` before every transaction (or cache the result for the session).
-2. If `status.uea.requiresUpgrade === true`, call `pushChainClient.upgradeAccount()` immediately — it is gasless and completes with a single wallet signature.
+2. If `status.uea.requiresUpgrade === true`, call `pushChainClient.upgradeAccount()` immediately - it is gasless and completes with a single wallet signature.
 3. After `upgradeAccount()` resolves, call `getAccountStatus({ forceRefresh: true })` to confirm `requiresUpgrade === false`.
 4. Retry the original transaction.
 
@@ -649,7 +649,7 @@ async function ensureUpToDate(
 
   const refreshed = await client.getAccountStatus({ forceRefresh: true });
   if (refreshed.uea.requiresUpgrade) {
-    throw new Error('uea_upgrade_required: upgrade completed but status unchanged — escalate');
+    throw new Error('uea_upgrade_required: upgrade completed but status unchanged - escalate');
   }
 }
 ```
@@ -662,7 +662,7 @@ async function ensureUpToDate(
 
 ### funds_transfer_failed ⚠ inferred
 
-The `tx.funds` asset-transfer step failed during a universal transaction. Common causes: insufficient token balance, unsupported token, or non-`bigint` amount. Detection signal is inferred — the exact error string varies.
+The `tx.funds` asset-transfer step failed during a universal transaction. Common causes: insufficient token balance, unsupported token, or non-`bigint` amount. Detection signal is inferred - the exact error string varies.
 
 **Detection**
 ```typescript
@@ -675,7 +675,7 @@ const isFundsError = (e: Error) =>
 
 1. Verify the user's balance of the specified token on the origin chain covers `tx.funds.amount` plus estimated gas.
 2. Confirm `tx.funds.token` is present in `PushChain.utils.tokens.getMoveableTokens(originChain).tokens`.
-3. Assert `tx.funds.amount` is a `bigint` — passing a string or `number` type is a common cause of silent failures.
+3. Assert `tx.funds.amount` is a `bigint` - passing a string or `number` type is a common cause of silent failures.
 4. Retry once if the error appears transient (network-related). If error persists after the above checks pass, escalate.
 
 ```typescript
@@ -719,7 +719,7 @@ const receipt = await txResponse.wait();
 
 1. Parse `receipt.logs` for per-call status events emitted by the multicall contract. If the contract emits a `CallExecuted(index, success, returnData)` pattern, identify which indices have `success === false`.
 2. For failed sub-calls, extract the `returnData` and decode it against the target contract's ABI for a human-readable revert reason.
-3. Retry only the failed operations as individual `sendTransaction()` calls — do not re-submit the full batch.
+3. Retry only the failed operations as individual `sendTransaction()` calls - do not re-submit the full batch.
 4. If per-call events are not emitted (opaque multicall), treat the entire batch as suspect: surface the tx hash to the user and ask them to verify on-chain state before retrying any sub-operation.
 
 ```typescript
@@ -730,12 +730,12 @@ async function handleMulticallResult(
   txHash: string
 ) {
   const explorerUrl = client.explorer.getTransactionUrl(txHash);
-  // Parse receipt logs — contract-specific; example uses a standard multicall pattern
+  // Parse receipt logs - contract-specific; example uses a standard multicall pattern
   const receipt = await client.universal.trackTransaction(txHash, {
     chain: PushChain.CONSTANTS.CHAIN.PUSH_TESTNET_DONUT,
     waitForCompletion: true,
   });
-  // Surface explorer URL regardless — agent cannot determine partial state without ABI
+  // Surface explorer URL regardless - agent cannot determine partial state without ABI
   return {
     explorerUrl,
     note: 'Inspect logs for per-call success flags before retrying individual operations.',

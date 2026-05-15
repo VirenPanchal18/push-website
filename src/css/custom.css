@@ -1445,12 +1445,13 @@ article .markdown > ol > li > code,
   font-size: 0.8rem !important;
 }
 
-article .markdown > p > code,
-article .markdown > ul > li > code,
-article .markdown > ol > li > code,
-article tr > td > code,
-article ul > li > code,
-article em > code {
+article .markdown p code,
+article .markdown h3 code,
+article .markdown ul li code,
+article .markdown ol li code,
+article tr td code,
+article ul li code,
+article em code {
   font-size: 0.8em !important;
   padding: 2px 8px;
   display: inline-block;
@@ -1461,6 +1462,10 @@ article em > code {
 h3 > code,
 h4 > code {
   padding: 2px 8px;
+}
+
+.table-of-contents__left-border code {
+  font-size: 0.65rem;
 }
 
 article tr > td > code:only-child {
@@ -1500,7 +1505,7 @@ article strong > em > code {
   font-size: 0.919rem;
   font-style: normal;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 8px 16px !important;
   background: var(--ifm-playground-header-terminalbg) !important;
   border: var(--ifm-playground-button-border) !important;
   border-radius: var(--ifm-code-border-radius);
@@ -2084,19 +2089,28 @@ li {
   gap: 8px;
 }
 
+.markdown > h4 {
+  font-size: 1.5rem;
+}
+
 /* This targets all the code elements in different sections */
 .markdown > p > code,
 .markdown > ul > li > code,
 .markdown > blockquote > p > code,
 .markdown > h2 code,
-.alert.alert--info p code,
-.alert.alert--info ul li code {
+.alert.alert--info .admonitionContent_BuS1 code,
+.alert.alert--info .admonitionContent_BuS1 ul li code {
   color: var(--ifm-link-color) !important;
   font-family: 'Fira Code' !important;
   background-color: transparent !important;
   border: var(--ifm-playground-button-border) !important;
   font-size: 0.92rem !important;
   padding: 2px 8px;
+}
+
+.alert .admonitionHeading_Gvgb code {
+  background-color: transparent !important;
+  font-size: 0.85rem !important;
 }
 
 /* only negate margin for h2 that follows a header or h2 to h3 or h3 to h3 */

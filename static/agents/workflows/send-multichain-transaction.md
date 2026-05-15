@@ -4,8 +4,8 @@
 
 Two patterns for cross-chain execution via Push Chain:
 
-1. **Single cross-chain call** — `sendTransaction` with `to: { address, chain }` (Route 2) or CEA origin (Route 3).
-2. **Multi-hop cascade** — `prepareTransaction` + `executeTransactions` for composing multiple ordered steps across chains into a single user signature.
+1. **Single cross-chain call** - `sendTransaction` with `to: { address, chain }` (Route 2) or CEA origin (Route 3).
+2. **Multi-hop cascade** - `prepareTransaction` + `executeTransactions` for composing multiple ordered steps across chains into a single user signature.
 
 ## When to Use
 
@@ -24,7 +24,7 @@ Two patterns for cross-chain execution via Push Chain:
 | Target chain supported | Chain must be in `PushChain.CONSTANTS.CHAIN.*` |
 | CEA funded | For external execution, CEA on target chain may need native tokens |
 
-## Inputs — `sendTransaction` / `prepareTransaction`
+## Inputs - `sendTransaction` / `prepareTransaction`
 
 ### Standard Arguments
 
@@ -44,8 +44,8 @@ Two patterns for cross-chain execution via Push Chain:
 | `tx.gasLimit` | `BigInt` | SDK estimated | Override gas limit |
 | `tx.maxFeePerGas` | `BigInt` | SDK estimated | Override max fee per gas |
 | `tx.maxPriorityFeePerGas` | `BigInt` | SDK estimated | Override priority fee |
-| `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint }` | — | Pay fees in supported token |
-| `tx.deadline` | `BigInt` | — | Execution deadline |
+| `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint }` | - | Pay fees in supported token |
+| `tx.deadline` | `BigInt` | - | Execution deadline |
 
 ## Steps
 
@@ -91,16 +91,16 @@ Add `from: { chain }` to use your CEA on an external chain as the execution orig
 
 **Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
 
-1. **Preserves identity** — your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
-2. **Isolates risk** — the CEA is a dedicated smart account, separate from your home wallet.
-3. **Enables payload execution** — the CEA is what actually holds assets and executes calldata on the external chain.
+1. **Preserves identity** - your actions on Ethereum are traceable to a stable, deterministic address derived from your Push Chain account.
+2. **Isolates risk** - the CEA is a dedicated smart account, separate from your home wallet.
+3. **Enables payload execution** - the CEA is what actually holds assets and executes calldata on the external chain.
 
-**When to use Route 3.** Use it when you need to bring state or assets *back* to Push Chain from a CEA you’ve already deployed — because only the CEA can speak for what happened on that external chain.
+**When to use Route 3.** Use it when you need to bring state or assets *back* to Push Chain from a CEA you’ve already deployed - because only the CEA can speak for what happened on that external chain.
 
-Example flow — a universal vault:
+Example flow - a universal vault:
 
 1. Route 2: vault calls Aave on Ethereum via your **Ethereum CEA** to withdraw USDC.
-2. **Route 3**: vault moves withdrawn USDC from Ethereum CEA back to Push Chain — `msg.sender` on Push Chain is your Ethereum CEA.
+2. **Route 3**: vault moves withdrawn USDC from Ethereum CEA back to Push Chain - `msg.sender` on Push Chain is your Ethereum CEA.
 3. Route 2 again: Push Chain forwards to a Solana lending protocol via your **Solana CEA**.
 
 ```typescript
@@ -120,7 +120,7 @@ User → Push vault
   Route 2 → Solana CEA → Solana lending (deposit)
 ```
 
-> Route 3 isn’t for new outbound flows — use Route 2 for those. Route 3 is the return path from a CEA you’ve already deployed via prior Route 2 activity.
+> Route 3 isn’t for new outbound flows - use Route 2 for those. Route 3 is the return path from a CEA you’ve already deployed via prior Route 2 activity.
 
 ### With Progress Tracking
 
@@ -211,8 +211,8 @@ console.log('All complete:', result.success);
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction — use this to reference it downstream |
-| `initialTxResponse` | `UniversalTxResponse` | Full response for the coordinating Push Chain tx — use this when you need nonce, gas, or block metadata |
+| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction - use this to reference it downstream |
+| `initialTxResponse` | `UniversalTxResponse` | Full response for the coordinating Push Chain tx - use this when you need nonce, gas, or block metadata |
 | `hops` | `CascadeHopInfo[]` | All hops with routing and status |
 | `hopCount` | `number` | Total hop count |
 | `wait(opts?)` | `Promise<CascadeCompletionResult>` | Waits for all hops to complete |
@@ -231,7 +231,7 @@ console.log('All complete:', result.success);
 
 ## Expected Output
 
-See `send-universal-transaction.md` for the full `TxResponse` and `UniversalTxReceipt` shapes — they apply to Route 2/3 `sendTransaction` calls identically.
+See `send-universal-transaction.md` for the full `TxResponse` and `UniversalTxReceipt` shapes - they apply to Route 2/3 `sendTransaction` calls identically.
 
 For `executeTransactions`, see `CascadedTxResponse` table above.
 
@@ -273,10 +273,10 @@ For `executeTransactions`, see `CascadedTxResponse` table above.
 
 ## MCP Mapping Candidates
 
-- `send_external_chain_call` — Execute contract call on external chain via CEA
-- `send_cea_origin_transaction` — Execute on Push Chain with external origin identity
-- `prepare_transaction` — Prepare a single transaction hop without executing
-- `execute_cascade` — Execute ordered array of prepared transactions as multi-hop cascade
-- `get_cea_address` — Derive CEA address for specific external chain via `deriveExecutorAccount`
-- `check_cea_balance` — Verify CEA has sufficient funds on target chain
-- `list_supported_chains` — Return all supported external chain constants
+- `send_external_chain_call` - Execute contract call on external chain via CEA
+- `send_cea_origin_transaction` - Execute on Push Chain with external origin identity
+- `prepare_transaction` - Prepare a single transaction hop without executing
+- `execute_cascade` - Execute ordered array of prepared transactions as multi-hop cascade
+- `get_cea_address` - Derive CEA address for specific external chain via `deriveExecutorAccount`
+- `check_cea_balance` - Verify CEA has sufficient funds on target chain
+- `list_supported_chains` - Return all supported external chain constants

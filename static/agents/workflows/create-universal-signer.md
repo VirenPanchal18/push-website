@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner` — the chain-agnostic signing interface required by `PushChain.initialize()` and all transaction operations.
+Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner` - the chain-agnostic signing interface required by `PushChain.initialize()` and all transaction operations.
 
 ## When to Use
 
@@ -49,7 +49,7 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
 2. **Create provider and wallet**
    ```typescript
    const provider = new ethers.JsonRpcProvider('https://gateway.tenderly.co/public/sepolia');
-   // Never hardcode — load from env; never log the key
+   // Never hardcode - load from env; never log the key
    const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
    ```
 
@@ -72,7 +72,7 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
 
 2. **Create wallet client**
    ```typescript
-   // Never hardcode — load from env; never log the key
+   // Never hardcode - load from env; never log the key
    const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
    const walletClient = createWalletClient({
      account,
@@ -166,13 +166,13 @@ Wrap any EVM or non-EVM signer (Ethers.js, Viem, Solana) into a `UniversalSigner
 ## Agent Notes
 
 - **Chain is derived from RPC, not set explicitly** for EVM signers: the provider URL determines origin chain.
-- **`toUniversal` wraps, not copies** — it adapts the underlying signer's signing functions into a unified interface.
+- **`toUniversal` wraps, not copies** - it adapts the underlying signer's signing functions into a unified interface.
 - **Skeleton approach is for exotic signers**: hardware wallets, MPC wallets, or custom key management.
-- **Result is required for `PushChain.initialize()`** — pass this `universalSigner` directly.
+- **Result is required for `PushChain.initialize()`** - pass this `universalSigner` directly.
 
 ## MCP Mapping Candidates
 
-- `convert_ethers_to_universal` — Wrap Ethers.js wallet/signer
-- `convert_viem_to_universal` — Wrap Viem WalletClient
-- `convert_solana_keypair_to_universal` — Wrap Solana keypair
-- `detect_signer_type` — Identify which conversion path to use
+- `convert_ethers_to_universal` - Wrap Ethers.js wallet/signer
+- `convert_viem_to_universal` - Wrap Viem WalletClient
+- `convert_solana_keypair_to_universal` - Wrap Solana keypair
+- `detect_signer_type` - Identify which conversion path to use

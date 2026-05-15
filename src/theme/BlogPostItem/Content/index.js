@@ -4,23 +4,20 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useRef, useEffect, useState } from 'react';
-import clsx from 'clsx';
-import { blogPostContainerID } from '@docusaurus/utils-common';
 import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
+import { blogPostContainerID } from '@docusaurus/utils-common';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import clsx from 'clsx';
+import React, { useEffect, useRef, useState } from 'react';
 
 import MDXContent from '@theme/MDXContent';
 import LikeAndRetweetItem from '../../BlogPostPage/LikeAndRetweetItem';
-import { useInjectInviteCode } from '@site/src/components/InviteCodeWidget';
 
 export default function BlogPostItemContent({ children, className }) {
   const { isBlogPostPage, metadata } = useBlogPost();
   const [hasInjectedSocialButtons, setHasInjectedSocialButtons] =
     useState(false);
   const contentRef = useRef(null);
-
-  useInjectInviteCode(isBlogPostPage ? contentRef : { current: null });
 
   const injectSocialButtons = () => {
     const firstImage = contentRef.current?.querySelector('p > img');

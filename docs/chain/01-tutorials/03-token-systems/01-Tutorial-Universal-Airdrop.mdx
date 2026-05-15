@@ -355,7 +355,7 @@ const account = PushChain.utils.account.toUniversal(originAddress, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 This deterministic conversion ensures:
@@ -500,7 +500,7 @@ function UniversalAirdropTutorial() {
           const account = PushChain.utils.account.toUniversal(entry.address, {
             chain: entry.chain
           });
-          const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+          const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
           return [
             executorAddress.address,
             ethers.parseUnits(entry.amount, 18).toString(),
@@ -1092,7 +1092,7 @@ const account = PushChain.utils.account.toUniversal(entry.address, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 This converts each origin address to its deterministic UEA address on Push Chain. The same origin address will always produce the same UEA address.

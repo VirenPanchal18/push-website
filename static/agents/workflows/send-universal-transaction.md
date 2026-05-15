@@ -40,8 +40,8 @@ Execute a transaction on Push Chain from any origin wallet (EVM or non-EVM), wit
 | `tx.gasLimit` | `BigInt` | SDK estimated | Override transaction gas limit |
 | `tx.maxFeePerGas` | `BigInt` | SDK estimated | Override max fee per gas (EIP-1559) |
 | `tx.maxPriorityFeePerGas` | `BigInt` | SDK estimated | Override priority fee (EIP-1559) |
-| `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint \| string }` | — | Pay universal transaction fees with a supported token instead of native. `slippageBps` e.g. `100` = 1% |
-| `tx.deadline` | `BigInt` | — | Optional execution deadline timestamp |
+| `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint \| string }` | - | Pay universal transaction fees with a supported token instead of native. `slippageBps` e.g. `100` = 1% |
+| `tx.deadline` | `BigInt` | - | Optional execution deadline timestamp |
 
 ## Steps
 
@@ -136,7 +136,7 @@ Execute a transaction on Push Chain from any origin wallet (EVM or non-EVM), wit
    ];
    ```
 
-2. **Send as batched transaction** — `to` **must be zero address** for multicall
+2. **Send as batched transaction** - `to` **must be zero address** for multicall
    ```typescript
    const txResponse = await pushChainClient.universal.sendTransaction({
      to: '0x0000000000000000000000000000000000000000', // REQUIRED for multicall
@@ -308,8 +308,8 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 
 ## MCP Mapping Candidates
 
-- `send_native_transfer` — Simple PC token transfer to address
-- `send_contract_call` — Execute encoded calldata on Push Chain contract
-- `send_multicall` — Batch multiple calls in single transaction
-- `encode_function_call` — Helper to generate ABI-encoded calldata
-- `parse_units_to_bigint` — Convert human-readable amount to BigInt
+- `send_native_transfer` - Simple PC token transfer to address
+- `send_contract_call` - Execute encoded calldata on Push Chain contract
+- `send_multicall` - Batch multiple calls in single transaction
+- `encode_function_call` - Helper to generate ABI-encoded calldata
+- `parse_units_to_bigint` - Convert human-readable amount to BigInt

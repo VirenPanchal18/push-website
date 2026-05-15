@@ -1,41 +1,15 @@
-## Convert Origin to Executor Account
+## Convert Origin to Executor Account (REMOVED in SDK v6)
 
-Source: https://push.org/docs/chain/build/utility-functions/
+> This example documented `PushChain.utils.account.convertOriginToExecutor`, which was **removed in `@pushchain/core@6.0.0`**.
 
-## When to Use
+Use [`deriveExecutorAccount`](./utility-derive-executor-account.md) instead.
 
-See the [source documentation](https://push.org/docs/chain/build/utility-functions/) for full context on when to apply this pattern.
+### Migration
 
-## Code
+| Old API                                                       | New API                                                                            |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `convertOriginToExecutor(account, { onlyCompute: true })`     | `deriveExecutorAccount(account, { skipNetworkCheck: true })`                       |
+| `convertOriginToExecutor(account, { onlyCompute: false })`    | `deriveExecutorAccount(account)` (default behavior also checks deployment status)  |
+| `convertOriginToExecutor(account, { chain: <externalChain> })`| `deriveExecutorAccount(account, { chain: <externalChain> })`                       |
 
-```typescript
-import { PushChain } from '@pushchain/core'
-
-    async function main() {
-      // Create a universal account for Solana Devnet
-      const account = PushChain.utils.account.toUniversal(
-        'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q', {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-      })
-
-      // Convert to executor address with deployment status
-      const executorInfo = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: true,
-      })
-
-      console.log(JSON.stringify(executorInfo, null, 2));
-
-      // Convert without deployment status
-      const executorSimple = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: false,
-      })
-
-      console.log(JSON.stringify(executorSimple, null, 2));
-    }
-
-    await main().catch(console.error)
-```
-
-## SDK Methods Used
-
-- `PushChain.utils.account.toUniversal`
+The function signature is otherwise identical. The replacement parameter `skipNetworkCheck` mirrors the inverted semantics of the old `onlyCompute` flag.

@@ -107,6 +107,13 @@ const stripMdxNoise = (raw) => {
     raw
       // Remove frontmatter
       .replace(/^---[\s\S]*?---\n?/, '')
+      // Remove HTML comments (multi-line). Must run BEFORE the JSX/HTML
+      // tag stripper below — that pass treats `<!--` and `-->` as
+      // independent tags and would leave the comment body in the output.
+      .replace(/<!--[\s\S]*?-->/g, '')
+      // Remove JSX/MDX comments: {/* ... */} (multi-line). Same reason —
+      // the stripper below doesn't recognise them as comments.
+      .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
       // Remove multi-line import blocks: import { ... } from '...';
       .replace(/^import\s+\{[^}]*\}\s+from\s+['"][^'"]+['"]\s*;?\n?/gms, '')
       // Remove single-line import statements

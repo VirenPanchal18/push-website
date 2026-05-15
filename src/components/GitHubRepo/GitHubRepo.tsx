@@ -60,7 +60,7 @@ const RepoButton = styled.button`
   gap: 12px;
   width: 100%;
   padding: 16px 20px;
-  background: transparent;
+  background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 8px;
   cursor: pointer;

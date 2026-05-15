@@ -1,9 +1,12 @@
 {
-  "schema_version": "1.0.0",
-  "version": "1.0.1",
-  "current_sdk_version": "5.1.12",
-  "generated": "2026-04-21T17:54:00.000Z",
+  "schema_version": "1.1.0",
+  "version": "1.1.0",
+  "current_sdk_version": "6.0.0",
+  "generated": "2026-05-15T00:00:00.000Z",
   "description": "Domain-scoped skill files mapping high-level developer intents to required packages, entry points, workflows, and examples. Load the skill file for your context before exploring workflows or examples.",
+  "schema_notes": {
+    "v1_1_0": "Added optional fields for external skills hosted on first-party product subdomains (e.g. PUSD on pusd.push.org). New optional fields: 'external' (boolean), 'host' (string, e.g. 'pusd.push.org'), 'agent_layer' (string, URL of the external skill's full llms.txt), 'repo' (string, GitHub repo URL). Internal skills (push-frontend / push-backend / push-contracts) omit these fields. Treat external skills like any other skill at load time; the agent fetches them from their canonical host."
+  },
   "skills": [
     {
       "id": "push-frontend",
@@ -47,6 +50,19 @@
       ],
       "scripts": ["agents/skills/push-contracts/scripts/deploy.sh"],
       "resources": "agents/resources/push-contracts/index.json"
+    },
+    {
+      "id": "push-pusd",
+      "name": "push-pusd",
+      "external": true,
+      "host": "pusd.push.org",
+      "description": "Use when integrating PUSD or PUSD+ on Push Chain — covers minting (deposit USDC/USDT, both Path A external-chain multicall and Path B native Push EOA two-signature flows), redemption routing (preferred asset / basket / emergency proportional drain), PUSD+ NAV quoting via previewMintPlus / previewBurnPlus, three-tier PUSD+ redemption (instant / convert / queue), and cross-chain deposits via prepareTransaction + executeTransactions. Hosted on pusd.push.org and not duplicated in this repo. Triggers on: 'mint PUSD', 'redeem PUSD+', 'quote PUSD+ NAV', 'PUSDManager deposit', 'integrate Push Chain stablecoin'.",
+      "url": "https://pusd.push.org/agents/skill/push-pusd/SKILL.md",
+      "agent_layer": "https://pusd.push.org/llms.txt",
+      "repo": "https://github.com/pushchain/push-chain-pusd",
+      "intent": "Mint and redeem PUSD / PUSD+ across frontend, backend, and on-chain contexts on Push Chain Donut Testnet",
+      "package": "@pushchain/ui-kit (frontend) | @pushchain/core (backend) | Solidity ^0.8.20 (on-chain)",
+      "entry": "PUSDManager.deposit / PUSDManager.depositToPlus"
     }
   ]
 }

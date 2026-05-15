@@ -69,13 +69,22 @@ async function main() {
   });
   console.log('✅ hop1 prepared - route:', hop1.route);
 
-  const cascade = await client.universal.executeTransactions([hop0, hop1]);
+  // executeTransactions's progressHook streams ProgressEvent across every
+  // phase (pre-flight, broadcast, cascade tracking). Each event has id,
+  // title, message, and level — combine them for a full status line.
+  const cascade = await client.universal.executeTransactions([hop0, hop1], {
+    progressHook: (event) => {
+      const icon = { INFO: 'ℹ️', SUCCESS: '✅', ERROR: '❌' }[event.level] || '•';
+      console.log(icon + ' [' + event.id + '] ' + event.title + ' - ' + event.message);
+    },
+  });
   console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
   console.log('📦 hopCount:', cascade.hopCount);
 
-  const result = await cascade.wait({
-    progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain),
-  });
+  // executeTransactions's progressHook above already streams per-hop tracking
+  // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+  // its own progressHook — just await for completion.
+  const result = await cascade.wait();
   console.log('🏁 All hops complete. Success:', result.success);
 
   if (result.success) {

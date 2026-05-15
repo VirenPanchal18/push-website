@@ -164,7 +164,7 @@ const account = PushChain.utils.account.toUniversal(originAddress, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 ## Step 1: Address Conversion
@@ -175,7 +175,7 @@ const account = PushChain.utils.account.toUniversal(entry.address, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 ## Step 2: Merkle Tree Generation

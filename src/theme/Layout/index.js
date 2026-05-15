@@ -31,7 +31,6 @@ import Footer from '@site/src/segments/Footer';
 import Header from '@site/src/segments/Header';
 
 // Internal Configs
-import { useInjectInviteCode } from '@site/src/components/InviteCodeWidget';
 import styles from './styles.module.css';
 
 export default function Layout(props) {
@@ -47,7 +46,6 @@ export default function Layout(props) {
 
   const { t } = useTranslation();
   const mainRef = useRef(null);
-  useInjectInviteCode(mainRef);
 
   return (
     <LayoutProvider>

@@ -98,7 +98,7 @@ flowchart TB
 
 The Push Chain SDK provides utilities to derive UEAs from any wallet address.
 
-### Basic UEA Derivation
+#### Basic UEA Derivation
 
 ```typescript
 import { PushChain } from '@pushchain/core';
@@ -112,13 +112,13 @@ const account = PushChain.utils.account.toUniversal(
 );
 
 // Derive the UEA address
-const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
 
 console.log('UEA Address:', executorAddress.address);
 // Output: 0x... (deterministic Push Chain address)
 ```
 
-### Understanding the Process
+#### Understanding the Process
 
 **Step 1: Create Universal Account**
 ```typescript
@@ -129,13 +129,13 @@ This creates a `UniversalAccount` object containing:
 - `chainId`: e.g., "11155111" for Ethereum Sepolia
 - `owner`: The origin wallet address
 
-**Step 2: Convert to Executor Address**
+**Step 2: Derive the Executor Account**
 ```typescript
-const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
 ```
-This performs the deterministic derivation to get the UEA address on Push Chain.
+This performs the deterministic derivation to get the UEA address on Push Chain. The returned object also includes a `deployed` boolean indicating whether the UEA contract has been lazily deployed yet (pass `{ skipNetworkCheck: true }` to skip the deployment check and get the address only).
 
-### Supported Chains
+#### Supported Chains
 
 The SDK supports UEA derivation for supported chains:
 
@@ -154,7 +154,7 @@ To get a list of all supported chains, see the [Get Supported Chains](/docs/chai
 
 You can also derive UEAs directly in your Solidity contracts using the `UEAFactory` precompile.
 
-### UEAFactory Contract
+#### UEAFactory Contract
 
 The `UEAFactory` is deployed at a fixed address on Push Chain:
 
@@ -162,7 +162,7 @@ The `UEAFactory` is deployed at a fixed address on Push Chain:
 0x00000000000000000000000000000000000000eA
 ```
 
-### Interface
+#### Interface
 
 <SolidityCode
   title="IUEAFactory Interface"
@@ -193,7 +193,7 @@ interface IUEAFactory {
 
 </SolidityCode>
 
-### Example Contract
+#### Example Contract
 
 <SolidityCode
   title="UEA Lookup Contract"
@@ -276,7 +276,7 @@ contract UEALookup {
   - Returns the chain namespace, chain ID, and owner address
   - Useful for verifying the origin of a transaction
 
-### Usage Example
+#### Usage Example
 
 ```solidity
 // Get UEA for an Ethereum Sepolia wallet
@@ -299,7 +299,7 @@ For Solana wallets, owner must be the raw public key bytes (decoded from base58)
 
 ## Understanding UEA Derivation
 
-### The Derivation Process
+#### The Derivation Process
 
 ```mermaid
 flowchart LR
@@ -318,7 +318,7 @@ flowchart LR
 3. **Deterministic Derivation**: Apply cryptographic hash function
 4. **Output**: UEA address on Push Chain
 
-### Key Properties
+#### Key Properties
 
 **Deterministic**
 - Same input always produces same output
@@ -334,51 +334,42 @@ flowchart LR
 - Can derive UEA from origin wallet
 - Can query origin wallet from UEA (using `getOriginForUEA`)
 
-## Use Cases
+## What UEAs Unlock
 
-### 1. Airdrop Systems
-Derive UEAs for all recipients to create a universal airdrop:
-```typescript
-const recipients = [
-  { address: '0xEth...', chain: ETHEREUM_SEPOLIA },
-  { address: '7xSol...', chain: SOLANA_DEVNET },
-];
+UEAs enable app patterns that are extremely complex, awkward, or outright impossible to implement on single-chain stacks.
 
-const ueas = await Promise.all(
-  recipients.map(async (r) => {
-    const account = PushChain.utils.account.toUniversal(r.address, { chain: r.chain });
-    return await PushChain.utils.account.convertOriginToExecutor(account);
-  })
-);
-```
+#### Frictionless Multi-Chain Onboarding
+Skip the "create a new wallet for chain X" step entirely. Users keep their existing Ethereum, Solana, or any other wallet. Your contract sees their UEA regardless of which chain they signed from. New-user activation collapses from minutes to seconds with no chain-switching, no bridging, and no extra gas token setup.
 
-### 2. Cross-Chain Identity
-Verify a user's identity across chains:
-```solidity
-function verifyUser(address uea) public view returns (bool) {
-    (UniversalAccountId memory origin, bool exists) = 
-        FACTORY.getOriginForUEA(uea);
-    
-    return exists && isAllowedChain(origin.chainNamespace);
-}
-```
+#### One Contract, Every Chain
+Deploy a single contract on Push Chain and accept interactions from users on any chain. No per-chain deployments, no relayer infrastructure, no state fragmentation across instances. One address, one state, every chain.
 
-### 3. Universal Allowlists
-Create allowlists that work across all chains:
-```solidity
-mapping(address => bool) public allowlist;
+#### Unified Protocol Liquidity
+Pool liquidity, balances, and protocol state under a single contract instead of sharding it across chains. Users from Ethereum, Solana, and Base all contribute to and draw from the same pool. This eliminates bridging friction and gives your protocol a single, accurate view of total liquidity.
 
-function addToAllowlist(
-    string memory chainNamespace,
-    string memory chainId,
-    bytes memory owner
-) external onlyOwner {
-    (address uea, ) = FACTORY.getUEAForOrigin(
-        UniversalAccountId(chainNamespace, chainId, owner)
-    );
-    allowlist[uea] = true;
-}
-```
+#### Universal Identity and Permissions
+Allowlists, reputation scores, KYC attestations, and access tiers all key against UEAs. The same person has the same UEA whether they sign from Ethereum or Solana, so trust accrues to them and not to a per-chain alias they have to maintain.
+
+## What You Can Build
+
+UEAs are the primitive. Here are the product verticals they unlock:
+
+### Universal RWAs
+Tokenized real-world assets accessible to holders on any chain. Ownership records, compliance checks, and transfer logic all live in one contract, keyed by UEA.
+
+### Universal DeFi
+Lending, borrowing, swaps, and yield strategies that accept liquidity from every chain without bridges. Users interact from their home chain; your protocol sees a single, unified pool.
+
+### Universal Airdrops
+Distribute tokens to recipients across Ethereum, Solana, Base, and BNB from a single contract. Recipients claim with their existing wallet on their existing chain, with no bridging and no per-chain deployments.
+
+Build it end-to-end: [Build a Universal Airdrop](/docs/chain/tutorials/token-systems/tutorial-universal-airdrop/)
+
+### Universal Agents
+AI agents or autonomous bots that hold a UEA and act on behalf of users across chains with no per-chain wallets or bridging logic required.
+
+### Universal Gaming
+A single game contract where players from every chain compete on the same leaderboard. UEA-keyed state means a Solana player and an Ethereum player appear side-by-side without per-chain accounts. See [Ballsy](https://ballsy.push.org) for a live example of chain-vs-chain gameplay built on UEA primitives.
 
 ## Live Playground
 
@@ -439,7 +430,7 @@ function DeriveUEAExample() {
           { chain: manualLookupChain }
         );
 
-        const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+        const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
         setManualLookupResult(executorAddress.address);
       } catch (err) {
         console.error("Error deriving UEA:", err);
@@ -614,18 +605,26 @@ In this tutorial, we explored Universal Executor Accounts:
 
 ## What's Next?
 
-Now that you understand how Universal Executor Accounts (UEAs) are derived, you can start building real universal systems on Push Chain.
+UEAs are how external wallets execute **on** Push Chain. The mirror image, how a Push Chain account executes **on every external chain**, is the **Chain Executor Account (CEA)**. 
 
-- [Build a Universal Airdrop](/docs/chain/tutorials/token-systems/tutorial-universal-airdrop/)  
-  Deploy once on Push Chain and let users from any chain claim tokens using their existing wallet.
+Every Push-side account, whether a user, a contract, or an AI agent, gets a deterministic CEA on every supported destination, ready to be authorised on day zero.
 
-- [Contract Helpers](/docs/chain/build/contract-helpers/)  
-  Go deeper with advanced UEA patterns, including on-chain derivation, reverse lookups, and contract-level integrations.
+<div style={{textAlign: 'center'}}>
 
 ```mermaid
 flowchart LR
-  A[Origin Wallet] --> B[Derive UEA]
-  B --> C[Universal App on Push Chain]
-  C --> D[Universal Airdrop]
-  C --> E[Other Universal Systems]
+    A[UEA on Push Chain] --> B[CEA on Ethereum]
+    A --> C[CEA on BNB]
+    A --> D[CEA on Solana]
+
+    style A fill:#dd44b9,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
+    style C fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
+    style D fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff
 ```
+
+</div>
+
+<hr />
+
+In the next tutorial, you'll learn how to [derive Chain Executor Accounts (CEAs)](/docs/chain/tutorials/power-features/tutorial-derive-chain-executor-account/), off-chain via the SDK and on-chain via `ICEAFactory`, and use them to pre-authorise destination-chain protocols before any cross-chain activity has happened.

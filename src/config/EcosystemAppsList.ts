@@ -3,6 +3,7 @@ import { EcosystemApp } from '@site/src/components/Ecosystem/EcosystemBlocks';
 export const EcosystemFeaturedListUrls = [
   'https://ramenfi.xyz/',
   'https://cetra.app/',
+  'https://pusd.push.org/',
   'https://www.thehodl.fun/',
   'https://eon-five.vercel.app',
   'https://www.halofy.ai/',
@@ -10,7 +11,6 @@ export const EcosystemFeaturedListUrls = [
   'https://catkevin.github.io/OnchainVampireSurvivors/',
   'https://www.lastone.fun/',
   'https://pushindexer.vercel.app/',
-  'https://pusd.push.org/',
 ] as const;
 
 export const EcosystemPartnersList: EcosystemApp[] = [
@@ -301,7 +301,6 @@ export const EcosystemAppsList: EcosystemApp[] = [
     descriptionColor: 'white',
     twitterId: '1993681001076478131',
     tagsColor: 'white',
-    comingsoon: true,
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.freename.name',

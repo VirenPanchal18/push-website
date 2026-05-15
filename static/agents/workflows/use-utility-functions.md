@@ -33,9 +33,9 @@ Leverage the `PushChain.utils` namespace for common operations: unit parsing, ac
 | Argument | Type | Description |
 |---|---|---|
 | `value` | `string` | Human-readable amount, e.g. `'1.5'` |
-| `exponent` | `number \| { decimals: number }` | Decimal places — `18` for PC/ETH, `6` for USDC, `8` for BTC |
+| `exponent` | `number \| { decimals: number }` | Decimal places - `18` for PC/ETH, `6` for USDC, `8` for BTC |
 
-**Returns**: `bigint` — e.g. `1500000000000000000n`
+**Returns**: `bigint` - e.g. `1500000000000000000n`
 
 ### `formatUnits(value, decimals)` → `string`
 
@@ -44,11 +44,11 @@ Leverage the `PushChain.utils` namespace for common operations: unit parsing, ac
 | `value` | `bigint \| string` | Raw amount in smallest units |
 | `decimals` | `number \| { decimals: number; precision?: number }` | Decimal places; pass an object to also round to `precision` places |
 
-**Returns**: `string` — e.g. `'1.5'`, `'100.50'`
+**Returns**: `string` - e.g. `'1.5'`, `'100.50'`
 
 ### `encodeTxData({ abi, functionName, args })` → `string`
 
-Encodes smart contract calldata — no viem or ethers needed.
+Encodes smart contract calldata - no viem or ethers needed.
 
 | Argument | Type | Description |
 |---|---|---|
@@ -56,11 +56,11 @@ Encodes smart contract calldata — no viem or ethers needed.
 | `functionName` | `string` | Function name to encode |
 | `args` | `any[]` _(optional)_ | Arguments, default `[]` |
 
-**Returns**: `string` — hex-encoded calldata, e.g. `'0xd09de08a'`
+**Returns**: `string` - hex-encoded calldata, e.g. `'0xd09de08a'`
 
 ```typescript
 PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0xabc...', 1000n] })
-// args follow ABI types — use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
+// args follow ABI types - use bigint for uint256 (passing 1000 instead of 1000n will fail strict TypeScript)
 ```
 
 ---
@@ -73,7 +73,7 @@ PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0x
 |---|---|---|
 | `pushNetwork` | `PushChain.CONSTANTS.PUSH_NETWORK` | Network to query |
 
-**Returns**: `{ chains }` — array of `PushChain.CONSTANTS.CHAIN.*` constant values
+**Returns**: `{ chains }` - array of `PushChain.CONSTANTS.CHAIN.*` constant values
 
 ### `getSupportedChainsByName(pushNetwork)` → `{ chains: string[] }`
 
@@ -81,7 +81,7 @@ PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0x
 |---|---|---|
 | `pushNetwork` | `PushChain.CONSTANTS.PUSH_NETWORK` | Network to query |
 
-**Returns**: `{ chains }` — human-readable names, e.g. `['PUSH_TESTNET_DONUT', 'ETHEREUM_SEPOLIA', 'SOLANA_DEVNET', ...]`
+**Returns**: `{ chains }` - human-readable names, e.g. `['PUSH_TESTNET_DONUT', 'ETHEREUM_SEPOLIA', 'SOLANA_DEVNET', ...]`
 
 ### `getChainNamespace(chainName)` → `string`
 
@@ -89,7 +89,7 @@ PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0x
 |---|---|---|
 | `chainName` | `string` | e.g. `'ETHEREUM_SEPOLIA'` |
 
-**Returns**: CAIP-2 namespace, e.g. `'eip155:11155111'` — `undefined` if unsupported
+**Returns**: CAIP-2 namespace, e.g. `'eip155:11155111'` - `undefined` if unsupported
 
 ### `getChainName(chainNamespace)` → `string`
 
@@ -97,7 +97,7 @@ PushChain.utils.helpers.encodeTxData({ abi, functionName: 'transfer', args: ['0x
 |---|---|---|
 | `chainNamespace` | `string` | CAIP-2 namespace, e.g. `'eip155:11155111'` |
 
-**Returns**: Chain name, e.g. `'ETHEREUM_SEPOLIA'` — `undefined` if unsupported
+**Returns**: Chain name, e.g. `'ETHEREUM_SEPOLIA'` - `undefined` if unsupported
 
 ---
 
@@ -112,7 +112,7 @@ Wraps an address and chain into a `UniversalAccount`. Can also be passed to `Pus
 | `address` | `string` | Wallet address |
 | `options.chain` | `CHAIN` | `PushChain.CONSTANTS.CHAIN.*` |
 
-**Returns**: `{ chain: string, address: string }` — e.g. `{ chain: 'eip155:11155111', address: '0xAbc...' }`
+**Returns**: `{ chain: string, address: string }` - e.g. `{ chain: 'eip155:11155111', address: '0xAbc...' }`
 
 ### `toChainAgnostic(address, { chain })` → `string`
 
@@ -121,7 +121,7 @@ Wraps an address and chain into a `UniversalAccount`. Can also be passed to `Pus
 | `address` | `string` | Wallet address |
 | `options.chain` | `CHAIN` | `PushChain.CONSTANTS.CHAIN.*` |
 
-**Returns**: `string` — fully-qualified CAIP-10 address, e.g. `'eip155:11155111:0xAbc...'`
+**Returns**: `string` - fully-qualified CAIP-10 address, e.g. `'eip155:11155111:0xAbc...'`
 
 ### `fromChainAgnostic(chainAgnosticAddress)` → `UniversalAccount`
 
@@ -139,9 +139,9 @@ Derives a UEA on Push Chain from any UOA, or a CEA on an external chain from a P
 |---|---|---|
 | `universalAccount` | `UniversalAccount` | Created via `toUniversal()` |
 | `options.chain` | `CHAIN` _(optional)_ | When set, derives a CEA on that external chain instead of a UEA on Push Chain |
-| `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic derivation only — skip deployment check. Default `false` |
+| `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic derivation only - skip deployment check. Default `false` |
 
-**Returns**: `{ address: string, deployed?: boolean }` — `deployed` included when `skipNetworkCheck` is `false`
+**Returns**: `{ address: string, deployed?: boolean }` - `deployed` included when `skipNetworkCheck` is `false`
 
 ### `resolveControllerAccount(account, options?)` → `Promise<{ accounts }>`
 
@@ -150,12 +150,12 @@ Recursively resolves the controller identity behind an executor account (UEA →
 | Argument | Type | Description |
 |---|---|---|
 | `account` | `string` | UEA, CEA, or Push Chain address to resolve |
-| `options.chain` | `CHAIN` _(optional)_ | Required for CEA — specifies which chain the CEA is deployed on |
+| `options.chain` | `CHAIN` _(optional)_ | Required for CEA - specifies which chain the CEA is deployed on |
 | `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic resolution only. Default `false` |
 
 **Returns**: `{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }`
-- `type` — `'uea'` | `'uoa'` | `'cea'`
-- `role` — `'controller'` marks the controlling account
+- `type` - `'uea'` | `'uoa'` | `'cea'`
+- `role` - `'controller'` marks the controlling account
 
 ---
 
@@ -169,7 +169,7 @@ Converts an ethers.js `Wallet` or viem `WalletClient` into a `UniversalSigner`.
 |---|---|---|
 | `signer` | `ethers.Wallet \| WalletClient` | EVM-compatible signer |
 
-**Returns**: `UniversalSigner` — `{ account: UniversalAccount, signMessage, signAndSendTransaction, signTypedData }`
+**Returns**: `UniversalSigner` - `{ account: UniversalAccount, signMessage, signAndSendTransaction, signTypedData }`
 
 ### `toUniversalFromKeypair(keypair, options)` → `Promise<UniversalSigner>`
 
@@ -194,7 +194,7 @@ Builds a custom signer for any wallet type not natively supported.
 | `signingMethods.signMessage` | `(data: Uint8Array) => Promise<Uint8Array>` | Sign arbitrary message bytes |
 | `signingMethods.signTypedData` | `(params) => Promise<Uint8Array>` | Sign EIP-712 typed data |
 
-**Returns**: `UniversalSignerSkeleton` — pass to `PushChain.utils.signer.toUniversal(skeleton)` to get a `UniversalSigner`
+**Returns**: `UniversalSignerSkeleton` - pass to `PushChain.utils.signer.toUniversal(skeleton)` to get a `UniversalSigner`
 
 ---
 
@@ -226,7 +226,7 @@ Resolves the Push Chain synthetic PRC20 token descriptor for a supported origin-
 
 | Argument | Type | Description |
 |---|---|---|
-| `token` | `MoveableToken \| { chain: string, address: string }` | Origin token — from `getMoveableTokens()` or explicit chain + address |
+| `token` | `MoveableToken \| { chain: string, address: string }` | Origin token - from `getMoveableTokens()` or explicit chain + address |
 | `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | Override the Push network. Defaults to client's initialized network. For example: `PushChain.CONSTANTS.PUSH_NETWORK.TESTNET` |
 
 **Returns**: `{ address: 0x${string}, chain: CHAIN, symbol: string, decimals: number, network: PUSH_NETWORK }`
@@ -242,9 +242,9 @@ Calculates the minimum acceptable output amount given a slippage tolerance.
 | Argument | Type | Description |
 |---|---|---|
 | `amount` | `string` | Input amount in smallest units (e.g. `'100000000'` for 100 USDC) |
-| `options.slippageBps` | `number` | Slippage in basis points — `100` = 1%, `50` = 0.5% |
+| `options.slippageBps` | `number` | Slippage in basis points - `100` = 1%, `50` = 0.5% |
 
-**Returns**: `string` — minimum output amount in smallest units, e.g. `'99000000'`
+**Returns**: `string` - minimum output amount in smallest units, e.g. `'99000000'`
 
 ---
 
@@ -271,15 +271,15 @@ Gets a quote for paying with one token while moving as another.
 | Argument | Type | Description |
 |---|---|---|
 | `txHash` | `string` | Transaction hash |
-| `options.chain` | `CHAIN` _(optional)_ | Override chain — defaults to client's chain (Push Chain) |
+| `options.chain` | `CHAIN` _(optional)_ | Override chain - defaults to client's chain (Push Chain) |
 
-**Returns**: `string` — explorer URL, e.g. `'https://donut.push.network/tx/0x...'`
+**Returns**: `string` - explorer URL, e.g. `'https://donut.push.network/tx/0x...'`
 
 ### `pushChainClient.explorer.listUrls(options?)` → `{ explorers }`
 
 | Argument | Type | Description |
 |---|---|---|
-| `options.chain` | `CHAIN` _(optional)_ | Override chain — defaults to client's chain |
+| `options.chain` | `CHAIN` _(optional)_ | Override chain - defaults to client's chain |
 
 **Returns**: `{ explorers: Array<{ chain, chainName, urls }> }`
 
@@ -293,7 +293,7 @@ Returns explorer URLs for **all** supported chains in the current network.
 
 ## Agent Notes
 
-- **`toUniversal` exists on both `account` and `signer` namespaces** — `account.toUniversal` creates a read-only `UniversalAccount`; `signer.toUniversal` wraps a wallet into a `UniversalSigner` with signing capabilities.
+- **`toUniversal` exists on both `account` and `signer` namespaces** - `account.toUniversal` creates a read-only `UniversalAccount`; `signer.toUniversal` wraps a wallet into a `UniversalSigner` with signing capabilities.
 - **`parseUnits` accepts both `18` and `{ decimals: 18 }`** as second argument.
 - **`deriveExecutorAccount` goes forward** (UOA → UEA, or Push/UOA → CEA); **`resolveControllerAccount` goes backward** (UEA/CEA → UOA).
 - **No client needed** for all `PushChain.utils.*` functions. `pushChainClient.funds.*` and `pushChainClient.explorer.*` require an initialized client.

@@ -12,12 +12,14 @@ pragma solidity ^0.8.26;
 ///      token!=address(0) + payload    → FUNDS_AND_PAYLOAD (bridge + execute atomically)
 ///      token=address(0) + no payload  → reverts
 struct UniversalOutboundTxRequest {
-    bytes   recipient;       // target address on external chain — abi.encodePacked(addr) for EVM
-    address token;           // PRC20 token to bridge (address(0) = no bridge, execute only)
-    uint256 amount;          // amount of PRC20 to bridge (0 if token == address(0))
-    uint256 gasLimit;        // gas limit on external chain (0 = UGPC auto-estimates, recommended)
-    bytes   payload;         // ABI-encoded calldata for the external chain contract
-    address revertRecipient; // receives bridged funds back if the external tx reverts
+    bytes   recipient;       // raw destination address on source chain (bytes for SVM compat). bytes("") parks funds in caller's CEA
+    address token;           // PRC20 token address on Push Chain (address(0) = no bridge, execute only)
+    uint256 amount;          // amount to withdraw (burn on Push, unlock at origin)
+    uint256 gasLimit;        // gas limit for fee quote (0 = per-chain default)
+    uint256 gasPrice;        // gas price override (0 = per-chain default from UniversalCore; new in SDK v6)
+    uint256 maxPCForGas;     // max native PC for the gas swap (0 = no cap; new in SDK v6)
+    bytes   payload;         // ABI-encoded calldata to execute on origin chain (empty for funds-only)
+    address revertRecipient; // address to receive funds in case of revert
 }
 
 interface IUniversalGatewayPC {
@@ -44,10 +46,12 @@ contract UGPCDispatcher {
     function dispatch(address targetOnExternalChain, bytes calldata calldata_) external payable {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
-                recipient:       abi.encodePacked(targetOnExternalChain),
+                recipient:          abi.encodePacked(targetOnExternalChain),
                 token:           address(0),
                 amount:          0,
                 gasLimit:        0,
+                gasPrice:        0,
+                maxPCForGas:     0,
                 payload:         calldata_,
                 revertRecipient: msg.sender
             })
@@ -64,10 +68,12 @@ contract UGPCDispatcher {
     ) external payable {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
-                recipient:       abi.encodePacked(targetOnExternalChain),
+                recipient:          abi.encodePacked(targetOnExternalChain),
                 token:           prc20Token,
                 amount:          amount,
                 gasLimit:        0,
+                gasPrice:        0,
+                maxPCForGas:     0,
                 payload:         calldata_,
                 revertRecipient: msg.sender
             })

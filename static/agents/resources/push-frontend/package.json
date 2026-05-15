@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pushchain/ui-kit": "5.2.3",
+    "@pushchain/ui-kit": "5.2.10",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },

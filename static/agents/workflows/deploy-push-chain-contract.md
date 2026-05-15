@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Compile and deploy a Solidity smart contract to Push Chain Donut Testnet using Foundry, Hardhat, or Remix. Push Chain is 100% EVM-compatible — any standard EVM toolchain works unchanged by pointing to the Push Chain RPC.
+Compile and deploy a Solidity smart contract to Push Chain Donut Testnet using Foundry, Hardhat, or Remix. Push Chain is 100% EVM-compatible - any standard EVM toolchain works unchanged by pointing to the Push Chain RPC.
 
 ## When to Use
 
@@ -89,7 +89,7 @@ Compile and deploy a Solidity smart contract to Push Chain Donut Testnet using F
      --etherscan-api-key $ETHERSCAN_API_KEY
    ```
 
-> **Shortcut**: `agents/skills/push-contracts/scripts/deploy.sh` — ready-to-run Foundry deploy + explorer link. Run with `PRIVATE_KEY=0x... bash deploy.sh`.
+> **Shortcut**: `agents/skills/push-contracts/scripts/deploy.sh` - ready-to-run Foundry deploy + explorer link. Run with `PRIVATE_KEY=0x... bash deploy.sh`.
 
 ### Hardhat
 
@@ -145,7 +145,7 @@ Compile and deploy a Solidity smart contract to Push Chain Donut Testnet using F
 2. In **Deploy & Run Transactions**, select **Custom External HTTP Provider**
 3. Set RPC URL to `https://evm.donut.rpc.push.org/`
 4. Set Chain ID to `42101`
-5. Compile and deploy normally — Push Chain is fully EVM-compatible
+5. Compile and deploy normally - Push Chain is fully EVM-compatible
 
 ## Expected Output
 
@@ -168,18 +168,18 @@ Explorer:  https://donut.push.network/address/0xDeployedContractAddress
 
 ## Agent Notes
 
-- **Push Chain is 100% EVM-compatible** — no custom plugins or modifications needed for Foundry or Hardhat.
-- **Use proxy addresses for interaction** — UGPC, UEAFactory, and UniversalCore are proxy contracts; always interact with the proxy address, not the implementation.
-- **Contract CEA is derived from the deployed address** — deploying the same bytecode twice at different addresses results in different CEAs on external chains.
-- **Proxy pattern**: if using a proxy (UUPS, Transparent), CEA is bound to the proxy address — implementation upgrades do not change CEA.
-- **Inbound fee** — fund the deployed Push Chain contract with `$PC` before it can receive inbound callbacks via `executeUniversalTx()`.
+- **Push Chain is 100% EVM-compatible** - no custom plugins or modifications needed for Foundry or Hardhat.
+- **Use proxy addresses for interaction** - UGPC, UEAFactory, and UniversalCore are proxy contracts; always interact with the proxy address, not the implementation.
+- **Contract CEA is derived from the deployed address** - deploying the same bytecode twice at different addresses results in different CEAs on external chains.
+- **Proxy pattern**: if using a proxy (UUPS, Transparent), CEA is bound to the proxy address - implementation upgrades do not change CEA.
+- **Inbound fee** - fund the deployed Push Chain contract with `$PC` before it can receive inbound callbacks via `executeUniversalTx()`.
 
 ## MCP Mapping Candidates
 
-- `compile_solidity_contract` — Run `forge build` or `npx hardhat compile`
-- `run_forge_create` — Execute `forge create` with RPC URL and private key
-- `run_hardhat_deploy` — Execute `npx hardhat run scripts/deploy.ts --network pushDonut`
-- `verify_on_explorer` — Run `forge verify-contract` against Push Chain block explorer
+- `compile_solidity_contract` - Run `forge build` or `npx hardhat compile`
+- `run_forge_create` - Execute `forge create` with RPC URL and private key
+- `run_hardhat_deploy` - Execute `npx hardhat run scripts/deploy.ts --network pushDonut`
+- `verify_on_explorer` - Run `forge verify-contract` against Push Chain block explorer
 
 ## See Also
 

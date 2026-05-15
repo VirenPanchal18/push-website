@@ -1,4 +1,4 @@
-# Initialize Client Reference — @pushchain/core
+# Initialize Client Reference - @pushchain/core
 
 > Deep context for `push-backend` skill. Load this file when you need `PushChain.initialize`, read-only mode, reinitialize, account info, or account status.
 >
@@ -13,7 +13,7 @@
 
 | Argument | Type | Default | Description |
 |---|---|---|---|
-| `signerOrAccount` | `UniversalSigner \| UniversalAccount` | — | `UniversalSigner` for full write/sign; `UniversalAccount` (address + chain) for read-only |
+| `signerOrAccount` | `UniversalSigner \| UniversalAccount` | - | `UniversalSigner` for full write/sign; `UniversalAccount` (address + chain) for read-only |
 | `options.network` | `PushChain.CONSTANTS.PUSH_NETWORK` | `TESTNET` | Push Chain network to connect to |
 | `options.rpcUrls` | `Partial<Record<CHAIN, string[]>>` | `{}` | Custom RPC URLs per chain |
 | `options.blockExplorers` | `Partial<Record<CHAIN, string[]>>` | default URLs | Custom explorer URLs per chain |
@@ -39,7 +39,7 @@ const client = await PushChain.initialize(universalSigner, {
 
 ## Read-Only Mode
 
-Pass a `UniversalAccount` — no private key needed. `sendTransaction` and `signMessage` will throw; `universal.account`, `universal.origin`, and `explorer.*` still work.
+Pass a `UniversalAccount` - no private key needed. `sendTransaction` and `signMessage` will throw; `universal.account`, `universal.origin`, and `explorer.*` still work.
 
 ```ts
 const account = PushChain.utils.account.toUniversal('0xAddress', {
@@ -65,7 +65,7 @@ const url = client.explorer.getTransactionUrl('0xTxHash');
 ## Reinitialize
 
 Swap signer/account or update options without constructing a fresh client from scratch.
-**Always returns a new client instance — update your reference.**
+**Always returns a new client instance - update your reference.**
 
 ```ts
 const newClient = await client.reinitialize(newSignerOrAccount, {
@@ -84,21 +84,21 @@ After initialization, the client exposes two account getters:
 ```ts
 client.universal.origin
 // Source-chain address: { address: '0xYourWallet', chain: 'eip155:11155111' }
-// Represents the UOA — the actual user wallet that signed
+// Represents the UOA - the actual user wallet that signed
 
 client.universal.account
 // Push Chain execution address (string)
-// For cross-chain users: their UEA (Universal Executor Account) — smart contract on Push Chain
+// For cross-chain users: their UEA (Universal Executor Account) - smart contract on Push Chain
 // For Push-native users: their EOA directly
 ```
 
 ---
 
-## Account Status — `getAccountStatus`
+## Account Status - `getAccountStatus`
 
 `pushChainClient.getAccountStatus(options?)` → `Promise<AccountStatus>`
 
-Returns UEA deployment state and version info. The SDK handles upgrades automatically in most cases — call this only when debugging account state.
+Returns UEA deployment state and version info. The SDK handles upgrades automatically in most cases - call this only when debugging account state.
 
 ```ts
 const status = await client.getAccountStatus();
@@ -126,7 +126,7 @@ if (status.uea.requiresUpgrade) {
 
 ## Reading Blockchain State
 
-**`PushChainClient` is for sending and signing universal transactions — not general-purpose EVM reads.**
+**`PushChainClient` is for sending and signing universal transactions - not general-purpose EVM reads.**
 
 To query contracts, balances, or events on Push Chain, use ethers.js or viem directly with the Push Chain RPC:
 

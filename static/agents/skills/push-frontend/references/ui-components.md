@@ -1,8 +1,8 @@
-# UI Components Reference — @pushchain/ui-kit
+# UI Components Reference - @pushchain/ui-kit
 
 > Deep context for `push-frontend` skill. Load this file only when you need wallet provider customization, hook APIs, or connection state details.
 
-## PushUniversalWalletProvider — Full Config
+## PushUniversalWalletProvider - Full Config
 
 ```tsx
 import { PushUniversalWalletProvider, PushUI } from '@pushchain/ui-kit';
@@ -40,18 +40,18 @@ import { PushUniversalWalletProvider, PushUI } from '@pushchain/ui-kit';
 | `PushUI.CONSTANTS.PUSH_NETWORK.TESTNET_DONUT` | Alias for TESTNET |
 | `PushUI.CONSTANTS.PUSH_NETWORK.LOCALNET` | Local dev node |
 
-## usePushWalletContext — Full API
+## usePushWalletContext - Full API
 
 ```tsx
 import { usePushWalletContext, PushUI } from '@pushchain/ui-kit';
 
 const {
   connectionStatus,          // PushUI.CONSTANTS.CONNECTION.STATUS
-  handleConnectToPushWallet, // () => void — open wallet connection modal
-  handleUserLogOutEvent,     // () => void — disconnect and clear session
+  handleConnectToPushWallet, // () => void - open wallet connection modal
+  handleUserLogOutEvent,     // () => void - disconnect and clear session
 } = usePushWalletContext();
 // Advanced multi-instance: pass uid matching config.uid on the target provider
-// usePushWalletContext('uid1') — must match usePushChainClient('uid1') and <PushUniversalAccountButton uid='uid1' />
+// usePushWalletContext('uid1') - must match usePushChainClient('uid1') and <PushUniversalAccountButton uid='uid1' />
 
 // Compare against the enum:
 const isConnected =
@@ -63,30 +63,30 @@ const isConnected =
 // PushUI.CONSTANTS.CONNECTION.STATUS.CONNECTED
 ```
 
-## usePushChainClient — Full API
+## usePushChainClient - Full API
 
 ```tsx
 import { usePushChainClient } from '@pushchain/ui-kit';
 
 const {
-  pushChainClient, // PushChainClient | null — null until wallet connects
-  isInitialized,   // boolean — false while client is booting
-  error,           // Error | null — set if initialization fails
-} = usePushChainClient(uid?); // uid: optional — target a specific PushUniversalWalletProvider instance
+  pushChainClient, // PushChainClient | null - null until wallet connects
+  isInitialized,   // boolean - false while client is booting
+  error,           // Error | null - set if initialization fails
+} = usePushChainClient(uid?); // uid: optional - target a specific PushUniversalWalletProvider instance
 ```
 
-## usePushChain — Full API
+## usePushChain - Full API
 
 ```tsx
 import { usePushChain } from '@pushchain/ui-kit';
 
 const { PushChain } = usePushChain();
-// PushChain is the @pushchain/core SDK — use for utilities and constants inside components.
+// PushChain is the @pushchain/core SDK - use for utilities and constants inside components.
 // For transactions and signing, use usePushChainClient() instead.
 // e.g. PushChain.utils.account.toChainAgnostic(address, { chain })
 ```
 
-## PushUniversalAccountButton — Props
+## PushUniversalAccountButton - Props
 
 ```tsx
 import { PushUniversalAccountButton } from '@pushchain/ui-kit';
@@ -126,7 +126,7 @@ Place it anywhere inside `<PushUniversalWalletProvider>`. No required props.
 >
 ```
 
-**Global overrides** — apply regardless of theme:
+**Global overrides** - apply regardless of theme:
 
 | Category | Variable | Default |
 |---|---|---|
@@ -140,7 +140,7 @@ Place it anywhere inside `<PushUniversalWalletProvider>`. No required props.
 | Border | `--pw-core-btn-border-radius` | `12px` |
 | Border | `--pwauth-btn-connect-border-radius` | `12px` |
 
-**Color variables** — different defaults per theme:
+**Color variables** - different defaults per theme:
 
 | Variable | Light | Dark |
 |---|---|---|
@@ -166,7 +166,7 @@ Place it anywhere inside `<PushUniversalWalletProvider>`. No required props.
 
 > `--pwauth-*` variables can also be overridden per button via `PushUniversalAccountButton.themeOverrides`.
 
-### Advanced CSS — className overrides
+### Advanced CSS - className overrides
 
 When CSS variables aren't granular enough (gradients, animations, box-shadow, pseudo-elements), use `connectButtonClassName` and `connectedButtonClassName` to attach your own classes:
 
