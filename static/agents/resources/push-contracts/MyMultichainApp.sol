@@ -17,10 +17,12 @@ interface IUEAFactory {
 }
 
 struct UniversalOutboundTxRequest {
-    bytes   recipient;
+    bytes   recipient;       // raw destination address on source chain (bytes for SVM compat)
     address token;
     uint256 amount;
     uint256 gasLimit;
+    uint256 gasPrice;        // new in SDK v6 (0 = per-chain default from UniversalCore)
+    uint256 maxPCForGas;     // new in SDK v6 (0 = no cap on PC spent on the gas swap)
     bytes   payload;
     address revertRecipient;
 }
@@ -70,10 +72,12 @@ contract MyMultichainApp {
     function dispatch(address target, bytes calldata payload) external payable {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
-                recipient:       abi.encodePacked(target),
+                recipient:          abi.encodePacked(target),
                 token:           address(0),
                 amount:          0,
                 gasLimit:        0, // auto-estimate
+                gasPrice:        0, // UniversalCore default
+                maxPCForGas:     0, // uncapped legacy behavior
                 payload:         payload,
                 revertRecipient: msg.sender
             })

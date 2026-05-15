@@ -85,10 +85,12 @@ The destination CEA receives Layer 4, executes the multicall step, which invokes
 pragma solidity ^0.8.26;
 
 struct UniversalOutboundTxRequest {
-    bytes target;
+    bytes recipient;
     address token;
     uint256 amount;
     uint256 gasLimit;
+    uint256 gasPrice;        // 0 = per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;     // 0 = no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes payload;
     address revertRecipient;
 }
@@ -165,10 +167,12 @@ contract RoundtripDispatcher {
 
         IUniversalGatewayPC(ugpc).sendUniversalTxOutbound{value: protocolFeePc}(
             UniversalOutboundTxRequest({
-                target: abi.encodePacked(destinationCEAAddr),
+                recipient: abi.encodePacked(destinationCEAAddr),
                 token: tokenForRouting,
                 amount: 0,
                 gasLimit: 2_000_000,        // CRITICAL: see What can go wrong below
+                gasPrice: 0,                // per-chain default from UniversalCore
+                maxPCForGas: 0,             // no cap on PC for the gas swap
                 payload: outerMulticallData,
                 revertRecipient: address(this)
             })

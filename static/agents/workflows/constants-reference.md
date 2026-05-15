@@ -118,8 +118,9 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(keyp
 ### BNB Testnet
 | Constant | Token |
 |----------|-------|
-| `MOVEABLE.TOKEN.BNB_TESTNET.ETH` | Native ETH |
+| `MOVEABLE.TOKEN.BNB_TESTNET.BNB` | Native BNB |
 | `MOVEABLE.TOKEN.BNB_TESTNET.USDT` | Tether USD |
+| `MOVEABLE.TOKEN.BNB_TESTNET.USDC` | USD Coin |
 
 ### Solana Devnet
 | Constant | Token |
@@ -134,9 +135,18 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(keyp
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEth` | Push-wrapped ETH from Ethereum |
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthArb` | Push-wrapped ETH from Arbitrum |
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthBase` | Push-wrapped ETH from Base |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pBnb` | Push-wrapped BNB from BNB Chain |
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pSol` | Push-wrapped SOL from Solana |
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.eth` | Push-wrapped USDT from Ethereum |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.arb` | Push-wrapped USDT from Arbitrum |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.base` | Push-wrapped USDT from Base |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.bnb` | Push-wrapped USDT from BNB Chain |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.sol` | Push-wrapped USDT from Solana |
 | `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.eth` | Push-wrapped USDC from Ethereum |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.arb` | Push-wrapped USDC from Arbitrum |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.base` | Push-wrapped USDC from Base |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.bnb` | Push-wrapped USDC from BNB Chain |
+| `MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.sol` | Push-wrapped USDC from Solana |
 
 ```typescript
 // Move 100 USDT from Ethereum Sepolia into Push Chain
@@ -158,7 +168,7 @@ await pushChainClient.universal.sendTransaction({
 | Ethereum Sepolia | ETH, USDT, USDC, WETH, stETH |
 | Arbitrum Sepolia | ETH, USDT, USDC |
 | Base Sepolia | ETH, USDT, USDC |
-| BNB Testnet | BNB, USDT |
+| BNB Testnet | BNB, USDT, USDC |
 | Solana Devnet | SOL, USDT, USDC |
 
 ```typescript

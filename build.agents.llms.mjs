@@ -24,11 +24,11 @@ const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
 
 const SDK_VERSIONS = {
-  core: '5.1.4',
-  uiKit: '5.2.2',
+  core: '6.0.0',
+  uiKit: '6.0.0',
 };
-const AGENT_LAYER_VERSION = '1.0.1';
-const AGENT_LAYER_DATE = '2026-04-17';
+const AGENT_LAYER_VERSION = '1.0.12';
+const AGENT_LAYER_DATE = '2026-05-15';
 
 const WORKFLOW_CATEGORIES = [
   { key: 'core-execution', label: '### Core execution' },
@@ -316,7 +316,27 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   if (skills.length > 0) {
     for (const s of skills) {
-      lines.push(`  - [${s.id}](${BASE_URL}/${s.file})`);
+      // External skills (e.g. push-pusd on pusd.push.org) carry an absolute
+      // `url` plus optional `host` / `agent_layer`; internal skills have a
+      // repo-relative `file`. Render each appropriately so the link is never
+      // `${BASE_URL}/undefined`.
+      const href = s.external
+        ? s.url
+        : s.file
+        ? `${BASE_URL}/${s.file}`
+        : s.url;
+      if (s.external) {
+        const brief =
+          s.id === 'push-pusd'
+            ? 'PUSD / PUSD+ stablecoin integration (mint, redeem, NAV quotes, cross-chain deposits)'
+            : (s.description || '').split('.')[0];
+        const hosting = s.host
+          ? ` Hosted at \`${s.host}\`${s.agent_layer ? `; full agent layer at ${s.agent_layer}` : ''}.`
+          : '';
+        lines.push(`  - [${s.id}](${href}) - ${brief}.${hosting}`);
+      } else {
+        lines.push(`  - [${s.id}](${href})`);
+      }
     }
   } else {
     lines.push(
@@ -567,10 +587,10 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
   lines.push(
-    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Added \`## Common Mistakes\` table (5 rows). Expanded Minimal Example with origin-chain provider variants; corrected Solana signer hint. Added Claude.ai Projects to AI Editor integrations. Faucet rate limits confirmed and documented.`
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 SDK v6 bump. \`UniversalOutboundTxRequest\` struct gained \`gasPrice\` and \`maxPCForGas\` fields (8 fields total; \`recipient\` retained). Refreshed CEAFactory addresses on Sepolia / Arbitrum / Base / BNB testnets plus USDT PRC-20 addresses across all chains. Tutorial \`universal-cross-chain-counters\` redeployed against v6 layout (Push Donut orchestrator + Sepolia / BNB destination counters).`
   );
   lines.push(
-    `- **${AGENT_LAYER_DATE} v1.0.0** \u2014 Pinned SDK versions (\`@pushchain/core@${SDK_VERSIONS.core}\`, \`@pushchain/ui-kit@${SDK_VERSIONS.uiKit}\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
+    `- **2026-04-17 v1.0.0** \u2014 Pinned SDK versions (originally \`@pushchain/core@5.1.4\`, \`@pushchain/ui-kit@5.2.2\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
   );
   lines.push('');
 

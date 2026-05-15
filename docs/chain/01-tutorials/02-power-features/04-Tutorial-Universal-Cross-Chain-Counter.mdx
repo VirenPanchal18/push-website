@@ -142,6 +142,8 @@ struct UniversalOutboundTxRequest {
     address token;           // address(0) — we are not bridging funds, just executing a payload
     uint256 amount;          // 0 because we are not bridging funds
     uint256 gasLimit;        // gas the destination CEA gets to run `increment()`
+    uint256 gasPrice;        // 0 → per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;     // 0 → no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes payload;           // ABI-encoded calldata for the destination contract
     address revertRecipient; // refunded if the outbound cannot finalise
 }
@@ -222,6 +224,8 @@ contract MultiChainCounter {
                     token: address(0),
                     amount: 0,
                     gasLimit: d.gasLimit,
+                    gasPrice: 0,            // per-chain default from UniversalCore
+                    maxPCForGas: 0,         // no cap on PC for the gas swap
                     payload: payload,
                     revertRecipient: revertRecipient
                 })
@@ -395,9 +399,9 @@ Wired to a reference deployment:
 
 | Contract | Chain | Address |
 |---|---|---|
-| `MultiChainCounter` | Push Donut Testnet | [`0x6448...3D15`](https://donut.push.network/address/0x6448B16c0b295F24DAB9743C80d842f47F923D15) |
-| `ExternalCounter` | Ethereum Sepolia | [`0x6448...3D15`](https://sepolia.etherscan.io/address/0x6448B16c0b295F24DAB9743C80d842f47F923D15) |
-| `ExternalCounter` | BNB Testnet | [`0xb3fB...6E79`](https://testnet.bscscan.com/address/0xb3fB98A3C6EEA643532198CF22cc50BC48026E79) |
+| `MultiChainCounter` | Push Donut Testnet | [`0x7dd8...fBDd`](https://donut.push.network/address/0x7dd80f17C593F73292b3c4B785C4dD0100C4fBDd) |
+| `ExternalCounter` | Ethereum Sepolia | [`0xCf5D...Ee92`](https://sepolia.etherscan.io/address/0xCf5DB8F40F7dAA8Aa8Cb36C880F7207a65e2Ee92) |
+| `ExternalCounter` | BNB Testnet | [`0xfEe7...57D5`](https://testnet.bscscan.com/address/0xfEe777Fbd341AC02d105037022fc03D3CcD757D5) |
 | `ExternalCounter` | Arbitrum Sepolia | [`0xb3fB...6E79`](https://sepolia.arbiscan.io/address/0xb3fB98A3C6EEA643532198CF22cc50BC48026E79) |
 
 To drive your own deployments, edit `ORCHESTRATOR` and `DEMO_DESTINATIONS` at the top of the playground source.
@@ -416,20 +420,20 @@ import { useEffect, useState } from "react";
 
 function CrossChainCounterExample() {
   // Pre-deployed demo addresses. Replace with your own deploys to drive your own counters.
-  const ORCHESTRATOR = "0x6448B16c0b295F24DAB9743C80d842f47F923D15";
+  const ORCHESTRATOR = "0x7dd80f17C593F73292b3c4B785C4dD0100C4fBDd";
   const PER_CALL_FEE_PC_WEI = 5n * 10n ** 18n; // 5 PC per destination, comfortable testnet headroom
 
   const DEMO_DESTINATIONS = [
     {
       label: "Ethereum Sepolia",
       chainKey: "ETHEREUM_SEPOLIA",
-      counterAddress: "0x6448B16c0b295F24DAB9743C80d842f47F923D15",
+      counterAddress: "0xCf5DB8F40F7dAA8Aa8Cb36C880F7207a65e2Ee92",
       rpc: "https://ethereum-sepolia-rpc.publicnode.com",
     },
     {
       label: "BNB Testnet",
       chainKey: "BNB_TESTNET",
-      counterAddress: "0xb3fB98A3C6EEA643532198CF22cc50BC48026E79",
+      counterAddress: "0xfEe777Fbd341AC02d105037022fc03D3CcD757D5",
       rpc: "https://bsc-testnet-rpc.publicnode.com",
     },
     {

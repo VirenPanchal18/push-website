@@ -10,8 +10,8 @@ See the [source documentation](https://push.org/docs/chain/build/send-multichain
 
 ```typescript
 // 6-hop cross-chain cascade from a fresh Sepolia UOA:
-//   Hop 0 (CEA_TO_PUSH)  - Bridge 0.001 ETH from Sepolia EOA → pETH on UEA;
-//                          value=25 PC seeds the UEA with PC for the next five hops.
+//   Hop 0 (UOA_TO_PUSH)  - Deposit 0.001 ETH from UOA → pETH on UEA (Route 1 sendTxWithFunds);
+//                          value=25 PC triggers SDK fee-lock to seat the UEA's PC gas budget.
 //   Hop 1 (UOA_TO_PUSH)  - Approve SwapRouter to spend pETH
 //   Hop 2 (UOA_TO_PUSH)  - Approve SwapRouter to spend WPC
 //   Hop 3 (UOA_TO_PUSH)  - Swap pETH → WPC on Push Chain AMM (Uniswap V3 fork)
@@ -97,7 +97,7 @@ async function main() {
   });
   console.log('📍 Solana CEA (Hop 5 destination):', solanaCEA.address);
 
-  await rl.question(':::prompt:::Fund this account, then press Enter:\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.065 ETH).\n     0.001 ETH bridges as pETH (Hop 0).\n     ~0.06 ETH fee-locks to seat 25 PC on the UEA (Hop 0, covering gas for hops 1-5).\n     The remainder covers Sepolia signing gas.\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
+  await rl.question(':::prompt:::Fund both accounts, then press Enter:\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.005 ETH for signing + the 0.001 ETH that Hop 0 deposits as pETH).\n  • UEA ' + client.universal.account + ' on Push Chain (at least 25 PC — covers UEA gas across hops 1-5 plus the SVM outbound gas-token swap).\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia\nPush Chain faucet: https://faucet.push.org/');
 
   // Quote both swap legs so we can size Hop 4 amountIn and Hop 5 bridge amount.
   // QuoterV2 is non-view, so call via staticCall to read return values.
@@ -116,22 +116,21 @@ async function main() {
   console.log('💱 Estimated WPC after Hop 3:', wpcAmount.toString());
   console.log('💱 Estimated pSOL after Hop 4:', pSolAmount.toString());
 
-  // ── Hop 0 (CEA_TO_PUSH) ─ Bridge ETH from Sepolia EOA → pETH on UEA ───
-  // funds.amount → 0.001 ETH bridges as pETH for the swap.
-  // value        → 25 PC at the destination; SDK fee-locks ETH on Sepolia
-  //                to mint this PC into the UEA, covering gas for hops 1-5
-  //                (2 approves + 2 swaps + 1 outbound bridge to Solana).
+  // ── Hop 0 (UOA_TO_PUSH) ─ Deposit ETH from UOA → pETH on UEA ─────────
+  // No `from` field → Route 1 (UOA initiates). funds.amount tells the
+  // SDK to attach 0.001 ETH as msg.value on the source-chain gateway tx,
+  // which mints 0.001 pETH on the UEA. value=25 PC bumps the UEA's
+  // gas budget — the SDK fee-locks enough ETH from the same UOA tx
+  // to seat 25 PC on the UEA for hops 1-5 (2 approves, 2 swaps, 1 outbound).
   const hop0 = await client.universal.prepareTransaction({
-    from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
     to: client.universal.account,
     value: PushChain.utils.helpers.parseUnits('25', 18),
-    data: '0x',
     funds: {
       amount: AMOUNT_IN,
       token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH,
     },
   });
-  console.log('✅ hop0 prepared (bridge ETH→pETH + 25 PC) - route:', hop0.route);
+  console.log('✅ hop0 prepared (deposit ETH→pETH + 25 PC) - route:', hop0.route);
 
   // ── Hop 1 (UOA_TO_PUSH) ─ Approve SwapRouter for pETH ────────────────
   const hop1 = await client.universal.prepareTransaction({
@@ -210,11 +209,10 @@ async function main() {
   console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
   console.log('📦 hopCount:', cascade.hopCount);
 
-  // cascade.wait's progressHook streams per-hop CascadeProgressEvent
-  // (hopIndex, route, chain, status, txHash) during tracking.
-  const result = await cascade.wait({
-    progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain + (e.txHash ? ' (' + e.txHash + ')' : '')),
-  });
+  // executeTransactions's progressHook above already streams per-hop tracking
+  // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+  // its own progressHook — just await for completion.
+  const result = await cascade.wait();
   console.log('🏁 All hops complete. Success:', result.success);
 
   // Solana outbound details from the cascade hops registry.

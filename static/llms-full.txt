@@ -924,6 +924,8 @@ struct UniversalOutboundTxRequest {
     address token;          // PRC20 on Push Chain to bridge (address(0) for none)
     uint256 amount;         // Amount of PRC20 to bridge
     uint256 gasLimit;       // Gas limit for external execution
+    uint256 gasPrice;       // 0 = per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;    // 0 = no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes payload;          // ABI-encoded calldata for the CEA to execute
     address revertRecipient;// Address to receive bridged funds if external tx reverts
 }
@@ -979,6 +981,8 @@ contract MinimalContractInitiatedExecutor {
                 token: token,
                 amount: amount,
                 gasLimit: gasLimit,
+                gasPrice: 0,                // per-chain default from UniversalCore
+                maxPCForGas: 0,             // no cap on PC for the gas swap
                 payload: payload,
                 revertRecipient: revertRecipient
             })
@@ -1103,10 +1107,12 @@ The destination CEA receives Layer 4, executes the multicall step, which invokes
 pragma solidity ^0.8.26;
 
 struct UniversalOutboundTxRequest {
-    bytes target;
+    bytes recipient;
     address token;
     uint256 amount;
     uint256 gasLimit;
+    uint256 gasPrice;        // 0 = per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;     // 0 = no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes payload;
     address revertRecipient;
 }
@@ -4389,11 +4395,10 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
       console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
       console.log('📦 hopCount:', cascade.hopCount);
 
-      // cascade.wait's progressHook streams per-hop CascadeProgressEvent
-      // (hopIndex, route, chain, status, txHash) during tracking.
-      const result = await cascade.wait({
-        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain + (e.txHash ? ' (' + e.txHash + ')' : '')),
-      });
+      // executeTransactions's progressHook above already streams per-hop tracking
+      // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+      // its own progressHook — just await for completion.
+      const result = await cascade.wait();
       console.log('🏁 All hops complete. Success:', result.success);
 
       if (result.success) {
@@ -4533,11 +4538,10 @@ Increment counters on Push Chain and BNB Testnet, then trigger a call on Solana 
       console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
       console.log('📦 hopCount:', cascade.hopCount);
 
-      // cascade.wait's progressHook streams per-hop CascadeProgressEvent
-      // (hopIndex, route, chain, status, txHash) during tracking.
-      const result = await cascade.wait({
-        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain + (e.txHash ? ' (' + e.txHash + ')' : '')),
-      });
+      // executeTransactions's progressHook above already streams per-hop tracking
+      // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+      // its own progressHook — just await for completion.
+      const result = await cascade.wait();
       console.log('🏁 All hops complete. Success:', result.success);
 
       if (result.success) {
@@ -4572,8 +4576,8 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature.
 // customPropGTagEvent=execute_transactions
 
     // 6-hop cross-chain cascade from a fresh Sepolia UOA:
-    //   Hop 0 (UEA_TO_PUSH)  - Bridge 0.001 ETH from Sepolia EOA → pETH on UEA;
-    //                          value=25 PC seeds the UEA with PC for the next five hops.
+    //   Hop 0 (UOA_TO_PUSH)  - Deposit 0.001 ETH from UOA → pETH on UEA (Route 1 sendTxWithFunds);
+    //                          value=25 PC triggers SDK fee-lock to seat the UEA's PC gas budget.
     //   Hop 1 (UOA_TO_PUSH)  - Approve SwapRouter to spend pETH
     //   Hop 2 (UOA_TO_PUSH)  - Approve SwapRouter to spend WPC
     //   Hop 3 (UOA_TO_PUSH)  - Swap pETH → WPC on Push Chain AMM (Uniswap V3 fork)
@@ -4659,7 +4663,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature.
       });
       console.log('📍 Solana CEA (Hop 5 destination):', solanaCEA.address);
 
-      await rl.question(':::prompt:::Fund this account, then press Enter:\\\\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.065 ETH).\\\\n     0.001 ETH bridges as pETH (Hop 0).\\\\n     ~0.06 ETH fee-locks to seat 25 PC on the UEA (Hop 0, covering gas for hops 1-5).\\\\n     The remainder covers Sepolia signing gas.\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
+      await rl.question(':::prompt:::Fund both accounts, then press Enter:\\\\n  • UOA ' + wallet.address + ' on Sepolia (at least 0.005 ETH for signing + the 0.001 ETH that Hop 0 deposits as pETH).\\\\n  • UEA ' + client.universal.account + ' on Push Chain (at least 25 PC — covers UEA gas across hops 1-5 plus the SVM outbound gas-token swap).\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia\\\\nPush Chain faucet: https://faucet.push.org/');
 
       // Quote both swap legs so we can size Hop 4 amountIn and Hop 5 bridge amount.
       // QuoterV2 is non-view, so call via staticCall to read return values.
@@ -4678,13 +4682,13 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature.
       console.log('💱 Estimated WPC after Hop 3:', wpcAmount.toString());
       console.log('💱 Estimated pSOL after Hop 4:', pSolAmount.toString());
 
-      // ── Hop 0 (CEA_TO_PUSH) ─ Bridge ETH from Sepolia EOA → pETH on UEA ───
-      // funds.amount → 0.001 ETH bridges as pETH for the swap.
-      // value        → 25 PC at the destination; SDK fee-locks ETH on Sepolia
-      //                to mint this PC into the UEA, covering gas for hops 1-5
-      //                (2 approves + 2 swaps + 1 outbound bridge to Solana).
+      // ── Hop 0 (UOA_TO_PUSH) ─ Deposit ETH from UOA → pETH on UEA ─────────
+      // No 'from' field means Route 1 (UOA initiates). funds.amount tells the
+      // SDK to attach 0.001 ETH as msg.value on the source-chain gateway tx,
+      // which mints 0.001 pETH on the UEA. value=25 PC bumps the UEA's gas
+      // budget — the SDK fee-locks enough ETH from the same UOA tx to seat
+      // 25 PC on the UEA for hops 1-5 (2 approves, 2 swaps, 1 outbound).
       const hop0 = await client.universal.prepareTransaction({
-        from: { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA },
         to: client.universal.account,
         value: PushChain.utils.helpers.parseUnits('25', 18),
         funds: {
@@ -4692,7 +4696,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature.
           token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH,
         },
       });
-      console.log('✅ hop0 prepared (bridge ETH→pETH + 25 PC) - route:', hop0.route);
+      console.log('✅ hop0 prepared (deposit ETH→pETH + 25 PC) - route:', hop0.route);
 
       // ── Hop 1 (UOA_TO_PUSH) ─ Approve SwapRouter for pETH ────────────────
       const hop1 = await client.universal.prepareTransaction({
@@ -4765,11 +4769,10 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature.
       console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
       console.log('📦 hopCount:', cascade.hopCount);
 
-      // cascade.wait's progressHook streams per-hop CascadeProgressEvent
-      // (hopIndex, route, chain, status, txHash) during tracking.
-      const result = await cascade.wait({
-        progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain + (e.txHash ? ' (' + e.txHash + ')' : '')),
-      });
+      // executeTransactions's progressHook above already streams per-hop tracking
+      // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+      // its own progressHook — just await for completion.
+      const result = await cascade.wait();
       console.log('🏁 All hops complete. Success:', result.success);
 
       // Solana outbound details from the cascade hops registry.
@@ -5075,6 +5078,8 @@ struct UniversalOutboundTxRequest {
     address token;            // PRC20 token on Push Chain to bridge (address(0) for none)
     uint256 amount;           // Amount of PRC20 to bridge
     uint256 gasLimit;         // Gas limit for external-chain execution (see Operational Knobs)
+    uint256 gasPrice;         // Gas price override (0 = per-chain default from UniversalCore; new in SDK v6)
+    uint256 maxPCForGas;      // Max native PC the AMM may consume for the gas swap (0 = no cap; new in SDK v6)
     bytes   payload;          // Calldata for the CEA to execute on the external chain
     address revertRecipient;  // Address to receive funds if the tx reverts on the external chain
 }
@@ -5090,6 +5095,8 @@ interface IUniversalGatewayPC {
 | _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if no token is being bridged. |
 | _`req.amount`_ | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
 | _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Default to `2_000_000` (see [Operational Knobs](#operational-knobs)); UGPC charges only for actual gas used and refunds the surplus. |
+| _`req.gasPrice`_ | `uint256` | Gas price override for the destination chain. Set to `0` to use the per-chain default quoted by UniversalCore (recommended). |
+| _`req.maxPCForGas`_ | `uint256` | Maximum native `$PC` the on-chain AMM may consume when swapping for destination gas. Set to `0` for no cap (recommended on testnet). |
 | _`req.payload`_ | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
 | _`req.revertRecipient`_ | `address` | Address to receive bridged funds if the external transaction reverts. |
 
@@ -5126,6 +5133,8 @@ function dispatchToBNB(address bnbCounter, uint256 protocolFeePc) external payab
             token:           address(0),
             amount:          0,
             gasLimit:        2_000_000,
+            gasPrice:        0,             // per-chain default from UniversalCore
+            maxPCForGas:     0,             // no cap on PC for the gas swap
             payload:         payload,
             revertRecipient: address(this)
         })
@@ -5257,6 +5266,8 @@ UGPC.sendUniversalTxOutbound{value: protocolFeePc}(UniversalOutboundTxRequest({
     token:           pBNB,
     amount:          0,
     gasLimit:        2_000_000,
+    gasPrice:        0,                // per-chain default from UniversalCore
+    maxPCForGas:     0,                // no cap on PC for the gas swap
     payload:         outerMulticallData,
     revertRecipient: address(this)
 }));
@@ -8153,13 +8164,14 @@ Defines tokens that can be transferred across chains using Push Chain's universa
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.BASE_SEPOLIA.WETH` | Base Sepolia | Wrapped ETH |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.BNB` | BNB Testnet | Native BNB token |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDT` | BNB Testnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.BNB_TESTNET.USDC` | BNB Testnet | USD Coin stablecoin |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.SOL` | Solana Devnet | Native SOL token |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.USDT` | Solana Devnet | Tether USD stablecoin |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.SOLANA_DEVNET.USDC` | Solana Devnet | USD Coin stablecoin |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEth` | Push Testnet Donut | Push-wrapped ETH from Ethereum |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthArb` | Push Testnet Donut | Push-wrapped ETH from Arbitrum |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pEthBase` | Push Testnet Donut | Push-wrapped ETH from Base |
-| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pBnb` | Push Testnet Donut | Push-wrapped ETH from BNB Chain |
+| `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pBnb` | Push Testnet Donut | Push-wrapped BNB from BNB Chain |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.pSol` | Push Testnet Donut | Push-wrapped SOL from Solana |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.eth` | Push Testnet Donut | Push-wrapped USDT from Ethereum |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDT.arb` | Push Testnet Donut | Push-wrapped USDT from Arbitrum |
@@ -8231,6 +8243,7 @@ Defines tokens that can be used to pay for gas fees on Push Chain transactions.
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.BASE_SEPOLIA.USDC` | Base Sepolia | USD Coin stablecoin |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.BNB_TESTNET.BNB` | BNB Testnet | Native BNB token |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.BNB_TESTNET.USDT` | BNB Testnet | Tether USD stablecoin |
+| `PushChain.CONSTANTS.PAYABLE.TOKEN.BNB_TESTNET.USDC` | BNB Testnet | USD Coin stablecoin |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.SOL` | Solana Devnet | Native SOL token |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.USDT` | Solana Devnet | Tether USD stablecoin |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.USDC` | Solana Devnet | USD Coin stablecoin |
@@ -10938,7 +10951,7 @@ Push-native representations of tokens bridged from external chains. Each PRC-20 
 | ---------- | --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | pETH       | pETH      | Ethereum_Sepolia | [0x2971824Db68229D087931155C2b8bB820B275809](https://donut.push.network/address/0x2971824Db68229D087931155C2b8bB820B275809?tab=contract) |
 | WETH.eth   | WETH.eth  | Ethereum_Sepolia | [0x0d0dF7E8807430A81104EA84d926139816eC7586](https://donut.push.network/address/0x0d0dF7E8807430A81104EA84d926139816eC7586?tab=contract) |
-| USDT.eth   | USDT.eth  | Ethereum_Sepolia | [0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3](https://donut.push.network/address/0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3?tab=contract) |
+| USDT.eth   | USDT.eth  | Ethereum_Sepolia | [0x0f97A213207703923F5f0C613C9827f7C9A0f96B](https://donut.push.network/address/0x0f97A213207703923F5f0C613C9827f7C9A0f96B?tab=contract) |
 | stETH.eth  | stETH.eth | Ethereum_Sepolia | [0xaf89E805949c628ebde3262e91dc4ab9eA12668E](https://donut.push.network/address/0xaf89E805949c628ebde3262e91dc4ab9eA12668E?tab=contract) |
 | USDC.eth   | USDC.eth  | Ethereum_Sepolia | [0x7A58048036206bB898008b5bBDA85697DB1e5d66](https://donut.push.network/address/0x7A58048036206bB898008b5bBDA85697DB1e5d66?tab=contract) |
 | pSOL       | pSOL      | Solana_Devnet    | [0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed](https://donut.push.network/address/0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed?tab=contract) |
@@ -10946,13 +10959,14 @@ Push-native representations of tokens bridged from external chains. Each PRC-20 
 | USDT.sol   | USDT.sol  | Solana_Devnet    | [0x4f1A3D22d170a2F4Bddb37845a962322e24f4e34](https://donut.push.network/address/0x4f1A3D22d170a2F4Bddb37845a962322e24f4e34?tab=contract) |
 | DAI.sol    | DAI.sol   | Solana_Devnet    | [0x5861f56A556c990358cc9cccd8B5baa3767982A8](https://donut.push.network/address/0x5861f56A556c990358cc9cccd8B5baa3767982A8?tab=contract) |
 | pETH.base  | pETH.base | Base_Testnet     | [0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21](https://donut.push.network/address/0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21?tab=contract) |
-| USDT.base  | USDT.base | Base_Testnet     | [0x2C455189D2af6643B924A981a9080CcC63d5a567](https://donut.push.network/address/0x2C455189D2af6643B924A981a9080CcC63d5a567?tab=contract) |
+| USDT.base  | USDT.base | Base_Testnet     | [0x148823809B853e1db187BC09A9ac909BC42F971a](https://donut.push.network/address/0x148823809B853e1db187BC09A9ac909BC42F971a?tab=contract) |
 | USDC.base  | USDC.base | Base_Testnet     | [0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1](https://donut.push.network/address/0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1?tab=contract) |
 | pETH.arb   | pETH.arb  | Arbitrum_Sepolia | [0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e](https://donut.push.network/address/0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e?tab=contract) |
 | USDC.arb   | USDC.arb  | Arbitrum_Sepolia | [0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C](https://donut.push.network/address/0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C?tab=contract) |
-| USDT.arb   | USDT.arb  | Arbitrum_Sepolia | [0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9](https://donut.push.network/address/0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9?tab=contract) |
-| USDT.bnb   | USDT.bnb  | BNB_Testnet      | [0x2f98B4235FD2BA0173a2B056D722879360B12E7b](https://donut.push.network/address/0x2f98B4235FD2BA0173a2B056D722879360B12E7b?tab=contract) |
+| USDT.arb   | USDT.arb  | Arbitrum_Sepolia | [0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891](https://donut.push.network/address/0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891?tab=contract) |
 | pBNB       | pBNB      | BNB_Testnet      | [0x7a9082dA308f3fa005beA7dB0d203b3b86664E36](https://donut.push.network/address/0x7a9082dA308f3fa005beA7dB0d203b3b86664E36?tab=contract) |
+| USDC.bnb   | USDC.bnb  | BNB_Testnet      | [0x120EBf25Dad7D6a09Ad2316f23f9Be95DBb90639](https://donut.push.network/address/0x120EBf25Dad7D6a09Ad2316f23f9Be95DBb90639?tab=contract) |
+| USDT.bnb   | USDT.bnb  | BNB_Testnet      | [0x731aF1Da5365259d27528557EE4aFBA4baC90ef2](https://donut.push.network/address/0x731aF1Da5365259d27528557EE4aFBA4baC90ef2?tab=contract) |
 
 ---
 
@@ -10978,16 +10992,17 @@ Active official liquidity pools pairing various PRC-20 tokens with WPC (Wrapped 
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | pSOL/WPC Pool      | [0x0E5914e3A7e2e6d18330Dd33fA387Ce33Da48b54](https://donut.push.network/address/0x0E5914e3A7e2e6d18330Dd33fA387Ce33Da48b54?tab=contract) | [0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed](https://donut.push.network/address/0x5D525Df2bD99a6e7ec58b76aF2fd95F39874EBed?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pETH/WPC Pool      | [0x012d5C099f8AE00009f40824317a18c3A342f622](https://donut.push.network/address/0x012d5C099f8AE00009f40824317a18c3A342f622?tab=contract) | [0x2971824Db68229D087931155C2b8bB820B275809](https://donut.push.network/address/0x2971824Db68229D087931155C2b8bB820B275809?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDT/WPC Pool      | [0x2d46b2b92266f34345934F17039768cd631aB026](https://donut.push.network/address/0x2d46b2b92266f34345934F17039768cd631aB026?tab=contract) | [0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3](https://donut.push.network/address/0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.eth/WPC Pool  | [0x1e3f6b38582535A8eB021829853A08Bb1C7b604B](https://donut.push.network/address/0x1e3f6b38582535A8eB021829853A08Bb1C7b604B?tab=contract) | [0x0f97A213207703923F5f0C613C9827f7C9A0f96B](https://donut.push.network/address/0x0f97A213207703923F5f0C613C9827f7C9A0f96B?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | USDC.eth/WPC Pool  | [0x524B9b3e98CEF71a20B30859D6c52e13E17C5BA2](https://donut.push.network/address/0x524B9b3e98CEF71a20B30859D6c52e13E17C5BA2?tab=contract) | [0x7A58048036206bB898008b5bBDA85697DB1e5d66](https://donut.push.network/address/0x7A58048036206bB898008b5bBDA85697DB1e5d66?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pETH.base/WPC Pool | [0xF926707689ad2fE9A81e666E5B888b2f3AD33980](https://donut.push.network/address/0xF926707689ad2fE9A81e666E5B888b2f3AD33980?tab=contract) | [0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21](https://donut.push.network/address/0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDT.base/WPC Pool | [0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15](https://donut.push.network/address/0x1cE819E742b44f922D2F05fdFFd17b4997f4CD15?tab=contract) | [0x2C455189D2af6643B924A981a9080CcC63d5a567](https://donut.push.network/address/0x2C455189D2af6643B924A981a9080CcC63d5a567?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.base/WPC Pool | [0x0c906B6FE47f1666F4723273Cf8E681b3e35aFF0](https://donut.push.network/address/0x0c906B6FE47f1666F4723273Cf8E681b3e35aFF0?tab=contract) | [0x148823809B853e1db187BC09A9ac909BC42F971a](https://donut.push.network/address/0x148823809B853e1db187BC09A9ac909BC42F971a?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | USDC.base/WPC Pool | [0xC76D211B1c40775ec340692bA5BC0D728A0dF745](https://donut.push.network/address/0xC76D211B1c40775ec340692bA5BC0D728A0dF745?tab=contract) | [0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1](https://donut.push.network/address/0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pETH.arb/WPC Pool  | [0x1354c9A72F447f60F4811FC34b8C2e084FE338A3](https://donut.push.network/address/0x1354c9A72F447f60F4811FC34b8C2e084FE338A3?tab=contract) | [0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e](https://donut.push.network/address/0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 3000 |
-| USDT.arb/WPC Pool  | [0xF95B20Cf3f2dE495747EB3d33611D0FFEA29F448](https://donut.push.network/address/0xF95B20Cf3f2dE495747EB3d33611D0FFEA29F448?tab=contract) | [0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9](https://donut.push.network/address/0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.arb/WPC Pool  | [0x5EBEa067F75C0661EC37577547209E38C8b93c18](https://donut.push.network/address/0x5EBEa067F75C0661EC37577547209E38C8b93c18?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | [0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891](https://donut.push.network/address/0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891?tab=contract) | 500  |
 | USDC.arb/WPC Pool  | [0xB3ccbD470A19D4aB2fAa43c6eE4d43dEF8F4Ee63](https://donut.push.network/address/0xB3ccbD470A19D4aB2fAa43c6eE4d43dEF8F4Ee63?tab=contract) | [0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C](https://donut.push.network/address/0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 | pBNB/WPC Pool      | [0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6](https://donut.push.network/address/0x826edC20c926653f4ddC01b8d4C7Df31a403e7d6?tab=contract) | [0x7a9082dA308f3fa005beA7dB0d203b3b86664E36](https://donut.push.network/address/0x7a9082dA308f3fa005beA7dB0d203b3b86664E36?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
-| USDT.bnb/WPC Pool  | [0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168](https://donut.push.network/address/0x435875db8a76cCAA9cbf73690C6Dc1913BBC9168?tab=contract) | [0x2f98B4235FD2BA0173a2B056D722879360B12E7b](https://donut.push.network/address/0x2f98B4235FD2BA0173a2B056D722879360B12E7b?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDT.bnb/WPC Pool  | [0x735010da121541515CB509339Ea0A0fD4f48d4a9](https://donut.push.network/address/0x735010da121541515CB509339Ea0A0fD4f48d4a9?tab=contract) | [0x731aF1Da5365259d27528557EE4aFBA4baC90ef2](https://donut.push.network/address/0x731aF1Da5365259d27528557EE4aFBA4baC90ef2?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
+| USDC.bnb/WPC Pool  | [0xf09aD7D5e8800d0863F5ea845509bC1B1aCAe37a](https://donut.push.network/address/0xf09aD7D5e8800d0863F5ea845509bC1B1aCAe37a?tab=contract) | [0x120EBf25Dad7D6a09Ad2316f23f9Be95DBb90639](https://donut.push.network/address/0x120EBf25Dad7D6a09Ad2316f23f9Be95DBb90639?tab=contract) | [0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9](https://donut.push.network/address/0xE17DD2E0509f99E9ee9469Cf6634048Ec5a3ADe9?tab=contract) | 500  |
 
 ---
 
@@ -11011,7 +11026,7 @@ Chain Execution Account (CEA) contracts enable contract-initiated cross-chain tr
 
 | Contract     | Address |
 | ------------ | ------- |
-| CEAFactory | [0x8ED594A83301FEc545fC6c19fc12cF7111777029](https://sepolia.etherscan.io/address/0x8ED594A83301FEc545fC6c19fc12cF7111777029#code) `Proxy` Implementation - [0xe5B51807f2252A5Ea9B591fE02285954446c8cAD](https://sepolia.etherscan.io/address/0xe5B51807f2252A5Ea9B591fE02285954446c8cAD#code)ProxyAdmin - [0xF920e3D1420885A117Cb59830d0474aD5690dd82](https://sepolia.etherscan.io/address/0xF920e3D1420885A117Cb59830d0474aD5690dd82#code) |
+| CEAFactory | [0x5E191fbBe22F8866C5e4250557664fCE760e8870](https://sepolia.etherscan.io/address/0x5E191fbBe22F8866C5e4250557664fCE760e8870#code) `Proxy` Implementation - [0xe5B51807f2252A5Ea9B591fE02285954446c8cAD](https://sepolia.etherscan.io/address/0xe5B51807f2252A5Ea9B591fE02285954446c8cAD#code)ProxyAdmin - [0xF920e3D1420885A117Cb59830d0474aD5690dd82](https://sepolia.etherscan.io/address/0xF920e3D1420885A117Cb59830d0474aD5690dd82#code) |
 | CEA (logic) | [0x1939376ce03998F638b8760c7a13C9A379A053C0](https://sepolia.etherscan.io/address/0x1939376ce03998F638b8760c7a13C9A379A053C0#code) |
 | CEAMigration | [0x97BCEba9c6f13B0E12Fde0E4D2697F74A79899de](https://sepolia.etherscan.io/address/0x97BCEba9c6f13B0E12Fde0E4D2697F74A79899de#code) |
 
@@ -11031,7 +11046,7 @@ Tokens accepted by the Ethereum Sepolia gateway and their corresponding PRC-20 r
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Native ETH | 0x0000000000000000000000000000000000000000                                                                                         | [0x2971824Db68229D087931155C2b8bB820B275809](https://donut.push.network/address/0x2971824Db68229D087931155C2b8bB820B275809?tab=contract) |
 | USDC       | [0x97F477B7f970D47a87B42869ceeace218106152a](https://sepolia.etherscan.io/address/0x97F477B7f970D47a87B42869ceeace218106152a#code) | [0x7A58048036206bB898008b5bBDA85697DB1e5d66](https://donut.push.network/address/0x7A58048036206bB898008b5bBDA85697DB1e5d66?tab=contract) |
-| USDT       | [0x7169D38820dfd117C3FA1f22a697dBA58d90BA06](https://sepolia.etherscan.io/address/0x7169D38820dfd117C3FA1f22a697dBA58d90BA06#code) | [0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3](https://donut.push.network/address/0xCA0C5E6F002A389E1580F0DB7cd06e4549B5F9d3?tab=contract) |
+| USDT       | [0x7169D38820dfd117C3FA1f22a697dBA58d90BA06](https://sepolia.etherscan.io/address/0x7169D38820dfd117C3FA1f22a697dBA58d90BA06#code) | [0x0f97A213207703923F5f0C613C9827f7C9A0f96B](https://donut.push.network/address/0x0f97A213207703923F5f0C613C9827f7C9A0f96B?tab=contract) |
 | WETH       | [0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14](https://sepolia.etherscan.io/address/0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14#code) | [0x0d0dF7E8807430A81104EA84d926139816eC7586](https://donut.push.network/address/0x0d0dF7E8807430A81104EA84d926139816eC7586?tab=contract) |
 | stETH      | [0x3e3FE7dBc6B4C189E7128855dD526361c49b40Af](https://sepolia.etherscan.io/address/0x3e3FE7dBc6B4C189E7128855dD526361c49b40Af#code) | [0xaf89E805949c628ebde3262e91dc4ab9eA12668E](https://donut.push.network/address/0xaf89E805949c628ebde3262e91dc4ab9eA12668E?tab=contract) |
 
@@ -11053,7 +11068,7 @@ Chain Execution Account (CEA) contracts enabling contract-initiated cross-chain 
 
 | Contract     | Address |
 | ------------ | ------- |
-| CEAFactory | [0x88DC189275078Cf509E4Cc773F089c8ad07b7EA2](https://sepolia.arbiscan.io/address/0x88DC189275078Cf509E4Cc773F089c8ad07b7EA2#code) `Proxy` Implementation - [0xd8335e762E42b7f9610293707d6d8A6b97578bFb](https://sepolia.arbiscan.io/address/0xd8335e762E42b7f9610293707d6d8A6b97578bFb#code)ProxyAdmin - [0x6349546d872d483A35bdD165c9ef85757e064D4E](https://sepolia.arbiscan.io/address/0x6349546d872d483A35bdD165c9ef85757e064D4E#code) |
+| CEAFactory | [0x65572FFa81c230360a8a53C1682C7f0Ee321E5E7](https://sepolia.arbiscan.io/address/0x65572FFa81c230360a8a53C1682C7f0Ee321E5E7#code) `Proxy` Implementation - [0xd8335e762E42b7f9610293707d6d8A6b97578bFb](https://sepolia.arbiscan.io/address/0xd8335e762E42b7f9610293707d6d8A6b97578bFb#code)ProxyAdmin - [0x6349546d872d483A35bdD165c9ef85757e064D4E](https://sepolia.arbiscan.io/address/0x6349546d872d483A35bdD165c9ef85757e064D4E#code) |
 | CEA (logic) | [0x2c933Ff6FBcD479055F344691bc628F51DcE871A](https://sepolia.arbiscan.io/address/0x2c933Ff6FBcD479055F344691bc628F51DcE871A#code) |
 | CEAMigration | [0x81f33160020AaDF47000E85915d332943b69F9f9](https://sepolia.arbiscan.io/address/0x81f33160020AaDF47000E85915d332943b69F9f9#code) |
 
@@ -11073,7 +11088,7 @@ Tokens accepted by the Arbitrum Sepolia gateway and their corresponding PRC-20 r
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Native ETH | 0x0000000000000000000000000000000000000000                                                                                        | [0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e](https://donut.push.network/address/0xc0a821a1AfEd1322c5e15f1F4586C0B8cE65400e?tab=contract) |
 | USDC       | [0x5dd39b0b3610F666F631a6506b7713EF83e1Ac5C](https://sepolia.arbiscan.io/address/0x5dd39b0b3610F666F631a6506b7713EF83e1Ac5C#code) | [0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C](https://donut.push.network/address/0x1091cCBA2FF8d2A131AE4B35e34cf3308C48572C?tab=contract) |
-| USDT       | [0x1419d7C74D234fA6B73E06A2ce7822C1d37922f0](https://sepolia.arbiscan.io/address/0x1419d7C74D234fA6B73E06A2ce7822C1d37922f0#code) | [0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9](https://donut.push.network/address/0x76Ad08339dF606BeEDe06f90e3FaF82c5b2fb2E9?tab=contract) |
+| USDT       | [0x1419d7C74D234fA6B73E06A2ce7822C1d37922f0](https://sepolia.arbiscan.io/address/0x1419d7C74D234fA6B73E06A2ce7822C1d37922f0#code) | [0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891](https://donut.push.network/address/0xFE6E9DF2BbC9ce05D98b83B1365df6DcA9951891?tab=contract) |
 
 ---
 
@@ -11093,7 +11108,7 @@ Chain Execution Account (CEA) contracts enabling contract-initiated cross-chain 
 
 | Contract     | Address |
 | ------------ | ------- |
-| CEAFactory | [0x0A75ca7736b488Eb41675ADc3b3156BACF659F55](https://sepolia.basescan.org/address/0x0A75ca7736b488Eb41675ADc3b3156BACF659F55#code) `Proxy` Implementation - [0xd26E793Ef931EB62AeBc6e87DE1FEEF4fDbA01F5](https://sepolia.basescan.org/address/0xd26E793Ef931EB62AeBc6e87DE1FEEF4fDbA01F5#code)ProxyAdmin - [0x413A39fFA85657A25768799f7fd64A917eceDe48](https://sepolia.basescan.org/address/0x413A39fFA85657A25768799f7fd64A917eceDe48#code) |
+| CEAFactory | [0x7e8CeeDA043ED1460540616103dD57581a66C856](https://sepolia.basescan.org/address/0x7e8CeeDA043ED1460540616103dD57581a66C856#code) `Proxy` Implementation - [0xd26E793Ef931EB62AeBc6e87DE1FEEF4fDbA01F5](https://sepolia.basescan.org/address/0xd26E793Ef931EB62AeBc6e87DE1FEEF4fDbA01F5#code)ProxyAdmin - [0x413A39fFA85657A25768799f7fd64A917eceDe48](https://sepolia.basescan.org/address/0x413A39fFA85657A25768799f7fd64A917eceDe48#code) |
 | CEA (logic) | [0x733078bA1dFDDDB68A9E082696A256AEcBFb26b8](https://sepolia.basescan.org/address/0x733078bA1dFDDDB68A9E082696A256AEcBFb26b8#code) |
 | CEAMigration | [0x95c453fDFf55Afc5754c1fA95Ad6607273D71B20](https://sepolia.basescan.org/address/0x95c453fDFf55Afc5754c1fA95Ad6607273D71B20#code) |
 
@@ -11113,7 +11128,7 @@ Tokens accepted by the Base Sepolia gateway and their corresponding PRC-20 repre
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Native ETH | 0x0000000000000000000000000000000000000000                                                                                         | [0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21](https://donut.push.network/address/0xc7007af2B24D4eb963fc9633B0c66e1d2D90Fc21?tab=contract) |
 | USDC       | [0x5c3504F0E3bA28FDc1F74234fE936518276AaBB8](https://sepolia.basescan.org/address/0x5c3504F0E3bA28FDc1F74234fE936518276AaBB8#code) | [0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1](https://donut.push.network/address/0xD7C6cA1e2c0CE260BE0c0AD39C1540de460e3Be1?tab=contract) |
-| USDT       | [0x9FF5a186f53F6E6964B00320Da1D2024DE11E0cB](https://sepolia.basescan.org/address/0x9FF5a186f53F6E6964B00320Da1D2024DE11E0cB#code) | [0x2C455189D2af6643B924A981a9080CcC63d5a567](https://donut.push.network/address/0x2C455189D2af6643B924A981a9080CcC63d5a567?tab=contract) |
+| USDT       | [0x9FF5a186f53F6E6964B00320Da1D2024DE11E0cB](https://sepolia.basescan.org/address/0x9FF5a186f53F6E6964B00320Da1D2024DE11E0cB#code) | [0x148823809B853e1db187BC09A9ac909BC42F971a](https://donut.push.network/address/0x148823809B853e1db187BC09A9ac909BC42F971a?tab=contract) |
 
 ---
 
@@ -11133,7 +11148,7 @@ Chain Execution Account (CEA) contracts enabling contract-initiated cross-chain 
 
 | Contract     | Address |
 | ------------ | ------- |
-| CEAFactory | [0xe2182dae2dc11cBF6AA6c8B1a7f9c8315A6B0719](https://testnet.bscscan.com/address/0xe2182dae2dc11cBF6AA6c8B1a7f9c8315A6B0719#code) `Proxy` Implementation - [0xC0D35725Dd054B09931740DC231cDea89B0FEd3b](https://testnet.bscscan.com/address/0xC0D35725Dd054B09931740DC231cDea89B0FEd3b#code)ProxyAdmin - [0xf33CBb6a1c1D511dF40764063a11978D640C41A7](https://testnet.bscscan.com/address/0xf33CBb6a1c1D511dF40764063a11978D640C41A7#code) |
+| CEAFactory | [0x3f1B16e0B072d472951C4563d29d3da6a3EE3Ce8](https://testnet.bscscan.com/address/0x3f1B16e0B072d472951C4563d29d3da6a3EE3Ce8#code) `Proxy` Implementation - [0xC0D35725Dd054B09931740DC231cDea89B0FEd3b](https://testnet.bscscan.com/address/0xC0D35725Dd054B09931740DC231cDea89B0FEd3b#code)ProxyAdmin - [0xf33CBb6a1c1D511dF40764063a11978D640C41A7](https://testnet.bscscan.com/address/0xf33CBb6a1c1D511dF40764063a11978D640C41A7#code) |
 | CEA (logic) | [0xdC3A3a18a17EB4FDa9cF34a8CEee8540e6F2b5Fd](https://testnet.bscscan.com/address/0xdC3A3a18a17EB4FDa9cF34a8CEee8540e6F2b5Fd#code) |
 | CEAMigration | [0x2a06BF2A9C19dacbb38852f846B42e278e82e855](https://testnet.bscscan.com/address/0x2a06BF2A9C19dacbb38852f846B42e278e82e855#code) |
 
@@ -11153,7 +11168,7 @@ Tokens accepted by the BNB Testnet gateway and their corresponding PRC-20 repres
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Native BNB | 0x0000000000000000000000000000000000000000                                                                                         | [0x7a9082dA308f3fa005beA7dB0d203b3b86664E36](https://donut.push.network/address/0x7a9082dA308f3fa005beA7dB0d203b3b86664E36?tab=contract) |
 | USDC       | [0x64544969ed7EBf5f083679233325356EbE738930](https://testnet.bscscan.com//address/0x64544969ed7EBf5f083679233325356EbE738930#code) | —                                                                                                                                        |
-| USDT       | [0xBC14F348BC9667be46b35Edc9B68653d86013DC5](https://testnet.bscscan.com//address/0xBC14F348BC9667be46b35Edc9B68653d86013DC5#code) | [0x2f98B4235FD2BA0173a2B056D722879360B12E7b](https://donut.push.network/address/0x2f98B4235FD2BA0173a2B056D722879360B12E7b?tab=contract) |
+| USDT       | [0xBC14F348BC9667be46b35Edc9B68653d86013DC5](https://testnet.bscscan.com//address/0xBC14F348BC9667be46b35Edc9B68653d86013DC5#code) | [0x731aF1Da5365259d27528557EE4aFBA4baC90ef2](https://donut.push.network/address/0x731aF1Da5365259d27528557EE4aFBA4baC90ef2?tab=contract) |
 
 ---
 
@@ -15594,6 +15609,8 @@ struct UniversalOutboundTxRequest {
     address token;           // address(0) — we are not bridging funds, just executing a payload
     uint256 amount;          // 0 because we are not bridging funds
     uint256 gasLimit;        // gas the destination CEA gets to run `increment()`
+    uint256 gasPrice;        // 0 → per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;     // 0 → no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes payload;           // ABI-encoded calldata for the destination contract
     address revertRecipient; // refunded if the outbound cannot finalise
 }
@@ -15804,9 +15821,9 @@ Wired to a reference deployment:
 
 | Contract | Chain | Address |
 |---|---|---|
-| `MultiChainCounter` | Push Donut Testnet | [`0x6448...3D15`](https://donut.push.network/address/0x6448B16c0b295F24DAB9743C80d842f47F923D15) |
-| `ExternalCounter` | Ethereum Sepolia | [`0x6448...3D15`](https://sepolia.etherscan.io/address/0x6448B16c0b295F24DAB9743C80d842f47F923D15) |
-| `ExternalCounter` | BNB Testnet | [`0xb3fB...6E79`](https://testnet.bscscan.com/address/0xb3fB98A3C6EEA643532198CF22cc50BC48026E79) |
+| `MultiChainCounter` | Push Donut Testnet | [`0x7dd8...fBDd`](https://donut.push.network/address/0x7dd80f17C593F73292b3c4B785C4dD0100C4fBDd) |
+| `ExternalCounter` | Ethereum Sepolia | [`0xCf5D...Ee92`](https://sepolia.etherscan.io/address/0xCf5DB8F40F7dAA8Aa8Cb36C880F7207a65e2Ee92) |
+| `ExternalCounter` | BNB Testnet | [`0xfEe7...57D5`](https://testnet.bscscan.com/address/0xfEe777Fbd341AC02d105037022fc03D3CcD757D5) |
 | `ExternalCounter` | Arbitrum Sepolia | [`0xb3fB...6E79`](https://sepolia.arbiscan.io/address/0xb3fB98A3C6EEA643532198CF22cc50BC48026E79) |
 
 To drive your own deployments, edit `ORCHESTRATOR` and `DEMO_DESTINATIONS` at the top of the playground source.
@@ -15816,20 +15833,20 @@ To drive your own deployments, edit `ORCHESTRATOR` and `DEMO_DESTINATIONS` at th
 
 function CrossChainCounterExample() {
   // Pre-deployed demo addresses. Replace with your own deploys to drive your own counters.
-  const ORCHESTRATOR = "0x6448B16c0b295F24DAB9743C80d842f47F923D15";
+  const ORCHESTRATOR = "0x7dd80f17C593F73292b3c4B785C4dD0100C4fBDd";
   const PER_CALL_FEE_PC_WEI = 5n * 10n ** 18n; // 5 PC per destination, comfortable testnet headroom
 
   const DEMO_DESTINATIONS = [
     {
       label: "Ethereum Sepolia",
       chainKey: "ETHEREUM_SEPOLIA",
-      counterAddress: "0x6448B16c0b295F24DAB9743C80d842f47F923D15",
+      counterAddress: "0xCf5DB8F40F7dAA8Aa8Cb36C880F7207a65e2Ee92",
       rpc: "https://ethereum-sepolia-rpc.publicnode.com",
     },
     {
       label: "BNB Testnet",
       chainKey: "BNB_TESTNET",
-      counterAddress: "0xb3fB98A3C6EEA643532198CF22cc50BC48026E79",
+      counterAddress: "0xfEe777Fbd341AC02d105037022fc03D3CcD757D5",
       rpc: "https://bsc-testnet-rpc.publicnode.com",
     },
     {

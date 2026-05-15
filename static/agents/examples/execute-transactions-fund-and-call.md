@@ -81,11 +81,10 @@ async function main() {
   console.log('🚀 Cascade submitted - initialTxHash:', cascade.initialTxHash);
   console.log('📦 hopCount:', cascade.hopCount);
 
-  // cascade.wait's progressHook streams per-hop CascadeProgressEvent
-  // (hopIndex, route, chain, status, txHash) during tracking.
-  const result = await cascade.wait({
-    progressHook: (e) => console.log('  [Hop ' + e.hopIndex + '] ' + e.status + ' on ' + e.chain + (e.txHash ? ' (' + e.txHash + ')' : '')),
-  });
+  // executeTransactions's progressHook above already streams per-hop tracking
+  // events (SEND-TX-309-* and SEND-TX-399-*), so cascade.wait() doesn't need
+  // its own progressHook — just await for completion.
+  const result = await cascade.wait();
   console.log('🏁 All hops complete. Success:', result.success);
 
   if (result.success) {

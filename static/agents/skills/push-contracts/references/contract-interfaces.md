@@ -57,6 +57,8 @@ struct UniversalOutboundTxRequest {
     address token;           // PRC20 token to bridge (address(0) = no bridge)
     uint256 amount;          // PRC20 amount to bridge (0 if token == address(0))
     uint256 gasLimit;        // 0 = UGPC auto-estimates (recommended)
+    uint256 gasPrice;        // 0 = per-chain default from UniversalCore (new in SDK v6)
+    uint256 maxPCForGas;     // 0 = no cap on PC the AMM may spend on the gas swap (new in SDK v6)
     bytes   payload;         // ABI-encoded calldata for target contract
     address revertRecipient; // receives bridged funds back if external tx reverts
 }

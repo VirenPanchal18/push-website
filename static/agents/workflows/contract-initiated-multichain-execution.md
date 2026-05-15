@@ -41,12 +41,14 @@ Enable a **Push Chain smart contract** to autonomously trigger execution on an e
 
 ```solidity
 struct UniversalOutboundTxRequest {
-    bytes   recipient;        // CEA or target address on the external chain (bytes-encoded)
-    address token;            // PRC20 token to bridge (address(0) for none)
-    uint256 amount;           // Amount of PRC20 to bridge
-    uint256 gasLimit;         // Gas limit for external execution (0 = auto)
-    bytes   payload;          // ABI-encoded calldata to execute on external chain
-    address revertRecipient;  // Receives funds if external tx reverts
+    bytes   recipient;        // raw destination address on source chain (bytes for SVM compat). bytes("") parks funds in caller's CEA
+    address token;            // PRC20 token address on Push Chain (address(0) for payload-only)
+    uint256 amount;           // Amount to withdraw (burn on Push, unlock at origin)
+    uint256 gasLimit;         // Gas limit for fee quote (0 = per-chain default)
+    uint256 gasPrice;         // Gas price override (0 = per-chain default from UniversalCore; new in SDK v6)
+    uint256 maxPCForGas;      // Max native PC for the gas swap (0 = no cap; new in SDK v6)
+    bytes   payload;          // ABI-encoded calldata to execute on origin chain (empty for funds-only)
+    address revertRecipient;  // Address to receive funds in case of revert
 }
 
 interface IUniversalGatewayPC {
@@ -73,7 +75,7 @@ address constant UGPC = 0x00000000000000000000000000000000000000C1;
 function dispatchOutbound(
     address token,
     uint256 amount,
-    bytes calldata recipient,  // target address on external chain, bytes-encoded
+    bytes calldata recipient,  // raw destination address on source chain (bytes-encoded)
     bytes calldata payload,    // ABI-encoded calldata
     address revertRecipient
 ) external payable {
@@ -87,6 +89,8 @@ function dispatchOutbound(
             token:           token,
             amount:          amount,
             gasLimit:        2_000_000,   // safe default; see "Round-Trip Pattern" for why <2M can silently drop
+            gasPrice:        0,           // per-chain default from UniversalCore
+            maxPCForGas:     0,           // no cap on PC for the gas swap
             payload:         payload,
             revertRecipient: revertRecipient
         })
@@ -138,7 +142,8 @@ pragma solidity ^0.8.26;
 
 struct UniversalOutboundTxRequest {
     bytes recipient; address token; uint256 amount;
-    uint256 gasLimit; bytes payload; address revertRecipient;
+    uint256 gasLimit; uint256 gasPrice; uint256 maxPCForGas;
+    bytes payload; address revertRecipient;
 }
 
 interface IUniversalGatewayPC {
@@ -159,7 +164,8 @@ contract MyMultichainApp {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
                 recipient: recipient, token: address(0), amount: 0,
-                gasLimit: 2_000_000, payload: payload, revertRecipient: msg.sender
+                gasLimit: 2_000_000, gasPrice: 0, maxPCForGas: 0,
+                payload: payload, revertRecipient: msg.sender
             })
         );
         emit Dispatched(recipient);

@@ -292,6 +292,8 @@ struct UniversalOutboundTxRequest {
     address token;            // PRC20 token on Push Chain to bridge (address(0) for none)
     uint256 amount;           // Amount of PRC20 to bridge
     uint256 gasLimit;         // Gas limit for external-chain execution (see Operational Knobs)
+    uint256 gasPrice;         // Gas price override (0 = per-chain default from UniversalCore; new in SDK v6)
+    uint256 maxPCForGas;      // Max native PC the AMM may consume for the gas swap (0 = no cap; new in SDK v6)
     bytes   payload;          // Calldata for the CEA to execute on the external chain
     address revertRecipient;  // Address to receive funds if the tx reverts on the external chain
 }
@@ -309,6 +311,8 @@ interface IUniversalGatewayPC {
 | _`req.token`_ | `address` | PRC20 token address on Push Chain to bridge. Use `address(0)` if no token is being bridged. |
 | _`req.amount`_ | `uint256` | Amount of PRC20 to bridge. Set to `0` if not bridging. |
 | _`req.gasLimit`_ | `uint256` | Gas limit for external-chain execution. Default to `2_000_000` (see [Operational Knobs](#operational-knobs)); UGPC charges only for actual gas used and refunds the surplus. |
+| _`req.gasPrice`_ | `uint256` | Gas price override for the destination chain. Set to `0` to use the per-chain default quoted by UniversalCore (recommended). |
+| _`req.maxPCForGas`_ | `uint256` | Maximum native `$PC` the on-chain AMM may consume when swapping for destination gas. Set to `0` for no cap (recommended on testnet). |
 | _`req.payload`_ | `bytes` | ABI-encoded calldata for the CEA to execute on the external chain. |
 | _`req.revertRecipient`_ | `address` | Address to receive bridged funds if the external transaction reverts. |
 
@@ -347,6 +351,8 @@ function dispatchToBNB(address bnbCounter, uint256 protocolFeePc) external payab
             token:           address(0),
             amount:          0,
             gasLimit:        2_000_000,
+            gasPrice:        0,             // per-chain default from UniversalCore
+            maxPCForGas:     0,             // no cap on PC for the gas swap
             payload:         payload,
             revertRecipient: address(this)
         })
@@ -482,6 +488,8 @@ UGPC.sendUniversalTxOutbound{value: protocolFeePc}(UniversalOutboundTxRequest({
     token:           pBNB,
     amount:          0,
     gasLimit:        2_000_000,
+    gasPrice:        0,                // per-chain default from UniversalCore
+    maxPCForGas:     0,                // no cap on PC for the gas swap
     payload:         outerMulticallData,
     revertRecipient: address(this)
 }));

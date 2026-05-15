@@ -5346,9 +5346,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pushchain/core@npm:^5.1.18":
-  version: 5.1.18
-  resolution: "@pushchain/core@npm:5.1.18"
+"@pushchain/core@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@pushchain/core@npm:6.0.0"
   dependencies:
     "@bufbuild/protobuf": "npm:^2.0.0"
     "@cosmjs/crypto": "npm:0.33.1"
@@ -5373,18 +5373,18 @@ __metadata:
       optional: true
     tweetnacl:
       optional: true
-  checksum: 10c0/d3b95a138e6bf7f6d0b61788f9add5e2e53fc0495db81f704447a2a8f5705c0ebda47da488882772c6c1f6d8426494341173fbfe8f186e7657ae3cf1220c134a
+  checksum: 10c0/33918424a9db328b1c6c57cdaf0c25e997d1215e5c4fa84dcef59b18e47d05ae12e2b1ba76acdb26cd6f5ffa78a23db32369ad2c0010111c9379d9d7c5e58c58
   languageName: node
   linkType: hard
 
-"@pushchain/ui-kit@npm:^5.2.11":
-  version: 5.2.11
-  resolution: "@pushchain/ui-kit@npm:5.2.11"
+"@pushchain/ui-kit@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@pushchain/ui-kit@npm:6.0.0"
   dependencies:
     "@coral-xyz/anchor": "npm:^0.31.1"
     "@human.tech/waap-sdk": "npm:^1.3.0"
     "@metamask/sdk": "npm:^0.32.0"
-    "@pushchain/core": "npm:^5.1.18"
+    "@pushchain/core": "npm:^6.0.0"
     "@solana/web3.js": "npm:^1.98.2"
     "@walletconnect/ethereum-provider": "npm:^2.21.5"
     buffer: "npm:^6.0.3"
@@ -5396,7 +5396,7 @@ __metadata:
   peerDependencies:
     react: ">=18.3.0 <20.0.0"
     react-dom: ">=18.3.0 <20.0.0"
-  checksum: 10c0/46fe1b3045ba111aa2bbf3625fae728894c48209f600367dc16b4ba53c4e78d987535bf368c1550e635b607f3570bf18ddefcbb46b3b38c9b8f13ebb1251a83c
+  checksum: 10c0/a0abb622a9fd157f0cd88ed828f41754c03dfe457f8bb100e0f7b37e99f9082811eabca2e2f0f4a35529b69436b355e5719a45971d0bf2152300291e58d03b58
   languageName: node
   linkType: hard
 
@@ -19991,8 +19991,8 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@openzeppelin/merkle-tree": "npm:^1.0.8"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.2"
-    "@pushchain/core": "npm:^5.1.18"
-    "@pushchain/ui-kit": "npm:^5.2.11"
+    "@pushchain/core": "npm:^6.0.0"
+    "@pushchain/ui-kit": "npm:^6.0.0"
     "@radix-ui/react-dialog": "npm:^1.1.2"
     "@solana/web3.js": "npm:^1.98.2"
     "@splidejs/react-splide": "npm:^0.7.12"

@@ -335,12 +335,14 @@ Every Push Chain smart contract has a deterministic **Chain Executor Account (CE
 
 ```solidity
 struct UniversalOutboundTxRequest {
-    bytes   recipient;       // target address on external chain (abi.encodePacked(addr))
-    address token;           // PRC20 token to bridge (address(0) = no bridge, payload only)
-    uint256 amount;          // amount of PRC20 to bridge (0 if token == address(0))
-    uint256 gasLimit;        // 0 = UGPC auto-estimates (recommended)
-    bytes   payload;         // ABI-encoded calldata to execute on external chain
-    address revertRecipient; // receives bridged funds if external tx reverts
+    bytes   recipient;       // raw destination address on source chain (bytes for SVM compat). bytes("") parks funds in caller's CEA
+    address token;           // PRC20 token address on Push Chain (address(0) = no bridge, payload only)
+    uint256 amount;          // amount to withdraw (burn on Push, unlock at origin)
+    uint256 gasLimit;        // gas limit for fee quote (0 = per-chain default)
+    uint256 gasPrice;        // gas price override (0 = per-chain default from UniversalCore; new in SDK v6)
+    uint256 maxPCForGas;     // max native PC for the gas swap (0 = no cap; new in SDK v6)
+    bytes   payload;         // ABI-encoded calldata to execute on origin chain (empty for funds-only)
+    address revertRecipient; // address to receive funds in case of revert
 }
 
 interface IUniversalGatewayPC {
@@ -370,10 +372,12 @@ function dispatchToExternalChain(
     // msg.value must cover UGPC protocol fee + gas cost estimate
     IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
         UniversalOutboundTxRequest({
-            recipient:       abi.encodePacked(targetOnExternalChain),
+            recipient:          abi.encodePacked(targetOnExternalChain),
             token:           address(0),
             amount:          0,
             gasLimit:        0,             // auto-estimate
+            gasPrice:        0,             // UniversalCore default
+            maxPCForGas:     0,             // uncapped legacy behavior
             payload:         calldata_,
             revertRecipient: msg.sender
         })
@@ -461,10 +465,12 @@ contract BridgeAndCall {
     ) external payable {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
-                recipient:       abi.encodePacked(target),
+                recipient:          abi.encodePacked(target),
                 token:           token,
                 amount:          amount,
                 gasLimit:        0,
+                gasPrice:        0,
+                maxPCForGas:     0,
                 payload:         payload_,
                 revertRecipient: treasury  // ← receives assets if external execution reverts
             })
@@ -498,7 +504,8 @@ pragma solidity ^0.8.26;
 
 struct UniversalOutboundTxRequest {
     bytes recipient; address token; uint256 amount;
-    uint256 gasLimit; bytes payload; address revertRecipient;
+    uint256 gasLimit; uint256 gasPrice; uint256 maxPCForGas;
+    bytes payload; address revertRecipient;
 }
 interface IUniversalGatewayPC {
     function sendUniversalTxOutbound(UniversalOutboundTxRequest calldata req) external payable;
@@ -517,7 +524,8 @@ contract MyMultichainApp {
         IUniversalGatewayPC(UGPC).sendUniversalTxOutbound{value: msg.value}(
             UniversalOutboundTxRequest({
                 recipient: abi.encodePacked(target), token: address(0), amount: 0,
-                gasLimit: 0, payload: payload_, revertRecipient: msg.sender
+                gasLimit: 0, gasPrice: 0, maxPCForGas: 0,
+                payload: payload_, revertRecipient: msg.sender
             })
         );
         emit OutboundDispatched(target, bytes4(payload_), payload_);
@@ -568,11 +576,11 @@ The CEA (under the `msg.sender == address(this)` self-call invariant) wraps the 
 
 **Required configuration for the back-leg to fire** (verified on Donut Testnet):
 
-| Knob | Value | Why |
-| --- | --- | --- |
-| `gasLimit` on UGPC outbound | `≥ 2_000_000` | The 500k auto-floor is too tight when the destination payload nests a gateway call. Below threshold, **TSS silently drops the relay** - your Push tx succeeds, UGPC emits the event, but no destination tx fires. |
-| Push contract balance | sufficient to cover inbound fee on top of outbound `protocolFee` | Inbound execution on Push pays gas in $PC, charged to the dispatching contract. |
-| Wire format | Outer multicall self-calls `sendUniversalTxToUEA` on the CEA | Plain multicalls without this self-call step DO NOT trigger a back-leg, regardless of gasLimit. The self-call is what tells TSS to fire the inbound. |
+| Knob                        | Value                                                            | Why                                                                                                                                                                                                               |
+| --------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gasLimit` on UGPC outbound | `≥ 2_000_000`                                                    | The 500k auto-floor is too tight when the destination payload nests a gateway call. Below threshold, **TSS silently drops the relay** - your Push tx succeeds, UGPC emits the event, but no destination tx fires. |
+| Push contract balance       | sufficient to cover inbound fee on top of outbound `protocolFee` | Inbound execution on Push pays gas in $PC, charged to the dispatching contract.                                                                                                                                   |
+| Wire format                 | Outer multicall self-calls `sendUniversalTxToUEA` on the CEA     | Plain multicalls without this self-call step DO NOT trigger a back-leg, regardless of gasLimit. The self-call is what tells TSS to fire the inbound.                                                              |
 
 > **Destination CEA pre-funding is NOT required.** When TSS submits the destination tx it forwards the converted gas value to the CEA as `msg.value`, so the CEA has the native balance for nested gateway calls during the duration of that tx.
 
@@ -587,17 +595,17 @@ For a **Push-native contract** (the kind shown in this skill), TSS always calls 
 
 ### Limitations
 
-| Area                         | Constraint                                                                                                      |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **No synchronous result**    | Outbound and inbound are always separate transactions - no in-call return value                                 |
-| **No cross-chain atomicity** | A failed external call does not revert Push-side state - handle partial failure explicitly                      |
-| **CEA as `msg.sender`**      | External contracts with whitelists must explicitly whitelist the contract's CEA address                         |
-| **Proxy upgrade safety**     | CEA is bound to proxy address - new deployments at different addresses have different CEAs                      |
-| **Inbound timing**           | Depends on external chain finality and TSS observation - do not rely on delivery within a specific block window |
-| **Supported chains**         | Target chain must be supported by the TSS network - see `PushChain.CONSTANTS.CHAIN`                             |
+| Area                                         | Constraint                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **No synchronous result**                    | Outbound and inbound are always separate transactions - no in-call return value                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **No cross-chain atomicity**                 | A failed external call does not revert Push-side state - handle partial failure explicitly                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **CEA as `msg.sender`**                      | External contracts with whitelists must explicitly whitelist the contract's CEA address                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| **Proxy upgrade safety**                     | CEA is bound to proxy address - new deployments at different addresses have different CEAs                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Inbound timing**                           | Depends on external chain finality and TSS observation - do not rely on delivery within a specific block window                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Supported chains**                         | Target chain must be supported by the TSS network - see `PushChain.CONSTANTS.CHAIN`                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Solana value sizing (contract-initiated)** | When dispatching to Solana from a Push contract, `msg.value` to UGPC must cover the on-chain $PC → pSOL Uniswap V3 swap. Off-chain compute via `UGPC.UNIVERSAL_CORE() → UniversalCore.{getOutboundTxGasAndFees, WPC, uniswapV3Factory, defaultFeeTier(pSOL)} → factory.getPool(...).slot0() → wpcNeeded × 2 × 1.1` and store the value on the contract. The SDK's `estimateNativeValueForSwap` (`@pushchain/core/src/lib/orchestrator/internals/gas-calculator.js`) is the canonical reference. A flat `balance/2` reverts with `STF`. |
-| **Donut Testnet pSOL liquidity** | The PC↔pSOL pool on Donut is currently shallow; the slot0-derived swap quote can be high relative to a contract's working balance. For experimentation, use BNB Testnet first. |
-| **Donut Testnet Push → Sepolia outbound** | Push tx succeeds and UGPC emits the event, but TSS does not yet relay the back-leg to Ethereum Sepolia. Push → BNB Testnet outbound and inbound on every supported chain work as documented. |
+| **Donut Testnet pSOL liquidity**             | The PC↔pSOL pool on Donut is currently shallow; the slot0-derived swap quote can be high relative to a contract's working balance. For experimentation, use BNB Testnet first.                                                                                                                                                                                                                                                                                                                                                         |
+| **Donut Testnet Push → Sepolia outbound**    | Push tx succeeds and UGPC emits the event, but TSS does not yet relay the back-leg to Ethereum Sepolia. Push → BNB Testnet outbound and inbound on every supported chain work as documented.                                                                                                                                                                                                                                                                                                                                           |
 
 ---
 
@@ -783,20 +791,20 @@ cast code $CONTRACT --rpc-url https://evm.donut.rpc.push.org/
 
 ## Common Mistakes
 
-| Symptom / Mistake                                                                  | Fix                                                                                                                                               |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `executeUniversalTx()` called with fabricated data - replayed or spoofed callbacks | Add `require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized")` - without it, anyone can call this function                                |
-| Same inbound callback applied twice - state corrupted                              | Add `mapping(bytes32 => bool) executedTxIds` and `require(!executedTxIds[txId], "Replay")`                                                        |
-| `msg.sender` in your Push Chain contract is not the external user's wallet address | It never is - `msg.sender` is the user's **UEA**. Use `IUEAFactory(UEA_FACTORY).getOriginForUEA(msg.sender)` to recover the origin wallet         |
-| Confused UGPC (outbound) with UG (inbound) - wrong address used                    | **UGPC** (`...00C1`) is on Push Chain for dispatching _outbound_ txs. **UG** contracts are on _external chains_ for sending txs _into_ Push Chain |
-| `sendUniversalTxOutbound` call reverts immediately                                 | `msg.value` must cover UGPC protocol fee + external-chain gas estimate - do not send `0`                                                          |
-| Push Chain contract runs out of gas for inbound execution                          | Fund the contract with `$PC` before dispatching outbound - inbound execution fees are paid in `$PC`                                               |
-| CEA whitelist on external contract blocks calls                                    | The external contract sees the **contract's CEA** as `msg.sender`, not your Push Chain address - whitelist the CEA address on the external side   |
-| Outbound dispatched, Push tx succeeded, but no destination tx ever fires (round-trip back-leg never lands) | UGPC's auto-floor for `gasLimit = 0` is 500k. When the destination payload nests a gateway call (round-trip wire format), TSS silently drops the relay below ~1.5M. Pass **`gasLimit: 2_000_000`** explicitly. UGPC charges only for actual gas used and refunds the surplus. |
-| Solana outbound from a Push contract reverts with `STF` (SafeTransferFrom) | `msg.value` to UGPC must cover the on-chain $PC → pSOL Uniswap V3 swap. A flat `balance/2` doesn't size against current pool depth. Off-chain compute via `UniversalCore.getOutboundTxGasAndFees(pSOL, gasLimit)` + pool slot0 math (mirrors the SDK's `estimateNativeValueForSwap`). Store the result on the contract via a setter; never use a flat fraction of balance. |
-| Push → Sepolia outbound succeeds locally but never lands on Sepolia | Donut Testnet does not yet have TSS relay support for Push → Ethereum Sepolia outbound. Push tx and UGPC event are valid; the destination tx just never fires. Use BNB Testnet as the destination for now. (Sepolia → Push **inbound** works fine.) |
-| TSS dispatches to the 2-arg `executeUniversalTx(UniversalPayload, bytes)` overload and the 6-arg version is never called | For Push-native contracts, TSS calls only the **6-arg** signature `executeUniversalTx(string, bytes, bytes, uint256, address, bytes32)`. The 2-arg signature is reserved for actual UEA proxy accounts. Implement the 6-arg version. |
-| Refunds drain the EOA over many runs | UGPC routes surplus refund to `address(this)`, not back to the user EOA that called your function. Plan a `withdraw()` path or treasury sweep. Expected behavior, not a bug. |
+| Symptom / Mistake                                                                                                        | Fix                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `executeUniversalTx()` called with fabricated data - replayed or spoofed callbacks                                       | Add `require(msg.sender == UNIVERSAL_EXECUTOR_MODULE, "Unauthorized")` - without it, anyone can call this function                                                                                                                                                                                                                                                         |
+| Same inbound callback applied twice - state corrupted                                                                    | Add `mapping(bytes32 => bool) executedTxIds` and `require(!executedTxIds[txId], "Replay")`                                                                                                                                                                                                                                                                                 |
+| `msg.sender` in your Push Chain contract is not the external user's wallet address                                       | It never is - `msg.sender` is the user's **UEA**. Use `IUEAFactory(UEA_FACTORY).getOriginForUEA(msg.sender)` to recover the origin wallet                                                                                                                                                                                                                                  |
+| Confused UGPC (outbound) with UG (inbound) - wrong address used                                                          | **UGPC** (`...00C1`) is on Push Chain for dispatching _outbound_ txs. **UG** contracts are on _external chains_ for sending txs _into_ Push Chain                                                                                                                                                                                                                          |
+| `sendUniversalTxOutbound` call reverts immediately                                                                       | `msg.value` must cover UGPC protocol fee + external-chain gas estimate - do not send `0`                                                                                                                                                                                                                                                                                   |
+| Push Chain contract runs out of gas for inbound execution                                                                | Fund the contract with `$PC` before dispatching outbound - inbound execution fees are paid in `$PC`                                                                                                                                                                                                                                                                        |
+| CEA whitelist on external contract blocks calls                                                                          | The external contract sees the **contract's CEA** as `msg.sender`, not your Push Chain address - whitelist the CEA address on the external side                                                                                                                                                                                                                            |
+| Outbound dispatched, Push tx succeeded, but no destination tx ever fires (round-trip back-leg never lands)               | UGPC's auto-floor for `gasLimit = 0` is 500k. When the destination payload nests a gateway call (round-trip wire format), TSS silently drops the relay below ~1.5M. Pass **`gasLimit: 2_000_000`** explicitly. UGPC charges only for actual gas used and refunds the surplus.                                                                                              |
+| Solana outbound from a Push contract reverts with `STF` (SafeTransferFrom)                                               | `msg.value` to UGPC must cover the on-chain $PC → pSOL Uniswap V3 swap. A flat `balance/2` doesn't size against current pool depth. Off-chain compute via `UniversalCore.getOutboundTxGasAndFees(pSOL, gasLimit)` + pool slot0 math (mirrors the SDK's `estimateNativeValueForSwap`). Store the result on the contract via a setter; never use a flat fraction of balance. |
+| Push → Sepolia outbound succeeds locally but never lands on Sepolia                                                      | Donut Testnet does not yet have TSS relay support for Push → Ethereum Sepolia outbound. Push tx and UGPC event are valid; the destination tx just never fires. Use BNB Testnet as the destination for now. (Sepolia → Push **inbound** works fine.)                                                                                                                        |
+| TSS dispatches to the 2-arg `executeUniversalTx(UniversalPayload, bytes)` overload and the 6-arg version is never called | For Push-native contracts, TSS calls only the **6-arg** signature `executeUniversalTx(string, bytes, bytes, uint256, address, bytes32)`. The 2-arg signature is reserved for actual UEA proxy accounts. Implement the 6-arg version.                                                                                                                                       |
+| Refunds drain the EOA over many runs                                                                                     | UGPC routes surplus refund to `address(this)`, not back to the user EOA that called your function. Plan a `withdraw()` path or treasury sweep. Expected behavior, not a bug.                                                                                                                                                                                               |
 
 > **`account.owner` byte layout** in `UniversalAccountId`:
 >
