@@ -210,10 +210,19 @@ interface ICEAFactory {
 
 contract CEALookup {
     ICEAFactory public immutable FACTORY;
+    address public immutable OWNER;
     mapping(address => bool) public allowedCEAs;
+
+    error NotOwner();
+
+    modifier onlyOwner() {
+        if (msg.sender != OWNER) revert NotOwner();
+        _;
+    }
 
     constructor(address ceaFactory) {
         FACTORY = ICEAFactory(ceaFactory);
+        OWNER = msg.sender;
     }
 
     /// @notice Look up the CEA on this chain for a given Push-side account.
@@ -226,7 +235,9 @@ contract CEALookup {
     /// @notice Pre-authorize a Push-side account's CEA before it has been deployed.
     ///         Useful for whitelists that need to allow contract-initiated cross-chain
     ///         calls on day zero.
-    function preAuthorize(address pushAccount) external {
+    /// @dev    Owner-gated. Without this guard, any caller could whitelist an
+    ///         arbitrary Push account's CEA and grant themselves permission.
+    function preAuthorize(address pushAccount) external onlyOwner {
         (address cea, ) = FACTORY.getCEAForPushAccount(pushAccount);
         allowedCEAs[cea] = true;
     }

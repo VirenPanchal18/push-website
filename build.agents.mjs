@@ -366,7 +366,7 @@ Structured map of SDK namespaces. Cover ALL of these namespaces:
 - PushChain (root: initialize)
 - PushChain.CONSTANTS (PUSH_NETWORK, CHAIN, LIBRARY, MOVEABLE, PAYABLE)
 - PushChain.utils.signer (toUniversal, toUniversalFromKeypair, construct)
-- PushChain.utils.account (toUniversal, deriveExecutorAccount, convertExecutorToOrigin, convertOriginToExecutor)
+- PushChain.utils.account (toUniversal, deriveExecutorAccount, resolveControllerAccount)
 - PushChain.utils.helpers (parseUnits, formatUnits, encodeTxData)
 - PushChain.utils.chains (getSupportedChains, getChainName, getChainNamespace)
 - PushChain.utils.tokens (getMoveableTokens, getPayableTokens, getPRC20Address)

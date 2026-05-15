@@ -20,7 +20,7 @@ const account = PushChain.utils.account.toUniversal(
 );
 
 // Derive the UEA address
-const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
 
 console.log('UEA Address:', executorAddress.address);
 // Output: 0x... (deterministic Push Chain address)
@@ -143,7 +143,7 @@ const recipients = [
 const ueas = await Promise.all(
   recipients.map(async (r) => {
     const account = PushChain.utils.account.toUniversal(r.address, { chain: r.chain });
-    return await PushChain.utils.account.convertOriginToExecutor(account);
+    return await PushChain.utils.account.deriveExecutorAccount(account);
   })
 );
 ```

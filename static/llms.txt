@@ -204,9 +204,9 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 ### Blog — Recent Posts
 
+- [Introducing Chain Executor Accounts (CEAs)](https://push.org/blog/introducing-chain-executor-account/)
 - [WTF Happened to Chain Abstraction?](https://push.org/blog/wtf-happened-to-chain-abstraction/)
 - [Enable social login for your app in 4 steps](https://push.org/blog/enable-social-logins-for-your-app/)
 - [Season 3 Early Access is Live!](https://push.org/blog/season-3-early-access-is-live/)
 - [The Sexiest Architecture for Cross Chain DeFi Apps](https://push.org/blog/architecture-for-cross-chain-defi-apps/)
-- [Rethinking Wallet Security Beyond Bridges](https://push.org/blog/rethinking-wallet-security/)
 - [Blog index](https://push.org/blog/)

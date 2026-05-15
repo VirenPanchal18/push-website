@@ -653,36 +653,6 @@
       "source_url": "https://push.org/docs/chain/build/utility-functions/"
     },
     {
-      "id": "utility-convert-origin-to-executor",
-      "name": "Convert Origin to Executor Account",
-      "file": "utility-convert-origin-to-executor.md",
-      "description": "Code example: Convert Origin to Executor Account — https://push.org/docs/chain/build/utility-functions/",
-      "sdk_methods_used": ["PushChain.utils.account.toUniversal"],
-      "chains_involved": [],
-      "prerequisite_examples": [],
-      "source_url": "https://push.org/docs/chain/build/utility-functions/"
-    },
-    {
-      "id": "utility-convert-executor-to-origin",
-      "name": "Convert Origin to Executor Account",
-      "file": "utility-convert-executor-to-origin.md",
-      "description": "Code example: Convert Origin to Executor Account — https://push.org/docs/chain/build/utility-functions/",
-      "sdk_methods_used": [],
-      "chains_involved": [],
-      "prerequisite_examples": [],
-      "source_url": "https://push.org/docs/chain/build/utility-functions/"
-    },
-    {
-      "id": "utility-convert-executor-to-origin-account",
-      "name": "Convert Executor Address to Origin Account",
-      "file": "utility-convert-executor-to-origin-account.md",
-      "description": "Code example: Convert Executor Address to Origin Account — https://push.org/docs/chain/build/utility-functions/",
-      "sdk_methods_used": [],
-      "chains_involved": [],
-      "prerequisite_examples": [],
-      "source_url": "https://push.org/docs/chain/build/utility-functions/"
-    },
-    {
       "id": "advanced-custom-universal-signer",
       "name": "Custom Universal Signer",
       "file": "advanced-custom-universal-signer.md",

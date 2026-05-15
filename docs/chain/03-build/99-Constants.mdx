@@ -91,8 +91,9 @@ const account = PushChain.utils.account.toUniversal(address, {
   chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
 });
 
-// Convert executor to origin with chain override
-const originInfo = await PushChain.utils.account.convertExecutorToOrigin(
+// Resolve a CEA back to its controlling origin account (v6 replacement
+// for the removed convertExecutorToOrigin / convertExecutorToOriginAccount).
+const originInfo = await PushChain.utils.account.resolveControllerAccount(
   executorAddress,
   { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
 );

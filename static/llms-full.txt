@@ -246,8 +246,6 @@ URL: https://push.org/docs/chain/build/contract-initiated-examples/inbound-to-pu
 
 Inbound to Push Chain | Contract-Initiated Examples | Build | Push Chain Docs
 
-{/* Content Start */}
-
 A pair of contracts that demonstrate the inbound direction: a contract on Sepolia (or any supported external chain) calls the per-chain Universal Gateway, and the TSS network relays the call to a contract on Push Chain. The Push contract sees the dispatching contract's UEA as **msg.sender**.
 
 For the conceptual background (UEAs, the Universal Gateway, the wire format), see [Contract-Initiated Multichain Execution](/docs/chain/build/contract-initiated-multichain-execution).
@@ -471,8 +469,6 @@ npm start
 URL: https://push.org/docs/chain/build/advanced/upgrade-universal-account/
 
 Upgrade Universal Account | Advanced | Build | Push Chain Docs
-
-{/* Content Start */}
 
 ## Overview
 
@@ -867,8 +863,6 @@ URL: https://push.org/docs/chain/build/contract-initiated-examples/outbound-from
 
 Outbound from Push Chain | Contract-Initiated Examples | Build | Push Chain Docs
 
-{/* Content Start */}
-
 A minimal Push Chain contract that demonstrates an outbound cross-chain call. The contract calls **UniversalGatewayPC (UGPC)**, the gateway contract responsible for handling outbound calls, and runs increment on a BNB Testnet counter via the contract's CEA. 
 
 This is the smallest contract-initiated outbound that runs end to end on Donut.
@@ -1043,8 +1037,6 @@ npm start
 URL: https://push.org/docs/chain/build/contract-initiated-examples/round-trip-auto-back-leg/
 
 Round-Trip with Auto Back-Leg | Examples | Build | Push Chain Docs
-
-{/* Content Start */}
 
 A single Push contract that dispatches an outbound to BNB Testnet and **automatically receives an inbound callback** when the destination chain finishes. One user signature on Push, two coordinated transactions across two chains. 
 
@@ -1222,8 +1214,6 @@ The first run deploys `RoundtripDispatcher`, funds it with 8 PC, fires `kickOff`
 URL: https://push.org/docs/chain/build/initialize-push-chain-client/
 
 Initialize Push Chain Client | Build | Push Chain Docs
-
-{/* Content Start */}
 
 ## Overview
 
@@ -1684,8 +1674,6 @@ URL: https://push.org/docs/chain/build/contract-initiated-examples/advanced-patt
 
 Advanced Patterns | Contract-Initiated Examples | Build | Push Chain Docs
 
-{/* Content Start */}
-
 The three preceding pages cover the basics: [plain inbound](/docs/chain/build/contract-initiated-examples/inbound-to-push-chain), [plain outbound](/docs/chain/build/contract-initiated-examples/outbound-from-push-chain), and the [round-trip with auto back-leg](/docs/chain/build/contract-initiated-examples/round-trip-auto-back-leg). This page is the full reference for every contract-initiated pattern we have built, including five advanced ones that combine funds bridging, state machines, and multi-chain cascades.
 
 Each entry links to a focused, single-purpose example in the [Push Chain Examples Repository](https://github.com/pushchain/push-chain-examples/tree/main/core-sdk-functions/) under `contract-initiated-*`. 
@@ -1819,8 +1807,6 @@ Push Chain is fully EVM-compatible, so you can plug in your favorite Ethereum to
 URL: https://push.org/docs/chain/build/understanding-universal-transactions/
 
 Understanding Universal Transactions | Build | Push Chain Docs
-
-{/* Content Start */}
 
 ## Overview
 
@@ -2057,8 +2043,6 @@ This enables a new class of applications that are truly chain-agnostic and unive
 URL: https://push.org/docs/chain/build/send-universal-transaction/
 
 Send Universal Transaction | Build | Push Chain Docs
-
-{/* Content Start */}
 
 ## Overview
 
@@ -2823,8 +2807,6 @@ URL: https://push.org/docs/chain/build/universal-transaction-scenarios/
 
 Universal Transaction Scenarios | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 End-to-end playground examples for each universal transaction route. For API reference and argument details, see [Send Universal Transaction](/docs/chain/build/send-universal-transaction).
@@ -3249,74 +3231,6 @@ End-to-end playground examples for each universal transaction route. For API ref
       return {id: selection, name: name};
     }
 `}
-
-{`
-// customPropHighlightRegexStart=universal\.sendTransaction
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=send_transaction_pay_gas_erc20
-
-    // Pay gas with USDC instead of native ETH while bridging USDT and calling a contract on Push Chain
-    import { PushChain } from '@pushchain/core';
-    import { ethers } from 'ethers';
-    import * as readline from 'node:readline/promises';
-
-    const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
-    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
-    const COUNTER_ABI = [
-      { inputs: [], name: 'increment', outputs: [], stateMutability: 'nonpayable', type: 'function' },
-    ];
-    const COUNTER_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-
-    async function main() {
-      const wallet = ethers.Wallet.createRandom();
-      const provider = new ethers.JsonRpcProvider(RPC_SEPOLIA);
-      const signer = wallet.connect(provider);
-      console.log('🔑 Sepolia account:', wallet.address);
-
-      const universalSigner = await PushChain.utils.signer.toUniversal(signer);
-      const client = await PushChain.initialize(universalSigner, {
-        network: PushChain.CONSTANTS.PUSH_NETWORK.TESTNET,
-      });
-
-      const usdt = PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.USDT;
-      const usdc = PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.USDC;
-
-      await rl.question(
-        ':::prompt:::Send the following to ' + wallet.address + ' on Sepolia, then press Enter:\\\\n  • at least 0.005 ETH (Sepolia signing gas)\\\\n  • at least 0.2 USDT (ERC-20, bridged)\\\\n  • at least 5 USDC (Push Chain gas, paid in USDC — each tx costs ~3 USDC in gas)\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia\\\\nMint USDT: https://sepolia.etherscan.io/address/' + usdt.address + '#writeContract#F6\\\\nMint USDC: https://sepolia.etherscan.io/address/' + usdc.address + '#writeContract#F6'
-      );
-
-      const data = PushChain.utils.helpers.encodeTxData({
-        abi: COUNTER_ABI,
-        functionName: 'increment',
-      });
-
-      try {
-        const tx = await client.universal.sendTransaction({
-          to: COUNTER_ADDRESS,
-          data,
-          funds: {
-            amount: PushChain.utils.helpers.parseUnits('0.1', { decimals: usdt.decimals }), // 0.1 USDT
-            token: usdt,
-          },
-          payGasWith: {
-            token: usdc, // pay gas with USDC instead of native ETH
-          },
-        });
-
-        console.log('✅ Push Chain TX Hash:', tx.hash);
-        const receipt = await tx.wait();
-        console.log('📦 Status:', receipt.status === 1 ? 'Success' : 'Failed');
-      } catch (err) {
-        console.error('❌ Failed:', err && err.message ? err.message : err);
-        console.log('Note: Ensure your wallet holds both USDT (to bridge) and USDC (for gas) on Sepolia.');
-      }
-    }
-
-    await main().catch(console.error);
-`}
-
- -->
 
 ## Route 2 → Execute on External Chain
 
@@ -4124,8 +4038,6 @@ URL: https://push.org/docs/chain/build/send-multichain-transactions/
 
 Send Multichain Transactions | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 Multichain transactions let you compose multiple universal transactions into a single ordered flow across different routes.
@@ -4808,8 +4720,6 @@ URL: https://push.org/docs/chain/build/contract-initiated-multichain-execution/
 
 Contract-Initiated Multichain Execution | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 Contract-Initiated Multichain Execution lets a **Push Chain smart contract trigger execution on an external chain**, or **receive a call originating from an external chain**, without any live user interaction at call time. 
@@ -5395,8 +5305,6 @@ URL: https://push.org/docs/chain/build/track-universal-transaction/
 
 Track Universal Transaction | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 Track the status of a universal transaction using the hash of the chain where it was originally submitted, whether that transaction started on Push Chain or an external chain.
@@ -5668,15 +5576,11 @@ URL: https://push.org/docs/chain/build/utility-functions/
 
 Utility Functions | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 This section covers the most commonly used helpers in the Push Chain Core SDK to simplify common workflows.
 
 ## Helper Utilities
-
-{/* API Section Start*/}
 
 ### Parse Units
 
@@ -5750,10 +5654,6 @@ const result = PushChain.utils.helpers.parseUnits('1.5', { decimals: 18 });
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### Format Units
 
 **_`PushChain.utils.helpers.formatUnits(value, {options}): string`_**
@@ -5818,10 +5718,6 @@ const result = PushChain.utils.helpers.formatUnits('1500000000000000000', { deci
     main();
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
 
 ### Encode Transaction Data
 
@@ -5960,11 +5856,7 @@ const encodedData = PushChain.utils.helpers.encodeTxData({
 
   
 
-{/* API Section Ends*/}
-
 ## Chain Utilities
-
-{/* API Section Start*/}
 
 ### Get Chain Namespace from Chain Name
 
@@ -6003,10 +5895,6 @@ const chainName = PushChain.utils.chains.getChainNamespace('PUSH_TESTNET_DONUT')
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### Get Chain Name from Chain Namespace
 
 **_`PushChain.utils.chains.getChainName(chainNamespace): string`_**
@@ -6043,10 +5931,6 @@ const chainName = PushChain.utils.chains.getChainName('eip155:42101');
     main();
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
 
 ### Get Supported Chains By Name
 
@@ -6095,10 +5979,6 @@ const chains = PushChain.utils.chains.getSupportedChainsByName(PushChain.CONSTAN
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### Get Supported Chains
 
 **_`PushChain.utils.chains.getSupportedChains(pushNetwork): { chains: [] }`_**
@@ -6146,11 +6026,7 @@ const chains = PushChain.utils.chains.getSupportedChains(PushChain.CONSTANTS.PUS
 
 `}
 
-{/* API Section Ends*/}
-
 ## Account Utilities
-
-{/* API Section Begins*/}
 
 ### Convert to Universal Account
 
@@ -6195,10 +6071,6 @@ const account = PushChain.utils.account.toUniversal(address, {
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
-
 ### Convert to Chain-Agnostic Address
 
 **_`PushChain.utils.account.toChainAgnostic(address, {options}): string`_**
@@ -6240,10 +6112,6 @@ const chainAgnosticAddress = PushChain.utils.account.toChainAgnostic(address, {
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
-
 ### Convert from Chain-Agnostic to Universal Account
 
 **_`PushChain.utils.account.fromChainAgnostic(chainAgnosticAddress): `_**
@@ -6281,10 +6149,6 @@ const account = PushChain.utils.account.fromChainAgnostic(chainAgnosticAddress);
     main();
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
 
 ### Derive Executor Account
 
@@ -6392,10 +6256,6 @@ async function main() {
     await main().catch(console.error)
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
 
 ### Resolve Controller Account
 
@@ -6507,11 +6367,7 @@ async function main() {
 
 `}
 
-{/* API Section Ends*/}
-
 ## Signer Utilities
-
-{/* API Section Begins*/}
 
 ### Create Universal Signer from Keypair
 
@@ -6633,11 +6489,7 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 
   
 
-{/* API Section Ends*/}
-
 ## Token Utilities
-
-{/* API Section Start*/}
 
 ### Get Moveable Tokens
 
@@ -6688,10 +6540,6 @@ const { tokens: sepoliaMoveable } = PushChain.utils.tokens.getMoveableTokens(
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### Get Payable Tokens
 
 **_`PushChain.utils.tokens.getPayableTokens(chainOrClient?): { tokens: [] }`_**
@@ -6740,10 +6588,6 @@ const { tokens: solanaDevnetPayable } = PushChain.utils.tokens.getPayableTokens(
     main();
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
 
 ### Get PRC20 Address
 
@@ -6811,11 +6655,7 @@ const prc20Alt = PushChain.utils.tokens.getPRC20Address({
 
 `}
 
-{/* API Section Ends*/}
-
 ## Conversion Utilities
-
-{/* API Section Start*/}
 
 ### Calculate Minimum Amount from Slippage
 
@@ -6855,10 +6695,6 @@ const minOut = PushChain.utils.conversion.slippageToMinAmount('100000000', {
     main();
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
 
 ### Get Conversion Quote
 
@@ -6929,11 +6765,7 @@ const quote = pushChainClient.funds.getConversionQuote('100000000', {
   await main().catch(console.error);
   `}
 
-{/* API Section Ends*/}
-
 ## Explorer Utilities
-
-{/* API Section Start*/}
 
 ### Get Transaction URL
 
@@ -7009,10 +6841,6 @@ const sepoliaUrl = pushChainClient.explorer.getTransactionUrl(txHash, {
     await main().catch(console.error);
 
 `}
-
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
 
 ### List Explorer URLs
 
@@ -7091,10 +6919,6 @@ const sepoliaExplorers = pushChainClient.explorer.listUrls({
 
 `}
 
-{/* API Section Ends*/}
-
-{/* API Section Start*/}
-
 ### List All Explorer URLs
 
 **_`pushChainClient.explorer.listAllUrls(): { explorers: [] }`_**
@@ -7168,210 +6992,6 @@ const allExplorers = pushChainClient.explorer.listAllUrls();
     await main().catch(console.error);
 
 `}
-
-{/* API Section Ends*/}
-
-## Deprecated Methods
-
-{/* API Section Begins*/}
-
-### Convert Origin to Executor Account 
-
-> **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [deriveExecutorAccount](#derive-executor-account) instead.
-
-" className="alert alert--live-play">
-
-Gives the deterministic executor account address for a given origin account (UOA). &nbsp;
-
-Also helps in checking if a given origin account (UOA) has a universal executor account (UEA) deployed on Push Chain or a chain executor account (CEA) deployed on any external chain. &nbsp;
-
-```typescript
-const info =
-  await PushChain.utils.account.convertOriginToExecutor(universalAccount);
-```
-
-| Deprecated Function | Replacement | Key Changes |
-|---------------------|-------------|-------------|
-| `convertOriginToExecutor` | `deriveExecutorAccount` | • Parameter renamed: `onlyCompute` → `skipNetworkCheck`• Generic `account` parameter accepts string instead of UniversalAccount object• Clearer naming aligned with identity ↔ execution model |
-
-| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
-| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`account`_      | `UniversalAccount` | -           | A UniversalAccount object containing chain and address information.                                        |
-| `options.onlyCompute` | `boolean`          | `false`     | Whether to check if the computed executor account is deployed. Set to `true` to include deployment status. |
-
-" 
-  className="alert alert--fn-args"
->
-
-```typescript
-// ExecutorAccountInfo object
-{
-  address: '0x98cA97d2FB78B3C0597E2F78cd11868cACF423C5',
-  deployed: true
-}
-```
-
-{`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertOriginToExecutor
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_convert_origin_to_executor
-async function main() {
-      // Create a universal account for Solana Devnet
-      const account = PushChain.utils.account.toUniversal(
-        'EUYcfSUScdFgKMbB3rRdgRZwXmcxY7QCRQa2JwrchP1Q', {
-        chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
-      })
-
-      // Convert to executor address with deployment status
-      const executorInfo = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: true,
-      })
-
-      console.log(JSON.stringify(executorInfo, null, 2));
-
-      // Convert without deployment status
-      const executorSimple = await PushChain.utils.account.convertOriginToExecutor(account, {
-        onlyCompute: false,
-      })
-
-      console.log(JSON.stringify(executorSimple, null, 2));
-    }
-
-    await main().catch(console.error)
-
-`}
-
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
-
- **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [resolveControllerAccount](#resolve-controller-account) instead.
-
-" className="alert alert--live-play">
-
-Gives the origin account (UOA) for a given universal executor account (UEA on Push Chain) or a chain executor account (CEA on any external chain). &nbsp;
-
-```typescript
-const { account, exists } = 
-  await PushChain.utils.account.convertExecutorToOrigin(ueaOrCeaAddress);
-```
-
-| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
-| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`address`_      | `string` | -           | Address of the account on any blockchain. |
-| `options.chain`  | `CHAIN`            | `undefined` | Optional. If provided, treats the account as a CEA (Chain Executor Account) instead of UEA (Universal Executor Account) or Push Account. Use `PushChain.CONSTANTS.CHAIN` values.  |
-
-" 
-  className="alert alert--fn-args"
->
-
-```typescript
-// OriginAccountInfo object
-{
-  account: {
-    chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
-    address: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf'
-  },
-  exists: true
-}
-```
-
-{`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOrigin
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_convert_executor_to_origin
-async function main() {
-      // Create executor account object
-      const ueaAccount = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
-      
-      // Convert UEA to origin account
-      const result = await PushChain.utils.account.convertExecutorToOrigin(
-        ueaAccount
-      );
-      console.log('Origin account from UEA:');
-      console.log(JSON.stringify(result, null, 2));
-
-      // Example with options.chain (treats as CEA)
-      const ceaAccount = '0x5d71c70571789F0cd3bE84513523a9993740BDf6';
-      
-      const result2 = await PushChain.utils.account.convertExecutorToOrigin(
-        ceaAccount,
-        { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
-      );
-      console.log('Origin account from CEA:');
-      console.log(JSON.stringify(result2, null, 2));
-    }
-
-    await main().catch(console.error)
-
-`}
-
- -->
-
-{/* API Section Ends*/}
-
-{/* API Section Begins*/}
-
-### Convert Executor Address to Origin Account
-
-> **⚠️ Deprecated**: This function is deprecated and will be removed in v6.0.0. Use [resolveControllerAccount](#resolve-controller-account) instead.
-
-" className="alert alert--live-play">
-
-Gives the origin account (UOA) for a given Push Chain address. &nbsp;
-
-```typescript
-const { account, exists } = await PushChain.utils.account.convertExecutorToOriginAccount(pushChainAddress);
-```
-
-| Deprecated Function | Replacement | Key Changes |
-|---------------------|-------------|-------------|
-| `convertExecutorToOriginAccount` | `resolveControllerAccount` | • Same functionality with clearer naming• Part of unified identity ↔ execution model |
-
-| **Arguments**    | **Type**           | **Default** | **Description**                                                                                            |
-| ---------------- | ------------------ | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| _`pushChainAddress`_      | `string` | -           | Address of the account on Push Chain. |
-
-" 
-  className="alert alert--fn-args"
->
-
-```typescript
-// OriginAccountInfo object
-{
-  account: {
-    chain: 'solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
-    address: 'FNDJWigdNWsmxXYGrFV2gCvioLYwXnsVxZ4stL33wFHf'
-  },
-  exists: true
-}
-```
-
-{`
-// customPropHighlightRegexStart=PushChain\.utils\.account\.convertExecutorToOriginAccount
-// customPropHighlightRegexEnd=\\);
-// customPropGTagEvent=utility_convert_executor_to_origin_account
-async function main() {
-      const ueaAddress = '0xbCfaD05E5f19Ae46feAab2F72Ad9977BC239b395';
-      const result = await PushChain.utils.account.convertExecutorToOriginAccount(
-        ueaAddress
-      );
-      console.log('Has Executor Account');
-      console.log(JSON.stringify(result, null, 2));
-
-      const notUeaAddress = '0x35B84d6848D16415177c64D64504663b998A6ab4';
-      const result2 = await PushChain.utils.account.convertExecutorToOriginAccount(
-        notUeaAddress
-      );
-      console.log('Does not have Executor Account');
-      console.log(JSON.stringify(result2, null, 2));
-    }
-
-    await main().catch(console.error)
-
-`}
-
-{/* API Section Ends*/}
 
 ## Next Steps
 
@@ -8005,8 +7625,6 @@ URL: https://push.org/docs/chain/build/constants/
 
 Constants Reference | Build | Push Chain Docs
 
-{/* Content Start */}
-
 ## Overview
 
 This page provides a comprehensive reference for all constants available in the Push Chain Core SDK (`@pushchain/core`). These constants are used throughout the SDK to ensure type safety and consistency when working with chains, networks, libraries, and other configurations.
@@ -8077,8 +7695,9 @@ const account = PushChain.utils.account.toUniversal(address, {
   chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
 });
 
-// Convert executor to origin with chain override
-const originInfo = await PushChain.utils.account.convertExecutorToOrigin(
+// Resolve a CEA back to its controlling origin account (v6 replacement
+// for the removed convertExecutorToOrigin / convertExecutorToOriginAccount).
+const originInfo = await PushChain.utils.account.resolveControllerAccount(
   executorAddress,
   { chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET }
 );
@@ -8135,18 +7754,6 @@ const universalSigner = await PushChain.utils.signer.toUniversalFromKeypair(
 
 Defines tokens that can be transferred across chains using Push Chain's universal transaction system.
 
-  
-
-| Constant | Chain | Description |
-| -------- | ----- | ----------- |
-| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.ETH` | Ethereum Mainnet | Native ETH token |
-| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.USDT` | Ethereum Mainnet | Tether USD stablecoin |
-| `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_MAINNET.WETH` | Ethereum Mainnet | Wrapped ETH |
-
-  
-
-   -->
-
 | Constant | Chain | Description |
 | -------- | ----- | ----------- |
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH` | Ethereum Sepolia | Native ETH token |
@@ -8185,7 +7792,6 @@ Defines tokens that can be transferred across chains using Push Chain's universa
 | `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.sol` | Push Testnet Donut | Push-wrapped USDC from Solana |
 
   
- -->
 
 ### Usage Examples
 
@@ -8216,18 +7822,6 @@ const solTxHash = await pushChainClient.universal.sendTransaction({
 
 Defines tokens that can be used to pay for gas fees on Push Chain transactions.
 
-  
-
-| Constant | Chain | Description |
-| -------- | ----- | ----------- |
-| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.ETH` | Ethereum Mainnet | Native ETH token |
-| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.USDT` | Ethereum Mainnet | Tether USD stablecoin |
-| `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_MAINNET.WETH` | Ethereum Mainnet | Wrapped ETH |
-
-  
-
-   -->
-
 | Constant | Chain | Description |
 | -------- | ----- | ----------- |
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.ETHEREUM_SEPOLIA.ETH` | Ethereum Sepolia | Native ETH token |
@@ -8249,7 +7843,6 @@ Defines tokens that can be used to pay for gas fees on Push Chain transactions.
 | `PushChain.CONSTANTS.PAYABLE.TOKEN.SOLANA_DEVNET.USDC` | Solana Devnet | USD Coin stablecoin |
 
   
- -->
 
 ### Usage Examples
 
@@ -8373,8 +7966,6 @@ This section covers the advanced setup of Push Chain Core SDK.
 URL: https://push.org/docs/chain/build/contract-initiated-examples/
 
 Contract-Initiated Examples Section | Build | Push Chain Docs
-
-{/* Content Start */}
 
 # Contract-Initiated Examples Section
 
@@ -8530,8 +8121,6 @@ Together, these properties make Push Chain the first blockchain where external u
 URL: https://push.org/docs/chain/deep-dives/how-cea-works/
 
 How Chain Executor Account (CEA) Works | Deep Dives | Push Chain Docs
-
-{/* Content Start */}
 
 The **Chain Executor Account (CEA)** is the destination-chain counterpart to the [UEA](/docs/chain/deep-dives/how-uea-works). Where a UEA is the identity an external-chain wallet uses to act *on Push Chain*, a CEA is the identity a Push Chain account uses to act *on every other chain*. Together they make universal execution **bidirectional**.
 
@@ -12557,7 +12146,7 @@ const account = PushChain.utils.account.toUniversal(originAddress, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 This deterministic conversion ensures:
@@ -12691,7 +12280,7 @@ function UniversalAirdropTutorial() {
           const account = PushChain.utils.account.toUniversal(entry.address, {
             chain: entry.chain
           });
-          const executorAddress = await PushChain.utils.account.convertOriginToExecutor(account);
+          const executorAddress = await PushChain.utils.account.deriveExecutorAccount(account);
           return [
             executorAddress.address,
             ethers.parseUnits(entry.amount, 18).toString(),
@@ -13182,7 +12771,7 @@ const account = PushChain.utils.account.toUniversal(entry.address, {
 });
 
 const executorAddress =
-  await PushChain.utils.account.convertOriginToExecutor(account);
+  await PushChain.utils.account.deriveExecutorAccount(account);
 ```
 
 This converts each origin address to its deterministic UEA address on Push Chain. The same origin address will always produce the same UEA address.
@@ -14958,8 +14547,6 @@ URL: https://push.org/docs/chain/tutorials/power-features/tutorial-derive-chain-
 
 Derive Chain Executor Accounts | Tutorials | Push Chain Docs
 
-{/* Content Start */}
-
 In this tutorial, you'll learn how to **derive Chain Executor Accounts (CEAs)**. A CEA is the destination-chain identity a Push Chain account uses when it executes on an external chain. This tutorial pairs with the [Derive UEA tutorial](/docs/chain/tutorials/power-features/tutorial-derive-universal-executor-account). UEAs are how external wallets execute on Push Chain; CEAs work in the opposite direction.
 
 By the end of this tutorial, you'll be able to:
@@ -15132,10 +14719,19 @@ interface ICEAFactory {
 
 contract CEALookup {
     ICEAFactory public immutable FACTORY;
+    address public immutable OWNER;
     mapping(address => bool) public allowedCEAs;
+
+    error NotOwner();
+
+    modifier onlyOwner() {
+        if (msg.sender != OWNER) revert NotOwner();
+        _;
+    }
 
     constructor(address ceaFactory) {
         FACTORY = ICEAFactory(ceaFactory);
+        OWNER = msg.sender;
     }
 
     /// @notice Look up the CEA on this chain for a given Push-side account.
@@ -15148,7 +14744,9 @@ contract CEALookup {
     /// @notice Pre-authorize a Push-side account's CEA before it has been deployed.
     ///         Useful for whitelists that need to allow contract-initiated cross-chain
     ///         calls on day zero.
-    function preAuthorize(address pushAccount) external {
+    /// @dev    Owner-gated. Without this guard, any caller could whitelist an
+    ///         arbitrary Push account's CEA and grant themselves permission.
+    function preAuthorize(address pushAccount) external onlyOwner {
         (address cea, ) = FACTORY.getCEAForPushAccount(pushAccount);
         allowedCEAs[cea] = true;
     }
@@ -15504,8 +15102,6 @@ URL: https://push.org/docs/chain/tutorials/power-features/tutorial-universal-cro
 
 Build Universal Cross-Chain Counters | Tutorials | Push Chain Docs
 
-{/* Content Start */}
-
 In the [Counter](/docs/chain/tutorials/basics/tutorial-simple-counter/) and [Universal Counter](/docs/chain/tutorials/basics/tutorial-universal-counter/) tutorials every increment landed on **one** Push Chain contract. Here we flip the model. A single click on a Push Chain contract increments separate counters on **Ethereum Sepolia, BNB Testnet, and Arbitrum Sepolia** at once. One contract orchestrates many.
 
 By the end of this tutorial you'll be able to:
@@ -15657,6 +15253,7 @@ contract MultiChainCounter {
 
     /// @notice Register an `ExternalCounter` on a destination chain.
     function addDestination(bytes calldata target, uint256 gasLimit) external onlyOwner {
+        if (gasLimit == 0) revert ZeroGasLimit();
         destinations.push(Destination({ target: target, gasLimit: gasLimit }));
         emit DestinationAdded(destinations.length - 1, target);
     }
@@ -15676,12 +15273,14 @@ contract MultiChainCounter {
     ///                     `UniversalCore.getOutboundTxGasAndFees(...)`.
     /// @param  revertRecipient Push-side address credited if any outbound reverts.
     function tickAll(uint256[] calldata perCallFee, address revertRecipient) external payable {
-        if (perCallFee.length != destinations.length) revert LengthMismatch();
-
-        bytes memory payload = abi.encodeCall(IExternalCounter.increment, ());
-
-        uint256 total;
         uint256 n = destinations.length;
+        if (perCallFee.length != n) revert LengthMismatch();
+
+        // Checks-Effects-Interactions: sum and validate msg.value BEFORE
+        // dispatching any UGPC outbound, so an under-funded call reverts
+        // immediately without burning gas on outbounds the contract would
+        // have to back-fund from its own balance.
+        uint256 total;
         for (uint256 i = 0; i 
 
 A few things to note about the outbound shape:
@@ -15711,11 +15310,11 @@ Deploy `MultiChainCounter` on Push Chain and `ExternalCounter` on each destinati
 ```bash
 # Push Chain Donut Testnet (orchestrator)
 forge create src/MultiChainCounter.sol:MultiChainCounter \
-  --rpc-url $PUSH_TESTNET_RPC --private-key $DEPLOYER_KEY --broadcast
+  --rpc-url $PUSH_TESTNET_RPC --private-key $DEPLOYER_KEY
 
 # Each destination — same command, different RPC + key
 forge create src/ExternalCounter.sol:ExternalCounter \
-  --rpc-url $DEST_RPC --private-key $DEST_KEY --broadcast
+  --rpc-url $DEST_RPC --private-key $DEST_KEY
 ```
 
 ### Register each destination
@@ -16151,8 +15750,6 @@ Check out the next tutorial to learn how to [build a Universal Airdrop](/docs/ch
 URL: https://push.org/docs/chain/tutorials/integration-and-tooling/tutorial-scaffoldeth2/
 
 {`Configure Scaffold‑ETH 2 for Push Chain: Deploy and Interact with a Contract | Tutorials | Push Chain Docs`}
-
-{/* Content Start */}
 
 Welcome! In this tutorial, you’ll set up a fresh **Scaffold‑ETH 2** project, **deploy a new smart contract to the Push Chain Donut Testnet**, and **interact with it from the Scaffold‑ETH 2 app**.
 
@@ -16854,9 +16451,9 @@ Customize the behavior of the wallet connection, logins, and modals by using the
 ```jsx live
 // customPropHighlightRegexStart=walletConfig\s=
 // customPropHighlightRegexEnd=
-      {/* Your app logic */}
+      
 
-      {/* Push Universal Wallet Button to show the functionality */}
+      
       
     
   );
@@ -16871,9 +16468,9 @@ Customize the behavior of the wallet connection, logins, and modals by using the
 
   return (
     
-      {/* Your app logic */}
+      
 
-      {/* Push Universal Wallet Button to show the functionality */}
+      
       
     
   );
@@ -16893,9 +16490,9 @@ Display your app metadata in login screens and preview panes by using the `app` 
 ```jsx live
 // customPropHighlightRegexStart=appMetadata\s=
 // customPropHighlightRegexEnd=
-      {/* Your app logic */}
+      
 
-      {/* Push Universal Wallet Button to show the functionality */}
+      
       
     
   );
@@ -17827,7 +17424,7 @@ The UI Kit SDK lets you customize its look by overriding CSS variables (aka them
 function App() {
   return (
     
-      {/* Your App Logic */}
+      
       
     
   );
@@ -17877,7 +17474,7 @@ function App() {
 
   return (
     
-      {/* Button-level overrides */}
+      
       
       
         
@@ -17892,7 +17489,7 @@ function App() {
           Dark
         
       
-      {/* Your App Logic */}
+      
     
   );
 }
