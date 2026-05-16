@@ -73,7 +73,7 @@ Need a hop to originate from an external chain? Set `from: { chain }` and the SD
 :::info[CEA TL;DR]
 Chain Executor Accounts are per-user smart accounts that live on external chains and act on your behalf while keeping your funds and unified crosschain identity separate from everyone else.
 
-[Read more about CEAs](/introducing-chain-executor-account).
+[Read more about CEAs](/blog/introducing-chain-executor-account).
 
 :::
 
