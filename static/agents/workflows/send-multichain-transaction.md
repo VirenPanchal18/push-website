@@ -46,10 +46,13 @@ Two patterns for cross-chain execution via Push Chain:
 | `tx.maxPriorityFeePerGas` | `BigInt` | SDK estimated | Override priority fee |
 | `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint }` | - | Pay fees in supported token |
 | `tx.deadline` | `BigInt` | - | Execution deadline |
+| `tx.options.enforceGasCheck` | `boolean` | `false` | Carries strict pre-flight gas/balance enforcement into `executeTransactions`. When `true` on any hop, the cascade throws `InsufficientUEABalanceError` before broadcast if pre-flight detects a shortfall, instead of emitting a warning and proceeding. The flag set on one hop opts the whole cascade into strict mode. |
 
 ## Steps
 
 ### Route 2: Execute on External Chain
+
+**Origin types.** The signer can be a wallet on an external chain (EVM or SVM) OR a Push Account (UEA, native Push Chain wallet, or smart contract on Push). Execution always lands on the target external chain via that signer's CEA.
 
 1. **Identify target contract and chain**
    ```typescript
@@ -87,7 +90,9 @@ Two patterns for cross-chain execution via Push Chain:
 
 ### Route 3: CEA-Origin to Push Chain
 
-Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
+**Origin types.** The authorizing signer is a Push Account: a UEA, a native Push Chain wallet, or a smart contract on Push Chain. That Push Account acts through its CEA on the external chain you pass in `from: { chain }`, and execution lands back on Push Chain. `msg.sender` inside the target contract will be the CEA, not the UEA.
+
+Add `from: { chain }` to use your CEA on an external chain as the execution origin on Push Chain.
 
 **Why CEAs exist.** When your Push Chain account first interacts with an external chain (e.g. calling Aave on Ethereum), the protocol deterministically deploys a **Chain Executor Account (CEA)** for you on that chain. This CEA:
 
@@ -264,7 +269,8 @@ For `executeTransactions`, see `CascadedTxResponse` table above.
 
 - **Route 2 triggers automatically**: When `to` is `{ address, chain }`, SDK routes through CEA on that chain.
 - **Route 3 is rare**: Only needed when Push Chain execution must show external chain identity as origin.
-- **CEA is chain-specific**: Each external chain has its own CEA derived from your UEA. Use `PushChain.utils.account.deriveExecutorAccount(uoa, { chain })` to get CEA address.
+- **CEA is chain-specific**: Each external chain has its own CEA derived from your UEA. Use `PushChain.utils.account.deriveExecutorAccount(uoa, { chain, skipNetworkCheck: true })` to get the CEA address off-chain. Never hand-roll the `CEAFactory.getCEAForPushAccount(...)` call when the SDK helper is available.
+- **Funding pattern for Route 3 (examples / fresh wallets)**: For most Route 3 flows the dev only funds the **source-chain UOA** (e.g. Sepolia ETH). The SDK fee-locks part of that source-chain native asset, mints PC into the UEA on Push Chain, and routes PC → UGPC → destination-chain native to cover the CEA's own gas + first-time deployment. Manually fund the CEA **only** when an asset on that external chain is being bridged back to Push Chain (e.g. `value: BNB` or `funds: { token: USDT.bnb, amount }` against `from: { chain: BNB_TESTNET }` to `to: client.universal.account`). In that case the burn asset has to physically sit on the CEA before the call; the CEA's gas still comes from the source-chain fee-lock.
 - **Gas on external chains**: External execution may require native tokens on the target chain.
 - **Push Chain is coordination layer**: The `txHash` returned is the Push Chain coordination tx; external execution follows asynchronously.
 - **Cross-chain latency**: External chain finality affects total confirmation time.

@@ -2,7 +2,7 @@
 
 > Push Chain is a universal, shared-state Layer 1 blockchain. Developers deploy once on Push Chain and reach users from any EVM or non-EVM chain. Users transact from their home chain using any supported token — no bridging, no network switching.
 
-> **Agent layer:** v1.0.12 | Last updated: 2026-05-15 | SDK: `@pushchain/core@6.0.0` · `@pushchain/ui-kit@6.0.0` | Network: Donut Testnet (Mainnet not yet launched)
+> **Agent layer:** v1.0.16 | Last updated: 2026-05-17 | SDK: `@pushchain/core@6.0.3` · `@pushchain/ui-kit@6.0.2` | Network: Donut Testnet (Mainnet not yet launched)
 
 ## Who This Is For
 
@@ -195,6 +195,8 @@ Full text of all canonical documentation pages, stripped of MDX/JSX markup. Suit
 
 > Machine-readable version: [changelog.json](https://push.org/agents/changelog.json)
 
+- **2026-05-17 v1.0.16** — Source-chain stablecoin re-deployment. New USDT contracts on Sepolia / Arbitrum Sepolia / Base Sepolia / BNB Testnet plus a new USDC on BNB Testnet. Gateway re-wired to the new sources; Push-side PRC-20 wrappers unchanged. Address tables in [Smart Contract Address Book](/docs/chain/setup/smart-contract-address-book) and [contract-addresses.json](https://push.org/agents/contract-addresses.json) refreshed; `pusd-mint-from-external-chain` and related push-chain-examples updated to mint at the new USDT contract on Sepolia.
+- **2026-05-16 v1.0.13** — SDK v6.0.1 bump. New canonical accessor `PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.bsc` for Push-wrapped USDC from BNB Chain. Legacy `USDC.bnb` accessor still resolves to the same token but is marked `@deprecated`. Rename is USDC-only — `USDT.bnb` and `pBnb` are unchanged. All address tables and constants references updated.
 - **2026-05-15 v1.0.12** — SDK v6 bump. `UniversalOutboundTxRequest` struct gained `gasPrice` and `maxPCForGas` fields (8 fields total; `recipient` retained). Refreshed CEAFactory addresses on Sepolia / Arbitrum / Base / BNB testnets plus USDT PRC-20 addresses across all chains. Tutorial `universal-cross-chain-counters` redeployed against v6 layout (Push Donut orchestrator + Sepolia / BNB destination counters).
 - **2026-04-17 v1.0.0** — Pinned SDK versions (originally `@pushchain/core@5.1.4`, `@pushchain/ui-kit@5.2.2`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added `## Minimal Example`. Grouped canonical workflows by category. `contract-addresses.json` designated as authoritative address source.
 
