@@ -20,7 +20,9 @@
         "Added route-origin reference to every agent surface (decision-tree.json, README.md, task-router.md, workflows/send-universal-transaction.md, workflows/send-multichain-transaction.md). Each route now spells out the full set of allowed signing accounts: Route 1 = external wallet OR native Push Chain wallet; Route 2 = external wallet OR Push Account (UEA, native Push wallet, smart contract on Push); Route 3 = Push Account (UEA, native Push wallet, smart contract on Push) acting through its CEA on the named external chain.",
         "Added a Route 3 funding-pattern table to task-router.md and skills/push-backend/SKILL.md with the four sub-patterns (plain contract call, bridge native back, bridge funds back, funds-with-payload) and an explicit anti-pattern callout: do not tell devs to send '0.02 BNB to the CEA for gas + fee-lock deposit' for a plain Route 3 call.",
         "Solana CEA log in the Contract Call from a Solana CEA playground now converts the SDK's 0x-prefixed 32-byte hex address to canonical base58 via `new PublicKey(ethers.getBytes(solanaCEA.address)).toBase58()`. Devs see the familiar Solana wallet form (`D2u...`) instead of `0xb24bb3...` in console output.",
-        "Bumped pinned SDK versions across the agent layer: `current_sdk_version` 6.0.2 → 6.0.3 in every JSON, README, recovery-playbook, and task-router. Matches `@pushchain/core@6.0.3` in the repo's package.json. `@pushchain/ui-kit` stays at 6.0.2; the frontend skill is unaffected."
+        "Bumped pinned SDK versions across the agent layer: `current_sdk_version` 6.0.2 → 6.0.3 in every JSON, README, recovery-playbook, and task-router. Matches `@pushchain/core@6.0.3` in the repo's package.json. `@pushchain/ui-kit` stays at 6.0.2; the frontend skill is unaffected.",
+        "Added agents/routes.json as a machine-readable companion describing Push Chain's three universal transaction routes (id, internal_name, input_shape, execution_target, executor, origin_types, origin_note, use_cases, sdk_call, llms_summary, plus Route 3 funding_patterns and anti_pattern). build.agents.llms.mjs now reads route prose from routes.json instead of hardcoding it, so llms.txt regenerates automatically when routes.json changes. The other route-prose surfaces (README, task-router, decision-tree, workflows, skills) keep their human-oriented copies; no in-file pointer notes added since route definitions are stable and the extra prose would create its own drift-of-instructions problem.",
+        "build.agents.llms.mjs constants synced: SDK_VERSIONS.core 6.0.1 → 6.0.3, SDK_VERSIONS.uiKit 6.0.1 → 6.0.2, AGENT_LAYER_VERSION 1.0.14 → 1.0.16, AGENT_LAYER_DATE 2026-05-16 → 2026-05-17. Added ROUTES_PATH constant and loadRoutes() helper following the same pattern as loadSkills / loadResources."
       ],
       "files_affected": [
         "docs/chain/03-build/07-Universal-Transaction-Scenarios.mdx",
@@ -48,6 +50,8 @@
         "static/agents/skills/index.json",
         "static/agents/examples/index.json",
         "static/agents/recovery-playbook.md",
+        "static/agents/routes.json",
+        "build.agents.llms.mjs",
         "static/llms.txt"
       ],
       "sdk_version": "6.0.3",
