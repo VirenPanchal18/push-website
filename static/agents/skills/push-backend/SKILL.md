@@ -249,6 +249,7 @@ const status = await client.getAccountStatus();
 | `tx.maxFeePerGas`         | `bigint` _(optional, SDK estimated)_                                                            | Override max fee per gas.                                                                                                                                                                              |
 | `tx.maxPriorityFeePerGas` | `bigint` _(optional, SDK estimated)_                                                            | Override priority fee.                                                                                                                                                                                 |
 | `tx.deadline`             | `bigint` _(optional)_                                                                           | Execution deadline.                                                                                                                                                                                    |
+| `tx.options.enforceGasCheck` | `boolean` _(optional, defaults to `false`)_                                                  | Pre-flight gas / balance check mode. `false` (default): emit a `WARNING` progress event on shortfall and proceed (the SDK's fee-locking / refill paths usually recover). `true`: emit an `ERROR` progress event and throw [`InsufficientUEABalanceError`](#insufficient_uea_balance) before broadcast. Use `true` when you want pre-flight guarantees over best-effort retries. Same option is accepted by `prepareTransaction`; setting it on any single hop opts the entire cascade into strict mode.                                          |
 
 ---
 
@@ -394,6 +395,17 @@ User → Push vault
 ```
 
 > Route 3 isn't for new outbound flows - use Route 2 for those. Route 3 is the return path from a CEA you've already deployed via prior Route 2 activity.
+
+**Route 3 funding pattern (what the dev actually has to send).** Depends on whether an asset is moving off the external chain:
+
+| Sub-pattern | Fund | Why |
+|-------------|------|-----|
+| Plain contract call / multicall on Push Chain (no `funds`, no `value` on the call) | Source-chain UOA only (e.g. ~0.01 Sepolia ETH) | The SDK fee-locks source-chain native, mints PC into the UEA, then UEA → UGPC swaps PC into the destination-chain native to cover CEA gas + first-time CEA deployment. CEA does not need a manual top-up. |
+| Bridge native back (`from: { chain }` + `value` + `to: client.universal.account`) | UOA on source chain AND the native asset on the CEA on the named external chain (amount = `value`) | The native asset being swept back has to physically sit on the CEA before the call. CEA gas still comes from the source-chain fee-lock. |
+| Bridge funds back (`from: { chain }` + `funds: { amount, token: MOVEABLE.<chain>.<TOKEN> }` + `to: client.universal.account`) | UOA on source chain AND the SDK-registered PRC-20 source token on the CEA on the named external chain (amount = `funds.amount`) | ERC-20 variant of the above. Mint the SDK-registered token at `PushChain.CONSTANTS.MOVEABLE.TOKEN.<CHAIN>.<TOKEN>.address` (e.g. `0xE935d9c9C24D02E61186c640cc01d713C876d40F` for USDT on BNB Testnet) and transfer to the printed CEA address. |
+| Funds-with-payload (bridge an asset back AND atomically call a Push Chain contract) | Same as bridge-funds-back | The payload runs on Push Chain via the UEA after the bridge settles. |
+
+> Anti-pattern: telling devs to send `0.02 BNB / SOL` to the CEA "for gas + fee-lock deposit" for a plain Route 3 call. The CEA gas is automatic; only ask for the CEA-side asset when an asset is actually being bridged back. Even then, ask for the burn amount itself (e.g. `0.001 BNB`, `0.01 USDT`), not a 10x buffer.
 
 **Solana CEA as origin** - set `from: { chain: SOLANA_DEVNET }` to use the user's Solana CEA as the origin. `msg.sender` on Push Chain will be the Solana CEA address. Use `deriveExecutorAccount` beforehand if you need to fund it.
 

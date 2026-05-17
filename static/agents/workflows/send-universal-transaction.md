@@ -42,6 +42,7 @@ Execute a transaction on Push Chain from any origin wallet (EVM or non-EVM), wit
 | `tx.maxPriorityFeePerGas` | `BigInt` | SDK estimated | Override priority fee (EIP-1559) |
 | `tx.payGasWith` | `{ token: PushChain.CONSTANTS.PAYABLE.TOKEN.<CHAIN>.<TOKEN>; slippageBps?: number; minAmountOut?: bigint \| string }` | - | Pay universal transaction fees with a supported token instead of native. `slippageBps` e.g. `100` = 1% |
 | `tx.deadline` | `BigInt` | - | Optional execution deadline timestamp |
+| `tx.options.enforceGasCheck` | `boolean` | `false` | When `true`, the SDK pre-flight check throws `InsufficientUEABalanceError` instead of emitting a `WARNING` progress event and proceeding. Set `true` when you want pre-flight guarantees; leave at the default for best-effort flows that rely on the SDK's fee-locking / refill paths. Same flag is accepted by `prepareTransaction` and propagates through `executeTransactions` cascades. |
 
 ## Steps
 
@@ -299,6 +300,7 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 ## Agent Notes
 
 - **Route 1 is default**: Plain `to` address always executes on Push Chain.
+- **Route 1 origin types**: The signer can be a wallet on any supported external chain (EVM or SVM) OR a native Push Chain wallet. When the origin is external, the call routes through the UEA on Push Chain; when the origin is a native Push Chain wallet, the SDK signs and submits directly with no UEA hop.
 - **Value is in smallest unit**: Use `PushChain.utils.helpers.parseUnits()` for human-readable conversion.
 - **UEA auto-deploys**: First transaction from a new origin wallet triggers automatic UEA deployment.
 - **Gas is abstracted**: Users pay gas on their origin chain in native tokens; SDK handles UEA funding.

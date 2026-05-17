@@ -24,11 +24,11 @@ const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
 
 const SDK_VERSIONS = {
-  core: '6.0.0',
-  uiKit: '6.0.0',
+  core: '6.0.1',
+  uiKit: '6.0.1',
 };
-const AGENT_LAYER_VERSION = '1.0.12';
-const AGENT_LAYER_DATE = '2026-05-15';
+const AGENT_LAYER_VERSION = '1.0.14';
+const AGENT_LAYER_DATE = '2026-05-16';
 
 const WORKFLOW_CATEGORIES = [
   { key: 'core-execution', label: '### Core execution' },
@@ -587,7 +587,13 @@ const buildLlmsTxt = async (workflows, skills, resources, blogPosts) => {
   );
   lines.push('');
   lines.push(
-    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 SDK v6 bump. \`UniversalOutboundTxRequest\` struct gained \`gasPrice\` and \`maxPCForGas\` fields (8 fields total; \`recipient\` retained). Refreshed CEAFactory addresses on Sepolia / Arbitrum / Base / BNB testnets plus USDT PRC-20 addresses across all chains. Tutorial \`universal-cross-chain-counters\` redeployed against v6 layout (Push Donut orchestrator + Sepolia / BNB destination counters).`
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Source-chain stablecoin re-deployment. New USDT contracts on Sepolia / Arbitrum Sepolia / Base Sepolia / BNB Testnet plus a new USDC on BNB Testnet. Gateway re-wired to the new sources; Push-side PRC-20 wrappers unchanged. Address tables in [Smart Contract Address Book](/docs/chain/setup/smart-contract-address-book) and [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) refreshed; \`pusd-mint-from-external-chain\` and related push-chain-examples updated to mint at the new USDT contract on Sepolia.`
+  );
+  lines.push(
+    `- **2026-05-16 v1.0.13** \u2014 SDK v6.0.1 bump. New canonical accessor \`PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.bsc\` for Push-wrapped USDC from BNB Chain. Legacy \`USDC.bnb\` accessor still resolves to the same token but is marked \`@deprecated\`. Rename is USDC-only \u2014 \`USDT.bnb\` and \`pBnb\` are unchanged. All address tables and constants references updated.`
+  );
+  lines.push(
+    `- **2026-05-15 v1.0.12** \u2014 SDK v6 bump. \`UniversalOutboundTxRequest\` struct gained \`gasPrice\` and \`maxPCForGas\` fields (8 fields total; \`recipient\` retained). Refreshed CEAFactory addresses on Sepolia / Arbitrum / Base / BNB testnets plus USDT PRC-20 addresses across all chains. Tutorial \`universal-cross-chain-counters\` redeployed against v6 layout (Push Donut orchestrator + Sepolia / BNB destination counters).`
   );
   lines.push(
     `- **2026-04-17 v1.0.0** \u2014 Pinned SDK versions (originally \`@pushchain/core@5.1.4\`, \`@pushchain/ui-kit@5.2.2\`). Corrected Route 1/2 for native Push Chain accounts. Added Route 3 CEA-identity semantics. Added Core / Extended agent layer tiers. Directives expanded to 7 (split ethers/viem rule; added agent hot-key model). Added \`## Minimal Example\`. Grouped canonical workflows by category. \`contract-addresses.json\` designated as authoritative address source.`
