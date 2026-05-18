@@ -84,14 +84,13 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | -- | ----- | ------- | ----- | -------- |
 | `SEND-TX-101` | Origin Chain Detected | Origin chain: `<chain>` — Address: `<address>` | INFO | `{ chain, address }` |
 | `SEND-TX-102-01` | Estimating Gas | Estimating and fetching gas limit, gas price for TX | INFO | `{ stage: 'estimating-gas' }` |
-| `SEND-TX-102-02` | Gas Estimated | Total execution cost: `<cost>` UPC | SUCCESS | `{ totalCost, currency }` |
 | `SEND-TX-103-01` | Resolving Universal Execution Account | Resolving UEA – computing address, checking deployment and balance | INFO | `{ stage: 'resolving-uea' }` |
 | `SEND-TX-103-02` | Universal Execution Account Resolved | UEA: `<address>`, Deployed: `<true/false>` | SUCCESS | `{ uea, deployed }` |
 | `SEND-TX-103-03` | Calculating Prepaid Deposit | Calculating required prepaid deposit (one-time >$1; refilled only when gas nears exhaustion) | INFO | null |
-| `SEND-TX-103-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-103-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-103-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-103-04` | Prepaid Deposit Estimated | Prepaid deposit estimated | SUCCESS | `{ totalPCDeposit, totalDepositUSD }` |
+| `SEND-TX-103-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-103-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-103-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-103-03-04` | Prepaid Deposit Estimated | Estimated prepaid deposit: $`<totalDepositUSD>` (`<totalPCDeposit>` UPC) | SUCCESS | `{ totalPCDeposit, totalDepositUSD, chain }` |
 | `SEND-TX-104-01` | Awaiting Transaction | Awaiting user transaction on origin chain | INFO | `{ stage: 'awaiting-transaction' }` |
 | `SEND-TX-104-02` | Awaiting Signature | Awaiting user signature for universal payload | INFO | `{ stage: 'awaiting-signature' }` |
 | `SEND-TX-104-03` | Verification Success | Verification completed via Transaction or Signature | SUCCESS | `{ stage: 'verified' }` |
@@ -108,7 +107,9 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | `SEND-TX-106-06` | Funds Credited on Push Chain | Funds credited: `<amount> <symbol>` | SUCCESS | `{ amount, symbol }` |
 | `SEND-TX-107` | Broadcasting to Push Chain | Sending tx to Push Chain... | INFO | `{ stage: 'broadcasting', destination: 'push-chain' }` |
 | `SEND-TX-199-01` | Push Chain Tx Success | Tx confirmed: `<txHash>` | SUCCESS | `{ txHash, response, receipt }` |
-| `SEND-TX-199-02` | Push Chain Tx Failed | `<error message>` | ERROR | `{ error }` |
+| `SEND-TX-199-02` | Push Chain Tx Failed | `<error message>` | ERROR | `{ error, decodedError? }` |
+| `SEND-TX-199-03` | Syncing State with Push Chain Timeout | Timed out waiting for relay to Push Chain | ERROR | `{ error: 'relay timeout', chain, elapsedMs }` |
+| `SEND-TX-199-99` | Intermediate Push Chain Tx Completed | Intermediate Push Chain tx confirmed: `<txHash>`, progressing to next phase | INFO | `{ txHash }` |
 
 **Route 2 → Execute on External Chain**
 
@@ -132,26 +133,23 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | `SEND-TX-299-01` | `<chain>` Tx Success | CEA executed on `<chain>` - tx: `<txHash>` | SUCCESS | `{ txHash, ...details }` |
 | `SEND-TX-299-02` | `<chain>` Tx Failed | `<errorMessage>` | ERROR | `{ error, chain }` |
 | `SEND-TX-299-03` | Syncing State with `<chain>` Timeout | Timed out waiting for UGPC relay to `<chain>` | ERROR | `{ error: 'relay timeout', chain, elapsedMs }` |
-| `SEND-TX-299-99` | `<chain>` Tx Completed | Intermediate `<chain>` tx confirmed: `<txHash>`, progressing to next phase | INFO | `{ chain, txHash }` |
+| `SEND-TX-299-99` | Intermediate `<chain>` Tx Completed | Intermediate `<chain>` tx confirmed: `<txHash>`, progressing to next phase | INFO | `{ chain, txHash }` |
 
 **Route 3 → Execute on Push Chain from CEA**
 
 | ID | Title | Message | Level | Response |
 | -- | ----- | ------- | ----- | -------- |
-| `SEND-TX-199-99-99` | Push Chain TX Completed | Intermediate Push Chain tx confirmed: `<txHash>`, progressing to next phase | INFO | `{ txHash }` |
 | `SEND-TX-301` | `<chain>`'s Executor Account Detected | Source chain: `<chain>` — CEA: `<ceaAddress>` | INFO | `{ chain, address }` |
 | `SEND-TX-302-01` | Estimating `<chain>` Gas | Querying Push Chain gas and UGPC relay fee | INFO | `{ stage: 'estimating-gas', chain }` |
 | `SEND-TX-302-02` | `<chain>` Gas Estimated | Push gas: `<n>` UPC + UGPC relay: `<n>` UPC = `<total>` UPC | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
-| `SEND-TX-302-03` | Calculating Prepaid Deposit | Calculating required prepaid deposit (one-time >$1; refilled only when gas nears exhaustion) | INFO | null |
-| `SEND-TX-302-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-302-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-302-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD }` |
-| `SEND-TX-302-04` | Prepaid Deposit Estimated | Prepaid deposit estimated | SUCCESS | `{ totalPCDeposit, totalDepositUSD }` |
 | `SEND-TX-303-01` | Resolving Execution Accounts on Chains | Resolving UEA on Push Chain and CEA on `<chain>` | INFO | `{ stage: 'resolving-cea-uea', chain }` |
-| `SEND-TX-303-02` | Execution Accounts Resolved | UEA: `<ueaAddr>`. CEA: `<ceaAddr>` on `<chain>`. Deployed: true | SUCCESS | `{ uea, cea, chain, deployed }` |
-| `SEND-TX-303-03` | Pre-flight Balance Check | UEA balance: `<n>` PC; required: `<n>` PC; `<sufficient/INSUFFICIENT>` (`<pathTag>`) | INFO when sufficient / WARNING when insufficient based on `enforceGasCheck` | `{ required, available, sufficient, ueaAddress, pathTag, kind, burnToken, segmentIndex }` |
-| `SEND-TX-303-04` | Insufficient UEA Balance | Shortfall `<n>` PC on `<pathTag>`. Bridge >=`<n>` PC to UEA `<ueaAddr>` before retrying. | WARNING when `enforceGasCheck` is false / ERROR when `enforceGasCheck` is true. | `{ required, available, shortfall, ueaAddress, pathTag, kind, burnToken, segmentIndex }` |
-| `SEND-TX-303-05` | SVM Native-Value Warn Threshold | Buffered pool quote `<n>` PC exceeds warn threshold `<n>` PC for `<gasToken>` (`<pathTag>`). Pool may be skewed. | INFO | `{ quoted, threshold, gasToken, pathTag }` |
+| `SEND-TX-303-02` | Execution Accounts Resolved | UEA: `<ueaAddr>`. CEA: `<ceaAddr>` on `<chain>`. Deployed: true | SUCCESS | `{ uea, cea, chain, deployed: true }` |
+| `SEND-TX-303-03-01` | Adjusting Prepaid Deposit to be >$1 | Required deposit below $1 minimum — padding to $1 floor | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-303-03-02` | Prepaid Deposit in range (>=$1 and &lt;$10) | Required deposit `${x}` within $1–$10 range — depositing as required | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-303-03-03` | Prepaid Deposit Exceeds $10 Cap, splitting Gas and Funds | Required deposit exceeds $10 cap — splitting: $10 gas leg + `${overflow}` UPC overflow bridged as funds | INFO | `{ gasRequired, extraDepositPC, totalDepositUSD, chain }` |
+| `SEND-TX-303-04` | Checking Balance Requirements | UEA balance: `<n>` PC; required: `<n>` PC; `<sufficient/INSUFFICIENT>` (`<pathTag>`) | INFO when sufficient / WARNING when insufficient based on `enforceGasCheck` | `{ required, available, sufficient, ueaAddress, pathTag, kind, burnToken, segmentIndex, enforceGasCheck, warningOnly, shortfall }` |
+| `SEND-TX-303-05` | Insufficient UEA Balance | Shortfall `<n>` PC on `<pathTag>`. Bridge >=`<n>` PC to UEA `<ueaAddr>` before retrying. | ERROR (only when `enforceGasCheck === true`) | `{ required, available, shortfall, ueaAddress, pathTag, kind, burnToken, segmentIndex }` |
+| `SEND-TX-303-06` | SVM Native-Value Warn Threshold | Buffered pool quote `<n>` PC exceeds warn threshold `<n>` PC for `<gasToken>` (`<pathTag>`). Pool may be skewed. | INFO | `{ quoted, threshold, gasToken, pathTag }` |
 | `SEND-TX-304-01` | Awaiting Signature | Awaiting user signature for universal payload | INFO | `{ stage: 'awaiting-signature' }` |
 | `SEND-TX-304-02` | Signature Received | Universal payload signed — preparing broadcast | SUCCESS | `{ stage: 'signed' }` |
 | `SEND-TX-304-03` | Verification Success | Verification completed | SUCCESS | `{ stage: 'verified' }` |
@@ -165,6 +163,7 @@ const txResponse = await pushChainClient.universal.sendTransaction({
 | `SEND-TX-399-01` | Push Chain Inbound Tx Success | Inbound from `<chain>` confirmed · Push tx: `<txHash>` | SUCCESS | `{ chain, txHash, receipt }` |
 | `SEND-TX-399-02` | `<chain>` Tx Failed / Push Chain Tx Failed / Push Chain Inbound Tx Failed | `<errorMessage>` | ERROR | `{ error, phase, chain }` |
 | `SEND-TX-399-03` | `<chain>` Timeout / Push Chain Timeout / Push Chain Inbound Timeout | Timed out waiting for... | ERROR | `{ error, phase, chain, elapsedMs }` |
+| `SEND-TX-399-99` | Intermediate `<chain>` to Push Tx Completed | Intermediate `<chain>` to Push tx confirmed: `<txHash>`, progressing to next phase | INFO | `{ chain, txHash }` |
 
 **Executing multiple transactions (Send Multichain Transations)**
 

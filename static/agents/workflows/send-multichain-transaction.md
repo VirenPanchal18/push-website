@@ -216,10 +216,11 @@ console.log('All complete:', result.success);
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction - use this to reference it downstream |
-| `initialTxResponse` | `UniversalTxResponse` | Full response for the coordinating Push Chain tx - use this when you need nonce, gas, or block metadata |
+| `initialTxHash` | `string` | Hash of the user-signed Push Chain transaction, use this to reference it downstream |
+| `initialTxResponse` | `UniversalTxResponse` | Full response for the coordinating Push Chain tx; use this when you need nonce, gas, or block metadata |
 | `hops` | `CascadeHopInfo[]` | All hops with routing and status |
 | `hopCount` | `number` | Total hop count |
+| `finalTxHash` _(optional)_ | `string` | Final tx hash resolved by `waitForAll()` / `wait()` once cascade tracking completes |
 | `wait(opts?)` | `Promise<CascadeCompletionResult>` | Waits for all hops to complete |
 | `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `wait` |
 
@@ -228,11 +229,31 @@ console.log('All complete:', result.success);
 | Property | Type | Description |
 |----------|------|-------------|
 | `hopIndex` | `number` | Position (0-indexed) |
-| `route` | `string` | Routing mode for this hop |
+| `route` | `TransactionRouteType` | `'UOA_TO_PUSH'`, `'UOA_TO_CEA'`, `'CEA_TO_PUSH'`, or `'CEA_TO_CEA'` |
 | `executionChain` | `CHAIN` | Chain where this hop executes |
+| `expectedSubTxId` _(optional)_ | `string` | Expected `universalSubTxId`, computed deterministically from the parent; available before `txHash` resolves |
 | `status` | `'pending'` \| `'submitted'` \| `'confirmed'` \| `'failed'` | Current status |
-| `txHash` | `string` | Resolved transaction hash |
-| `outboundDetails` | `object` | External chain details (hash, explorer URL, recipient, amount) |
+| `txHash` _(optional)_ | `string` | Resolved transaction hash |
+| `outboundDetails` _(optional, outbound hops only)_ | `OutboundTxDetails` | Fields: `externalTxHash`, `destinationChain`, `explorerUrl`, `recipient`, `amount`, `assetAddr` (`address(0)` for native) |
+
+`CascadeCompletionResult` (from `wait()` / `waitForAll()`):
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `success` | `boolean` | True if all hops confirmed |
+| `hops` | `CascadeHopInfo[]` | Final state of all hops |
+| `finalTxHash` _(optional)_ | `string` | Final tx hash for the last confirmed hop |
+| `finalTxResponse` _(optional)_ | `CascadedTxResponse` | Original cascade response, for consumers that need the full context |
+| `failedAt` _(optional)_ | `number` | Index of first failed hop, if any |
+
+`CascadeTrackOptions` (wait / waitForAll options):
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `pollingIntervalMs` | `number` | `5000` | Poll interval (ms) |
+| `timeout` | `number` | `600000` | Total timeout (ms), default 10 min |
+| `progressHook` | `(event: CascadeProgressEvent) => void` | - | Per-hop callback: `{ hopIndex, route, chain, status, txHash, elapsed }` |
+| `eventHook` | `(event: ProgressEvent) => void` | - | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout). Also fans out to the init-time `progressHook` on `PushChain.initialize`; events are deduped when both channels are wired. |
 
 ## Expected Output
 
@@ -240,20 +261,43 @@ See `send-universal-transaction.md` for the full `TxResponse` and `UniversalTxRe
 
 For `executeTransactions`, see `CascadedTxResponse` table above.
 
-### Progress Hook Events (Route 2 specific)
+### Progress Hook Events
+
+Pinned to `@pushchain/core@6.0.6`. Full per-route reference: [progress-hook-events.md](https://push.org/agents/workflows/progress-hook-events.md). Key milestones for this workflow:
+
+**Route 2 (external chain via CEA), prefix `SEND-TX-2xx`:**
 
 | ID | Title | Level |
 |----|-------|-------|
-| `SEND-TX-01` | Origin Chain Detected | INFO |
-| `SEND-TX-03-01` | Resolving UEA | INFO |
-| `SEND-TX-03-02` | UEA Resolved | SUCCESS |
-| `SEND-TX-04-02` | Awaiting Signature | INFO |
-| `SEND-TX-04-03` | Verification Success | SUCCESS |
-| `SEND-TX-05-01` | Gas Funding In Progress | INFO |
-| `SEND-TX-05-02` | Gas Funding Confirmed | SUCCESS |
-| `SEND-TX-07` | Broadcasting to Push Chain | INFO |
-| `SEND-TX-99-01` | Push Chain Tx Success | SUCCESS |
-| `SEND-TX-99-02` | Push Chain Tx Failed | ERROR |
+| `SEND-TX-201` | `<chain>` Detected | INFO |
+| `SEND-TX-202-01` | Estimating `<chain>` Chain Gas | INFO |
+| `SEND-TX-202-02` | `<chain>` Chain Gas Estimated | SUCCESS |
+| `SEND-TX-203-01` | Resolving `<chain>` Execution Account | INFO |
+| `SEND-TX-203-02` | `<chain>` Execution Account Ready | SUCCESS |
+| `SEND-TX-203-03` | Checking Balance Requirements | INFO / WARNING |
+| `SEND-TX-203-04` | Insufficient UEA Balance | ERROR (only when `enforceGasCheck === true`) |
+| `SEND-TX-203-05` | SVM Native-Value Warn Threshold | INFO |
+| `SEND-TX-204-01..04` | Signature lifecycle | INFO / SUCCESS / ERROR |
+| `SEND-TX-207` | Broadcasting from Push Chain → `<chain>` | INFO |
+| `SEND-TX-209-01..02` | Awaiting / syncing relay | INFO |
+| `SEND-TX-299-01` | `<chain>` Tx Success | SUCCESS |
+| `SEND-TX-299-02` | `<chain>` Tx Failed | ERROR |
+| `SEND-TX-299-03` | Relay timeout | ERROR |
+| `SEND-TX-299-99` | `<chain>` Tx Completed (intermediate) | INFO |
+
+**Route 3 (CEA origin to Push Chain), prefix `SEND-TX-3xx`:** mirrors Route 2 lifecycle (`301`, `302-xx`, `303-xx`, `304-xx`, `307`, `309-xx`, `310-xx`, `399-xx`). See the canonical reference for the full list.
+
+**Multichain cascade (`executeTransactions`), prefix `SEND-TX-0xx` / `9xx`:**
+
+| ID | Title | Level |
+|----|-------|-------|
+| `SEND-TX-001` | Multichain Transactions Initiated | INFO |
+| `SEND-TX-002-01` | Starting Intermediate Transaction #`<n>`/`<total>` | INFO |
+| `SEND-TX-002-99-99` | Intermediate Transaction Complete | INFO |
+| `SEND-TX-003-03/04/05` | Pre-flight balance check (cascade) | INFO / WARNING / ERROR |
+| `SEND-TX-999-01` | All Multichain Transactions Successful | SUCCESS |
+| `SEND-TX-999-02` | Multichain Transactions Failed | ERROR |
+| `SEND-TX-999-03` | Multichain Transactions Timeout | ERROR |
 
 ## Common Failures
 

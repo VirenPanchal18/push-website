@@ -24,11 +24,11 @@ const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
 
 const SDK_VERSIONS = {
-  core: '6.0.3',
-  uiKit: '6.0.2',
+  core: '6.0.6',
+  uiKit: '6.0.6',
 };
-const AGENT_LAYER_VERSION = '1.0.16';
-const AGENT_LAYER_DATE = '2026-05-17';
+const AGENT_LAYER_VERSION = '1.0.17';
+const AGENT_LAYER_DATE = '2026-05-18';
 const ROUTES_PATH = path.join(AGENTS_DIR, 'routes.json');
 
 const WORKFLOW_CATEGORIES = [
@@ -610,7 +610,10 @@ const buildLlmsTxt = async (workflows, skills, resources, routes, blogPosts) => 
   );
   lines.push('');
   lines.push(
-    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 Source-chain stablecoin re-deployment. New USDT contracts on Sepolia / Arbitrum Sepolia / Base Sepolia / BNB Testnet plus a new USDC on BNB Testnet. Gateway re-wired to the new sources; Push-side PRC-20 wrappers unchanged. Address tables in [Smart Contract Address Book](/docs/chain/setup/smart-contract-address-book) and [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) refreshed; \`pusd-mint-from-external-chain\` and related push-chain-examples updated to mint at the new USDT contract on Sepolia.`
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 SDK v6.0.6 bump (\`@pushchain/core\` 6.0.3 \u2192 6.0.6, \`@pushchain/ui-kit\` 6.0.2 \u2192 6.0.6). [progress-hook-events.md](${BASE_URL}/agents/workflows/progress-hook-events.md) rewritten against published SDK source. New pre-flight UEA balance check trio across Route 2 (\`SEND-TX-203-03/04/05\`), Route 3 (\`SEND-TX-303-04/05/06\`), and cascade (\`SEND-TX-003-03/04/05\`) with INFO / WARNING / ERROR level semantics gated by \`tx.options.enforceGasCheck\`. Route 1 gained \`SEND-TX-199-03\` (Push relay timeout) and \`SEND-TX-199-99\` (intermediate complete); Route 3 gained \`SEND-TX-399-99\` (intermediate inbound complete). Route 1 prepaid-deposit "Estimated" moved \`SEND-TX-103-04\` \u2192 \`SEND-TX-103-03-04\`; Route 3 prepaid-deposit cluster renumbered \`SEND-TX-302-03-XX\` \u2192 \`SEND-TX-303-03-XX\`. Removed: \`SEND-TX-102-02\`, \`SEND-TX-302-03\`, \`SEND-TX-302-04\`, \`SEND-TX-199-99-99\`. Migration table added.`
+  );
+  lines.push(
+    `- **2026-05-17 v1.0.16** \u2014 Source-chain stablecoin re-deployment. New USDT contracts on Sepolia / Arbitrum Sepolia / Base Sepolia / BNB Testnet plus a new USDC on BNB Testnet. Gateway re-wired to the new sources; Push-side PRC-20 wrappers unchanged. Address tables in [Smart Contract Address Book](/docs/chain/setup/smart-contract-address-book) and [contract-addresses.json](${BASE_URL}/agents/contract-addresses.json) refreshed; \`pusd-mint-from-external-chain\` and related push-chain-examples updated to mint at the new USDT contract on Sepolia.`
   );
   lines.push(
     `- **2026-05-16 v1.0.13** \u2014 SDK v6.0.1 bump. New canonical accessor \`PushChain.CONSTANTS.MOVEABLE.TOKEN.PUSH_TESTNET_DONUT.USDC.bsc\` for Push-wrapped USDC from BNB Chain. Legacy \`USDC.bnb\` accessor still resolves to the same token but is marked \`@deprecated\`. Rename is USDC-only \u2014 \`USDT.bnb\` and \`pBnb\` are unchanged. All address tables and constants references updated.`

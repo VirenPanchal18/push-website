@@ -4,8 +4,8 @@ description: "Use when building React apps with @pushchain/ui-kit - covers PushU
 id: push-frontend
 intent: Enable universal transactions in a React frontend app
 package: '@pushchain/ui-kit'
-package_version: 6.0.2
-current_sdk_version: 6.0.3
+package_version: 6.0.6
+current_sdk_version: 6.0.6
 entry: 'usePushChainClient'
 resources: 'https://push.org/agents/resources/push-frontend/index.json'
 references:

@@ -1,11 +1,42 @@
 {
   "schema_version": "1.0.0",
-  "version": "1.0.16",
-  "current_sdk_version": "6.0.3",
-  "current_version": "1.0.16",
-  "generated": "2026-05-17T00:00:00.000Z",
+  "version": "1.0.17",
+  "current_sdk_version": "6.0.6",
+  "current_version": "1.0.17",
+  "generated": "2026-05-18T00:00:00.000Z",
   "description": "Version history of all /agents/ layer changes, SDK version bumps, and audit passes. Each entry includes the agent-layer content version, affected files, trigger description, and breaking/migration flags. current_version tracks the latest entry; version tracks this file's own schema revision.",
   "entries": [
+    {
+      "date": "2026-05-18T00:00:00.000Z",
+      "version": "1.0.17",
+      "changes": [
+        "Bumped pinned SDK versions across the agent layer: @pushchain/core 6.0.3 → 6.0.6 and @pushchain/ui-kit 6.0.2 → 6.0.6. Build script constants SDK_VERSIONS.core, SDK_VERSIONS.uiKit, AGENT_LAYER_VERSION (1.0.16 → 1.0.17), and AGENT_LAYER_DATE (2026-05-17 → 2026-05-18) updated; llms.txt regenerated.",
+        "Rewrote static/agents/workflows/progress-hook-events.md against the published 6.0.6 source (extracted from npm tarball, not the local SDK checkout which is on 4.x). Added: SEND-TX-103-03-04 (Route 1 Prepaid Deposit Estimated), SEND-TX-203-03/04/05 (Route 2 pre-flight balance check), SEND-TX-303-03-01/02/03 (Route 3 prepaid-deposit sub-events), SEND-TX-303-04/05/06 (Route 3 pre-flight), SEND-TX-003-03/04/05 (cascade pre-flight).",
+        "Reconciled the three new progress hooks from v1.0.16's pre-bump (SEND-TX-199-03, SEND-TX-199-99, SEND-TX-399-99) with the canonical SDK titles and response shapes. Updated titles: 199-03 'Push Chain Shared Execute Timeout (UGPC relay pending)' → 'Syncing State with Push Chain Timeout', 199-99 'Push Chain Tx Completed (intermediate)' → 'Intermediate Push Chain Tx Completed', 399-99 'Round-trip Tx Completed (intermediate)' → 'Intermediate <chain> to Push Tx Completed'.",
+        "Removed from progress-hook-events.md (no longer emitted by SDK 6.0.6): SEND-TX-102-02 (Route 1 Gas Estimated SUCCESS), SEND-TX-103-04 (renamed to 103-03-04), SEND-TX-199-99-99 (misplaced 5-part ID, superseded by 4-part 199-99), SEND-TX-302-03 + 302-03-01/02/03 (renumbered to 303-03-01/02/03), SEND-TX-302-04 (no replacement; Route 3 no longer emits a terminal 'estimated' wrapper).",
+        "Added 'Pre-flight Balance Check Events' callout to progress-hook-events.md explaining the three-bucket pattern (Route 2 / Route 3 / cascade) and the level semantics (INFO when sufficient, WARNING when short with enforceGasCheck=false, ERROR terminal only with enforceGasCheck=true). Added 'Removed in 6.0.6' migration table for agents upgrading from earlier versions.",
+        "Added current_sdk_version frontmatter field to all three SKILL.md files (push-frontend, push-backend, push-contracts). push-frontend and push-backend also carry package_version (6.0.6 for both). Frontmatter additions made in the prior pass, version values bumped here.",
+        "Fixed duplicate resolveControllerAccount definition in push-backend/SKILL.md. Kept the { accounts: Array<...> } signature (canonical across sdk-capabilities.json, retrieval-map.json, task-router.md, workflows/use-utility-functions.md). Deleted the second definition with the broken convertExecutorToOriginAccount code example (that function was removed in @pushchain/core@6.0.0).",
+        "Consolidated account.owner decoding rules in push-contracts/SKILL.md into a single 'Decoding account.owner' subsection between the inline IUEAFactory interface and the on-chain usage example, instead of three partial mentions scattered across the file. Removed the redundant inline note after the off-chain query example and the duplicate table at end-of-file. Added ethers.js EVM decode line (ethers.getAddress(ethers.hexlify(...))) which was missing before."
+      ],
+      "files_affected": [
+        "build.agents.llms.mjs",
+        "static/llms.txt",
+        "static/agents/changelog.json",
+        "static/agents/index.json",
+        "static/agents/README.md",
+        "static/agents/skills/index.json",
+        "static/agents/skills/push-frontend/SKILL.md",
+        "static/agents/skills/push-backend/SKILL.md",
+        "static/agents/skills/push-contracts/SKILL.md",
+        "static/agents/workflows/progress-hook-events.md"
+      ],
+      "sdk_version": "6.0.6",
+      "category": "sdk-version-bump",
+      "trigger": "@pushchain/core and @pushchain/ui-kit published as 6.0.6. SDK source extracted from npm tarball revealed a renumbering of Route 3 prepaid-deposit events and a new pre-flight UEA balance check trio (Route 2, Route 3, cascade) plus level semantics gated on tx.options.enforceGasCheck. progress-hook-events.md reconciled against published source.",
+      "breaking": false,
+      "migration": "Progress hook IDs changed. If your code matches on SEND-TX-102-02, SEND-TX-103-04, SEND-TX-199-99-99, or any SEND-TX-302-03-* / SEND-TX-302-04 ID, see the 'Removed in 6.0.6' table at the bottom of progress-hook-events.md for replacements."
+    },
     {
       "date": "2026-05-17T00:00:00.000Z",
       "version": "1.0.16",

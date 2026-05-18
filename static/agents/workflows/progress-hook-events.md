@@ -57,6 +57,8 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 | `SEND-TX-107` | Broadcasting to Push Chain | INFO | `{ stage: 'broadcasting', destination: 'push-chain' }` |
 | `SEND-TX-199-01` | Push Chain Tx Success | SUCCESS | `{ txHash, response, receipt }` |
 | `SEND-TX-199-02` | Push Chain Tx Failed | ERROR | `{ error }` |
+| `SEND-TX-199-03` | Syncing State with Push Chain Timeout | ERROR | `{ error: 'relay timeout', chain, elapsedMs }` |
+| `SEND-TX-199-99` | Intermediate Push Chain Tx Completed | INFO | `{ txHash }` |
 
 ---
 
@@ -65,8 +67,8 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 | ID | Title | Level | Response |
 | -- | ----- | ----- | -------- |
 | `SEND-TX-201` | `<chain>` Detected | INFO | `{ chain, address }` |
-| `SEND-TX-202-01` | Estimating `<chain>` Gas | INFO | `{ stage: 'estimating-gas', chain }` |
-| `SEND-TX-202-02` | `<chain>` Gas Estimated | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
+| `SEND-TX-202-01` | Estimating `<chain>` Chain Gas | INFO | `{ stage: 'estimating-gas', chain }` |
+| `SEND-TX-202-02` | `<chain>` Chain Gas Estimated | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
 | `SEND-TX-203-01` | Resolving `<chain>` Execution Account | INFO | `{ stage: 'resolving-cea', chain }` |
 | `SEND-TX-203-02` | `<chain>` Execution Account Ready | SUCCESS | `{ uea, cea, chain, deployed }` |
 | `SEND-TX-204-01` | Awaiting Signature | INFO | `{ stage: 'awaiting-signature' }` |
@@ -79,7 +81,7 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 | `SEND-TX-299-01` | `<chain>` Tx Success | SUCCESS | `{ txHash, ...details }` |
 | `SEND-TX-299-02` | `<chain>` Tx Failed | ERROR | `{ error, chain }` |
 | `SEND-TX-299-03` | Syncing State with `<chain>` Timeout | ERROR | `{ error: 'relay timeout', chain, elapsedMs }` |
-| `SEND-TX-299-99` | `<chain>` Tx Completed (intermediate) | INFO | `{ chain, txHash }` |
+| `SEND-TX-299-99` | Intermediate `<chain>` Tx Completed | INFO | `{ chain, txHash }` |
 
 ---
 
@@ -88,7 +90,7 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 | ID | Title | Level | Response |
 | -- | ----- | ----- | -------- |
 | `SEND-TX-199-99-99` | Push Chain TX Completed (intermediate) | INFO | `{ txHash }` |
-| `SEND-TX-301` | `<chain>` Executor Account Detected | INFO | `{ chain, address }` |
+| `SEND-TX-301` | `<chain>`'s Executor Account Detected | INFO | `{ chain, address }` |
 | `SEND-TX-302-01` | Estimating `<chain>` Gas | INFO | `{ stage: 'estimating-gas', chain }` |
 | `SEND-TX-302-02` | `<chain>` Gas Estimated | SUCCESS | `{ gasEstimate, relayFee, totalCost, currency }` |
 | `SEND-TX-302-03` | Calculating Prepaid Deposit | INFO | null |
@@ -106,11 +108,12 @@ Complete list of `progressHook` event IDs emitted by `sendTransaction` and `exec
 | `SEND-TX-309-01` | Awaiting `<chain>` Relay | INFO | `{ chain }` |
 | `SEND-TX-309-02` | Syncing State with `<chain>` | INFO | `{ chain, elapsedMs }` |
 | `SEND-TX-309-03` | `<chain>` Tx Confirmed | INFO | `{ chain, txHash }` |
-| `SEND-TX-310-01` | `<chain>` → Push Chain Inbound Submitted | INFO | `{ chain }` |
-| `SEND-TX-310-02` | Syncing Push Chain for Inbound | INFO | `{ chain, elapsedMs }` |
+| `SEND-TX-310-01` | `<chain>` → Push Chain Inbound Tx Submitted | INFO | `{ chain }` |
+| `SEND-TX-310-02` | Syncing State with Push Chain for Inbound Tx | INFO | `{ chain, elapsedMs }` |
 | `SEND-TX-399-01` | Push Chain Inbound Tx Success | SUCCESS | `{ chain, txHash, receipt }` |
-| `SEND-TX-399-02` | Tx Failed | ERROR | `{ error, phase, chain }` |
-| `SEND-TX-399-03` | Timeout | ERROR | `{ error, phase, chain, elapsedMs }` |
+| `SEND-TX-399-02` | `<chain>` Tx Failed / Push Chain Tx Failed / Push Chain Inbound Tx Failed (title depends on `phase`) | ERROR | `{ error, phase, chain, decodedError? }` |
+| `SEND-TX-399-03` | Push Chain Inbound Tx Timeout | ERROR | `{ error: 'outbound timeout' \| 'push timeout' \| 'inbound timeout', phase, chain, elapsedMs }` |
+| `SEND-TX-399-99` | `<chain>` to Push Tx Completed (intermediate) | INFO | `{ chain, txHash }` |
 
 ---
 

@@ -192,6 +192,7 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
 | `initialTxResponse` | `UniversalTxResponse` | Full response object for the initial Push Chain transaction. |
 | `hops` | `CascadeHopInfo[]` | Ordered list of all hops with routing and status information. |
 | `hopCount` | `number` | Total number of hops in the cascade. |
+| `finalTxHash` | `string` _(optional)_ | Final tx hash resolved by `waitForAll()` / `wait()`, when available. Populated after cascade tracking completes. |
 | `wait(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `waitForAll`. Waits for all hops to complete. |
 | `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Waits for all hops to complete across all chains. |
 
@@ -200,11 +201,12 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
 | Property | Type | Description |
 |----------|------|-------------|
 | `hopIndex` | `number` | Position in the cascade (0-indexed). |
-| `route` | `string` | Routing mode for this hop (`UOA_TO_PUSH`, `UOA_TO_CEA`, etc.). |
+| `route` | `TransactionRouteType` | Routing mode for this hop: `UOA_TO_PUSH`, `UOA_TO_CEA`, `CEA_TO_PUSH`, or `CEA_TO_CEA`. |
 | `executionChain` | `CHAIN` | Chain where this hop executes. |
+| `expectedSubTxId` | `string` _(optional)_ | Expected `universalSubTxId` for this hop, computed deterministically from the parent. Available before the hop's tx hash resolves. |
 | `status` | `'pending'` \| `'submitted'` \| `'confirmed'` \| `'failed'` | Current hop status. |
-| `txHash` | `string` | Resolved transaction hash once available. |
-| `outboundDetails` | `object` | External chain tx details for outbound hops, including hash, explorer URL, recipient, and amount. |
+| `txHash` | `string` _(optional)_ | Resolved transaction hash once available. |
+| `outboundDetails` | `OutboundTxDetails` _(optional, outbound hops only)_ | External chain tx details. Fields: `externalTxHash`, `destinationChain` (CHAIN), `explorerUrl`, `recipient`, `amount`, `assetAddr` (`address(0)` for native). |
 
 **CascadeCompletionResult** fields:
 
@@ -212,15 +214,18 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
 |----------|------|-------------|
 | `success` | `boolean` | Whether all hops completed successfully. |
 | `hops` | `CascadeHopInfo[]` | Final state of all hops. |
-| `failedAt` | `number` | Index of first failed hop, if any. |
+| `finalTxHash` | `string` _(optional)_ | Final tx hash for the last confirmed hop, when available. |
+| `finalTxResponse` | `CascadedTxResponse` _(optional)_ | Original cascaded response object for consumers that need the full context. |
+| `failedAt` | `number` _(optional)_ | Index of first failed hop, if any. |
 
-**waitForAll** options:
+**waitForAll** options (`CascadeTrackOptions`):
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `pollingIntervalMs` | `number` | `5000` | Polling interval in milliseconds. |
 | `timeout` | `number` | `600000` | Total timeout in milliseconds (10 min). |
-| `progressHook` | `(event: CascadeProgressEvent) => void` | - | Progress callback per hop. Reports `hopIndex`, `route`, `chain`, `status`, `txHash`, `elapsed`. |
+| `progressHook` | `(event: CascadeProgressEvent) => void` | - | Per-hop progress callback. Reports `hopIndex`, `route`, `chain`, `status`, `txHash`, `elapsed`. |
+| `eventHook` | `(event: ProgressEvent) => void` | - | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout hooks). Cascade markers also fan out to the init-time `progressHook` set on `PushChain.initialize`, so UI Kit consumers that wired progress at init receive the cascade stream automatically. When both `eventHook` and the init-time `progressHook` are wired, events are delivered to both with dedup. To opt out of cascade markers on the init-time channel, filter inside that handler. |
 
 </Details>
 

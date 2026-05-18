@@ -4,8 +4,8 @@ description: "Use when writing Node.js scripts, bots, or server-side code with @
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
-package_version: 6.0.3
-current_sdk_version: 6.0.3
+package_version: 6.0.6
+current_sdk_version: 6.0.6
 entry: 'PushChain.initialize'
 resources: 'https://push.org/agents/resources/push-backend/index.json'
 references:
@@ -554,23 +554,44 @@ console.log('All complete:', result.success);
 
 | Property            | Type                               | Description                                                                                                 |
 | ------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction - use this to reference it downstream                        |
-| `initialTxResponse` | `TxResponse`                       | Full `TxResponse` for the coordinating Push Chain tx - use this when you need nonce, gas, or block metadata |
+| `initialTxHash`     | `string`                           | Hash of the user-signed Push Chain transaction; use this to reference it downstream                        |
+| `initialTxResponse` | `UniversalTxResponse`              | Full response for the coordinating Push Chain tx; use this when you need nonce, gas, or block metadata     |
 | `hops`              | `CascadeHopInfo[]`                 | All hops with routing and status                                                                            |
 | `hopCount`          | `number`                           | Total hop count                                                                                             |
+| `finalTxHash`       | `string` _(optional)_              | Final tx hash resolved by `waitForAll()` / `wait()` once cascade tracking completes                         |
 | `wait(opts?)`       | `Promise<CascadeCompletionResult>` | Wait for all hops to confirm                                                                                |
 | `waitForAll(opts?)` | `Promise<CascadeCompletionResult>` | Alias for `wait`                                                                                            |
 
 **`CascadeHopInfo` per hop:**
 
-| Property          | Type                                                  | Description                                                   |
-| ----------------- | ----------------------------------------------------- | ------------------------------------------------------------- |
-| `hopIndex`        | `number`                                              | 0-indexed position                                            |
-| `route`           | `string`                                              | Routing mode for this hop                                     |
-| `executionChain`  | `CHAIN`                                               | Chain where this hop executes                                 |
-| `status`          | `'pending' \| 'submitted' \| 'confirmed' \| 'failed'` | Current status                                                |
-| `txHash`          | `string`                                              | Resolved transaction hash                                     |
-| `outboundDetails` | `object`                                              | External chain details: hash, explorer URL, recipient, amount |
+| Property          | Type                                                  | Description                                                                                                                          |
+| ----------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `hopIndex`        | `number`                                              | 0-indexed position                                                                                                                   |
+| `route`           | `TransactionRouteType`                                | `'UOA_TO_PUSH'`, `'UOA_TO_CEA'`, `'CEA_TO_PUSH'`, or `'CEA_TO_CEA'`                                                                  |
+| `executionChain`  | `CHAIN`                                               | Chain where this hop executes                                                                                                        |
+| `expectedSubTxId` | `string` _(optional)_                                 | Expected `universalSubTxId`, computed deterministically from the parent; available before `txHash` resolves                          |
+| `status`          | `'pending' \| 'submitted' \| 'confirmed' \| 'failed'` | Current status                                                                                                                       |
+| `txHash`          | `string` _(optional)_                                 | Resolved transaction hash                                                                                                            |
+| `outboundDetails` | `OutboundTxDetails` _(optional)_                      | Outbound hops only. Fields: `externalTxHash`, `destinationChain` (CHAIN), `explorerUrl`, `recipient`, `amount`, `assetAddr` (`address(0)` for native) |
+
+**`CascadeCompletionResult` (from `wait()` / `waitForAll()`):**
+
+| Property          | Type                                | Description                                                                  |
+| ----------------- | ----------------------------------- | ---------------------------------------------------------------------------- |
+| `success`         | `boolean`                           | True if all hops confirmed                                                   |
+| `hops`            | `CascadeHopInfo[]`                  | Final state of all hops                                                      |
+| `finalTxHash`     | `string` _(optional)_               | Final tx hash for the last confirmed hop                                     |
+| `finalTxResponse` | `CascadedTxResponse` _(optional)_   | Original cascade response, for consumers that need the full context          |
+| `failedAt`        | `number` _(optional)_               | Index of first failed hop, if any                                            |
+
+**`CascadeTrackOptions` (wait / waitForAll options):**
+
+| Option              | Type                                       | Default   | Description                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pollingIntervalMs` | `number`                                   | `5000`    | Poll interval (ms)                                                                                                                                                                                                                                                                                                          |
+| `timeout`           | `number`                                   | `600000`  | Total timeout (ms), default 10 min                                                                                                                                                                                                                                                                                          |
+| `progressHook`      | `(event: CascadeProgressEvent) => void`    | -         | Per-hop callback: `{ hopIndex, route, chain, status, txHash, elapsed }`                                                                                                                                                                                                                                                     |
+| `eventHook`         | `(event: ProgressEvent) => void`           | -         | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout). Cascade markers also fan out to the init-time `progressHook` on `PushChain.initialize`. Both channels are deduped if wired. |
 
 > **No atomicity across hops** - if a downstream hop fails, earlier hops are already on-chain. Design contracts to handle partial execution.
 
