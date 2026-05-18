@@ -4,6 +4,7 @@ description: "Use when writing Solidity contracts deployed on Push Chain - cover
 id: push-contracts
 intent: Write Solidity contracts on Push Chain - identify cross-chain callers, dispatch outbound txs via UGPC, receive inbound callbacks
 package: 'solidity (EVM-compatible - Hardhat / Foundry / Remix)'
+current_sdk_version: 6.0.3
 entry: 'IUniversalGatewayPC.sendUniversalTxOutbound'
 resources: 'https://push.org/agents/resources/push-contracts/index.json'
 references:
@@ -258,6 +259,18 @@ interface IUEAFactory {
 }
 ```
 
+### Decoding `account.owner`
+
+`account.owner` is `bytes` because the same struct carries both EVM (20-byte) and Solana (32-byte) addresses. Decode by chain type:
+
+- **EVM chains** - 20-byte ABI-packed address:
+  - Solidity: `address wallet = address(bytes20(account.owner))`
+  - ethers.js: `const wallet = ethers.getAddress(ethers.hexlify(account.owner))`
+- **Solana** - 32-byte base58 public key (off-chain only):
+  - `const pubkey = bs58.encode(ethers.getBytes(account.owner))`
+
+> The `ceaAddress` parameter in `executeUniversalTx` uses the same encoding - same chain type = same byte layout.
+
 ### On-chain usage
 
 ```solidity
@@ -309,8 +322,6 @@ const [uea, isDeployed] = await factory.getUEAForOrigin({
   owner: '0xYourWalletAddress',
 });
 ```
-
-> Note: `account.owner` is always returned as hex bytes. For Solana addresses, decode with `bs58.encode(ethers.getBytes(account.owner))`.
 
 ---
 
@@ -805,13 +816,6 @@ cast code $CONTRACT --rpc-url https://evm.donut.rpc.push.org/
 | Push → Sepolia outbound succeeds locally but never lands on Sepolia                                                      | Donut Testnet does not yet have TSS relay support for Push → Ethereum Sepolia outbound. Push tx and UGPC event are valid; the destination tx just never fires. Use BNB Testnet as the destination for now. (Sepolia → Push **inbound** works fine.)                                                                                                                        |
 | TSS dispatches to the 2-arg `executeUniversalTx(UniversalPayload, bytes)` overload and the 6-arg version is never called | For Push-native contracts, TSS calls only the **6-arg** signature `executeUniversalTx(string, bytes, bytes, uint256, address, bytes32)`. The 2-arg signature is reserved for actual UEA proxy accounts. Implement the 6-arg version.                                                                                                                                       |
 | Refunds drain the EOA over many runs                                                                                     | UGPC routes surplus refund to `address(this)`, not back to the user EOA that called your function. Plan a `withdraw()` path or treasury sweep. Expected behavior, not a bug.                                                                                                                                                                                               |
-
-> **`account.owner` byte layout** in `UniversalAccountId`:
->
-> - **EVM chains**: 20-byte ABI-packed address - `address wallet = address(bytes20(account.owner))`
-> - **Solana**: 32-byte base58 public key - decode off-chain: `bs58.encode(ethers.getBytes(account.owner))`
->
-> This matches the `ceaAddress` layout in `executeUniversalTx` - the same chain type = same byte encoding.
 
 ## Source
 

@@ -4,6 +4,8 @@ description: "Use when writing Node.js scripts, bots, or server-side code with @
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
+package_version: 6.0.3
+current_sdk_version: 6.0.3
 entry: 'PushChain.initialize'
 resources: 'https://push.org/agents/resources/push-backend/index.json'
 references:
@@ -835,7 +837,7 @@ Derives a UEA on Push Chain from any origin account, or a CEA on an external cha
 
 ### `resolveControllerAccount(account, options?)` → `Promise<{ accounts }>`
 
-Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` - forward is UOA→executor, this is executor→UOA.
+Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` - forward is UOA→executor, this is executor→UOA. Replaces the v5 `convertExecutorToOriginAccount`, which was removed in `@pushchain/core@6.0.0`.
 
 | Argument                   | Type                   | Description                                                                    |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------ |
@@ -843,29 +845,19 @@ Reverse-maps any executor account (UEA or CEA) back to its origin controlling wa
 | `options.chain`            | `CHAIN` _(optional)_   | Required for CEA context - specifies the external chain the CEA is deployed on |
 | `options.skipNetworkCheck` | `boolean` _(optional)_ | Deterministic resolution only, skip existence check. Default `false`           |
 
-**Returns**: `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` - `type`: `'uea' | 'uoa' | 'cea'`; `role: 'controller'` marks the root controlling account
-
----
-
-### `resolveControllerAccount(executorAddress, options?)` → `Promise<UniversalAccount>`
-
-Reverse-maps any executor address (UEA or CEA) back to its origin `UniversalAccount`. Complement of `deriveExecutorAccount`. Replaces the v5 `convertExecutorToOriginAccount`, which was removed in SDK v6.
-
-| Argument          | Type                 | Description                                                            |
-| ----------------- | -------------------- | ---------------------------------------------------------------------- |
-| `executorAddress` | `string`             | UEA or CEA address                                                     |
-| `options.chain`   | `CHAIN` _(optional)_ | Required when resolving a CEA - specifies which external chain it's on |
-
-**Returns**: `Promise<UniversalAccount>` - `{ chain, address }`
+**Returns**: `Promise<{ accounts: Array<{ chain, chainName, address, type, exists, role? }> }>` - `type`: `'uea' | 'uoa' | 'cea'`; `role: 'controller'` marks the root controlling account.
 
 ```ts
-const origin =
-  await PushChain.utils.account.convertExecutorToOriginAccount('0xUEAAddress');
-// For CEA: pass options.chain
-const ceaOrigin = await PushChain.utils.account.convertExecutorToOriginAccount(
-  '0xCEAAddress',
-  { chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA }
-);
+// Resolve a UEA back to its controlling UOA
+const { accounts } =
+  await PushChain.utils.account.resolveControllerAccount('0xUEAAddress');
+const controller = accounts.find((a) => a.role === 'controller');
+
+// Resolve a CEA - chain is required
+const { accounts: bnbAccounts } =
+  await PushChain.utils.account.resolveControllerAccount('0xCEAAddress', {
+    chain: PushChain.CONSTANTS.CHAIN.BNB_TESTNET,
+  });
 ```
 
 ---
