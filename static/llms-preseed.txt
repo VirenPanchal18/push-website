@@ -55,6 +55,7 @@ Deploy smart contracts once on Push Chain and instantly reach users on Ethereum,
 - [Smart Contract Address Book](https://push.org/docs/chain/setup/smart-contract-address-book/)
 - [Block Explorer](https://push.org/docs/chain/setup/tooling/block-explorer/)
 - [Configure Hardhat](https://push.org/docs/chain/setup/smart-contract-environment/configure-hardhat/)
+- [Faucets](https://push.org/docs/chain/setup/faucets/)
 - [Tooling](https://push.org/docs/chain/setup/tooling/)
 - [Smart Contract Environment](https://push.org/docs/chain/setup/smart-contract-environment/)
 
