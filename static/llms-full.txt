@@ -4084,8 +4084,8 @@ const result = await pushChainClient.universal.executeTransactions([step1, step2
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `pollingIntervalMs` | `number` | `5000` | Polling interval in milliseconds. |
-| `timeout` | `number` | `600000` | Total timeout in milliseconds (10 min). |
+| `pollingIntervalMs` | `number` | `3000` | Polling interval in milliseconds. |
+| `timeout` | `number` | `300000` | Total timeout in milliseconds (5 min). |
 | `progressHook` | `(event: CascadeProgressEvent) => void` | - | Per-hop progress callback. Reports `hopIndex`, `route`, `chain`, `status`, `txHash`, `elapsed`. |
 | `eventHook` | `(event: ProgressEvent) => void` | - | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout hooks). Cascade markers also fan out to the init-time `progressHook` set on `PushChain.initialize`, so UI Kit consumers that wired progress at init receive the cascade stream automatically. When both `eventHook` and the init-time `progressHook` are wired, events are delivered to both with dedup. To opt out of cascade markers on the init-time channel, filter inside that handler. |
 
