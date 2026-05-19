@@ -4,8 +4,8 @@ description: "Use when writing Node.js scripts, bots, or server-side code with @
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
-package_version: 6.0.6
-current_sdk_version: 6.0.6
+package_version: 6.0.8
+current_sdk_version: 6.0.8
 entry: 'PushChain.initialize'
 resources: 'https://push.org/agents/resources/push-backend/index.json'
 references:
@@ -19,6 +19,10 @@ references:
 
 **Intent**: Execute universal transactions from server-side code, scripts, bots, and automation pipelines.
 **Package**: `@pushchain/core` - no other library (ethers.js, viem, wagmi) can replace `sendTransaction`, `signMessage`, `prepareTransaction`, or `executeTransactions`.
+
+> **Full agent layer:** [push.org/llms.txt](https://push.org/llms.txt) indexes every skill, workflow, example, error code, constant, and routing decision in the Push Chain agent layer. Pull it when this skill points outside its domain — cross-skill context, unknown progress-hook IDs, error recovery, or constants lookups.
+
+> **PUSD stablecoin?** For minting, redeeming, or integrating **PUSD** (par-backed) and **PUSD+** (yield-bearing) — both native on Push Chain Donut — see the dedicated [push-pusd skill](https://pusd.push.org/agents/skill/push-pusd/SKILL.md) (or [pusd.push.org/llms.txt](https://pusd.push.org/llms.txt) for the full PUSD agent-layer index: ABIs, deployment addresses, examples). Covers Node.js mint/redeem flows, the multicall sentinel pattern for one-signature deposits, and the on-chain Solidity interfaces for protocols holding PUSD/PUSD+.
 
 ## Install
 
@@ -200,15 +204,19 @@ const newClient = await client.reinitialize(newSignerOrAccount, {
 **Access account info** after initialization:
 
 ```ts
-client.universal.origin; // source chain address: { address, chain } - e.g. Ethereum Sepolia wallet
-client.universal.account; // Push Chain execution account: UEA for cross-chain users, EOA for Push-native
+client.universal.origin;  // { address: string, chain: CHAIN } — source chain wallet (object)
+client.universal.account; // `0x${string}` — the Push Chain execution account address (UEA for
+                          // cross-chain users, native EOA for Push-native users). Plain string,
+                          // NOT an object.
 ```
+
+> ⚠️ **Shape difference.** `origin` is an object (`{ address, chain }`); `account` is a **plain address string** — no `.address` field. Reading `client.universal.account.address` returns `undefined` and silently breaks dependent guards. Use `client.universal.account` directly.
 
 **Verify initialization succeeded:**
 
 ```ts
-console.log('origin:', client.universal.origin); // { address, chain } - matches your signer
-console.log('account:', client.universal.account); // UEA (cross-chain) or EOA (Push-native)
+console.log('origin:', client.universal.origin);   // { address, chain } - object, matches your signer
+console.log('account:', client.universal.account); // '0x...' string - UEA (cross-chain) or EOA (Push-native)
 ```
 
 **Account status** - UEA deployment and version (SDK handles upgrades automatically in most cases):
@@ -1006,6 +1014,7 @@ Full reference: https://push.org/agents/workflows/use-contract-helpers.md
 | `signMessage` return treated as a string                     | It returns `Uint8Array` - use `Buffer.from(sig).toString('hex')` if you need a hex string                      |
 | Silent tx failure (no throw, no logs)                        | `tx.wait()` resolves even on reverts - always check `receipt.status === 1`                                     |
 | Private key in source code                                   | Use `process.env.PRIVATE_KEY` - never hardcode keys in scripts or commit them to version control               |
+| Treating `client.universal.account` as `{ address }` object — `account.address` returns `undefined` | `account` is a **plain address string**, not an object. Only `origin` has the `{ address, chain }` shape. Read it directly: ``const me = client.universal.account; // `0x${string}` ``. |
 
 > For Solana targets, use `encodeTxData({ idl, functionName, args })` and pass the result as `tx.data` - same `{ to, value, data }` shape as EVM. The SDK resolves program accounts, PDAs, and the sender's CEA automatically from the IDL.
 >
