@@ -206,8 +206,8 @@ console.log('Hop count:', cascade.hopCount);
 // Wait for all hops to complete
 const result = await cascade.wait({
   progressHook: (e) => console.log(`[Hop ${e.hopIndex}] ${e.status} on ${e.chain}`),
-  pollingIntervalMs: 5000, // default
-  timeout: 600000,         // 10 min default
+  pollingIntervalMs: 3000, // default
+  timeout: 300000,         // 5 min default
 });
 console.log('All complete:', result.success);
 ```
@@ -250,8 +250,8 @@ console.log('All complete:', result.success);
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `pollingIntervalMs` | `number` | `5000` | Poll interval (ms) |
-| `timeout` | `number` | `600000` | Total timeout (ms), default 10 min |
+| `pollingIntervalMs` | `number` | `3000` | Poll interval (ms) |
+| `timeout` | `number` | `300000` | Total timeout (ms), default 5 min |
 | `progressHook` | `(event: CascadeProgressEvent) => void` | - | Per-hop callback: `{ hopIndex, route, chain, status, txHash, elapsed }` |
 | `eventHook` | `(event: ProgressEvent) => void` | - | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout). Also fans out to the init-time `progressHook` on `PushChain.initialize`; events are deduped when both channels are wired. |
 
@@ -263,7 +263,7 @@ For `executeTransactions`, see `CascadedTxResponse` table above.
 
 ### Progress Hook Events
 
-Pinned to `@pushchain/core@6.0.8`. Full per-route reference: [progress-hook-events.md](https://push.org/agents/workflows/progress-hook-events.md). Key milestones for this workflow:
+Pinned to `@pushchain/core@6.0.9`. Full per-route reference: [progress-hook-events.md](https://push.org/agents/workflows/progress-hook-events.md). Key milestones for this workflow:
 
 **Route 2 (external chain via CEA), prefix `SEND-TX-2xx`:**
 

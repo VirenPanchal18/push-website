@@ -4,8 +4,8 @@ description: "Use when writing Node.js scripts, bots, or server-side code with @
 id: push-backend
 intent: Execute universal transactions from server-side code, scripts, bots, and automation
 package: '@pushchain/core'
-package_version: 6.0.8
-current_sdk_version: 6.0.8
+package_version: 6.0.9
+current_sdk_version: 6.0.9
 entry: 'PushChain.initialize'
 resources: 'https://push.org/agents/resources/push-backend/index.json'
 references:
@@ -552,8 +552,8 @@ console.log('Hops:', cascade.hopCount);
 const result = await cascade.wait({
   progressHook: (e) =>
     console.log(`[Hop ${e.hopIndex}] ${e.status} on ${e.chain}`),
-  pollingIntervalMs: 5000,
-  timeout: 600_000, // 10 min
+  pollingIntervalMs: 3000,
+  timeout: 300_000, // 5 min
 });
 console.log('All complete:', result.success);
 ```
@@ -596,8 +596,8 @@ console.log('All complete:', result.success);
 
 | Option              | Type                                       | Default   | Description                                                                                                                                                                                                                                                                                                                |
 | ------------------- | ------------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pollingIntervalMs` | `number`                                   | `5000`    | Poll interval (ms)                                                                                                                                                                                                                                                                                                          |
-| `timeout`           | `number`                                   | `600000`  | Total timeout (ms), default 10 min                                                                                                                                                                                                                                                                                          |
+| `pollingIntervalMs` | `number`                                   | `3000`    | Poll interval (ms)                                                                                                                                                                                                                                                                                                          |
+| `timeout`           | `number`                                   | `300000`  | Total timeout (ms), default 5 min                                                                                                                                                                                                                                                                                          |
 | `progressHook`      | `(event: CascadeProgressEvent) => void`    | -         | Per-hop callback: `{ hopIndex, route, chain, status, txHash, elapsed }`                                                                                                                                                                                                                                                     |
 | `eventHook`         | `(event: ProgressEvent) => void`           | -         | Unified `ProgressEvent` stream for the cascade marker set (`001`, `002-xx`, `003-xx`, `203-xx`, `204-xx`, `209-xx`, `299-01`, `999-xx`, plus per-route awaiting/polling/success/failed/timeout). Cascade markers also fan out to the init-time `progressHook` on `PushChain.initialize`. Both channels are deduped if wired. |
 
@@ -866,7 +866,7 @@ Derives a UEA on Push Chain from any origin account, or a CEA on an external cha
 
 ### `resolveControllerAccount(account, options?)` → `Promise<{ accounts }>`
 
-Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` - forward is UOA→executor, this is executor→UOA. Replaces the v5 `convertExecutorToOriginAccount`, which was removed in `@pushchain/core@6.0.0`.
+Reverse-maps any executor account (UEA or CEA) back to its origin controlling wallet. Complement of `deriveExecutorAccount` - forward is UOA→executor, this is executor→UOA. Prefer this over the older `convertExecutorToOriginAccount` (still exported but deprecated since 6.0.0): `resolveControllerAccount` handles UEA and CEA in one call, returns the full controller chain with `type` / `role` metadata, and supports `skipNetworkCheck` for deterministic-only resolution.
 
 | Argument                   | Type                   | Description                                                                    |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------ |

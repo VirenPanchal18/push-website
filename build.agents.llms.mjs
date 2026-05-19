@@ -24,10 +24,10 @@ const BASE_URL = 'https://push.org';
 const MAX_BLOG_POSTS = 5;
 
 const SDK_VERSIONS = {
-  core: '6.0.8',
-  uiKit: '6.0.8',
+  core: '6.0.9',
+  uiKit: '6.0.9',
 };
-const AGENT_LAYER_VERSION = '1.0.18';
+const AGENT_LAYER_VERSION = '1.0.19';
 const AGENT_LAYER_DATE = '2026-05-19';
 const ROUTES_PATH = path.join(AGENTS_DIR, 'routes.json');
 
@@ -610,7 +610,10 @@ const buildLlmsTxt = async (workflows, skills, resources, routes, blogPosts) => 
   );
   lines.push('');
   lines.push(
-    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 SDK v6.0.8 bump (\`@pushchain/core\` 6.0.6 \u2192 6.0.8, \`@pushchain/ui-kit\` 6.0.6 \u2192 6.0.8). Skill clarifications validated against the 6.0.8 source: \`client.universal.account\` is a plain \`\\\`0x\${string}\\\`\` address (not an object \u2014 reading \`.address\` on it is the silent-fail trap); \`PushUniversalWalletProvider\` takes \`app\` / \`themeMode\` / \`themeOverrides\` as **top-level props** (NOT inside \`config\`); \`login.wallet\` must be the object form \`{ enabled: true }\` (bare boolean is silently ignored). New **EIP-712 typed-data signing** sections in both push-frontend (signing side) and push-contracts (verification side) covering the cross-chain \`chainId\` trap: sign with the wallet's origin chainId, rebuild the EIP-712 domain dynamically from \`req.originChainId\` on the contract, branch on \`originChainId == block.chainid\` for native Push EOAs vs \`IUEAFactory.getUEAForOrigin\` for cross-chain origins; full pattern includes replay protection, ERC-1271 fallback, and anti-pattern table. Multichain swap example fixed to display Solana CEAs as base58 (the SDK returns hex internally) and reduced the Hop 0 PC seed from 200 to 30 (fee-lock cost scales accordingly).`
+    `- **${AGENT_LAYER_DATE} v${AGENT_LAYER_VERSION}** \u2014 SDK v6.0.9 bump (\`@pushchain/core\` 6.0.8 \u2192 6.0.9, \`@pushchain/ui-kit\` 6.0.8 \u2192 6.0.9). Fixes the UGPC \`GasPriceBelowBase()\` (selector \`0x05aab006\`) revert that intermittently failed Route 2 dispatches when the \`UniversalCore\` gas oracle lagged the destination chain's current base price. Tuned cascade tracking defaults: \`CascadeTrackOptions.pollingIntervalMs\` 5000 \u2192 3000, \`CascadeTrackOptions.timeout\` 600000 \u2192 300000 (10 min \u2192 5 min). Outbound polling: \`OUTBOUND_MAX_TIMEOUT_MS\` 180000 \u2192 300000; \`WaitForOutboundOptions\` initial wait 30000 \u2192 15000, poll 5000 \u2192 3000. New internal \`resolveR2DestinationFundsToken\` helper (no public API change). No progress hook ID changes; no type signature changes.`
+  );
+  lines.push(
+    `- **2026-05-19 v1.0.18** \u2014 SDK v6.0.8 bump (\`@pushchain/core\` 6.0.6 \u2192 6.0.8, \`@pushchain/ui-kit\` 6.0.6 \u2192 6.0.8). Skill clarifications validated against the 6.0.8 source: \`client.universal.account\` is a plain \`\\\`0x\${string}\\\`\` address (not an object \u2014 reading \`.address\` on it is the silent-fail trap); \`PushUniversalWalletProvider\` takes \`app\` / \`themeMode\` / \`themeOverrides\` as **top-level props** (NOT inside \`config\`); \`login.wallet\` must be the object form \`{ enabled: true }\` (bare boolean is silently ignored). New **EIP-712 typed-data signing** sections in both push-frontend (signing side) and push-contracts (verification side) covering the cross-chain \`chainId\` trap: sign with the wallet's origin chainId, rebuild the EIP-712 domain dynamically from \`req.originChainId\` on the contract, branch on \`originChainId == block.chainid\` for native Push EOAs vs \`IUEAFactory.getUEAForOrigin\` for cross-chain origins; full pattern includes replay protection, ERC-1271 fallback, and anti-pattern table. Multichain swap example fixed to display Solana CEAs as base58 (the SDK returns hex internally) and reduced the Hop 0 PC seed from 200 to 30 (fee-lock cost scales accordingly).`
   );
   lines.push(
     `- **2026-05-18 v1.0.17** \u2014 SDK v6.0.6 bump (\`@pushchain/core\` 6.0.3 \u2192 6.0.6, \`@pushchain/ui-kit\` 6.0.2 \u2192 6.0.6). [progress-hook-events.md](${BASE_URL}/agents/workflows/progress-hook-events.md) rewritten against published SDK source. New pre-flight UEA balance check trio across Route 2 (\`SEND-TX-203-03/04/05\`), Route 3 (\`SEND-TX-303-04/05/06\`), and cascade (\`SEND-TX-003-03/04/05\`) with INFO / WARNING / ERROR level semantics gated by \`tx.options.enforceGasCheck\`. Route 1 gained \`SEND-TX-199-03\` (Push relay timeout) and \`SEND-TX-199-99\` (intermediate complete); Route 3 gained \`SEND-TX-399-99\` (intermediate inbound complete). Route 1 prepaid-deposit "Estimated" moved \`SEND-TX-103-04\` \u2192 \`SEND-TX-103-03-04\`; Route 3 prepaid-deposit cluster renumbered \`SEND-TX-302-03-XX\` \u2192 \`SEND-TX-303-03-XX\`. Removed: \`SEND-TX-102-02\`, \`SEND-TX-302-03\`, \`SEND-TX-302-04\`, \`SEND-TX-199-99-99\`. Migration table added.`
