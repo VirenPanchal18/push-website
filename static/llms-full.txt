@@ -4357,7 +4357,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. The us
 // customPropGTagEvent=execute_transactions
 
     // 7-hop cross-chain cascade from a fresh Sepolia UOA:
-    //   Hop 0     (UOA_TO_PUSH) - value=200 PC seats UEA's PC budget via SDK fee-lock;
+    //   Hop 0     (UOA_TO_PUSH) - value=30 PC seats UEA's PC budget via SDK fee-lock;
     //                             funds attaches 0.001 ETH on the gateway tx.
     //   hopBridge (UOA_TO_PUSH) - dedicated funds-only deposit hop that moves
     //                             0.001 ETH from Sepolia UOA → 0.001 pETH on UEA
@@ -4369,6 +4369,7 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. The us
     //   Hop 5     (UOA_TO_CEA)  - Bridge pSOL from UEA → Solana Devnet CEA
     import { PushChain } from '@pushchain/core';
     import { ethers } from 'ethers';
+    import bs58 from 'bs58';
     import * as readline from 'node:readline/promises';
 
     const RPC_SEPOLIA = 'https://ethereum-sepolia-rpc.publicnode.com';
@@ -4445,7 +4446,11 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. The us
       });
       console.log('🏠 UEA on Push Chain:', client.universal.account);
 
-      // Derive the Solana CEA destination for Hop 5
+      // Derive the Solana CEA destination for Hop 5.
+      // deriveExecutorAccount returns the CEA as 32-byte hex (0x…) — that's
+      // the canonical wire format the SDK accepts in tx.to.address for SVM
+      // targets. Solana wallets and explorers expect base58, so we keep the
+      // hex form for the cascade call and only base58-encode for display.
       const uoa = PushChain.utils.account.toUniversal(wallet.address, {
         chain: PushChain.CONSTANTS.CHAIN.ETHEREUM_SEPOLIA,
       });
@@ -4453,13 +4458,14 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. The us
         chain: PushChain.CONSTANTS.CHAIN.SOLANA_DEVNET,
         skipNetworkCheck: true,
       });
-      console.log('📍 Solana CEA (Hop 5 destination):', solanaCEA.address);
+      const solanaCEABase58 = bs58.encode(Buffer.from(solanaCEA.address.slice(2), 'hex'));
+      console.log('📍 Solana CEA (Hop 5 destination):', solanaCEABase58);
 
-      // Single funding ask. Hop 0 carries value=200 PC, so the SDK fee-
-      // locks Sepolia ETH worth ~200 PC into the UEA on first run and that
+      // Single funding ask. Hop 0 carries value=30 PC, so the SDK fee-
+      // locks Sepolia ETH worth ~30 PC into the UEA on first run and that
       // PC covers hops 1-5 plus the SVM outbound gas-swap (no manual UEA
       // top-up needed).
-      await rl.question(':::prompt:::Send at least 0.1 Sepolia ETH to ' + wallet.address + ', then press Enter.\\\\n(0.001 ETH bridges as pETH on Hop 0; the rest covers Sepolia signing gas + the SDK fee-lock that seats your UEA with ~200 PC.)\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
+      await rl.question(':::prompt:::Send at least 0.1 Sepolia ETH to ' + wallet.address + ', then press Enter.\\\\n(0.001 ETH bridges as pETH on Hop 0; the rest covers Sepolia signing gas + the SDK fee-lock that seats your UEA with ~30 PC.)\\\\nSepolia faucet: https://cloud.google.com/application/web3/faucet/ethereum/sepolia');
 
       // Quote both swap legs so we can size Hop 4 amountIn and Hop 5 bridge amount.
       // QuoterV2 is non-view, so call via staticCall to read return values.
@@ -4480,18 +4486,18 @@ Swap ETH on Sepolia for pSOL on Solana Devnet in a single user signature. The us
       // ── Hop 0 (UOA_TO_PUSH) ─ Deposit ETH from UOA → pETH on UEA ─────────
       // No 'from' field means Route 1 (UOA initiates). funds.amount attaches
       // 0.001 ETH as msg.value on the source-chain gateway tx, which mints
-      // 0.001 pETH on the UEA. value=200 PC tells the SDK to fee-lock enough
-      // Sepolia ETH from the same UOA tx to mint ~200 PC into the UEA — the
+      // 0.001 pETH on the UEA. value=30 PC tells the SDK to fee-lock enough
+      // Sepolia ETH from the same UOA tx to mint ~30 PC into the UEA — the
       // PC budget that hops 1-5 (2 approves, 2 swaps, 1 outbound) draw on.
       const hop0 = await client.universal.prepareTransaction({
         to: client.universal.account,
-        value: PushChain.utils.helpers.parseUnits('200', 18),
+        value: PushChain.utils.helpers.parseUnits('30', 18),
         funds: {
           amount: AMOUNT_IN,
           token: PushChain.CONSTANTS.MOVEABLE.TOKEN.ETHEREUM_SEPOLIA.ETH,
         },
       });
-      console.log('✅ hop0 prepared (deposit ETH→pETH + 200 PC) - route:', hop0.route);
+      console.log('✅ hop0 prepared (deposit ETH→pETH + 30 PC) - route:', hop0.route);
 
       // ── Hop 1 (UOA_TO_PUSH) ─ Approve SwapRouter for pETH ────────────────
       const hop1 = await client.universal.prepareTransaction({
