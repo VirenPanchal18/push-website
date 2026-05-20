@@ -7,11 +7,11 @@ export const EcosystemFeaturedListUrls = [
   'https://degenchess.fun/',
   'https://cetra.app/',
   'https://www.thehodl.fun/',
-  'https://push-ninja.fun',
+  'https://www.lastone.fun/',
   'https://eon-five.vercel.app',
   'https://www.halofy.ai/',
   'https://catkevin.github.io/OnchainVampireSurvivors/',
-  'https://www.lastone.fun/',
+  'https://pushninja.fun',
 ] as const;
 
 export const EcosystemPartnersList: EcosystemApp[] = [
@@ -118,18 +118,18 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    nameKey: 'components.ecosystem-apps-partners.apps.push-ninja.name',
+    nameKey: 'components.ecosystem-apps-partners.apps.last-one.name',
     descriptionKey:
-      'components.ecosystem-apps-partners.apps.push-ninja.description',
-    icon: '/assets/ecosystem/push-ninja-icon.png',
-    bgImage: '/assets/ecosystem/push-ninja-bg.png',
-    bgGradientColor: '#5D1D51',
+      'components.ecosystem-apps-partners.apps.last-one.description',
+    icon: '/assets/ecosystem/last-one-icon.png',
+    bgImage: '/assets/ecosystem/last-one-bg.png',
+    bgGradientColor: '#E5B92A',
     tags: ['Gaming'],
-    twitterId: '2014018188434964672',
-    href: 'https://push-ninja.fun',
-    titleColor: 'white',
-    spotlighttextKey:
-      'components.ecosystem-apps-partners.apps.push-ninja.spotlight-text',
+    href: 'https://www.lastone.fun/',
+    titleColor: 'black',
+    descriptionColor: 'black',
+    twitterId: '1993681001076478131',
+    tagsColor: 'black',
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.eon-ai-butler.name',
@@ -169,18 +169,18 @@ export const EcosystemAppsList: EcosystemApp[] = [
     titleColor: 'white',
   },
   {
-    nameKey: 'components.ecosystem-apps-partners.apps.last-one.name',
+    nameKey: 'components.ecosystem-apps-partners.apps.push-ninja.name',
     descriptionKey:
-      'components.ecosystem-apps-partners.apps.last-one.description',
-    icon: '/assets/ecosystem/last-one-icon.png',
-    bgImage: '/assets/ecosystem/last-one-bg.png',
-    bgGradientColor: '#E5B92A',
+      'components.ecosystem-apps-partners.apps.push-ninja.description',
+    icon: '/assets/ecosystem/push-ninja-icon.png',
+    bgImage: '/assets/ecosystem/push-ninja-bg.png',
+    bgGradientColor: '#5D1D51',
     tags: ['Gaming'],
-    href: 'https://www.lastone.fun/',
-    titleColor: 'black',
-    descriptionColor: 'black',
-    twitterId: '1993681001076478131',
-    tagsColor: 'black',
+    twitterId: '2014018188434964672',
+    href: 'https://pushninja.fun',
+    titleColor: 'white',
+    spotlighttextKey:
+      'components.ecosystem-apps-partners.apps.push-ninja.spotlight-text',
   },
   {
     nameKey: 'components.ecosystem-apps-partners.apps.puffles.name',
